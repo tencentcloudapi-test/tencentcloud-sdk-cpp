@@ -36,9 +36,7 @@ AndroidInstance::AndroidInstance() :
     m_userIdHasBeenSet(false),
     m_privateIPHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_hostServerSerialNumberHasBeenSet(false),
-    m_serviceStatusHasBeenSet(false),
-    m_androidInstanceModelHasBeenSet(false)
+    m_hostServerSerialNumberHasBeenSet(false)
 {
 }
 
@@ -217,26 +215,6 @@ CoreInternalOutcome AndroidInstance::Deserialize(const rapidjson::Value &value)
         m_hostServerSerialNumberHasBeenSet = true;
     }
 
-    if (value.HasMember("ServiceStatus") && !value["ServiceStatus"].IsNull())
-    {
-        if (!value["ServiceStatus"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AndroidInstance.ServiceStatus` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_serviceStatus = string(value["ServiceStatus"].GetString());
-        m_serviceStatusHasBeenSet = true;
-    }
-
-    if (value.HasMember("AndroidInstanceModel") && !value["AndroidInstanceModel"].IsNull())
-    {
-        if (!value["AndroidInstanceModel"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AndroidInstance.AndroidInstanceModel` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_androidInstanceModel = string(value["AndroidInstanceModel"].GetString());
-        m_androidInstanceModelHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -377,22 +355,6 @@ void AndroidInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "HostServerSerialNumber";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_hostServerSerialNumber.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_serviceStatusHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ServiceStatus";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_serviceStatus.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_androidInstanceModelHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AndroidInstanceModel";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_androidInstanceModel.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -652,37 +614,5 @@ void AndroidInstance::SetHostServerSerialNumber(const string& _hostServerSerialN
 bool AndroidInstance::HostServerSerialNumberHasBeenSet() const
 {
     return m_hostServerSerialNumberHasBeenSet;
-}
-
-string AndroidInstance::GetServiceStatus() const
-{
-    return m_serviceStatus;
-}
-
-void AndroidInstance::SetServiceStatus(const string& _serviceStatus)
-{
-    m_serviceStatus = _serviceStatus;
-    m_serviceStatusHasBeenSet = true;
-}
-
-bool AndroidInstance::ServiceStatusHasBeenSet() const
-{
-    return m_serviceStatusHasBeenSet;
-}
-
-string AndroidInstance::GetAndroidInstanceModel() const
-{
-    return m_androidInstanceModel;
-}
-
-void AndroidInstance::SetAndroidInstanceModel(const string& _androidInstanceModel)
-{
-    m_androidInstanceModel = _androidInstanceModel;
-    m_androidInstanceModelHasBeenSet = true;
-}
-
-bool AndroidInstance::AndroidInstanceModelHasBeenSet() const
-{
-    return m_androidInstanceModelHasBeenSet;
 }
 

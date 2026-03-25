@@ -29,8 +29,7 @@ DescribeBackUpJobRequest::DescribeBackUpJobRequest() :
     m_pageNumHasBeenSet(false),
     m_beginTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
-    m_jobIdFiltersStrHasBeenSet(false),
-    m_encryptionFiltersHasBeenSet(false)
+    m_jobIdFiltersStrHasBeenSet(false)
 {
 }
 
@@ -95,19 +94,6 @@ string DescribeBackUpJobRequest::ToJsonString() const
         string key = "JobIdFiltersStr";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_jobIdFiltersStr.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_encryptionFiltersHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EncryptionFilters";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_encryptionFilters.begin(); itr != m_encryptionFilters.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
-        }
     }
 
 
@@ -228,22 +214,6 @@ void DescribeBackUpJobRequest::SetJobIdFiltersStr(const string& _jobIdFiltersStr
 bool DescribeBackUpJobRequest::JobIdFiltersStrHasBeenSet() const
 {
     return m_jobIdFiltersStrHasBeenSet;
-}
-
-vector<int64_t> DescribeBackUpJobRequest::GetEncryptionFilters() const
-{
-    return m_encryptionFilters;
-}
-
-void DescribeBackUpJobRequest::SetEncryptionFilters(const vector<int64_t>& _encryptionFilters)
-{
-    m_encryptionFilters = _encryptionFilters;
-    m_encryptionFiltersHasBeenSet = true;
-}
-
-bool DescribeBackUpJobRequest::EncryptionFiltersHasBeenSet() const
-{
-    return m_encryptionFiltersHasBeenSet;
 }
 
 

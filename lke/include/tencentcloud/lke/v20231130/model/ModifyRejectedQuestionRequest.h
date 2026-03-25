@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-                     * @return BotBizId 应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
+                     * 获取应用ID
+                     * @return BotBizId 应用ID
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-                     * @param _botBizId 应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
+                     * 设置应用ID
+                     * @param _botBizId 应用ID
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -93,11 +93,11 @@ namespace TencentCloud
                     bool QuestionHasBeenSet() const;
 
                     /**
-                     * 获取拒答问题来源的数据源唯一id, 通过调用ListRejectedQuestion接口获取
+                     * 获取拒答问题来源的数据源唯一id
 
 
 
-                     * @return RejectedBizId 拒答问题来源的数据源唯一id, 通过调用ListRejectedQuestion接口获取
+                     * @return RejectedBizId 拒答问题来源的数据源唯一id
 
 
 
@@ -106,11 +106,11 @@ namespace TencentCloud
                     std::string GetRejectedBizId() const;
 
                     /**
-                     * 设置拒答问题来源的数据源唯一id, 通过调用ListRejectedQuestion接口获取
+                     * 设置拒答问题来源的数据源唯一id
 
 
 
-                     * @param _rejectedBizId 拒答问题来源的数据源唯一id, 通过调用ListRejectedQuestion接口获取
+                     * @param _rejectedBizId 拒答问题来源的数据源唯一id
 
 
 
@@ -128,7 +128,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
+                     * 应用ID
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
@@ -142,7 +142,7 @@ namespace TencentCloud
                     bool m_questionHasBeenSet;
 
                     /**
-                     * 拒答问题来源的数据源唯一id, 通过调用ListRejectedQuestion接口获取
+                     * 拒答问题来源的数据源唯一id
 
 
 

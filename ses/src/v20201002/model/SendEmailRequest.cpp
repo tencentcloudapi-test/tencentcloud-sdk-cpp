@@ -24,8 +24,8 @@ using namespace std;
 
 SendEmailRequest::SendEmailRequest() :
     m_fromEmailAddressHasBeenSet(false),
-    m_subjectHasBeenSet(false),
     m_destinationHasBeenSet(false),
+    m_subjectHasBeenSet(false),
     m_replyToAddressesHasBeenSet(false),
     m_ccHasBeenSet(false),
     m_bccHasBeenSet(false),
@@ -55,14 +55,6 @@ string SendEmailRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_fromEmailAddress.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_subjectHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Subject";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_subject.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_destinationHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -74,6 +66,14 @@ string SendEmailRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_subjectHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Subject";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_subject.c_str(), allocator).Move(), allocator);
     }
 
     if (m_replyToAddressesHasBeenSet)
@@ -207,22 +207,6 @@ bool SendEmailRequest::FromEmailAddressHasBeenSet() const
     return m_fromEmailAddressHasBeenSet;
 }
 
-string SendEmailRequest::GetSubject() const
-{
-    return m_subject;
-}
-
-void SendEmailRequest::SetSubject(const string& _subject)
-{
-    m_subject = _subject;
-    m_subjectHasBeenSet = true;
-}
-
-bool SendEmailRequest::SubjectHasBeenSet() const
-{
-    return m_subjectHasBeenSet;
-}
-
 vector<string> SendEmailRequest::GetDestination() const
 {
     return m_destination;
@@ -237,6 +221,22 @@ void SendEmailRequest::SetDestination(const vector<string>& _destination)
 bool SendEmailRequest::DestinationHasBeenSet() const
 {
     return m_destinationHasBeenSet;
+}
+
+string SendEmailRequest::GetSubject() const
+{
+    return m_subject;
+}
+
+void SendEmailRequest::SetSubject(const string& _subject)
+{
+    m_subject = _subject;
+    m_subjectHasBeenSet = true;
+}
+
+bool SendEmailRequest::SubjectHasBeenSet() const
+{
+    return m_subjectHasBeenSet;
 }
 
 string SendEmailRequest::GetReplyToAddresses() const

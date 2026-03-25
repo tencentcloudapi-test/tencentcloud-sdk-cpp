@@ -24,8 +24,7 @@ using namespace std;
 
 EnableKeyRotationRequest::EnableKeyRotationRequest() :
     m_keyIdHasBeenSet(false),
-    m_rotateDaysHasBeenSet(false),
-    m_memberAccountHasBeenSet(false)
+    m_rotateDaysHasBeenSet(false)
 {
 }
 
@@ -50,15 +49,6 @@ string EnableKeyRotationRequest::ToJsonString() const
         string key = "RotateDays";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_rotateDays, allocator);
-    }
-
-    if (m_memberAccountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MemberAccount";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_memberAccount.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -99,22 +89,6 @@ void EnableKeyRotationRequest::SetRotateDays(const uint64_t& _rotateDays)
 bool EnableKeyRotationRequest::RotateDaysHasBeenSet() const
 {
     return m_rotateDaysHasBeenSet;
-}
-
-MemberAccount EnableKeyRotationRequest::GetMemberAccount() const
-{
-    return m_memberAccount;
-}
-
-void EnableKeyRotationRequest::SetMemberAccount(const MemberAccount& _memberAccount)
-{
-    m_memberAccount = _memberAccount;
-    m_memberAccountHasBeenSet = true;
-}
-
-bool EnableKeyRotationRequest::MemberAccountHasBeenSet() const
-{
-    return m_memberAccountHasBeenSet;
 }
 
 

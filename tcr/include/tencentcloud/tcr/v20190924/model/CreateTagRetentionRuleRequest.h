@@ -22,7 +22,6 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tcr/v20190924/model/RetentionRule.h>
-#include <tencentcloud/tcr/v20190924/model/RetentionRuleItem.h>
 
 
 namespace TencentCloud
@@ -45,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>主实例iD</p>
-                     * @return RegistryId <p>主实例iD</p>
+                     * 获取主实例iD
+                     * @return RegistryId 主实例iD
                      * 
                      */
                     std::string GetRegistryId() const;
 
                     /**
-                     * 设置<p>主实例iD</p>
-                     * @param _registryId <p>主实例iD</p>
+                     * 设置主实例iD
+                     * @param _registryId 主实例iD
                      * 
                      */
                     void SetRegistryId(const std::string& _registryId);
@@ -66,15 +65,15 @@ namespace TencentCloud
                     bool RegistryIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>命名空间的Id</p>
-                     * @return NamespaceId <p>命名空间的Id</p>
+                     * 获取命名空间的Id
+                     * @return NamespaceId 命名空间的Id
                      * 
                      */
                     int64_t GetNamespaceId() const;
 
                     /**
-                     * 设置<p>命名空间的Id</p>
-                     * @param _namespaceId <p>命名空间的Id</p>
+                     * 设置命名空间的Id
+                     * @param _namespaceId 命名空间的Id
                      * 
                      */
                     void SetNamespaceId(const int64_t& _namespaceId);
@@ -87,36 +86,15 @@ namespace TencentCloud
                     bool NamespaceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>执行周期，当前只能选择： manual;daily;weekly;monthly</p>
-                     * @return CronSetting <p>执行周期，当前只能选择： manual;daily;weekly;monthly</p>
-                     * 
-                     */
-                    std::string GetCronSetting() const;
-
-                    /**
-                     * 设置<p>执行周期，当前只能选择： manual;daily;weekly;monthly</p>
-                     * @param _cronSetting <p>执行周期，当前只能选择： manual;daily;weekly;monthly</p>
-                     * 
-                     */
-                    void SetCronSetting(const std::string& _cronSetting);
-
-                    /**
-                     * 判断参数 CronSetting 是否已赋值
-                     * @return CronSetting 是否已赋值
-                     * 
-                     */
-                    bool CronSettingHasBeenSet() const;
-
-                    /**
-                     * 获取<p>保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
-                     * @return RetentionRule <p>保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
+                     * 获取保留策略
+                     * @return RetentionRule 保留策略
                      * 
                      */
                     RetentionRule GetRetentionRule() const;
 
                     /**
-                     * 设置<p>保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
-                     * @param _retentionRule <p>保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
+                     * 设置保留策略
+                     * @param _retentionRule 保留策略
                      * 
                      */
                     void SetRetentionRule(const RetentionRule& _retentionRule);
@@ -129,36 +107,36 @@ namespace TencentCloud
                     bool RetentionRuleHasBeenSet() const;
 
                     /**
-                     * 获取<p>高级版本保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
-                     * @return AdvancedRuleItems <p>高级版本保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
+                     * 获取执行周期，当前只能选择： manual;daily;weekly;monthly
+                     * @return CronSetting 执行周期，当前只能选择： manual;daily;weekly;monthly
                      * 
                      */
-                    std::vector<RetentionRuleItem> GetAdvancedRuleItems() const;
+                    std::string GetCronSetting() const;
 
                     /**
-                     * 设置<p>高级版本保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
-                     * @param _advancedRuleItems <p>高级版本保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
+                     * 设置执行周期，当前只能选择： manual;daily;weekly;monthly
+                     * @param _cronSetting 执行周期，当前只能选择： manual;daily;weekly;monthly
                      * 
                      */
-                    void SetAdvancedRuleItems(const std::vector<RetentionRuleItem>& _advancedRuleItems);
+                    void SetCronSetting(const std::string& _cronSetting);
 
                     /**
-                     * 判断参数 AdvancedRuleItems 是否已赋值
-                     * @return AdvancedRuleItems 是否已赋值
+                     * 判断参数 CronSetting 是否已赋值
+                     * @return CronSetting 是否已赋值
                      * 
                      */
-                    bool AdvancedRuleItemsHasBeenSet() const;
+                    bool CronSettingHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否禁用规则，默认值为false</p>
-                     * @return Disabled <p>是否禁用规则，默认值为false</p>
+                     * 获取是否禁用规则，默认值为false
+                     * @return Disabled 是否禁用规则，默认值为false
                      * 
                      */
                     bool GetDisabled() const;
 
                     /**
-                     * 设置<p>是否禁用规则，默认值为false</p>
-                     * @param _disabled <p>是否禁用规则，默认值为false</p>
+                     * 设置是否禁用规则，默认值为false
+                     * @param _disabled 是否禁用规则，默认值为false
                      * 
                      */
                     void SetDisabled(const bool& _disabled);
@@ -173,37 +151,31 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>主实例iD</p>
+                     * 主实例iD
                      */
                     std::string m_registryId;
                     bool m_registryIdHasBeenSet;
 
                     /**
-                     * <p>命名空间的Id</p>
+                     * 命名空间的Id
                      */
                     int64_t m_namespaceId;
                     bool m_namespaceIdHasBeenSet;
 
                     /**
-                     * <p>执行周期，当前只能选择： manual;daily;weekly;monthly</p>
-                     */
-                    std::string m_cronSetting;
-                    bool m_cronSettingHasBeenSet;
-
-                    /**
-                     * <p>保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
+                     * 保留策略
                      */
                     RetentionRule m_retentionRule;
                     bool m_retentionRuleHasBeenSet;
 
                     /**
-                     * <p>高级版本保留策略，当基本保留策略和高级保留策略同时配置时，优先使用高级保留策略</p>
+                     * 执行周期，当前只能选择： manual;daily;weekly;monthly
                      */
-                    std::vector<RetentionRuleItem> m_advancedRuleItems;
-                    bool m_advancedRuleItemsHasBeenSet;
+                    std::string m_cronSetting;
+                    bool m_cronSettingHasBeenSet;
 
                     /**
-                     * <p>是否禁用规则，默认值为false</p>
+                     * 是否禁用规则，默认值为false
                      */
                     bool m_disabled;
                     bool m_disabledHasBeenSet;

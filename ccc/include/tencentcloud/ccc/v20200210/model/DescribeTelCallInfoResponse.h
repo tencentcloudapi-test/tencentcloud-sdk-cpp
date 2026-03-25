@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>呼出套餐包消耗分钟数</p>
-                     * @return TelCallOutCount <p>呼出套餐包消耗分钟数</p>
+                     * 获取呼出套餐包消耗分钟数
+                     * @return TelCallOutCount 呼出套餐包消耗分钟数
                      * 
                      */
                     int64_t GetTelCallOutCount() const;
@@ -58,8 +58,8 @@ namespace TencentCloud
                     bool TelCallOutCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>呼入套餐包消耗分钟数</p>
-                     * @return TelCallInCount <p>呼入套餐包消耗分钟数</p>
+                     * 获取呼入套餐包消耗分钟数
+                     * @return TelCallInCount 呼入套餐包消耗分钟数
                      * 
                      */
                     int64_t GetTelCallInCount() const;
@@ -72,8 +72,8 @@ namespace TencentCloud
                     bool TelCallInCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>坐席使用统计个数</p>
-                     * @return SeatUsedCount <p>坐席使用统计个数</p>
+                     * 获取坐席使用统计个数
+                     * @return SeatUsedCount 坐席使用统计个数
                      * 
                      */
                     int64_t GetSeatUsedCount() const;
@@ -86,8 +86,8 @@ namespace TencentCloud
                     bool SeatUsedCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>音频套餐包消耗分钟数</p>
-                     * @return VoipCallInCount <p>音频套餐包消耗分钟数</p>
+                     * 获取音频套餐包消耗分钟数
+                     * @return VoipCallInCount 音频套餐包消耗分钟数
                      * @deprecated
                      */
                     int64_t GetVoipCallInCount() const;
@@ -100,8 +100,8 @@ namespace TencentCloud
                     bool VoipCallInCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>音频套餐包消耗分钟数</p>
-                     * @return VOIPCallInCount <p>音频套餐包消耗分钟数</p>
+                     * 获取音频套餐包消耗分钟数
+                     * @return VOIPCallInCount 音频套餐包消耗分钟数
                      * 
                      */
                     int64_t GetVOIPCallInCount() const;
@@ -114,8 +114,8 @@ namespace TencentCloud
                     bool VOIPCallInCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>离线语音转文字套餐包消耗分钟数</p>
-                     * @return AsrOfflineCount <p>离线语音转文字套餐包消耗分钟数</p>
+                     * 获取离线语音转文字套餐包消耗分钟数
+                     * @return AsrOfflineCount 离线语音转文字套餐包消耗分钟数
                      * 
                      */
                     int64_t GetAsrOfflineCount() const;
@@ -128,8 +128,8 @@ namespace TencentCloud
                     bool AsrOfflineCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>实时语音转文字套餐包消耗分钟数</p>
-                     * @return AsrRealtimeCount <p>实时语音转文字套餐包消耗分钟数</p>
+                     * 获取实时语音转文字套餐包消耗分钟数
+                     * @return AsrRealtimeCount 实时语音转文字套餐包消耗分钟数
                      * 
                      */
                     int64_t GetAsrRealtimeCount() const;
@@ -144,43 +144,43 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>呼出套餐包消耗分钟数</p>
+                     * 呼出套餐包消耗分钟数
                      */
                     int64_t m_telCallOutCount;
                     bool m_telCallOutCountHasBeenSet;
 
                     /**
-                     * <p>呼入套餐包消耗分钟数</p>
+                     * 呼入套餐包消耗分钟数
                      */
                     int64_t m_telCallInCount;
                     bool m_telCallInCountHasBeenSet;
 
                     /**
-                     * <p>坐席使用统计个数</p>
+                     * 坐席使用统计个数
                      */
                     int64_t m_seatUsedCount;
                     bool m_seatUsedCountHasBeenSet;
 
                     /**
-                     * <p>音频套餐包消耗分钟数</p>
+                     * 音频套餐包消耗分钟数
                      */
                     int64_t m_voipCallInCount;
                     bool m_voipCallInCountHasBeenSet;
 
                     /**
-                     * <p>音频套餐包消耗分钟数</p>
+                     * 音频套餐包消耗分钟数
                      */
                     int64_t m_vOIPCallInCount;
                     bool m_vOIPCallInCountHasBeenSet;
 
                     /**
-                     * <p>离线语音转文字套餐包消耗分钟数</p>
+                     * 离线语音转文字套餐包消耗分钟数
                      */
                     int64_t m_asrOfflineCount;
                     bool m_asrOfflineCountHasBeenSet;
 
                     /**
-                     * <p>实时语音转文字套餐包消耗分钟数</p>
+                     * 实时语音转文字套餐包消耗分钟数
                      */
                     int64_t m_asrRealtimeCount;
                     bool m_asrRealtimeCountHasBeenSet;

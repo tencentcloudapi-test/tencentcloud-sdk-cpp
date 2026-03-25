@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>预签名的上传url，支持把视频直接传到客户指定的地址。</p>
-                     * @return UserDesignatedUrl <p>预签名的上传url，支持把视频直接传到客户指定的地址。</p>
+                     * 获取预签名的上传url，支持把视频直接传到客户指定的地址。
+                     * @return UserDesignatedUrl 预签名的上传url，支持把视频直接传到客户指定的地址。
                      * 
                      */
                     std::string GetUserDesignatedUrl() const;
 
                     /**
-                     * 设置<p>预签名的上传url，支持把视频直接传到客户指定的地址。</p>
-                     * @param _userDesignatedUrl <p>预签名的上传url，支持把视频直接传到客户指定的地址。</p>
+                     * 设置预签名的上传url，支持把视频直接传到客户指定的地址。
+                     * @param _userDesignatedUrl 预签名的上传url，支持把视频直接传到客户指定的地址。
                      * 
                      */
                     void SetUserDesignatedUrl(const std::string& _userDesignatedUrl);
@@ -67,67 +67,13 @@ namespace TencentCloud
                      */
                     bool UserDesignatedUrlHasBeenSet() const;
 
-                    /**
-                     * 获取<p>回调地址<br>需要您在创建任务时主动设置 CallbackUrl，请求方法为 POST，当视频生成结束时，我们将向此地址发送生成结果。<br>数据格式如下：<br>{<br>    &quot;JobId&quot;: &quot;1397428070633955328&quot;,<br>    &quot;Status&quot;: &quot;DONE&quot;,<br>    &quot;ErrorCode&quot;: &quot;&quot;,<br>    &quot;ErrorMessage&quot;: &quot;&quot;,<br>    &quot;ResultVideoUrl&quot;: &quot;https://vcg.cos.tencentcos.cn/template_to_video/fa80b846-b933-4981-afad-8a39b46ef2ca.mp4&quot;<br>}</p>
-                     * @return CallbackUrl <p>回调地址<br>需要您在创建任务时主动设置 CallbackUrl，请求方法为 POST，当视频生成结束时，我们将向此地址发送生成结果。<br>数据格式如下：<br>{<br>    &quot;JobId&quot;: &quot;1397428070633955328&quot;,<br>    &quot;Status&quot;: &quot;DONE&quot;,<br>    &quot;ErrorCode&quot;: &quot;&quot;,<br>    &quot;ErrorMessage&quot;: &quot;&quot;,<br>    &quot;ResultVideoUrl&quot;: &quot;https://vcg.cos.tencentcos.cn/template_to_video/fa80b846-b933-4981-afad-8a39b46ef2ca.mp4&quot;<br>}</p>
-                     * 
-                     */
-                    std::string GetCallbackUrl() const;
-
-                    /**
-                     * 设置<p>回调地址<br>需要您在创建任务时主动设置 CallbackUrl，请求方法为 POST，当视频生成结束时，我们将向此地址发送生成结果。<br>数据格式如下：<br>{<br>    &quot;JobId&quot;: &quot;1397428070633955328&quot;,<br>    &quot;Status&quot;: &quot;DONE&quot;,<br>    &quot;ErrorCode&quot;: &quot;&quot;,<br>    &quot;ErrorMessage&quot;: &quot;&quot;,<br>    &quot;ResultVideoUrl&quot;: &quot;https://vcg.cos.tencentcos.cn/template_to_video/fa80b846-b933-4981-afad-8a39b46ef2ca.mp4&quot;<br>}</p>
-                     * @param _callbackUrl <p>回调地址<br>需要您在创建任务时主动设置 CallbackUrl，请求方法为 POST，当视频生成结束时，我们将向此地址发送生成结果。<br>数据格式如下：<br>{<br>    &quot;JobId&quot;: &quot;1397428070633955328&quot;,<br>    &quot;Status&quot;: &quot;DONE&quot;,<br>    &quot;ErrorCode&quot;: &quot;&quot;,<br>    &quot;ErrorMessage&quot;: &quot;&quot;,<br>    &quot;ResultVideoUrl&quot;: &quot;https://vcg.cos.tencentcos.cn/template_to_video/fa80b846-b933-4981-afad-8a39b46ef2ca.mp4&quot;<br>}</p>
-                     * 
-                     */
-                    void SetCallbackUrl(const std::string& _callbackUrl);
-
-                    /**
-                     * 判断参数 CallbackUrl 是否已赋值
-                     * @return CallbackUrl 是否已赋值
-                     * 
-                     */
-                    bool CallbackUrlHasBeenSet() const;
-
-                    /**
-                     * 获取<p>BGM音频文本。</p>
-                     * @return BGMText <p>BGM音频文本。</p>
-                     * 
-                     */
-                    std::string GetBGMText() const;
-
-                    /**
-                     * 设置<p>BGM音频文本。</p>
-                     * @param _bGMText <p>BGM音频文本。</p>
-                     * 
-                     */
-                    void SetBGMText(const std::string& _bGMText);
-
-                    /**
-                     * 判断参数 BGMText 是否已赋值
-                     * @return BGMText 是否已赋值
-                     * 
-                     */
-                    bool BGMTextHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>预签名的上传url，支持把视频直接传到客户指定的地址。</p>
+                     * 预签名的上传url，支持把视频直接传到客户指定的地址。
                      */
                     std::string m_userDesignatedUrl;
                     bool m_userDesignatedUrlHasBeenSet;
-
-                    /**
-                     * <p>回调地址<br>需要您在创建任务时主动设置 CallbackUrl，请求方法为 POST，当视频生成结束时，我们将向此地址发送生成结果。<br>数据格式如下：<br>{<br>    &quot;JobId&quot;: &quot;1397428070633955328&quot;,<br>    &quot;Status&quot;: &quot;DONE&quot;,<br>    &quot;ErrorCode&quot;: &quot;&quot;,<br>    &quot;ErrorMessage&quot;: &quot;&quot;,<br>    &quot;ResultVideoUrl&quot;: &quot;https://vcg.cos.tencentcos.cn/template_to_video/fa80b846-b933-4981-afad-8a39b46ef2ca.mp4&quot;<br>}</p>
-                     */
-                    std::string m_callbackUrl;
-                    bool m_callbackUrlHasBeenSet;
-
-                    /**
-                     * <p>BGM音频文本。</p>
-                     */
-                    std::string m_bGMText;
-                    bool m_bGMTextHasBeenSet;
 
                 };
             }

@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>目标组ID数组。</p>
-                     * @return TargetGroupIds <p>目标组ID数组。</p>
+                     * 获取目标组ID数组。
+                     * @return TargetGroupIds 目标组ID数组。
                      * 
                      */
                     std::vector<std::string> GetTargetGroupIds() const;
 
                     /**
-                     * 设置<p>目标组ID数组。</p>
-                     * @param _targetGroupIds <p>目标组ID数组。</p>
+                     * 设置目标组ID数组。
+                     * @param _targetGroupIds 目标组ID数组。
                      * 
                      */
                     void SetTargetGroupIds(const std::vector<std::string>& _targetGroupIds);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool TargetGroupIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。</p>
-                     * @return Filters <p>过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。</p>
+                     * 获取过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。
+                     * @return Filters 过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。
                      * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置<p>过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。</p>
-                     * @param _filters <p>过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。</p>
+                     * 设置过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。
+                     * @param _filters 过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。
                      * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取<p>显示的偏移起始量。</p>
-                     * @return Offset <p>显示的偏移起始量。</p>
+                     * 获取显示的偏移起始量。
+                     * @return Offset 显示的偏移起始量。
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>显示的偏移起始量。</p>
-                     * @param _offset <p>显示的偏移起始量。</p>
+                     * 设置显示的偏移起始量。
+                     * @param _offset 显示的偏移起始量。
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>每页显示条目数。</p><p>取值范围：[0, 100]</p><p>默认值：20</p>
-                     * @return Limit <p>每页显示条目数。</p><p>取值范围：[0, 100]</p><p>默认值：20</p>
+                     * 获取显示条数限制，默认为20。
+                     * @return Limit 显示条数限制，默认为20。
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置<p>每页显示条目数。</p><p>取值范围：[0, 100]</p><p>默认值：20</p>
-                     * @param _limit <p>每页显示条目数。</p><p>取值范围：[0, 100]</p><p>默认值：20</p>
+                     * 设置显示条数限制，默认为20。
+                     * @param _limit 显示条数限制，默认为20。
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -130,25 +130,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>目标组ID数组。</p>
+                     * 目标组ID数组。
                      */
                     std::vector<std::string> m_targetGroupIds;
                     bool m_targetGroupIdsHasBeenSet;
 
                     /**
-                     * <p>过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。</p>
+                     * 过滤条件数组，支持TargetGroupVpcId和TargetGroupName。与TargetGroupIds互斥，优先使用目标组ID。
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * <p>显示的偏移起始量。</p>
+                     * 显示的偏移起始量。
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>每页显示条目数。</p><p>取值范围：[0, 100]</p><p>默认值：20</p>
+                     * 显示条数限制，默认为20。
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;

@@ -568,7 +568,7 @@ namespace TencentCloud
                 DescribeCertificateOutcomeCallable DescribeCertificateCallable(const Model::DescribeCertificateRequest& request);
 
                 /**
-                 *查询CreateCertificateBindResourceSyncTask任务结果， 返回证书关联云资源异步任务结果， 支持以下云资源：clb、cdn、waf、live、vod、ddos、tke、apigateway、tcb、teo（edgeOne）、cos、gaap、mqtt、scf、tdmq
+                 *查询CreateCertificateBindResourceSyncTask任务结果， 返回证书关联云资源异步任务结果， 支持以下云资源：clb、cdn、waf、live、vod、ddos、tke、apigateway、tcb、teo（edgeOne）、cos
                  * @param req DescribeCertificateBindResourceTaskDetailRequest
                  * @return DescribeCertificateBindResourceTaskDetailOutcome
                  */
@@ -964,7 +964,7 @@ namespace TencentCloud
                 UploadRevokeLetterOutcomeCallable UploadRevokeLetterCallable(const Model::UploadRevokeLetterRequest& request);
 
                 /**
-                 *当前接口需联系加白使用并且只支持更新证书的CLB资源，更新证书内容（证书ID不变）并更新关联的云资源，本接口为异步接口， 调用之后DeployRecordId为0表示任务进行中， 重复请求这个接口， 当返回DeployRecordId大于0则表示任务创建成功。 未创建成功则会抛出异常
+                 *更新证书内容（证书ID不变）并更新关联的云资源，本接口为异步接口， 调用之后DeployRecordId为0表示任务进行中， 重复请求这个接口， 当返回DeployRecordId大于0则表示任务创建成功。 未创建成功则会抛出异常
                  * @param req UploadUpdateCertificateInstanceRequest
                  * @return UploadUpdateCertificateInstanceOutcome
                  */

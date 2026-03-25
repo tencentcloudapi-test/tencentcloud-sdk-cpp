@@ -542,14 +542,18 @@ namespace TencentCloud
 
                     /**
                      * 获取已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return ServiceLimit 已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
                     ServiceLimit GetServiceLimit() const;
 
                     /**
                      * 设置已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @param _serviceLimit 已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
                     void SetServiceLimit(const ServiceLimit& _serviceLimit);
@@ -563,14 +567,18 @@ namespace TencentCloud
 
                     /**
                      * 获取已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @return ScheduledAction 已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
                     ScheduledAction GetScheduledAction() const;
 
                     /**
                      * 设置已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @param _scheduledAction 已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
                     void SetScheduledAction(const ScheduledAction& _scheduledAction);
@@ -1126,12 +1134,14 @@ DEFAULT: 其他来源
 
                     /**
                      * 已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ServiceLimit m_serviceLimit;
                     bool m_serviceLimitHasBeenSet;
 
                     /**
                      * 已废弃,以ServiceInfo中的对应为准
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ScheduledAction m_scheduledAction;
                     bool m_scheduledActionHasBeenSet;

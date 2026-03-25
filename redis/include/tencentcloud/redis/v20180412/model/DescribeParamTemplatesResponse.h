@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>该用户的参数模板数量。</p>
-                     * @return TotalCount <p>该用户的参数模板数量。</p>
+                     * 获取该用户的参数模板数量。
+                     * @return TotalCount 该用户的参数模板数量。
                      * 
                      */
                     uint64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数模板详情。</p>
-                     * @return Items <p>参数模板详情。</p>
+                     * 获取参数模板详情。
+                     * @return Items 参数模板详情。
                      * 
                      */
                     std::vector<ParamTemplateInfo> GetItems() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>该用户的参数模板数量。</p>
+                     * 该用户的参数模板数量。
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>参数模板详情。</p>
+                     * 参数模板详情。
                      */
                     std::vector<ParamTemplateInfo> m_items;
                     bool m_itemsHasBeenSet;

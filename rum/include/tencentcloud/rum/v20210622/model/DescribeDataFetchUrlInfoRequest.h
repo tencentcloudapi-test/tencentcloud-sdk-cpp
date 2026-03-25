@@ -64,19 +64,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取Type	是	String	无枚举值。此接口不使用 Type 做分支判断，SQL 固定 group by "url"，Type 字段传任何值不影响查询。
-
-                     * @return Type Type	是	String	无枚举值。此接口不使用 Type 做分支判断，SQL 固定 group by "url"，Type 字段传任何值不影响查询。
-
+                     * 获取类型
+                     * @return Type 类型
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置Type	是	String	无枚举值。此接口不使用 Type 做分支判断，SQL 固定 group by "url"，Type 字段传任何值不影响查询。
-
-                     * @param _type Type	是	String	无枚举值。此接口不使用 Type 做分支判断，SQL 固定 group by "url"，Type 字段传任何值不影响查询。
-
+                     * 设置类型
+                     * @param _type 类型
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -362,15 +358,15 @@ namespace TencentCloud
                     bool ExtFirstHasBeenSet() const;
 
                     /**
-                     * 获取网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
-                     * @return NetType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+                     * 获取网络类型
+                     * @return NetType 网络类型
                      * 
                      */
                     std::string GetNetType() const;
 
                     /**
-                     * 设置网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
-                     * @param _netType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+                     * 设置网络类型
+                     * @param _netType 网络类型
                      * 
                      */
                     void SetNetType(const std::string& _netType);
@@ -467,15 +463,15 @@ namespace TencentCloud
                     bool BrowserHasBeenSet() const;
 
                     /**
-                     * 获取耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
-                     * @return CostType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+                     * 获取耗时计算方式
+                     * @return CostType 耗时计算方式
                      * 
                      */
                     std::string GetCostType() const;
 
                     /**
-                     * 设置耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
-                     * @param _costType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+                     * 设置耗时计算方式
+                     * @param _costType 耗时计算方式
                      * 
                      */
                     void SetCostType(const std::string& _costType);
@@ -538,8 +534,7 @@ namespace TencentCloud
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * Type	是	String	无枚举值。此接口不使用 Type 做分支判断，SQL 固定 group by "url"，Type 字段传任何值不影响查询。
-
+                     * 类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
@@ -623,7 +618,7 @@ namespace TencentCloud
                     bool m_extFirstHasBeenSet;
 
                     /**
-                     * 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+                     * 网络类型
                      */
                     std::string m_netType;
                     bool m_netTypeHasBeenSet;
@@ -653,7 +648,7 @@ namespace TencentCloud
                     bool m_browserHasBeenSet;
 
                     /**
-                     * 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+                     * 耗时计算方式
                      */
                     std::string m_costType;
                     bool m_costTypeHasBeenSet;

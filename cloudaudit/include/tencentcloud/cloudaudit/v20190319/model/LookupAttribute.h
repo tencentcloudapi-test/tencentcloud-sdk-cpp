@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取AttributeKey的有效取值范围是:RequestId、EventName、ActionType、PrincipalId、ResourceId、ResourceName、AccessKeyId、SensitiveAction、ApiErrorCode、CamErrorCode、SourceIPAddress、Tags
-                     * @return AttributeKey AttributeKey的有效取值范围是:RequestId、EventName、ActionType、PrincipalId、ResourceId、ResourceName、AccessKeyId、SensitiveAction、ApiErrorCode、CamErrorCode、SourceIPAddress、Tags
+                     * 获取AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+                     * @return AttributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
                      * 
                      */
                     std::string GetAttributeKey() const;
 
                     /**
-                     * 设置AttributeKey的有效取值范围是:RequestId、EventName、ActionType、PrincipalId、ResourceId、ResourceName、AccessKeyId、SensitiveAction、ApiErrorCode、CamErrorCode、SourceIPAddress、Tags
-                     * @param _attributeKey AttributeKey的有效取值范围是:RequestId、EventName、ActionType、PrincipalId、ResourceId、ResourceName、AccessKeyId、SensitiveAction、ApiErrorCode、CamErrorCode、SourceIPAddress、Tags
+                     * 设置AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
+                     * @param _attributeKey AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
                      * 
                      */
                     void SetAttributeKey(const std::string& _attributeKey);
@@ -91,7 +91,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * AttributeKey的有效取值范围是:RequestId、EventName、ActionType、PrincipalId、ResourceId、ResourceName、AccessKeyId、SensitiveAction、ApiErrorCode、CamErrorCode、SourceIPAddress、Tags
+                     * AttributeKey的有效取值范围是:RequestId、EventName、ReadOnly、Username、ResourceType、ResourceName和AccessKeyId，EventId
                      */
                     std::string m_attributeKey;
                     bool m_attributeKeyHasBeenSet;

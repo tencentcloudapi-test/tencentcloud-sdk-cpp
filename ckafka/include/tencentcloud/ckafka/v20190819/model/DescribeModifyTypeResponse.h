@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返回的变配类型结构</p>
-                     * @return Result <p>返回的变配类型结构</p>
+                     * 获取返回的变配类型结构
+                     * @return Result 返回的变配类型结构
                      * 
                      */
                     DescModifyType GetResult() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返回的变配类型结构</p>
+                     * 返回的变配类型结构
                      */
                     DescModifyType m_result;
                     bool m_resultHasBeenSet;

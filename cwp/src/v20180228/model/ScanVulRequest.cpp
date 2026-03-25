@@ -30,8 +30,7 @@ ScanVulRequest::ScanVulRequest() :
     m_vulEmergencyHasBeenSet(false),
     m_timeoutPeriodHasBeenSet(false),
     m_vulIdsHasBeenSet(false),
-    m_scanMethodHasBeenSet(false),
-    m_kBNumberHasBeenSet(false)
+    m_scanMethodHasBeenSet(false)
 {
 }
 
@@ -114,19 +113,6 @@ string ScanVulRequest::ToJsonString() const
         string key = "ScanMethod";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_scanMethod, allocator);
-    }
-
-    if (m_kBNumberHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "KBNumber";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_kBNumber.begin(); itr != m_kBNumber.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
     }
 
 
@@ -263,22 +249,6 @@ void ScanVulRequest::SetScanMethod(const uint64_t& _scanMethod)
 bool ScanVulRequest::ScanMethodHasBeenSet() const
 {
     return m_scanMethodHasBeenSet;
-}
-
-vector<string> ScanVulRequest::GetKBNumber() const
-{
-    return m_kBNumber;
-}
-
-void ScanVulRequest::SetKBNumber(const vector<string>& _kBNumber)
-{
-    m_kBNumber = _kBNumber;
-    m_kBNumberHasBeenSet = true;
-}
-
-bool ScanVulRequest::KBNumberHasBeenSet() const
-{
-    return m_kBNumberHasBeenSet;
 }
 
 

@@ -484,69 +484,6 @@ namespace TencentCloud
                      */
                     bool RemarkNameHasBeenSet() const;
 
-                    /**
-                     * 获取软件id
-                     * @return SoftwareId 软件id
-                     * 
-                     */
-                    int64_t GetSoftwareId() const;
-
-                    /**
-                     * 设置软件id
-                     * @param _softwareId 软件id
-                     * 
-                     */
-                    void SetSoftwareId(const int64_t& _softwareId);
-
-                    /**
-                     * 判断参数 SoftwareId 是否已赋值
-                     * @return SoftwareId 是否已赋值
-                     * 
-                     */
-                    bool SoftwareIdHasBeenSet() const;
-
-                    /**
-                     * 获取0:win 2:mac
-                     * @return OsType 0:win 2:mac
-                     * 
-                     */
-                    int64_t GetOsType() const;
-
-                    /**
-                     * 设置0:win 2:mac
-                     * @param _osType 0:win 2:mac
-                     * 
-                     */
-                    void SetOsType(const int64_t& _osType);
-
-                    /**
-                     * 判断参数 OsType 是否已赋值
-                     * @return OsType 是否已赋值
-                     * 
-                     */
-                    bool OsTypeHasBeenSet() const;
-
-                    /**
-                     * 获取所有权
-                     * @return AssetType 所有权
-                     * 
-                     */
-                    std::string GetAssetType() const;
-
-                    /**
-                     * 设置所有权
-                     * @param _assetType 所有权
-                     * 
-                     */
-                    void SetAssetType(const std::string& _assetType);
-
-                    /**
-                     * 判断参数 AssetType 是否已赋值
-                     * @return AssetType 是否已赋值
-                     * 
-                     */
-                    bool AssetTypeHasBeenSet() const;
-
                 private:
 
                     /**
@@ -671,24 +608,6 @@ namespace TencentCloud
                      */
                     std::string m_remarkName;
                     bool m_remarkNameHasBeenSet;
-
-                    /**
-                     * 软件id
-                     */
-                    int64_t m_softwareId;
-                    bool m_softwareIdHasBeenSet;
-
-                    /**
-                     * 0:win 2:mac
-                     */
-                    int64_t m_osType;
-                    bool m_osTypeHasBeenSet;
-
-                    /**
-                     * 所有权
-                     */
-                    std::string m_assetType;
-                    bool m_assetTypeHasBeenSet;
 
                 };
             }

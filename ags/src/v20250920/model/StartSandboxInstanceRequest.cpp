@@ -26,9 +26,7 @@ StartSandboxInstanceRequest::StartSandboxInstanceRequest() :
     m_toolIdHasBeenSet(false),
     m_toolNameHasBeenSet(false),
     m_timeoutHasBeenSet(false),
-    m_clientTokenHasBeenSet(false),
-    m_mountOptionsHasBeenSet(false),
-    m_customConfigurationHasBeenSet(false)
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -69,30 +67,6 @@ string StartSandboxInstanceRequest::ToJsonString() const
         string key = "ClientToken";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_mountOptionsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MountOptions";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_mountOptions.begin(); itr != m_mountOptions.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_customConfigurationHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CustomConfiguration";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_customConfiguration.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -165,38 +139,6 @@ void StartSandboxInstanceRequest::SetClientToken(const string& _clientToken)
 bool StartSandboxInstanceRequest::ClientTokenHasBeenSet() const
 {
     return m_clientTokenHasBeenSet;
-}
-
-vector<MountOption> StartSandboxInstanceRequest::GetMountOptions() const
-{
-    return m_mountOptions;
-}
-
-void StartSandboxInstanceRequest::SetMountOptions(const vector<MountOption>& _mountOptions)
-{
-    m_mountOptions = _mountOptions;
-    m_mountOptionsHasBeenSet = true;
-}
-
-bool StartSandboxInstanceRequest::MountOptionsHasBeenSet() const
-{
-    return m_mountOptionsHasBeenSet;
-}
-
-CustomConfiguration StartSandboxInstanceRequest::GetCustomConfiguration() const
-{
-    return m_customConfiguration;
-}
-
-void StartSandboxInstanceRequest::SetCustomConfiguration(const CustomConfiguration& _customConfiguration)
-{
-    m_customConfiguration = _customConfiguration;
-    m_customConfigurationHasBeenSet = true;
-}
-
-bool StartSandboxInstanceRequest::CustomConfigurationHasBeenSet() const
-{
-    return m_customConfigurationHasBeenSet;
 }
 
 

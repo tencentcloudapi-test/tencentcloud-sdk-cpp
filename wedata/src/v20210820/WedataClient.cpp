@@ -4040,56 +4040,6 @@ WedataClient::DescribeColumnsMetaOutcomeCallable WedataClient::DescribeColumnsMe
     return prom->get_future();
 }
 
-WedataClient::DescribeDataAssetsOutcome WedataClient::DescribeDataAssets(const DescribeDataAssetsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeDataAssets");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeDataAssetsResponse rsp = DescribeDataAssetsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeDataAssetsOutcome(rsp);
-        else
-            return DescribeDataAssetsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeDataAssetsOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeDataAssetsAsync(const DescribeDataAssetsRequest& request, const DescribeDataAssetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeDataAssetsRequest&;
-    using Resp = DescribeDataAssetsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeDataAssets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeDataAssetsOutcomeCallable WedataClient::DescribeDataAssetsCallable(const DescribeDataAssetsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeDataAssetsOutcome>>();
-    DescribeDataAssetsAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeDataAssetsRequest&,
-        DescribeDataAssetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 WedataClient::DescribeDataCheckStatOutcome WedataClient::DescribeDataCheckStat(const DescribeDataCheckStatRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeDataCheckStat");
@@ -4340,56 +4290,6 @@ WedataClient::DescribeDataSourceListOutcomeCallable WedataClient::DescribeDataSo
     return prom->get_future();
 }
 
-WedataClient::DescribeDatabaseByNameOutcome WedataClient::DescribeDatabaseByName(const DescribeDatabaseByNameRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeDatabaseByName");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeDatabaseByNameResponse rsp = DescribeDatabaseByNameResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeDatabaseByNameOutcome(rsp);
-        else
-            return DescribeDatabaseByNameOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeDatabaseByNameOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeDatabaseByNameAsync(const DescribeDatabaseByNameRequest& request, const DescribeDatabaseByNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeDatabaseByNameRequest&;
-    using Resp = DescribeDatabaseByNameResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatabaseByName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeDatabaseByNameOutcomeCallable WedataClient::DescribeDatabaseByNameCallable(const DescribeDatabaseByNameRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeDatabaseByNameOutcome>>();
-    DescribeDatabaseByNameAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeDatabaseByNameRequest&,
-        DescribeDatabaseByNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 WedataClient::DescribeDatabaseInfoListOutcome WedataClient::DescribeDatabaseInfoList(const DescribeDatabaseInfoListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeDatabaseInfoList");
@@ -4432,56 +4332,6 @@ WedataClient::DescribeDatabaseInfoListOutcomeCallable WedataClient::DescribeData
         const WedataClient*,
         const DescribeDatabaseInfoListRequest&,
         DescribeDatabaseInfoListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-WedataClient::DescribeDatabaseMetaOutcome WedataClient::DescribeDatabaseMeta(const DescribeDatabaseMetaRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeDatabaseMeta");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeDatabaseMetaResponse rsp = DescribeDatabaseMetaResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeDatabaseMetaOutcome(rsp);
-        else
-            return DescribeDatabaseMetaOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeDatabaseMetaOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeDatabaseMetaAsync(const DescribeDatabaseMetaRequest& request, const DescribeDatabaseMetaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeDatabaseMetaRequest&;
-    using Resp = DescribeDatabaseMetaResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatabaseMeta", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeDatabaseMetaOutcomeCallable WedataClient::DescribeDatabaseMetaCallable(const DescribeDatabaseMetaRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeDatabaseMetaOutcome>>();
-    DescribeDatabaseMetaAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeDatabaseMetaRequest&,
-        DescribeDatabaseMetaOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -6390,106 +6240,6 @@ WedataClient::DescribeIntegrationVersionNodesInfoOutcomeCallable WedataClient::D
     return prom->get_future();
 }
 
-WedataClient::DescribeLineageColumnsOutcome WedataClient::DescribeLineageColumns(const DescribeLineageColumnsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLineageColumns");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLineageColumnsResponse rsp = DescribeLineageColumnsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLineageColumnsOutcome(rsp);
-        else
-            return DescribeLineageColumnsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLineageColumnsOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeLineageColumnsAsync(const DescribeLineageColumnsRequest& request, const DescribeLineageColumnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLineageColumnsRequest&;
-    using Resp = DescribeLineageColumnsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLineageColumns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeLineageColumnsOutcomeCallable WedataClient::DescribeLineageColumnsCallable(const DescribeLineageColumnsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLineageColumnsOutcome>>();
-    DescribeLineageColumnsAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeLineageColumnsRequest&,
-        DescribeLineageColumnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-WedataClient::DescribeLineageInfoOutcome WedataClient::DescribeLineageInfo(const DescribeLineageInfoRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLineageInfo");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLineageInfoResponse rsp = DescribeLineageInfoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLineageInfoOutcome(rsp);
-        else
-            return DescribeLineageInfoOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLineageInfoOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeLineageInfoAsync(const DescribeLineageInfoRequest& request, const DescribeLineageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLineageInfoRequest&;
-    using Resp = DescribeLineageInfoResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLineageInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeLineageInfoOutcomeCallable WedataClient::DescribeLineageInfoCallable(const DescribeLineageInfoRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLineageInfoOutcome>>();
-    DescribeLineageInfoAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeLineageInfoRequest&,
-        DescribeLineageInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 WedataClient::DescribeManualTriggerRecordPageOutcome WedataClient::DescribeManualTriggerRecordPage(const DescribeManualTriggerRecordPageRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeManualTriggerRecordPage");
@@ -7382,56 +7132,6 @@ WedataClient::DescribeRealTimeTaskSpeedOutcomeCallable WedataClient::DescribeRea
         const WedataClient*,
         const DescribeRealTimeTaskSpeedRequest&,
         DescribeRealTimeTaskSpeedOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-WedataClient::DescribeRealViewDatabasePageOutcome WedataClient::DescribeRealViewDatabasePage(const DescribeRealViewDatabasePageRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeRealViewDatabasePage");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeRealViewDatabasePageResponse rsp = DescribeRealViewDatabasePageResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeRealViewDatabasePageOutcome(rsp);
-        else
-            return DescribeRealViewDatabasePageOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeRealViewDatabasePageOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeRealViewDatabasePageAsync(const DescribeRealViewDatabasePageRequest& request, const DescribeRealViewDatabasePageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeRealViewDatabasePageRequest&;
-    using Resp = DescribeRealViewDatabasePageResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeRealViewDatabasePage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeRealViewDatabasePageOutcomeCallable WedataClient::DescribeRealViewDatabasePageCallable(const DescribeRealViewDatabasePageRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeRealViewDatabasePageOutcome>>();
-    DescribeRealViewDatabasePageAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeRealViewDatabasePageRequest&,
-        DescribeRealViewDatabasePageOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -9040,106 +8740,6 @@ WedataClient::DescribeTableBasicInfoOutcomeCallable WedataClient::DescribeTableB
     return prom->get_future();
 }
 
-WedataClient::DescribeTableContentPreviewOutcome WedataClient::DescribeTableContentPreview(const DescribeTableContentPreviewRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTableContentPreview");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTableContentPreviewResponse rsp = DescribeTableContentPreviewResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTableContentPreviewOutcome(rsp);
-        else
-            return DescribeTableContentPreviewOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTableContentPreviewOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeTableContentPreviewAsync(const DescribeTableContentPreviewRequest& request, const DescribeTableContentPreviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTableContentPreviewRequest&;
-    using Resp = DescribeTableContentPreviewResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableContentPreview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeTableContentPreviewOutcomeCallable WedataClient::DescribeTableContentPreviewCallable(const DescribeTableContentPreviewRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTableContentPreviewOutcome>>();
-    DescribeTableContentPreviewAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeTableContentPreviewRequest&,
-        DescribeTableContentPreviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-WedataClient::DescribeTableDdlOutcome WedataClient::DescribeTableDdl(const DescribeTableDdlRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTableDdl");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTableDdlResponse rsp = DescribeTableDdlResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTableDdlOutcome(rsp);
-        else
-            return DescribeTableDdlOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTableDdlOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeTableDdlAsync(const DescribeTableDdlRequest& request, const DescribeTableDdlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTableDdlRequest&;
-    using Resp = DescribeTableDdlResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableDdl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeTableDdlOutcomeCallable WedataClient::DescribeTableDdlCallable(const DescribeTableDdlRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTableDdlOutcome>>();
-    DescribeTableDdlAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeTableDdlRequest&,
-        DescribeTableDdlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 WedataClient::DescribeTableInfoListOutcome WedataClient::DescribeTableInfoList(const DescribeTableInfoListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeTableInfoList");
@@ -9590,56 +9190,6 @@ WedataClient::DescribeTableScoreTrendOutcomeCallable WedataClient::DescribeTable
     return prom->get_future();
 }
 
-WedataClient::DescribeTableSelectOutcome WedataClient::DescribeTableSelect(const DescribeTableSelectRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTableSelect");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTableSelectResponse rsp = DescribeTableSelectResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTableSelectOutcome(rsp);
-        else
-            return DescribeTableSelectOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTableSelectOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeTableSelectAsync(const DescribeTableSelectRequest& request, const DescribeTableSelectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTableSelectRequest&;
-    using Resp = DescribeTableSelectResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableSelect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeTableSelectOutcomeCallable WedataClient::DescribeTableSelectCallable(const DescribeTableSelectRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTableSelectOutcome>>();
-    DescribeTableSelectAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeTableSelectRequest&,
-        DescribeTableSelectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 WedataClient::DescribeTaskAlarmRegulationsOutcome WedataClient::DescribeTaskAlarmRegulations(const DescribeTaskAlarmRegulationsRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeTaskAlarmRegulations");
@@ -9832,56 +9382,6 @@ WedataClient::DescribeTaskDetailDsOutcomeCallable WedataClient::DescribeTaskDeta
         const WedataClient*,
         const DescribeTaskDetailDsRequest&,
         DescribeTaskDetailDsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-WedataClient::DescribeTaskInstancesStatusOutcome WedataClient::DescribeTaskInstancesStatus(const DescribeTaskInstancesStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTaskInstancesStatus");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTaskInstancesStatusResponse rsp = DescribeTaskInstancesStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTaskInstancesStatusOutcome(rsp);
-        else
-            return DescribeTaskInstancesStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTaskInstancesStatusOutcome(outcome.GetError());
-    }
-}
-
-void WedataClient::DescribeTaskInstancesStatusAsync(const DescribeTaskInstancesStatusRequest& request, const DescribeTaskInstancesStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTaskInstancesStatusRequest&;
-    using Resp = DescribeTaskInstancesStatusResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskInstancesStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-WedataClient::DescribeTaskInstancesStatusOutcomeCallable WedataClient::DescribeTaskInstancesStatusCallable(const DescribeTaskInstancesStatusRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTaskInstancesStatusOutcome>>();
-    DescribeTaskInstancesStatusAsync(
-    request,
-    [prom](
-        const WedataClient*,
-        const DescribeTaskInstancesStatusRequest&,
-        DescribeTaskInstancesStatusOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

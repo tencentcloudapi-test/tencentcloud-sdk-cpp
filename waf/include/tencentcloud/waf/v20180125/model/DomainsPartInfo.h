@@ -1513,27 +1513,6 @@ https：使用https协议回源
                      */
                     bool StateHasBeenSet() const;
 
-                    /**
-                     * 获取saaswaf独享ip状态，0是关闭状态，1是开启状态，2是开启中
-                     * @return PrivateVipStatus saaswaf独享ip状态，0是关闭状态，1是开启状态，2是开启中
-                     * 
-                     */
-                    int64_t GetPrivateVipStatus() const;
-
-                    /**
-                     * 设置saaswaf独享ip状态，0是关闭状态，1是开启状态，2是开启中
-                     * @param _privateVipStatus saaswaf独享ip状态，0是关闭状态，1是开启状态，2是开启中
-                     * 
-                     */
-                    void SetPrivateVipStatus(const int64_t& _privateVipStatus);
-
-                    /**
-                     * 判断参数 PrivateVipStatus 是否已赋值
-                     * @return PrivateVipStatus 是否已赋值
-                     * 
-                     */
-                    bool PrivateVipStatusHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1944,12 +1923,6 @@ https：使用https协议回源
                      */
                     int64_t m_state;
                     bool m_stateHasBeenSet;
-
-                    /**
-                     * saaswaf独享ip状态，0是关闭状态，1是开启状态，2是开启中
-                     */
-                    int64_t m_privateVipStatus;
-                    bool m_privateVipStatusHasBeenSet;
 
                 };
             }

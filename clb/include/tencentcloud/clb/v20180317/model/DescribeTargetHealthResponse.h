@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>负载均衡实例列表。</p>
-                     * @return LoadBalancers <p>负载均衡实例列表。</p>
+                     * 获取负载均衡实例列表。
+                     * @return LoadBalancers 负载均衡实例列表。
                      * 
                      */
                     std::vector<LoadBalancerHealth> GetLoadBalancers() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>负载均衡实例列表。</p>
+                     * 负载均衡实例列表。
                      */
                     std::vector<LoadBalancerHealth> m_loadBalancers;
                     bool m_loadBalancersHasBeenSet;

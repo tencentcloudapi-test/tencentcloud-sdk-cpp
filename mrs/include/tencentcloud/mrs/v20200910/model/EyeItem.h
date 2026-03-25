@@ -26,7 +26,6 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mrs/v20200910/model/EyeChildItem.h>
 #include <tencentcloud/mrs/v20200910/model/BaseItem2.h>
-#include <tencentcloud/mrs/v20200910/model/EyeFinalItem.h>
 
 
 namespace TencentCloud
@@ -50,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>左眼</p>
-                     * @return Left <p>左眼</p>
+                     * 获取左眼
+                     * @return Left 左眼
                      * 
                      */
                     EyeChildItem GetLeft() const;
 
                     /**
-                     * 设置<p>左眼</p>
-                     * @param _left <p>左眼</p>
+                     * 设置左眼
+                     * @param _left 左眼
                      * 
                      */
                     void SetLeft(const EyeChildItem& _left);
@@ -71,15 +70,15 @@ namespace TencentCloud
                     bool LeftHasBeenSet() const;
 
                     /**
-                     * 获取<p>右眼</p>
-                     * @return Right <p>右眼</p>
+                     * 获取右眼
+                     * @return Right 右眼
                      * 
                      */
                     EyeChildItem GetRight() const;
 
                     /**
-                     * 设置<p>右眼</p>
-                     * @param _right <p>右眼</p>
+                     * 设置右眼
+                     * @param _right 右眼
                      * 
                      */
                     void SetRight(const EyeChildItem& _right);
@@ -92,15 +91,15 @@ namespace TencentCloud
                     bool RightHasBeenSet() const;
 
                     /**
-                     * 获取<p>瞳距</p>
-                     * @return Pd <p>瞳距</p>
+                     * 获取瞳距
+                     * @return Pd 瞳距
                      * 
                      */
                     BaseItem2 GetPd() const;
 
                     /**
-                     * 设置<p>瞳距</p>
-                     * @param _pd <p>瞳距</p>
+                     * 设置瞳距
+                     * @param _pd 瞳距
                      * 
                      */
                     void SetPd(const BaseItem2& _pd);
@@ -112,79 +111,25 @@ namespace TencentCloud
                      */
                     bool PdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>右眼平均后结果</p>
-                     * @return RightFinal <p>右眼平均后结果</p>
-                     * 
-                     */
-                    EyeFinalItem GetRightFinal() const;
-
-                    /**
-                     * 设置<p>右眼平均后结果</p>
-                     * @param _rightFinal <p>右眼平均后结果</p>
-                     * 
-                     */
-                    void SetRightFinal(const EyeFinalItem& _rightFinal);
-
-                    /**
-                     * 判断参数 RightFinal 是否已赋值
-                     * @return RightFinal 是否已赋值
-                     * 
-                     */
-                    bool RightFinalHasBeenSet() const;
-
-                    /**
-                     * 获取<p>左眼平均后结果</p>
-                     * @return LeftFinal <p>左眼平均后结果</p>
-                     * 
-                     */
-                    EyeFinalItem GetLeftFinal() const;
-
-                    /**
-                     * 设置<p>左眼平均后结果</p>
-                     * @param _leftFinal <p>左眼平均后结果</p>
-                     * 
-                     */
-                    void SetLeftFinal(const EyeFinalItem& _leftFinal);
-
-                    /**
-                     * 判断参数 LeftFinal 是否已赋值
-                     * @return LeftFinal 是否已赋值
-                     * 
-                     */
-                    bool LeftFinalHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>左眼</p>
+                     * 左眼
                      */
                     EyeChildItem m_left;
                     bool m_leftHasBeenSet;
 
                     /**
-                     * <p>右眼</p>
+                     * 右眼
                      */
                     EyeChildItem m_right;
                     bool m_rightHasBeenSet;
 
                     /**
-                     * <p>瞳距</p>
+                     * 瞳距
                      */
                     BaseItem2 m_pd;
                     bool m_pdHasBeenSet;
-
-                    /**
-                     * <p>右眼平均后结果</p>
-                     */
-                    EyeFinalItem m_rightFinal;
-                    bool m_rightFinalHasBeenSet;
-
-                    /**
-                     * <p>左眼平均后结果</p>
-                     */
-                    EyeFinalItem m_leftFinal;
-                    bool m_leftFinalHasBeenSet;
 
                 };
             }

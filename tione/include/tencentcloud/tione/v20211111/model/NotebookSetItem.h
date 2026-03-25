@@ -29,7 +29,6 @@
 #include <tencentcloud/tione/v20211111/model/CFSConfig.h>
 #include <tencentcloud/tione/v20211111/model/SSHConfig.h>
 #include <tencentcloud/tione/v20211111/model/GooseFS.h>
-#include <tencentcloud/tione/v20211111/model/ExposePortConfig.h>
 
 
 namespace TencentCloud
@@ -782,52 +781,6 @@ namespace TencentCloud
                      */
                     bool AppIdHasBeenSet() const;
 
-                    /**
-                     * 获取容器服务暴露端口配置
-                     * @return ExposePortConfig 容器服务暴露端口配置
-                     * 
-                     */
-                    ExposePortConfig GetExposePortConfig() const;
-
-                    /**
-                     * 设置容器服务暴露端口配置
-                     * @param _exposePortConfig 容器服务暴露端口配置
-                     * 
-                     */
-                    void SetExposePortConfig(const ExposePortConfig& _exposePortConfig);
-
-                    /**
-                     * 判断参数 ExposePortConfig 是否已赋值
-                     * @return ExposePortConfig 是否已赋值
-                     * 
-                     */
-                    bool ExposePortConfigHasBeenSet() const;
-
-                    /**
-                     * 获取描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Description 描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetDescription() const;
-
-                    /**
-                     * 设置描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _description 描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetDescription(const std::string& _description);
-
-                    /**
-                     * 判断参数 Description 是否已赋值
-                     * @return Description 是否已赋值
-                     * 
-                     */
-                    bool DescriptionHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1034,19 +987,6 @@ namespace TencentCloud
                      */
                     std::string m_appId;
                     bool m_appIdHasBeenSet;
-
-                    /**
-                     * 容器服务暴露端口配置
-                     */
-                    ExposePortConfig m_exposePortConfig;
-                    bool m_exposePortConfigHasBeenSet;
-
-                    /**
-                     * 描述
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_description;
-                    bool m_descriptionHasBeenSet;
 
                 };
             }

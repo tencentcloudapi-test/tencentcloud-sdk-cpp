@@ -23,8 +23,7 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Vpc::V20170312::Model;
 using namespace std;
 
-CreatePrivateNatGatewayTranslationAclRuleResponse::CreatePrivateNatGatewayTranslationAclRuleResponse() :
-    m_translationAclRuleSetHasBeenSet(false)
+CreatePrivateNatGatewayTranslationAclRuleResponse::CreatePrivateNatGatewayTranslationAclRuleResponse()
 {
 }
 
@@ -62,26 +61,6 @@ CoreInternalOutcome CreatePrivateNatGatewayTranslationAclRuleResponse::Deseriali
     }
 
 
-    if (rsp.HasMember("TranslationAclRuleSet") && !rsp["TranslationAclRuleSet"].IsNull())
-    {
-        if (!rsp["TranslationAclRuleSet"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `TranslationAclRuleSet` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["TranslationAclRuleSet"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            TranslationAclRule item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_translationAclRuleSet.push_back(item);
-        }
-        m_translationAclRuleSetHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -91,21 +70,6 @@ string CreatePrivateNatGatewayTranslationAclRuleResponse::ToJsonString() const
     rapidjson::Document value;
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
-
-    if (m_translationAclRuleSetHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TranslationAclRuleSet";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_translationAclRuleSet.begin(); itr != m_translationAclRuleSet.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
 
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
@@ -118,15 +82,5 @@ string CreatePrivateNatGatewayTranslationAclRuleResponse::ToJsonString() const
     return buffer.GetString();
 }
 
-
-vector<TranslationAclRule> CreatePrivateNatGatewayTranslationAclRuleResponse::GetTranslationAclRuleSet() const
-{
-    return m_translationAclRuleSet;
-}
-
-bool CreatePrivateNatGatewayTranslationAclRuleResponse::TranslationAclRuleSetHasBeenSet() const
-{
-    return m_translationAclRuleSetHasBeenSet;
-}
 
 

@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
-                     * @return InstanceId <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 获取ckafka集群实例Id
+                     * @return InstanceId ckafka集群实例Id
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
-                     * @param _instanceId <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 设置ckafka集群实例Id
+                     * @param _instanceId ckafka集群实例Id
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题名</p>
-                     * @return TopicName <p>主题名</p>
+                     * 获取主题名
+                     * @return TopicName 主题名
                      * 
                      */
                     std::string GetTopicName() const;
 
                     /**
-                     * 设置<p>主题名</p>
-                     * @param _topicName <p>主题名</p>
+                     * 设置主题名
+                     * @param _topicName 主题名
                      * 
                      */
                     void SetTopicName(const std::string& _topicName);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool TopicNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>分页时的起始位置</p>
-                     * @return Offset <p>分页时的起始位置</p>
+                     * 获取分页时的起始位置
+                     * @return Offset 分页时的起始位置
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>分页时的起始位置</p>
-                     * @param _offset <p>分页时的起始位置</p>
+                     * 设置分页时的起始位置
+                     * @param _offset 分页时的起始位置
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>分页时的个数</p><p>默认值：20</p>
-                     * @return Limit <p>分页时的个数</p><p>默认值：20</p>
+                     * 获取分页时的个数
+                     * @return Limit 分页时的个数
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置<p>分页时的个数</p><p>默认值：20</p>
-                     * @param _limit <p>分页时的个数</p><p>默认值：20</p>
+                     * 设置分页时的个数
+                     * @param _limit 分页时的个数
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -129,25 +129,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * ckafka集群实例Id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>主题名</p>
+                     * 主题名
                      */
                     std::string m_topicName;
                     bool m_topicNameHasBeenSet;
 
                     /**
-                     * <p>分页时的起始位置</p>
+                     * 分页时的起始位置
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>分页时的个数</p><p>默认值：20</p>
+                     * 分页时的个数
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;

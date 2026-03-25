@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -30,7 +31,6 @@
 #include <tencentcloud/oceanus/v20190422/model/ExpertModeConfiguration.h>
 #include <tencentcloud/oceanus/v20190422/model/TraceModeConfiguration.h>
 #include <tencentcloud/oceanus/v20190422/model/JobGraph.h>
-#include <tencentcloud/oceanus/v20190422/model/JobConfig.h>
 
 
 namespace TencentCloud
@@ -41,6 +41,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobConfig;
                 /**
                 * 作业配置详情
                 */
@@ -342,18 +343,18 @@ namespace TencentCloud
                     bool COSBucketHasBeenSet() const;
 
                     /**
-                     * 获取是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es
+                     * 获取是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return LogCollect 是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es
+                     * @return LogCollect 是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetLogCollect() const;
 
                     /**
-                     * 设置是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es
+                     * 设置是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _logCollect 是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es
+                     * @param _logCollect 是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -867,27 +868,6 @@ namespace TencentCloud
                     bool FlinkVersionHasBeenSet() const;
 
                     /**
-                     * 获取jdk版本
-                     * @return JdkVersion jdk版本
-                     * 
-                     */
-                    std::string GetJdkVersion() const;
-
-                    /**
-                     * 设置jdk版本
-                     * @param _jdkVersion jdk版本
-                     * 
-                     */
-                    void SetJdkVersion(const std::string& _jdkVersion);
-
-                    /**
-                     * 判断参数 JdkVersion 是否已赋值
-                     * @return JdkVersion 是否已赋值
-                     * 
-                     */
-                    bool JdkVersionHasBeenSet() const;
-
-                    /**
                      * 获取jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return JobManagerCpu jm使用cpu数目
@@ -994,7 +974,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    JobConfig GetJobConfigItem() const;
+                    std::shared_ptr<JobConfig> GetJobConfigItem() const;
 
                     /**
                      * 设置运行中配置
@@ -1003,7 +983,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetJobConfigItem(const JobConfig& _jobConfigItem);
+                    void SetJobConfigItem(const std::shared_ptr<JobConfig>& _jobConfigItem);
 
                     /**
                      * 判断参数 JobConfigItem 是否已赋值
@@ -1138,7 +1118,7 @@ namespace TencentCloud
                     bool m_cOSBucketHasBeenSet;
 
                     /**
-                     * 是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es
+                     * 是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_logCollect;
@@ -1285,12 +1265,6 @@ namespace TencentCloud
                     bool m_flinkVersionHasBeenSet;
 
                     /**
-                     * jdk版本
-                     */
-                    std::string m_jdkVersion;
-                    bool m_jdkVersionHasBeenSet;
-
-                    /**
                      * jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
                      */
@@ -1322,7 +1296,7 @@ namespace TencentCloud
                      * 运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    JobConfig m_jobConfigItem;
+                    std::shared_ptr<JobConfig> m_jobConfigItem;
                     bool m_jobConfigItemHasBeenSet;
 
                     /**

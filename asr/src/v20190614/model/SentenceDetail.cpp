@@ -33,9 +33,7 @@ SentenceDetail::SentenceDetail() :
     m_emotionalEnergyHasBeenSet(false),
     m_silenceTimeHasBeenSet(false),
     m_emotionTypeHasBeenSet(false),
-    m_keyWordResultsHasBeenSet(false),
-    m_langTypeHasBeenSet(false),
-    m_speakerRoleNameHasBeenSet(false)
+    m_keyWordResultsHasBeenSet(false)
 {
 }
 
@@ -197,26 +195,6 @@ CoreInternalOutcome SentenceDetail::Deserialize(const rapidjson::Value &value)
         m_keyWordResultsHasBeenSet = true;
     }
 
-    if (value.HasMember("LangType") && !value["LangType"].IsNull())
-    {
-        if (!value["LangType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SentenceDetail.LangType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_langType = string(value["LangType"].GetString());
-        m_langTypeHasBeenSet = true;
-    }
-
-    if (value.HasMember("SpeakerRoleName") && !value["SpeakerRoleName"].IsNull())
-    {
-        if (!value["SpeakerRoleName"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SentenceDetail.SpeakerRoleName` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_speakerRoleName = string(value["SpeakerRoleName"].GetString());
-        m_speakerRoleNameHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -345,22 +323,6 @@ void SentenceDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_langTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LangType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_langType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_speakerRoleNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SpeakerRoleName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_speakerRoleName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -572,37 +534,5 @@ void SentenceDetail::SetKeyWordResults(const vector<KeyWordResult>& _keyWordResu
 bool SentenceDetail::KeyWordResultsHasBeenSet() const
 {
     return m_keyWordResultsHasBeenSet;
-}
-
-string SentenceDetail::GetLangType() const
-{
-    return m_langType;
-}
-
-void SentenceDetail::SetLangType(const string& _langType)
-{
-    m_langType = _langType;
-    m_langTypeHasBeenSet = true;
-}
-
-bool SentenceDetail::LangTypeHasBeenSet() const
-{
-    return m_langTypeHasBeenSet;
-}
-
-string SentenceDetail::GetSpeakerRoleName() const
-{
-    return m_speakerRoleName;
-}
-
-void SentenceDetail::SetSpeakerRoleName(const string& _speakerRoleName)
-{
-    m_speakerRoleName = _speakerRoleName;
-    m_speakerRoleNameHasBeenSet = true;
-}
-
-bool SentenceDetail::SpeakerRoleNameHasBeenSet() const
-{
-    return m_speakerRoleNameHasBeenSet;
 }
 

@@ -64,8 +64,7 @@ ModifyApmInstanceRequest::ModifyApmInstanceRequest() :
     m_isWebshellBackdoorAnalysisHasBeenSet(false),
     m_isDeserializationAnalysisHasBeenSet(false),
     m_urlLongSegmentThresholdHasBeenSet(false),
-    m_urlNumberSegmentThresholdHasBeenSet(false),
-    m_logSpanIdKeyHasBeenSet(false)
+    m_urlNumberSegmentThresholdHasBeenSet(false)
 {
 }
 
@@ -422,14 +421,6 @@ string ModifyApmInstanceRequest::ToJsonString() const
         string key = "UrlNumberSegmentThreshold";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_urlNumberSegmentThreshold, allocator);
-    }
-
-    if (m_logSpanIdKeyHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LogSpanIdKey";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_logSpanIdKey.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -1110,22 +1101,6 @@ void ModifyApmInstanceRequest::SetUrlNumberSegmentThreshold(const int64_t& _urlN
 bool ModifyApmInstanceRequest::UrlNumberSegmentThresholdHasBeenSet() const
 {
     return m_urlNumberSegmentThresholdHasBeenSet;
-}
-
-string ModifyApmInstanceRequest::GetLogSpanIdKey() const
-{
-    return m_logSpanIdKey;
-}
-
-void ModifyApmInstanceRequest::SetLogSpanIdKey(const string& _logSpanIdKey)
-{
-    m_logSpanIdKey = _logSpanIdKey;
-    m_logSpanIdKeyHasBeenSet = true;
-}
-
-bool ModifyApmInstanceRequest::LogSpanIdKeyHasBeenSet() const
-{
-    return m_logSpanIdKeyHasBeenSet;
 }
 
 

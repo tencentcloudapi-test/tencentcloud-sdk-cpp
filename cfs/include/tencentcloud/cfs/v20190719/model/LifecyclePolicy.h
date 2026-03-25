@@ -49,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>生命周期管理策略创建的时间</p>
-                     * @return CreateTime <p>生命周期管理策略创建的时间</p>
+                     * 获取生命周期管理策略创建的时间
+                     * @return CreateTime 生命周期管理策略创建的时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>生命周期管理策略创建的时间</p>
-                     * @param _createTime <p>生命周期管理策略创建的时间</p>
+                     * 设置生命周期管理策略创建的时间
+                     * @param _createTime 生命周期管理策略创建的时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -70,15 +70,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>生命周期管理策略ID</p>
-                     * @return LifecyclePolicyID <p>生命周期管理策略ID</p>
+                     * 获取生命周期管理策略ID
+                     * @return LifecyclePolicyID 生命周期管理策略ID
                      * 
                      */
                     std::string GetLifecyclePolicyID() const;
 
                     /**
-                     * 设置<p>生命周期管理策略ID</p>
-                     * @param _lifecyclePolicyID <p>生命周期管理策略ID</p>
+                     * 设置生命周期管理策略ID
+                     * @param _lifecyclePolicyID 生命周期管理策略ID
                      * 
                      */
                     void SetLifecyclePolicyID(const std::string& _lifecyclePolicyID);
@@ -91,18 +91,18 @@ namespace TencentCloud
                     bool LifecyclePolicyIDHasBeenSet() const;
 
                     /**
-                     * 获取<p>生命周期管理策略名称</p>
+                     * 获取生命周期管理策略名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return LifecyclePolicyName <p>生命周期管理策略名称</p>
+                     * @return LifecyclePolicyName 生命周期管理策略名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetLifecyclePolicyName() const;
 
                     /**
-                     * 设置<p>生命周期管理策略名称</p>
+                     * 设置生命周期管理策略名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _lifecyclePolicyName <p>生命周期管理策略名称</p>
+                     * @param _lifecyclePolicyName 生命周期管理策略名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -116,18 +116,18 @@ namespace TencentCloud
                     bool LifecyclePolicyNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>生命周期管理策略关联的管理规则列表</p>
+                     * 获取生命周期管理策略关联的管理规则列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return LifecycleRules <p>生命周期管理策略关联的管理规则列表</p>
+                     * @return LifecycleRules 生命周期管理策略关联的管理规则列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<LifecycleRule> GetLifecycleRules() const;
 
                     /**
-                     * 设置<p>生命周期管理策略关联的管理规则列表</p>
+                     * 设置生命周期管理策略关联的管理规则列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _lifecycleRules <p>生命周期管理策略关联的管理规则列表</p>
+                     * @param _lifecycleRules 生命周期管理策略关联的管理规则列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -141,18 +141,18 @@ namespace TencentCloud
                     bool LifecycleRulesHasBeenSet() const;
 
                     /**
-                     * 获取<p>生命周期管理策略关联目录的绝对路径列表</p>
+                     * 获取生命周期管理策略关联目录的绝对路径列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Paths <p>生命周期管理策略关联目录的绝对路径列表</p>
+                     * @return Paths 生命周期管理策略关联目录的绝对路径列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<PathInfo> GetPaths() const;
 
                     /**
-                     * 设置<p>生命周期管理策略关联目录的绝对路径列表</p>
+                     * 设置生命周期管理策略关联目录的绝对路径列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paths <p>生命周期管理策略关联目录的绝对路径列表</p>
+                     * @param _paths 生命周期管理策略关联目录的绝对路径列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -168,33 +168,33 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>生命周期管理策略创建的时间</p>
+                     * 生命周期管理策略创建的时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>生命周期管理策略ID</p>
+                     * 生命周期管理策略ID
                      */
                     std::string m_lifecyclePolicyID;
                     bool m_lifecyclePolicyIDHasBeenSet;
 
                     /**
-                     * <p>生命周期管理策略名称</p>
+                     * 生命周期管理策略名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_lifecyclePolicyName;
                     bool m_lifecyclePolicyNameHasBeenSet;
 
                     /**
-                     * <p>生命周期管理策略关联的管理规则列表</p>
+                     * 生命周期管理策略关联的管理规则列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<LifecycleRule> m_lifecycleRules;
                     bool m_lifecycleRulesHasBeenSet;
 
                     /**
-                     * <p>生命周期管理策略关联目录的绝对路径列表</p>
+                     * 生命周期管理策略关联目录的绝对路径列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<PathInfo> m_paths;

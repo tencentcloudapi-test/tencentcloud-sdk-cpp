@@ -21,8 +21,7 @@ using namespace TencentCloud::Trtc::V20190722::Model;
 using namespace std;
 
 RowValues::RowValues() :
-    m_rowValueHasBeenSet(false),
-    m_rowValueFloatHasBeenSet(false)
+    m_rowValueHasBeenSet(false)
 {
 }
 
@@ -42,19 +41,6 @@ CoreInternalOutcome RowValues::Deserialize(const rapidjson::Value &value)
             m_rowValue.push_back((*itr).GetInt64());
         }
         m_rowValueHasBeenSet = true;
-    }
-
-    if (value.HasMember("RowValueFloat") && !value["RowValueFloat"].IsNull())
-    {
-        if (!value["RowValueFloat"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `RowValues.RowValueFloat` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["RowValueFloat"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_rowValueFloat.push_back((*itr).GetDouble());
-        }
-        m_rowValueFloatHasBeenSet = true;
     }
 
 
@@ -77,19 +63,6 @@ void RowValues::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         }
     }
 
-    if (m_rowValueFloatHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RowValueFloat";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_rowValueFloat.begin(); itr != m_rowValueFloat.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetDouble(*itr), allocator);
-        }
-    }
-
 }
 
 
@@ -107,21 +80,5 @@ void RowValues::SetRowValue(const vector<int64_t>& _rowValue)
 bool RowValues::RowValueHasBeenSet() const
 {
     return m_rowValueHasBeenSet;
-}
-
-vector<double> RowValues::GetRowValueFloat() const
-{
-    return m_rowValueFloat;
-}
-
-void RowValues::SetRowValueFloat(const vector<double>& _rowValueFloat)
-{
-    m_rowValueFloat = _rowValueFloat;
-    m_rowValueFloatHasBeenSet = true;
-}
-
-bool RowValues::RowValueFloatHasBeenSet() const
-{
-    return m_rowValueFloatHasBeenSet;
 }
 

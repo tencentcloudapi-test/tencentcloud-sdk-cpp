@@ -31,8 +31,7 @@ ScheduledAction::ScheduledAction() :
     m_desiredCapacityHasBeenSet(false),
     m_minSizeHasBeenSet(false),
     m_createdTimeHasBeenSet(false),
-    m_scheduledTypeHasBeenSet(false),
-    m_disableUpdateDesiredCapacityHasBeenSet(false)
+    m_scheduledTypeHasBeenSet(false)
 {
 }
 
@@ -151,16 +150,6 @@ CoreInternalOutcome ScheduledAction::Deserialize(const rapidjson::Value &value)
         m_scheduledTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("DisableUpdateDesiredCapacity") && !value["DisableUpdateDesiredCapacity"].IsNull())
-    {
-        if (!value["DisableUpdateDesiredCapacity"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `ScheduledAction.DisableUpdateDesiredCapacity` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_disableUpdateDesiredCapacity = value["DisableUpdateDesiredCapacity"].GetBool();
-        m_disableUpdateDesiredCapacityHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -254,14 +243,6 @@ void ScheduledAction::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "ScheduledType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_scheduledType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_disableUpdateDesiredCapacityHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DisableUpdateDesiredCapacity";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_disableUpdateDesiredCapacity, allocator);
     }
 
 }
@@ -441,21 +422,5 @@ void ScheduledAction::SetScheduledType(const string& _scheduledType)
 bool ScheduledAction::ScheduledTypeHasBeenSet() const
 {
     return m_scheduledTypeHasBeenSet;
-}
-
-bool ScheduledAction::GetDisableUpdateDesiredCapacity() const
-{
-    return m_disableUpdateDesiredCapacity;
-}
-
-void ScheduledAction::SetDisableUpdateDesiredCapacity(const bool& _disableUpdateDesiredCapacity)
-{
-    m_disableUpdateDesiredCapacity = _disableUpdateDesiredCapacity;
-    m_disableUpdateDesiredCapacityHasBeenSet = true;
-}
-
-bool ScheduledAction::DisableUpdateDesiredCapacityHasBeenSet() const
-{
-    return m_disableUpdateDesiredCapacityHasBeenSet;
 }
 

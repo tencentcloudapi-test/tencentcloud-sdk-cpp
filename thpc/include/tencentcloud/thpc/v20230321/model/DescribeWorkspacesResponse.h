@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群概览信息列表</p>
-                     * @return SpaceSet <p>集群概览信息列表</p>
+                     * 获取集群概览信息列表
+                     * @return SpaceSet 集群概览信息列表
                      * 
                      */
                     std::vector<SpaceInfo> GetSpaceSet() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool SpaceSetHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群数量</p>
-                     * @return TotalCount <p>集群数量</p>
+                     * 获取集群数量
+                     * @return TotalCount 集群数量
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>集群概览信息列表</p>
+                     * 集群概览信息列表
                      */
                     std::vector<SpaceInfo> m_spaceSet;
                     bool m_spaceSetHasBeenSet;
 
                     /**
-                     * <p>集群数量</p>
+                     * 集群数量
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

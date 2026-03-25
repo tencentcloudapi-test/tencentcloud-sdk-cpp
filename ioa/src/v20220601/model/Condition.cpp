@@ -25,9 +25,7 @@ Condition::Condition() :
     m_filterGroupsHasBeenSet(false),
     m_sortHasBeenSet(false),
     m_pageSizeHasBeenSet(false),
-    m_pageNumHasBeenSet(false),
-    m_rulePayloadHasBeenSet(false),
-    m_rulePayloadModeHasBeenSet(false)
+    m_pageNumHasBeenSet(false)
 {
 }
 
@@ -113,33 +111,6 @@ CoreInternalOutcome Condition::Deserialize(const rapidjson::Value &value)
         m_pageNumHasBeenSet = true;
     }
 
-    if (value.HasMember("RulePayload") && !value["RulePayload"].IsNull())
-    {
-        if (!value["RulePayload"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `Condition.RulePayload` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_rulePayload.Deserialize(value["RulePayload"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_rulePayloadHasBeenSet = true;
-    }
-
-    if (value.HasMember("RulePayloadMode") && !value["RulePayloadMode"].IsNull())
-    {
-        if (!value["RulePayloadMode"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Condition.RulePayloadMode` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_rulePayloadMode = value["RulePayloadMode"].GetInt64();
-        m_rulePayloadModeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -200,23 +171,6 @@ void Condition::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "PageNum";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_pageNum, allocator);
-    }
-
-    if (m_rulePayloadHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RulePayload";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_rulePayload.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_rulePayloadModeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RulePayloadMode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_rulePayloadMode, allocator);
     }
 
 }
@@ -300,37 +254,5 @@ void Condition::SetPageNum(const int64_t& _pageNum)
 bool Condition::PageNumHasBeenSet() const
 {
     return m_pageNumHasBeenSet;
-}
-
-RulePayload Condition::GetRulePayload() const
-{
-    return m_rulePayload;
-}
-
-void Condition::SetRulePayload(const RulePayload& _rulePayload)
-{
-    m_rulePayload = _rulePayload;
-    m_rulePayloadHasBeenSet = true;
-}
-
-bool Condition::RulePayloadHasBeenSet() const
-{
-    return m_rulePayloadHasBeenSet;
-}
-
-int64_t Condition::GetRulePayloadMode() const
-{
-    return m_rulePayloadMode;
-}
-
-void Condition::SetRulePayloadMode(const int64_t& _rulePayloadMode)
-{
-    m_rulePayloadMode = _rulePayloadMode;
-    m_rulePayloadModeHasBeenSet = true;
-}
-
-bool Condition::RulePayloadModeHasBeenSet() const
-{
-    return m_rulePayloadModeHasBeenSet;
 }
 

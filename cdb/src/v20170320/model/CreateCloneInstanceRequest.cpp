@@ -48,9 +48,7 @@ CreateCloneInstanceRequest::CreateCloneInstanceRequest() :
     m_periodHasBeenSet(false),
     m_clusterTopologyHasBeenSet(false),
     m_srcRegionHasBeenSet(false),
-    m_specifiedSubBackupIdHasBeenSet(false),
-    m_masterZoneHasBeenSet(false),
-    m_zoneHasBeenSet(false)
+    m_specifiedSubBackupIdHasBeenSet(false)
 {
 }
 
@@ -280,22 +278,6 @@ string CreateCloneInstanceRequest::ToJsonString() const
         string key = "SpecifiedSubBackupId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_specifiedSubBackupId, allocator);
-    }
-
-    if (m_masterZoneHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MasterZone";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_masterZone.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_zoneHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Zone";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -720,38 +702,6 @@ void CreateCloneInstanceRequest::SetSpecifiedSubBackupId(const int64_t& _specifi
 bool CreateCloneInstanceRequest::SpecifiedSubBackupIdHasBeenSet() const
 {
     return m_specifiedSubBackupIdHasBeenSet;
-}
-
-string CreateCloneInstanceRequest::GetMasterZone() const
-{
-    return m_masterZone;
-}
-
-void CreateCloneInstanceRequest::SetMasterZone(const string& _masterZone)
-{
-    m_masterZone = _masterZone;
-    m_masterZoneHasBeenSet = true;
-}
-
-bool CreateCloneInstanceRequest::MasterZoneHasBeenSet() const
-{
-    return m_masterZoneHasBeenSet;
-}
-
-string CreateCloneInstanceRequest::GetZone() const
-{
-    return m_zone;
-}
-
-void CreateCloneInstanceRequest::SetZone(const string& _zone)
-{
-    m_zone = _zone;
-    m_zoneHasBeenSet = true;
-}
-
-bool CreateCloneInstanceRequest::ZoneHasBeenSet() const
-{
-    return m_zoneHasBeenSet;
 }
 
 

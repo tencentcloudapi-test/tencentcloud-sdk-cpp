@@ -27,8 +27,7 @@ RequestsPerSecond::RequestsPerSecond() :
     m_resourcesHasBeenSet(false),
     m_startRequestsPerSecondHasBeenSet(false),
     m_targetRequestsPerSecondHasBeenSet(false),
-    m_gracefulStopSecondsHasBeenSet(false),
-    m_iterationCountHasBeenSet(false)
+    m_gracefulStopSecondsHasBeenSet(false)
 {
 }
 
@@ -107,16 +106,6 @@ CoreInternalOutcome RequestsPerSecond::Deserialize(const rapidjson::Value &value
         m_gracefulStopSecondsHasBeenSet = true;
     }
 
-    if (value.HasMember("IterationCount") && !value["IterationCount"].IsNull())
-    {
-        if (!value["IterationCount"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `RequestsPerSecond.IterationCount` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_iterationCount = value["IterationCount"].GetInt64();
-        m_iterationCountHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -178,14 +167,6 @@ void RequestsPerSecond::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "GracefulStopSeconds";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_gracefulStopSeconds, allocator);
-    }
-
-    if (m_iterationCountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IterationCount";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_iterationCount, allocator);
     }
 
 }
@@ -301,21 +282,5 @@ void RequestsPerSecond::SetGracefulStopSeconds(const int64_t& _gracefulStopSecon
 bool RequestsPerSecond::GracefulStopSecondsHasBeenSet() const
 {
     return m_gracefulStopSecondsHasBeenSet;
-}
-
-int64_t RequestsPerSecond::GetIterationCount() const
-{
-    return m_iterationCount;
-}
-
-void RequestsPerSecond::SetIterationCount(const int64_t& _iterationCount)
-{
-    m_iterationCount = _iterationCount;
-    m_iterationCountHasBeenSet = true;
-}
-
-bool RequestsPerSecond::IterationCountHasBeenSet() const
-{
-    return m_iterationCountHasBeenSet;
 }
 

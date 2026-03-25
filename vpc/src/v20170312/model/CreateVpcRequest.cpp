@@ -29,8 +29,7 @@ CreateVpcRequest::CreateVpcRequest() :
     m_dnsServersHasBeenSet(false),
     m_domainNameHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_enableRouteVpcPublishHasBeenSet(false),
-    m_enableRouteVpcPublishIpv6HasBeenSet(false)
+    m_enableRouteVpcPublishHasBeenSet(false)
 {
 }
 
@@ -107,14 +106,6 @@ string CreateVpcRequest::ToJsonString() const
         string key = "EnableRouteVpcPublish";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_enableRouteVpcPublish, allocator);
-    }
-
-    if (m_enableRouteVpcPublishIpv6HasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableRouteVpcPublishIpv6";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableRouteVpcPublishIpv6, allocator);
     }
 
 
@@ -235,22 +226,6 @@ void CreateVpcRequest::SetEnableRouteVpcPublish(const bool& _enableRouteVpcPubli
 bool CreateVpcRequest::EnableRouteVpcPublishHasBeenSet() const
 {
     return m_enableRouteVpcPublishHasBeenSet;
-}
-
-bool CreateVpcRequest::GetEnableRouteVpcPublishIpv6() const
-{
-    return m_enableRouteVpcPublishIpv6;
-}
-
-void CreateVpcRequest::SetEnableRouteVpcPublishIpv6(const bool& _enableRouteVpcPublishIpv6)
-{
-    m_enableRouteVpcPublishIpv6 = _enableRouteVpcPublishIpv6;
-    m_enableRouteVpcPublishIpv6HasBeenSet = true;
-}
-
-bool CreateVpcRequest::EnableRouteVpcPublishIpv6HasBeenSet() const
-{
-    return m_enableRouteVpcPublishIpv6HasBeenSet;
 }
 
 

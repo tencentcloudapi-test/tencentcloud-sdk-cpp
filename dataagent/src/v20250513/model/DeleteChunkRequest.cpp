@@ -25,8 +25,7 @@ using namespace std;
 DeleteChunkRequest::DeleteChunkRequest() :
     m_instanceIdHasBeenSet(false),
     m_fileIdHasBeenSet(false),
-    m_chunkIdsHasBeenSet(false),
-    m_knowledgeBaseIdHasBeenSet(false)
+    m_chunkIdsHasBeenSet(false)
 {
 }
 
@@ -64,14 +63,6 @@ string DeleteChunkRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
-    }
-
-    if (m_knowledgeBaseIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "KnowledgeBaseId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_knowledgeBaseId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -128,22 +119,6 @@ void DeleteChunkRequest::SetChunkIds(const vector<string>& _chunkIds)
 bool DeleteChunkRequest::ChunkIdsHasBeenSet() const
 {
     return m_chunkIdsHasBeenSet;
-}
-
-string DeleteChunkRequest::GetKnowledgeBaseId() const
-{
-    return m_knowledgeBaseId;
-}
-
-void DeleteChunkRequest::SetKnowledgeBaseId(const string& _knowledgeBaseId)
-{
-    m_knowledgeBaseId = _knowledgeBaseId;
-    m_knowledgeBaseIdHasBeenSet = true;
-}
-
-bool DeleteChunkRequest::KnowledgeBaseIdHasBeenSet() const
-{
-    return m_knowledgeBaseIdHasBeenSet;
 }
 
 

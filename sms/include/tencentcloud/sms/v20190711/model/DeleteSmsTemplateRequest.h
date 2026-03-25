@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>待删除的模板 ID。</p>
-                     * @return TemplateId <p>待删除的模板 ID。</p>
+                     * 获取待删除的模板 ID。
+                     * @return TemplateId 待删除的模板 ID。
                      * 
                      */
                     uint64_t GetTemplateId() const;
 
                     /**
-                     * 设置<p>待删除的模板 ID。</p>
-                     * @param _templateId <p>待删除的模板 ID。</p>
+                     * 设置待删除的模板 ID。
+                     * @param _templateId 待删除的模板 ID。
                      * 
                      */
                     void SetTemplateId(const uint64_t& _templateId);
@@ -66,7 +66,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>待删除的模板 ID。</p>
+                     * 待删除的模板 ID。
                      */
                     uint64_t m_templateId;
                     bool m_templateIdHasBeenSet;

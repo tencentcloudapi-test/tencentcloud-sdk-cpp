@@ -43,15 +43,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>日志主题Id。</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/56454">获取日志主题列表</a>获取日志主题Id。</li></ul>
-                     * @return TopicId <p>日志主题Id。</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/56454">获取日志主题列表</a>获取日志主题Id。</li></ul>
+                     * 获取日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * @return TopicId 日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
                      * 
                      */
                     std::string GetTopicId() const;
 
                     /**
-                     * 设置<p>日志主题Id。</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/56454">获取日志主题列表</a>获取日志主题Id。</li></ul>
-                     * @param _topicId <p>日志主题Id。</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/56454">获取日志主题列表</a>获取日志主题Id。</li></ul>
+                     * 设置日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
+                     * @param _topicId 日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
                      * 
                      */
                     void SetTopicId(const std::string& _topicId);
@@ -66,7 +70,8 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>日志主题Id。</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/56454">获取日志主题列表</a>获取日志主题Id。</li></ul>
+                     * 日志主题Id。
+- 通过[获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)获取日志主题Id。
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;

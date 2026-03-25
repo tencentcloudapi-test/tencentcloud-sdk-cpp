@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>创建的监听器ID</p>
-                     * @return ListenerId <p>创建的监听器ID</p>
+                     * 获取创建的监听器ID
+                     * @return ListenerId 创建的监听器ID
                      * 
                      */
                     std::string GetListenerId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>创建的监听器ID</p>
+                     * 创建的监听器ID
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;

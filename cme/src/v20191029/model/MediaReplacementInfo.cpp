@@ -25,8 +25,7 @@ MediaReplacementInfo::MediaReplacementInfo() :
     m_materialIdHasBeenSet(false),
     m_mediaUrlHasBeenSet(false),
     m_startTimeOffsetHasBeenSet(false),
-    m_preprocessOperationHasBeenSet(false),
-    m_muteSwitchHasBeenSet(false)
+    m_preprocessOperationHasBeenSet(false)
 {
 }
 
@@ -92,16 +91,6 @@ CoreInternalOutcome MediaReplacementInfo::Deserialize(const rapidjson::Value &va
         m_preprocessOperationHasBeenSet = true;
     }
 
-    if (value.HasMember("MuteSwitch") && !value["MuteSwitch"].IsNull())
-    {
-        if (!value["MuteSwitch"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `MediaReplacementInfo.MuteSwitch` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_muteSwitch = string(value["MuteSwitch"].GetString());
-        m_muteSwitchHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -148,14 +137,6 @@ void MediaReplacementInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_preprocessOperation.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_muteSwitchHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MuteSwitch";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_muteSwitch.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -239,21 +220,5 @@ void MediaReplacementInfo::SetPreprocessOperation(const MediaPreprocessOperation
 bool MediaReplacementInfo::PreprocessOperationHasBeenSet() const
 {
     return m_preprocessOperationHasBeenSet;
-}
-
-string MediaReplacementInfo::GetMuteSwitch() const
-{
-    return m_muteSwitch;
-}
-
-void MediaReplacementInfo::SetMuteSwitch(const string& _muteSwitch)
-{
-    m_muteSwitch = _muteSwitch;
-    m_muteSwitchHasBeenSet = true;
-}
-
-bool MediaReplacementInfo::MuteSwitchHasBeenSet() const
-{
-    return m_muteSwitchHasBeenSet;
 }
 

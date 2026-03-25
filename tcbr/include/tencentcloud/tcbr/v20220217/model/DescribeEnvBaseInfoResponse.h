@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>环境基础信息</p>
-                     * @return EnvBaseInfo <p>环境基础信息</p>
+                     * 获取环境基础信息
+                     * @return EnvBaseInfo 环境基础信息
                      * 
                      */
                     EnvBaseInfo GetEnvBaseInfo() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool EnvBaseInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否存在</p>
-                     * @return IsExist <p>是否存在</p>
+                     * 获取是否存在
+                     * @return IsExist 是否存在
                      * 
                      */
                     bool GetIsExist() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>环境基础信息</p>
+                     * 环境基础信息
                      */
                     EnvBaseInfo m_envBaseInfo;
                     bool m_envBaseInfoHasBeenSet;
 
                     /**
-                     * <p>是否存在</p>
+                     * 是否存在
                      */
                     bool m_isExist;
                     bool m_isExistHasBeenSet;

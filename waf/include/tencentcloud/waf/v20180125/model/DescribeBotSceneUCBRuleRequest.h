@@ -273,27 +273,6 @@ namespace TencentCloud
                      */
                     bool RuleIdHasBeenSet() const;
 
-                    /**
-                     * 获取batch表示批量规则、scene表示场景规则，不传表示全部
-                     * @return Source batch表示批量规则、scene表示场景规则，不传表示全部
-                     * 
-                     */
-                    std::string GetSource() const;
-
-                    /**
-                     * 设置batch表示批量规则、scene表示场景规则，不传表示全部
-                     * @param _source batch表示批量规则、scene表示场景规则，不传表示全部
-                     * 
-                     */
-                    void SetSource(const std::string& _source);
-
-                    /**
-                     * 判断参数 Source 是否已赋值
-                     * @return Source 是否已赋值
-                     * 
-                     */
-                    bool SourceHasBeenSet() const;
-
                 private:
 
                     /**
@@ -361,12 +340,6 @@ namespace TencentCloud
                      */
                     std::string m_ruleId;
                     bool m_ruleIdHasBeenSet;
-
-                    /**
-                     * batch表示批量规则、scene表示场景规则，不传表示全部
-                     */
-                    std::string m_source;
-                    bool m_sourceHasBeenSet;
 
                 };
             }

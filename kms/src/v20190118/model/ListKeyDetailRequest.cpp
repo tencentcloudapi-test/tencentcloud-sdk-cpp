@@ -32,8 +32,7 @@ ListKeyDetailRequest::ListKeyDetailRequest() :
     m_originHasBeenSet(false),
     m_keyUsageHasBeenSet(false),
     m_tagFiltersHasBeenSet(false),
-    m_hsmClusterIdHasBeenSet(false),
-    m_memberAccountsHasBeenSet(false)
+    m_hsmClusterIdHasBeenSet(false)
 {
 }
 
@@ -129,21 +128,6 @@ string ListKeyDetailRequest::ToJsonString() const
         string key = "HsmClusterId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_hsmClusterId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_memberAccountsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MemberAccounts";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_memberAccounts.begin(); itr != m_memberAccounts.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
     }
 
 
@@ -312,22 +296,6 @@ void ListKeyDetailRequest::SetHsmClusterId(const string& _hsmClusterId)
 bool ListKeyDetailRequest::HsmClusterIdHasBeenSet() const
 {
     return m_hsmClusterIdHasBeenSet;
-}
-
-vector<MemberAccount> ListKeyDetailRequest::GetMemberAccounts() const
-{
-    return m_memberAccounts;
-}
-
-void ListKeyDetailRequest::SetMemberAccounts(const vector<MemberAccount>& _memberAccounts)
-{
-    m_memberAccounts = _memberAccounts;
-    m_memberAccountsHasBeenSet = true;
-}
-
-bool ListKeyDetailRequest::MemberAccountsHasBeenSet() const
-{
-    return m_memberAccountsHasBeenSet;
 }
 
 

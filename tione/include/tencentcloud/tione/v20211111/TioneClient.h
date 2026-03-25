@@ -25,8 +25,6 @@
 #include <tencentcloud/core/AsyncCallerContext.h>
 #include <tencentcloud/tione/v20211111/model/ChatCompletionRequest.h>
 #include <tencentcloud/tione/v20211111/model/ChatCompletionResponse.h>
-#include <tencentcloud/tione/v20211111/model/CreateDataSourceRequest.h>
-#include <tencentcloud/tione/v20211111/model/CreateDataSourceResponse.h>
 #include <tencentcloud/tione/v20211111/model/CreateDatasetRequest.h>
 #include <tencentcloud/tione/v20211111/model/CreateDatasetResponse.h>
 #include <tencentcloud/tione/v20211111/model/CreateExportRequest.h>
@@ -35,8 +33,6 @@
 #include <tencentcloud/tione/v20211111/model/CreateModelServiceResponse.h>
 #include <tencentcloud/tione/v20211111/model/CreateModelServiceAuthTokenRequest.h>
 #include <tencentcloud/tione/v20211111/model/CreateModelServiceAuthTokenResponse.h>
-#include <tencentcloud/tione/v20211111/model/CreateMountLimitRequest.h>
-#include <tencentcloud/tione/v20211111/model/CreateMountLimitResponse.h>
 #include <tencentcloud/tione/v20211111/model/CreateNotebookRequest.h>
 #include <tencentcloud/tione/v20211111/model/CreateNotebookResponse.h>
 #include <tencentcloud/tione/v20211111/model/CreatePresignedNotebookUrlRequest.h>
@@ -45,8 +41,6 @@
 #include <tencentcloud/tione/v20211111/model/CreateTrainingModelResponse.h>
 #include <tencentcloud/tione/v20211111/model/CreateTrainingTaskRequest.h>
 #include <tencentcloud/tione/v20211111/model/CreateTrainingTaskResponse.h>
-#include <tencentcloud/tione/v20211111/model/DeleteDataSourceRequest.h>
-#include <tencentcloud/tione/v20211111/model/DeleteDataSourceResponse.h>
 #include <tencentcloud/tione/v20211111/model/DeleteDatasetRequest.h>
 #include <tencentcloud/tione/v20211111/model/DeleteDatasetResponse.h>
 #include <tencentcloud/tione/v20211111/model/DeleteExportRequest.h>
@@ -57,8 +51,6 @@
 #include <tencentcloud/tione/v20211111/model/DeleteModelServiceAuthTokenResponse.h>
 #include <tencentcloud/tione/v20211111/model/DeleteModelServiceGroupRequest.h>
 #include <tencentcloud/tione/v20211111/model/DeleteModelServiceGroupResponse.h>
-#include <tencentcloud/tione/v20211111/model/DeleteMountLimitRequest.h>
-#include <tencentcloud/tione/v20211111/model/DeleteMountLimitResponse.h>
 #include <tencentcloud/tione/v20211111/model/DeleteNotebookRequest.h>
 #include <tencentcloud/tione/v20211111/model/DeleteNotebookResponse.h>
 #include <tencentcloud/tione/v20211111/model/DeleteTrainingModelRequest.h>
@@ -79,10 +71,6 @@
 #include <tencentcloud/tione/v20211111/model/DescribeBillingSpecsPriceResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeBuildInImagesRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribeBuildInImagesResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribeDataSourceRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribeDataSourceResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribeDataSourcesRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribeDataSourcesResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeDatasetsRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribeDatasetsResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeEventsRequest.h>
@@ -107,22 +95,12 @@
 #include <tencentcloud/tione/v20211111/model/DescribeModelServiceGroupsResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeModelServiceHotUpdatedRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribeModelServiceHotUpdatedResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribeMountInstanceRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribeMountInstanceResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribeMountInstancesRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribeMountInstancesResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribeMountLimitsRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribeMountLimitsResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeNotebookRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribeNotebookResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeNotebooksRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribeNotebooksResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribePlatformImagesRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribePlatformImagesResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribePublicAlgoVersionListRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribePublicAlgoVersionListResponse.h>
-#include <tencentcloud/tione/v20211111/model/DescribeSubAccountLinuxUserInfosRequest.h>
-#include <tencentcloud/tione/v20211111/model/DescribeSubAccountLinuxUserInfosResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeTrainingModelVersionRequest.h>
 #include <tencentcloud/tione/v20211111/model/DescribeTrainingModelVersionResponse.h>
 #include <tencentcloud/tione/v20211111/model/DescribeTrainingModelVersionsRequest.h>
@@ -139,12 +117,8 @@
 #include <tencentcloud/tione/v20211111/model/ModifyModelServiceAuthTokenResponse.h>
 #include <tencentcloud/tione/v20211111/model/ModifyModelServiceAuthorizationRequest.h>
 #include <tencentcloud/tione/v20211111/model/ModifyModelServiceAuthorizationResponse.h>
-#include <tencentcloud/tione/v20211111/model/ModifyNotebookRequest.h>
-#include <tencentcloud/tione/v20211111/model/ModifyNotebookResponse.h>
 #include <tencentcloud/tione/v20211111/model/ModifyNotebookTagsRequest.h>
 #include <tencentcloud/tione/v20211111/model/ModifyNotebookTagsResponse.h>
-#include <tencentcloud/tione/v20211111/model/ModifyServiceGroupWeightsRequest.h>
-#include <tencentcloud/tione/v20211111/model/ModifyServiceGroupWeightsResponse.h>
 #include <tencentcloud/tione/v20211111/model/PushTrainingMetricsRequest.h>
 #include <tencentcloud/tione/v20211111/model/PushTrainingMetricsResponse.h>
 #include <tencentcloud/tione/v20211111/model/StartNotebookRequest.h>
@@ -157,12 +131,6 @@
 #include <tencentcloud/tione/v20211111/model/StopNotebookResponse.h>
 #include <tencentcloud/tione/v20211111/model/StopTrainingTaskRequest.h>
 #include <tencentcloud/tione/v20211111/model/StopTrainingTaskResponse.h>
-#include <tencentcloud/tione/v20211111/model/UpdateDataSourceRequest.h>
-#include <tencentcloud/tione/v20211111/model/UpdateDataSourceResponse.h>
-#include <tencentcloud/tione/v20211111/model/UpdateMountLimitRequest.h>
-#include <tencentcloud/tione/v20211111/model/UpdateMountLimitResponse.h>
-#include <tencentcloud/tione/v20211111/model/UpdateSubAccountLinuxUserInfoRequest.h>
-#include <tencentcloud/tione/v20211111/model/UpdateSubAccountLinuxUserInfoResponse.h>
 
 
 namespace TencentCloud
@@ -180,9 +148,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ChatCompletionResponse> ChatCompletionOutcome;
                 typedef std::future<ChatCompletionOutcome> ChatCompletionOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::ChatCompletionRequest&, ChatCompletionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ChatCompletionAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateDataSourceResponse> CreateDataSourceOutcome;
-                typedef std::future<CreateDataSourceOutcome> CreateDataSourceOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::CreateDataSourceRequest&, CreateDataSourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDataSourceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateDatasetResponse> CreateDatasetOutcome;
                 typedef std::future<CreateDatasetOutcome> CreateDatasetOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::CreateDatasetRequest&, CreateDatasetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDatasetAsyncHandler;
@@ -195,9 +160,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateModelServiceAuthTokenResponse> CreateModelServiceAuthTokenOutcome;
                 typedef std::future<CreateModelServiceAuthTokenOutcome> CreateModelServiceAuthTokenOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::CreateModelServiceAuthTokenRequest&, CreateModelServiceAuthTokenOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateModelServiceAuthTokenAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateMountLimitResponse> CreateMountLimitOutcome;
-                typedef std::future<CreateMountLimitOutcome> CreateMountLimitOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::CreateMountLimitRequest&, CreateMountLimitOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMountLimitAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateNotebookResponse> CreateNotebookOutcome;
                 typedef std::future<CreateNotebookOutcome> CreateNotebookOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::CreateNotebookRequest&, CreateNotebookOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateNotebookAsyncHandler;
@@ -210,9 +172,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateTrainingTaskResponse> CreateTrainingTaskOutcome;
                 typedef std::future<CreateTrainingTaskOutcome> CreateTrainingTaskOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::CreateTrainingTaskRequest&, CreateTrainingTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateTrainingTaskAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteDataSourceResponse> DeleteDataSourceOutcome;
-                typedef std::future<DeleteDataSourceOutcome> DeleteDataSourceOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DeleteDataSourceRequest&, DeleteDataSourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDataSourceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteDatasetResponse> DeleteDatasetOutcome;
                 typedef std::future<DeleteDatasetOutcome> DeleteDatasetOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DeleteDatasetRequest&, DeleteDatasetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDatasetAsyncHandler;
@@ -228,9 +187,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteModelServiceGroupResponse> DeleteModelServiceGroupOutcome;
                 typedef std::future<DeleteModelServiceGroupOutcome> DeleteModelServiceGroupOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DeleteModelServiceGroupRequest&, DeleteModelServiceGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteModelServiceGroupAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteMountLimitResponse> DeleteMountLimitOutcome;
-                typedef std::future<DeleteMountLimitOutcome> DeleteMountLimitOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DeleteMountLimitRequest&, DeleteMountLimitOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMountLimitAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteNotebookResponse> DeleteNotebookOutcome;
                 typedef std::future<DeleteNotebookOutcome> DeleteNotebookOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DeleteNotebookRequest&, DeleteNotebookOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteNotebookAsyncHandler;
@@ -261,12 +217,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeBuildInImagesResponse> DescribeBuildInImagesOutcome;
                 typedef std::future<DescribeBuildInImagesOutcome> DescribeBuildInImagesOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DescribeBuildInImagesRequest&, DescribeBuildInImagesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBuildInImagesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataSourceResponse> DescribeDataSourceOutcome;
-                typedef std::future<DescribeDataSourceOutcome> DescribeDataSourceOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribeDataSourceRequest&, DescribeDataSourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataSourceAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataSourcesResponse> DescribeDataSourcesOutcome;
-                typedef std::future<DescribeDataSourcesOutcome> DescribeDataSourcesOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribeDataSourcesRequest&, DescribeDataSourcesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataSourcesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDatasetsResponse> DescribeDatasetsOutcome;
                 typedef std::future<DescribeDatasetsOutcome> DescribeDatasetsOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DescribeDatasetsRequest&, DescribeDatasetsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDatasetsAsyncHandler;
@@ -303,15 +253,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeModelServiceHotUpdatedResponse> DescribeModelServiceHotUpdatedOutcome;
                 typedef std::future<DescribeModelServiceHotUpdatedOutcome> DescribeModelServiceHotUpdatedOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DescribeModelServiceHotUpdatedRequest&, DescribeModelServiceHotUpdatedOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeModelServiceHotUpdatedAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeMountInstanceResponse> DescribeMountInstanceOutcome;
-                typedef std::future<DescribeMountInstanceOutcome> DescribeMountInstanceOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribeMountInstanceRequest&, DescribeMountInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMountInstanceAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeMountInstancesResponse> DescribeMountInstancesOutcome;
-                typedef std::future<DescribeMountInstancesOutcome> DescribeMountInstancesOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribeMountInstancesRequest&, DescribeMountInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMountInstancesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeMountLimitsResponse> DescribeMountLimitsOutcome;
-                typedef std::future<DescribeMountLimitsOutcome> DescribeMountLimitsOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribeMountLimitsRequest&, DescribeMountLimitsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMountLimitsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeNotebookResponse> DescribeNotebookOutcome;
                 typedef std::future<DescribeNotebookOutcome> DescribeNotebookOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DescribeNotebookRequest&, DescribeNotebookOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeNotebookAsyncHandler;
@@ -321,12 +262,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribePlatformImagesResponse> DescribePlatformImagesOutcome;
                 typedef std::future<DescribePlatformImagesOutcome> DescribePlatformImagesOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DescribePlatformImagesRequest&, DescribePlatformImagesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePlatformImagesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribePublicAlgoVersionListResponse> DescribePublicAlgoVersionListOutcome;
-                typedef std::future<DescribePublicAlgoVersionListOutcome> DescribePublicAlgoVersionListOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribePublicAlgoVersionListRequest&, DescribePublicAlgoVersionListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePublicAlgoVersionListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeSubAccountLinuxUserInfosResponse> DescribeSubAccountLinuxUserInfosOutcome;
-                typedef std::future<DescribeSubAccountLinuxUserInfosOutcome> DescribeSubAccountLinuxUserInfosOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::DescribeSubAccountLinuxUserInfosRequest&, DescribeSubAccountLinuxUserInfosOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSubAccountLinuxUserInfosAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTrainingModelVersionResponse> DescribeTrainingModelVersionOutcome;
                 typedef std::future<DescribeTrainingModelVersionOutcome> DescribeTrainingModelVersionOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::DescribeTrainingModelVersionRequest&, DescribeTrainingModelVersionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTrainingModelVersionAsyncHandler;
@@ -351,15 +286,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyModelServiceAuthorizationResponse> ModifyModelServiceAuthorizationOutcome;
                 typedef std::future<ModifyModelServiceAuthorizationOutcome> ModifyModelServiceAuthorizationOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::ModifyModelServiceAuthorizationRequest&, ModifyModelServiceAuthorizationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyModelServiceAuthorizationAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyNotebookResponse> ModifyNotebookOutcome;
-                typedef std::future<ModifyNotebookOutcome> ModifyNotebookOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::ModifyNotebookRequest&, ModifyNotebookOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyNotebookAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyNotebookTagsResponse> ModifyNotebookTagsOutcome;
                 typedef std::future<ModifyNotebookTagsOutcome> ModifyNotebookTagsOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::ModifyNotebookTagsRequest&, ModifyNotebookTagsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyNotebookTagsAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyServiceGroupWeightsResponse> ModifyServiceGroupWeightsOutcome;
-                typedef std::future<ModifyServiceGroupWeightsOutcome> ModifyServiceGroupWeightsOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::ModifyServiceGroupWeightsRequest&, ModifyServiceGroupWeightsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyServiceGroupWeightsAsyncHandler;
                 typedef Outcome<Core::Error, Model::PushTrainingMetricsResponse> PushTrainingMetricsOutcome;
                 typedef std::future<PushTrainingMetricsOutcome> PushTrainingMetricsOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::PushTrainingMetricsRequest&, PushTrainingMetricsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> PushTrainingMetricsAsyncHandler;
@@ -378,15 +307,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::StopTrainingTaskResponse> StopTrainingTaskOutcome;
                 typedef std::future<StopTrainingTaskOutcome> StopTrainingTaskOutcomeCallable;
                 typedef std::function<void(const TioneClient*, const Model::StopTrainingTaskRequest&, StopTrainingTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopTrainingTaskAsyncHandler;
-                typedef Outcome<Core::Error, Model::UpdateDataSourceResponse> UpdateDataSourceOutcome;
-                typedef std::future<UpdateDataSourceOutcome> UpdateDataSourceOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::UpdateDataSourceRequest&, UpdateDataSourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateDataSourceAsyncHandler;
-                typedef Outcome<Core::Error, Model::UpdateMountLimitResponse> UpdateMountLimitOutcome;
-                typedef std::future<UpdateMountLimitOutcome> UpdateMountLimitOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::UpdateMountLimitRequest&, UpdateMountLimitOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateMountLimitAsyncHandler;
-                typedef Outcome<Core::Error, Model::UpdateSubAccountLinuxUserInfoResponse> UpdateSubAccountLinuxUserInfoOutcome;
-                typedef std::future<UpdateSubAccountLinuxUserInfoOutcome> UpdateSubAccountLinuxUserInfoOutcomeCallable;
-                typedef std::function<void(const TioneClient*, const Model::UpdateSubAccountLinuxUserInfoRequest&, UpdateSubAccountLinuxUserInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateSubAccountLinuxUserInfoAsyncHandler;
 
 
 
@@ -401,15 +321,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 ChatCompletionOutcome ChatCompletion(const Model::ChatCompletionRequest &request);
                 void ChatCompletionAsync(const Model::ChatCompletionRequest& request, const ChatCompletionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ChatCompletionOutcomeCallable ChatCompletionCallable(const Model::ChatCompletionRequest& request);
-
-                /**
-                 *创建数据源
-                 * @param req CreateDataSourceRequest
-                 * @return CreateDataSourceOutcome
-                 */
-                CreateDataSourceOutcome CreateDataSource(const Model::CreateDataSourceRequest &request);
-                void CreateDataSourceAsync(const Model::CreateDataSourceRequest& request, const CreateDataSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateDataSourceOutcomeCallable CreateDataSourceCallable(const Model::CreateDataSourceRequest& request);
 
                 /**
                  *创建数据集
@@ -448,15 +359,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 CreateModelServiceAuthTokenOutcomeCallable CreateModelServiceAuthTokenCallable(const Model::CreateModelServiceAuthTokenRequest& request);
 
                 /**
-                 *创建挂载限制
-                 * @param req CreateMountLimitRequest
-                 * @return CreateMountLimitOutcome
-                 */
-                CreateMountLimitOutcome CreateMountLimit(const Model::CreateMountLimitRequest &request);
-                void CreateMountLimitAsync(const Model::CreateMountLimitRequest& request, const CreateMountLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateMountLimitOutcomeCallable CreateMountLimitCallable(const Model::CreateMountLimitRequest& request);
-
-                /**
                  *创建Notebook
                  * @param req CreateNotebookRequest
                  * @return CreateNotebookOutcome
@@ -491,15 +393,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 CreateTrainingTaskOutcome CreateTrainingTask(const Model::CreateTrainingTaskRequest &request);
                 void CreateTrainingTaskAsync(const Model::CreateTrainingTaskRequest& request, const CreateTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateTrainingTaskOutcomeCallable CreateTrainingTaskCallable(const Model::CreateTrainingTaskRequest& request);
-
-                /**
-                 *删除数据源
-                 * @param req DeleteDataSourceRequest
-                 * @return DeleteDataSourceOutcome
-                 */
-                DeleteDataSourceOutcome DeleteDataSource(const Model::DeleteDataSourceRequest &request);
-                void DeleteDataSourceAsync(const Model::DeleteDataSourceRequest& request, const DeleteDataSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteDataSourceOutcomeCallable DeleteDataSourceCallable(const Model::DeleteDataSourceRequest& request);
 
                 /**
                  *删除数据集
@@ -547,15 +440,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 DeleteModelServiceGroupOutcomeCallable DeleteModelServiceGroupCallable(const Model::DeleteModelServiceGroupRequest& request);
 
                 /**
-                 *删除挂载限制。注意：删除挂载限制后，该存储对应的所有数据源也会被删除
-                 * @param req DeleteMountLimitRequest
-                 * @return DeleteMountLimitOutcome
-                 */
-                DeleteMountLimitOutcome DeleteMountLimit(const Model::DeleteMountLimitRequest &request);
-                void DeleteMountLimitAsync(const Model::DeleteMountLimitRequest& request, const DeleteMountLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteMountLimitOutcomeCallable DeleteMountLimitCallable(const Model::DeleteMountLimitRequest& request);
-
-                /**
                  *删除Notebook
                  * @param req DeleteNotebookRequest
                  * @return DeleteNotebookOutcome
@@ -601,7 +485,7 @@ https://cloud.tencent.com/document/product/1278/85305
                 DescribeBillingResourceGroupOutcomeCallable DescribeBillingResourceGroupCallable(const Model::DescribeBillingResourceGroupRequest& request);
 
                 /**
-                 *查询资源组列表
+                 *查询资源组详情
                  * @param req DescribeBillingResourceGroupsRequest
                  * @return DescribeBillingResourceGroupsOutcome
                  */
@@ -644,24 +528,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 DescribeBuildInImagesOutcome DescribeBuildInImages(const Model::DescribeBuildInImagesRequest &request);
                 void DescribeBuildInImagesAsync(const Model::DescribeBuildInImagesRequest& request, const DescribeBuildInImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeBuildInImagesOutcomeCallable DescribeBuildInImagesCallable(const Model::DescribeBuildInImagesRequest& request);
-
-                /**
-                 *获取数据源详情
-                 * @param req DescribeDataSourceRequest
-                 * @return DescribeDataSourceOutcome
-                 */
-                DescribeDataSourceOutcome DescribeDataSource(const Model::DescribeDataSourceRequest &request);
-                void DescribeDataSourceAsync(const Model::DescribeDataSourceRequest& request, const DescribeDataSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataSourceOutcomeCallable DescribeDataSourceCallable(const Model::DescribeDataSourceRequest& request);
-
-                /**
-                 *获取数据源列表
-                 * @param req DescribeDataSourcesRequest
-                 * @return DescribeDataSourcesOutcome
-                 */
-                DescribeDataSourcesOutcome DescribeDataSources(const Model::DescribeDataSourcesRequest &request);
-                void DescribeDataSourcesAsync(const Model::DescribeDataSourcesRequest& request, const DescribeDataSourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataSourcesOutcomeCallable DescribeDataSourcesCallable(const Model::DescribeDataSourcesRequest& request);
 
                 /**
                  *查询数据集列表
@@ -774,33 +640,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 DescribeModelServiceHotUpdatedOutcomeCallable DescribeModelServiceHotUpdatedCallable(const Model::DescribeModelServiceHotUpdatedRequest& request);
 
                 /**
-                 *DescribeMountInstance
-                 * @param req DescribeMountInstanceRequest
-                 * @return DescribeMountInstanceOutcome
-                 */
-                DescribeMountInstanceOutcome DescribeMountInstance(const Model::DescribeMountInstanceRequest &request);
-                void DescribeMountInstanceAsync(const Model::DescribeMountInstanceRequest& request, const DescribeMountInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeMountInstanceOutcomeCallable DescribeMountInstanceCallable(const Model::DescribeMountInstanceRequest& request);
-
-                /**
-                 *非数据源挂载时获取实例列表
-                 * @param req DescribeMountInstancesRequest
-                 * @return DescribeMountInstancesOutcome
-                 */
-                DescribeMountInstancesOutcome DescribeMountInstances(const Model::DescribeMountInstancesRequest &request);
-                void DescribeMountInstancesAsync(const Model::DescribeMountInstancesRequest& request, const DescribeMountInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeMountInstancesOutcomeCallable DescribeMountInstancesCallable(const Model::DescribeMountInstancesRequest& request);
-
-                /**
-                 *获取挂载限制列表
-                 * @param req DescribeMountLimitsRequest
-                 * @return DescribeMountLimitsOutcome
-                 */
-                DescribeMountLimitsOutcome DescribeMountLimits(const Model::DescribeMountLimitsRequest &request);
-                void DescribeMountLimitsAsync(const Model::DescribeMountLimitsRequest& request, const DescribeMountLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeMountLimitsOutcomeCallable DescribeMountLimitsCallable(const Model::DescribeMountLimitsRequest& request);
-
-                /**
                  *Notebook详情
                  * @param req DescribeNotebookRequest
                  * @return DescribeNotebookOutcome
@@ -826,24 +665,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 DescribePlatformImagesOutcome DescribePlatformImages(const Model::DescribePlatformImagesRequest &request);
                 void DescribePlatformImagesAsync(const Model::DescribePlatformImagesRequest& request, const DescribePlatformImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribePlatformImagesOutcomeCallable DescribePlatformImagesCallable(const Model::DescribePlatformImagesRequest& request);
-
-                /**
-                 *公共算法版本列表
-                 * @param req DescribePublicAlgoVersionListRequest
-                 * @return DescribePublicAlgoVersionListOutcome
-                 */
-                DescribePublicAlgoVersionListOutcome DescribePublicAlgoVersionList(const Model::DescribePublicAlgoVersionListRequest &request);
-                void DescribePublicAlgoVersionListAsync(const Model::DescribePublicAlgoVersionListRequest& request, const DescribePublicAlgoVersionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribePublicAlgoVersionListOutcomeCallable DescribePublicAlgoVersionListCallable(const Model::DescribePublicAlgoVersionListRequest& request);
-
-                /**
-                 *批量查询子账号Linux用户信息
-                 * @param req DescribeSubAccountLinuxUserInfosRequest
-                 * @return DescribeSubAccountLinuxUserInfosOutcome
-                 */
-                DescribeSubAccountLinuxUserInfosOutcome DescribeSubAccountLinuxUserInfos(const Model::DescribeSubAccountLinuxUserInfosRequest &request);
-                void DescribeSubAccountLinuxUserInfosAsync(const Model::DescribeSubAccountLinuxUserInfosRequest& request, const DescribeSubAccountLinuxUserInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeSubAccountLinuxUserInfosOutcomeCallable DescribeSubAccountLinuxUserInfosCallable(const Model::DescribeSubAccountLinuxUserInfosRequest& request);
 
                 /**
                  *查询模型版本
@@ -918,15 +739,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 ModifyModelServiceAuthorizationOutcomeCallable ModifyModelServiceAuthorizationCallable(const Model::ModifyModelServiceAuthorizationRequest& request);
 
                 /**
-                 *修改Notebook
-                 * @param req ModifyNotebookRequest
-                 * @return ModifyNotebookOutcome
-                 */
-                ModifyNotebookOutcome ModifyNotebook(const Model::ModifyNotebookRequest &request);
-                void ModifyNotebookAsync(const Model::ModifyNotebookRequest& request, const ModifyNotebookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyNotebookOutcomeCallable ModifyNotebookCallable(const Model::ModifyNotebookRequest& request);
-
-                /**
                  *修改Notebook标签
                  * @param req ModifyNotebookTagsRequest
                  * @return ModifyNotebookTagsOutcome
@@ -934,15 +746,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 ModifyNotebookTagsOutcome ModifyNotebookTags(const Model::ModifyNotebookTagsRequest &request);
                 void ModifyNotebookTagsAsync(const Model::ModifyNotebookTagsRequest& request, const ModifyNotebookTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyNotebookTagsOutcomeCallable ModifyNotebookTagsCallable(const Model::ModifyNotebookTagsRequest& request);
-
-                /**
-                 *更新推理服务组流量分配
-                 * @param req ModifyServiceGroupWeightsRequest
-                 * @return ModifyServiceGroupWeightsOutcome
-                 */
-                ModifyServiceGroupWeightsOutcome ModifyServiceGroupWeights(const Model::ModifyServiceGroupWeightsRequest &request);
-                void ModifyServiceGroupWeightsAsync(const Model::ModifyServiceGroupWeightsRequest& request, const ModifyServiceGroupWeightsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyServiceGroupWeightsOutcomeCallable ModifyServiceGroupWeightsCallable(const Model::ModifyServiceGroupWeightsRequest& request);
 
                 /**
                  *上报训练自定义指标
@@ -997,33 +800,6 @@ https://cloud.tencent.com/document/product/1278/85305
                 StopTrainingTaskOutcome StopTrainingTask(const Model::StopTrainingTaskRequest &request);
                 void StopTrainingTaskAsync(const Model::StopTrainingTaskRequest& request, const StopTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 StopTrainingTaskOutcomeCallable StopTrainingTaskCallable(const Model::StopTrainingTaskRequest& request);
-
-                /**
-                 *更新数据源
-                 * @param req UpdateDataSourceRequest
-                 * @return UpdateDataSourceOutcome
-                 */
-                UpdateDataSourceOutcome UpdateDataSource(const Model::UpdateDataSourceRequest &request);
-                void UpdateDataSourceAsync(const Model::UpdateDataSourceRequest& request, const UpdateDataSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                UpdateDataSourceOutcomeCallable UpdateDataSourceCallable(const Model::UpdateDataSourceRequest& request);
-
-                /**
-                 *创建挂载限制
-                 * @param req UpdateMountLimitRequest
-                 * @return UpdateMountLimitOutcome
-                 */
-                UpdateMountLimitOutcome UpdateMountLimit(const Model::UpdateMountLimitRequest &request);
-                void UpdateMountLimitAsync(const Model::UpdateMountLimitRequest& request, const UpdateMountLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                UpdateMountLimitOutcomeCallable UpdateMountLimitCallable(const Model::UpdateMountLimitRequest& request);
-
-                /**
-                 *更新子账号Linux用户信息
-                 * @param req UpdateSubAccountLinuxUserInfoRequest
-                 * @return UpdateSubAccountLinuxUserInfoOutcome
-                 */
-                UpdateSubAccountLinuxUserInfoOutcome UpdateSubAccountLinuxUserInfo(const Model::UpdateSubAccountLinuxUserInfoRequest &request);
-                void UpdateSubAccountLinuxUserInfoAsync(const Model::UpdateSubAccountLinuxUserInfoRequest& request, const UpdateSubAccountLinuxUserInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                UpdateSubAccountLinuxUserInfoOutcomeCallable UpdateSubAccountLinuxUserInfoCallable(const Model::UpdateSubAccountLinuxUserInfoRequest& request);
 
             };
         }

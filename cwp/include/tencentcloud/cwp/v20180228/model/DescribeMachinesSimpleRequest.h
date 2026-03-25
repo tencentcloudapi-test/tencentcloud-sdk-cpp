@@ -85,15 +85,15 @@ Other 混合云专区
                     bool MachineTypeHasBeenSet() const;
 
                     /**
-                     * 获取机器所属地域。如：ap-guangzhou，ap-shangha，非腾讯云主机使用：ap-others
-                     * @return MachineRegion 机器所属地域。如：ap-guangzhou，ap-shangha，非腾讯云主机使用：ap-others
+                     * 获取机器所属地域。如：ap-guangzhou，ap-shanghai
+                     * @return MachineRegion 机器所属地域。如：ap-guangzhou，ap-shanghai
                      * 
                      */
                     std::string GetMachineRegion() const;
 
                     /**
-                     * 设置机器所属地域。如：ap-guangzhou，ap-shangha，非腾讯云主机使用：ap-others
-                     * @param _machineRegion 机器所属地域。如：ap-guangzhou，ap-shangha，非腾讯云主机使用：ap-others
+                     * 设置机器所属地域。如：ap-guangzhou，ap-shanghai
+                     * @param _machineRegion 机器所属地域。如：ap-guangzhou，ap-shanghai
                      * 
                      */
                     void SetMachineRegion(const std::string& _machineRegion);
@@ -215,7 +215,7 @@ Other 混合云专区
                     bool m_machineTypeHasBeenSet;
 
                     /**
-                     * 机器所属地域。如：ap-guangzhou，ap-shangha，非腾讯云主机使用：ap-others
+                     * 机器所属地域。如：ap-guangzhou，ap-shanghai
                      */
                     std::string m_machineRegion;
                     bool m_machineRegionHasBeenSet;

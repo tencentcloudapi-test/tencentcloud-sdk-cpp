@@ -29,8 +29,7 @@ DataServiceRequestParam::DataServiceRequestParam() :
     m_nonEmptyHasBeenSet(false),
     m_defaultValueHasBeenSet(false),
     m_exampleValueHasBeenSet(false),
-    m_descriptionHasBeenSet(false),
-    m_stdCodeHasBeenSet(false)
+    m_descriptionHasBeenSet(false)
 {
 }
 
@@ -129,16 +128,6 @@ CoreInternalOutcome DataServiceRequestParam::Deserialize(const rapidjson::Value 
         m_descriptionHasBeenSet = true;
     }
 
-    if (value.HasMember("StdCode") && !value["StdCode"].IsNull())
-    {
-        if (!value["StdCode"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `DataServiceRequestParam.StdCode` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_stdCode = string(value["StdCode"].GetString());
-        m_stdCodeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -216,14 +205,6 @@ void DataServiceRequestParam::ToJsonObject(rapidjson::Value &value, rapidjson::D
         string key = "Description";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_stdCodeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StdCode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_stdCode.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -371,21 +352,5 @@ void DataServiceRequestParam::SetDescription(const string& _description)
 bool DataServiceRequestParam::DescriptionHasBeenSet() const
 {
     return m_descriptionHasBeenSet;
-}
-
-string DataServiceRequestParam::GetStdCode() const
-{
-    return m_stdCode;
-}
-
-void DataServiceRequestParam::SetStdCode(const string& _stdCode)
-{
-    m_stdCode = _stdCode;
-    m_stdCodeHasBeenSet = true;
-}
-
-bool DataServiceRequestParam::StdCodeHasBeenSet() const
-{
-    return m_stdCodeHasBeenSet;
 }
 

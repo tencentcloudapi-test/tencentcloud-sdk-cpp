@@ -344,27 +344,6 @@ namespace TencentCloud
                      */
                     bool AdvancedConfigHasBeenSet() const;
 
-                    /**
-                     * 获取工具数量上限
-                     * @return MaxToolCount 工具数量上限
-                     * 
-                     */
-                    int64_t GetMaxToolCount() const;
-
-                    /**
-                     * 设置工具数量上限
-                     * @param _maxToolCount 工具数量上限
-                     * 
-                     */
-                    void SetMaxToolCount(const int64_t& _maxToolCount);
-
-                    /**
-                     * 判断参数 MaxToolCount 是否已赋值
-                     * @return MaxToolCount 是否已赋值
-                     * 
-                     */
-                    bool MaxToolCountHasBeenSet() const;
-
                 private:
 
                     /**
@@ -450,12 +429,6 @@ namespace TencentCloud
                      */
                     AgentAdvancedConfig m_advancedConfig;
                     bool m_advancedConfigHasBeenSet;
-
-                    /**
-                     * 工具数量上限
-                     */
-                    int64_t m_maxToolCount;
-                    bool m_maxToolCountHasBeenSet;
 
                 };
             }

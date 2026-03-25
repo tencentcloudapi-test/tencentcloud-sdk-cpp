@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>负载均衡器ID</p>
-                     * @return LoadBalancerId <p>负载均衡器ID</p>
+                     * 获取负载均衡器ID
+                     * @return LoadBalancerId 负载均衡器ID
                      * 
                      */
                     std::string GetLoadBalancerId() const;
 
                     /**
-                     * 设置<p>负载均衡器ID</p>
-                     * @param _loadBalancerId <p>负载均衡器ID</p>
+                     * 设置负载均衡器ID
+                     * @param _loadBalancerId 负载均衡器ID
                      * 
                      */
                     void SetLoadBalancerId(const std::string& _loadBalancerId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool LoadBalancerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>应用型负载均衡监听器 ID</p>
-                     * @return ListenerId <p>应用型负载均衡监听器 ID</p>
+                     * 获取应用型负载均衡监听器 ID
+                     * @return ListenerId 应用型负载均衡监听器 ID
                      * 
                      */
                     std::string GetListenerId() const;
 
                     /**
-                     * 设置<p>应用型负载均衡监听器 ID</p>
-                     * @param _listenerId <p>应用型负载均衡监听器 ID</p>
+                     * 设置应用型负载均衡监听器 ID
+                     * @param _listenerId 应用型负载均衡监听器 ID
                      * 
                      */
                     void SetListenerId(const std::string& _listenerId);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool ListenerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>转发规则ID，注意：针对七层监听器此参数必填</p>
-                     * @return LocationId <p>转发规则ID，注意：针对七层监听器此参数必填</p>
+                     * 获取转发规则ID，注意：针对七层监听器此参数必填
+                     * @return LocationId 转发规则ID，注意：针对七层监听器此参数必填
                      * 
                      */
                     std::string GetLocationId() const;
 
                     /**
-                     * 设置<p>转发规则ID，注意：针对七层监听器此参数必填</p>
-                     * @param _locationId <p>转发规则ID，注意：针对七层监听器此参数必填</p>
+                     * 设置转发规则ID，注意：针对七层监听器此参数必填
+                     * @param _locationId 转发规则ID，注意：针对七层监听器此参数必填
                      * 
                      */
                     void SetLocationId(const std::string& _locationId);
@@ -109,52 +109,25 @@ namespace TencentCloud
                      */
                     bool LocationIdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>监听器或转发路径需解绑的端口号列表。</p><p>取值范围：[1, 65535]</p><p>不传递该参数时，默认解绑指定监听器或转发路径关联的所有端口。</p>
-                     * @return PortList <p>监听器或转发路径需解绑的端口号列表。</p><p>取值范围：[1, 65535]</p><p>不传递该参数时，默认解绑指定监听器或转发路径关联的所有端口。</p>
-                     * 
-                     */
-                    std::vector<uint64_t> GetPortList() const;
-
-                    /**
-                     * 设置<p>监听器或转发路径需解绑的端口号列表。</p><p>取值范围：[1, 65535]</p><p>不传递该参数时，默认解绑指定监听器或转发路径关联的所有端口。</p>
-                     * @param _portList <p>监听器或转发路径需解绑的端口号列表。</p><p>取值范围：[1, 65535]</p><p>不传递该参数时，默认解绑指定监听器或转发路径关联的所有端口。</p>
-                     * 
-                     */
-                    void SetPortList(const std::vector<uint64_t>& _portList);
-
-                    /**
-                     * 判断参数 PortList 是否已赋值
-                     * @return PortList 是否已赋值
-                     * 
-                     */
-                    bool PortListHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>负载均衡器ID</p>
+                     * 负载均衡器ID
                      */
                     std::string m_loadBalancerId;
                     bool m_loadBalancerIdHasBeenSet;
 
                     /**
-                     * <p>应用型负载均衡监听器 ID</p>
+                     * 应用型负载均衡监听器 ID
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
-                     * <p>转发规则ID，注意：针对七层监听器此参数必填</p>
+                     * 转发规则ID，注意：针对七层监听器此参数必填
                      */
                     std::string m_locationId;
                     bool m_locationIdHasBeenSet;
-
-                    /**
-                     * <p>监听器或转发路径需解绑的端口号列表。</p><p>取值范围：[1, 65535]</p><p>不传递该参数时，默认解绑指定监听器或转发路径关联的所有端口。</p>
-                     */
-                    std::vector<uint64_t> m_portList;
-                    bool m_portListHasBeenSet;
 
                 };
             }

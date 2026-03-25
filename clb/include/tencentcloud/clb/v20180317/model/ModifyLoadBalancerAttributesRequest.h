@@ -45,15 +45,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>负载均衡的唯一ID，可以通过 <a href="https://cloud.tencent.com/document/product/214/30685">DescribeLoadBalancers</a> 接口获取。</p>
-                     * @return LoadBalancerId <p>负载均衡的唯一ID，可以通过 <a href="https://cloud.tencent.com/document/product/214/30685">DescribeLoadBalancers</a> 接口获取。</p>
+                     * 获取负载均衡的唯一ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
+                     * @return LoadBalancerId 负载均衡的唯一ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
                      * 
                      */
                     std::string GetLoadBalancerId() const;
 
                     /**
-                     * 设置<p>负载均衡的唯一ID，可以通过 <a href="https://cloud.tencent.com/document/product/214/30685">DescribeLoadBalancers</a> 接口获取。</p>
-                     * @param _loadBalancerId <p>负载均衡的唯一ID，可以通过 <a href="https://cloud.tencent.com/document/product/214/30685">DescribeLoadBalancers</a> 接口获取。</p>
+                     * 设置负载均衡的唯一ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
+                     * @param _loadBalancerId 负载均衡的唯一ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
                      * 
                      */
                     void SetLoadBalancerId(const std::string& _loadBalancerId);
@@ -66,15 +66,15 @@ namespace TencentCloud
                     bool LoadBalancerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>负载均衡实例名称，规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。</p>
-                     * @return LoadBalancerName <p>负载均衡实例名称，规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。</p>
+                     * 获取负载均衡实例名称，规则：1-60 个英文、汉字、数字、连接线“-”或下划线“_”。
+                     * @return LoadBalancerName 负载均衡实例名称，规则：1-60 个英文、汉字、数字、连接线“-”或下划线“_”。
                      * 
                      */
                     std::string GetLoadBalancerName() const;
 
                     /**
-                     * 设置<p>负载均衡实例名称，规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。</p>
-                     * @param _loadBalancerName <p>负载均衡实例名称，规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。</p>
+                     * 设置负载均衡实例名称，规则：1-60 个英文、汉字、数字、连接线“-”或下划线“_”。
+                     * @param _loadBalancerName 负载均衡实例名称，规则：1-60 个英文、汉字、数字、连接线“-”或下划线“_”。
                      * 
                      */
                     void SetLoadBalancerName(const std::string& _loadBalancerName);
@@ -87,15 +87,15 @@ namespace TencentCloud
                     bool LoadBalancerNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>设置负载均衡跨地域绑定1.0的后端服务信息</p>
-                     * @return TargetRegionInfo <p>设置负载均衡跨地域绑定1.0的后端服务信息</p>
+                     * 获取设置负载均衡跨地域绑定1.0的后端服务信息
+                     * @return TargetRegionInfo 设置负载均衡跨地域绑定1.0的后端服务信息
                      * 
                      */
                     TargetRegionInfo GetTargetRegionInfo() const;
 
                     /**
-                     * 设置<p>设置负载均衡跨地域绑定1.0的后端服务信息</p>
-                     * @param _targetRegionInfo <p>设置负载均衡跨地域绑定1.0的后端服务信息</p>
+                     * 设置设置负载均衡跨地域绑定1.0的后端服务信息
+                     * @param _targetRegionInfo 设置负载均衡跨地域绑定1.0的后端服务信息
                      * 
                      */
                     void SetTargetRegionInfo(const TargetRegionInfo& _targetRegionInfo);
@@ -108,15 +108,15 @@ namespace TencentCloud
                     bool TargetRegionInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>网络计费相关参数</p>
-                     * @return InternetChargeInfo <p>网络计费相关参数</p>
+                     * 获取网络计费相关参数
+                     * @return InternetChargeInfo 网络计费相关参数
                      * 
                      */
                     InternetAccessible GetInternetChargeInfo() const;
 
                     /**
-                     * 设置<p>网络计费相关参数</p>
-                     * @param _internetChargeInfo <p>网络计费相关参数</p>
+                     * 设置网络计费相关参数
+                     * @param _internetChargeInfo 网络计费相关参数
                      * 
                      */
                     void SetInternetChargeInfo(const InternetAccessible& _internetChargeInfo);
@@ -129,15 +129,27 @@ namespace TencentCloud
                     bool InternetChargeInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>Target是否放通来自CLB的流量。<br>开启放通（true）：只验证CLB上的安全组；<br>不开启放通（false）：需同时验证CLB和后端实例上的安全组。<br>不填则不修改。</p>
-                     * @return LoadBalancerPassToTarget <p>Target是否放通来自CLB的流量。<br>开启放通（true）：只验证CLB上的安全组；<br>不开启放通（false）：需同时验证CLB和后端实例上的安全组。<br>不填则不修改。</p>
+                     * 获取Target是否放通来自CLB的流量。
+开启放通（true）：只验证CLB上的安全组；
+不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+不填则不修改。
+                     * @return LoadBalancerPassToTarget Target是否放通来自CLB的流量。
+开启放通（true）：只验证CLB上的安全组；
+不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+不填则不修改。
                      * 
                      */
                     bool GetLoadBalancerPassToTarget() const;
 
                     /**
-                     * 设置<p>Target是否放通来自CLB的流量。<br>开启放通（true）：只验证CLB上的安全组；<br>不开启放通（false）：需同时验证CLB和后端实例上的安全组。<br>不填则不修改。</p>
-                     * @param _loadBalancerPassToTarget <p>Target是否放通来自CLB的流量。<br>开启放通（true）：只验证CLB上的安全组；<br>不开启放通（false）：需同时验证CLB和后端实例上的安全组。<br>不填则不修改。</p>
+                     * 设置Target是否放通来自CLB的流量。
+开启放通（true）：只验证CLB上的安全组；
+不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+不填则不修改。
+                     * @param _loadBalancerPassToTarget Target是否放通来自CLB的流量。
+开启放通（true）：只验证CLB上的安全组；
+不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+不填则不修改。
                      * 
                      */
                     void SetLoadBalancerPassToTarget(const bool& _loadBalancerPassToTarget);
@@ -150,36 +162,15 @@ namespace TencentCloud
                     bool LoadBalancerPassToTargetHasBeenSet() const;
 
                     /**
-                     * 获取<p>不同计费模式之间的切换：0表示不切换，1表示预付费和后付费切换，2表示后付费之间切换。默认值：0</p>
-                     * @return SwitchFlag <p>不同计费模式之间的切换：0表示不切换，1表示预付费和后付费切换，2表示后付费之间切换。默认值：0</p>
-                     * 
-                     */
-                    uint64_t GetSwitchFlag() const;
-
-                    /**
-                     * 设置<p>不同计费模式之间的切换：0表示不切换，1表示预付费和后付费切换，2表示后付费之间切换。默认值：0</p>
-                     * @param _switchFlag <p>不同计费模式之间的切换：0表示不切换，1表示预付费和后付费切换，2表示后付费之间切换。默认值：0</p>
-                     * 
-                     */
-                    void SetSwitchFlag(const uint64_t& _switchFlag);
-
-                    /**
-                     * 判断参数 SwitchFlag 是否已赋值
-                     * @return SwitchFlag 是否已赋值
-                     * 
-                     */
-                    bool SwitchFlagHasBeenSet() const;
-
-                    /**
-                     * 获取<p>是否开启跨地域绑定2.0功能。不填则不修改。</p>
-                     * @return SnatPro <p>是否开启跨地域绑定2.0功能。不填则不修改。</p>
+                     * 获取是否开启跨地域绑定2.0功能。不填则不修改。
+                     * @return SnatPro 是否开启跨地域绑定2.0功能。不填则不修改。
                      * 
                      */
                     bool GetSnatPro() const;
 
                     /**
-                     * 设置<p>是否开启跨地域绑定2.0功能。不填则不修改。</p>
-                     * @param _snatPro <p>是否开启跨地域绑定2.0功能。不填则不修改。</p>
+                     * 设置是否开启跨地域绑定2.0功能。不填则不修改。
+                     * @param _snatPro 是否开启跨地域绑定2.0功能。不填则不修改。
                      * 
                      */
                     void SetSnatPro(const bool& _snatPro);
@@ -192,15 +183,15 @@ namespace TencentCloud
                     bool SnatProHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启删除保护，不填则不修改。</p>
-                     * @return DeleteProtect <p>是否开启删除保护，不填则不修改。</p>
+                     * 获取是否开启删除保护，不填则不修改。
+                     * @return DeleteProtect 是否开启删除保护，不填则不修改。
                      * 
                      */
                     bool GetDeleteProtect() const;
 
                     /**
-                     * 设置<p>是否开启删除保护，不填则不修改。</p>
-                     * @param _deleteProtect <p>是否开启删除保护，不填则不修改。</p>
+                     * 设置是否开启删除保护，不填则不修改。
+                     * @param _deleteProtect 是否开启删除保护，不填则不修改。
                      * 
                      */
                     void SetDeleteProtect(const bool& _deleteProtect);
@@ -213,15 +204,15 @@ namespace TencentCloud
                     bool DeleteProtectHasBeenSet() const;
 
                     /**
-                     * 获取<p>将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。</p>
-                     * @return ModifyClassicDomain <p>将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。</p>
+                     * 获取将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。
+                     * @return ModifyClassicDomain 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。
                      * 
                      */
                     bool GetModifyClassicDomain() const;
 
                     /**
-                     * 设置<p>将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。</p>
-                     * @param _modifyClassicDomain <p>将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。</p>
+                     * 设置将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。
+                     * @param _modifyClassicDomain 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。
                      * 
                      */
                     void SetModifyClassicDomain(const bool& _modifyClassicDomain);
@@ -234,15 +225,15 @@ namespace TencentCloud
                     bool ModifyClassicDomainHasBeenSet() const;
 
                     /**
-                     * 获取<p>关联的终端节点Id，可通过<a href="https://cloud.tencent.com/document/product/215/54679">DescribeVpcEndPoint</a>接口查询。传空字符串代表解除关联。</p>
-                     * @return AssociateEndpoint <p>关联的终端节点Id，可通过<a href="https://cloud.tencent.com/document/product/215/54679">DescribeVpcEndPoint</a>接口查询。传空字符串代表解除关联。</p>
+                     * 获取关联的终端节点Id，可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679)接口查询。传空字符串代表解除关联。
+                     * @return AssociateEndpoint 关联的终端节点Id，可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679)接口查询。传空字符串代表解除关联。
                      * 
                      */
                     std::string GetAssociateEndpoint() const;
 
                     /**
-                     * 设置<p>关联的终端节点Id，可通过<a href="https://cloud.tencent.com/document/product/215/54679">DescribeVpcEndPoint</a>接口查询。传空字符串代表解除关联。</p>
-                     * @param _associateEndpoint <p>关联的终端节点Id，可通过<a href="https://cloud.tencent.com/document/product/215/54679">DescribeVpcEndPoint</a>接口查询。传空字符串代表解除关联。</p>
+                     * 设置关联的终端节点Id，可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679)接口查询。传空字符串代表解除关联。
+                     * @param _associateEndpoint 关联的终端节点Id，可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679)接口查询。传空字符串代表解除关联。
                      * 
                      */
                     void SetAssociateEndpoint(const std::string& _associateEndpoint);
@@ -257,61 +248,58 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>负载均衡的唯一ID，可以通过 <a href="https://cloud.tencent.com/document/product/214/30685">DescribeLoadBalancers</a> 接口获取。</p>
+                     * 负载均衡的唯一ID，可以通过 [DescribeLoadBalancers](https://cloud.tencent.com/document/product/214/30685) 接口获取。
                      */
                     std::string m_loadBalancerId;
                     bool m_loadBalancerIdHasBeenSet;
 
                     /**
-                     * <p>负载均衡实例名称，规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。</p>
+                     * 负载均衡实例名称，规则：1-60 个英文、汉字、数字、连接线“-”或下划线“_”。
                      */
                     std::string m_loadBalancerName;
                     bool m_loadBalancerNameHasBeenSet;
 
                     /**
-                     * <p>设置负载均衡跨地域绑定1.0的后端服务信息</p>
+                     * 设置负载均衡跨地域绑定1.0的后端服务信息
                      */
                     TargetRegionInfo m_targetRegionInfo;
                     bool m_targetRegionInfoHasBeenSet;
 
                     /**
-                     * <p>网络计费相关参数</p>
+                     * 网络计费相关参数
                      */
                     InternetAccessible m_internetChargeInfo;
                     bool m_internetChargeInfoHasBeenSet;
 
                     /**
-                     * <p>Target是否放通来自CLB的流量。<br>开启放通（true）：只验证CLB上的安全组；<br>不开启放通（false）：需同时验证CLB和后端实例上的安全组。<br>不填则不修改。</p>
+                     * Target是否放通来自CLB的流量。
+开启放通（true）：只验证CLB上的安全组；
+不开启放通（false）：需同时验证CLB和后端实例上的安全组。
+不填则不修改。
                      */
                     bool m_loadBalancerPassToTarget;
                     bool m_loadBalancerPassToTargetHasBeenSet;
 
                     /**
-                     * <p>不同计费模式之间的切换：0表示不切换，1表示预付费和后付费切换，2表示后付费之间切换。默认值：0</p>
-                     */
-                    uint64_t m_switchFlag;
-                    bool m_switchFlagHasBeenSet;
-
-                    /**
-                     * <p>是否开启跨地域绑定2.0功能。不填则不修改。</p>
+                     * 是否开启跨地域绑定2.0功能。不填则不修改。
                      */
                     bool m_snatPro;
                     bool m_snatProHasBeenSet;
 
                     /**
-                     * <p>是否开启删除保护，不填则不修改。</p>
+                     * 是否开启删除保护，不填则不修改。
                      */
                     bool m_deleteProtect;
                     bool m_deleteProtectHasBeenSet;
 
                     /**
-                     * <p>将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。</p>
+                     * 将负载均衡二级域名由mycloud.com改为tencentclb.com，子域名也会变换，修改后mycloud.com域名将失效。不填则不修改。
                      */
                     bool m_modifyClassicDomain;
                     bool m_modifyClassicDomainHasBeenSet;
 
                     /**
-                     * <p>关联的终端节点Id，可通过<a href="https://cloud.tencent.com/document/product/215/54679">DescribeVpcEndPoint</a>接口查询。传空字符串代表解除关联。</p>
+                     * 关联的终端节点Id，可通过[DescribeVpcEndPoint](https://cloud.tencent.com/document/product/215/54679)接口查询。传空字符串代表解除关联。
                      */
                     std::string m_associateEndpoint;
                     bool m_associateEndpointHasBeenSet;

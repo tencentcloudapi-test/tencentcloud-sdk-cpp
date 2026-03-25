@@ -27,8 +27,7 @@ CreateBatchInitOrganizationUrlRequest::CreateBatchInitOrganizationUrlRequest() :
     m_operateTypesHasBeenSet(false),
     m_organizationIdsHasBeenSet(false),
     m_agentHasBeenSet(false),
-    m_authorizedOrganizationIdHasBeenSet(false),
-    m_changeAdminAuthAutoSignHasBeenSet(false)
+    m_authorizedOrganizationIdHasBeenSet(false)
 {
 }
 
@@ -89,14 +88,6 @@ string CreateBatchInitOrganizationUrlRequest::ToJsonString() const
         string key = "AuthorizedOrganizationId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_authorizedOrganizationId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_changeAdminAuthAutoSignHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ChangeAdminAuthAutoSign";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_changeAdminAuthAutoSign, allocator);
     }
 
 
@@ -185,22 +176,6 @@ void CreateBatchInitOrganizationUrlRequest::SetAuthorizedOrganizationId(const st
 bool CreateBatchInitOrganizationUrlRequest::AuthorizedOrganizationIdHasBeenSet() const
 {
     return m_authorizedOrganizationIdHasBeenSet;
-}
-
-bool CreateBatchInitOrganizationUrlRequest::GetChangeAdminAuthAutoSign() const
-{
-    return m_changeAdminAuthAutoSign;
-}
-
-void CreateBatchInitOrganizationUrlRequest::SetChangeAdminAuthAutoSign(const bool& _changeAdminAuthAutoSign)
-{
-    m_changeAdminAuthAutoSign = _changeAdminAuthAutoSign;
-    m_changeAdminAuthAutoSignHasBeenSet = true;
-}
-
-bool CreateBatchInitOrganizationUrlRequest::ChangeAdminAuthAutoSignHasBeenSet() const
-{
-    return m_changeAdminAuthAutoSignHasBeenSet;
 }
 
 

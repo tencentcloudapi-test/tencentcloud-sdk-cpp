@@ -237,15 +237,15 @@ namespace TencentCloud
                     bool RipHasBeenSet() const;
 
                     /**
-                     * 获取ture的时候表示该节点上部署了chPROXY进程
-                     * @return IsCHProxy ture的时候表示该节点上部署了chPROXY进程
+                     * 获取ture的时候表示该节点上部署了chproxy进程
+                     * @return IsCHProxy ture的时候表示该节点上部署了chproxy进程
                      * 
                      */
                     bool GetIsCHProxy() const;
 
                     /**
-                     * 设置ture的时候表示该节点上部署了chPROXY进程
-                     * @param _isCHProxy ture的时候表示该节点上部署了chPROXY进程
+                     * 设置ture的时候表示该节点上部署了chproxy进程
+                     * @param _isCHProxy ture的时候表示该节点上部署了chproxy进程
                      * 
                      */
                     void SetIsCHProxy(const bool& _isCHProxy);
@@ -321,15 +321,15 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取去描述
-                     * @return ZoneDesc 去描述
+                     * 获取区描述
+                     * @return ZoneDesc 区描述
                      * 
                      */
                     std::string GetZoneDesc() const;
 
                     /**
-                     * 设置去描述
-                     * @param _zoneDesc 去描述
+                     * 设置区描述
+                     * @param _zoneDesc 区描述
                      * 
                      */
                     void SetZoneDesc(const std::string& _zoneDesc);
@@ -361,27 +361,6 @@ namespace TencentCloud
                      * 
                      */
                     bool RealResourceIdHasBeenSet() const;
-
-                    /**
-                     * 获取子网信息
-                     * @return SubnetId 子网信息
-                     * 
-                     */
-                    std::string GetSubnetId() const;
-
-                    /**
-                     * 设置子网信息
-                     * @param _subnetId 子网信息
-                     * 
-                     */
-                    void SetSubnetId(const std::string& _subnetId);
-
-                    /**
-                     * 判断参数 SubnetId 是否已赋值
-                     * @return SubnetId 是否已赋值
-                     * 
-                     */
-                    bool SubnetIdHasBeenSet() const;
 
                 private:
 
@@ -440,7 +419,7 @@ namespace TencentCloud
                     bool m_ripHasBeenSet;
 
                     /**
-                     * ture的时候表示该节点上部署了chPROXY进程
+                     * ture的时候表示该节点上部署了chproxy进程
                      */
                     bool m_isCHProxy;
                     bool m_isCHProxyHasBeenSet;
@@ -464,7 +443,7 @@ namespace TencentCloud
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * 去描述
+                     * 区描述
                      */
                     std::string m_zoneDesc;
                     bool m_zoneDescHasBeenSet;
@@ -474,12 +453,6 @@ namespace TencentCloud
                      */
                     std::string m_realResourceId;
                     bool m_realResourceIdHasBeenSet;
-
-                    /**
-                     * 子网信息
-                     */
-                    std::string m_subnetId;
-                    bool m_subnetIdHasBeenSet;
 
                 };
             }

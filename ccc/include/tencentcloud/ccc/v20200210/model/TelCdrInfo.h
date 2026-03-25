@@ -305,8 +305,6 @@ namespace TencentCloud
 
 电话呼出        221     callerCancelWithoutRing      **未振铃被叫号码异常**
 
-电话呼出        222     voiceMailReached      **语音信箱挂断**
-
 音频呼入        501     callConflict      **VoIP用户呼叫冲突终止**
 
 音频呼入        502     clientTimeout      **VoIP用户客户端超时**
@@ -381,8 +379,6 @@ namespace TencentCloud
 电话呼出        220     callerCancelWhileRing      **振铃中主叫取消**
 
 电话呼出        221     callerCancelWithoutRing      **未振铃被叫号码异常**
-
-电话呼出        222     voiceMailReached      **语音信箱挂断**
 
 音频呼入        501     callConflict      **VoIP用户呼叫冲突终止**
 
@@ -464,8 +460,6 @@ namespace TencentCloud
 
 电话呼出        221     callerCancelWithoutRing      **未振铃被叫号码异常**
 
-电话呼出        222     voiceMailReached      **语音信箱挂断**
-
 音频呼入        501     callConflict      **VoIP用户呼叫冲突终止**
 
 音频呼入        502     clientTimeout      **VoIP用户客户端超时**
@@ -540,8 +534,6 @@ namespace TencentCloud
 电话呼出        220     callerCancelWhileRing      **振铃中主叫取消**
 
 电话呼出        221     callerCancelWithoutRing      **未振铃被叫号码异常**
-
-电话呼出        222     voiceMailReached      **语音信箱挂断**
 
 音频呼入        501     callConflict      **VoIP用户呼叫冲突终止**
 
@@ -1175,90 +1167,6 @@ NotExists
                      */
                     bool VoicemailAsrURLHasBeenSet() const;
 
-                    /**
-                     * 获取如果是智能体相关通话，这里是智能体 ID
-                     * @return AIAgentId 如果是智能体相关通话，这里是智能体 ID
-                     * 
-                     */
-                    int64_t GetAIAgentId() const;
-
-                    /**
-                     * 设置如果是智能体相关通话，这里是智能体 ID
-                     * @param _aIAgentId 如果是智能体相关通话，这里是智能体 ID
-                     * 
-                     */
-                    void SetAIAgentId(const int64_t& _aIAgentId);
-
-                    /**
-                     * 判断参数 AIAgentId 是否已赋值
-                     * @return AIAgentId 是否已赋值
-                     * 
-                     */
-                    bool AIAgentIdHasBeenSet() const;
-
-                    /**
-                     * 获取如果是智能体相关通话，这里是智能体名称
-                     * @return AIAgentName 如果是智能体相关通话，这里是智能体名称
-                     * 
-                     */
-                    std::string GetAIAgentName() const;
-
-                    /**
-                     * 设置如果是智能体相关通话，这里是智能体名称
-                     * @param _aIAgentName 如果是智能体相关通话，这里是智能体名称
-                     * 
-                     */
-                    void SetAIAgentName(const std::string& _aIAgentName);
-
-                    /**
-                     * 判断参数 AIAgentName 是否已赋值
-                     * @return AIAgentName 是否已赋值
-                     * 
-                     */
-                    bool AIAgentNameHasBeenSet() const;
-
-                    /**
-                     * 获取接通后系统挂断原因，枚举类似
-                     * @return SysHangupReason 接通后系统挂断原因，枚举类似
-                     * 
-                     */
-                    int64_t GetSysHangupReason() const;
-
-                    /**
-                     * 设置接通后系统挂断原因，枚举类似
-                     * @param _sysHangupReason 接通后系统挂断原因，枚举类似
-                     * 
-                     */
-                    void SetSysHangupReason(const int64_t& _sysHangupReason);
-
-                    /**
-                     * 判断参数 SysHangupReason 是否已赋值
-                     * @return SysHangupReason 是否已赋值
-                     * 
-                     */
-                    bool SysHangupReasonHasBeenSet() const;
-
-                    /**
-                     * 获取接通后系统挂断原因，文字描述信息
-                     * @return SysHangupReasonString 接通后系统挂断原因，文字描述信息
-                     * 
-                     */
-                    std::string GetSysHangupReasonString() const;
-
-                    /**
-                     * 设置接通后系统挂断原因，文字描述信息
-                     * @param _sysHangupReasonString 接通后系统挂断原因，文字描述信息
-                     * 
-                     */
-                    void SetSysHangupReasonString(const std::string& _sysHangupReasonString);
-
-                    /**
-                     * 判断参数 SysHangupReasonString 是否已赋值
-                     * @return SysHangupReasonString 是否已赋值
-                     * 
-                     */
-                    bool SysHangupReasonStringHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1381,8 +1289,6 @@ NotExists
 电话呼出        220     callerCancelWhileRing      **振铃中主叫取消**
 
 电话呼出        221     callerCancelWithoutRing      **未振铃被叫号码异常**
-
-电话呼出        222     voiceMailReached      **语音信箱挂断**
 
 音频呼入        501     callConflict      **VoIP用户呼叫冲突终止**
 
@@ -1570,30 +1476,6 @@ NotExists
                      */
                     std::vector<std::string> m_voicemailAsrURL;
                     bool m_voicemailAsrURLHasBeenSet;
-
-                    /**
-                     * 如果是智能体相关通话，这里是智能体 ID
-                     */
-                    int64_t m_aIAgentId;
-                    bool m_aIAgentIdHasBeenSet;
-
-                    /**
-                     * 如果是智能体相关通话，这里是智能体名称
-                     */
-                    std::string m_aIAgentName;
-                    bool m_aIAgentNameHasBeenSet;
-
-                    /**
-                     * 接通后系统挂断原因，枚举类似
-                     */
-                    int64_t m_sysHangupReason;
-                    bool m_sysHangupReasonHasBeenSet;
-
-                    /**
-                     * 接通后系统挂断原因，文字描述信息
-                     */
-                    std::string m_sysHangupReasonString;
-                    bool m_sysHangupReasonStringHasBeenSet;
 
                 };
             }

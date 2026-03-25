@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。</p>
-                     * @return RoGroupMode <p>只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。</p>
+                     * 获取只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。
+                     * @return RoGroupMode 只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。
                      * 
                      */
                     std::string GetRoGroupMode() const;
 
                     /**
-                     * 设置<p>只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。</p>
-                     * @param _roGroupMode <p>只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。</p>
+                     * 设置只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。
+                     * @param _roGroupMode 只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。
                      * 
                      */
                     void SetRoGroupMode(const std::string& _roGroupMode);
@@ -69,15 +69,19 @@ namespace TencentCloud
                     bool RoGroupModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组 ID。<br>说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。</p>
-                     * @return RoGroupId <p>只读组 ID。<br>说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。</p>
+                     * 获取只读组 ID。
+说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。
+                     * @return RoGroupId 只读组 ID。
+说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。
                      * 
                      */
                     std::string GetRoGroupId() const;
 
                     /**
-                     * 设置<p>只读组 ID。<br>说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。</p>
-                     * @param _roGroupId <p>只读组 ID。<br>说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。</p>
+                     * 设置只读组 ID。
+说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。
+                     * @param _roGroupId 只读组 ID。
+说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。
                      * 
                      */
                     void SetRoGroupId(const std::string& _roGroupId);
@@ -90,15 +94,15 @@ namespace TencentCloud
                     bool RoGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组名称。</p>
-                     * @return RoGroupName <p>只读组名称。</p>
+                     * 获取只读组名称。
+                     * @return RoGroupName 只读组名称。
                      * 
                      */
                     std::string GetRoGroupName() const;
 
                     /**
-                     * 设置<p>只读组名称。</p>
-                     * @param _roGroupName <p>只读组名称。</p>
+                     * 设置只读组名称。
+                     * @param _roGroupName 只读组名称。
                      * 
                      */
                     void SetRoGroupName(const std::string& _roGroupName);
@@ -111,15 +115,15 @@ namespace TencentCloud
                     bool RoGroupNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。</p>
-                     * @return RoOfflineDelay <p>是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。</p>
+                     * 获取是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。
+                     * @return RoOfflineDelay 是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。
                      * 
                      */
                     int64_t GetRoOfflineDelay() const;
 
                     /**
-                     * 设置<p>是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。</p>
-                     * @param _roOfflineDelay <p>是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。</p>
+                     * 设置是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。
+                     * @param _roOfflineDelay 是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。
                      * 
                      */
                     void SetRoOfflineDelay(const int64_t& _roOfflineDelay);
@@ -132,15 +136,15 @@ namespace TencentCloud
                     bool RoOfflineDelayHasBeenSet() const;
 
                     /**
-                     * 获取<p>延迟阈值。单位：秒。值范围：1-10000，整数。</p>
-                     * @return RoMaxDelayTime <p>延迟阈值。单位：秒。值范围：1-10000，整数。</p>
+                     * 获取延迟阈值。单位：秒。值范围：1-10000，整数。
+                     * @return RoMaxDelayTime 延迟阈值。单位：秒。值范围：1-10000，整数。
                      * 
                      */
                     int64_t GetRoMaxDelayTime() const;
 
                     /**
-                     * 设置<p>延迟阈值。单位：秒。值范围：1-10000，整数。</p>
-                     * @param _roMaxDelayTime <p>延迟阈值。单位：秒。值范围：1-10000，整数。</p>
+                     * 设置延迟阈值。单位：秒。值范围：1-10000，整数。
+                     * @param _roMaxDelayTime 延迟阈值。单位：秒。值范围：1-10000，整数。
                      * 
                      */
                     void SetRoMaxDelayTime(const int64_t& _roMaxDelayTime);
@@ -153,15 +157,15 @@ namespace TencentCloud
                     bool RoMaxDelayTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。</p>
-                     * @return MinRoInGroup <p>最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。</p>
+                     * 获取最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。
+                     * @return MinRoInGroup 最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。
                      * 
                      */
                     int64_t GetMinRoInGroup() const;
 
                     /**
-                     * 设置<p>最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。</p>
-                     * @param _minRoInGroup <p>最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。</p>
+                     * 设置最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。
+                     * @param _minRoInGroup 最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。
                      * 
                      */
                     void SetMinRoInGroup(const int64_t& _minRoInGroup);
@@ -174,15 +178,15 @@ namespace TencentCloud
                     bool MinRoInGroupHasBeenSet() const;
 
                     /**
-                     * 获取<p>读写权重分配模式，可选值：system-系统自动分配；custom-自定义。</p>
-                     * @return WeightMode <p>读写权重分配模式，可选值：system-系统自动分配；custom-自定义。</p>
+                     * 获取读写权重分配模式，可选值：system-系统自动分配；custom-自定义。
+                     * @return WeightMode 读写权重分配模式，可选值：system-系统自动分配；custom-自定义。
                      * 
                      */
                     std::string GetWeightMode() const;
 
                     /**
-                     * 设置<p>读写权重分配模式，可选值：system-系统自动分配；custom-自定义。</p>
-                     * @param _weightMode <p>读写权重分配模式，可选值：system-系统自动分配；custom-自定义。</p>
+                     * 设置读写权重分配模式，可选值：system-系统自动分配；custom-自定义。
+                     * @param _weightMode 读写权重分配模式，可选值：system-系统自动分配；custom-自定义。
                      * 
                      */
                     void SetWeightMode(const std::string& _weightMode);
@@ -195,15 +199,15 @@ namespace TencentCloud
                     bool WeightModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。</p>
-                     * @return Weight <p>该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。</p>
+                     * 获取该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。
+                     * @return Weight 该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。
                      * 
                      */
                     int64_t GetWeight() const;
 
                     /**
-                     * 设置<p>该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。</p>
-                     * @param _weight <p>该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。</p>
+                     * 设置该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。
+                     * @param _weight 该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。
                      * 
                      */
                     void SetWeight(const int64_t& _weight);
@@ -216,15 +220,15 @@ namespace TencentCloud
                     bool WeightHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组中的只读实例详情。</p>
-                     * @return RoInstances <p>只读组中的只读实例详情。</p>
+                     * 获取只读组中的只读实例详情。
+                     * @return RoInstances 只读组中的只读实例详情。
                      * 
                      */
                     std::vector<RoInstanceInfo> GetRoInstances() const;
 
                     /**
-                     * 设置<p>只读组中的只读实例详情。</p>
-                     * @param _roInstances <p>只读组中的只读实例详情。</p>
+                     * 设置只读组中的只读实例详情。
+                     * @param _roInstances 只读组中的只读实例详情。
                      * 
                      */
                     void SetRoInstances(const std::vector<RoInstanceInfo>& _roInstances);
@@ -237,15 +241,15 @@ namespace TencentCloud
                     bool RoInstancesHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组的内网 IP。</p>
-                     * @return Vip <p>只读组的内网 IP。</p>
+                     * 获取只读组的内网 IP。
+                     * @return Vip 只读组的内网 IP。
                      * 
                      */
                     std::string GetVip() const;
 
                     /**
-                     * 设置<p>只读组的内网 IP。</p>
-                     * @param _vip <p>只读组的内网 IP。</p>
+                     * 设置只读组的内网 IP。
+                     * @param _vip 只读组的内网 IP。
                      * 
                      */
                     void SetVip(const std::string& _vip);
@@ -258,15 +262,15 @@ namespace TencentCloud
                     bool VipHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组的内网端口号。</p>
-                     * @return Vport <p>只读组的内网端口号。</p>
+                     * 获取只读组的内网端口号。
+                     * @return Vport 只读组的内网端口号。
                      * 
                      */
                     int64_t GetVport() const;
 
                     /**
-                     * 设置<p>只读组的内网端口号。</p>
-                     * @param _vport <p>只读组的内网端口号。</p>
+                     * 设置只读组的内网端口号。
+                     * @param _vport 只读组的内网端口号。
                      * 
                      */
                     void SetVport(const int64_t& _vport);
@@ -279,15 +283,15 @@ namespace TencentCloud
                     bool VportHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络 ID。</p>
-                     * @return UniqVpcId <p>私有网络 ID。</p>
+                     * 获取私有网络 ID。
+                     * @return UniqVpcId 私有网络 ID。
                      * 
                      */
                     std::string GetUniqVpcId() const;
 
                     /**
-                     * 设置<p>私有网络 ID。</p>
-                     * @param _uniqVpcId <p>私有网络 ID。</p>
+                     * 设置私有网络 ID。
+                     * @param _uniqVpcId 私有网络 ID。
                      * 
                      */
                     void SetUniqVpcId(const std::string& _uniqVpcId);
@@ -300,15 +304,15 @@ namespace TencentCloud
                     bool UniqVpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网 ID。</p>
-                     * @return UniqSubnetId <p>子网 ID。</p>
+                     * 获取子网 ID。
+                     * @return UniqSubnetId 子网 ID。
                      * 
                      */
                     std::string GetUniqSubnetId() const;
 
                     /**
-                     * 设置<p>子网 ID。</p>
-                     * @param _uniqSubnetId <p>子网 ID。</p>
+                     * 设置子网 ID。
+                     * @param _uniqSubnetId 子网 ID。
                      * 
                      */
                     void SetUniqSubnetId(const std::string& _uniqSubnetId);
@@ -321,15 +325,15 @@ namespace TencentCloud
                     bool UniqSubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组所在的地域。</p>
-                     * @return RoGroupRegion <p>只读组所在的地域。</p>
+                     * 获取只读组所在的地域。
+                     * @return RoGroupRegion 只读组所在的地域。
                      * 
                      */
                     std::string GetRoGroupRegion() const;
 
                     /**
-                     * 设置<p>只读组所在的地域。</p>
-                     * @param _roGroupRegion <p>只读组所在的地域。</p>
+                     * 设置只读组所在的地域。
+                     * @param _roGroupRegion 只读组所在的地域。
                      * 
                      */
                     void SetRoGroupRegion(const std::string& _roGroupRegion);
@@ -342,15 +346,15 @@ namespace TencentCloud
                     bool RoGroupRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读组所在的可用区。</p>
-                     * @return RoGroupZone <p>只读组所在的可用区。</p>
+                     * 获取只读组所在的可用区。
+                     * @return RoGroupZone 只读组所在的可用区。
                      * 
                      */
                     std::string GetRoGroupZone() const;
 
                     /**
-                     * 设置<p>只读组所在的可用区。</p>
-                     * @param _roGroupZone <p>只读组所在的可用区。</p>
+                     * 设置只读组所在的可用区。
+                     * @param _roGroupZone 只读组所在的可用区。
                      * 
                      */
                     void SetRoGroupZone(const std::string& _roGroupZone);
@@ -363,15 +367,15 @@ namespace TencentCloud
                     bool RoGroupZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>延迟复制时间。单位：秒。值范围：1-259200，整数。</p>
-                     * @return DelayReplicationTime <p>延迟复制时间。单位：秒。值范围：1-259200，整数。</p>
+                     * 获取延迟复制时间。单位：秒。值范围：1-259200，整数。
+                     * @return DelayReplicationTime 延迟复制时间。单位：秒。值范围：1-259200，整数。
                      * 
                      */
                     int64_t GetDelayReplicationTime() const;
 
                     /**
-                     * 设置<p>延迟复制时间。单位：秒。值范围：1-259200，整数。</p>
-                     * @param _delayReplicationTime <p>延迟复制时间。单位：秒。值范围：1-259200，整数。</p>
+                     * 设置延迟复制时间。单位：秒。值范围：1-259200，整数。
+                     * @param _delayReplicationTime 延迟复制时间。单位：秒。值范围：1-259200，整数。
                      * 
                      */
                     void SetDelayReplicationTime(const int64_t& _delayReplicationTime);
@@ -386,97 +390,98 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。</p>
+                     * 只读组模式，可选值为：alone-系统自动分配只读组；allinone-新建只读组；join-使用现有只读组。
                      */
                     std::string m_roGroupMode;
                     bool m_roGroupModeHasBeenSet;
 
                     /**
-                     * <p>只读组 ID。<br>说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。</p>
+                     * 只读组 ID。
+说明：若此数据结构在购买实例操作中被使用，则当只读组模式选择 join 时，此项为必填。
                      */
                     std::string m_roGroupId;
                     bool m_roGroupIdHasBeenSet;
 
                     /**
-                     * <p>只读组名称。</p>
+                     * 只读组名称。
                      */
                     std::string m_roGroupName;
                     bool m_roGroupNameHasBeenSet;
 
                     /**
-                     * <p>是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。</p>
+                     * 是否启用延迟超限剔除功能，启用该功能后，只读实例与主实例的延迟超过延迟阈值，只读实例将被隔离。可选值：1-启用；0-不启用。
                      */
                     int64_t m_roOfflineDelay;
                     bool m_roOfflineDelayHasBeenSet;
 
                     /**
-                     * <p>延迟阈值。单位：秒。值范围：1-10000，整数。</p>
+                     * 延迟阈值。单位：秒。值范围：1-10000，整数。
                      */
                     int64_t m_roMaxDelayTime;
                     bool m_roMaxDelayTimeHasBeenSet;
 
                     /**
-                     * <p>最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。</p>
+                     * 最少实例保留个数，若购买只读实例数量小于设置数量将不做剔除。
                      */
                     int64_t m_minRoInGroup;
                     bool m_minRoInGroupHasBeenSet;
 
                     /**
-                     * <p>读写权重分配模式，可选值：system-系统自动分配；custom-自定义。</p>
+                     * 读写权重分配模式，可选值：system-系统自动分配；custom-自定义。
                      */
                     std::string m_weightMode;
                     bool m_weightModeHasBeenSet;
 
                     /**
-                     * <p>该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。</p>
+                     * 该字段已经废弃，无意义。查看只读实例的权重，请查看 RoInstances 字段里的 Weight 值。
                      */
                     int64_t m_weight;
                     bool m_weightHasBeenSet;
 
                     /**
-                     * <p>只读组中的只读实例详情。</p>
+                     * 只读组中的只读实例详情。
                      */
                     std::vector<RoInstanceInfo> m_roInstances;
                     bool m_roInstancesHasBeenSet;
 
                     /**
-                     * <p>只读组的内网 IP。</p>
+                     * 只读组的内网 IP。
                      */
                     std::string m_vip;
                     bool m_vipHasBeenSet;
 
                     /**
-                     * <p>只读组的内网端口号。</p>
+                     * 只读组的内网端口号。
                      */
                     int64_t m_vport;
                     bool m_vportHasBeenSet;
 
                     /**
-                     * <p>私有网络 ID。</p>
+                     * 私有网络 ID。
                      */
                     std::string m_uniqVpcId;
                     bool m_uniqVpcIdHasBeenSet;
 
                     /**
-                     * <p>子网 ID。</p>
+                     * 子网 ID。
                      */
                     std::string m_uniqSubnetId;
                     bool m_uniqSubnetIdHasBeenSet;
 
                     /**
-                     * <p>只读组所在的地域。</p>
+                     * 只读组所在的地域。
                      */
                     std::string m_roGroupRegion;
                     bool m_roGroupRegionHasBeenSet;
 
                     /**
-                     * <p>只读组所在的可用区。</p>
+                     * 只读组所在的可用区。
                      */
                     std::string m_roGroupZone;
                     bool m_roGroupZoneHasBeenSet;
 
                     /**
-                     * <p>延迟复制时间。单位：秒。值范围：1-259200，整数。</p>
+                     * 延迟复制时间。单位：秒。值范围：1-259200，整数。
                      */
                     int64_t m_delayReplicationTime;
                     bool m_delayReplicationTimeHasBeenSet;

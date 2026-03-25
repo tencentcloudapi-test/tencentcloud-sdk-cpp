@@ -45,16 +45,16 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取TaskId对应的任务的状态：
-- Success: 任务已完成
-- Processing: 任务进行中，建议10秒后再查询
-- Failed: 任务失败
+                     * 获取审校任务状态：
 
-                     * @return Status TaskId对应的任务的状态：
-- Success: 任务已完成
-- Processing: 任务进行中，建议10秒后再查询
-- Failed: 任务失败
+- Success: 成功
+- Processing: 处理中，请等待
+- Failed: 失败
+                     * @return Status 审校任务状态：
 
+- Success: 成功
+- Processing: 处理中，请等待
+- Failed: 失败
                      * 
                      */
                     std::string GetStatus() const;
@@ -67,18 +67,46 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取该字段标识服务检测到的违规点，具体内容参阅数据结构[FinancialLLMViolationDetail](https://cloud.tencent.com/document/api/1124/51861#FinancialLLMViolationDetail)
-                     * @return Details 该字段标识服务检测到的违规点，具体内容参阅数据结构[FinancialLLMViolationDetail](https://cloud.tencent.com/document/api/1124/51861#FinancialLLMViolationDetail)
+                     * 获取大模型审校结果
+                     * @return ModerationResult 大模型审校结果
                      * 
                      */
-                    std::vector<FinancialLLMViolationDetail> GetDetails() const;
+                    std::string GetModerationResult() const;
 
                     /**
-                     * 判断参数 Details 是否已赋值
-                     * @return Details 是否已赋值
+                     * 判断参数 ModerationResult 是否已赋值
+                     * @return ModerationResult 是否已赋值
                      * 
                      */
-                    bool DetailsHasBeenSet() const;
+                    bool ModerationResultHasBeenSet() const;
+
+                    /**
+                     * 获取审校任务失败原因，仅当任务失败时有值
+                     * @return FailureReason 审校任务失败原因，仅当任务失败时有值
+                     * 
+                     */
+                    std::string GetFailureReason() const;
+
+                    /**
+                     * 判断参数 FailureReason 是否已赋值
+                     * @return FailureReason 是否已赋值
+                     * 
+                     */
+                    bool FailureReasonHasBeenSet() const;
+
+                    /**
+                     * 获取审校任务开始时间
+                     * @return StartTime 审校任务开始时间
+                     * 
+                     */
+                    std::string GetStartTime() const;
+
+                    /**
+                     * 判断参数 StartTime 是否已赋值
+                     * @return StartTime 是否已赋值
+                     * 
+                     */
+                    bool StartTimeHasBeenSet() const;
 
                     /**
                      * 获取本次检测的违规点列表
@@ -95,64 +123,48 @@ namespace TencentCloud
                     bool ReviewedLabelsHasBeenSet() const;
 
                     /**
-                     * 获取审校任务的开始时间
-                     * @return StartTime 审校任务的开始时间
+                     * 获取违规明细
+                     * @return Details 违规明细
                      * 
                      */
-                    std::string GetStartTime() const;
+                    std::vector<FinancialLLMViolationDetail> GetDetails() const;
 
                     /**
-                     * 判断参数 StartTime 是否已赋值
-                     * @return StartTime 是否已赋值
+                     * 判断参数 Details 是否已赋值
+                     * @return Details 是否已赋值
                      * 
                      */
-                    bool StartTimeHasBeenSet() const;
-
-                    /**
-                     * 获取若审校任务失败（Status="Failed"），该字段返回失败的具体原因。
-                     * @return FailureReason 若审校任务失败（Status="Failed"），该字段返回失败的具体原因。
-                     * 
-                     */
-                    std::string GetFailureReason() const;
-
-                    /**
-                     * 判断参数 FailureReason 是否已赋值
-                     * @return FailureReason 是否已赋值
-                     * 
-                     */
-                    bool FailureReasonHasBeenSet() const;
-
-                    /**
-                     * 获取该字段为历史结构字段，不再推荐使用。
-                     * @return ModerationResult 该字段为历史结构字段，不再推荐使用。
-                     * 
-                     */
-                    std::string GetModerationResult() const;
-
-                    /**
-                     * 判断参数 ModerationResult 是否已赋值
-                     * @return ModerationResult 是否已赋值
-                     * 
-                     */
-                    bool ModerationResultHasBeenSet() const;
+                    bool DetailsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * TaskId对应的任务的状态：
-- Success: 任务已完成
-- Processing: 任务进行中，建议10秒后再查询
-- Failed: 任务失败
+                     * 审校任务状态：
 
+- Success: 成功
+- Processing: 处理中，请等待
+- Failed: 失败
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * 该字段标识服务检测到的违规点，具体内容参阅数据结构[FinancialLLMViolationDetail](https://cloud.tencent.com/document/api/1124/51861#FinancialLLMViolationDetail)
+                     * 大模型审校结果
                      */
-                    std::vector<FinancialLLMViolationDetail> m_details;
-                    bool m_detailsHasBeenSet;
+                    std::string m_moderationResult;
+                    bool m_moderationResultHasBeenSet;
+
+                    /**
+                     * 审校任务失败原因，仅当任务失败时有值
+                     */
+                    std::string m_failureReason;
+                    bool m_failureReasonHasBeenSet;
+
+                    /**
+                     * 审校任务开始时间
+                     */
+                    std::string m_startTime;
+                    bool m_startTimeHasBeenSet;
 
                     /**
                      * 本次检测的违规点列表
@@ -161,22 +173,10 @@ namespace TencentCloud
                     bool m_reviewedLabelsHasBeenSet;
 
                     /**
-                     * 审校任务的开始时间
+                     * 违规明细
                      */
-                    std::string m_startTime;
-                    bool m_startTimeHasBeenSet;
-
-                    /**
-                     * 若审校任务失败（Status="Failed"），该字段返回失败的具体原因。
-                     */
-                    std::string m_failureReason;
-                    bool m_failureReasonHasBeenSet;
-
-                    /**
-                     * 该字段为历史结构字段，不再推荐使用。
-                     */
-                    std::string m_moderationResult;
-                    bool m_moderationResultHasBeenSet;
+                    std::vector<FinancialLLMViolationDetail> m_details;
+                    bool m_detailsHasBeenSet;
 
                 };
             }

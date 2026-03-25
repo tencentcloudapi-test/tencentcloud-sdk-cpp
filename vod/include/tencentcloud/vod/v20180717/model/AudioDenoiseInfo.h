@@ -77,22 +77,30 @@ namespace TencentCloud
 
                     /**
                      * 获取音频降噪类型，仅当音频降噪控制开关为 ON 时有效，可选值：
+<li>weak：轻音频降噪；</li>
 <li>normal：正常音频降噪；</li>
-默认值：normal。
+<li>strong：强音频降噪。</li>
+默认值：weak。
                      * @return Type 音频降噪类型，仅当音频降噪控制开关为 ON 时有效，可选值：
+<li>weak：轻音频降噪；</li>
 <li>normal：正常音频降噪；</li>
-默认值：normal。
+<li>strong：强音频降噪。</li>
+默认值：weak。
                      * 
                      */
                     std::string GetType() const;
 
                     /**
                      * 设置音频降噪类型，仅当音频降噪控制开关为 ON 时有效，可选值：
+<li>weak：轻音频降噪；</li>
 <li>normal：正常音频降噪；</li>
-默认值：normal。
+<li>strong：强音频降噪。</li>
+默认值：weak。
                      * @param _type 音频降噪类型，仅当音频降噪控制开关为 ON 时有效，可选值：
+<li>weak：轻音频降噪；</li>
 <li>normal：正常音频降噪；</li>
-默认值：normal。
+<li>strong：强音频降噪。</li>
+默认值：weak。
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -116,8 +124,10 @@ namespace TencentCloud
 
                     /**
                      * 音频降噪类型，仅当音频降噪控制开关为 ON 时有效，可选值：
+<li>weak：轻音频降噪；</li>
 <li>normal：正常音频降噪；</li>
-默认值：normal。
+<li>strong：强音频降噪。</li>
+默认值：weak。
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;

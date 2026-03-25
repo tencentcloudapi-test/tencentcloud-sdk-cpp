@@ -25,8 +25,7 @@ using namespace std;
 BatchAddClientNodesRequest::BatchAddClientNodesRequest() :
     m_fileSystemIdHasBeenSet(false),
     m_clientNodesHasBeenSet(false),
-    m_singleClusterFlagHasBeenSet(false),
-    m_clusterIdHasBeenSet(false)
+    m_singleClusterFlagHasBeenSet(false)
 {
 }
 
@@ -66,14 +65,6 @@ string BatchAddClientNodesRequest::ToJsonString() const
         string key = "SingleClusterFlag";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_singleClusterFlag, allocator);
-    }
-
-    if (m_clusterIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_clusterId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -130,22 +121,6 @@ void BatchAddClientNodesRequest::SetSingleClusterFlag(const bool& _singleCluster
 bool BatchAddClientNodesRequest::SingleClusterFlagHasBeenSet() const
 {
     return m_singleClusterFlagHasBeenSet;
-}
-
-string BatchAddClientNodesRequest::GetClusterId() const
-{
-    return m_clusterId;
-}
-
-void BatchAddClientNodesRequest::SetClusterId(const string& _clusterId)
-{
-    m_clusterId = _clusterId;
-    m_clusterIdHasBeenSet = true;
-}
-
-bool BatchAddClientNodesRequest::ClusterIdHasBeenSet() const
-{
-    return m_clusterIdHasBeenSet;
 }
 
 

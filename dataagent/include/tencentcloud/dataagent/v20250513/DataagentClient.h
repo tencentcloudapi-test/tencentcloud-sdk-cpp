@@ -25,8 +25,6 @@
 #include <tencentcloud/core/AsyncCallerContext.h>
 #include <tencentcloud/dataagent/v20250513/model/AddChunkRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/AddChunkResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/AddSceneRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/AddSceneResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/ChatAIRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/ChatAIResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/CreateDataAgentSessionRequest.h>
@@ -35,36 +33,18 @@
 #include <tencentcloud/dataagent/v20250513/model/DeleteChunkResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/DeleteDataAgentSessionRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/DeleteDataAgentSessionResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/DeleteSceneRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/DeleteSceneResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/GetJobsByKnowledgeBaseIdRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/GetJobsByKnowledgeBaseIdResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/GetKnowledgeBaseFileListRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/GetKnowledgeBaseFileListResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/GetKnowledgeBaseListRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/GetKnowledgeBaseListResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/GetSessionDetailsRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/GetSessionDetailsResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/GetUploadJobDetailsRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/GetUploadJobDetailsResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/ModifyChunkRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/ModifyChunkResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/ModifyKnowledgeBaseRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/ModifyKnowledgeBaseResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/ModifyUserAuthorityRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/ModifyUserAuthorityResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/QueryChunkListRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/QueryChunkListResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/QuerySceneListRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/QuerySceneListResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/QueryUserAuthorityRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/QueryUserAuthorityResponse.h>
 #include <tencentcloud/dataagent/v20250513/model/StopChatAIRequest.h>
 #include <tencentcloud/dataagent/v20250513/model/StopChatAIResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/UpdateSceneRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/UpdateSceneResponse.h>
-#include <tencentcloud/dataagent/v20250513/model/UploadAndCommitFileRequest.h>
-#include <tencentcloud/dataagent/v20250513/model/UploadAndCommitFileResponse.h>
 
 
 namespace TencentCloud
@@ -82,9 +62,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::AddChunkResponse> AddChunkOutcome;
                 typedef std::future<AddChunkOutcome> AddChunkOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::AddChunkRequest&, AddChunkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AddChunkAsyncHandler;
-                typedef Outcome<Core::Error, Model::AddSceneResponse> AddSceneOutcome;
-                typedef std::future<AddSceneOutcome> AddSceneOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::AddSceneRequest&, AddSceneOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AddSceneAsyncHandler;
                 typedef Outcome<Core::Error, Model::ChatAIResponse> ChatAIOutcome;
                 typedef std::future<ChatAIOutcome> ChatAIOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::ChatAIRequest&, ChatAIOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ChatAIAsyncHandler;
@@ -97,51 +74,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteDataAgentSessionResponse> DeleteDataAgentSessionOutcome;
                 typedef std::future<DeleteDataAgentSessionOutcome> DeleteDataAgentSessionOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::DeleteDataAgentSessionRequest&, DeleteDataAgentSessionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDataAgentSessionAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteSceneResponse> DeleteSceneOutcome;
-                typedef std::future<DeleteSceneOutcome> DeleteSceneOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::DeleteSceneRequest&, DeleteSceneOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteSceneAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetJobsByKnowledgeBaseIdResponse> GetJobsByKnowledgeBaseIdOutcome;
-                typedef std::future<GetJobsByKnowledgeBaseIdOutcome> GetJobsByKnowledgeBaseIdOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::GetJobsByKnowledgeBaseIdRequest&, GetJobsByKnowledgeBaseIdOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetJobsByKnowledgeBaseIdAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetKnowledgeBaseFileListResponse> GetKnowledgeBaseFileListOutcome;
-                typedef std::future<GetKnowledgeBaseFileListOutcome> GetKnowledgeBaseFileListOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::GetKnowledgeBaseFileListRequest&, GetKnowledgeBaseFileListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetKnowledgeBaseFileListAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetKnowledgeBaseListResponse> GetKnowledgeBaseListOutcome;
                 typedef std::future<GetKnowledgeBaseListOutcome> GetKnowledgeBaseListOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::GetKnowledgeBaseListRequest&, GetKnowledgeBaseListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetKnowledgeBaseListAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetSessionDetailsResponse> GetSessionDetailsOutcome;
                 typedef std::future<GetSessionDetailsOutcome> GetSessionDetailsOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::GetSessionDetailsRequest&, GetSessionDetailsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetSessionDetailsAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetUploadJobDetailsResponse> GetUploadJobDetailsOutcome;
-                typedef std::future<GetUploadJobDetailsOutcome> GetUploadJobDetailsOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::GetUploadJobDetailsRequest&, GetUploadJobDetailsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetUploadJobDetailsAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyChunkResponse> ModifyChunkOutcome;
                 typedef std::future<ModifyChunkOutcome> ModifyChunkOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::ModifyChunkRequest&, ModifyChunkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyChunkAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyKnowledgeBaseResponse> ModifyKnowledgeBaseOutcome;
                 typedef std::future<ModifyKnowledgeBaseOutcome> ModifyKnowledgeBaseOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::ModifyKnowledgeBaseRequest&, ModifyKnowledgeBaseOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyKnowledgeBaseAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyUserAuthorityResponse> ModifyUserAuthorityOutcome;
-                typedef std::future<ModifyUserAuthorityOutcome> ModifyUserAuthorityOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::ModifyUserAuthorityRequest&, ModifyUserAuthorityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserAuthorityAsyncHandler;
                 typedef Outcome<Core::Error, Model::QueryChunkListResponse> QueryChunkListOutcome;
                 typedef std::future<QueryChunkListOutcome> QueryChunkListOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::QueryChunkListRequest&, QueryChunkListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryChunkListAsyncHandler;
-                typedef Outcome<Core::Error, Model::QuerySceneListResponse> QuerySceneListOutcome;
-                typedef std::future<QuerySceneListOutcome> QuerySceneListOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::QuerySceneListRequest&, QuerySceneListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QuerySceneListAsyncHandler;
-                typedef Outcome<Core::Error, Model::QueryUserAuthorityResponse> QueryUserAuthorityOutcome;
-                typedef std::future<QueryUserAuthorityOutcome> QueryUserAuthorityOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::QueryUserAuthorityRequest&, QueryUserAuthorityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryUserAuthorityAsyncHandler;
                 typedef Outcome<Core::Error, Model::StopChatAIResponse> StopChatAIOutcome;
                 typedef std::future<StopChatAIOutcome> StopChatAIOutcomeCallable;
                 typedef std::function<void(const DataagentClient*, const Model::StopChatAIRequest&, StopChatAIOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopChatAIAsyncHandler;
-                typedef Outcome<Core::Error, Model::UpdateSceneResponse> UpdateSceneOutcome;
-                typedef std::future<UpdateSceneOutcome> UpdateSceneOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::UpdateSceneRequest&, UpdateSceneOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateSceneAsyncHandler;
-                typedef Outcome<Core::Error, Model::UploadAndCommitFileResponse> UploadAndCommitFileOutcome;
-                typedef std::future<UploadAndCommitFileOutcome> UploadAndCommitFileOutcomeCallable;
-                typedef std::function<void(const DataagentClient*, const Model::UploadAndCommitFileRequest&, UploadAndCommitFileOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UploadAndCommitFileAsyncHandler;
 
 
 
@@ -153,15 +103,6 @@ namespace TencentCloud
                 AddChunkOutcome AddChunk(const Model::AddChunkRequest &request);
                 void AddChunkAsync(const Model::AddChunkRequest& request, const AddChunkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 AddChunkOutcomeCallable AddChunkCallable(const Model::AddChunkRequest& request);
-
-                /**
-                 *新增场景
-                 * @param req AddSceneRequest
-                 * @return AddSceneOutcome
-                 */
-                AddSceneOutcome AddScene(const Model::AddSceneRequest &request);
-                void AddSceneAsync(const Model::AddSceneRequest& request, const AddSceneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                AddSceneOutcomeCallable AddSceneCallable(const Model::AddSceneRequest& request);
 
                 /**
                  *提供DataAgent 产品服务API
@@ -200,33 +141,6 @@ namespace TencentCloud
                 DeleteDataAgentSessionOutcomeCallable DeleteDataAgentSessionCallable(const Model::DeleteDataAgentSessionRequest& request);
 
                 /**
-                 *删除场景
-                 * @param req DeleteSceneRequest
-                 * @return DeleteSceneOutcome
-                 */
-                DeleteSceneOutcome DeleteScene(const Model::DeleteSceneRequest &request);
-                void DeleteSceneAsync(const Model::DeleteSceneRequest& request, const DeleteSceneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteSceneOutcomeCallable DeleteSceneCallable(const Model::DeleteSceneRequest& request);
-
-                /**
-                 *根据知识库id查询jobs 列表
-                 * @param req GetJobsByKnowledgeBaseIdRequest
-                 * @return GetJobsByKnowledgeBaseIdOutcome
-                 */
-                GetJobsByKnowledgeBaseIdOutcome GetJobsByKnowledgeBaseId(const Model::GetJobsByKnowledgeBaseIdRequest &request);
-                void GetJobsByKnowledgeBaseIdAsync(const Model::GetJobsByKnowledgeBaseIdRequest& request, const GetJobsByKnowledgeBaseIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetJobsByKnowledgeBaseIdOutcomeCallable GetJobsByKnowledgeBaseIdCallable(const Model::GetJobsByKnowledgeBaseIdRequest& request);
-
-                /**
-                 *获取知识库文件信息列表
-                 * @param req GetKnowledgeBaseFileListRequest
-                 * @return GetKnowledgeBaseFileListOutcome
-                 */
-                GetKnowledgeBaseFileListOutcome GetKnowledgeBaseFileList(const Model::GetKnowledgeBaseFileListRequest &request);
-                void GetKnowledgeBaseFileListAsync(const Model::GetKnowledgeBaseFileListRequest& request, const GetKnowledgeBaseFileListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetKnowledgeBaseFileListOutcomeCallable GetKnowledgeBaseFileListCallable(const Model::GetKnowledgeBaseFileListRequest& request);
-
-                /**
                  *获取知识库列表
                  * @param req GetKnowledgeBaseListRequest
                  * @return GetKnowledgeBaseListOutcome
@@ -243,15 +157,6 @@ namespace TencentCloud
                 GetSessionDetailsOutcome GetSessionDetails(const Model::GetSessionDetailsRequest &request);
                 void GetSessionDetailsAsync(const Model::GetSessionDetailsRequest& request, const GetSessionDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 GetSessionDetailsOutcomeCallable GetSessionDetailsCallable(const Model::GetSessionDetailsRequest& request);
-
-                /**
-                 *查询上传任务
-                 * @param req GetUploadJobDetailsRequest
-                 * @return GetUploadJobDetailsOutcome
-                 */
-                GetUploadJobDetailsOutcome GetUploadJobDetails(const Model::GetUploadJobDetailsRequest &request);
-                void GetUploadJobDetailsAsync(const Model::GetUploadJobDetailsRequest& request, const GetUploadJobDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetUploadJobDetailsOutcomeCallable GetUploadJobDetailsCallable(const Model::GetUploadJobDetailsRequest& request);
 
                 /**
                  *编辑修改分片
@@ -272,15 +177,6 @@ namespace TencentCloud
                 ModifyKnowledgeBaseOutcomeCallable ModifyKnowledgeBaseCallable(const Model::ModifyKnowledgeBaseRequest& request);
 
                 /**
-                 *修改对象权限
-                 * @param req ModifyUserAuthorityRequest
-                 * @return ModifyUserAuthorityOutcome
-                 */
-                ModifyUserAuthorityOutcome ModifyUserAuthority(const Model::ModifyUserAuthorityRequest &request);
-                void ModifyUserAuthorityAsync(const Model::ModifyUserAuthorityRequest& request, const ModifyUserAuthorityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyUserAuthorityOutcomeCallable ModifyUserAuthorityCallable(const Model::ModifyUserAuthorityRequest& request);
-
-                /**
                  *文档切片查询
                  * @param req QueryChunkListRequest
                  * @return QueryChunkListOutcome
@@ -290,24 +186,6 @@ namespace TencentCloud
                 QueryChunkListOutcomeCallable QueryChunkListCallable(const Model::QueryChunkListRequest& request);
 
                 /**
-                 *查询场景列表
-                 * @param req QuerySceneListRequest
-                 * @return QuerySceneListOutcome
-                 */
-                QuerySceneListOutcome QuerySceneList(const Model::QuerySceneListRequest &request);
-                void QuerySceneListAsync(const Model::QuerySceneListRequest& request, const QuerySceneListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                QuerySceneListOutcomeCallable QuerySceneListCallable(const Model::QuerySceneListRequest& request);
-
-                /**
-                 *查询对象权限
-                 * @param req QueryUserAuthorityRequest
-                 * @return QueryUserAuthorityOutcome
-                 */
-                QueryUserAuthorityOutcome QueryUserAuthority(const Model::QueryUserAuthorityRequest &request);
-                void QueryUserAuthorityAsync(const Model::QueryUserAuthorityRequest& request, const QueryUserAuthorityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                QueryUserAuthorityOutcomeCallable QueryUserAuthorityCallable(const Model::QueryUserAuthorityRequest& request);
-
-                /**
                  *中断DataAgent的回答输出
                  * @param req StopChatAIRequest
                  * @return StopChatAIOutcome
@@ -315,24 +193,6 @@ namespace TencentCloud
                 StopChatAIOutcome StopChatAI(const Model::StopChatAIRequest &request);
                 void StopChatAIAsync(const Model::StopChatAIRequest& request, const StopChatAIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 StopChatAIOutcomeCallable StopChatAICallable(const Model::StopChatAIRequest& request);
-
-                /**
-                 *更新场景
-                 * @param req UpdateSceneRequest
-                 * @return UpdateSceneOutcome
-                 */
-                UpdateSceneOutcome UpdateScene(const Model::UpdateSceneRequest &request);
-                void UpdateSceneAsync(const Model::UpdateSceneRequest& request, const UpdateSceneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                UpdateSceneOutcomeCallable UpdateSceneCallable(const Model::UpdateSceneRequest& request);
-
-                /**
-                 *上传提交文件
-                 * @param req UploadAndCommitFileRequest
-                 * @return UploadAndCommitFileOutcome
-                 */
-                UploadAndCommitFileOutcome UploadAndCommitFile(const Model::UploadAndCommitFileRequest &request);
-                void UploadAndCommitFileAsync(const Model::UploadAndCommitFileRequest& request, const UploadAndCommitFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                UploadAndCommitFileOutcomeCallable UploadAndCommitFileCallable(const Model::UploadAndCommitFileRequest& request);
 
             };
         }

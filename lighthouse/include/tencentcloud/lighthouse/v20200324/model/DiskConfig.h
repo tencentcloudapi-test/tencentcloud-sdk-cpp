@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>可用区。</p>
-                     * @return Zone <p>可用区。</p>
+                     * 获取可用区。
+                     * @return Zone 可用区。
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>可用区。</p>
-                     * @param _zone <p>可用区。</p>
+                     * 设置可用区。
+                     * @param _zone 可用区。
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -68,15 +68,31 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>云硬盘类型。枚举值如下：</p><li>CLOUD_BASIC：普通云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li>CLOUD_SSD：SSD云硬盘</li>
-                     * @return DiskType <p>云硬盘类型。枚举值如下：</p><li>CLOUD_BASIC：普通云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li>CLOUD_SSD：SSD云硬盘</li>
+                     * 获取云硬盘类型。枚举值如下：
+
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+                     * @return DiskType 云硬盘类型。枚举值如下：
+
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
                      * 
                      */
                     std::string GetDiskType() const;
 
                     /**
-                     * 设置<p>云硬盘类型。枚举值如下：</p><li>CLOUD_BASIC：普通云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li>CLOUD_SSD：SSD云硬盘</li>
-                     * @param _diskType <p>云硬盘类型。枚举值如下：</p><li>CLOUD_BASIC：普通云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li>CLOUD_SSD：SSD云硬盘</li>
+                     * 设置云硬盘类型。枚举值如下：
+
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
+                     * @param _diskType 云硬盘类型。枚举值如下：
+
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
                      * 
                      */
                     void SetDiskType(const std::string& _diskType);
@@ -89,15 +105,15 @@ namespace TencentCloud
                     bool DiskTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>云硬盘可售卖状态。</p>
-                     * @return DiskSalesState <p>云硬盘可售卖状态。</p>
+                     * 获取云硬盘可售卖状态。
+                     * @return DiskSalesState 云硬盘可售卖状态。
                      * 
                      */
                     std::string GetDiskSalesState() const;
 
                     /**
-                     * 设置<p>云硬盘可售卖状态。</p>
-                     * @param _diskSalesState <p>云硬盘可售卖状态。</p>
+                     * 设置云硬盘可售卖状态。
+                     * @param _diskSalesState 云硬盘可售卖状态。
                      * 
                      */
                     void SetDiskSalesState(const std::string& _diskSalesState);
@@ -110,15 +126,15 @@ namespace TencentCloud
                     bool DiskSalesStateHasBeenSet() const;
 
                     /**
-                     * 获取<p>最大云硬盘大小。</p><p>单位：GB</p>
-                     * @return MaxDiskSize <p>最大云硬盘大小。</p><p>单位：GB</p>
+                     * 获取最大云硬盘大小。
+                     * @return MaxDiskSize 最大云硬盘大小。
                      * 
                      */
                     int64_t GetMaxDiskSize() const;
 
                     /**
-                     * 设置<p>最大云硬盘大小。</p><p>单位：GB</p>
-                     * @param _maxDiskSize <p>最大云硬盘大小。</p><p>单位：GB</p>
+                     * 设置最大云硬盘大小。
+                     * @param _maxDiskSize 最大云硬盘大小。
                      * 
                      */
                     void SetMaxDiskSize(const int64_t& _maxDiskSize);
@@ -131,15 +147,15 @@ namespace TencentCloud
                     bool MaxDiskSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>最小云硬盘大小。</p><p>单位：GB</p>
-                     * @return MinDiskSize <p>最小云硬盘大小。</p><p>单位：GB</p>
+                     * 获取最小云硬盘大小。
+                     * @return MinDiskSize 最小云硬盘大小。
                      * 
                      */
                     int64_t GetMinDiskSize() const;
 
                     /**
-                     * 设置<p>最小云硬盘大小。</p><p>单位：GB</p>
-                     * @param _minDiskSize <p>最小云硬盘大小。</p><p>单位：GB</p>
+                     * 设置最小云硬盘大小。
+                     * @param _minDiskSize 最小云硬盘大小。
                      * 
                      */
                     void SetMinDiskSize(const int64_t& _minDiskSize);
@@ -152,15 +168,15 @@ namespace TencentCloud
                     bool MinDiskSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>云硬盘步长。</p><p>单位：GB</p>
-                     * @return DiskStepSize <p>云硬盘步长。</p><p>单位：GB</p>
+                     * 获取云硬盘步长。
+                     * @return DiskStepSize 云硬盘步长。
                      * 
                      */
                     int64_t GetDiskStepSize() const;
 
                     /**
-                     * 设置<p>云硬盘步长。</p><p>单位：GB</p>
-                     * @param _diskStepSize <p>云硬盘步长。</p><p>单位：GB</p>
+                     * 设置云硬盘步长。
+                     * @param _diskStepSize 云硬盘步长。
                      * 
                      */
                     void SetDiskStepSize(const int64_t& _diskStepSize);
@@ -175,37 +191,41 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>可用区。</p>
+                     * 可用区。
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>云硬盘类型。枚举值如下：</p><li>CLOUD_BASIC：普通云硬盘</li><li>CLOUD_PREMIUM：高性能云硬盘</li><li>CLOUD_SSD：SSD云硬盘</li>
+                     * 云硬盘类型。枚举值如下：
+
+<li>CLOUD_BASIC：普通云硬盘</li>
+<li>CLOUD_PREMIUM：高性能云硬盘</li>
+<li>CLOUD_SSD：SSD云硬盘</li>
                      */
                     std::string m_diskType;
                     bool m_diskTypeHasBeenSet;
 
                     /**
-                     * <p>云硬盘可售卖状态。</p>
+                     * 云硬盘可售卖状态。
                      */
                     std::string m_diskSalesState;
                     bool m_diskSalesStateHasBeenSet;
 
                     /**
-                     * <p>最大云硬盘大小。</p><p>单位：GB</p>
+                     * 最大云硬盘大小。
                      */
                     int64_t m_maxDiskSize;
                     bool m_maxDiskSizeHasBeenSet;
 
                     /**
-                     * <p>最小云硬盘大小。</p><p>单位：GB</p>
+                     * 最小云硬盘大小。
                      */
                     int64_t m_minDiskSize;
                     bool m_minDiskSizeHasBeenSet;
 
                     /**
-                     * <p>云硬盘步长。</p><p>单位：GB</p>
+                     * 云硬盘步长。
                      */
                     int64_t m_diskStepSize;
                     bool m_diskStepSizeHasBeenSet;

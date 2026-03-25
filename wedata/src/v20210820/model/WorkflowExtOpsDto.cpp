@@ -36,9 +36,7 @@ WorkflowExtOpsDto::WorkflowExtOpsDto() :
     m_createTimeHasBeenSet(false),
     m_modifyTimeHasBeenSet(false),
     m_modifyUserHasBeenSet(false),
-    m_workflowTypeHasBeenSet(false),
-    m_bundleIdHasBeenSet(false),
-    m_bundleInfoHasBeenSet(false)
+    m_workflowTypeHasBeenSet(false)
 {
 }
 
@@ -207,26 +205,6 @@ CoreInternalOutcome WorkflowExtOpsDto::Deserialize(const rapidjson::Value &value
         m_workflowTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("BundleId") && !value["BundleId"].IsNull())
-    {
-        if (!value["BundleId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `WorkflowExtOpsDto.BundleId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_bundleId = string(value["BundleId"].GetString());
-        m_bundleIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("BundleInfo") && !value["BundleInfo"].IsNull())
-    {
-        if (!value["BundleInfo"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `WorkflowExtOpsDto.BundleInfo` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_bundleInfo = string(value["BundleInfo"].GetString());
-        m_bundleInfoHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -360,22 +338,6 @@ void WorkflowExtOpsDto::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "WorkflowType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_workflowType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_bundleIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BundleId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_bundleId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_bundleInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BundleInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_bundleInfo.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -635,37 +597,5 @@ void WorkflowExtOpsDto::SetWorkflowType(const string& _workflowType)
 bool WorkflowExtOpsDto::WorkflowTypeHasBeenSet() const
 {
     return m_workflowTypeHasBeenSet;
-}
-
-string WorkflowExtOpsDto::GetBundleId() const
-{
-    return m_bundleId;
-}
-
-void WorkflowExtOpsDto::SetBundleId(const string& _bundleId)
-{
-    m_bundleId = _bundleId;
-    m_bundleIdHasBeenSet = true;
-}
-
-bool WorkflowExtOpsDto::BundleIdHasBeenSet() const
-{
-    return m_bundleIdHasBeenSet;
-}
-
-string WorkflowExtOpsDto::GetBundleInfo() const
-{
-    return m_bundleInfo;
-}
-
-void WorkflowExtOpsDto::SetBundleInfo(const string& _bundleInfo)
-{
-    m_bundleInfo = _bundleInfo;
-    m_bundleInfoHasBeenSet = true;
-}
-
-bool WorkflowExtOpsDto::BundleInfoHasBeenSet() const
-{
-    return m_bundleInfoHasBeenSet;
 }
 

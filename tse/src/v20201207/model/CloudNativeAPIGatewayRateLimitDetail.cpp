@@ -27,7 +27,6 @@ CloudNativeAPIGatewayRateLimitDetail::CloudNativeAPIGatewayRateLimitDetail() :
     m_headerHasBeenSet(false),
     m_limitByHasBeenSet(false),
     m_externalRedisHasBeenSet(false),
-    m_globalConfigIdHasBeenSet(false),
     m_policyHasBeenSet(false),
     m_rateLimitResponseHasBeenSet(false),
     m_rateLimitResponseUrlHasBeenSet(false),
@@ -120,16 +119,6 @@ CoreInternalOutcome CloudNativeAPIGatewayRateLimitDetail::Deserialize(const rapi
         }
 
         m_externalRedisHasBeenSet = true;
-    }
-
-    if (value.HasMember("GlobalConfigId") && !value["GlobalConfigId"].IsNull())
-    {
-        if (!value["GlobalConfigId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CloudNativeAPIGatewayRateLimitDetail.GlobalConfigId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_globalConfigId = string(value["GlobalConfigId"].GetString());
-        m_globalConfigIdHasBeenSet = true;
     }
 
     if (value.HasMember("Policy") && !value["Policy"].IsNull())
@@ -310,14 +299,6 @@ void CloudNativeAPIGatewayRateLimitDetail::ToJsonObject(rapidjson::Value &value,
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_externalRedis.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_globalConfigIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "GlobalConfigId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_globalConfigId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_policyHasBeenSet)
@@ -504,22 +485,6 @@ void CloudNativeAPIGatewayRateLimitDetail::SetExternalRedis(const ExternalRedis&
 bool CloudNativeAPIGatewayRateLimitDetail::ExternalRedisHasBeenSet() const
 {
     return m_externalRedisHasBeenSet;
-}
-
-string CloudNativeAPIGatewayRateLimitDetail::GetGlobalConfigId() const
-{
-    return m_globalConfigId;
-}
-
-void CloudNativeAPIGatewayRateLimitDetail::SetGlobalConfigId(const string& _globalConfigId)
-{
-    m_globalConfigId = _globalConfigId;
-    m_globalConfigIdHasBeenSet = true;
-}
-
-bool CloudNativeAPIGatewayRateLimitDetail::GlobalConfigIdHasBeenSet() const
-{
-    return m_globalConfigIdHasBeenSet;
 }
 
 string CloudNativeAPIGatewayRateLimitDetail::GetPolicy() const

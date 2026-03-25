@@ -111,14 +111,14 @@ namespace TencentCloud
                     bool RiskDescriptionHasBeenSet() const;
 
                     /**
-                     * 获取风险等级别名。
+                     * 获取风险等级。
 
 等级描述如下：
 <ul>
     <li>**HIGH** - 高风险</li> 
     <li>**NORMAL** - 风险</li>   
 </ul>
-                     * @return RiskLevel 风险等级别名。
+                     * @return RiskLevel 风险等级。
 
 等级描述如下：
 <ul>
@@ -130,14 +130,14 @@ namespace TencentCloud
                     std::string GetRiskLevel() const;
 
                     /**
-                     * 设置风险等级别名。
+                     * 设置风险等级。
 
 等级描述如下：
 <ul>
     <li>**HIGH** - 高风险</li> 
     <li>**NORMAL** - 风险</li>   
 </ul>
-                     * @param _riskLevel 风险等级别名。
+                     * @param _riskLevel 风险等级。
 
 等级描述如下：
 <ul>
@@ -240,48 +240,6 @@ namespace TencentCloud
                     bool PositionsHasBeenSet() const;
 
                     /**
-                     * 获取是否已修订
-                     * @return IsMark 是否已修订
-                     * 
-                     */
-                    bool GetIsMark() const;
-
-                    /**
-                     * 设置是否已修订
-                     * @param _isMark 是否已修订
-                     * 
-                     */
-                    void SetIsMark(const bool& _isMark);
-
-                    /**
-                     * 判断参数 IsMark 是否已赋值
-                     * @return IsMark 是否已赋值
-                     * 
-                     */
-                    bool IsMarkHasBeenSet() const;
-
-                    /**
-                     * 获取是否已忽略
-                     * @return IsIgnore 是否已忽略
-                     * 
-                     */
-                    bool GetIsIgnore() const;
-
-                    /**
-                     * 设置是否已忽略
-                     * @param _isIgnore 是否已忽略
-                     * 
-                     */
-                    void SetIsIgnore(const bool& _isIgnore);
-
-                    /**
-                     * 判断参数 IsIgnore 是否已赋值
-                     * @return IsIgnore 是否已赋值
-                     * 
-                     */
-                    bool IsIgnoreHasBeenSet() const;
-
-                    /**
                      * 获取审查依据
                      * @return RiskBasis 审查依据
                      * 
@@ -303,15 +261,15 @@ namespace TencentCloud
                     bool RiskBasisHasBeenSet() const;
 
                     /**
-                     * 获取风险等级id。1 为最高风险等级，0 为最低风险等级，从[2,n]数字越大风险等级逐渐降低。
-                     * @return RiskLevelId 风险等级id。1 为最高风险等级，0 为最低风险等级，从[2,n]数字越大风险等级逐渐降低。
+                     * 获取风险等级id
+                     * @return RiskLevelId 风险等级id
                      * 
                      */
                     int64_t GetRiskLevelId() const;
 
                     /**
-                     * 设置风险等级id。1 为最高风险等级，0 为最低风险等级，从[2,n]数字越大风险等级逐渐降低。
-                     * @param _riskLevelId 风险等级id。1 为最高风险等级，0 为最低风险等级，从[2,n]数字越大风险等级逐渐降低。
+                     * 设置风险等级id
+                     * @param _riskLevelId 风险等级id
                      * 
                      */
                     void SetRiskLevelId(const int64_t& _riskLevelId);
@@ -322,132 +280,6 @@ namespace TencentCloud
                      * 
                      */
                     bool RiskLevelIdHasBeenSet() const;
-
-                    /**
-                     * 获取风险标签
-                     * @return RiskLabels 风险标签
-                     * 
-                     */
-                    std::vector<std::string> GetRiskLabels() const;
-
-                    /**
-                     * 设置风险标签
-                     * @param _riskLabels 风险标签
-                     * 
-                     */
-                    void SetRiskLabels(const std::vector<std::string>& _riskLabels);
-
-                    /**
-                     * 判断参数 RiskLabels 是否已赋值
-                     * @return RiskLabels 是否已赋值
-                     * 
-                     */
-                    bool RiskLabelsHasBeenSet() const;
-
-                    /**
-                     * 获取风险来源 0:模型标注的风险 1:人工标注的风险
-                     * @return RiskOrigin 风险来源 0:模型标注的风险 1:人工标注的风险
-                     * 
-                     */
-                    int64_t GetRiskOrigin() const;
-
-                    /**
-                     * 设置风险来源 0:模型标注的风险 1:人工标注的风险
-                     * @param _riskOrigin 风险来源 0:模型标注的风险 1:人工标注的风险
-                     * 
-                     */
-                    void SetRiskOrigin(const int64_t& _riskOrigin);
-
-                    /**
-                     * 判断参数 RiskOrigin 是否已赋值
-                     * @return RiskOrigin 是否已赋值
-                     * 
-                     */
-                    bool RiskOriginHasBeenSet() const;
-
-                    /**
-                     * 获取创建人
-                     * @return Creator 创建人
-                     * 
-                     */
-                    std::string GetCreator() const;
-
-                    /**
-                     * 设置创建人
-                     * @param _creator 创建人
-                     * 
-                     */
-                    void SetCreator(const std::string& _creator);
-
-                    /**
-                     * 判断参数 Creator 是否已赋值
-                     * @return Creator 是否已赋值
-                     * 
-                     */
-                    bool CreatorHasBeenSet() const;
-
-                    /**
-                     * 获取创建人ID
-                     * @return CreatorId 创建人ID
-                     * 
-                     */
-                    std::string GetCreatorId() const;
-
-                    /**
-                     * 设置创建人ID
-                     * @param _creatorId 创建人ID
-                     * 
-                     */
-                    void SetCreatorId(const std::string& _creatorId);
-
-                    /**
-                     * 判断参数 CreatorId 是否已赋值
-                     * @return CreatorId 是否已赋值
-                     * 
-                     */
-                    bool CreatorIdHasBeenSet() const;
-
-                    /**
-                     * 获取创建时间
-                     * @return CreatedOn 创建时间
-                     * 
-                     */
-                    int64_t GetCreatedOn() const;
-
-                    /**
-                     * 设置创建时间
-                     * @param _createdOn 创建时间
-                     * 
-                     */
-                    void SetCreatedOn(const int64_t& _createdOn);
-
-                    /**
-                     * 判断参数 CreatedOn 是否已赋值
-                     * @return CreatedOn 是否已赋值
-                     * 
-                     */
-                    bool CreatedOnHasBeenSet() const;
-
-                    /**
-                     * 获取风险等级别名
-                     * @return RiskLevelAliasName 风险等级别名
-                     * 
-                     */
-                    std::string GetRiskLevelAliasName() const;
-
-                    /**
-                     * 设置风险等级别名
-                     * @param _riskLevelAliasName 风险等级别名
-                     * 
-                     */
-                    void SetRiskLevelAliasName(const std::string& _riskLevelAliasName);
-
-                    /**
-                     * 判断参数 RiskLevelAliasName 是否已赋值
-                     * @return RiskLevelAliasName 是否已赋值
-                     * 
-                     */
-                    bool RiskLevelAliasNameHasBeenSet() const;
 
                 private:
 
@@ -470,7 +302,7 @@ namespace TencentCloud
                     bool m_riskDescriptionHasBeenSet;
 
                     /**
-                     * 风险等级别名。
+                     * 风险等级。
 
 等级描述如下：
 <ul>
@@ -506,64 +338,16 @@ namespace TencentCloud
                     bool m_positionsHasBeenSet;
 
                     /**
-                     * 是否已修订
-                     */
-                    bool m_isMark;
-                    bool m_isMarkHasBeenSet;
-
-                    /**
-                     * 是否已忽略
-                     */
-                    bool m_isIgnore;
-                    bool m_isIgnoreHasBeenSet;
-
-                    /**
                      * 审查依据
                      */
                     std::string m_riskBasis;
                     bool m_riskBasisHasBeenSet;
 
                     /**
-                     * 风险等级id。1 为最高风险等级，0 为最低风险等级，从[2,n]数字越大风险等级逐渐降低。
+                     * 风险等级id
                      */
                     int64_t m_riskLevelId;
                     bool m_riskLevelIdHasBeenSet;
-
-                    /**
-                     * 风险标签
-                     */
-                    std::vector<std::string> m_riskLabels;
-                    bool m_riskLabelsHasBeenSet;
-
-                    /**
-                     * 风险来源 0:模型标注的风险 1:人工标注的风险
-                     */
-                    int64_t m_riskOrigin;
-                    bool m_riskOriginHasBeenSet;
-
-                    /**
-                     * 创建人
-                     */
-                    std::string m_creator;
-                    bool m_creatorHasBeenSet;
-
-                    /**
-                     * 创建人ID
-                     */
-                    std::string m_creatorId;
-                    bool m_creatorIdHasBeenSet;
-
-                    /**
-                     * 创建时间
-                     */
-                    int64_t m_createdOn;
-                    bool m_createdOnHasBeenSet;
-
-                    /**
-                     * 风险等级别名
-                     */
-                    std::string m_riskLevelAliasName;
-                    bool m_riskLevelAliasNameHasBeenSet;
 
                 };
             }

@@ -25,8 +25,7 @@ ComparisonDetail::ComparisonDetail() :
     m_comparisonTypeHasBeenSet(false),
     m_contentTypeHasBeenSet(false),
     m_originTextHasBeenSet(false),
-    m_diffTextHasBeenSet(false),
-    m_formatTypeHasBeenSet(false)
+    m_diffTextHasBeenSet(false)
 {
 }
 
@@ -85,16 +84,6 @@ CoreInternalOutcome ComparisonDetail::Deserialize(const rapidjson::Value &value)
         m_diffTextHasBeenSet = true;
     }
 
-    if (value.HasMember("FormatType") && !value["FormatType"].IsNull())
-    {
-        if (!value["FormatType"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ComparisonDetail.FormatType` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_formatType = value["FormatType"].GetInt64();
-        m_formatTypeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -140,14 +129,6 @@ void ComparisonDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "DiffText";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_diffText.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_formatTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FormatType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_formatType, allocator);
     }
 
 }
@@ -231,21 +212,5 @@ void ComparisonDetail::SetDiffText(const string& _diffText)
 bool ComparisonDetail::DiffTextHasBeenSet() const
 {
     return m_diffTextHasBeenSet;
-}
-
-int64_t ComparisonDetail::GetFormatType() const
-{
-    return m_formatType;
-}
-
-void ComparisonDetail::SetFormatType(const int64_t& _formatType)
-{
-    m_formatType = _formatType;
-    m_formatTypeHasBeenSet = true;
-}
-
-bool ComparisonDetail::FormatTypeHasBeenSet() const
-{
-    return m_formatTypeHasBeenSet;
 }
 

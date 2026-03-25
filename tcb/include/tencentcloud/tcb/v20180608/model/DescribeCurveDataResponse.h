@@ -114,8 +114,8 @@ namespace TencentCloud
                     bool ValuesHasBeenSet() const;
 
                     /**
-                     * 获取各数据点的时间戳数组（Unix 时间戳，秒级），与  ⁠Values⁠  一一对应
-                     * @return Time 各数据点的时间戳数组（Unix 时间戳，秒级），与  ⁠Values⁠  一一对应
+                     * 获取时间数据, 标识监控数据Values中的点是哪个时间段上报的
+                     * @return Time 时间数据, 标识监控数据Values中的点是哪个时间段上报的
                      * 
                      */
                     std::vector<int64_t> GetTime() const;
@@ -140,20 +140,6 @@ namespace TencentCloud
                      * 
                      */
                     bool NewValuesHasBeenSet() const;
-
-                    /**
-                     * 获取 聚合方式， ⁠"last"⁠  表示取时间段内最后一个值，“max”表示取时间段内最大值，“avg”表示取时间段内的平均值
-                     * @return Statistics  聚合方式， ⁠"last"⁠  表示取时间段内最后一个值，“max”表示取时间段内最大值，“avg”表示取时间段内的平均值
-                     * 
-                     */
-                    std::string GetStatistics() const;
-
-                    /**
-                     * 判断参数 Statistics 是否已赋值
-                     * @return Statistics 是否已赋值
-                     * 
-                     */
-                    bool StatisticsHasBeenSet() const;
 
                 private:
 
@@ -188,7 +174,7 @@ namespace TencentCloud
                     bool m_valuesHasBeenSet;
 
                     /**
-                     * 各数据点的时间戳数组（Unix 时间戳，秒级），与  ⁠Values⁠  一一对应
+                     * 时间数据, 标识监控数据Values中的点是哪个时间段上报的
                      */
                     std::vector<int64_t> m_time;
                     bool m_timeHasBeenSet;
@@ -198,12 +184,6 @@ namespace TencentCloud
                      */
                     std::vector<double> m_newValues;
                     bool m_newValuesHasBeenSet;
-
-                    /**
-                     *  聚合方式， ⁠"last"⁠  表示取时间段内最后一个值，“max”表示取时间段内最大值，“avg”表示取时间段内的平均值
-                     */
-                    std::string m_statistics;
-                    bool m_statisticsHasBeenSet;
 
                 };
             }

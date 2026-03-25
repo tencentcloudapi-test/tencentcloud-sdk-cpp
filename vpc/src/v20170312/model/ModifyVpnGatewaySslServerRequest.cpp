@@ -33,8 +33,7 @@ ModifyVpnGatewaySslServerRequest::ModifyVpnGatewaySslServerRequest() :
     m_integrityAlgorithmHasBeenSet(false),
     m_compressHasBeenSet(false),
     m_ssoEnabledHasBeenSet(false),
-    m_samlDataHasBeenSet(false),
-    m_dnsServersHasBeenSet(false)
+    m_samlDataHasBeenSet(false)
 {
 }
 
@@ -136,15 +135,6 @@ string ModifyVpnGatewaySslServerRequest::ToJsonString() const
         string key = "SamlData";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_samlData.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_dnsServersHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DnsServers";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_dnsServers.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -329,22 +319,6 @@ void ModifyVpnGatewaySslServerRequest::SetSamlData(const string& _samlData)
 bool ModifyVpnGatewaySslServerRequest::SamlDataHasBeenSet() const
 {
     return m_samlDataHasBeenSet;
-}
-
-DnsServers ModifyVpnGatewaySslServerRequest::GetDnsServers() const
-{
-    return m_dnsServers;
-}
-
-void ModifyVpnGatewaySslServerRequest::SetDnsServers(const DnsServers& _dnsServers)
-{
-    m_dnsServers = _dnsServers;
-    m_dnsServersHasBeenSet = true;
-}
-
-bool ModifyVpnGatewaySslServerRequest::DnsServersHasBeenSet() const
-{
-    return m_dnsServersHasBeenSet;
 }
 
 

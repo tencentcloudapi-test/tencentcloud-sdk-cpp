@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>添加签名响应</p>
-                     * @return AddSignStatus <p>添加签名响应</p>
+                     * 获取添加签名响应
+                     * @return AddSignStatus 添加签名响应
                      * 
                      */
                     AddSignStatus GetAddSignStatus() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>添加签名响应</p>
+                     * 添加签名响应
                      */
                     AddSignStatus m_addSignStatus;
                     bool m_addSignStatusHasBeenSet;

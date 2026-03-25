@@ -25,12 +25,12 @@ using namespace std;
 DescribeTelCdrRequest::DescribeTelCdrRequest() :
     m_startTimeStampHasBeenSet(false),
     m_endTimeStampHasBeenSet(false),
-    m_sdkAppIdHasBeenSet(false),
-    m_pageSizeHasBeenSet(false),
-    m_pageNumberHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
     m_limitHasBeenSet(false),
     m_offsetHasBeenSet(false),
+    m_sdkAppIdHasBeenSet(false),
+    m_pageSizeHasBeenSet(false),
+    m_pageNumberHasBeenSet(false),
     m_phonesHasBeenSet(false),
     m_sessionIdsHasBeenSet(false)
 {
@@ -59,30 +59,6 @@ string DescribeTelCdrRequest::ToJsonString() const
         d.AddMember(iKey, m_endTimeStamp, allocator);
     }
 
-    if (m_sdkAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SdkAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_sdkAppId, allocator);
-    }
-
-    if (m_pageSizeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PageSize";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_pageSize, allocator);
-    }
-
-    if (m_pageNumberHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PageNumber";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_pageNumber, allocator);
-    }
-
     if (m_instanceIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -105,6 +81,30 @@ string DescribeTelCdrRequest::ToJsonString() const
         string key = "Offset";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_offset, allocator);
+    }
+
+    if (m_sdkAppIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SdkAppId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_sdkAppId, allocator);
+    }
+
+    if (m_pageSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PageSize";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pageSize, allocator);
+    }
+
+    if (m_pageNumberHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PageNumber";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_pageNumber, allocator);
     }
 
     if (m_phonesHasBeenSet)
@@ -173,54 +173,6 @@ bool DescribeTelCdrRequest::EndTimeStampHasBeenSet() const
     return m_endTimeStampHasBeenSet;
 }
 
-int64_t DescribeTelCdrRequest::GetSdkAppId() const
-{
-    return m_sdkAppId;
-}
-
-void DescribeTelCdrRequest::SetSdkAppId(const int64_t& _sdkAppId)
-{
-    m_sdkAppId = _sdkAppId;
-    m_sdkAppIdHasBeenSet = true;
-}
-
-bool DescribeTelCdrRequest::SdkAppIdHasBeenSet() const
-{
-    return m_sdkAppIdHasBeenSet;
-}
-
-int64_t DescribeTelCdrRequest::GetPageSize() const
-{
-    return m_pageSize;
-}
-
-void DescribeTelCdrRequest::SetPageSize(const int64_t& _pageSize)
-{
-    m_pageSize = _pageSize;
-    m_pageSizeHasBeenSet = true;
-}
-
-bool DescribeTelCdrRequest::PageSizeHasBeenSet() const
-{
-    return m_pageSizeHasBeenSet;
-}
-
-int64_t DescribeTelCdrRequest::GetPageNumber() const
-{
-    return m_pageNumber;
-}
-
-void DescribeTelCdrRequest::SetPageNumber(const int64_t& _pageNumber)
-{
-    m_pageNumber = _pageNumber;
-    m_pageNumberHasBeenSet = true;
-}
-
-bool DescribeTelCdrRequest::PageNumberHasBeenSet() const
-{
-    return m_pageNumberHasBeenSet;
-}
-
 int64_t DescribeTelCdrRequest::GetInstanceId() const
 {
     return m_instanceId;
@@ -267,6 +219,54 @@ void DescribeTelCdrRequest::SetOffset(const int64_t& _offset)
 bool DescribeTelCdrRequest::OffsetHasBeenSet() const
 {
     return m_offsetHasBeenSet;
+}
+
+int64_t DescribeTelCdrRequest::GetSdkAppId() const
+{
+    return m_sdkAppId;
+}
+
+void DescribeTelCdrRequest::SetSdkAppId(const int64_t& _sdkAppId)
+{
+    m_sdkAppId = _sdkAppId;
+    m_sdkAppIdHasBeenSet = true;
+}
+
+bool DescribeTelCdrRequest::SdkAppIdHasBeenSet() const
+{
+    return m_sdkAppIdHasBeenSet;
+}
+
+int64_t DescribeTelCdrRequest::GetPageSize() const
+{
+    return m_pageSize;
+}
+
+void DescribeTelCdrRequest::SetPageSize(const int64_t& _pageSize)
+{
+    m_pageSize = _pageSize;
+    m_pageSizeHasBeenSet = true;
+}
+
+bool DescribeTelCdrRequest::PageSizeHasBeenSet() const
+{
+    return m_pageSizeHasBeenSet;
+}
+
+int64_t DescribeTelCdrRequest::GetPageNumber() const
+{
+    return m_pageNumber;
+}
+
+void DescribeTelCdrRequest::SetPageNumber(const int64_t& _pageNumber)
+{
+    m_pageNumber = _pageNumber;
+    m_pageNumberHasBeenSet = true;
+}
+
+bool DescribeTelCdrRequest::PageNumberHasBeenSet() const
+{
+    return m_pageNumberHasBeenSet;
 }
 
 vector<string> DescribeTelCdrRequest::GetPhones() const

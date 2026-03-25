@@ -29,7 +29,6 @@
 #include <tencentcloud/lke/v20231130/model/AgentMCPServerInfo.h>
 #include <tencentcloud/lke/v20231130/model/AgentPluginHeader.h>
 #include <tencentcloud/lke/v20231130/model/AgentPluginQuery.h>
-#include <tencentcloud/lke/v20231130/model/ToolAdvanceConfig.h>
 
 
 namespace TencentCloud
@@ -442,111 +441,6 @@ namespace TencentCloud
                      */
                     bool ToolSourceHasBeenSet() const;
 
-                    /**
-                     * 获取计费状态；0-不计费，1-限时免费，2-官方收费
-                     * @return FinanceType 计费状态；0-不计费，1-限时免费，2-官方收费
-                     * 
-                     */
-                    int64_t GetFinanceType() const;
-
-                    /**
-                     * 设置计费状态；0-不计费，1-限时免费，2-官方收费
-                     * @param _financeType 计费状态；0-不计费，1-限时免费，2-官方收费
-                     * 
-                     */
-                    void SetFinanceType(const int64_t& _financeType);
-
-                    /**
-                     * 判断参数 FinanceType 是否已赋值
-                     * @return FinanceType 是否已赋值
-                     * 
-                     */
-                    bool FinanceTypeHasBeenSet() const;
-
-                    /**
-                     * 获取工具高级设置
-                     * @return ToolAdvanceConfig 工具高级设置
-                     * 
-                     */
-                    ToolAdvanceConfig GetToolAdvanceConfig() const;
-
-                    /**
-                     * 设置工具高级设置
-                     * @param _toolAdvanceConfig 工具高级设置
-                     * 
-                     */
-                    void SetToolAdvanceConfig(const ToolAdvanceConfig& _toolAdvanceConfig);
-
-                    /**
-                     * 判断参数 ToolAdvanceConfig 是否已赋值
-                     * @return ToolAdvanceConfig 是否已赋值
-                     * 
-                     */
-                    bool ToolAdvanceConfigHasBeenSet() const;
-
-                    /**
-                     * 获取授权模式； 0-开发者授权；1-使用者授权
-                     * @return AuthMode 授权模式； 0-开发者授权；1-使用者授权
-                     * 
-                     */
-                    int64_t GetAuthMode() const;
-
-                    /**
-                     * 设置授权模式； 0-开发者授权；1-使用者授权
-                     * @param _authMode 授权模式； 0-开发者授权；1-使用者授权
-                     * 
-                     */
-                    void SetAuthMode(const int64_t& _authMode);
-
-                    /**
-                     * 判断参数 AuthMode 是否已赋值
-                     * @return AuthMode 是否已赋值
-                     * 
-                     */
-                    bool AuthModeHasBeenSet() const;
-
-                    /**
-                     * 获取授权类型; 0-无鉴权；1-APIKey；2-CAM授权；3-Oauth2.0授权；
-                     * @return AuthType 授权类型; 0-无鉴权；1-APIKey；2-CAM授权；3-Oauth2.0授权；
-                     * 
-                     */
-                    int64_t GetAuthType() const;
-
-                    /**
-                     * 设置授权类型; 0-无鉴权；1-APIKey；2-CAM授权；3-Oauth2.0授权；
-                     * @param _authType 授权类型; 0-无鉴权；1-APIKey；2-CAM授权；3-Oauth2.0授权；
-                     * 
-                     */
-                    void SetAuthType(const int64_t& _authType);
-
-                    /**
-                     * 判断参数 AuthType 是否已赋值
-                     * @return AuthType 是否已赋值
-                     * 
-                     */
-                    bool AuthTypeHasBeenSet() const;
-
-                    /**
-                     * 获取工具授权配置状态；0：不需要授权，1：需要授权-未配置，2：需要授权-已配置
-                     * @return AuthConfigStatus 工具授权配置状态；0：不需要授权，1：需要授权-未配置，2：需要授权-已配置
-                     * 
-                     */
-                    int64_t GetAuthConfigStatus() const;
-
-                    /**
-                     * 设置工具授权配置状态；0：不需要授权，1：需要授权-未配置，2：需要授权-已配置
-                     * @param _authConfigStatus 工具授权配置状态；0：不需要授权，1：需要授权-未配置，2：需要授权-已配置
-                     * 
-                     */
-                    void SetAuthConfigStatus(const int64_t& _authConfigStatus);
-
-                    /**
-                     * 判断参数 AuthConfigStatus 是否已赋值
-                     * @return AuthConfigStatus 是否已赋值
-                     * 
-                     */
-                    bool AuthConfigStatusHasBeenSet() const;
-
                 private:
 
                     /**
@@ -659,36 +553,6 @@ namespace TencentCloud
                      */
                     uint64_t m_toolSource;
                     bool m_toolSourceHasBeenSet;
-
-                    /**
-                     * 计费状态；0-不计费，1-限时免费，2-官方收费
-                     */
-                    int64_t m_financeType;
-                    bool m_financeTypeHasBeenSet;
-
-                    /**
-                     * 工具高级设置
-                     */
-                    ToolAdvanceConfig m_toolAdvanceConfig;
-                    bool m_toolAdvanceConfigHasBeenSet;
-
-                    /**
-                     * 授权模式； 0-开发者授权；1-使用者授权
-                     */
-                    int64_t m_authMode;
-                    bool m_authModeHasBeenSet;
-
-                    /**
-                     * 授权类型; 0-无鉴权；1-APIKey；2-CAM授权；3-Oauth2.0授权；
-                     */
-                    int64_t m_authType;
-                    bool m_authTypeHasBeenSet;
-
-                    /**
-                     * 工具授权配置状态；0：不需要授权，1：需要授权-未配置，2：需要授权-已配置
-                     */
-                    int64_t m_authConfigStatus;
-                    bool m_authConfigStatusHasBeenSet;
 
                 };
             }

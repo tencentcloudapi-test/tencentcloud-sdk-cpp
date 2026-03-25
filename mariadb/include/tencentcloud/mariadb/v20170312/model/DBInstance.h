@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例 ID，唯一标识一个 TDSQL 实例</p>
-                     * @return InstanceId <p>实例 ID，唯一标识一个 TDSQL 实例</p>
+                     * 获取实例 ID，唯一标识一个 TDSQL 实例
+                     * @return InstanceId 实例 ID，唯一标识一个 TDSQL 实例
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>实例 ID，唯一标识一个 TDSQL 实例</p>
-                     * @param _instanceId <p>实例 ID，唯一标识一个 TDSQL 实例</p>
+                     * 设置实例 ID，唯一标识一个 TDSQL 实例
+                     * @param _instanceId 实例 ID，唯一标识一个 TDSQL 实例
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例名称，用户可修改</p>
-                     * @return InstanceName <p>实例名称，用户可修改</p>
+                     * 获取实例名称，用户可修改
+                     * @return InstanceName 实例名称，用户可修改
                      * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
-                     * 设置<p>实例名称，用户可修改</p>
-                     * @param _instanceName <p>实例名称，用户可修改</p>
+                     * 设置实例名称，用户可修改
+                     * @param _instanceName 实例名称，用户可修改
                      * 
                      */
                     void SetInstanceName(const std::string& _instanceName);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例所属应用 ID</p>
-                     * @return AppId <p>实例所属应用 ID</p>
+                     * 获取实例所属应用 ID
+                     * @return AppId 实例所属应用 ID
                      * 
                      */
                     int64_t GetAppId() const;
 
                     /**
-                     * 设置<p>实例所属应用 ID</p>
-                     * @param _appId <p>实例所属应用 ID</p>
+                     * 设置实例所属应用 ID
+                     * @param _appId 实例所属应用 ID
                      * 
                      */
                     void SetAppId(const int64_t& _appId);
@@ -111,15 +111,15 @@ namespace TencentCloud
                     bool AppIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例所属项目 ID</p>
-                     * @return ProjectId <p>实例所属项目 ID</p>
+                     * 获取实例所属项目 ID
+                     * @return ProjectId 实例所属项目 ID
                      * 
                      */
                     int64_t GetProjectId() const;
 
                     /**
-                     * 设置<p>实例所属项目 ID</p>
-                     * @param _projectId <p>实例所属项目 ID</p>
+                     * 设置实例所属项目 ID
+                     * @param _projectId 实例所属项目 ID
                      * 
                      */
                     void SetProjectId(const int64_t& _projectId);
@@ -132,15 +132,15 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例所在地域名称，如 ap-shanghai</p>
-                     * @return Region <p>实例所在地域名称，如 ap-shanghai</p>
+                     * 获取实例所在地域名称，如 ap-shanghai
+                     * @return Region 实例所在地域名称，如 ap-shanghai
                      * 
                      */
                     std::string GetRegion() const;
 
                     /**
-                     * 设置<p>实例所在地域名称，如 ap-shanghai</p>
-                     * @param _region <p>实例所在地域名称，如 ap-shanghai</p>
+                     * 设置实例所在地域名称，如 ap-shanghai
+                     * @param _region 实例所在地域名称，如 ap-shanghai
                      * 
                      */
                     void SetRegion(const std::string& _region);
@@ -153,15 +153,15 @@ namespace TencentCloud
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例所在可用区名称，如 ap-shanghai-2</p>
-                     * @return Zone <p>实例所在可用区名称，如 ap-shanghai-2</p>
+                     * 获取实例所在可用区名称，如 ap-shanghai-1
+                     * @return Zone 实例所在可用区名称，如 ap-shanghai-1
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>实例所在可用区名称，如 ap-shanghai-2</p>
-                     * @param _zone <p>实例所在可用区名称，如 ap-shanghai-2</p>
+                     * 设置实例所在可用区名称，如 ap-shanghai-1
+                     * @param _zone 实例所在可用区名称，如 ap-shanghai-1
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -174,15 +174,15 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络 ID，基础网络时为 0</p>
-                     * @return VpcId <p>私有网络 ID，基础网络时为 0</p>
+                     * 获取私有网络 ID，基础网络时为 0
+                     * @return VpcId 私有网络 ID，基础网络时为 0
                      * 
                      */
                     int64_t GetVpcId() const;
 
                     /**
-                     * 设置<p>私有网络 ID，基础网络时为 0</p>
-                     * @param _vpcId <p>私有网络 ID，基础网络时为 0</p>
+                     * 设置私有网络 ID，基础网络时为 0
+                     * @param _vpcId 私有网络 ID，基础网络时为 0
                      * 
                      */
                     void SetVpcId(const int64_t& _vpcId);
@@ -195,15 +195,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网 ID，基础网络时为 0</p>
-                     * @return SubnetId <p>子网 ID，基础网络时为 0</p>
+                     * 获取子网 ID，基础网络时为 0
+                     * @return SubnetId 子网 ID，基础网络时为 0
                      * 
                      */
                     int64_t GetSubnetId() const;
 
                     /**
-                     * 设置<p>子网 ID，基础网络时为 0</p>
-                     * @param _subnetId <p>子网 ID，基础网络时为 0</p>
+                     * 设置子网 ID，基础网络时为 0
+                     * @param _subnetId 子网 ID，基础网络时为 0
                      * 
                      */
                     void SetSubnetId(const int64_t& _subnetId);
@@ -216,15 +216,15 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中</p>
-                     * @return Status <p>实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中</p>
+                     * 获取实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+                     * @return Status 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中</p>
-                     * @param _status <p>实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中</p>
+                     * 设置实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
+                     * @param _status 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
                      * 
                      */
                     void SetStatus(const int64_t& _status);
@@ -237,15 +237,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>内网 IP 地址</p>
-                     * @return Vip <p>内网 IP 地址</p>
+                     * 获取内网 IP 地址
+                     * @return Vip 内网 IP 地址
                      * 
                      */
                     std::string GetVip() const;
 
                     /**
-                     * 设置<p>内网 IP 地址</p>
-                     * @param _vip <p>内网 IP 地址</p>
+                     * 设置内网 IP 地址
+                     * @param _vip 内网 IP 地址
                      * 
                      */
                     void SetVip(const std::string& _vip);
@@ -258,15 +258,15 @@ namespace TencentCloud
                     bool VipHasBeenSet() const;
 
                     /**
-                     * 获取<p>内网端口</p>
-                     * @return Vport <p>内网端口</p>
+                     * 获取内网端口
+                     * @return Vport 内网端口
                      * 
                      */
                     int64_t GetVport() const;
 
                     /**
-                     * 设置<p>内网端口</p>
-                     * @param _vport <p>内网端口</p>
+                     * 设置内网端口
+                     * @param _vport 内网端口
                      * 
                      */
                     void SetVport(const int64_t& _vport);
@@ -279,15 +279,15 @@ namespace TencentCloud
                     bool VportHasBeenSet() const;
 
                     /**
-                     * 获取<p>外网访问的域名，公网可解析</p>
-                     * @return WanDomain <p>外网访问的域名，公网可解析</p>
+                     * 获取外网访问的域名，公网可解析
+                     * @return WanDomain 外网访问的域名，公网可解析
                      * 
                      */
                     std::string GetWanDomain() const;
 
                     /**
-                     * 设置<p>外网访问的域名，公网可解析</p>
-                     * @param _wanDomain <p>外网访问的域名，公网可解析</p>
+                     * 设置外网访问的域名，公网可解析
+                     * @param _wanDomain 外网访问的域名，公网可解析
                      * 
                      */
                     void SetWanDomain(const std::string& _wanDomain);
@@ -300,15 +300,15 @@ namespace TencentCloud
                     bool WanDomainHasBeenSet() const;
 
                     /**
-                     * 获取<p>外网 IP 地址，公网可访问</p>
-                     * @return WanVip <p>外网 IP 地址，公网可访问</p>
+                     * 获取外网 IP 地址，公网可访问
+                     * @return WanVip 外网 IP 地址，公网可访问
                      * 
                      */
                     std::string GetWanVip() const;
 
                     /**
-                     * 设置<p>外网 IP 地址，公网可访问</p>
-                     * @param _wanVip <p>外网 IP 地址，公网可访问</p>
+                     * 设置外网 IP 地址，公网可访问
+                     * @param _wanVip 外网 IP 地址，公网可访问
                      * 
                      */
                     void SetWanVip(const std::string& _wanVip);
@@ -321,15 +321,15 @@ namespace TencentCloud
                     bool WanVipHasBeenSet() const;
 
                     /**
-                     * 获取<p>外网端口</p>
-                     * @return WanPort <p>外网端口</p>
+                     * 获取外网端口
+                     * @return WanPort 外网端口
                      * 
                      */
                     int64_t GetWanPort() const;
 
                     /**
-                     * 设置<p>外网端口</p>
-                     * @param _wanPort <p>外网端口</p>
+                     * 设置外网端口
+                     * @param _wanPort 外网端口
                      * 
                      */
                     void SetWanPort(const int64_t& _wanPort);
@@ -342,15 +342,15 @@ namespace TencentCloud
                     bool WanPortHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例创建时间，格式为 2006-01-02 15:04:05</p>
-                     * @return CreateTime <p>实例创建时间，格式为 2006-01-02 15:04:05</p>
+                     * 获取实例创建时间，格式为 2006-01-02 15:04:05
+                     * @return CreateTime 实例创建时间，格式为 2006-01-02 15:04:05
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>实例创建时间，格式为 2006-01-02 15:04:05</p>
-                     * @param _createTime <p>实例创建时间，格式为 2006-01-02 15:04:05</p>
+                     * 设置实例创建时间，格式为 2006-01-02 15:04:05
+                     * @param _createTime 实例创建时间，格式为 2006-01-02 15:04:05
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -363,15 +363,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例最后更新时间，格式为 2006-01-02 15:04:05</p>
-                     * @return UpdateTime <p>实例最后更新时间，格式为 2006-01-02 15:04:05</p>
+                     * 获取实例最后更新时间，格式为 2006-01-02 15:04:05
+                     * @return UpdateTime 实例最后更新时间，格式为 2006-01-02 15:04:05
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>实例最后更新时间，格式为 2006-01-02 15:04:05</p>
-                     * @param _updateTime <p>实例最后更新时间，格式为 2006-01-02 15:04:05</p>
+                     * 设置实例最后更新时间，格式为 2006-01-02 15:04:05
+                     * @param _updateTime 实例最后更新时间，格式为 2006-01-02 15:04:05
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -384,15 +384,15 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动续费标志：0 否，1 是</p>
-                     * @return AutoRenewFlag <p>自动续费标志：0 否，1 是</p>
+                     * 获取自动续费标志：0 否，1 是
+                     * @return AutoRenewFlag 自动续费标志：0 否，1 是
                      * 
                      */
                     int64_t GetAutoRenewFlag() const;
 
                     /**
-                     * 设置<p>自动续费标志：0 否，1 是</p>
-                     * @param _autoRenewFlag <p>自动续费标志：0 否，1 是</p>
+                     * 设置自动续费标志：0 否，1 是
+                     * @param _autoRenewFlag 自动续费标志：0 否，1 是
                      * 
                      */
                     void SetAutoRenewFlag(const int64_t& _autoRenewFlag);
@@ -405,15 +405,15 @@ namespace TencentCloud
                     bool AutoRenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例到期时间，格式为 2006-01-02 15:04:05</p>
-                     * @return PeriodEndTime <p>实例到期时间，格式为 2006-01-02 15:04:05</p>
+                     * 获取实例到期时间，格式为 2006-01-02 15:04:05
+                     * @return PeriodEndTime 实例到期时间，格式为 2006-01-02 15:04:05
                      * 
                      */
                     std::string GetPeriodEndTime() const;
 
                     /**
-                     * 设置<p>实例到期时间，格式为 2006-01-02 15:04:05</p>
-                     * @param _periodEndTime <p>实例到期时间，格式为 2006-01-02 15:04:05</p>
+                     * 设置实例到期时间，格式为 2006-01-02 15:04:05
+                     * @param _periodEndTime 实例到期时间，格式为 2006-01-02 15:04:05
                      * 
                      */
                     void SetPeriodEndTime(const std::string& _periodEndTime);
@@ -426,15 +426,15 @@ namespace TencentCloud
                     bool PeriodEndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例所属账号</p>
-                     * @return Uin <p>实例所属账号</p>
+                     * 获取实例所属账号
+                     * @return Uin 实例所属账号
                      * 
                      */
                     std::string GetUin() const;
 
                     /**
-                     * 设置<p>实例所属账号</p>
-                     * @param _uin <p>实例所属账号</p>
+                     * 设置实例所属账号
+                     * @param _uin 实例所属账号
                      * 
                      */
                     void SetUin(const std::string& _uin);
@@ -447,15 +447,15 @@ namespace TencentCloud
                     bool UinHasBeenSet() const;
 
                     /**
-                     * 获取<p>TDSQL 版本信息</p>
-                     * @return TdsqlVersion <p>TDSQL 版本信息</p>
+                     * 获取TDSQL 版本信息
+                     * @return TdsqlVersion TDSQL 版本信息
                      * 
                      */
                     std::string GetTdsqlVersion() const;
 
                     /**
-                     * 设置<p>TDSQL 版本信息</p>
-                     * @param _tdsqlVersion <p>TDSQL 版本信息</p>
+                     * 设置TDSQL 版本信息
+                     * @param _tdsqlVersion TDSQL 版本信息
                      * 
                      */
                     void SetTdsqlVersion(const std::string& _tdsqlVersion);
@@ -468,15 +468,15 @@ namespace TencentCloud
                     bool TdsqlVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例内存大小，单位 GB</p>
-                     * @return Memory <p>实例内存大小，单位 GB</p>
+                     * 获取实例内存大小，单位 GB
+                     * @return Memory 实例内存大小，单位 GB
                      * 
                      */
                     int64_t GetMemory() const;
 
                     /**
-                     * 设置<p>实例内存大小，单位 GB</p>
-                     * @param _memory <p>实例内存大小，单位 GB</p>
+                     * 设置实例内存大小，单位 GB
+                     * @param _memory 实例内存大小，单位 GB
                      * 
                      */
                     void SetMemory(const int64_t& _memory);
@@ -489,15 +489,15 @@ namespace TencentCloud
                     bool MemoryHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例存储大小，单位 GB</p>
-                     * @return Storage <p>实例存储大小，单位 GB</p>
+                     * 获取实例存储大小，单位 GB
+                     * @return Storage 实例存储大小，单位 GB
                      * 
                      */
                     int64_t GetStorage() const;
 
                     /**
-                     * 设置<p>实例存储大小，单位 GB</p>
-                     * @param _storage <p>实例存储大小，单位 GB</p>
+                     * 设置实例存储大小，单位 GB
+                     * @param _storage 实例存储大小，单位 GB
                      * 
                      */
                     void SetStorage(const int64_t& _storage);
@@ -510,15 +510,15 @@ namespace TencentCloud
                     bool StorageHasBeenSet() const;
 
                     /**
-                     * 获取<p>字符串型的私有网络ID</p>
-                     * @return UniqueVpcId <p>字符串型的私有网络ID</p>
+                     * 获取字符串型的私有网络ID
+                     * @return UniqueVpcId 字符串型的私有网络ID
                      * 
                      */
                     std::string GetUniqueVpcId() const;
 
                     /**
-                     * 设置<p>字符串型的私有网络ID</p>
-                     * @param _uniqueVpcId <p>字符串型的私有网络ID</p>
+                     * 设置字符串型的私有网络ID
+                     * @param _uniqueVpcId 字符串型的私有网络ID
                      * 
                      */
                     void SetUniqueVpcId(const std::string& _uniqueVpcId);
@@ -531,15 +531,15 @@ namespace TencentCloud
                     bool UniqueVpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>字符串型的私有网络子网ID</p>
-                     * @return UniqueSubnetId <p>字符串型的私有网络子网ID</p>
+                     * 获取字符串型的私有网络子网ID
+                     * @return UniqueSubnetId 字符串型的私有网络子网ID
                      * 
                      */
                     std::string GetUniqueSubnetId() const;
 
                     /**
-                     * 设置<p>字符串型的私有网络子网ID</p>
-                     * @param _uniqueSubnetId <p>字符串型的私有网络子网ID</p>
+                     * 设置字符串型的私有网络子网ID
+                     * @param _uniqueSubnetId 字符串型的私有网络子网ID
                      * 
                      */
                     void SetUniqueSubnetId(const std::string& _uniqueSubnetId);
@@ -552,15 +552,15 @@ namespace TencentCloud
                     bool UniqueSubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>原始实例ID（过时字段，请勿依赖该值）</p>
-                     * @return OriginSerialId <p>原始实例ID（过时字段，请勿依赖该值）</p>
+                     * 获取原始实例ID（过时字段，请勿依赖该值）
+                     * @return OriginSerialId 原始实例ID（过时字段，请勿依赖该值）
                      * 
                      */
                     std::string GetOriginSerialId() const;
 
                     /**
-                     * 设置<p>原始实例ID（过时字段，请勿依赖该值）</p>
-                     * @param _originSerialId <p>原始实例ID（过时字段，请勿依赖该值）</p>
+                     * 设置原始实例ID（过时字段，请勿依赖该值）
+                     * @param _originSerialId 原始实例ID（过时字段，请勿依赖该值）
                      * 
                      */
                     void SetOriginSerialId(const std::string& _originSerialId);
@@ -573,15 +573,15 @@ namespace TencentCloud
                     bool OriginSerialIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点数，2为一主一从，3为一主二从</p>
-                     * @return NodeCount <p>节点数，2为一主一从，3为一主二从</p>
+                     * 获取节点数，2为一主一从，3为一主二从
+                     * @return NodeCount 节点数，2为一主一从，3为一主二从
                      * 
                      */
                     uint64_t GetNodeCount() const;
 
                     /**
-                     * 设置<p>节点数，2为一主一从，3为一主二从</p>
-                     * @param _nodeCount <p>节点数，2为一主一从，3为一主二从</p>
+                     * 设置节点数，2为一主一从，3为一主二从
+                     * @param _nodeCount 节点数，2为一主一从，3为一主二从
                      * 
                      */
                     void SetNodeCount(const uint64_t& _nodeCount);
@@ -594,15 +594,15 @@ namespace TencentCloud
                     bool NodeCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否临时实例，0为否，非0为是</p>
-                     * @return IsTmp <p>是否临时实例，0为否，非0为是</p>
+                     * 获取是否临时实例，0为否，非0为是
+                     * @return IsTmp 是否临时实例，0为否，非0为是
                      * 
                      */
                     uint64_t GetIsTmp() const;
 
                     /**
-                     * 设置<p>是否临时实例，0为否，非0为是</p>
-                     * @param _isTmp <p>是否临时实例，0为否，非0为是</p>
+                     * 设置是否临时实例，0为否，非0为是
+                     * @param _isTmp 是否临时实例，0为否，非0为是
                      * 
                      */
                     void SetIsTmp(const uint64_t& _isTmp);
@@ -615,15 +615,15 @@ namespace TencentCloud
                     bool IsTmpHasBeenSet() const;
 
                     /**
-                     * 获取<p>独享集群ID，为空表示为普通实例</p>
-                     * @return ExclusterId <p>独享集群ID，为空表示为普通实例</p>
+                     * 获取独享集群ID，为空表示为普通实例
+                     * @return ExclusterId 独享集群ID，为空表示为普通实例
                      * 
                      */
                     std::string GetExclusterId() const;
 
                     /**
-                     * 设置<p>独享集群ID，为空表示为普通实例</p>
-                     * @param _exclusterId <p>独享集群ID，为空表示为普通实例</p>
+                     * 设置独享集群ID，为空表示为普通实例
+                     * @param _exclusterId 独享集群ID，为空表示为普通实例
                      * 
                      */
                     void SetExclusterId(const std::string& _exclusterId);
@@ -636,15 +636,15 @@ namespace TencentCloud
                     bool ExclusterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>数字实例ID（过时字段，请勿依赖该值）</p>
-                     * @return Id <p>数字实例ID（过时字段，请勿依赖该值）</p>
+                     * 获取数字实例ID（过时字段，请勿依赖该值）
+                     * @return Id 数字实例ID（过时字段，请勿依赖该值）
                      * 
                      */
                     uint64_t GetId() const;
 
                     /**
-                     * 设置<p>数字实例ID（过时字段，请勿依赖该值）</p>
-                     * @param _id <p>数字实例ID（过时字段，请勿依赖该值）</p>
+                     * 设置数字实例ID（过时字段，请勿依赖该值）
+                     * @param _id 数字实例ID（过时字段，请勿依赖该值）
                      * 
                      */
                     void SetId(const uint64_t& _id);
@@ -657,15 +657,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>产品类型 ID</p>
-                     * @return Pid <p>产品类型 ID</p>
+                     * 获取产品类型 ID
+                     * @return Pid 产品类型 ID
                      * 
                      */
                     int64_t GetPid() const;
 
                     /**
-                     * 设置<p>产品类型 ID</p>
-                     * @param _pid <p>产品类型 ID</p>
+                     * 设置产品类型 ID
+                     * @param _pid 产品类型 ID
                      * 
                      */
                     void SetPid(const int64_t& _pid);
@@ -678,15 +678,15 @@ namespace TencentCloud
                     bool PidHasBeenSet() const;
 
                     /**
-                     * 获取<p>最大 Qps 值</p>
-                     * @return Qps <p>最大 Qps 值</p>
+                     * 获取最大 Qps 值
+                     * @return Qps 最大 Qps 值
                      * 
                      */
                     int64_t GetQps() const;
 
                     /**
-                     * 设置<p>最大 Qps 值</p>
-                     * @param _qps <p>最大 Qps 值</p>
+                     * 设置最大 Qps 值
+                     * @param _qps 最大 Qps 值
                      * 
                      */
                     void SetQps(const int64_t& _qps);
@@ -699,15 +699,15 @@ namespace TencentCloud
                     bool QpsHasBeenSet() const;
 
                     /**
-                     * 获取<p>付费模式</p>
-                     * @return Paymode <p>付费模式</p>
+                     * 获取付费模式
+                     * @return Paymode 付费模式
                      * 
                      */
                     std::string GetPaymode() const;
 
                     /**
-                     * 设置<p>付费模式</p>
-                     * @param _paymode <p>付费模式</p>
+                     * 设置付费模式
+                     * @param _paymode 付费模式
                      * 
                      */
                     void SetPaymode(const std::string& _paymode);
@@ -720,15 +720,15 @@ namespace TencentCloud
                     bool PaymodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例处于异步任务时的异步任务流程ID</p>
-                     * @return Locker <p>实例处于异步任务时的异步任务流程ID</p>
+                     * 获取实例处于异步任务时的异步任务流程ID
+                     * @return Locker 实例处于异步任务时的异步任务流程ID
                      * 
                      */
                     int64_t GetLocker() const;
 
                     /**
-                     * 设置<p>实例处于异步任务时的异步任务流程ID</p>
-                     * @param _locker <p>实例处于异步任务时的异步任务流程ID</p>
+                     * 设置实例处于异步任务时的异步任务流程ID
+                     * @param _locker 实例处于异步任务时的异步任务流程ID
                      * 
                      */
                     void SetLocker(const int64_t& _locker);
@@ -741,15 +741,15 @@ namespace TencentCloud
                     bool LockerHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例目前运行状态描述</p>
-                     * @return StatusDesc <p>实例目前运行状态描述</p>
+                     * 获取实例目前运行状态描述
+                     * @return StatusDesc 实例目前运行状态描述
                      * 
                      */
                     std::string GetStatusDesc() const;
 
                     /**
-                     * 设置<p>实例目前运行状态描述</p>
-                     * @param _statusDesc <p>实例目前运行状态描述</p>
+                     * 设置实例目前运行状态描述
+                     * @param _statusDesc 实例目前运行状态描述
                      * 
                      */
                     void SetStatusDesc(const std::string& _statusDesc);
@@ -762,15 +762,15 @@ namespace TencentCloud
                     bool StatusDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>外网状态，0-未开通；1-已开通；2-关闭；3-开通中</p>
-                     * @return WanStatus <p>外网状态，0-未开通；1-已开通；2-关闭；3-开通中</p>
+                     * 获取外网状态，0-未开通；1-已开通；2-关闭；3-开通中
+                     * @return WanStatus 外网状态，0-未开通；1-已开通；2-关闭；3-开通中
                      * 
                      */
                     int64_t GetWanStatus() const;
 
                     /**
-                     * 设置<p>外网状态，0-未开通；1-已开通；2-关闭；3-开通中</p>
-                     * @param _wanStatus <p>外网状态，0-未开通；1-已开通；2-关闭；3-开通中</p>
+                     * 设置外网状态，0-未开通；1-已开通；2-关闭；3-开通中
+                     * @param _wanStatus 外网状态，0-未开通；1-已开通；2-关闭；3-开通中
                      * 
                      */
                     void SetWanStatus(const int64_t& _wanStatus);
@@ -783,15 +783,15 @@ namespace TencentCloud
                     bool WanStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>该实例是否支持审计。1-支持；0-不支持</p>
-                     * @return IsAuditSupported <p>该实例是否支持审计。1-支持；0-不支持</p>
+                     * 获取该实例是否支持审计。1-支持；0-不支持
+                     * @return IsAuditSupported 该实例是否支持审计。1-支持；0-不支持
                      * 
                      */
                     uint64_t GetIsAuditSupported() const;
 
                     /**
-                     * 设置<p>该实例是否支持审计。1-支持；0-不支持</p>
-                     * @param _isAuditSupported <p>该实例是否支持审计。1-支持；0-不支持</p>
+                     * 设置该实例是否支持审计。1-支持；0-不支持
+                     * @param _isAuditSupported 该实例是否支持审计。1-支持；0-不支持
                      * 
                      */
                     void SetIsAuditSupported(const uint64_t& _isAuditSupported);
@@ -804,15 +804,15 @@ namespace TencentCloud
                     bool IsAuditSupportedHasBeenSet() const;
 
                     /**
-                     * 获取<p>机器型号</p>
-                     * @return Machine <p>机器型号</p>
+                     * 获取机器型号
+                     * @return Machine 机器型号
                      * 
                      */
                     std::string GetMachine() const;
 
                     /**
-                     * 设置<p>机器型号</p>
-                     * @param _machine <p>机器型号</p>
+                     * 设置机器型号
+                     * @param _machine 机器型号
                      * 
                      */
                     void SetMachine(const std::string& _machine);
@@ -825,15 +825,15 @@ namespace TencentCloud
                     bool MachineHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否支持数据加密。1-支持；0-不支持</p>
-                     * @return IsEncryptSupported <p>是否支持数据加密。1-支持；0-不支持</p>
+                     * 获取是否支持数据加密。1-支持；0-不支持
+                     * @return IsEncryptSupported 是否支持数据加密。1-支持；0-不支持
                      * 
                      */
                     int64_t GetIsEncryptSupported() const;
 
                     /**
-                     * 设置<p>是否支持数据加密。1-支持；0-不支持</p>
-                     * @param _isEncryptSupported <p>是否支持数据加密。1-支持；0-不支持</p>
+                     * 设置是否支持数据加密。1-支持；0-不支持
+                     * @param _isEncryptSupported 是否支持数据加密。1-支持；0-不支持
                      * 
                      */
                     void SetIsEncryptSupported(const int64_t& _isEncryptSupported);
@@ -846,15 +846,15 @@ namespace TencentCloud
                     bool IsEncryptSupportedHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例CPU核数</p>
-                     * @return Cpu <p>实例CPU核数</p>
+                     * 获取实例CPU核数
+                     * @return Cpu 实例CPU核数
                      * 
                      */
                     int64_t GetCpu() const;
 
                     /**
-                     * 设置<p>实例CPU核数</p>
-                     * @param _cpu <p>实例CPU核数</p>
+                     * 设置实例CPU核数
+                     * @param _cpu 实例CPU核数
                      * 
                      */
                     void SetCpu(const int64_t& _cpu);
@@ -867,15 +867,15 @@ namespace TencentCloud
                     bool CpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例IPv6标志</p>
-                     * @return Ipv6Flag <p>实例IPv6标志</p>
+                     * 获取实例IPv6标志
+                     * @return Ipv6Flag 实例IPv6标志
                      * 
                      */
                     uint64_t GetIpv6Flag() const;
 
                     /**
-                     * 设置<p>实例IPv6标志</p>
-                     * @param _ipv6Flag <p>实例IPv6标志</p>
+                     * 设置实例IPv6标志
+                     * @param _ipv6Flag 实例IPv6标志
                      * 
                      */
                     void SetIpv6Flag(const uint64_t& _ipv6Flag);
@@ -888,15 +888,15 @@ namespace TencentCloud
                     bool Ipv6FlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>内网IPv6</p>
-                     * @return Vipv6 <p>内网IPv6</p>
+                     * 获取内网IPv6
+                     * @return Vipv6 内网IPv6
                      * 
                      */
                     std::string GetVipv6() const;
 
                     /**
-                     * 设置<p>内网IPv6</p>
-                     * @param _vipv6 <p>内网IPv6</p>
+                     * 设置内网IPv6
+                     * @param _vipv6 内网IPv6
                      * 
                      */
                     void SetVipv6(const std::string& _vipv6);
@@ -909,15 +909,15 @@ namespace TencentCloud
                     bool Vipv6HasBeenSet() const;
 
                     /**
-                     * 获取<p>外网IPv6</p>
-                     * @return WanVipv6 <p>外网IPv6</p>
+                     * 获取外网IPv6
+                     * @return WanVipv6 外网IPv6
                      * 
                      */
                     std::string GetWanVipv6() const;
 
                     /**
-                     * 设置<p>外网IPv6</p>
-                     * @param _wanVipv6 <p>外网IPv6</p>
+                     * 设置外网IPv6
+                     * @param _wanVipv6 外网IPv6
                      * 
                      */
                     void SetWanVipv6(const std::string& _wanVipv6);
@@ -930,15 +930,15 @@ namespace TencentCloud
                     bool WanVipv6HasBeenSet() const;
 
                     /**
-                     * 获取<p>外网IPv6端口</p>
-                     * @return WanPortIpv6 <p>外网IPv6端口</p>
+                     * 获取外网IPv6端口
+                     * @return WanPortIpv6 外网IPv6端口
                      * 
                      */
                     uint64_t GetWanPortIpv6() const;
 
                     /**
-                     * 设置<p>外网IPv6端口</p>
-                     * @param _wanPortIpv6 <p>外网IPv6端口</p>
+                     * 设置外网IPv6端口
+                     * @param _wanPortIpv6 外网IPv6端口
                      * 
                      */
                     void SetWanPortIpv6(const uint64_t& _wanPortIpv6);
@@ -951,15 +951,15 @@ namespace TencentCloud
                     bool WanPortIpv6HasBeenSet() const;
 
                     /**
-                     * 获取<p>外网IPv6状态</p>
-                     * @return WanStatusIpv6 <p>外网IPv6状态</p>
+                     * 获取外网IPv6状态
+                     * @return WanStatusIpv6 外网IPv6状态
                      * 
                      */
                     uint64_t GetWanStatusIpv6() const;
 
                     /**
-                     * 设置<p>外网IPv6状态</p>
-                     * @param _wanStatusIpv6 <p>外网IPv6状态</p>
+                     * 设置外网IPv6状态
+                     * @param _wanStatusIpv6 外网IPv6状态
                      * 
                      */
                     void SetWanStatusIpv6(const uint64_t& _wanStatusIpv6);
@@ -972,15 +972,15 @@ namespace TencentCloud
                     bool WanStatusIpv6HasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库引擎</p>
-                     * @return DbEngine <p>数据库引擎</p>
+                     * 获取数据库引擎
+                     * @return DbEngine 数据库引擎
                      * 
                      */
                     std::string GetDbEngine() const;
 
                     /**
-                     * 设置<p>数据库引擎</p>
-                     * @param _dbEngine <p>数据库引擎</p>
+                     * 设置数据库引擎
+                     * @param _dbEngine 数据库引擎
                      * 
                      */
                     void SetDbEngine(const std::string& _dbEngine);
@@ -993,15 +993,15 @@ namespace TencentCloud
                     bool DbEngineHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库版本</p>
-                     * @return DbVersion <p>数据库版本</p>
+                     * 获取数据库版本
+                     * @return DbVersion 数据库版本
                      * 
                      */
                     std::string GetDbVersion() const;
 
                     /**
-                     * 设置<p>数据库版本</p>
-                     * @param _dbVersion <p>数据库版本</p>
+                     * 设置数据库版本
+                     * @param _dbVersion 数据库版本
                      * 
                      */
                     void SetDbVersion(const std::string& _dbVersion);
@@ -1014,15 +1014,15 @@ namespace TencentCloud
                     bool DbVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>DCN标志，0-无，1-主实例，2-灾备实例</p>
-                     * @return DcnFlag <p>DCN标志，0-无，1-主实例，2-灾备实例</p>
+                     * 获取DCN标志，0-无，1-主实例，2-灾备实例
+                     * @return DcnFlag DCN标志，0-无，1-主实例，2-灾备实例
                      * 
                      */
                     int64_t GetDcnFlag() const;
 
                     /**
-                     * 设置<p>DCN标志，0-无，1-主实例，2-灾备实例</p>
-                     * @param _dcnFlag <p>DCN标志，0-无，1-主实例，2-灾备实例</p>
+                     * 设置DCN标志，0-无，1-主实例，2-灾备实例
+                     * @param _dcnFlag DCN标志，0-无，1-主实例，2-灾备实例
                      * 
                      */
                     void SetDcnFlag(const int64_t& _dcnFlag);
@@ -1035,15 +1035,15 @@ namespace TencentCloud
                     bool DcnFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>DCN状态，0-无，1-创建中，2-同步中，3-已断开</p>
-                     * @return DcnStatus <p>DCN状态，0-无，1-创建中，2-同步中，3-已断开</p>
+                     * 获取DCN状态，0-无，1-创建中，2-同步中，3-已断开
+                     * @return DcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
                      * 
                      */
                     int64_t GetDcnStatus() const;
 
                     /**
-                     * 设置<p>DCN状态，0-无，1-创建中，2-同步中，3-已断开</p>
-                     * @param _dcnStatus <p>DCN状态，0-无，1-创建中，2-同步中，3-已断开</p>
+                     * 设置DCN状态，0-无，1-创建中，2-同步中，3-已断开
+                     * @param _dcnStatus DCN状态，0-无，1-创建中，2-同步中，3-已断开
                      * 
                      */
                     void SetDcnStatus(const int64_t& _dcnStatus);
@@ -1056,15 +1056,15 @@ namespace TencentCloud
                     bool DcnStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>DCN灾备实例数</p>
-                     * @return DcnDstNum <p>DCN灾备实例数</p>
+                     * 获取DCN灾备实例数
+                     * @return DcnDstNum DCN灾备实例数
                      * 
                      */
                     int64_t GetDcnDstNum() const;
 
                     /**
-                     * 设置<p>DCN灾备实例数</p>
-                     * @param _dcnDstNum <p>DCN灾备实例数</p>
+                     * 设置DCN灾备实例数
+                     * @param _dcnDstNum DCN灾备实例数
                      * 
                      */
                     void SetDcnDstNum(const int64_t& _dcnDstNum);
@@ -1077,15 +1077,15 @@ namespace TencentCloud
                     bool DcnDstNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）</p>
-                     * @return InstanceType <p>1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）</p>
+                     * 获取1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+                     * @return InstanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
                      * 
                      */
                     int64_t GetInstanceType() const;
 
                     /**
-                     * 设置<p>1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）</p>
-                     * @param _instanceType <p>1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）</p>
+                     * 设置1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
+                     * @param _instanceType 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
                      * 
                      */
                     void SetInstanceType(const int64_t& _instanceType);
@@ -1098,15 +1098,15 @@ namespace TencentCloud
                     bool InstanceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例标签信息</p>
-                     * @return ResourceTags <p>实例标签信息</p>
+                     * 获取实例标签信息
+                     * @return ResourceTags 实例标签信息
                      * 
                      */
                     std::vector<ResourceTag> GetResourceTags() const;
 
                     /**
-                     * 设置<p>实例标签信息</p>
-                     * @param _resourceTags <p>实例标签信息</p>
+                     * 设置实例标签信息
+                     * @param _resourceTags 实例标签信息
                      * 
                      */
                     void SetResourceTags(const std::vector<ResourceTag>& _resourceTags);
@@ -1119,15 +1119,15 @@ namespace TencentCloud
                     bool ResourceTagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库版本</p>
-                     * @return DbVersionId <p>数据库版本</p>
+                     * 获取数据库版本
+                     * @return DbVersionId 数据库版本
                      * 
                      */
                     std::string GetDbVersionId() const;
 
                     /**
-                     * 设置<p>数据库版本</p>
-                     * @param _dbVersionId <p>数据库版本</p>
+                     * 设置数据库版本
+                     * @param _dbVersionId 数据库版本
                      * 
                      */
                     void SetDbVersionId(const std::string& _dbVersionId);
@@ -1140,15 +1140,15 @@ namespace TencentCloud
                     bool DbVersionIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护</p>
-                     * @return ProtectedProperty <p>实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护</p>
+                     * 获取实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
+                     * @return ProtectedProperty 实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
                      * 
                      */
                     int64_t GetProtectedProperty() const;
 
                     /**
-                     * 设置<p>实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护</p>
-                     * @param _protectedProperty <p>实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护</p>
+                     * 设置实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
+                     * @param _protectedProperty 实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
                      * 
                      */
                     void SetProtectedProperty(const int64_t& _protectedProperty);
@@ -1163,319 +1163,319 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>实例 ID，唯一标识一个 TDSQL 实例</p>
+                     * 实例 ID，唯一标识一个 TDSQL 实例
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>实例名称，用户可修改</p>
+                     * 实例名称，用户可修改
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>实例所属应用 ID</p>
+                     * 实例所属应用 ID
                      */
                     int64_t m_appId;
                     bool m_appIdHasBeenSet;
 
                     /**
-                     * <p>实例所属项目 ID</p>
+                     * 实例所属项目 ID
                      */
                     int64_t m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>实例所在地域名称，如 ap-shanghai</p>
+                     * 实例所在地域名称，如 ap-shanghai
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * <p>实例所在可用区名称，如 ap-shanghai-2</p>
+                     * 实例所在可用区名称，如 ap-shanghai-1
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>私有网络 ID，基础网络时为 0</p>
+                     * 私有网络 ID，基础网络时为 0
                      */
                     int64_t m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>子网 ID，基础网络时为 0</p>
+                     * 子网 ID，基础网络时为 0
                      */
                     int64_t m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中</p>
+                     * 实例状态：0 创建中，1 流程处理中， 2 运行中，3 实例未初始化，-1 实例已隔离，4 实例初始化中，5 实例删除中，6 实例重启中，7 数据迁移中
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>内网 IP 地址</p>
+                     * 内网 IP 地址
                      */
                     std::string m_vip;
                     bool m_vipHasBeenSet;
 
                     /**
-                     * <p>内网端口</p>
+                     * 内网端口
                      */
                     int64_t m_vport;
                     bool m_vportHasBeenSet;
 
                     /**
-                     * <p>外网访问的域名，公网可解析</p>
+                     * 外网访问的域名，公网可解析
                      */
                     std::string m_wanDomain;
                     bool m_wanDomainHasBeenSet;
 
                     /**
-                     * <p>外网 IP 地址，公网可访问</p>
+                     * 外网 IP 地址，公网可访问
                      */
                     std::string m_wanVip;
                     bool m_wanVipHasBeenSet;
 
                     /**
-                     * <p>外网端口</p>
+                     * 外网端口
                      */
                     int64_t m_wanPort;
                     bool m_wanPortHasBeenSet;
 
                     /**
-                     * <p>实例创建时间，格式为 2006-01-02 15:04:05</p>
+                     * 实例创建时间，格式为 2006-01-02 15:04:05
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>实例最后更新时间，格式为 2006-01-02 15:04:05</p>
+                     * 实例最后更新时间，格式为 2006-01-02 15:04:05
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>自动续费标志：0 否，1 是</p>
+                     * 自动续费标志：0 否，1 是
                      */
                     int64_t m_autoRenewFlag;
                     bool m_autoRenewFlagHasBeenSet;
 
                     /**
-                     * <p>实例到期时间，格式为 2006-01-02 15:04:05</p>
+                     * 实例到期时间，格式为 2006-01-02 15:04:05
                      */
                     std::string m_periodEndTime;
                     bool m_periodEndTimeHasBeenSet;
 
                     /**
-                     * <p>实例所属账号</p>
+                     * 实例所属账号
                      */
                     std::string m_uin;
                     bool m_uinHasBeenSet;
 
                     /**
-                     * <p>TDSQL 版本信息</p>
+                     * TDSQL 版本信息
                      */
                     std::string m_tdsqlVersion;
                     bool m_tdsqlVersionHasBeenSet;
 
                     /**
-                     * <p>实例内存大小，单位 GB</p>
+                     * 实例内存大小，单位 GB
                      */
                     int64_t m_memory;
                     bool m_memoryHasBeenSet;
 
                     /**
-                     * <p>实例存储大小，单位 GB</p>
+                     * 实例存储大小，单位 GB
                      */
                     int64_t m_storage;
                     bool m_storageHasBeenSet;
 
                     /**
-                     * <p>字符串型的私有网络ID</p>
+                     * 字符串型的私有网络ID
                      */
                     std::string m_uniqueVpcId;
                     bool m_uniqueVpcIdHasBeenSet;
 
                     /**
-                     * <p>字符串型的私有网络子网ID</p>
+                     * 字符串型的私有网络子网ID
                      */
                     std::string m_uniqueSubnetId;
                     bool m_uniqueSubnetIdHasBeenSet;
 
                     /**
-                     * <p>原始实例ID（过时字段，请勿依赖该值）</p>
+                     * 原始实例ID（过时字段，请勿依赖该值）
                      */
                     std::string m_originSerialId;
                     bool m_originSerialIdHasBeenSet;
 
                     /**
-                     * <p>节点数，2为一主一从，3为一主二从</p>
+                     * 节点数，2为一主一从，3为一主二从
                      */
                     uint64_t m_nodeCount;
                     bool m_nodeCountHasBeenSet;
 
                     /**
-                     * <p>是否临时实例，0为否，非0为是</p>
+                     * 是否临时实例，0为否，非0为是
                      */
                     uint64_t m_isTmp;
                     bool m_isTmpHasBeenSet;
 
                     /**
-                     * <p>独享集群ID，为空表示为普通实例</p>
+                     * 独享集群ID，为空表示为普通实例
                      */
                     std::string m_exclusterId;
                     bool m_exclusterIdHasBeenSet;
 
                     /**
-                     * <p>数字实例ID（过时字段，请勿依赖该值）</p>
+                     * 数字实例ID（过时字段，请勿依赖该值）
                      */
                     uint64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>产品类型 ID</p>
+                     * 产品类型 ID
                      */
                     int64_t m_pid;
                     bool m_pidHasBeenSet;
 
                     /**
-                     * <p>最大 Qps 值</p>
+                     * 最大 Qps 值
                      */
                     int64_t m_qps;
                     bool m_qpsHasBeenSet;
 
                     /**
-                     * <p>付费模式</p>
+                     * 付费模式
                      */
                     std::string m_paymode;
                     bool m_paymodeHasBeenSet;
 
                     /**
-                     * <p>实例处于异步任务时的异步任务流程ID</p>
+                     * 实例处于异步任务时的异步任务流程ID
                      */
                     int64_t m_locker;
                     bool m_lockerHasBeenSet;
 
                     /**
-                     * <p>实例目前运行状态描述</p>
+                     * 实例目前运行状态描述
                      */
                     std::string m_statusDesc;
                     bool m_statusDescHasBeenSet;
 
                     /**
-                     * <p>外网状态，0-未开通；1-已开通；2-关闭；3-开通中</p>
+                     * 外网状态，0-未开通；1-已开通；2-关闭；3-开通中
                      */
                     int64_t m_wanStatus;
                     bool m_wanStatusHasBeenSet;
 
                     /**
-                     * <p>该实例是否支持审计。1-支持；0-不支持</p>
+                     * 该实例是否支持审计。1-支持；0-不支持
                      */
                     uint64_t m_isAuditSupported;
                     bool m_isAuditSupportedHasBeenSet;
 
                     /**
-                     * <p>机器型号</p>
+                     * 机器型号
                      */
                     std::string m_machine;
                     bool m_machineHasBeenSet;
 
                     /**
-                     * <p>是否支持数据加密。1-支持；0-不支持</p>
+                     * 是否支持数据加密。1-支持；0-不支持
                      */
                     int64_t m_isEncryptSupported;
                     bool m_isEncryptSupportedHasBeenSet;
 
                     /**
-                     * <p>实例CPU核数</p>
+                     * 实例CPU核数
                      */
                     int64_t m_cpu;
                     bool m_cpuHasBeenSet;
 
                     /**
-                     * <p>实例IPv6标志</p>
+                     * 实例IPv6标志
                      */
                     uint64_t m_ipv6Flag;
                     bool m_ipv6FlagHasBeenSet;
 
                     /**
-                     * <p>内网IPv6</p>
+                     * 内网IPv6
                      */
                     std::string m_vipv6;
                     bool m_vipv6HasBeenSet;
 
                     /**
-                     * <p>外网IPv6</p>
+                     * 外网IPv6
                      */
                     std::string m_wanVipv6;
                     bool m_wanVipv6HasBeenSet;
 
                     /**
-                     * <p>外网IPv6端口</p>
+                     * 外网IPv6端口
                      */
                     uint64_t m_wanPortIpv6;
                     bool m_wanPortIpv6HasBeenSet;
 
                     /**
-                     * <p>外网IPv6状态</p>
+                     * 外网IPv6状态
                      */
                     uint64_t m_wanStatusIpv6;
                     bool m_wanStatusIpv6HasBeenSet;
 
                     /**
-                     * <p>数据库引擎</p>
+                     * 数据库引擎
                      */
                     std::string m_dbEngine;
                     bool m_dbEngineHasBeenSet;
 
                     /**
-                     * <p>数据库版本</p>
+                     * 数据库版本
                      */
                     std::string m_dbVersion;
                     bool m_dbVersionHasBeenSet;
 
                     /**
-                     * <p>DCN标志，0-无，1-主实例，2-灾备实例</p>
+                     * DCN标志，0-无，1-主实例，2-灾备实例
                      */
                     int64_t m_dcnFlag;
                     bool m_dcnFlagHasBeenSet;
 
                     /**
-                     * <p>DCN状态，0-无，1-创建中，2-同步中，3-已断开</p>
+                     * DCN状态，0-无，1-创建中，2-同步中，3-已断开
                      */
                     int64_t m_dcnStatus;
                     bool m_dcnStatusHasBeenSet;
 
                     /**
-                     * <p>DCN灾备实例数</p>
+                     * DCN灾备实例数
                      */
                     int64_t m_dcnDstNum;
                     bool m_dcnDstNumHasBeenSet;
 
                     /**
-                     * <p>1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）</p>
+                     * 1： 主实例（独享型）, 2: 主实例, 3： 灾备实例, 4： 灾备实例（独享型）
                      */
                     int64_t m_instanceType;
                     bool m_instanceTypeHasBeenSet;
 
                     /**
-                     * <p>实例标签信息</p>
+                     * 实例标签信息
                      */
                     std::vector<ResourceTag> m_resourceTags;
                     bool m_resourceTagsHasBeenSet;
 
                     /**
-                     * <p>数据库版本</p>
+                     * 数据库版本
                      */
                     std::string m_dbVersionId;
                     bool m_dbVersionIdHasBeenSet;
 
                     /**
-                     * <p>实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护</p>
+                     * 实例删除保护标签，1: 已开启删除保护，0: 未开启删除保护
                      */
                     int64_t m_protectedProperty;
                     bool m_protectedPropertyHasBeenSet;

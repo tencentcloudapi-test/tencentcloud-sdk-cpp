@@ -52,11 +52,6 @@
 #include <tencentcloud/vod/v20180717/model/PersistenceCompleteTask.h>
 #include <tencentcloud/vod/v20180717/model/ComplexAdaptiveDynamicStreamingTask.h>
 #include <tencentcloud/vod/v20180717/model/ProcessMediaByMPS.h>
-#include <tencentcloud/vod/v20180717/model/AigcImageTask.h>
-#include <tencentcloud/vod/v20180717/model/AigcVideoTask.h>
-#include <tencentcloud/vod/v20180717/model/ExtractBlindWatermarkTask.h>
-#include <tencentcloud/vod/v20180717/model/SceneAigcImageTask.h>
-#include <tencentcloud/vod/v20180717/model/ProcessImageAsyncTask.h>
 
 
 namespace TencentCloud
@@ -122,8 +117,8 @@ namespace TencentCloud
 <li>PersistenceComplete：剪辑固化完成；</li>
 <li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <li>ProcessMediaByMPSComplete：MPS视频处理完成。</li>
-<li>AigcImageTaskComplete：AIGC 生图任务完成。</li>
-<li>AigcVideoTaskComplete：AIGC 生视频任务完成。</li>
+<li>AigcImageComplete：AIGC 生图任务完成。</li>
+<li>AigcVideoComplete：AIGC 生视频任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -151,8 +146,8 @@ namespace TencentCloud
 <li>PersistenceComplete：剪辑固化完成；</li>
 <li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <li>ProcessMediaByMPSComplete：MPS视频处理完成。</li>
-<li>AigcImageTaskComplete：AIGC 生图任务完成。</li>
-<li>AigcVideoTaskComplete：AIGC 生视频任务完成。</li>
+<li>AigcImageComplete：AIGC 生图任务完成。</li>
+<li>AigcVideoComplete：AIGC 生视频任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -185,8 +180,8 @@ namespace TencentCloud
 <li>PersistenceComplete：剪辑固化完成；</li>
 <li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <li>ProcessMediaByMPSComplete：MPS视频处理完成。</li>
-<li>AigcImageTaskComplete：AIGC 生图任务完成。</li>
-<li>AigcVideoTaskComplete：AIGC 生视频任务完成。</li>
+<li>AigcImageComplete：AIGC 生图任务完成。</li>
+<li>AigcVideoComplete：AIGC 生视频任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -214,8 +209,8 @@ namespace TencentCloud
 <li>PersistenceComplete：剪辑固化完成；</li>
 <li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <li>ProcessMediaByMPSComplete：MPS视频处理完成。</li>
-<li>AigcImageTaskComplete：AIGC 生图任务完成。</li>
-<li>AigcVideoTaskComplete：AIGC 生视频任务完成。</li>
+<li>AigcImageComplete：AIGC 生图任务完成。</li>
+<li>AigcVideoComplete：AIGC 生视频任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -929,111 +924,6 @@ namespace TencentCloud
                      */
                     bool ProcessMediaByMPSCompleteEventHasBeenSet() const;
 
-                    /**
-                     * 获取AIGC 生图任务信息，仅当 EventType 为 AigcImageTaskComplete 时有效。
-                     * @return AigcImageCompleteEvent AIGC 生图任务信息，仅当 EventType 为 AigcImageTaskComplete 时有效。
-                     * 
-                     */
-                    AigcImageTask GetAigcImageCompleteEvent() const;
-
-                    /**
-                     * 设置AIGC 生图任务信息，仅当 EventType 为 AigcImageTaskComplete 时有效。
-                     * @param _aigcImageCompleteEvent AIGC 生图任务信息，仅当 EventType 为 AigcImageTaskComplete 时有效。
-                     * 
-                     */
-                    void SetAigcImageCompleteEvent(const AigcImageTask& _aigcImageCompleteEvent);
-
-                    /**
-                     * 判断参数 AigcImageCompleteEvent 是否已赋值
-                     * @return AigcImageCompleteEvent 是否已赋值
-                     * 
-                     */
-                    bool AigcImageCompleteEventHasBeenSet() const;
-
-                    /**
-                     * 获取AIGC 生视频任务信息，仅当 EventType 为 AigcVideoTaskComplete 时有效。
-                     * @return AigcVideoCompleteEvent AIGC 生视频任务信息，仅当 EventType 为 AigcVideoTaskComplete 时有效。
-                     * 
-                     */
-                    AigcVideoTask GetAigcVideoCompleteEvent() const;
-
-                    /**
-                     * 设置AIGC 生视频任务信息，仅当 EventType 为 AigcVideoTaskComplete 时有效。
-                     * @param _aigcVideoCompleteEvent AIGC 生视频任务信息，仅当 EventType 为 AigcVideoTaskComplete 时有效。
-                     * 
-                     */
-                    void SetAigcVideoCompleteEvent(const AigcVideoTask& _aigcVideoCompleteEvent);
-
-                    /**
-                     * 判断参数 AigcVideoCompleteEvent 是否已赋值
-                     * @return AigcVideoCompleteEvent 是否已赋值
-                     * 
-                     */
-                    bool AigcVideoCompleteEventHasBeenSet() const;
-
-                    /**
-                     * 获取提取数字水印信息，仅当 EventType 为 ExtractBlindWatermarkComplete 时有效。
-                     * @return ExtractBlindWatermarkComplete 提取数字水印信息，仅当 EventType 为 ExtractBlindWatermarkComplete 时有效。
-                     * 
-                     */
-                    ExtractBlindWatermarkTask GetExtractBlindWatermarkComplete() const;
-
-                    /**
-                     * 设置提取数字水印信息，仅当 EventType 为 ExtractBlindWatermarkComplete 时有效。
-                     * @param _extractBlindWatermarkComplete 提取数字水印信息，仅当 EventType 为 ExtractBlindWatermarkComplete 时有效。
-                     * 
-                     */
-                    void SetExtractBlindWatermarkComplete(const ExtractBlindWatermarkTask& _extractBlindWatermarkComplete);
-
-                    /**
-                     * 判断参数 ExtractBlindWatermarkComplete 是否已赋值
-                     * @return ExtractBlindWatermarkComplete 是否已赋值
-                     * 
-                     */
-                    bool ExtractBlindWatermarkCompleteHasBeenSet() const;
-
-                    /**
-                     * 获取AIGC 场景化生图任务信息，仅当 EventType 为 SceneAigcImageCompleteEvent 时有效。
-                     * @return SceneAigcImageCompleteEvent AIGC 场景化生图任务信息，仅当 EventType 为 SceneAigcImageCompleteEvent 时有效。
-                     * 
-                     */
-                    SceneAigcImageTask GetSceneAigcImageCompleteEvent() const;
-
-                    /**
-                     * 设置AIGC 场景化生图任务信息，仅当 EventType 为 SceneAigcImageCompleteEvent 时有效。
-                     * @param _sceneAigcImageCompleteEvent AIGC 场景化生图任务信息，仅当 EventType 为 SceneAigcImageCompleteEvent 时有效。
-                     * 
-                     */
-                    void SetSceneAigcImageCompleteEvent(const SceneAigcImageTask& _sceneAigcImageCompleteEvent);
-
-                    /**
-                     * 判断参数 SceneAigcImageCompleteEvent 是否已赋值
-                     * @return SceneAigcImageCompleteEvent 是否已赋值
-                     * 
-                     */
-                    bool SceneAigcImageCompleteEventHasBeenSet() const;
-
-                    /**
-                     * 获取图片异步处理任务信息，仅当 EventType 为 ProcessImageAsyncCompleteEvent 时有效。
-                     * @return ProcessImageAsyncCompleteEvent 图片异步处理任务信息，仅当 EventType 为 ProcessImageAsyncCompleteEvent 时有效。
-                     * 
-                     */
-                    ProcessImageAsyncTask GetProcessImageAsyncCompleteEvent() const;
-
-                    /**
-                     * 设置图片异步处理任务信息，仅当 EventType 为 ProcessImageAsyncCompleteEvent 时有效。
-                     * @param _processImageAsyncCompleteEvent 图片异步处理任务信息，仅当 EventType 为 ProcessImageAsyncCompleteEvent 时有效。
-                     * 
-                     */
-                    void SetProcessImageAsyncCompleteEvent(const ProcessImageAsyncTask& _processImageAsyncCompleteEvent);
-
-                    /**
-                     * 判断参数 ProcessImageAsyncCompleteEvent 是否已赋值
-                     * @return ProcessImageAsyncCompleteEvent 是否已赋值
-                     * 
-                     */
-                    bool ProcessImageAsyncCompleteEventHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1064,8 +954,8 @@ namespace TencentCloud
 <li>PersistenceComplete：剪辑固化完成；</li>
 <li>ComplexAdaptiveDynamicStreamingComplete：复杂自适应码流任务完成。</li>
 <li>ProcessMediaByMPSComplete：MPS视频处理完成。</li>
-<li>AigcImageTaskComplete：AIGC 生图任务完成。</li>
-<li>AigcVideoTaskComplete：AIGC 生视频任务完成。</li>
+<li>AigcImageComplete：AIGC 生图任务完成。</li>
+<li>AigcVideoComplete：AIGC 生视频任务完成。</li>
 <b>兼容 2017 版的事件类型：</b>
 <li>TranscodeComplete：视频转码完成；</li>
 <li>ConcatComplete：视频拼接完成；</li>
@@ -1270,36 +1160,6 @@ namespace TencentCloud
                      */
                     ProcessMediaByMPS m_processMediaByMPSCompleteEvent;
                     bool m_processMediaByMPSCompleteEventHasBeenSet;
-
-                    /**
-                     * AIGC 生图任务信息，仅当 EventType 为 AigcImageTaskComplete 时有效。
-                     */
-                    AigcImageTask m_aigcImageCompleteEvent;
-                    bool m_aigcImageCompleteEventHasBeenSet;
-
-                    /**
-                     * AIGC 生视频任务信息，仅当 EventType 为 AigcVideoTaskComplete 时有效。
-                     */
-                    AigcVideoTask m_aigcVideoCompleteEvent;
-                    bool m_aigcVideoCompleteEventHasBeenSet;
-
-                    /**
-                     * 提取数字水印信息，仅当 EventType 为 ExtractBlindWatermarkComplete 时有效。
-                     */
-                    ExtractBlindWatermarkTask m_extractBlindWatermarkComplete;
-                    bool m_extractBlindWatermarkCompleteHasBeenSet;
-
-                    /**
-                     * AIGC 场景化生图任务信息，仅当 EventType 为 SceneAigcImageCompleteEvent 时有效。
-                     */
-                    SceneAigcImageTask m_sceneAigcImageCompleteEvent;
-                    bool m_sceneAigcImageCompleteEventHasBeenSet;
-
-                    /**
-                     * 图片异步处理任务信息，仅当 EventType 为 ProcessImageAsyncCompleteEvent 时有效。
-                     */
-                    ProcessImageAsyncTask m_processImageAsyncCompleteEvent;
-                    bool m_processImageAsyncCompleteEventHasBeenSet;
 
                 };
             }

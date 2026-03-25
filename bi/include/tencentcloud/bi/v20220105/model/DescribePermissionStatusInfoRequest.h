@@ -64,43 +64,15 @@ namespace TencentCloud
                     bool TableIdHasBeenSet() const;
 
                     /**
-                     * 获取类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
-                     * @return Type 类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
+                     * 获取类型
+                     * @return Type 类型
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
-                     * @param _type 类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
+                     * 设置类型
+                     * @param _type 类型
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -142,14 +114,7 @@ namespace TencentCloud
                     bool m_tableIdHasBeenSet;
 
                     /**
-                     * 类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
+                     * 类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;

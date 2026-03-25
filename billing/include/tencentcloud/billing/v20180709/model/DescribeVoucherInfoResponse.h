@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>券总数</p>
-                     * @return TotalCount <p>券总数</p>
+                     * 获取券总数
+                     * @return TotalCount 券总数
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>总余额（微分）</p>
-                     * @return TotalBalance <p>总余额（微分）</p>
+                     * 获取总余额（微分）
+                     * @return TotalBalance 总余额（微分）
                      * 
                      */
                     int64_t GetTotalBalance() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool TotalBalanceHasBeenSet() const;
 
                     /**
-                     * 获取<p>代金券相关信息</p>
-                     * @return VoucherInfos <p>代金券相关信息</p>
+                     * 获取代金券相关信息
+                     * @return VoucherInfos 代金券相关信息
                      * 
                      */
                     std::vector<VoucherInfos> GetVoucherInfos() const;
@@ -89,19 +89,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>券总数</p>
+                     * 券总数
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>总余额（微分）</p>
+                     * 总余额（微分）
                      */
                     int64_t m_totalBalance;
                     bool m_totalBalanceHasBeenSet;
 
                     /**
-                     * <p>代金券相关信息</p>
+                     * 代金券相关信息
                      */
                     std::vector<VoucherInfos> m_voucherInfos;
                     bool m_voucherInfosHasBeenSet;

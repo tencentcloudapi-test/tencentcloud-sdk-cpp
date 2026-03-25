@@ -23,8 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/ctsdb/v20230202/model/DescribeClusterDetailRequest.h>
-#include <tencentcloud/ctsdb/v20230202/model/DescribeClusterDetailResponse.h>
 #include <tencentcloud/ctsdb/v20230202/model/DescribeClustersRequest.h>
 #include <tencentcloud/ctsdb/v20230202/model/DescribeClustersResponse.h>
 #include <tencentcloud/ctsdb/v20230202/model/DescribeDatabasesRequest.h>
@@ -43,9 +41,6 @@ namespace TencentCloud
                 CtsdbClient(const Credential &credential, const std::string &region);
                 CtsdbClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::DescribeClusterDetailResponse> DescribeClusterDetailOutcome;
-                typedef std::future<DescribeClusterDetailOutcome> DescribeClusterDetailOutcomeCallable;
-                typedef std::function<void(const CtsdbClient*, const Model::DescribeClusterDetailRequest&, DescribeClusterDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClusterDetailAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeClustersResponse> DescribeClustersOutcome;
                 typedef std::future<DescribeClustersOutcome> DescribeClustersOutcomeCallable;
                 typedef std::function<void(const CtsdbClient*, const Model::DescribeClustersRequest&, DescribeClustersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClustersAsyncHandler;
@@ -54,15 +49,6 @@ namespace TencentCloud
                 typedef std::function<void(const CtsdbClient*, const Model::DescribeDatabasesRequest&, DescribeDatabasesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDatabasesAsyncHandler;
 
 
-
-                /**
-                 *查询实例详情
-                 * @param req DescribeClusterDetailRequest
-                 * @return DescribeClusterDetailOutcome
-                 */
-                DescribeClusterDetailOutcome DescribeClusterDetail(const Model::DescribeClusterDetailRequest &request);
-                void DescribeClusterDetailAsync(const Model::DescribeClusterDetailRequest& request, const DescribeClusterDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeClusterDetailOutcomeCallable DescribeClusterDetailCallable(const Model::DescribeClusterDetailRequest& request);
 
                 /**
                  *查询实例列表及详情

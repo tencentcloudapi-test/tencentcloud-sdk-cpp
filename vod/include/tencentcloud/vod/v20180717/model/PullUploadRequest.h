@@ -352,31 +352,6 @@ namespace TencentCloud
                      */
                     bool SourceContextHasBeenSet() const;
 
-                    /**
-                     * 获取媒体存储路径，以/开头。
-只有[FileID + Path 模式](https://cloud.tencent.com/document/product/266/126825)的子应用可以指定存储路径。
-                     * @return MediaStoragePath 媒体存储路径，以/开头。
-只有[FileID + Path 模式](https://cloud.tencent.com/document/product/266/126825)的子应用可以指定存储路径。
-                     * 
-                     */
-                    std::string GetMediaStoragePath() const;
-
-                    /**
-                     * 设置媒体存储路径，以/开头。
-只有[FileID + Path 模式](https://cloud.tencent.com/document/product/266/126825)的子应用可以指定存储路径。
-                     * @param _mediaStoragePath 媒体存储路径，以/开头。
-只有[FileID + Path 模式](https://cloud.tencent.com/document/product/266/126825)的子应用可以指定存储路径。
-                     * 
-                     */
-                    void SetMediaStoragePath(const std::string& _mediaStoragePath);
-
-                    /**
-                     * 判断参数 MediaStoragePath 是否已赋值
-                     * @return MediaStoragePath 是否已赋值
-                     * 
-                     */
-                    bool MediaStoragePathHasBeenSet() const;
-
                 private:
 
                     /**
@@ -466,13 +441,6 @@ namespace TencentCloud
                      */
                     std::string m_sourceContext;
                     bool m_sourceContextHasBeenSet;
-
-                    /**
-                     * 媒体存储路径，以/开头。
-只有[FileID + Path 模式](https://cloud.tencent.com/document/product/266/126825)的子应用可以指定存储路径。
-                     */
-                    std::string m_mediaStoragePath;
-                    bool m_mediaStoragePathHasBeenSet;
 
                 };
             }

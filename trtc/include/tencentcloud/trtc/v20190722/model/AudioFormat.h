@@ -47,47 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取生成的音频格式
-
-- TextToSpeechSSE 流式接口
-
- 支持 pcm, 默认: pcm
-
-- TextToSpeech 非流式接口
-
- 支持 pcm,wav,mp3,  默认: pcm
-                     * @return Format 生成的音频格式
-
-- TextToSpeechSSE 流式接口
-
- 支持 pcm, 默认: pcm
-
-- TextToSpeech 非流式接口
-
- 支持 pcm,wav,mp3,  默认: pcm
+                     * 获取生成的音频格式，默认pcm，目前支持的格式列表：流式：[pcm]，非流式 [pcm，wav]
+                     * @return Format 生成的音频格式，默认pcm，目前支持的格式列表：流式：[pcm]，非流式 [pcm，wav]
                      * 
                      */
                     std::string GetFormat() const;
 
                     /**
-                     * 设置生成的音频格式
-
-- TextToSpeechSSE 流式接口
-
- 支持 pcm, 默认: pcm
-
-- TextToSpeech 非流式接口
-
- 支持 pcm,wav,mp3,  默认: pcm
-                     * @param _format 生成的音频格式
-
-- TextToSpeechSSE 流式接口
-
- 支持 pcm, 默认: pcm
-
-- TextToSpeech 非流式接口
-
- 支持 pcm,wav,mp3,  默认: pcm
+                     * 设置生成的音频格式，默认pcm，目前支持的格式列表：流式：[pcm]，非流式 [pcm，wav]
+                     * @param _format 生成的音频格式，默认pcm，目前支持的格式列表：流式：[pcm]，非流式 [pcm，wav]
                      * 
                      */
                     void SetFormat(const std::string& _format);
@@ -100,27 +68,15 @@ namespace TencentCloud
                     bool FormatHasBeenSet() const;
 
                     /**
-                     * 获取生成的音频采样率，默认24000
-可选
-- 16000
-- 24000 
-                     * @return SampleRate 生成的音频采样率，默认24000
-可选
-- 16000
-- 24000 
+                     * 获取采样率，默认24000， 可选16000, 24000 
+                     * @return SampleRate 采样率，默认24000， 可选16000, 24000 
                      * 
                      */
                     uint64_t GetSampleRate() const;
 
                     /**
-                     * 设置生成的音频采样率，默认24000
-可选
-- 16000
-- 24000 
-                     * @param _sampleRate 生成的音频采样率，默认24000
-可选
-- 16000
-- 24000 
+                     * 设置采样率，默认24000， 可选16000, 24000 
+                     * @param _sampleRate 采样率，默认24000， 可选16000, 24000 
                      * 
                      */
                     void SetSampleRate(const uint64_t& _sampleRate);
@@ -132,57 +88,19 @@ namespace TencentCloud
                      */
                     bool SampleRateHasBeenSet() const;
 
-                    /**
-                     * 获取 MP3 比特率 (kbps)，仅对 MP3 格式生效, 可以选： `64`, `128`, `192`, `256` ,  默认： `128` 
-                     * @return Bitrate  MP3 比特率 (kbps)，仅对 MP3 格式生效, 可以选： `64`, `128`, `192`, `256` ,  默认： `128` 
-                     * 
-                     */
-                    uint64_t GetBitrate() const;
-
-                    /**
-                     * 设置 MP3 比特率 (kbps)，仅对 MP3 格式生效, 可以选： `64`, `128`, `192`, `256` ,  默认： `128` 
-                     * @param _bitrate  MP3 比特率 (kbps)，仅对 MP3 格式生效, 可以选： `64`, `128`, `192`, `256` ,  默认： `128` 
-                     * 
-                     */
-                    void SetBitrate(const uint64_t& _bitrate);
-
-                    /**
-                     * 判断参数 Bitrate 是否已赋值
-                     * @return Bitrate 是否已赋值
-                     * 
-                     */
-                    bool BitrateHasBeenSet() const;
-
                 private:
 
                     /**
-                     * 生成的音频格式
-
-- TextToSpeechSSE 流式接口
-
- 支持 pcm, 默认: pcm
-
-- TextToSpeech 非流式接口
-
- 支持 pcm,wav,mp3,  默认: pcm
+                     * 生成的音频格式，默认pcm，目前支持的格式列表：流式：[pcm]，非流式 [pcm，wav]
                      */
                     std::string m_format;
                     bool m_formatHasBeenSet;
 
                     /**
-                     * 生成的音频采样率，默认24000
-可选
-- 16000
-- 24000 
+                     * 采样率，默认24000， 可选16000, 24000 
                      */
                     uint64_t m_sampleRate;
                     bool m_sampleRateHasBeenSet;
-
-                    /**
-                     *  MP3 比特率 (kbps)，仅对 MP3 格式生效, 可以选： `64`, `128`, `192`, `256` ,  默认： `128` 
-                     */
-                    uint64_t m_bitrate;
-                    bool m_bitrateHasBeenSet;
 
                 };
             }

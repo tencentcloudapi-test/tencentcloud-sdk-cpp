@@ -295,20 +295,6 @@ namespace TencentCloud
                      */
                     bool TaskUserDefineHasBeenSet() const;
 
-                    /**
-                     * 获取每分钟发送设备量
-                     * @return RateLimit 每分钟发送设备量
-                     * 
-                     */
-                    int64_t GetRateLimit() const;
-
-                    /**
-                     * 判断参数 RateLimit 是否已赋值
-                     * @return RateLimit 是否已赋值
-                     * 
-                     */
-                    bool RateLimitHasBeenSet() const;
-
                 private:
 
                     /**
@@ -418,12 +404,6 @@ namespace TencentCloud
                      */
                     std::string m_taskUserDefine;
                     bool m_taskUserDefineHasBeenSet;
-
-                    /**
-                     * 每分钟发送设备量
-                     */
-                    int64_t m_rateLimit;
-                    bool m_rateLimitHasBeenSet;
 
                 };
             }

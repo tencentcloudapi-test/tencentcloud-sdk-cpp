@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>售卖规格列表。</p>
-                     * @return SpecInfoList <p>售卖规格列表。</p>
+                     * 获取售卖规格列表。
+                     * @return SpecInfoList 售卖规格列表。
                      * 
                      */
                     std::vector<SpecInfo> GetSpecInfoList() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>售卖规格列表。</p>
+                     * 售卖规格列表。
                      */
                     std::vector<SpecInfo> m_specInfoList;
                     bool m_specInfoListHasBeenSet;

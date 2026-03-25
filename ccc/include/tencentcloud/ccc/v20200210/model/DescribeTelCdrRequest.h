@@ -85,69 +85,6 @@ namespace TencentCloud
                     bool EndTimeStampHasBeenSet() const;
 
                     /**
-                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
-                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
-                     * 
-                     */
-                    int64_t GetSdkAppId() const;
-
-                    /**
-                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
-                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
-                     * 
-                     */
-                    void SetSdkAppId(const int64_t& _sdkAppId);
-
-                    /**
-                     * 判断参数 SdkAppId 是否已赋值
-                     * @return SdkAppId 是否已赋值
-                     * 
-                     */
-                    bool SdkAppIdHasBeenSet() const;
-
-                    /**
-                     * 获取分页尺寸（必填），上限 100
-                     * @return PageSize 分页尺寸（必填），上限 100
-                     * 
-                     */
-                    int64_t GetPageSize() const;
-
-                    /**
-                     * 设置分页尺寸（必填），上限 100
-                     * @param _pageSize 分页尺寸（必填），上限 100
-                     * 
-                     */
-                    void SetPageSize(const int64_t& _pageSize);
-
-                    /**
-                     * 判断参数 PageSize 是否已赋值
-                     * @return PageSize 是否已赋值
-                     * 
-                     */
-                    bool PageSizeHasBeenSet() const;
-
-                    /**
-                     * 获取分页页码（必填），从 0 开始
-                     * @return PageNumber 分页页码（必填），从 0 开始
-                     * 
-                     */
-                    int64_t GetPageNumber() const;
-
-                    /**
-                     * 设置分页页码（必填），从 0 开始
-                     * @param _pageNumber 分页页码（必填），从 0 开始
-                     * 
-                     */
-                    void SetPageNumber(const int64_t& _pageNumber);
-
-                    /**
-                     * 判断参数 PageNumber 是否已赋值
-                     * @return PageNumber 是否已赋值
-                     * 
-                     */
-                    bool PageNumberHasBeenSet() const;
-
-                    /**
                      * 获取实例 ID（废弃）
                      * @return InstanceId 实例 ID（废弃）
                      * @deprecated
@@ -211,6 +148,69 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
+                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
+                     */
+                    int64_t GetSdkAppId() const;
+
+                    /**
+                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * 
+                     */
+                    void SetSdkAppId(const int64_t& _sdkAppId);
+
+                    /**
+                     * 判断参数 SdkAppId 是否已赋值
+                     * @return SdkAppId 是否已赋值
+                     * 
+                     */
+                    bool SdkAppIdHasBeenSet() const;
+
+                    /**
+                     * 获取分页尺寸（必填），上限 100
+                     * @return PageSize 分页尺寸（必填），上限 100
+                     * 
+                     */
+                    int64_t GetPageSize() const;
+
+                    /**
+                     * 设置分页尺寸（必填），上限 100
+                     * @param _pageSize 分页尺寸（必填），上限 100
+                     * 
+                     */
+                    void SetPageSize(const int64_t& _pageSize);
+
+                    /**
+                     * 判断参数 PageSize 是否已赋值
+                     * @return PageSize 是否已赋值
+                     * 
+                     */
+                    bool PageSizeHasBeenSet() const;
+
+                    /**
+                     * 获取分页页码（必填），从 0 开始
+                     * @return PageNumber 分页页码（必填），从 0 开始
+                     * 
+                     */
+                    int64_t GetPageNumber() const;
+
+                    /**
+                     * 设置分页页码（必填），从 0 开始
+                     * @param _pageNumber 分页页码（必填），从 0 开始
+                     * 
+                     */
+                    void SetPageNumber(const int64_t& _pageNumber);
+
+                    /**
+                     * 判断参数 PageNumber 是否已赋值
+                     * @return PageNumber 是否已赋值
+                     * 
+                     */
+                    bool PageNumberHasBeenSet() const;
+
+                    /**
                      * 获取按手机号筛选
                      * @return Phones 按手机号筛选
                      * 
@@ -267,24 +267,6 @@ namespace TencentCloud
                     bool m_endTimeStampHasBeenSet;
 
                     /**
-                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
-                     */
-                    int64_t m_sdkAppId;
-                    bool m_sdkAppIdHasBeenSet;
-
-                    /**
-                     * 分页尺寸（必填），上限 100
-                     */
-                    int64_t m_pageSize;
-                    bool m_pageSizeHasBeenSet;
-
-                    /**
-                     * 分页页码（必填），从 0 开始
-                     */
-                    int64_t m_pageNumber;
-                    bool m_pageNumberHasBeenSet;
-
-                    /**
                      * 实例 ID（废弃）
                      */
                     int64_t m_instanceId;
@@ -301,6 +283,24 @@ namespace TencentCloud
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
+
+                    /**
+                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     */
+                    int64_t m_sdkAppId;
+                    bool m_sdkAppIdHasBeenSet;
+
+                    /**
+                     * 分页尺寸（必填），上限 100
+                     */
+                    int64_t m_pageSize;
+                    bool m_pageSizeHasBeenSet;
+
+                    /**
+                     * 分页页码（必填），从 0 开始
+                     */
+                    int64_t m_pageNumber;
+                    bool m_pageNumberHasBeenSet;
 
                     /**
                      * 按手机号筛选

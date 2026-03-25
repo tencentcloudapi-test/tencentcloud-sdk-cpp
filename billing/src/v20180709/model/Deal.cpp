@@ -46,8 +46,7 @@ Deal::Deal() :
     m_actionHasBeenSet(false),
     m_productNameHasBeenSet(false),
     m_subProductNameHasBeenSet(false),
-    m_resourceIdHasBeenSet(false),
-    m_zoneCodeHasBeenSet(false)
+    m_resourceIdHasBeenSet(false)
 {
 }
 
@@ -329,16 +328,6 @@ CoreInternalOutcome Deal::Deserialize(const rapidjson::Value &value)
         m_resourceIdHasBeenSet = true;
     }
 
-    if (value.HasMember("ZoneCode") && !value["ZoneCode"].IsNull())
-    {
-        if (!value["ZoneCode"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Deal.ZoneCode` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_zoneCode = string(value["ZoneCode"].GetString());
-        m_zoneCodeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -564,14 +553,6 @@ void Deal::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorT
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
-    }
-
-    if (m_zoneCodeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ZoneCode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_zoneCode.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -991,21 +972,5 @@ void Deal::SetResourceId(const vector<string>& _resourceId)
 bool Deal::ResourceIdHasBeenSet() const
 {
     return m_resourceIdHasBeenSet;
-}
-
-string Deal::GetZoneCode() const
-{
-    return m_zoneCode;
-}
-
-void Deal::SetZoneCode(const string& _zoneCode)
-{
-    m_zoneCode = _zoneCode;
-    m_zoneCodeHasBeenSet = true;
-}
-
-bool Deal::ZoneCodeHasBeenSet() const
-{
-    return m_zoneCodeHasBeenSet;
 }
 

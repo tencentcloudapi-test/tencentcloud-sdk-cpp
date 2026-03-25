@@ -445,27 +445,6 @@ namespace TencentCloud
                      */
                     bool WrittenBytesHasBeenSet() const;
 
-                    /**
-                     * 获取Error日志
-                     * @return ErrorMessage Error日志
-                     * 
-                     */
-                    std::string GetErrorMessage() const;
-
-                    /**
-                     * 设置Error日志
-                     * @param _errorMessage Error日志
-                     * 
-                     */
-                    void SetErrorMessage(const std::string& _errorMessage);
-
-                    /**
-                     * 判断参数 ErrorMessage 是否已赋值
-                     * @return ErrorMessage 是否已赋值
-                     * 
-                     */
-                    bool ErrorMessageHasBeenSet() const;
-
                 private:
 
                     /**
@@ -581,12 +560,6 @@ namespace TencentCloud
                      */
                     int64_t m_writtenBytes;
                     bool m_writtenBytesHasBeenSet;
-
-                    /**
-                     * Error日志
-                     */
-                    std::string m_errorMessage;
-                    bool m_errorMessageHasBeenSet;
 
                 };
             }

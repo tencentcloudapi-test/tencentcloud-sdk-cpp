@@ -45,19 +45,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取应用ID，获取方法参看[如何获取   BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-修改知识库文档时，该参数填入知识库ID。
-                     * @return BotBizId 应用ID，获取方法参看[如何获取   BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-修改知识库文档时，该参数填入知识库ID。
+                     * 获取应用ID
+                     * @return BotBizId 应用ID
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置应用ID，获取方法参看[如何获取   BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-修改知识库文档时，该参数填入知识库ID。
-                     * @param _botBizId 应用ID，获取方法参看[如何获取   BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-修改知识库文档时，该参数填入知识库ID。
+                     * 设置应用ID
+                     * @param _botBizId 应用ID
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -112,15 +108,15 @@ namespace TencentCloud
                     bool IsReferHasBeenSet() const;
 
                     /**
-                     * 获取标签适用范围，1:全部，2:按条件。默认为1。
-                     * @return AttrRange 标签适用范围，1:全部，2:按条件。默认为1。
+                     * 获取标签适用范围，需要传参为1
+                     * @return AttrRange 标签适用范围，需要传参为1
                      * 
                      */
                     uint64_t GetAttrRange() const;
 
                     /**
-                     * 设置标签适用范围，1:全部，2:按条件。默认为1。
-                     * @param _attrRange 标签适用范围，1:全部，2:按条件。默认为1。
+                     * 设置标签适用范围，需要传参为1
+                     * @param _attrRange 标签适用范围，需要传参为1
                      * 
                      */
                     void SetAttrRange(const uint64_t& _attrRange);
@@ -242,15 +238,15 @@ namespace TencentCloud
                     bool ReferUrlTypeHasBeenSet() const;
 
                     /**
-                     * 获取有效开始时间，单位为unix时间戳
-                     * @return ExpireStart 有效开始时间，单位为unix时间戳
+                     * 获取有效开始时间，unix时间戳
+                     * @return ExpireStart 有效开始时间，unix时间戳
                      * 
                      */
                     std::string GetExpireStart() const;
 
                     /**
-                     * 设置有效开始时间，单位为unix时间戳
-                     * @param _expireStart 有效开始时间，单位为unix时间戳
+                     * 设置有效开始时间，unix时间戳
+                     * @param _expireStart 有效开始时间，unix时间戳
                      * 
                      */
                     void SetExpireStart(const std::string& _expireStart);
@@ -263,15 +259,15 @@ namespace TencentCloud
                     bool ExpireStartHasBeenSet() const;
 
                     /**
-                     * 获取有效结束时间，单位为unix时间戳，默认值为0代表永久有效
-                     * @return ExpireEnd 有效结束时间，单位为unix时间戳，默认值为0代表永久有效
+                     * 获取有效结束时间，unix时间戳，0代表永久有效
+                     * @return ExpireEnd 有效结束时间，unix时间戳，0代表永久有效
                      * 
                      */
                     std::string GetExpireEnd() const;
 
                     /**
-                     * 设置有效结束时间，单位为unix时间戳，默认值为0代表永久有效
-                     * @param _expireEnd 有效结束时间，单位为unix时间戳，默认值为0代表永久有效
+                     * 设置有效结束时间，unix时间戳，0代表永久有效
+                     * @param _expireEnd 有效结束时间，unix时间戳，0代表永久有效
                      * 
                      */
                     void SetExpireEnd(const std::string& _expireEnd);
@@ -388,36 +384,10 @@ namespace TencentCloud
                      */
                     bool SplitRuleHasBeenSet() const;
 
-                    /**
-                     * 获取文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
-若不传，则不会修改文档生效域。
-                     * @return EnableScope 文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
-若不传，则不会修改文档生效域。
-                     * 
-                     */
-                    int64_t GetEnableScope() const;
-
-                    /**
-                     * 设置文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
-若不传，则不会修改文档生效域。
-                     * @param _enableScope 文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
-若不传，则不会修改文档生效域。
-                     * 
-                     */
-                    void SetEnableScope(const int64_t& _enableScope);
-
-                    /**
-                     * 判断参数 EnableScope 是否已赋值
-                     * @return EnableScope 是否已赋值
-                     * 
-                     */
-                    bool EnableScopeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * 应用ID，获取方法参看[如何获取   BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-修改知识库文档时，该参数填入知识库ID。
+                     * 应用ID
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
@@ -435,7 +405,7 @@ namespace TencentCloud
                     bool m_isReferHasBeenSet;
 
                     /**
-                     * 标签适用范围，1:全部，2:按条件。默认为1。
+                     * 标签适用范围，需要传参为1
                      */
                     uint64_t m_attrRange;
                     bool m_attrRangeHasBeenSet;
@@ -472,13 +442,13 @@ namespace TencentCloud
                     bool m_referUrlTypeHasBeenSet;
 
                     /**
-                     * 有效开始时间，单位为unix时间戳
+                     * 有效开始时间，unix时间戳
                      */
                     std::string m_expireStart;
                     bool m_expireStartHasBeenSet;
 
                     /**
-                     * 有效结束时间，单位为unix时间戳，默认值为0代表永久有效
+                     * 有效结束时间，unix时间戳，0代表永久有效
                      */
                     std::string m_expireEnd;
                     bool m_expireEndHasBeenSet;
@@ -512,13 +482,6 @@ namespace TencentCloud
                      */
                     std::string m_splitRule;
                     bool m_splitRuleHasBeenSet;
-
-                    /**
-                     * 文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
-若不传，则不会修改文档生效域。
-                     */
-                    int64_t m_enableScope;
-                    bool m_enableScopeHasBeenSet;
 
                 };
             }

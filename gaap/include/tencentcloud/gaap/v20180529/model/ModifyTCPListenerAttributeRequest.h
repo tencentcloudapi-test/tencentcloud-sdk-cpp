@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>监听器ID</p>
-                     * @return ListenerId <p>监听器ID</p>
+                     * 获取监听器ID
+                     * @return ListenerId 监听器ID
                      * 
                      */
                     std::string GetListenerId() const;
 
                     /**
-                     * 设置<p>监听器ID</p>
-                     * @param _listenerId <p>监听器ID</p>
+                     * 设置监听器ID
+                     * @param _listenerId 监听器ID
                      * 
                      */
                     void SetListenerId(const std::string& _listenerId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ListenerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
-                     * @return GroupId <p>通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
+                     * 获取通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
+                     * @return GroupId 通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
                      * 
                      */
                     std::string GetGroupId() const;
 
                     /**
-                     * 设置<p>通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
-                     * @param _groupId <p>通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
+                     * 设置通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
+                     * @param _groupId 通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
                      * 
                      */
                     void SetGroupId(const std::string& _groupId);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
-                     * @return ProxyId <p>通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
+                     * 获取通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
+                     * @return ProxyId 通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
                      * 
                      */
                     std::string GetProxyId() const;
 
                     /**
-                     * 设置<p>通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
-                     * @param _proxyId <p>通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
+                     * 设置通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
+                     * @param _proxyId 通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
                      * 
                      */
                     void SetProxyId(const std::string& _proxyId);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool ProxyIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器名称</p>
-                     * @return ListenerName <p>监听器名称</p>
+                     * 获取监听器名称
+                     * @return ListenerName 监听器名称
                      * 
                      */
                     std::string GetListenerName() const;
 
                     /**
-                     * 设置<p>监听器名称</p>
-                     * @param _listenerName <p>监听器名称</p>
+                     * 设置监听器名称
+                     * @param _listenerName 监听器名称
                      * 
                      */
                     void SetListenerName(const std::string& _listenerName);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool ListenerNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。</p>
-                     * @return Scheduler <p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。</p>
+                     * 获取监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。
+                     * @return Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。
                      * 
                      */
                     std::string GetScheduler() const;
 
                     /**
-                     * 设置<p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。</p>
-                     * @param _scheduler <p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。</p>
+                     * 设置监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。
+                     * @param _scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。
                      * 
                      */
                     void SetScheduler(const std::string& _scheduler);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool SchedulerHasBeenSet() const;
 
                     /**
-                     * 获取<p>源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。</p>
-                     * @return DelayLoop <p>源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。</p>
+                     * 获取源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。
+                     * @return DelayLoop 源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。
                      * 
                      */
                     uint64_t GetDelayLoop() const;
 
                     /**
-                     * 设置<p>源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。</p>
-                     * @param _delayLoop <p>源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。</p>
+                     * 设置源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。
+                     * @param _delayLoop 源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。
                      * 
                      */
                     void SetDelayLoop(const uint64_t& _delayLoop);
@@ -169,15 +169,15 @@ namespace TencentCloud
                     bool DelayLoopHasBeenSet() const;
 
                     /**
-                     * 获取<p>源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。</p>
-                     * @return ConnectTimeout <p>源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。</p>
+                     * 获取源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。
+                     * @return ConnectTimeout 源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。
                      * 
                      */
                     uint64_t GetConnectTimeout() const;
 
                     /**
-                     * 设置<p>源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。</p>
-                     * @param _connectTimeout <p>源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。</p>
+                     * 设置源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。
+                     * @param _connectTimeout 源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。
                      * 
                      */
                     void SetConnectTimeout(const uint64_t& _connectTimeout);
@@ -190,15 +190,15 @@ namespace TencentCloud
                     bool ConnectTimeoutHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启健康检查，1开启，0关闭。</p>
-                     * @return HealthCheck <p>是否开启健康检查，1开启，0关闭。</p>
+                     * 获取是否开启健康检查，1开启，0关闭。
+                     * @return HealthCheck 是否开启健康检查，1开启，0关闭。
                      * 
                      */
                     uint64_t GetHealthCheck() const;
 
                     /**
-                     * 设置<p>是否开启健康检查，1开启，0关闭。</p>
-                     * @param _healthCheck <p>是否开启健康检查，1开启，0关闭。</p>
+                     * 设置是否开启健康检查，1开启，0关闭。
+                     * @param _healthCheck 是否开启健康检查，1开启，0关闭。
                      * 
                      */
                     void SetHealthCheck(const uint64_t& _healthCheck);
@@ -211,15 +211,15 @@ namespace TencentCloud
                     bool HealthCheckHasBeenSet() const;
 
                     /**
-                     * 获取<p>源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启</p>
-                     * @return FailoverSwitch <p>源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启</p>
+                     * 获取源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+                     * @return FailoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
                      * 
                      */
                     uint64_t GetFailoverSwitch() const;
 
                     /**
-                     * 设置<p>源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启</p>
-                     * @param _failoverSwitch <p>源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启</p>
+                     * 设置源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
+                     * @param _failoverSwitch 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
                      * 
                      */
                     void SetFailoverSwitch(const uint64_t& _failoverSwitch);
@@ -232,15 +232,15 @@ namespace TencentCloud
                     bool FailoverSwitchHasBeenSet() const;
 
                     /**
-                     * 获取<p>健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10</p>
-                     * @return HealthyThreshold <p>健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10</p>
+                     * 获取健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
+                     * @return HealthyThreshold 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
                      * 
                      */
                     uint64_t GetHealthyThreshold() const;
 
                     /**
-                     * 设置<p>健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10</p>
-                     * @param _healthyThreshold <p>健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10</p>
+                     * 设置健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
+                     * @param _healthyThreshold 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
                      * 
                      */
                     void SetHealthyThreshold(const uint64_t& _healthyThreshold);
@@ -253,15 +253,15 @@ namespace TencentCloud
                     bool HealthyThresholdHasBeenSet() const;
 
                     /**
-                     * 获取<p>不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10</p>
-                     * @return UnhealthyThreshold <p>不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10</p>
+                     * 获取不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
+                     * @return UnhealthyThreshold 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
                      * 
                      */
                     uint64_t GetUnhealthyThreshold() const;
 
                     /**
-                     * 设置<p>不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10</p>
-                     * @param _unhealthyThreshold <p>不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10</p>
+                     * 设置不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
+                     * @param _unhealthyThreshold 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
                      * 
                      */
                     void SetUnhealthyThreshold(const uint64_t& _unhealthyThreshold);
@@ -276,67 +276,67 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>监听器ID</p>
+                     * 监听器ID
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
-                     * <p>通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
+                     * 通道组ID，ProxyId和GroupId必须设置一个，但不能同时设置。
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * <p>通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。</p>
+                     * 通道ID，ProxyId和GroupId必须设置一个，但不能同时设置。
                      */
                     std::string m_proxyId;
                     bool m_proxyIdHasBeenSet;
 
                     /**
-                     * <p>监听器名称</p>
+                     * 监听器名称
                      */
                     std::string m_listenerName;
                     bool m_listenerNameHasBeenSet;
 
                     /**
-                     * <p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。</p>
+                     * 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数；lrtt表示最小时延。注意：lrtt需要开通白名单；RealServerType 为 DOMAIN 不支持wrr 和 lrtt。
                      */
                     std::string m_scheduler;
                     bool m_schedulerHasBeenSet;
 
                     /**
-                     * <p>源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。</p>
+                     * 源站健康检查时间间隔，单位：秒。时间间隔取值在[5，300]之间。
                      */
                     uint64_t m_delayLoop;
                     bool m_delayLoopHasBeenSet;
 
                     /**
-                     * <p>源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。</p>
+                     * 源站健康检查响应超时时间，单位：秒。超时时间取值在[2，60]之间。超时时间应小于健康检查时间间隔DelayLoop。
                      */
                     uint64_t m_connectTimeout;
                     bool m_connectTimeoutHasBeenSet;
 
                     /**
-                     * <p>是否开启健康检查，1开启，0关闭。</p>
+                     * 是否开启健康检查，1开启，0关闭。
                      */
                     uint64_t m_healthCheck;
                     bool m_healthCheckHasBeenSet;
 
                     /**
-                     * <p>源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启</p>
+                     * 源站是否开启主备模式：1开启，0关闭，DOMAIN类型源站不支持开启
                      */
                     uint64_t m_failoverSwitch;
                     bool m_failoverSwitchHasBeenSet;
 
                     /**
-                     * <p>健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10</p>
+                     * 健康阈值，表示连续检查成功多少次数后认定源站健康。范围为1到10
                      */
                     uint64_t m_healthyThreshold;
                     bool m_healthyThresholdHasBeenSet;
 
                     /**
-                     * <p>不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10</p>
+                     * 不健康阈值，表示连续检查失败次数后认定源站不健康。范围为1到10
                      */
                     uint64_t m_unhealthyThreshold;
                     bool m_unhealthyThresholdHasBeenSet;

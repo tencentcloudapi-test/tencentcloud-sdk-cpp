@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool OperatorHasBeenSet() const;
 
                     /**
-                     * 获取指定分页每页返回的数据条数，单页最大支持 200。
-                     * @return Limit 指定分页每页返回的数据条数，单页最大支持 200。
+                     * 获取指定分页每页返回的数据条数，单页最大1000
+                     * @return Limit 指定分页每页返回的数据条数，单页最大1000
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置指定分页每页返回的数据条数，单页最大支持 200。
-                     * @param _limit 指定分页每页返回的数据条数，单页最大支持 200。
+                     * 设置指定分页每页返回的数据条数，单页最大1000
+                     * @param _limit 指定分页每页返回的数据条数，单页最大1000
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取偏移量，默认为0，最大20000。关于<code>Offset</code>的更进一步介绍请参考 API <a href="https://cloud.tencent.com/document/api/213/15688" target="_blank">简介</a>中的相关小节。
-                     * @return Offset 偏移量，默认为0，最大20000。关于<code>Offset</code>的更进一步介绍请参考 API <a href="https://cloud.tencent.com/document/api/213/15688" target="_blank">简介</a>中的相关小节。
+                     * 获取指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
+                     * @return Offset 指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置偏移量，默认为0，最大20000。关于<code>Offset</code>的更进一步介绍请参考 API <a href="https://cloud.tencent.com/document/api/213/15688" target="_blank">简介</a>中的相关小节。
-                     * @param _offset 偏移量，默认为0，最大20000。关于<code>Offset</code>的更进一步介绍请参考 API <a href="https://cloud.tencent.com/document/api/213/15688" target="_blank">简介</a>中的相关小节。
+                     * 设置指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
+                     * @param _offset 指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -180,15 +180,9 @@ namespace TencentCloud
                      * 获取是否导出当前成员企业数据
 <ul><li> **false**：不导出（默认值）</li>
 <li> **true**：导出</li></ul>
-
-p.s.
-若传入此参数， LImit参数将无效，导出的为全量数据。
                      * @return Export 是否导出当前成员企业数据
 <ul><li> **false**：不导出（默认值）</li>
 <li> **true**：导出</li></ul>
-
-p.s.
-若传入此参数， LImit参数将无效，导出的为全量数据。
                      * 
                      */
                     bool GetExport() const;
@@ -197,15 +191,9 @@ p.s.
                      * 设置是否导出当前成员企业数据
 <ul><li> **false**：不导出（默认值）</li>
 <li> **true**：导出</li></ul>
-
-p.s.
-若传入此参数， LImit参数将无效，导出的为全量数据。
                      * @param _export 是否导出当前成员企业数据
 <ul><li> **false**：不导出（默认值）</li>
 <li> **true**：导出</li></ul>
-
-p.s.
-若传入此参数， LImit参数将无效，导出的为全量数据。
                      * 
                      */
                     void SetExport(const bool& _export);
@@ -248,13 +236,13 @@ p.s.
                     bool m_operatorHasBeenSet;
 
                     /**
-                     * 指定分页每页返回的数据条数，单页最大支持 200。
+                     * 指定分页每页返回的数据条数，单页最大1000
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * 偏移量，默认为0，最大20000。关于<code>Offset</code>的更进一步介绍请参考 API <a href="https://cloud.tencent.com/document/api/213/15688" target="_blank">简介</a>中的相关小节。
+                     * 指定分页返回第几页的数据，如果不传默认返回第一页，页码从 0 开始，即首页为 0
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
@@ -281,9 +269,6 @@ p.s.
                      * 是否导出当前成员企业数据
 <ul><li> **false**：不导出（默认值）</li>
 <li> **true**：导出</li></ul>
-
-p.s.
-若传入此参数， LImit参数将无效，导出的为全量数据。
                      */
                     bool m_export;
                     bool m_exportHasBeenSet;

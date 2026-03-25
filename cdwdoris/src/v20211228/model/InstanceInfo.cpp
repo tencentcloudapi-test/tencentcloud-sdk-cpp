@@ -77,11 +77,7 @@ InstanceInfo::InstanceInfo() :
     m_cosStorageSizeHasBeenSet(false),
     m_isMasterNonVMHasBeenSet(false),
     m_cosPkgCapacityHasBeenSet(false),
-    m_useManagedBucketHasBeenSet(false),
-    m_instanceTypeHasBeenSet(false),
-    m_masterInstanceHasBeenSet(false),
-    m_slaveInstancesHasBeenSet(false),
-    m_syncerIpHasBeenSet(false)
+    m_useManagedBucketHasBeenSet(false)
 {
 }
 
@@ -704,49 +700,6 @@ CoreInternalOutcome InstanceInfo::Deserialize(const rapidjson::Value &value)
         m_useManagedBucketHasBeenSet = true;
     }
 
-    if (value.HasMember("InstanceType") && !value["InstanceType"].IsNull())
-    {
-        if (!value["InstanceType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.InstanceType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_instanceType = string(value["InstanceType"].GetString());
-        m_instanceTypeHasBeenSet = true;
-    }
-
-    if (value.HasMember("MasterInstance") && !value["MasterInstance"].IsNull())
-    {
-        if (!value["MasterInstance"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.MasterInstance` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_masterInstance = string(value["MasterInstance"].GetString());
-        m_masterInstanceHasBeenSet = true;
-    }
-
-    if (value.HasMember("SlaveInstances") && !value["SlaveInstances"].IsNull())
-    {
-        if (!value["SlaveInstances"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.SlaveInstances` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["SlaveInstances"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_slaveInstances.push_back((*itr).GetString());
-        }
-        m_slaveInstancesHasBeenSet = true;
-    }
-
-    if (value.HasMember("SyncerIp") && !value["SyncerIp"].IsNull())
-    {
-        if (!value["SyncerIp"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.SyncerIp` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_syncerIp = string(value["SyncerIp"].GetString());
-        m_syncerIpHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -1229,43 +1182,6 @@ void InstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "UseManagedBucket";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_useManagedBucket, allocator);
-    }
-
-    if (m_instanceTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "InstanceType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_masterInstanceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MasterInstance";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_masterInstance.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_slaveInstancesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SlaveInstances";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_slaveInstances.begin(); itr != m_slaveInstances.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
-
-    if (m_syncerIpHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SyncerIp";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_syncerIp.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -2181,69 +2097,5 @@ void InstanceInfo::SetUseManagedBucket(const bool& _useManagedBucket)
 bool InstanceInfo::UseManagedBucketHasBeenSet() const
 {
     return m_useManagedBucketHasBeenSet;
-}
-
-string InstanceInfo::GetInstanceType() const
-{
-    return m_instanceType;
-}
-
-void InstanceInfo::SetInstanceType(const string& _instanceType)
-{
-    m_instanceType = _instanceType;
-    m_instanceTypeHasBeenSet = true;
-}
-
-bool InstanceInfo::InstanceTypeHasBeenSet() const
-{
-    return m_instanceTypeHasBeenSet;
-}
-
-string InstanceInfo::GetMasterInstance() const
-{
-    return m_masterInstance;
-}
-
-void InstanceInfo::SetMasterInstance(const string& _masterInstance)
-{
-    m_masterInstance = _masterInstance;
-    m_masterInstanceHasBeenSet = true;
-}
-
-bool InstanceInfo::MasterInstanceHasBeenSet() const
-{
-    return m_masterInstanceHasBeenSet;
-}
-
-vector<string> InstanceInfo::GetSlaveInstances() const
-{
-    return m_slaveInstances;
-}
-
-void InstanceInfo::SetSlaveInstances(const vector<string>& _slaveInstances)
-{
-    m_slaveInstances = _slaveInstances;
-    m_slaveInstancesHasBeenSet = true;
-}
-
-bool InstanceInfo::SlaveInstancesHasBeenSet() const
-{
-    return m_slaveInstancesHasBeenSet;
-}
-
-string InstanceInfo::GetSyncerIp() const
-{
-    return m_syncerIp;
-}
-
-void InstanceInfo::SetSyncerIp(const string& _syncerIp)
-{
-    m_syncerIp = _syncerIp;
-    m_syncerIpHasBeenSet = true;
-}
-
-bool InstanceInfo::SyncerIpHasBeenSet() const
-{
-    return m_syncerIpHasBeenSet;
 }
 

@@ -49,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>ckafka集群实例Id</p>
-                     * @return InstanceId <p>ckafka集群实例Id</p>
+                     * 获取ckafka集群实例Id
+                     * @return InstanceId ckafka集群实例Id
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>ckafka集群实例Id</p>
-                     * @param _instanceId <p>ckafka集群实例Id</p>
+                     * 设置ckafka集群实例Id
+                     * @param _instanceId ckafka集群实例Id
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -70,15 +70,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例名称</p>
-                     * @return InstanceName <p>ckafka集群实例名称</p>
+                     * 获取ckafka集群实例名称
+                     * @return InstanceName ckafka集群实例名称
                      * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
-                     * 设置<p>ckafka集群实例名称</p>
-                     * @param _instanceName <p>ckafka集群实例名称</p>
+                     * 设置ckafka集群实例名称
+                     * @param _instanceName ckafka集群实例名称
                      * 
                      */
                     void SetInstanceName(const std::string& _instanceName);
@@ -91,15 +91,15 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>访问实例的vip 信息</p>
-                     * @return Vip <p>访问实例的vip 信息</p>
+                     * 获取访问实例的vip 信息
+                     * @return Vip 访问实例的vip 信息
                      * 
                      */
                     std::string GetVip() const;
 
                     /**
-                     * 设置<p>访问实例的vip 信息</p>
-                     * @param _vip <p>访问实例的vip 信息</p>
+                     * 设置访问实例的vip 信息
+                     * @param _vip 访问实例的vip 信息
                      * 
                      */
                     void SetVip(const std::string& _vip);
@@ -112,15 +112,15 @@ namespace TencentCloud
                     bool VipHasBeenSet() const;
 
                     /**
-                     * 获取<p>访问实例的端口信息</p>
-                     * @return Vport <p>访问实例的端口信息</p>
+                     * 获取访问实例的端口信息
+                     * @return Vport 访问实例的端口信息
                      * 
                      */
                     std::string GetVport() const;
 
                     /**
-                     * 设置<p>访问实例的端口信息</p>
-                     * @param _vport <p>访问实例的端口信息</p>
+                     * 设置访问实例的端口信息
+                     * @param _vport 访问实例的端口信息
                      * 
                      */
                     void SetVport(const std::string& _vport);
@@ -133,15 +133,15 @@ namespace TencentCloud
                     bool VportHasBeenSet() const;
 
                     /**
-                     * 获取<p>虚拟IP列表</p>
-                     * @return VipList <p>虚拟IP列表</p>
+                     * 获取虚拟IP列表
+                     * @return VipList 虚拟IP列表
                      * 
                      */
                     std::vector<VipEntity> GetVipList() const;
 
                     /**
-                     * 设置<p>虚拟IP列表</p>
-                     * @param _vipList <p>虚拟IP列表</p>
+                     * 设置虚拟IP列表
+                     * @param _vipList 虚拟IP列表
                      * 
                      */
                     void SetVipList(const std::vector<VipEntity>& _vipList);
@@ -154,15 +154,15 @@ namespace TencentCloud
                     bool VipListHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 </p>
-                     * @return Status <p>实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 </p>
+                     * 获取实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
+                     * @return Status 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 </p>
-                     * @param _status <p>实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 </p>
+                     * 设置实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
+                     * @param _status 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
                      * 
                      */
                     void SetStatus(const int64_t& _status);
@@ -175,15 +175,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例带宽，单位Mbps</p>
-                     * @return Bandwidth <p>实例带宽，单位Mbps</p>
+                     * 获取实例带宽，单位Mbps
+                     * @return Bandwidth 实例带宽，单位Mbps
                      * 
                      */
                     int64_t GetBandwidth() const;
 
                     /**
-                     * 设置<p>实例带宽，单位Mbps</p>
-                     * @param _bandwidth <p>实例带宽，单位Mbps</p>
+                     * 设置实例带宽，单位Mbps
+                     * @param _bandwidth 实例带宽，单位Mbps
                      * 
                      */
                     void SetBandwidth(const int64_t& _bandwidth);
@@ -196,15 +196,15 @@ namespace TencentCloud
                     bool BandwidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例磁盘大小，单位G</p>
-                     * @return DiskSize <p>ckafka集群实例磁盘大小，单位G</p>
+                     * 获取ckafka集群实例磁盘大小，单位G
+                     * @return DiskSize ckafka集群实例磁盘大小，单位G
                      * 
                      */
                     int64_t GetDiskSize() const;
 
                     /**
-                     * 设置<p>ckafka集群实例磁盘大小，单位G</p>
-                     * @param _diskSize <p>ckafka集群实例磁盘大小，单位G</p>
+                     * 设置ckafka集群实例磁盘大小，单位G
+                     * @param _diskSize ckafka集群实例磁盘大小，单位G
                      * 
                      */
                     void SetDiskSize(const int64_t& _diskSize);
@@ -217,15 +217,15 @@ namespace TencentCloud
                     bool DiskSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区域ID</p>
-                     * @return ZoneId <p>可用区域ID</p>
+                     * 获取可用区域ID
+                     * @return ZoneId 可用区域ID
                      * 
                      */
                     int64_t GetZoneId() const;
 
                     /**
-                     * 设置<p>可用区域ID</p>
-                     * @param _zoneId <p>可用区域ID</p>
+                     * 设置可用区域ID
+                     * @param _zoneId 可用区域ID
                      * 
                      */
                     void SetZoneId(const int64_t& _zoneId);
@@ -238,15 +238,15 @@ namespace TencentCloud
                     bool ZoneIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>vpcId，如果为空，说明是基础网络</p>
-                     * @return VpcId <p>vpcId，如果为空，说明是基础网络</p>
+                     * 获取vpcId，如果为空，说明是基础网络
+                     * @return VpcId vpcId，如果为空，说明是基础网络
                      * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置<p>vpcId，如果为空，说明是基础网络</p>
-                     * @param _vpcId <p>vpcId，如果为空，说明是基础网络</p>
+                     * 设置vpcId，如果为空，说明是基础网络
+                     * @param _vpcId vpcId，如果为空，说明是基础网络
                      * 
                      */
                     void SetVpcId(const std::string& _vpcId);
@@ -259,15 +259,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网id</p>
-                     * @return SubnetId <p>子网id</p>
+                     * 获取子网id
+                     * @return SubnetId 子网id
                      * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
-                     * 设置<p>子网id</p>
-                     * @param _subnetId <p>子网id</p>
+                     * 设置子网id
+                     * @param _subnetId 子网id
                      * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
@@ -280,15 +280,15 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费</p>
-                     * @return RenewFlag <p>实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费</p>
+                     * 获取实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费
+                     * @return RenewFlag 实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费
                      * 
                      */
                     int64_t GetRenewFlag() const;
 
                     /**
-                     * 设置<p>实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费</p>
-                     * @param _renewFlag <p>实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费</p>
+                     * 设置实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费
+                     * @param _renewFlag 实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费
                      * 
                      */
                     void SetRenewFlag(const int64_t& _renewFlag);
@@ -301,15 +301,15 @@ namespace TencentCloud
                     bool RenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例状态 int：1表示健康，2表示告警，3 表示实例状态异常</p>
-                     * @return Healthy <p>实例状态 int：1表示健康，2表示告警，3 表示实例状态异常</p>
+                     * 获取实例状态 int：1表示健康，2表示告警，3 表示实例状态异常
+                     * @return Healthy 实例状态 int：1表示健康，2表示告警，3 表示实例状态异常
                      * 
                      */
                     int64_t GetHealthy() const;
 
                     /**
-                     * 设置<p>实例状态 int：1表示健康，2表示告警，3 表示实例状态异常</p>
-                     * @param _healthy <p>实例状态 int：1表示健康，2表示告警，3 表示实例状态异常</p>
+                     * 设置实例状态 int：1表示健康，2表示告警，3 表示实例状态异常
+                     * @param _healthy 实例状态 int：1表示健康，2表示告警，3 表示实例状态异常
                      * 
                      */
                     void SetHealthy(const int64_t& _healthy);
@@ -322,15 +322,15 @@ namespace TencentCloud
                     bool HealthyHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例状态信息</p>
-                     * @return HealthyMessage <p>实例状态信息</p>
+                     * 获取实例状态信息
+                     * @return HealthyMessage 实例状态信息
                      * 
                      */
                     std::string GetHealthyMessage() const;
 
                     /**
-                     * 设置<p>实例状态信息</p>
-                     * @param _healthyMessage <p>实例状态信息</p>
+                     * 设置实例状态信息
+                     * @param _healthyMessage 实例状态信息
                      * 
                      */
                     void SetHealthyMessage(const std::string& _healthyMessage);
@@ -343,15 +343,15 @@ namespace TencentCloud
                     bool HealthyMessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例创建时间</p>
-                     * @return CreateTime <p>实例创建时间</p>
+                     * 获取实例创建时间
+                     * @return CreateTime 实例创建时间
                      * 
                      */
                     int64_t GetCreateTime() const;
 
                     /**
-                     * 设置<p>实例创建时间</p>
-                     * @param _createTime <p>实例创建时间</p>
+                     * 设置实例创建时间
+                     * @param _createTime 实例创建时间
                      * 
                      */
                     void SetCreateTime(const int64_t& _createTime);
@@ -364,15 +364,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例过期时间</p>
-                     * @return ExpireTime <p>实例过期时间</p>
+                     * 获取实例过期时间
+                     * @return ExpireTime 实例过期时间
                      * 
                      */
                     int64_t GetExpireTime() const;
 
                     /**
-                     * 设置<p>实例过期时间</p>
-                     * @param _expireTime <p>实例过期时间</p>
+                     * 设置实例过期时间
+                     * @param _expireTime 实例过期时间
                      * 
                      */
                     void SetExpireTime(const int64_t& _expireTime);
@@ -385,15 +385,15 @@ namespace TencentCloud
                     bool ExpireTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否为内部客户。值为1 表示内部客户</p>
-                     * @return IsInternal <p>是否为内部客户。值为1 表示内部客户</p>
+                     * 获取是否为内部客户。值为1 表示内部客户
+                     * @return IsInternal 是否为内部客户。值为1 表示内部客户
                      * 
                      */
                     int64_t GetIsInternal() const;
 
                     /**
-                     * 设置<p>是否为内部客户。值为1 表示内部客户</p>
-                     * @param _isInternal <p>是否为内部客户。值为1 表示内部客户</p>
+                     * 设置是否为内部客户。值为1 表示内部客户
+                     * @param _isInternal 是否为内部客户。值为1 表示内部客户
                      * 
                      */
                     void SetIsInternal(const int64_t& _isInternal);
@@ -406,15 +406,15 @@ namespace TencentCloud
                     bool IsInternalHasBeenSet() const;
 
                     /**
-                     * 获取<p>Topic个数</p>
-                     * @return TopicNum <p>Topic个数</p>
+                     * 获取Topic个数
+                     * @return TopicNum Topic个数
                      * 
                      */
                     int64_t GetTopicNum() const;
 
                     /**
-                     * 设置<p>Topic个数</p>
-                     * @param _topicNum <p>Topic个数</p>
+                     * 设置Topic个数
+                     * @param _topicNum Topic个数
                      * 
                      */
                     void SetTopicNum(const int64_t& _topicNum);
@@ -427,15 +427,15 @@ namespace TencentCloud
                     bool TopicNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>标识tag</p>
-                     * @return Tags <p>标识tag</p>
+                     * 获取标识tag
+                     * @return Tags 标识tag
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>标识tag</p>
-                     * @param _tags <p>标识tag</p>
+                     * 设置标识tag
+                     * @param _tags 标识tag
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -448,15 +448,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>kafka版本信息</p>
-                     * @return Version <p>kafka版本信息</p>
+                     * 获取kafka版本信息
+                     * @return Version kafka版本信息
                      * 
                      */
                     std::string GetVersion() const;
 
                     /**
-                     * 设置<p>kafka版本信息</p>
-                     * @param _version <p>kafka版本信息</p>
+                     * 设置kafka版本信息
+                     * @param _version kafka版本信息
                      * 
                      */
                     void SetVersion(const std::string& _version);
@@ -469,15 +469,15 @@ namespace TencentCloud
                     bool VersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>跨可用区</p>
-                     * @return ZoneIds <p>跨可用区</p>
+                     * 获取跨可用区
+                     * @return ZoneIds 跨可用区
                      * 
                      */
                     std::vector<int64_t> GetZoneIds() const;
 
                     /**
-                     * 设置<p>跨可用区</p>
-                     * @param _zoneIds <p>跨可用区</p>
+                     * 设置跨可用区
+                     * @param _zoneIds 跨可用区
                      * 
                      */
                     void SetZoneIds(const std::vector<int64_t>& _zoneIds);
@@ -490,15 +490,15 @@ namespace TencentCloud
                     bool ZoneIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka售卖类型</p>
-                     * @return Cvm <p>ckafka售卖类型</p>
+                     * 获取ckafka售卖类型
+                     * @return Cvm ckafka售卖类型
                      * 
                      */
                     int64_t GetCvm() const;
 
                     /**
-                     * 设置<p>ckafka售卖类型</p>
-                     * @param _cvm <p>ckafka售卖类型</p>
+                     * 设置ckafka售卖类型
+                     * @param _cvm ckafka售卖类型
                      * 
                      */
                     void SetCvm(const int64_t& _cvm);
@@ -511,15 +511,15 @@ namespace TencentCloud
                     bool CvmHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例类型</p>
-                     * @return InstanceType <p>ckafka集群实例类型</p>
+                     * 获取ckafka集群实例类型
+                     * @return InstanceType ckafka集群实例类型
                      * 
                      */
                     std::string GetInstanceType() const;
 
                     /**
-                     * 设置<p>ckafka集群实例类型</p>
-                     * @param _instanceType <p>ckafka集群实例类型</p>
+                     * 设置ckafka集群实例类型
+                     * @param _instanceType ckafka集群实例类型
                      * 
                      */
                     void SetInstanceType(const std::string& _instanceType);
@@ -532,15 +532,15 @@ namespace TencentCloud
                     bool InstanceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例磁盘类型</p>
-                     * @return DiskType <p>ckafka集群实例磁盘类型</p>
+                     * 获取ckafka集群实例磁盘类型
+                     * @return DiskType ckafka集群实例磁盘类型
                      * 
                      */
                     std::string GetDiskType() const;
 
                     /**
-                     * 设置<p>ckafka集群实例磁盘类型</p>
-                     * @param _diskType <p>ckafka集群实例磁盘类型</p>
+                     * 设置ckafka集群实例磁盘类型
+                     * @param _diskType ckafka集群实例磁盘类型
                      * 
                      */
                     void SetDiskType(const std::string& _diskType);
@@ -553,15 +553,15 @@ namespace TencentCloud
                     bool DiskTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前规格最大Topic数</p>
-                     * @return MaxTopicNumber <p>当前规格最大Topic数</p>
+                     * 获取当前规格最大Topic数
+                     * @return MaxTopicNumber 当前规格最大Topic数
                      * 
                      */
                     int64_t GetMaxTopicNumber() const;
 
                     /**
-                     * 设置<p>当前规格最大Topic数</p>
-                     * @param _maxTopicNumber <p>当前规格最大Topic数</p>
+                     * 设置当前规格最大Topic数
+                     * @param _maxTopicNumber 当前规格最大Topic数
                      * 
                      */
                     void SetMaxTopicNumber(const int64_t& _maxTopicNumber);
@@ -574,15 +574,15 @@ namespace TencentCloud
                     bool MaxTopicNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前规格最大Partition数</p>
-                     * @return MaxPartitionNumber <p>当前规格最大Partition数</p>
+                     * 获取当前规格最大Partition数
+                     * @return MaxPartitionNumber 当前规格最大Partition数
                      * 
                      */
                     int64_t GetMaxPartitionNumber() const;
 
                     /**
-                     * 设置<p>当前规格最大Partition数</p>
-                     * @param _maxPartitionNumber <p>当前规格最大Partition数</p>
+                     * 设置当前规格最大Partition数
+                     * @param _maxPartitionNumber 当前规格最大Partition数
                      * 
                      */
                     void SetMaxPartitionNumber(const int64_t& _maxPartitionNumber);
@@ -595,15 +595,15 @@ namespace TencentCloud
                     bool MaxPartitionNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>计划升级配置时间</p>
-                     * @return RebalanceTime <p>计划升级配置时间</p>
+                     * 获取计划升级配置时间
+                     * @return RebalanceTime 计划升级配置时间
                      * 
                      */
                     std::string GetRebalanceTime() const;
 
                     /**
-                     * 设置<p>计划升级配置时间</p>
-                     * @param _rebalanceTime <p>计划升级配置时间</p>
+                     * 设置计划升级配置时间
+                     * @param _rebalanceTime 计划升级配置时间
                      * 
                      */
                     void SetRebalanceTime(const std::string& _rebalanceTime);
@@ -616,15 +616,15 @@ namespace TencentCloud
                     bool RebalanceTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例当前partition数量</p>
-                     * @return PartitionNumber <p>实例当前partition数量</p>
+                     * 获取实例当前partition数量
+                     * @return PartitionNumber 实例当前partition数量
                      * 
                      */
                     uint64_t GetPartitionNumber() const;
 
                     /**
-                     * 设置<p>实例当前partition数量</p>
-                     * @param _partitionNumber <p>实例当前partition数量</p>
+                     * 设置实例当前partition数量
+                     * @param _partitionNumber 实例当前partition数量
                      * 
                      */
                     void SetPartitionNumber(const uint64_t& _partitionNumber);
@@ -637,15 +637,15 @@ namespace TencentCloud
                     bool PartitionNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例公网带宽类型</p>
-                     * @return PublicNetworkChargeType <p>ckafka集群实例公网带宽类型</p>
+                     * 获取ckafka集群实例公网带宽类型
+                     * @return PublicNetworkChargeType ckafka集群实例公网带宽类型
                      * 
                      */
                     std::string GetPublicNetworkChargeType() const;
 
                     /**
-                     * 设置<p>ckafka集群实例公网带宽类型</p>
-                     * @param _publicNetworkChargeType <p>ckafka集群实例公网带宽类型</p>
+                     * 设置ckafka集群实例公网带宽类型
+                     * @param _publicNetworkChargeType ckafka集群实例公网带宽类型
                      * 
                      */
                     void SetPublicNetworkChargeType(const std::string& _publicNetworkChargeType);
@@ -658,15 +658,15 @@ namespace TencentCloud
                     bool PublicNetworkChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写</p>
-                     * @return PublicNetwork <p>公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写</p>
+                     * 获取公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
+                     * @return PublicNetwork 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
                      * 
                      */
                     int64_t GetPublicNetwork() const;
 
                     /**
-                     * 设置<p>公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写</p>
-                     * @param _publicNetwork <p>公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写</p>
+                     * 设置公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
+                     * @param _publicNetwork 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
                      * 
                      */
                     void SetPublicNetwork(const int64_t& _publicNetwork);
@@ -679,15 +679,15 @@ namespace TencentCloud
                     bool PublicNetworkHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例底层集群类型</p>
-                     * @return ClusterType <p>ckafka集群实例底层集群类型</p>
+                     * 获取ckafka集群实例底层集群类型
+                     * @return ClusterType ckafka集群实例底层集群类型
                      * 
                      */
                     std::string GetClusterType() const;
 
                     /**
-                     * 设置<p>ckafka集群实例底层集群类型</p>
-                     * @param _clusterType <p>ckafka集群实例底层集群类型</p>
+                     * 设置ckafka集群实例底层集群类型
+                     * @param _clusterType ckafka集群实例底层集群类型
                      * 
                      */
                     void SetClusterType(const std::string& _clusterType);
@@ -700,15 +700,15 @@ namespace TencentCloud
                     bool ClusterTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例功能列表</p>
-                     * @return Features <p>实例功能列表</p>
+                     * 获取实例功能列表
+                     * @return Features 实例功能列表
                      * 
                      */
                     std::vector<std::string> GetFeatures() const;
 
                     /**
-                     * 设置<p>实例功能列表</p>
-                     * @param _features <p>实例功能列表</p>
+                     * 设置实例功能列表
+                     * @param _features 实例功能列表
                      * 
                      */
                     void SetFeatures(const std::vector<std::string>& _features);
@@ -720,226 +720,199 @@ namespace TencentCloud
                      */
                     bool FeaturesHasBeenSet() const;
 
-                    /**
-                     * 获取<p>实例级别消息保留大小</p>单位：byte<br>默认值：-1<br><p>实例级别消息保留大小</p>
-                     * @return RetentionBytes <p>实例级别消息保留大小</p>单位：byte<br>默认值：-1<br><p>实例级别消息保留大小</p>
-                     * 
-                     */
-                    int64_t GetRetentionBytes() const;
-
-                    /**
-                     * 设置<p>实例级别消息保留大小</p>单位：byte<br>默认值：-1<br><p>实例级别消息保留大小</p>
-                     * @param _retentionBytes <p>实例级别消息保留大小</p>单位：byte<br>默认值：-1<br><p>实例级别消息保留大小</p>
-                     * 
-                     */
-                    void SetRetentionBytes(const int64_t& _retentionBytes);
-
-                    /**
-                     * 判断参数 RetentionBytes 是否已赋值
-                     * @return RetentionBytes 是否已赋值
-                     * 
-                     */
-                    bool RetentionBytesHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>ckafka集群实例Id</p>
+                     * ckafka集群实例Id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例名称</p>
+                     * ckafka集群实例名称
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>访问实例的vip 信息</p>
+                     * 访问实例的vip 信息
                      */
                     std::string m_vip;
                     bool m_vipHasBeenSet;
 
                     /**
-                     * <p>访问实例的端口信息</p>
+                     * 访问实例的端口信息
                      */
                     std::string m_vport;
                     bool m_vportHasBeenSet;
 
                     /**
-                     * <p>虚拟IP列表</p>
+                     * 虚拟IP列表
                      */
                     std::vector<VipEntity> m_vipList;
                     bool m_vipListHasBeenSet;
 
                     /**
-                     * <p>实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 </p>
+                     * 实例的状态。0: 创建中，1: 运行中，2: 删除中,  3: 已删除,  5: 隔离中,  7: 升级中,  -1: 创建失败 
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>实例带宽，单位Mbps</p>
+                     * 实例带宽，单位Mbps
                      */
                     int64_t m_bandwidth;
                     bool m_bandwidthHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例磁盘大小，单位G</p>
+                     * ckafka集群实例磁盘大小，单位G
                      */
                     int64_t m_diskSize;
                     bool m_diskSizeHasBeenSet;
 
                     /**
-                     * <p>可用区域ID</p>
+                     * 可用区域ID
                      */
                     int64_t m_zoneId;
                     bool m_zoneIdHasBeenSet;
 
                     /**
-                     * <p>vpcId，如果为空，说明是基础网络</p>
+                     * vpcId，如果为空，说明是基础网络
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>子网id</p>
+                     * 子网id
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费</p>
+                     * 实例是否续费，int  枚举值：1表示自动续费，2表示明确不自动续费
                      */
                     int64_t m_renewFlag;
                     bool m_renewFlagHasBeenSet;
 
                     /**
-                     * <p>实例状态 int：1表示健康，2表示告警，3 表示实例状态异常</p>
+                     * 实例状态 int：1表示健康，2表示告警，3 表示实例状态异常
                      */
                     int64_t m_healthy;
                     bool m_healthyHasBeenSet;
 
                     /**
-                     * <p>实例状态信息</p>
+                     * 实例状态信息
                      */
                     std::string m_healthyMessage;
                     bool m_healthyMessageHasBeenSet;
 
                     /**
-                     * <p>实例创建时间</p>
+                     * 实例创建时间
                      */
                     int64_t m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>实例过期时间</p>
+                     * 实例过期时间
                      */
                     int64_t m_expireTime;
                     bool m_expireTimeHasBeenSet;
 
                     /**
-                     * <p>是否为内部客户。值为1 表示内部客户</p>
+                     * 是否为内部客户。值为1 表示内部客户
                      */
                     int64_t m_isInternal;
                     bool m_isInternalHasBeenSet;
 
                     /**
-                     * <p>Topic个数</p>
+                     * Topic个数
                      */
                     int64_t m_topicNum;
                     bool m_topicNumHasBeenSet;
 
                     /**
-                     * <p>标识tag</p>
+                     * 标识tag
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>kafka版本信息</p>
+                     * kafka版本信息
                      */
                     std::string m_version;
                     bool m_versionHasBeenSet;
 
                     /**
-                     * <p>跨可用区</p>
+                     * 跨可用区
                      */
                     std::vector<int64_t> m_zoneIds;
                     bool m_zoneIdsHasBeenSet;
 
                     /**
-                     * <p>ckafka售卖类型</p>
+                     * ckafka售卖类型
                      */
                     int64_t m_cvm;
                     bool m_cvmHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例类型</p>
+                     * ckafka集群实例类型
                      */
                     std::string m_instanceType;
                     bool m_instanceTypeHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例磁盘类型</p>
+                     * ckafka集群实例磁盘类型
                      */
                     std::string m_diskType;
                     bool m_diskTypeHasBeenSet;
 
                     /**
-                     * <p>当前规格最大Topic数</p>
+                     * 当前规格最大Topic数
                      */
                     int64_t m_maxTopicNumber;
                     bool m_maxTopicNumberHasBeenSet;
 
                     /**
-                     * <p>当前规格最大Partition数</p>
+                     * 当前规格最大Partition数
                      */
                     int64_t m_maxPartitionNumber;
                     bool m_maxPartitionNumberHasBeenSet;
 
                     /**
-                     * <p>计划升级配置时间</p>
+                     * 计划升级配置时间
                      */
                     std::string m_rebalanceTime;
                     bool m_rebalanceTimeHasBeenSet;
 
                     /**
-                     * <p>实例当前partition数量</p>
+                     * 实例当前partition数量
                      */
                     uint64_t m_partitionNumber;
                     bool m_partitionNumberHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例公网带宽类型</p>
+                     * ckafka集群实例公网带宽类型
                      */
                     std::string m_publicNetworkChargeType;
                     bool m_publicNetworkChargeTypeHasBeenSet;
 
                     /**
-                     * <p>公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写</p>
+                     * 公网带宽 最小3Mbps  最大999Mbps 仅专业版支持填写
                      */
                     int64_t m_publicNetwork;
                     bool m_publicNetworkHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例底层集群类型</p>
+                     * ckafka集群实例底层集群类型
                      */
                     std::string m_clusterType;
                     bool m_clusterTypeHasBeenSet;
 
                     /**
-                     * <p>实例功能列表</p>
+                     * 实例功能列表
                      */
                     std::vector<std::string> m_features;
                     bool m_featuresHasBeenSet;
-
-                    /**
-                     * <p>实例级别消息保留大小</p>单位：byte<br>默认值：-1<br><p>实例级别消息保留大小</p>
-                     */
-                    int64_t m_retentionBytes;
-                    bool m_retentionBytesHasBeenSet;
 
                 };
             }

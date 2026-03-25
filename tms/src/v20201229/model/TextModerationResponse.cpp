@@ -25,15 +25,15 @@ using namespace std;
 
 TextModerationResponse::TextModerationResponse() :
     m_bizTypeHasBeenSet(false),
-    m_suggestionHasBeenSet(false),
     m_labelHasBeenSet(false),
-    m_subLabelHasBeenSet(false),
-    m_scoreHasBeenSet(false),
+    m_suggestionHasBeenSet(false),
     m_keywordsHasBeenSet(false),
+    m_scoreHasBeenSet(false),
     m_detailResultsHasBeenSet(false),
     m_riskDetailsHasBeenSet(false),
     m_extraHasBeenSet(false),
     m_dataIdHasBeenSet(false),
+    m_subLabelHasBeenSet(false),
     m_contextTextHasBeenSet(false),
     m_sentimentAnalysisHasBeenSet(false),
     m_hitTypeHasBeenSet(false),
@@ -85,16 +85,6 @@ CoreInternalOutcome TextModerationResponse::Deserialize(const string &payload)
         m_bizTypeHasBeenSet = true;
     }
 
-    if (rsp.HasMember("Suggestion") && !rsp["Suggestion"].IsNull())
-    {
-        if (!rsp["Suggestion"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Suggestion` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_suggestion = string(rsp["Suggestion"].GetString());
-        m_suggestionHasBeenSet = true;
-    }
-
     if (rsp.HasMember("Label") && !rsp["Label"].IsNull())
     {
         if (!rsp["Label"].IsString())
@@ -105,24 +95,14 @@ CoreInternalOutcome TextModerationResponse::Deserialize(const string &payload)
         m_labelHasBeenSet = true;
     }
 
-    if (rsp.HasMember("SubLabel") && !rsp["SubLabel"].IsNull())
+    if (rsp.HasMember("Suggestion") && !rsp["Suggestion"].IsNull())
     {
-        if (!rsp["SubLabel"].IsString())
+        if (!rsp["Suggestion"].IsString())
         {
-            return CoreInternalOutcome(Core::Error("response `SubLabel` IsString=false incorrectly").SetRequestId(requestId));
+            return CoreInternalOutcome(Core::Error("response `Suggestion` IsString=false incorrectly").SetRequestId(requestId));
         }
-        m_subLabel = string(rsp["SubLabel"].GetString());
-        m_subLabelHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("Score") && !rsp["Score"].IsNull())
-    {
-        if (!rsp["Score"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Score` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_score = rsp["Score"].GetInt64();
-        m_scoreHasBeenSet = true;
+        m_suggestion = string(rsp["Suggestion"].GetString());
+        m_suggestionHasBeenSet = true;
     }
 
     if (rsp.HasMember("Keywords") && !rsp["Keywords"].IsNull())
@@ -136,6 +116,16 @@ CoreInternalOutcome TextModerationResponse::Deserialize(const string &payload)
             m_keywords.push_back((*itr).GetString());
         }
         m_keywordsHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("Score") && !rsp["Score"].IsNull())
+    {
+        if (!rsp["Score"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `Score` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_score = rsp["Score"].GetInt64();
+        m_scoreHasBeenSet = true;
     }
 
     if (rsp.HasMember("DetailResults") && !rsp["DetailResults"].IsNull())
@@ -196,6 +186,16 @@ CoreInternalOutcome TextModerationResponse::Deserialize(const string &payload)
         }
         m_dataId = string(rsp["DataId"].GetString());
         m_dataIdHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("SubLabel") && !rsp["SubLabel"].IsNull())
+    {
+        if (!rsp["SubLabel"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `SubLabel` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_subLabel = string(rsp["SubLabel"].GetString());
+        m_subLabelHasBeenSet = true;
     }
 
     if (rsp.HasMember("ContextText") && !rsp["ContextText"].IsNull())
@@ -263,14 +263,6 @@ string TextModerationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_bizType.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_suggestionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Suggestion";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_suggestion.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_labelHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -279,20 +271,12 @@ string TextModerationResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_label.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_subLabelHasBeenSet)
+    if (m_suggestionHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubLabel";
+        string key = "Suggestion";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_subLabel.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_scoreHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Score";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_score, allocator);
+        value.AddMember(iKey, rapidjson::Value(m_suggestion.c_str(), allocator).Move(), allocator);
     }
 
     if (m_keywordsHasBeenSet)
@@ -306,6 +290,14 @@ string TextModerationResponse::ToJsonString() const
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_scoreHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Score";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_score, allocator);
     }
 
     if (m_detailResultsHasBeenSet)
@@ -352,6 +344,14 @@ string TextModerationResponse::ToJsonString() const
         string key = "DataId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dataId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_subLabelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SubLabel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_subLabel.c_str(), allocator).Move(), allocator);
     }
 
     if (m_contextTextHasBeenSet)
@@ -409,16 +409,6 @@ bool TextModerationResponse::BizTypeHasBeenSet() const
     return m_bizTypeHasBeenSet;
 }
 
-string TextModerationResponse::GetSuggestion() const
-{
-    return m_suggestion;
-}
-
-bool TextModerationResponse::SuggestionHasBeenSet() const
-{
-    return m_suggestionHasBeenSet;
-}
-
 string TextModerationResponse::GetLabel() const
 {
     return m_label;
@@ -429,24 +419,14 @@ bool TextModerationResponse::LabelHasBeenSet() const
     return m_labelHasBeenSet;
 }
 
-string TextModerationResponse::GetSubLabel() const
+string TextModerationResponse::GetSuggestion() const
 {
-    return m_subLabel;
+    return m_suggestion;
 }
 
-bool TextModerationResponse::SubLabelHasBeenSet() const
+bool TextModerationResponse::SuggestionHasBeenSet() const
 {
-    return m_subLabelHasBeenSet;
-}
-
-int64_t TextModerationResponse::GetScore() const
-{
-    return m_score;
-}
-
-bool TextModerationResponse::ScoreHasBeenSet() const
-{
-    return m_scoreHasBeenSet;
+    return m_suggestionHasBeenSet;
 }
 
 vector<string> TextModerationResponse::GetKeywords() const
@@ -457,6 +437,16 @@ vector<string> TextModerationResponse::GetKeywords() const
 bool TextModerationResponse::KeywordsHasBeenSet() const
 {
     return m_keywordsHasBeenSet;
+}
+
+int64_t TextModerationResponse::GetScore() const
+{
+    return m_score;
+}
+
+bool TextModerationResponse::ScoreHasBeenSet() const
+{
+    return m_scoreHasBeenSet;
 }
 
 vector<DetailResults> TextModerationResponse::GetDetailResults() const
@@ -497,6 +487,16 @@ string TextModerationResponse::GetDataId() const
 bool TextModerationResponse::DataIdHasBeenSet() const
 {
     return m_dataIdHasBeenSet;
+}
+
+string TextModerationResponse::GetSubLabel() const
+{
+    return m_subLabel;
+}
+
+bool TextModerationResponse::SubLabelHasBeenSet() const
+{
+    return m_subLabelHasBeenSet;
 }
 
 string TextModerationResponse::GetContextText() const

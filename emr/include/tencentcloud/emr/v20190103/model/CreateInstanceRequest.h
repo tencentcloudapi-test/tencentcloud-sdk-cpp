@@ -69,30 +69,6 @@ namespace TencentCloud
 37:表示EMR-V3.4.0
 44:表示EMR-V3.5.0
 53:表示EMR-V3.6.0
-58:表示EMR-3.6.1
-59:表示EMR-serverless-1.0.0
-60:表示EMR-TKE-1.1.0
-61:表示SR-V2.1.0
-62:表示SR-V2.1.0-SharedData
-63:表示SR-V2.1.0.tlinux
-64:表示统一元数据管理项目
-65:表示EMR-TKE-AI-1.0.0
-66:表示RSS-1.0.0
-67:表示SR-V2.2.0
-68:表示SR-V2.2.0.tlinux
-69:表示EMR-AI-1.1.0
-70:表示SR-V2.2.1
-71:表示EMR-3.7.0
-72:表示EMR-serverless-1.0.1
-73:表示KAFKA-2.0.1
-74:表示SR-V2.2.2
-75:表示EMR-TKE-AI-1.1.0
-76:表示EMR-V3.7.1
-77:表示SERVERLESS-TCBASE-1.0.0
-78:表示EMR-V3.6.2
-79:表示STARROCKS-V2.2.2
-80:表示EMR-AI-V1.1.1
-
                      * @return ProductId 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
 51:表示STARROCKS-V1.4.0
 54:表示STARROCKS-V2.0.0
@@ -108,30 +84,6 @@ namespace TencentCloud
 37:表示EMR-V3.4.0
 44:表示EMR-V3.5.0
 53:表示EMR-V3.6.0
-58:表示EMR-3.6.1
-59:表示EMR-serverless-1.0.0
-60:表示EMR-TKE-1.1.0
-61:表示SR-V2.1.0
-62:表示SR-V2.1.0-SharedData
-63:表示SR-V2.1.0.tlinux
-64:表示统一元数据管理项目
-65:表示EMR-TKE-AI-1.0.0
-66:表示RSS-1.0.0
-67:表示SR-V2.2.0
-68:表示SR-V2.2.0.tlinux
-69:表示EMR-AI-1.1.0
-70:表示SR-V2.2.1
-71:表示EMR-3.7.0
-72:表示EMR-serverless-1.0.1
-73:表示KAFKA-2.0.1
-74:表示SR-V2.2.2
-75:表示EMR-TKE-AI-1.1.0
-76:表示EMR-V3.7.1
-77:表示SERVERLESS-TCBASE-1.0.0
-78:表示EMR-V3.6.2
-79:表示STARROCKS-V2.2.2
-80:表示EMR-AI-V1.1.1
-
                      * 
                      */
                     uint64_t GetProductId() const;
@@ -152,30 +104,6 @@ namespace TencentCloud
 37:表示EMR-V3.4.0
 44:表示EMR-V3.5.0
 53:表示EMR-V3.6.0
-58:表示EMR-3.6.1
-59:表示EMR-serverless-1.0.0
-60:表示EMR-TKE-1.1.0
-61:表示SR-V2.1.0
-62:表示SR-V2.1.0-SharedData
-63:表示SR-V2.1.0.tlinux
-64:表示统一元数据管理项目
-65:表示EMR-TKE-AI-1.0.0
-66:表示RSS-1.0.0
-67:表示SR-V2.2.0
-68:表示SR-V2.2.0.tlinux
-69:表示EMR-AI-1.1.0
-70:表示SR-V2.2.1
-71:表示EMR-3.7.0
-72:表示EMR-serverless-1.0.1
-73:表示KAFKA-2.0.1
-74:表示SR-V2.2.2
-75:表示EMR-TKE-AI-1.1.0
-76:表示EMR-V3.7.1
-77:表示SERVERLESS-TCBASE-1.0.0
-78:表示EMR-V3.6.2
-79:表示STARROCKS-V2.2.2
-80:表示EMR-AI-V1.1.1
-
                      * @param _productId 产品ID，不同产品ID表示不同的EMR产品版本。取值范围：
 51:表示STARROCKS-V1.4.0
 54:表示STARROCKS-V2.0.0
@@ -191,30 +119,6 @@ namespace TencentCloud
 37:表示EMR-V3.4.0
 44:表示EMR-V3.5.0
 53:表示EMR-V3.6.0
-58:表示EMR-3.6.1
-59:表示EMR-serverless-1.0.0
-60:表示EMR-TKE-1.1.0
-61:表示SR-V2.1.0
-62:表示SR-V2.1.0-SharedData
-63:表示SR-V2.1.0.tlinux
-64:表示统一元数据管理项目
-65:表示EMR-TKE-AI-1.0.0
-66:表示RSS-1.0.0
-67:表示SR-V2.2.0
-68:表示SR-V2.2.0.tlinux
-69:表示EMR-AI-1.1.0
-70:表示SR-V2.2.1
-71:表示EMR-3.7.0
-72:表示EMR-serverless-1.0.1
-73:表示KAFKA-2.0.1
-74:表示SR-V2.2.2
-75:表示EMR-TKE-AI-1.1.0
-76:表示EMR-V3.7.1
-77:表示SERVERLESS-TCBASE-1.0.0
-78:表示EMR-V3.6.2
-79:表示STARROCKS-V2.2.2
-80:表示EMR-AI-V1.1.1
-
                      * 
                      */
                     void SetProductId(const uint64_t& _productId);
@@ -1082,27 +986,6 @@ Hadoop-Hbase
                      */
                     bool NeedCdbAuditHasBeenSet() const;
 
-                    /**
-                     * 获取安全组指定来源ip
-                     * @return SgIP 安全组指定来源ip
-                     * 
-                     */
-                    std::string GetSgIP() const;
-
-                    /**
-                     * 设置安全组指定来源ip
-                     * @param _sgIP 安全组指定来源ip
-                     * 
-                     */
-                    void SetSgIP(const std::string& _sgIP);
-
-                    /**
-                     * 判断参数 SgIP 是否已赋值
-                     * @return SgIP 是否已赋值
-                     * 
-                     */
-                    bool SgIPHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1121,30 +1004,6 @@ Hadoop-Hbase
 37:表示EMR-V3.4.0
 44:表示EMR-V3.5.0
 53:表示EMR-V3.6.0
-58:表示EMR-3.6.1
-59:表示EMR-serverless-1.0.0
-60:表示EMR-TKE-1.1.0
-61:表示SR-V2.1.0
-62:表示SR-V2.1.0-SharedData
-63:表示SR-V2.1.0.tlinux
-64:表示统一元数据管理项目
-65:表示EMR-TKE-AI-1.0.0
-66:表示RSS-1.0.0
-67:表示SR-V2.2.0
-68:表示SR-V2.2.0.tlinux
-69:表示EMR-AI-1.1.0
-70:表示SR-V2.2.1
-71:表示EMR-3.7.0
-72:表示EMR-serverless-1.0.1
-73:表示KAFKA-2.0.1
-74:表示SR-V2.2.2
-75:表示EMR-TKE-AI-1.1.0
-76:表示EMR-V3.7.1
-77:表示SERVERLESS-TCBASE-1.0.0
-78:表示EMR-V3.6.2
-79:表示STARROCKS-V2.2.2
-80:表示EMR-AI-V1.1.1
-
                      */
                     uint64_t m_productId;
                     bool m_productIdHasBeenSet;
@@ -1389,12 +1248,6 @@ Hadoop-Hbase
                      */
                     int64_t m_needCdbAudit;
                     bool m_needCdbAuditHasBeenSet;
-
-                    /**
-                     * 安全组指定来源ip
-                     */
-                    std::string m_sgIP;
-                    bool m_sgIPHasBeenSet;
 
                 };
             }

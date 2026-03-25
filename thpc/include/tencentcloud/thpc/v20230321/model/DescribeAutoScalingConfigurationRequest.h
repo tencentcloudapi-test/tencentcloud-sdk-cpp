@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群ID。</p>
-                     * @return ClusterId <p>集群ID。</p>
+                     * 获取集群ID。	
+                     * @return ClusterId 集群ID。	
                      * 
                      */
                     std::string GetClusterId() const;
 
                     /**
-                     * 设置<p>集群ID。</p>
-                     * @param _clusterId <p>集群ID。</p>
+                     * 设置集群ID。	
+                     * @param _clusterId 集群ID。	
                      * 
                      */
                     void SetClusterId(const std::string& _clusterId);
@@ -63,40 +63,13 @@ namespace TencentCloud
                      */
                     bool ClusterIdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>队列名称</p>
-                     * @return QueueName <p>队列名称</p>
-                     * 
-                     */
-                    std::string GetQueueName() const;
-
-                    /**
-                     * 设置<p>队列名称</p>
-                     * @param _queueName <p>队列名称</p>
-                     * 
-                     */
-                    void SetQueueName(const std::string& _queueName);
-
-                    /**
-                     * 判断参数 QueueName 是否已赋值
-                     * @return QueueName 是否已赋值
-                     * 
-                     */
-                    bool QueueNameHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>集群ID。</p>
+                     * 集群ID。	
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
-
-                    /**
-                     * <p>队列名称</p>
-                     */
-                    std::string m_queueName;
-                    bool m_queueNameHasBeenSet;
 
                 };
             }

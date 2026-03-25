@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>身份证号。</p>
-                     * @return IdCard <p>身份证号。</p>
+                     * 获取身份证号。
+                     * @return IdCard 身份证号。
                      * 
                      */
                     std::string GetIdCard() const;
 
                     /**
-                     * 设置<p>身份证号。</p>
-                     * @param _idCard <p>身份证号。</p>
+                     * 设置身份证号。
+                     * @param _idCard 身份证号。
                      * 
                      */
                     void SetIdCard(const std::string& _idCard);
@@ -65,15 +65,19 @@ namespace TencentCloud
                     bool IdCardHasBeenSet() const;
 
                     /**
-                     * 获取<p>姓名。</p><ul><li>中文请使用UTF-8编码。</li></ul>
-                     * @return Name <p>姓名。</p><ul><li>中文请使用UTF-8编码。</li></ul>
+                     * 获取姓名。
+- 中文请使用UTF-8编码。
+                     * @return Name 姓名。
+- 中文请使用UTF-8编码。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>姓名。</p><ul><li>中文请使用UTF-8编码。</li></ul>
-                     * @param _name <p>姓名。</p><ul><li>中文请使用UTF-8编码。</li></ul>
+                     * 设置姓名。
+- 中文请使用UTF-8编码。
+                     * @param _name 姓名。
+- 中文请使用UTF-8编码。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -86,15 +90,23 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>活体检测类型。</p><ul><li>取值：LIP/ACTION/SILENT。</li><li>LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。</li></ul>
-                     * @return LivenessType <p>活体检测类型。</p><ul><li>取值：LIP/ACTION/SILENT。</li><li>LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。</li></ul>
+                     * 获取活体检测类型。
+- 取值：LIP/ACTION/SILENT。
+- LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。
+                     * @return LivenessType 活体检测类型。
+- 取值：LIP/ACTION/SILENT。
+- LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。
                      * 
                      */
                     std::string GetLivenessType() const;
 
                     /**
-                     * 设置<p>活体检测类型。</p><ul><li>取值：LIP/ACTION/SILENT。</li><li>LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。</li></ul>
-                     * @param _livenessType <p>活体检测类型。</p><ul><li>取值：LIP/ACTION/SILENT。</li><li>LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。</li></ul>
+                     * 设置活体检测类型。
+- 取值：LIP/ACTION/SILENT。
+- LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。
+                     * @param _livenessType 活体检测类型。
+- 取值：LIP/ACTION/SILENT。
+- LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。
                      * 
                      */
                     void SetLivenessType(const std::string& _livenessType);
@@ -107,15 +119,19 @@ namespace TencentCloud
                     bool LivenessTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>用于活体检测的视频，视频的BASE64值；<br>BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。</p>
-                     * @return VideoBase64 <p>用于活体检测的视频，视频的BASE64值；<br>BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。</p>
+                     * 获取用于活体检测的视频，视频的BASE64值；
+BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。
+                     * @return VideoBase64 用于活体检测的视频，视频的BASE64值；
+BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。
                      * 
                      */
                     std::string GetVideoBase64() const;
 
                     /**
-                     * 设置<p>用于活体检测的视频，视频的BASE64值；<br>BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。</p>
-                     * @param _videoBase64 <p>用于活体检测的视频，视频的BASE64值；<br>BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。</p>
+                     * 设置用于活体检测的视频，视频的BASE64值；
+BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。
+                     * @param _videoBase64 用于活体检测的视频，视频的BASE64值；
+BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。
                      * 
                      */
                     void SetVideoBase64(const std::string& _videoBase64);
@@ -128,15 +144,31 @@ namespace TencentCloud
                     bool VideoBase64HasBeenSet() const;
 
                     /**
-                     * 获取<p>用于活体检测的视频Url 地址。</p><ul><li>视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。</li><li>视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。</li><li>建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
-                     * @return VideoUrl <p>用于活体检测的视频Url 地址。</p><ul><li>视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。</li><li>视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。</li><li>建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
+                     * 获取用于活体检测的视频Url 地址。
+- 视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。
+- 视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。
+- 建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+                     * @return VideoUrl 用于活体检测的视频Url 地址。
+- 视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。
+- 视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。
+- 建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
                      * 
                      */
                     std::string GetVideoUrl() const;
 
                     /**
-                     * 设置<p>用于活体检测的视频Url 地址。</p><ul><li>视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。</li><li>视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。</li><li>建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
-                     * @param _videoUrl <p>用于活体检测的视频Url 地址。</p><ul><li>视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。</li><li>视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。</li><li>建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
+                     * 设置用于活体检测的视频Url 地址。
+- 视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。
+- 视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。
+- 建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+                     * @param _videoUrl 用于活体检测的视频Url 地址。
+- 视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。
+- 视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。
+- 建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
                      * 
                      */
                     void SetVideoUrl(const std::string& _videoUrl);
@@ -149,15 +181,27 @@ namespace TencentCloud
                     bool VideoUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>验证数据。</p><ul><li>数字活体模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；</li><li>动作活体模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；</li><li>静默活体模式传参：空。</li></ul>
-                     * @return ValidateData <p>验证数据。</p><ul><li>数字活体模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；</li><li>动作活体模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；</li><li>静默活体模式传参：空。</li></ul>
+                     * 获取验证数据。
+- 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+- 动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
+- 静默模式传参：空。
+                     * @return ValidateData 验证数据。
+- 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+- 动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
+- 静默模式传参：空。
                      * 
                      */
                     std::string GetValidateData() const;
 
                     /**
-                     * 设置<p>验证数据。</p><ul><li>数字活体模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；</li><li>动作活体模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；</li><li>静默活体模式传参：空。</li></ul>
-                     * @param _validateData <p>验证数据。</p><ul><li>数字活体模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；</li><li>动作活体模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；</li><li>静默活体模式传参：空。</li></ul>
+                     * 设置验证数据。
+- 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+- 动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
+- 静默模式传参：空。
+                     * @param _validateData 验证数据。
+- 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+- 动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
+- 静默模式传参：空。
                      * 
                      */
                     void SetValidateData(const std::string& _validateData);
@@ -170,15 +214,31 @@ namespace TencentCloud
                     bool ValidateDataHasBeenSet() const;
 
                     /**
-                     * 获取<p>额外配置，传入JSON字符串。</p><ul><li>格式如下：<br>{<br>&quot;BestFrameNum&quot;: 2  //需要返回多张最佳截图，取值范围2-10<br>}</li></ul>
-                     * @return Optional <p>额外配置，传入JSON字符串。</p><ul><li>格式如下：<br>{<br>&quot;BestFrameNum&quot;: 2  //需要返回多张最佳截图，取值范围2-10<br>}</li></ul>
+                     * 获取额外配置，传入JSON字符串。
+- 格式如下：
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
+                     * @return Optional 额外配置，传入JSON字符串。
+- 格式如下：
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
                      * 
                      */
                     std::string GetOptional() const;
 
                     /**
-                     * 设置<p>额外配置，传入JSON字符串。</p><ul><li>格式如下：<br>{<br>&quot;BestFrameNum&quot;: 2  //需要返回多张最佳截图，取值范围2-10<br>}</li></ul>
-                     * @param _optional <p>额外配置，传入JSON字符串。</p><ul><li>格式如下：<br>{<br>&quot;BestFrameNum&quot;: 2  //需要返回多张最佳截图，取值范围2-10<br>}</li></ul>
+                     * 设置额外配置，传入JSON字符串。
+- 格式如下：
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
+                     * @param _optional 额外配置，传入JSON字符串。
+- 格式如下：
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
                      * 
                      */
                     void SetOptional(const std::string& _optional);
@@ -191,15 +251,19 @@ namespace TencentCloud
                     bool OptionalHasBeenSet() const;
 
                     /**
-                     * 获取<p>敏感数据加密信息。</p><ul><li>对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
-                     * @return Encryption <p>敏感数据加密信息。</p><ul><li>对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
+                     * 获取敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+                     * @return Encryption 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
                      * 
                      */
                     Encryption GetEncryption() const;
 
                     /**
-                     * 设置<p>敏感数据加密信息。</p><ul><li>对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
-                     * @param _encryption <p>敏感数据加密信息。</p><ul><li>对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
+                     * 设置敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+                     * @param _encryption 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
                      * 
                      */
                     void SetEncryption(const Encryption& _encryption);
@@ -214,49 +278,65 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>身份证号。</p>
+                     * 身份证号。
                      */
                     std::string m_idCard;
                     bool m_idCardHasBeenSet;
 
                     /**
-                     * <p>姓名。</p><ul><li>中文请使用UTF-8编码。</li></ul>
+                     * 姓名。
+- 中文请使用UTF-8编码。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>活体检测类型。</p><ul><li>取值：LIP/ACTION/SILENT。</li><li>LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。</li></ul>
+                     * 活体检测类型。
+- 取值：LIP/ACTION/SILENT。
+- LIP为数字模式，ACTION为动作模式，SILENT为静默模式，三种模式选择一种传入。
                      */
                     std::string m_livenessType;
                     bool m_livenessTypeHasBeenSet;
 
                     /**
-                     * <p>用于活体检测的视频，视频的BASE64值；<br>BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。</p>
+                     * 用于活体检测的视频，视频的BASE64值；
+BASE64编码后的大小不超过8M，支持mp4、avi、flv格式。
                      */
                     std::string m_videoBase64;
                     bool m_videoBase64HasBeenSet;
 
                     /**
-                     * <p>用于活体检测的视频Url 地址。</p><ul><li>视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。</li><li>视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。</li><li>建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
+                     * 用于活体检测的视频Url 地址。
+- 视频下载后经Base64编码不超过 8M，视频下载耗时不超过4S，支持mp4、avi、flv格式。
+- 视频的 VideoUrl、VideoBase64 必须提供一个，如果都提供，只使用 VideoBase64。
+- 建议视频存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议视频存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
                      */
                     std::string m_videoUrl;
                     bool m_videoUrlHasBeenSet;
 
                     /**
-                     * <p>验证数据。</p><ul><li>数字活体模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；</li><li>动作活体模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；</li><li>静默活体模式传参：空。</li></ul>
+                     * 验证数据。
+- 数字模式传参：传数字验证码，验证码需先调用<a href="https://cloud.tencent.com/document/product/1007/31821">获取数字验证码接口</a>得到；
+- 动作模式传参：传动作顺序，动作顺序需先调用<a href="https://cloud.tencent.com/document/product/1007/31822">获取动作顺序接口</a>得到；
+- 静默模式传参：空。
                      */
                     std::string m_validateData;
                     bool m_validateDataHasBeenSet;
 
                     /**
-                     * <p>额外配置，传入JSON字符串。</p><ul><li>格式如下：<br>{<br>&quot;BestFrameNum&quot;: 2  //需要返回多张最佳截图，取值范围2-10<br>}</li></ul>
+                     * 额外配置，传入JSON字符串。
+- 格式如下：
+{
+"BestFrameNum": 2  //需要返回多张最佳截图，取值范围2-10
+}
                      */
                     std::string m_optional;
                     bool m_optionalHasBeenSet;
 
                     /**
-                     * <p>敏感数据加密信息。</p><ul><li>对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</li></ul>
+                     * 敏感数据加密信息。
+- 对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
                      */
                     Encryption m_encryption;
                     bool m_encryptionHasBeenSet;

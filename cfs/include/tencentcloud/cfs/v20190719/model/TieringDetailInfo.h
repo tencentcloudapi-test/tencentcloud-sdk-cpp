@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>低频存储容量</p><p>单位：Byte, B, 字节</p>
-                     * @return TieringSizeInBytes <p>低频存储容量</p><p>单位：Byte, B, 字节</p>
+                     * 获取低频存储容量
+                     * @return TieringSizeInBytes 低频存储容量
                      * 
                      */
                     int64_t GetTieringSizeInBytes() const;
 
                     /**
-                     * 设置<p>低频存储容量</p><p>单位：Byte, B, 字节</p>
-                     * @param _tieringSizeInBytes <p>低频存储容量</p><p>单位：Byte, B, 字节</p>
+                     * 设置低频存储容量
+                     * @param _tieringSizeInBytes 低频存储容量
                      * 
                      */
                     void SetTieringSizeInBytes(const int64_t& _tieringSizeInBytes);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TieringSizeInBytesHasBeenSet() const;
 
                     /**
-                     * 获取<p>冷存储容量</p><p>单位：Byte, B, 字节</p>
-                     * @return SecondaryTieringSizeInBytes <p>冷存储容量</p><p>单位：Byte, B, 字节</p>
+                     * 获取冷存储容量
+                     * @return SecondaryTieringSizeInBytes 冷存储容量
                      * 
                      */
                     int64_t GetSecondaryTieringSizeInBytes() const;
 
                     /**
-                     * 设置<p>冷存储容量</p><p>单位：Byte, B, 字节</p>
-                     * @param _secondaryTieringSizeInBytes <p>冷存储容量</p><p>单位：Byte, B, 字节</p>
+                     * 设置冷存储容量
+                     * @param _secondaryTieringSizeInBytes 冷存储容量
                      * 
                      */
                     void SetSecondaryTieringSizeInBytes(const int64_t& _secondaryTieringSizeInBytes);
@@ -91,13 +91,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>低频存储容量</p><p>单位：Byte, B, 字节</p>
+                     * 低频存储容量
                      */
                     int64_t m_tieringSizeInBytes;
                     bool m_tieringSizeInBytesHasBeenSet;
 
                     /**
-                     * <p>冷存储容量</p><p>单位：Byte, B, 字节</p>
+                     * 冷存储容量
                      */
                     int64_t m_secondaryTieringSizeInBytes;
                     bool m_secondaryTieringSizeInBytesHasBeenSet;

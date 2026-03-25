@@ -365,18 +365,6 @@
 #include <tencentcloud/tcss/v20201101/model/DescribeImageAutoAuthorizedTaskListResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeImageComponentListRequest.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeImageComponentListResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyEventDetailRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyEventDetailResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyEventListRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyEventListResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyEventTendencyRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyEventTendencyResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyRuleDetailRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyRuleDetailResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyRuleListRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyRuleListResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyRuleSummaryRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeImageDenyRuleSummaryResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeImageRegistryNamespaceListRequest.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeImageRegistryNamespaceListResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeImageRegistryTimingScanTaskRequest.h>
@@ -407,10 +395,6 @@
 #include <tencentcloud/tcss/v20201101/model/DescribeK8sApiAbnormalTendencyResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeLogStorageStatisticRequest.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeLogStorageStatisticResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeMaliciousConnectionBlackListRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeMaliciousConnectionBlackListResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeMaliciousConnectionWhiteListRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeMaliciousConnectionWhiteListResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeNetworkFirewallAuditRecordRequest.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeNetworkFirewallAuditRecordResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeNetworkFirewallClusterListRequest.h>
@@ -457,10 +441,6 @@
 #include <tencentcloud/tcss/v20201101/model/DescribeReverseShellEventsResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeReverseShellEventsExportRequest.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeReverseShellEventsExportResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeReverseShellRegexpWhiteListRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeReverseShellRegexpWhiteListResponse.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeReverseShellRegexpWhiteListInfoRequest.h>
-#include <tencentcloud/tcss/v20201101/model/DescribeReverseShellRegexpWhiteListInfoResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeReverseShellWhiteListDetailRequest.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeReverseShellWhiteListDetailResponse.h>
 #include <tencentcloud/tcss/v20201101/model/DescribeReverseShellWhiteListsRequest.h>
@@ -1252,24 +1232,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeImageComponentListResponse> DescribeImageComponentListOutcome;
                 typedef std::future<DescribeImageComponentListOutcome> DescribeImageComponentListOutcomeCallable;
                 typedef std::function<void(const TcssClient*, const Model::DescribeImageComponentListRequest&, DescribeImageComponentListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageComponentListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeImageDenyEventDetailResponse> DescribeImageDenyEventDetailOutcome;
-                typedef std::future<DescribeImageDenyEventDetailOutcome> DescribeImageDenyEventDetailOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeImageDenyEventDetailRequest&, DescribeImageDenyEventDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageDenyEventDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeImageDenyEventListResponse> DescribeImageDenyEventListOutcome;
-                typedef std::future<DescribeImageDenyEventListOutcome> DescribeImageDenyEventListOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeImageDenyEventListRequest&, DescribeImageDenyEventListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageDenyEventListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeImageDenyEventTendencyResponse> DescribeImageDenyEventTendencyOutcome;
-                typedef std::future<DescribeImageDenyEventTendencyOutcome> DescribeImageDenyEventTendencyOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeImageDenyEventTendencyRequest&, DescribeImageDenyEventTendencyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageDenyEventTendencyAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeImageDenyRuleDetailResponse> DescribeImageDenyRuleDetailOutcome;
-                typedef std::future<DescribeImageDenyRuleDetailOutcome> DescribeImageDenyRuleDetailOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeImageDenyRuleDetailRequest&, DescribeImageDenyRuleDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageDenyRuleDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeImageDenyRuleListResponse> DescribeImageDenyRuleListOutcome;
-                typedef std::future<DescribeImageDenyRuleListOutcome> DescribeImageDenyRuleListOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeImageDenyRuleListRequest&, DescribeImageDenyRuleListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageDenyRuleListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeImageDenyRuleSummaryResponse> DescribeImageDenyRuleSummaryOutcome;
-                typedef std::future<DescribeImageDenyRuleSummaryOutcome> DescribeImageDenyRuleSummaryOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeImageDenyRuleSummaryRequest&, DescribeImageDenyRuleSummaryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageDenyRuleSummaryAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeImageRegistryNamespaceListResponse> DescribeImageRegistryNamespaceListOutcome;
                 typedef std::future<DescribeImageRegistryNamespaceListOutcome> DescribeImageRegistryNamespaceListOutcomeCallable;
                 typedef std::function<void(const TcssClient*, const Model::DescribeImageRegistryNamespaceListRequest&, DescribeImageRegistryNamespaceListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeImageRegistryNamespaceListAsyncHandler;
@@ -1315,12 +1277,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeLogStorageStatisticResponse> DescribeLogStorageStatisticOutcome;
                 typedef std::future<DescribeLogStorageStatisticOutcome> DescribeLogStorageStatisticOutcomeCallable;
                 typedef std::function<void(const TcssClient*, const Model::DescribeLogStorageStatisticRequest&, DescribeLogStorageStatisticOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLogStorageStatisticAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeMaliciousConnectionBlackListResponse> DescribeMaliciousConnectionBlackListOutcome;
-                typedef std::future<DescribeMaliciousConnectionBlackListOutcome> DescribeMaliciousConnectionBlackListOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeMaliciousConnectionBlackListRequest&, DescribeMaliciousConnectionBlackListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMaliciousConnectionBlackListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeMaliciousConnectionWhiteListResponse> DescribeMaliciousConnectionWhiteListOutcome;
-                typedef std::future<DescribeMaliciousConnectionWhiteListOutcome> DescribeMaliciousConnectionWhiteListOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeMaliciousConnectionWhiteListRequest&, DescribeMaliciousConnectionWhiteListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMaliciousConnectionWhiteListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeNetworkFirewallAuditRecordResponse> DescribeNetworkFirewallAuditRecordOutcome;
                 typedef std::future<DescribeNetworkFirewallAuditRecordOutcome> DescribeNetworkFirewallAuditRecordOutcomeCallable;
                 typedef std::function<void(const TcssClient*, const Model::DescribeNetworkFirewallAuditRecordRequest&, DescribeNetworkFirewallAuditRecordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeNetworkFirewallAuditRecordAsyncHandler;
@@ -1390,12 +1346,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeReverseShellEventsExportResponse> DescribeReverseShellEventsExportOutcome;
                 typedef std::future<DescribeReverseShellEventsExportOutcome> DescribeReverseShellEventsExportOutcomeCallable;
                 typedef std::function<void(const TcssClient*, const Model::DescribeReverseShellEventsExportRequest&, DescribeReverseShellEventsExportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeReverseShellEventsExportAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeReverseShellRegexpWhiteListResponse> DescribeReverseShellRegexpWhiteListOutcome;
-                typedef std::future<DescribeReverseShellRegexpWhiteListOutcome> DescribeReverseShellRegexpWhiteListOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeReverseShellRegexpWhiteListRequest&, DescribeReverseShellRegexpWhiteListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeReverseShellRegexpWhiteListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeReverseShellRegexpWhiteListInfoResponse> DescribeReverseShellRegexpWhiteListInfoOutcome;
-                typedef std::future<DescribeReverseShellRegexpWhiteListInfoOutcome> DescribeReverseShellRegexpWhiteListInfoOutcomeCallable;
-                typedef std::function<void(const TcssClient*, const Model::DescribeReverseShellRegexpWhiteListInfoRequest&, DescribeReverseShellRegexpWhiteListInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeReverseShellRegexpWhiteListInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeReverseShellWhiteListDetailResponse> DescribeReverseShellWhiteListDetailOutcome;
                 typedef std::future<DescribeReverseShellWhiteListDetailOutcome> DescribeReverseShellWhiteListDetailOutcomeCallable;
                 typedef std::function<void(const TcssClient*, const Model::DescribeReverseShellWhiteListDetailRequest&, DescribeReverseShellWhiteListDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeReverseShellWhiteListDetailAsyncHandler;
@@ -1796,9 +1746,7 @@ namespace TencentCloud
 
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略添加并发布任务
+                 *容器网络创建网络策略添加并发布任务
                  * @param req AddAndPublishNetworkFirewallPolicyDetailRequest
                  * @return AddAndPublishNetworkFirewallPolicyDetailOutcome
                  */
@@ -1807,9 +1755,7 @@ namespace TencentCloud
                 AddAndPublishNetworkFirewallPolicyDetailOutcomeCallable AddAndPublishNetworkFirewallPolicyDetailCallable(const Model::AddAndPublishNetworkFirewallPolicyDetailRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建Yaml网络策略并发布任务
+                 *容器网络创建Yaml网络策略并发布任务
                  * @param req AddAndPublishNetworkFirewallPolicyYamlDetailRequest
                  * @return AddAndPublishNetworkFirewallPolicyYamlDetailOutcome
                  */
@@ -1928,9 +1874,7 @@ namespace TencentCloud
                 AddIgnoreVulOutcomeCallable AddIgnoreVulCallable(const Model::AddIgnoreVulRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略添加任务
+                 *容器网络创建网络策略添加任务
                  * @param req AddNetworkFirewallPolicyDetailRequest
                  * @return AddNetworkFirewallPolicyDetailOutcome
                  */
@@ -1939,9 +1883,7 @@ namespace TencentCloud
                 AddNetworkFirewallPolicyDetailOutcomeCallable AddNetworkFirewallPolicyDetailCallable(const Model::AddNetworkFirewallPolicyDetailRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建Yaml网络策略添加任务
+                 *容器网络创建Yaml网络策略添加任务
                  * @param req AddNetworkFirewallPolicyYamlDetailRequest
                  * @return AddNetworkFirewallPolicyYamlDetailOutcome
                  */
@@ -1950,9 +1892,7 @@ namespace TencentCloud
                 AddNetworkFirewallPolicyYamlDetailOutcomeCallable AddNetworkFirewallPolicyYamlDetailCallable(const Model::AddNetworkFirewallPolicyYamlDetailRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建检查Yaml网络策略任务
+                 *容器网络创建检查Yaml网络策略任务
                  * @param req CheckNetworkFirewallPolicyYamlRequest
                  * @return CheckNetworkFirewallPolicyYamlOutcome
                  */
@@ -1970,9 +1910,7 @@ namespace TencentCloud
                 CheckRepeatAssetImageRegistryOutcomeCallable CheckRepeatAssetImageRegistryCallable(const Model::CheckRepeatAssetImageRegistryRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略确认任务
+                 *容器网络创建网络策略确认任务
                  * @param req ConfirmNetworkFirewallPolicyRequest
                  * @return ConfirmNetworkFirewallPolicyOutcome
                  */
@@ -2179,9 +2117,7 @@ namespace TencentCloud
                 CreateK8sApiAbnormalRuleInfoOutcomeCallable CreateK8sApiAbnormalRuleInfoCallable(const Model::CreateK8sApiAbnormalRuleInfoRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络集群下发刷新任务
+                 *容器网络集群下发刷新任务
                  * @param req CreateNetworkFirewallClusterRefreshRequest
                  * @return CreateNetworkFirewallClusterRefreshOutcome
                  */
@@ -2190,9 +2126,7 @@ namespace TencentCloud
                 CreateNetworkFirewallClusterRefreshOutcomeCallable CreateNetworkFirewallClusterRefreshCallable(const Model::CreateNetworkFirewallClusterRefreshRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络集群网络策略创建自动发现任务
+                 *容器网络集群网络策略创建自动发现任务
                  * @param req CreateNetworkFirewallPolicyDiscoverRequest
                  * @return CreateNetworkFirewallPolicyDiscoverOutcome
                  */
@@ -2201,9 +2135,7 @@ namespace TencentCloud
                 CreateNetworkFirewallPolicyDiscoverOutcomeCallable CreateNetworkFirewallPolicyDiscoverCallable(const Model::CreateNetworkFirewallPolicyDiscoverRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略发布任务
+                 *容器网络创建网络策略发布任务
                  * @param req CreateNetworkFirewallPublishRequest
                  * @return CreateNetworkFirewallPublishOutcome
                  */
@@ -2212,9 +2144,7 @@ namespace TencentCloud
                 CreateNetworkFirewallPublishOutcomeCallable CreateNetworkFirewallPublishCallable(const Model::CreateNetworkFirewallPublishRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略撤销任务
+                 *容器网络创建网络策略撤销任务
                  * @param req CreateNetworkFirewallUndoPublishRequest
                  * @return CreateNetworkFirewallUndoPublishOutcome
                  */
@@ -2442,9 +2372,7 @@ namespace TencentCloud
                 DeleteMachineOutcomeCallable DeleteMachineCallable(const Model::DeleteMachineRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略删除任务
+                 *容器网络创建网络策略删除任务
                  * @param req DeleteNetworkFirewallPolicyDetailRequest
                  * @return DeleteNetworkFirewallPolicyDetailOutcome
                  */
@@ -3362,60 +3290,6 @@ namespace TencentCloud
                 DescribeImageComponentListOutcomeCallable DescribeImageComponentListCallable(const Model::DescribeImageComponentListRequest& request);
 
                 /**
-                 *查询镜像拦截事件详情
-                 * @param req DescribeImageDenyEventDetailRequest
-                 * @return DescribeImageDenyEventDetailOutcome
-                 */
-                DescribeImageDenyEventDetailOutcome DescribeImageDenyEventDetail(const Model::DescribeImageDenyEventDetailRequest &request);
-                void DescribeImageDenyEventDetailAsync(const Model::DescribeImageDenyEventDetailRequest& request, const DescribeImageDenyEventDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeImageDenyEventDetailOutcomeCallable DescribeImageDenyEventDetailCallable(const Model::DescribeImageDenyEventDetailRequest& request);
-
-                /**
-                 *查询镜像拦截事件列表
-                 * @param req DescribeImageDenyEventListRequest
-                 * @return DescribeImageDenyEventListOutcome
-                 */
-                DescribeImageDenyEventListOutcome DescribeImageDenyEventList(const Model::DescribeImageDenyEventListRequest &request);
-                void DescribeImageDenyEventListAsync(const Model::DescribeImageDenyEventListRequest& request, const DescribeImageDenyEventListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeImageDenyEventListOutcomeCallable DescribeImageDenyEventListCallable(const Model::DescribeImageDenyEventListRequest& request);
-
-                /**
-                 *查询镜像拦截事件趋势
-                 * @param req DescribeImageDenyEventTendencyRequest
-                 * @return DescribeImageDenyEventTendencyOutcome
-                 */
-                DescribeImageDenyEventTendencyOutcome DescribeImageDenyEventTendency(const Model::DescribeImageDenyEventTendencyRequest &request);
-                void DescribeImageDenyEventTendencyAsync(const Model::DescribeImageDenyEventTendencyRequest& request, const DescribeImageDenyEventTendencyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeImageDenyEventTendencyOutcomeCallable DescribeImageDenyEventTendencyCallable(const Model::DescribeImageDenyEventTendencyRequest& request);
-
-                /**
-                 *查询镜像拦截规则详情
-                 * @param req DescribeImageDenyRuleDetailRequest
-                 * @return DescribeImageDenyRuleDetailOutcome
-                 */
-                DescribeImageDenyRuleDetailOutcome DescribeImageDenyRuleDetail(const Model::DescribeImageDenyRuleDetailRequest &request);
-                void DescribeImageDenyRuleDetailAsync(const Model::DescribeImageDenyRuleDetailRequest& request, const DescribeImageDenyRuleDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeImageDenyRuleDetailOutcomeCallable DescribeImageDenyRuleDetailCallable(const Model::DescribeImageDenyRuleDetailRequest& request);
-
-                /**
-                 *查询镜像拦截规则列表
-                 * @param req DescribeImageDenyRuleListRequest
-                 * @return DescribeImageDenyRuleListOutcome
-                 */
-                DescribeImageDenyRuleListOutcome DescribeImageDenyRuleList(const Model::DescribeImageDenyRuleListRequest &request);
-                void DescribeImageDenyRuleListAsync(const Model::DescribeImageDenyRuleListRequest& request, const DescribeImageDenyRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeImageDenyRuleListOutcomeCallable DescribeImageDenyRuleListCallable(const Model::DescribeImageDenyRuleListRequest& request);
-
-                /**
-                 *查询镜像拦截规则统计
-                 * @param req DescribeImageDenyRuleSummaryRequest
-                 * @return DescribeImageDenyRuleSummaryOutcome
-                 */
-                DescribeImageDenyRuleSummaryOutcome DescribeImageDenyRuleSummary(const Model::DescribeImageDenyRuleSummaryRequest &request);
-                void DescribeImageDenyRuleSummaryAsync(const Model::DescribeImageDenyRuleSummaryRequest& request, const DescribeImageDenyRuleSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeImageDenyRuleSummaryOutcomeCallable DescribeImageDenyRuleSummaryCallable(const Model::DescribeImageDenyRuleSummaryRequest& request);
-
-                /**
                  *查询用户镜像仓库下的命令空间列表
                  * @param req DescribeImageRegistryNamespaceListRequest
                  * @return DescribeImageRegistryNamespaceListOutcome
@@ -3551,27 +3425,7 @@ namespace TencentCloud
                 DescribeLogStorageStatisticOutcomeCallable DescribeLogStorageStatisticCallable(const Model::DescribeLogStorageStatisticRequest& request);
 
                 /**
-                 *查询恶意外连黑名单
-                 * @param req DescribeMaliciousConnectionBlackListRequest
-                 * @return DescribeMaliciousConnectionBlackListOutcome
-                 */
-                DescribeMaliciousConnectionBlackListOutcome DescribeMaliciousConnectionBlackList(const Model::DescribeMaliciousConnectionBlackListRequest &request);
-                void DescribeMaliciousConnectionBlackListAsync(const Model::DescribeMaliciousConnectionBlackListRequest& request, const DescribeMaliciousConnectionBlackListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeMaliciousConnectionBlackListOutcomeCallable DescribeMaliciousConnectionBlackListCallable(const Model::DescribeMaliciousConnectionBlackListRequest& request);
-
-                /**
-                 *查询恶意外连白名单
-                 * @param req DescribeMaliciousConnectionWhiteListRequest
-                 * @return DescribeMaliciousConnectionWhiteListOutcome
-                 */
-                DescribeMaliciousConnectionWhiteListOutcome DescribeMaliciousConnectionWhiteList(const Model::DescribeMaliciousConnectionWhiteListRequest &request);
-                void DescribeMaliciousConnectionWhiteListAsync(const Model::DescribeMaliciousConnectionWhiteListRequest& request, const DescribeMaliciousConnectionWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeMaliciousConnectionWhiteListOutcomeCallable DescribeMaliciousConnectionWhiteListCallable(const Model::DescribeMaliciousConnectionWhiteListRequest& request);
-
-                /**
-                 *功能已下线待三合一重构
-
-查询集群策略审计列表
+                 *查询集群策略审计列表
                  * @param req DescribeNetworkFirewallAuditRecordRequest
                  * @return DescribeNetworkFirewallAuditRecordOutcome
                  */
@@ -3580,9 +3434,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallAuditRecordOutcomeCallable DescribeNetworkFirewallAuditRecordCallable(const Model::DescribeNetworkFirewallAuditRecordRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-查询集群策略列表
+                 *查询集群策略列表
                  * @param req DescribeNetworkFirewallClusterListRequest
                  * @return DescribeNetworkFirewallClusterListOutcome
                  */
@@ -3591,9 +3443,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallClusterListOutcomeCallable DescribeNetworkFirewallClusterListCallable(const Model::DescribeNetworkFirewallClusterListRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络查询资产任务进度
+                 *容器网络查询资产任务进度
                  * @param req DescribeNetworkFirewallClusterRefreshStatusRequest
                  * @return DescribeNetworkFirewallClusterRefreshStatusOutcome
                  */
@@ -3602,9 +3452,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallClusterRefreshStatusOutcomeCallable DescribeNetworkFirewallClusterRefreshStatusCallable(const Model::DescribeNetworkFirewallClusterRefreshStatusRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-查询集群网络空间标签列表
+                 *查询集群网络空间标签列表
                  * @param req DescribeNetworkFirewallNamespaceLabelListRequest
                  * @return DescribeNetworkFirewallNamespaceLabelListOutcome
                  */
@@ -3613,9 +3461,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallNamespaceLabelListOutcomeCallable DescribeNetworkFirewallNamespaceLabelListCallable(const Model::DescribeNetworkFirewallNamespaceLabelListRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-查询集群网络空间列表
+                 *查询集群网络空间列表
                  * @param req DescribeNetworkFirewallNamespaceListRequest
                  * @return DescribeNetworkFirewallNamespaceListOutcome
                  */
@@ -3624,9 +3470,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallNamespaceListOutcomeCallable DescribeNetworkFirewallNamespaceListCallable(const Model::DescribeNetworkFirewallNamespaceListRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-查询集群网络pod标签
+                 *查询集群网络pod标签
                  * @param req DescribeNetworkFirewallPodLabelsListRequest
                  * @return DescribeNetworkFirewallPodLabelsListOutcome
                  */
@@ -3635,9 +3479,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallPodLabelsListOutcomeCallable DescribeNetworkFirewallPodLabelsListCallable(const Model::DescribeNetworkFirewallPodLabelsListRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络集群查看策略详情
+                 *容器网络集群查看策略详情
                  * @param req DescribeNetworkFirewallPolicyDetailRequest
                  * @return DescribeNetworkFirewallPolicyDetailOutcome
                  */
@@ -3646,9 +3488,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallPolicyDetailOutcomeCallable DescribeNetworkFirewallPolicyDetailCallable(const Model::DescribeNetworkFirewallPolicyDetailRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络查询网络策略自动发现任务进度
+                 *容器网络查询网络策略自动发现任务进度
                  * @param req DescribeNetworkFirewallPolicyDiscoverRequest
                  * @return DescribeNetworkFirewallPolicyDiscoverOutcome
                  */
@@ -3657,9 +3497,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallPolicyDiscoverOutcomeCallable DescribeNetworkFirewallPolicyDiscoverCallable(const Model::DescribeNetworkFirewallPolicyDiscoverRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-查询集群网络策略列表
+                 *查询集群网络策略列表
                  * @param req DescribeNetworkFirewallPolicyListRequest
                  * @return DescribeNetworkFirewallPolicyListOutcome
                  */
@@ -3668,9 +3506,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallPolicyListOutcomeCallable DescribeNetworkFirewallPolicyListCallable(const Model::DescribeNetworkFirewallPolicyListRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络查询网络策略策略执行状态
+                 *容器网络查询网络策略策略执行状态
                  * @param req DescribeNetworkFirewallPolicyStatusRequest
                  * @return DescribeNetworkFirewallPolicyStatusOutcome
                  */
@@ -3679,9 +3515,7 @@ namespace TencentCloud
                 DescribeNetworkFirewallPolicyStatusOutcomeCallable DescribeNetworkFirewallPolicyStatusCallable(const Model::DescribeNetworkFirewallPolicyStatusRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络集群查看Yaml网络策略详情
+                 *容器网络集群查看Yaml网络策略详情
                  * @param req DescribeNetworkFirewallPolicyYamlDetailRequest
                  * @return DescribeNetworkFirewallPolicyYamlDetailOutcome
                  */
@@ -3796,24 +3630,6 @@ namespace TencentCloud
                 DescribeReverseShellEventsExportOutcome DescribeReverseShellEventsExport(const Model::DescribeReverseShellEventsExportRequest &request);
                 void DescribeReverseShellEventsExportAsync(const Model::DescribeReverseShellEventsExportRequest& request, const DescribeReverseShellEventsExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeReverseShellEventsExportOutcomeCallable DescribeReverseShellEventsExportCallable(const Model::DescribeReverseShellEventsExportRequest& request);
-
-                /**
-                 *查询反弹shell正则白名单列表
-                 * @param req DescribeReverseShellRegexpWhiteListRequest
-                 * @return DescribeReverseShellRegexpWhiteListOutcome
-                 */
-                DescribeReverseShellRegexpWhiteListOutcome DescribeReverseShellRegexpWhiteList(const Model::DescribeReverseShellRegexpWhiteListRequest &request);
-                void DescribeReverseShellRegexpWhiteListAsync(const Model::DescribeReverseShellRegexpWhiteListRequest& request, const DescribeReverseShellRegexpWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeReverseShellRegexpWhiteListOutcomeCallable DescribeReverseShellRegexpWhiteListCallable(const Model::DescribeReverseShellRegexpWhiteListRequest& request);
-
-                /**
-                 *查询反弹shell正则白名单详情
-                 * @param req DescribeReverseShellRegexpWhiteListInfoRequest
-                 * @return DescribeReverseShellRegexpWhiteListInfoOutcome
-                 */
-                DescribeReverseShellRegexpWhiteListInfoOutcome DescribeReverseShellRegexpWhiteListInfo(const Model::DescribeReverseShellRegexpWhiteListInfoRequest &request);
-                void DescribeReverseShellRegexpWhiteListInfoAsync(const Model::DescribeReverseShellRegexpWhiteListInfoRequest& request, const DescribeReverseShellRegexpWhiteListInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeReverseShellRegexpWhiteListInfoOutcomeCallable DescribeReverseShellRegexpWhiteListInfoCallable(const Model::DescribeReverseShellRegexpWhiteListInfoRequest& request);
 
                 /**
                  *查询运行时反弹shell白名单详细信息
@@ -4950,9 +4766,7 @@ namespace TencentCloud
                 UninstallClusterContainerSecurityOutcomeCallable UninstallClusterContainerSecurityCallable(const Model::UninstallClusterContainerSecurityRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略更新并发布任务
+                 *容器网络创建网络策略更新并发布任务
                  * @param req UpdateAndPublishNetworkFirewallPolicyDetailRequest
                  * @return UpdateAndPublishNetworkFirewallPolicyDetailOutcome
                  */
@@ -4961,9 +4775,7 @@ namespace TencentCloud
                 UpdateAndPublishNetworkFirewallPolicyDetailOutcomeCallable UpdateAndPublishNetworkFirewallPolicyDetailCallable(const Model::UpdateAndPublishNetworkFirewallPolicyDetailRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络更新Yaml网络策略并发布任务
+                 *容器网络更新Yaml网络策略并发布任务
                  * @param req UpdateAndPublishNetworkFirewallPolicyYamlDetailRequest
                  * @return UpdateAndPublishNetworkFirewallPolicyYamlDetailOutcome
                  */
@@ -4990,9 +4802,7 @@ namespace TencentCloud
                 UpdateImageRegistryTimingScanTaskOutcomeCallable UpdateImageRegistryTimingScanTaskCallable(const Model::UpdateImageRegistryTimingScanTaskRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络创建网络策略更新任务
+                 *容器网络创建网络策略更新任务
                  * @param req UpdateNetworkFirewallPolicyDetailRequest
                  * @return UpdateNetworkFirewallPolicyDetailOutcome
                  */
@@ -5001,9 +4811,7 @@ namespace TencentCloud
                 UpdateNetworkFirewallPolicyDetailOutcomeCallable UpdateNetworkFirewallPolicyDetailCallable(const Model::UpdateNetworkFirewallPolicyDetailRequest& request);
 
                 /**
-                 *功能已下线待三合一重构
-
-容器网络更新Yaml网络策略任务
+                 *容器网络更新Yaml网络策略任务
                  * @param req UpdateNetworkFirewallPolicyYamlDetailRequest
                  * @return UpdateNetworkFirewallPolicyYamlDetailOutcome
                  */

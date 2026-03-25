@@ -22,8 +22,7 @@ using namespace std;
 
 Deals::Deals() :
     m_dealIdHasBeenSet(false),
-    m_dealNameHasBeenSet(false),
-    m_resourceIdHasBeenSet(false)
+    m_dealNameHasBeenSet(false)
 {
 }
 
@@ -52,16 +51,6 @@ CoreInternalOutcome Deals::Deserialize(const rapidjson::Value &value)
         m_dealNameHasBeenSet = true;
     }
 
-    if (value.HasMember("ResourceId") && !value["ResourceId"].IsNull())
-    {
-        if (!value["ResourceId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Deals.ResourceId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_resourceId = string(value["ResourceId"].GetString());
-        m_resourceIdHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -83,14 +72,6 @@ void Deals::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocator
         string key = "DealName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dealName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_resourceIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ResourceId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_resourceId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -126,21 +107,5 @@ void Deals::SetDealName(const string& _dealName)
 bool Deals::DealNameHasBeenSet() const
 {
     return m_dealNameHasBeenSet;
-}
-
-string Deals::GetResourceId() const
-{
-    return m_resourceId;
-}
-
-void Deals::SetResourceId(const string& _resourceId)
-{
-    m_resourceId = _resourceId;
-    m_resourceIdHasBeenSet = true;
-}
-
-bool Deals::ResourceIdHasBeenSet() const
-{
-    return m_resourceIdHasBeenSet;
 }
 

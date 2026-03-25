@@ -24,7 +24,6 @@ SmartSubtitleTaskAsrFullTextResultOutput::SmartSubtitleTaskAsrFullTextResultOutp
     m_segmentSetHasBeenSet(false),
     m_pathHasBeenSet(false),
     m_subtitlePathHasBeenSet(false),
-    m_subtitleInfoHasBeenSet(false),
     m_outputStorageHasBeenSet(false)
 {
 }
@@ -72,23 +71,6 @@ CoreInternalOutcome SmartSubtitleTaskAsrFullTextResultOutput::Deserialize(const 
         }
         m_subtitlePath = string(value["SubtitlePath"].GetString());
         m_subtitlePathHasBeenSet = true;
-    }
-
-    if (value.HasMember("SubtitleInfo") && !value["SubtitleInfo"].IsNull())
-    {
-        if (!value["SubtitleInfo"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `SmartSubtitleTaskAsrFullTextResultOutput.SubtitleInfo` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_subtitleInfo.Deserialize(value["SubtitleInfo"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_subtitleInfoHasBeenSet = true;
     }
 
     if (value.HasMember("OutputStorage") && !value["OutputStorage"].IsNull())
@@ -144,15 +126,6 @@ void SmartSubtitleTaskAsrFullTextResultOutput::ToJsonObject(rapidjson::Value &va
         string key = "SubtitlePath";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_subtitlePath.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_subtitleInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubtitleInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_subtitleInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
     if (m_outputStorageHasBeenSet)
@@ -213,22 +186,6 @@ void SmartSubtitleTaskAsrFullTextResultOutput::SetSubtitlePath(const string& _su
 bool SmartSubtitleTaskAsrFullTextResultOutput::SubtitlePathHasBeenSet() const
 {
     return m_subtitlePathHasBeenSet;
-}
-
-SubtitleResult SmartSubtitleTaskAsrFullTextResultOutput::GetSubtitleInfo() const
-{
-    return m_subtitleInfo;
-}
-
-void SmartSubtitleTaskAsrFullTextResultOutput::SetSubtitleInfo(const SubtitleResult& _subtitleInfo)
-{
-    m_subtitleInfo = _subtitleInfo;
-    m_subtitleInfoHasBeenSet = true;
-}
-
-bool SmartSubtitleTaskAsrFullTextResultOutput::SubtitleInfoHasBeenSet() const
-{
-    return m_subtitleInfoHasBeenSet;
 }
 
 TaskOutputStorage SmartSubtitleTaskAsrFullTextResultOutput::GetOutputStorage() const

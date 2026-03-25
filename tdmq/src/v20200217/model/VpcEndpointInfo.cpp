@@ -25,8 +25,7 @@ VpcEndpointInfo::VpcEndpointInfo() :
     m_subnetIdHasBeenSet(false),
     m_vpcEndpointHasBeenSet(false),
     m_vpcDataStreamEndpointStatusHasBeenSet(false),
-    m_vpcTlsEndpointHasBeenSet(false),
-    m_vpcErrorMessageHasBeenSet(false)
+    m_vpcTlsEndpointHasBeenSet(false)
 {
 }
 
@@ -85,16 +84,6 @@ CoreInternalOutcome VpcEndpointInfo::Deserialize(const rapidjson::Value &value)
         m_vpcTlsEndpointHasBeenSet = true;
     }
 
-    if (value.HasMember("VpcErrorMessage") && !value["VpcErrorMessage"].IsNull())
-    {
-        if (!value["VpcErrorMessage"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `VpcEndpointInfo.VpcErrorMessage` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_vpcErrorMessage = string(value["VpcErrorMessage"].GetString());
-        m_vpcErrorMessageHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -140,14 +129,6 @@ void VpcEndpointInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "VpcTlsEndpoint";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_vpcTlsEndpoint.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_vpcErrorMessageHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "VpcErrorMessage";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_vpcErrorMessage.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -231,21 +212,5 @@ void VpcEndpointInfo::SetVpcTlsEndpoint(const string& _vpcTlsEndpoint)
 bool VpcEndpointInfo::VpcTlsEndpointHasBeenSet() const
 {
     return m_vpcTlsEndpointHasBeenSet;
-}
-
-string VpcEndpointInfo::GetVpcErrorMessage() const
-{
-    return m_vpcErrorMessage;
-}
-
-void VpcEndpointInfo::SetVpcErrorMessage(const string& _vpcErrorMessage)
-{
-    m_vpcErrorMessage = _vpcErrorMessage;
-    m_vpcErrorMessageHasBeenSet = true;
-}
-
-bool VpcEndpointInfo::VpcErrorMessageHasBeenSet() const
-{
-    return m_vpcErrorMessageHasBeenSet;
 }
 

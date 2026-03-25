@@ -40,12 +40,8 @@ UpdateNativeNodePoolParam::UpdateNativeNodePoolParam() :
     m_replicasHasBeenSet(false),
     m_updateExistedNodeHasBeenSet(false),
     m_dataDisksHasBeenSet(false),
-    m_updateMachineManagementHasBeenSet(false),
     m_keyIdsHasBeenSet(false),
-    m_deletePolicyHasBeenSet(false),
-    m_gPUConfigsHasBeenSet(false),
-    m_automationServiceHasBeenSet(false),
-    m_passwordHasBeenSet(false)
+    m_gPUConfigsHasBeenSet(false)
 {
 }
 
@@ -308,16 +304,6 @@ CoreInternalOutcome UpdateNativeNodePoolParam::Deserialize(const rapidjson::Valu
         m_dataDisksHasBeenSet = true;
     }
 
-    if (value.HasMember("UpdateMachineManagement") && !value["UpdateMachineManagement"].IsNull())
-    {
-        if (!value["UpdateMachineManagement"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `UpdateNativeNodePoolParam.UpdateMachineManagement` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_updateMachineManagement = string(value["UpdateMachineManagement"].GetString());
-        m_updateMachineManagementHasBeenSet = true;
-    }
-
     if (value.HasMember("KeyIds") && !value["KeyIds"].IsNull())
     {
         if (!value["KeyIds"].IsArray())
@@ -329,16 +315,6 @@ CoreInternalOutcome UpdateNativeNodePoolParam::Deserialize(const rapidjson::Valu
             m_keyIds.push_back((*itr).GetString());
         }
         m_keyIdsHasBeenSet = true;
-    }
-
-    if (value.HasMember("DeletePolicy") && !value["DeletePolicy"].IsNull())
-    {
-        if (!value["DeletePolicy"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `UpdateNativeNodePoolParam.DeletePolicy` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_deletePolicy = string(value["DeletePolicy"].GetString());
-        m_deletePolicyHasBeenSet = true;
     }
 
     if (value.HasMember("GPUConfigs") && !value["GPUConfigs"].IsNull())
@@ -359,26 +335,6 @@ CoreInternalOutcome UpdateNativeNodePoolParam::Deserialize(const rapidjson::Valu
             m_gPUConfigs.push_back(item);
         }
         m_gPUConfigsHasBeenSet = true;
-    }
-
-    if (value.HasMember("AutomationService") && !value["AutomationService"].IsNull())
-    {
-        if (!value["AutomationService"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `UpdateNativeNodePoolParam.AutomationService` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_automationService = value["AutomationService"].GetBool();
-        m_automationServiceHasBeenSet = true;
-    }
-
-    if (value.HasMember("Password") && !value["Password"].IsNull())
-    {
-        if (!value["Password"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `UpdateNativeNodePoolParam.Password` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_password = string(value["Password"].GetString());
-        m_passwordHasBeenSet = true;
     }
 
 
@@ -573,14 +529,6 @@ void UpdateNativeNodePoolParam::ToJsonObject(rapidjson::Value &value, rapidjson:
         }
     }
 
-    if (m_updateMachineManagementHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UpdateMachineManagement";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_updateMachineManagement.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_keyIdsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -592,14 +540,6 @@ void UpdateNativeNodePoolParam::ToJsonObject(rapidjson::Value &value, rapidjson:
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
-    }
-
-    if (m_deletePolicyHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DeletePolicy";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_deletePolicy.c_str(), allocator).Move(), allocator);
     }
 
     if (m_gPUConfigsHasBeenSet)
@@ -615,22 +555,6 @@ void UpdateNativeNodePoolParam::ToJsonObject(rapidjson::Value &value, rapidjson:
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_automationServiceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AutomationService";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_automationService, allocator);
-    }
-
-    if (m_passwordHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Password";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_password.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -940,22 +864,6 @@ bool UpdateNativeNodePoolParam::DataDisksHasBeenSet() const
     return m_dataDisksHasBeenSet;
 }
 
-string UpdateNativeNodePoolParam::GetUpdateMachineManagement() const
-{
-    return m_updateMachineManagement;
-}
-
-void UpdateNativeNodePoolParam::SetUpdateMachineManagement(const string& _updateMachineManagement)
-{
-    m_updateMachineManagement = _updateMachineManagement;
-    m_updateMachineManagementHasBeenSet = true;
-}
-
-bool UpdateNativeNodePoolParam::UpdateMachineManagementHasBeenSet() const
-{
-    return m_updateMachineManagementHasBeenSet;
-}
-
 vector<string> UpdateNativeNodePoolParam::GetKeyIds() const
 {
     return m_keyIds;
@@ -972,22 +880,6 @@ bool UpdateNativeNodePoolParam::KeyIdsHasBeenSet() const
     return m_keyIdsHasBeenSet;
 }
 
-string UpdateNativeNodePoolParam::GetDeletePolicy() const
-{
-    return m_deletePolicy;
-}
-
-void UpdateNativeNodePoolParam::SetDeletePolicy(const string& _deletePolicy)
-{
-    m_deletePolicy = _deletePolicy;
-    m_deletePolicyHasBeenSet = true;
-}
-
-bool UpdateNativeNodePoolParam::DeletePolicyHasBeenSet() const
-{
-    return m_deletePolicyHasBeenSet;
-}
-
 vector<GPUConfig> UpdateNativeNodePoolParam::GetGPUConfigs() const
 {
     return m_gPUConfigs;
@@ -1002,37 +894,5 @@ void UpdateNativeNodePoolParam::SetGPUConfigs(const vector<GPUConfig>& _gPUConfi
 bool UpdateNativeNodePoolParam::GPUConfigsHasBeenSet() const
 {
     return m_gPUConfigsHasBeenSet;
-}
-
-bool UpdateNativeNodePoolParam::GetAutomationService() const
-{
-    return m_automationService;
-}
-
-void UpdateNativeNodePoolParam::SetAutomationService(const bool& _automationService)
-{
-    m_automationService = _automationService;
-    m_automationServiceHasBeenSet = true;
-}
-
-bool UpdateNativeNodePoolParam::AutomationServiceHasBeenSet() const
-{
-    return m_automationServiceHasBeenSet;
-}
-
-string UpdateNativeNodePoolParam::GetPassword() const
-{
-    return m_password;
-}
-
-void UpdateNativeNodePoolParam::SetPassword(const string& _password)
-{
-    m_password = _password;
-    m_passwordHasBeenSet = true;
-}
-
-bool UpdateNativeNodePoolParam::PasswordHasBeenSet() const
-{
-    return m_passwordHasBeenSet;
 }
 

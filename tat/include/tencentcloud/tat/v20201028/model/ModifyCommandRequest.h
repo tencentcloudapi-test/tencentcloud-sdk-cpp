@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>命令ID。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取。</p>
-                     * @return CommandId <p>命令ID。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取。</p>
+                     * 获取命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+                     * @return CommandId 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
                      * 
                      */
                     std::string GetCommandId() const;
 
                     /**
-                     * 设置<p>命令ID。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取。</p>
-                     * @param _commandId <p>命令ID。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取。</p>
+                     * 设置命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
+                     * @param _commandId 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
                      * 
                      */
                     void SetCommandId(const std::string& _commandId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool CommandIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>命令名称。名称仅支持中文、英文、数字、下划线、分隔符&quot;-&quot;、小数点，最大长度不能超60个字节。</p>
-                     * @return CommandName <p>命令名称。名称仅支持中文、英文、数字、下划线、分隔符&quot;-&quot;、小数点，最大长度不能超60个字节。</p>
+                     * 获取命令名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
+                     * @return CommandName 命令名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
                      * 
                      */
                     std::string GetCommandName() const;
 
                     /**
-                     * 设置<p>命令名称。名称仅支持中文、英文、数字、下划线、分隔符&quot;-&quot;、小数点，最大长度不能超60个字节。</p>
-                     * @param _commandName <p>命令名称。名称仅支持中文、英文、数字、下划线、分隔符&quot;-&quot;、小数点，最大长度不能超60个字节。</p>
+                     * 设置命令名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
+                     * @param _commandName 命令名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
                      * 
                      */
                     void SetCommandName(const std::string& _commandName);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool CommandNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>命令描述。不超过120字符。</p>
-                     * @return Description <p>命令描述。不超过120字符。</p>
+                     * 获取命令描述。不超过120字符。
+                     * @return Description 命令描述。不超过120字符。
                      * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置<p>命令描述。不超过120字符。</p>
-                     * @param _description <p>命令描述。不超过120字符。</p>
+                     * 设置命令描述。不超过120字符。
+                     * @param _description 命令描述。不超过120字符。
                      * 
                      */
                     void SetDescription(const std::string& _description);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>Base64编码后的命令内容，长度不可超过64KB。</p>
-                     * @return Content <p>Base64编码后的命令内容，长度不可超过64KB。</p>
+                     * 获取Base64编码后的命令内容，长度不可超过64KB。
+                     * @return Content Base64编码后的命令内容，长度不可超过64KB。
                      * 
                      */
                     std::string GetContent() const;
 
                     /**
-                     * 设置<p>Base64编码后的命令内容，长度不可超过64KB。</p>
-                     * @param _content <p>Base64编码后的命令内容，长度不可超过64KB。</p>
+                     * 设置Base64编码后的命令内容，长度不可超过64KB。
+                     * @param _content Base64编码后的命令内容，长度不可超过64KB。
                      * 
                      */
                     void SetContent(const std::string& _content);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool ContentHasBeenSet() const;
 
                     /**
-                     * 获取<p>命令类型，目前支持取值：SHELL、POWERSHELL、BAT。</p>
-                     * @return CommandType <p>命令类型，目前支持取值：SHELL、POWERSHELL、BAT。</p>
+                     * 获取命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
+                     * @return CommandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
                      * 
                      */
                     std::string GetCommandType() const;
 
                     /**
-                     * 设置<p>命令类型，目前支持取值：SHELL、POWERSHELL、BAT。</p>
-                     * @param _commandType <p>命令类型，目前支持取值：SHELL、POWERSHELL、BAT。</p>
+                     * 设置命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
+                     * @param _commandType 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
                      * 
                      */
                     void SetCommandType(const std::string& _commandType);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool CommandTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>命令执行路径。</p>
-                     * @return WorkingDirectory <p>命令执行路径。</p>
+                     * 获取命令执行路径。
+                     * @return WorkingDirectory 命令执行路径。
                      * 
                      */
                     std::string GetWorkingDirectory() const;
 
                     /**
-                     * 设置<p>命令执行路径。</p>
-                     * @param _workingDirectory <p>命令执行路径。</p>
+                     * 设置命令执行路径。
+                     * @param _workingDirectory 命令执行路径。
                      * 
                      */
                     void SetWorkingDirectory(const std::string& _workingDirectory);
@@ -170,15 +170,15 @@ namespace TencentCloud
                     bool WorkingDirectoryHasBeenSet() const;
 
                     /**
-                     * 获取<p>命令超时时间。</p><p>取值范围：[1, 86400]</p><p>单位：秒</p><p>默认值：60</p><p>指定 OutputCOSBucketUrl 参数时，超时时间将包含命令输出上传 COS 的耗时</p>
-                     * @return Timeout <p>命令超时时间。</p><p>取值范围：[1, 86400]</p><p>单位：秒</p><p>默认值：60</p><p>指定 OutputCOSBucketUrl 参数时，超时时间将包含命令输出上传 COS 的耗时</p>
+                     * 获取命令超时时间。取值范围[1, 86400]。
+                     * @return Timeout 命令超时时间。取值范围[1, 86400]。
                      * 
                      */
                     uint64_t GetTimeout() const;
 
                     /**
-                     * 设置<p>命令超时时间。</p><p>取值范围：[1, 86400]</p><p>单位：秒</p><p>默认值：60</p><p>指定 OutputCOSBucketUrl 参数时，超时时间将包含命令输出上传 COS 的耗时</p>
-                     * @param _timeout <p>命令超时时间。</p><p>取值范围：[1, 86400]</p><p>单位：秒</p><p>默认值：60</p><p>指定 OutputCOSBucketUrl 参数时，超时时间将包含命令输出上传 COS 的耗时</p>
+                     * 设置命令超时时间。取值范围[1, 86400]。
+                     * @param _timeout 命令超时时间。取值范围[1, 86400]。
                      * 
                      */
                     void SetTimeout(const uint64_t& _timeout);
@@ -191,15 +191,39 @@ namespace TencentCloud
                     bool TimeoutHasBeenSet() const;
 
                     /**
-                     * 获取<p>启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{&quot;varA&quot;: &quot;222&quot;}。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>采取整体全覆盖式修改，即修改时必须提供所有新默认值。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。<br>自定义参数最多20个。<br>自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。</p>
-                     * @return DefaultParameters <p>启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{&quot;varA&quot;: &quot;222&quot;}。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>采取整体全覆盖式修改，即修改时必须提供所有新默认值。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。<br>自定义参数最多20个。<br>自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。</p>
+                     * 获取启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+采取整体全覆盖式修改，即修改时必须提供所有新默认值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+自定义参数最多20个。
+自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
+                     * @return DefaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+采取整体全覆盖式修改，即修改时必须提供所有新默认值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+自定义参数最多20个。
+自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
                      * 
                      */
                     std::string GetDefaultParameters() const;
 
                     /**
-                     * 设置<p>启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{&quot;varA&quot;: &quot;222&quot;}。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>采取整体全覆盖式修改，即修改时必须提供所有新默认值。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。<br>自定义参数最多20个。<br>自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。</p>
-                     * @param _defaultParameters <p>启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{&quot;varA&quot;: &quot;222&quot;}。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>采取整体全覆盖式修改，即修改时必须提供所有新默认值。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。<br>自定义参数最多20个。<br>自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。</p>
+                     * 设置启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+采取整体全覆盖式修改，即修改时必须提供所有新默认值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+自定义参数最多20个。
+自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
+                     * @param _defaultParameters 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+采取整体全覆盖式修改，即修改时必须提供所有新默认值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+自定义参数最多20个。
+自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
                      * 
                      */
                     void SetDefaultParameters(const std::string& _defaultParameters);
@@ -212,15 +236,27 @@ namespace TencentCloud
                     bool DefaultParametersHasBeenSet() const;
 
                     /**
-                     * 获取<p>自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>自定义参数最多20个。</p>
-                     * @return DefaultParameterConfs <p>自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>自定义参数最多20个。</p>
+                     * 获取自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
+                     * @return DefaultParameterConfs 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
                      * 
                      */
                     std::vector<DefaultParameterConf> GetDefaultParameterConfs() const;
 
                     /**
-                     * 设置<p>自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>自定义参数最多20个。</p>
-                     * @param _defaultParameterConfs <p>自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>自定义参数最多20个。</p>
+                     * 设置自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
+                     * @param _defaultParameterConfs 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
                      * 
                      */
                     void SetDefaultParameterConfs(const std::vector<DefaultParameterConf>& _defaultParameterConfs);
@@ -233,15 +269,19 @@ namespace TencentCloud
                     bool DefaultParameterConfsHasBeenSet() const;
 
                     /**
-                     * 获取<p>在 CVM 或 Lighthouse 实例中执行命令的用户名称。<br>使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。</p>
-                     * @return Username <p>在 CVM 或 Lighthouse 实例中执行命令的用户名称。<br>使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。</p>
+                     * 获取在 CVM 或 Lighthouse 实例中执行命令的用户名称。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。
+                     * @return Username 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。
                      * 
                      */
                     std::string GetUsername() const;
 
                     /**
-                     * 设置<p>在 CVM 或 Lighthouse 实例中执行命令的用户名称。<br>使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。</p>
-                     * @param _username <p>在 CVM 或 Lighthouse 实例中执行命令的用户名称。<br>使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。</p>
+                     * 设置在 CVM 或 Lighthouse 实例中执行命令的用户名称。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。
+                     * @param _username 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。
                      * 
                      */
                     void SetUsername(const std::string& _username);
@@ -254,15 +294,15 @@ namespace TencentCloud
                     bool UsernameHasBeenSet() const;
 
                     /**
-                     * 获取<p>指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。</p>
-                     * @return OutputCOSBucketUrl <p>指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。</p>
+                     * 获取指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
+                     * @return OutputCOSBucketUrl 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
                      * 
                      */
                     std::string GetOutputCOSBucketUrl() const;
 
                     /**
-                     * 设置<p>指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。</p>
-                     * @param _outputCOSBucketUrl <p>指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。</p>
+                     * 设置指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
+                     * @param _outputCOSBucketUrl 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
                      * 
                      */
                     void SetOutputCOSBucketUrl(const std::string& _outputCOSBucketUrl);
@@ -275,15 +315,27 @@ namespace TencentCloud
                     bool OutputCOSBucketUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>指定日志在cos bucket中的目录，目录命名有如下规则：</p><ol><li>可用数字、中英文和可见字符的组合，长度最多为60。</li><li>用 / 分割路径，可快速创建子目录。</li><li>不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。</li></ol>
-                     * @return OutputCOSKeyPrefix <p>指定日志在cos bucket中的目录，目录命名有如下规则：</p><ol><li>可用数字、中英文和可见字符的组合，长度最多为60。</li><li>用 / 分割路径，可快速创建子目录。</li><li>不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。</li></ol>
+                     * 获取指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
+                     * @return OutputCOSKeyPrefix 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
                      * 
                      */
                     std::string GetOutputCOSKeyPrefix() const;
 
                     /**
-                     * 设置<p>指定日志在cos bucket中的目录，目录命名有如下规则：</p><ol><li>可用数字、中英文和可见字符的组合，长度最多为60。</li><li>用 / 分割路径，可快速创建子目录。</li><li>不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。</li></ol>
-                     * @param _outputCOSKeyPrefix <p>指定日志在cos bucket中的目录，目录命名有如下规则：</p><ol><li>可用数字、中英文和可见字符的组合，长度最多为60。</li><li>用 / 分割路径，可快速创建子目录。</li><li>不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。</li></ol>
+                     * 设置指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
+                     * @param _outputCOSKeyPrefix 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
                      * 
                      */
                     void SetOutputCOSKeyPrefix(const std::string& _outputCOSKeyPrefix);
@@ -298,73 +350,86 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>命令ID。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取。</p>
+                     * 命令ID。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取。
                      */
                     std::string m_commandId;
                     bool m_commandIdHasBeenSet;
 
                     /**
-                     * <p>命令名称。名称仅支持中文、英文、数字、下划线、分隔符&quot;-&quot;、小数点，最大长度不能超60个字节。</p>
+                     * 命令名称。名称仅支持中文、英文、数字、下划线、分隔符"-"、小数点，最大长度不能超60个字节。
                      */
                     std::string m_commandName;
                     bool m_commandNameHasBeenSet;
 
                     /**
-                     * <p>命令描述。不超过120字符。</p>
+                     * 命令描述。不超过120字符。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>Base64编码后的命令内容，长度不可超过64KB。</p>
+                     * Base64编码后的命令内容，长度不可超过64KB。
                      */
                     std::string m_content;
                     bool m_contentHasBeenSet;
 
                     /**
-                     * <p>命令类型，目前支持取值：SHELL、POWERSHELL、BAT。</p>
+                     * 命令类型，目前支持取值：SHELL、POWERSHELL、BAT。
                      */
                     std::string m_commandType;
                     bool m_commandTypeHasBeenSet;
 
                     /**
-                     * <p>命令执行路径。</p>
+                     * 命令执行路径。
                      */
                     std::string m_workingDirectory;
                     bool m_workingDirectoryHasBeenSet;
 
                     /**
-                     * <p>命令超时时间。</p><p>取值范围：[1, 86400]</p><p>单位：秒</p><p>默认值：60</p><p>指定 OutputCOSBucketUrl 参数时，超时时间将包含命令输出上传 COS 的耗时</p>
+                     * 命令超时时间。取值范围[1, 86400]。
                      */
                     uint64_t m_timeout;
                     bool m_timeoutHasBeenSet;
 
                     /**
-                     * <p>启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{&quot;varA&quot;: &quot;222&quot;}。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>采取整体全覆盖式修改，即修改时必须提供所有新默认值。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。<br>自定义参数最多20个。<br>自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。</p>
+                     * 启用自定义参数功能时，自定义参数的默认取值。字段类型为json encoded string。如：{"varA": "222"}。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+采取整体全覆盖式修改，即修改时必须提供所有新默认值。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+key为自定义参数名称，value为该参数的默认取值。kv均为字符串型。
+自定义参数最多20个。
+自定义参数名称需符合以下规范：字符数目上限64，可选范围【a-zA-Z0-9-_】。
                      */
                     std::string m_defaultParameters;
                     bool m_defaultParametersHasBeenSet;
 
                     /**
-                     * <p>自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。<br>参数不支持同时指定 <code>DefaultParameters</code> 和 <code>DefaultParameterConfs</code> 。<br>仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 <a href="https://cloud.tencent.com/document/api/1340/52681">DescribeCommands(查询命令详情)</a> 接口获取命令的 EnableParameter 设置。<br>自定义参数最多20个。</p>
+                     * 自定义参数数组。如果 InvokeCommand 时未提供参数取值，将使用这里的默认值进行替换。
+参数不支持同时指定 `DefaultParameters` 和 `DefaultParameterConfs` 。
+仅在命令的 EnableParameter 为 true 时，才允许修改此参数。可通过 [DescribeCommands(查询命令详情)](https://cloud.tencent.com/document/api/1340/52681) 接口获取命令的 EnableParameter 设置。
+自定义参数最多20个。
                      */
                     std::vector<DefaultParameterConf> m_defaultParameterConfs;
                     bool m_defaultParameterConfsHasBeenSet;
 
                     /**
-                     * <p>在 CVM 或 Lighthouse 实例中执行命令的用户名称。<br>使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。</p>
+                     * 在 CVM 或 Lighthouse 实例中执行命令的用户名称。
+使用最小权限执行命令是权限管理的最佳实践，建议您以普通用户身份执行云助手命令。
                      */
                     std::string m_username;
                     bool m_usernameHasBeenSet;
 
                     /**
-                     * <p>指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。</p>
+                     * 指定日志上传的cos bucket 地址，必须以https开头，如 https://BucketName-123454321.cos.ap-beijing.myqcloud.com。
                      */
                     std::string m_outputCOSBucketUrl;
                     bool m_outputCOSBucketUrlHasBeenSet;
 
                     /**
-                     * <p>指定日志在cos bucket中的目录，目录命名有如下规则：</p><ol><li>可用数字、中英文和可见字符的组合，长度最多为60。</li><li>用 / 分割路径，可快速创建子目录。</li><li>不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。</li></ol>
+                     * 指定日志在cos bucket中的目录，目录命名有如下规则：
+1. 可用数字、中英文和可见字符的组合，长度最多为60。
+2. 用 / 分割路径，可快速创建子目录。
+3. 不允许连续 / ；不允许以 / 开头；不允许以..作为文件夹名称。
                      */
                     std::string m_outputCOSKeyPrefix;
                     bool m_outputCOSKeyPrefixHasBeenSet;

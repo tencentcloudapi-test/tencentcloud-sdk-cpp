@@ -300,30 +300,14 @@ namespace TencentCloud
 
                     /**
                      * 获取结束状态
-
-中文详情[参考](https://www.tencentcloud.com/zh/document/product/1229/71847)
-
-英文详情[参考](https://www.tencentcloud.com/document/product/1229/71847?lang=en)
                      * @return EndStatusString 结束状态
-
-中文详情[参考](https://www.tencentcloud.com/zh/document/product/1229/71847)
-
-英文详情[参考](https://www.tencentcloud.com/document/product/1229/71847?lang=en)
                      * 
                      */
                     std::string GetEndStatusString() const;
 
                     /**
                      * 设置结束状态
-
-中文详情[参考](https://www.tencentcloud.com/zh/document/product/1229/71847)
-
-英文详情[参考](https://www.tencentcloud.com/document/product/1229/71847?lang=en)
                      * @param _endStatusString 结束状态
-
-中文详情[参考](https://www.tencentcloud.com/zh/document/product/1229/71847)
-
-英文详情[参考](https://www.tencentcloud.com/document/product/1229/71847?lang=en)
                      * 
                      */
                     void SetEndStatusString(const std::string& _endStatusString);
@@ -516,10 +500,6 @@ namespace TencentCloud
 
                     /**
                      * 结束状态
-
-中文详情[参考](https://www.tencentcloud.com/zh/document/product/1229/71847)
-
-英文详情[参考](https://www.tencentcloud.com/document/product/1229/71847?lang=en)
                      */
                     std::string m_endStatusString;
                     bool m_endStatusStringHasBeenSet;

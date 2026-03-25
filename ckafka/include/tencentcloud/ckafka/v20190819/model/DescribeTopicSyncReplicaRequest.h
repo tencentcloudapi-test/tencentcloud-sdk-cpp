@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例ID</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
-                     * @return InstanceId <p>实例ID</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 获取实例ID
+                     * @return InstanceId 实例ID
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>实例ID</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
-                     * @param _instanceId <p>实例ID</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 设置实例ID
+                     * @param _instanceId 实例ID
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题名称</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40847">DescribeTopic</a></p>
-                     * @return TopicName <p>主题名称</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40847">DescribeTopic</a></p>
+                     * 获取主题名称
+                     * @return TopicName 主题名称
                      * 
                      */
                     std::string GetTopicName() const;
 
                     /**
-                     * 设置<p>主题名称</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40847">DescribeTopic</a></p>
-                     * @param _topicName <p>主题名称</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40847">DescribeTopic</a></p>
+                     * 设置主题名称
+                     * @param _topicName 主题名称
                      * 
                      */
                     void SetTopicName(const std::string& _topicName);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool TopicNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>偏移量，不填默认为0</p>
-                     * @return Offset <p>偏移量，不填默认为0</p>
+                     * 获取偏移量，不填默认为0
+                     * @return Offset 偏移量，不填默认为0
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量，不填默认为0</p>
-                     * @param _offset <p>偏移量，不填默认为0</p>
+                     * 设置偏移量，不填默认为0
+                     * @param _offset 偏移量，不填默认为0
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回数量，默认值为20，必须大于0。</p>
-                     * @return Limit <p>返回数量，默认值为20，必须大于0。</p>
+                     * 获取返回数量，默认值为20，必须大于0。
+                     * @return Limit 返回数量，默认值为20，必须大于0。
                      * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置<p>返回数量，默认值为20，必须大于0。</p>
-                     * @param _limit <p>返回数量，默认值为20，必须大于0。</p>
+                     * 设置返回数量，默认值为20，必须大于0。
+                     * @param _limit 返回数量，默认值为20，必须大于0。
                      * 
                      */
                     void SetLimit(const int64_t& _limit);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>仅筛选未同步副本</p>
-                     * @return OutOfSyncReplicaOnly <p>仅筛选未同步副本</p>
+                     * 获取仅筛选未同步副本
+                     * @return OutOfSyncReplicaOnly 仅筛选未同步副本
                      * 
                      */
                     bool GetOutOfSyncReplicaOnly() const;
 
                     /**
-                     * 设置<p>仅筛选未同步副本</p>
-                     * @param _outOfSyncReplicaOnly <p>仅筛选未同步副本</p>
+                     * 设置仅筛选未同步副本
+                     * @param _outOfSyncReplicaOnly 仅筛选未同步副本
                      * 
                      */
                     void SetOutOfSyncReplicaOnly(const bool& _outOfSyncReplicaOnly);
@@ -150,31 +150,31 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>实例ID</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 实例ID
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>主题名称</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40847">DescribeTopic</a></p>
+                     * 主题名称
                      */
                     std::string m_topicName;
                     bool m_topicNameHasBeenSet;
 
                     /**
-                     * <p>偏移量，不填默认为0</p>
+                     * 偏移量，不填默认为0
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>返回数量，默认值为20，必须大于0。</p>
+                     * 返回数量，默认值为20，必须大于0。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>仅筛选未同步副本</p>
+                     * 仅筛选未同步副本
                      */
                     bool m_outOfSyncReplicaOnly;
                     bool m_outOfSyncReplicaOnlyHasBeenSet;

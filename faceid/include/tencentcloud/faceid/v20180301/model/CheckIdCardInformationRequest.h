@@ -44,15 +44,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>身份证人像面的 Base64 值。</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经Base64编码后不超过 7M。</li><li>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</li><li>ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl&gt;ImageBase64的优先级使用参数。</li></ul>
-                     * @return ImageBase64 <p>身份证人像面的 Base64 值。</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经Base64编码后不超过 7M。</li><li>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</li><li>ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl&gt;ImageBase64的优先级使用参数。</li></ul>
+                     * 获取身份证人像面的 Base64 值。
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经Base64编码后不超过 7M。
+- 请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+- ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl>ImageBase64的优先级使用参数。
+                     * @return ImageBase64 身份证人像面的 Base64 值。
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经Base64编码后不超过 7M。
+- 请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+- ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl>ImageBase64的优先级使用参数。
                      * 
                      */
                     std::string GetImageBase64() const;
 
                     /**
-                     * 设置<p>身份证人像面的 Base64 值。</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经Base64编码后不超过 7M。</li><li>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</li><li>ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl&gt;ImageBase64的优先级使用参数。</li></ul>
-                     * @param _imageBase64 <p>身份证人像面的 Base64 值。</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经Base64编码后不超过 7M。</li><li>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</li><li>ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl&gt;ImageBase64的优先级使用参数。</li></ul>
+                     * 设置身份证人像面的 Base64 值。
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经Base64编码后不超过 7M。
+- 请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+- ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl>ImageBase64的优先级使用参数。
+                     * @param _imageBase64 身份证人像面的 Base64 值。
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经Base64编码后不超过 7M。
+- 请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+- ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl>ImageBase64的优先级使用参数。
                      * 
                      */
                     void SetImageBase64(const std::string& _imageBase64);
@@ -65,15 +81,31 @@ namespace TencentCloud
                     bool ImageBase64HasBeenSet() const;
 
                     /**
-                     * 获取<p>身份证人像面的 Url 地址</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。</li><li>图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
-                     * @return ImageUrl <p>身份证人像面的 Url 地址</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。</li><li>图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
+                     * 获取身份证人像面的 Url 地址
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+- 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+                     * @return ImageUrl 身份证人像面的 Url 地址
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+- 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
                      * 
                      */
                     std::string GetImageUrl() const;
 
                     /**
-                     * 设置<p>身份证人像面的 Url 地址</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。</li><li>图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
-                     * @param _imageUrl <p>身份证人像面的 Url 地址</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。</li><li>图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
+                     * 设置身份证人像面的 Url 地址
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+- 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
+                     * @param _imageUrl 身份证人像面的 Url 地址
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+- 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
                      * 
                      */
                     void SetImageUrl(const std::string& _imageUrl);
@@ -86,15 +118,67 @@ namespace TencentCloud
                     bool ImageUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>配置。</p><ul><li><p>以下可选字段均为bool 类型，默认false。<br>CopyWarn，复印件告警。<br>BorderCheckWarn，边框和框内遮挡告警。<br>ReshootWarn，翻拍告警。<br>DetectPsWarn，PS检测告警（疑似存在PS痕迹）。<br>TempIdWarn，临时身份证告警。<br>Quality，图片质量告警（评价图片模糊程度）。</p></li><li><p>SDK 设置方式参考：<br>Config = Json.stringify({&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true})。</p></li><li><p>API 3.0 Explorer 设置方式参考：<br>Config = {&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true}。</p></li></ul>
-                     * @return Config <p>配置。</p><ul><li><p>以下可选字段均为bool 类型，默认false。<br>CopyWarn，复印件告警。<br>BorderCheckWarn，边框和框内遮挡告警。<br>ReshootWarn，翻拍告警。<br>DetectPsWarn，PS检测告警（疑似存在PS痕迹）。<br>TempIdWarn，临时身份证告警。<br>Quality，图片质量告警（评价图片模糊程度）。</p></li><li><p>SDK 设置方式参考：<br>Config = Json.stringify({&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true})。</p></li><li><p>API 3.0 Explorer 设置方式参考：<br>Config = {&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true}。</p></li></ul>
+                     * 获取配置。
+- 以下可选字段均为bool 类型，默认false。
+CopyWarn，复印件告警。
+BorderCheckWarn，边框和框内遮挡告警。
+ReshootWarn，翻拍告警。
+DetectPsWarn，PS检测告警（疑似存在PS痕迹）。
+TempIdWarn，临时身份证告警。
+Quality，图片质量告警（评价图片模糊程度）。
+
+- SDK 设置方式参考：
+Config = Json.stringify({"CopyWarn":true,"ReshootWarn":true})。
+
+- API 3.0 Explorer 设置方式参考：
+Config = {"CopyWarn":true,"ReshootWarn":true}。
+                     * @return Config 配置。
+- 以下可选字段均为bool 类型，默认false。
+CopyWarn，复印件告警。
+BorderCheckWarn，边框和框内遮挡告警。
+ReshootWarn，翻拍告警。
+DetectPsWarn，PS检测告警（疑似存在PS痕迹）。
+TempIdWarn，临时身份证告警。
+Quality，图片质量告警（评价图片模糊程度）。
+
+- SDK 设置方式参考：
+Config = Json.stringify({"CopyWarn":true,"ReshootWarn":true})。
+
+- API 3.0 Explorer 设置方式参考：
+Config = {"CopyWarn":true,"ReshootWarn":true}。
                      * 
                      */
                     std::string GetConfig() const;
 
                     /**
-                     * 设置<p>配置。</p><ul><li><p>以下可选字段均为bool 类型，默认false。<br>CopyWarn，复印件告警。<br>BorderCheckWarn，边框和框内遮挡告警。<br>ReshootWarn，翻拍告警。<br>DetectPsWarn，PS检测告警（疑似存在PS痕迹）。<br>TempIdWarn，临时身份证告警。<br>Quality，图片质量告警（评价图片模糊程度）。</p></li><li><p>SDK 设置方式参考：<br>Config = Json.stringify({&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true})。</p></li><li><p>API 3.0 Explorer 设置方式参考：<br>Config = {&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true}。</p></li></ul>
-                     * @param _config <p>配置。</p><ul><li><p>以下可选字段均为bool 类型，默认false。<br>CopyWarn，复印件告警。<br>BorderCheckWarn，边框和框内遮挡告警。<br>ReshootWarn，翻拍告警。<br>DetectPsWarn，PS检测告警（疑似存在PS痕迹）。<br>TempIdWarn，临时身份证告警。<br>Quality，图片质量告警（评价图片模糊程度）。</p></li><li><p>SDK 设置方式参考：<br>Config = Json.stringify({&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true})。</p></li><li><p>API 3.0 Explorer 设置方式参考：<br>Config = {&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true}。</p></li></ul>
+                     * 设置配置。
+- 以下可选字段均为bool 类型，默认false。
+CopyWarn，复印件告警。
+BorderCheckWarn，边框和框内遮挡告警。
+ReshootWarn，翻拍告警。
+DetectPsWarn，PS检测告警（疑似存在PS痕迹）。
+TempIdWarn，临时身份证告警。
+Quality，图片质量告警（评价图片模糊程度）。
+
+- SDK 设置方式参考：
+Config = Json.stringify({"CopyWarn":true,"ReshootWarn":true})。
+
+- API 3.0 Explorer 设置方式参考：
+Config = {"CopyWarn":true,"ReshootWarn":true}。
+                     * @param _config 配置。
+- 以下可选字段均为bool 类型，默认false。
+CopyWarn，复印件告警。
+BorderCheckWarn，边框和框内遮挡告警。
+ReshootWarn，翻拍告警。
+DetectPsWarn，PS检测告警（疑似存在PS痕迹）。
+TempIdWarn，临时身份证告警。
+Quality，图片质量告警（评价图片模糊程度）。
+
+- SDK 设置方式参考：
+Config = Json.stringify({"CopyWarn":true,"ReshootWarn":true})。
+
+- API 3.0 Explorer 设置方式参考：
+Config = {"CopyWarn":true,"ReshootWarn":true}。
                      * 
                      */
                     void SetConfig(const std::string& _config);
@@ -107,15 +191,23 @@ namespace TencentCloud
                     bool ConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要对返回中的敏感信息进行加密。</p><ul><li>默认false。</li><li>敏感信息包括：Response.IdNum、Response.Name。</li></ul>
-                     * @return IsEncrypt <p>是否需要对返回中的敏感信息进行加密。</p><ul><li>默认false。</li><li>敏感信息包括：Response.IdNum、Response.Name。</li></ul>
+                     * 获取是否需要对返回中的敏感信息进行加密。
+- 默认false。
+- 敏感信息包括：Response.IdNum、Response.Name。
+                     * @return IsEncrypt 是否需要对返回中的敏感信息进行加密。
+- 默认false。
+- 敏感信息包括：Response.IdNum、Response.Name。
                      * 
                      */
                     bool GetIsEncrypt() const;
 
                     /**
-                     * 设置<p>是否需要对返回中的敏感信息进行加密。</p><ul><li>默认false。</li><li>敏感信息包括：Response.IdNum、Response.Name。</li></ul>
-                     * @param _isEncrypt <p>是否需要对返回中的敏感信息进行加密。</p><ul><li>默认false。</li><li>敏感信息包括：Response.IdNum、Response.Name。</li></ul>
+                     * 设置是否需要对返回中的敏感信息进行加密。
+- 默认false。
+- 敏感信息包括：Response.IdNum、Response.Name。
+                     * @param _isEncrypt 是否需要对返回中的敏感信息进行加密。
+- 默认false。
+- 敏感信息包括：Response.IdNum、Response.Name。
                      * 
                      */
                     void SetIsEncrypt(const bool& _isEncrypt);
@@ -128,15 +220,15 @@ namespace TencentCloud
                     bool IsEncryptHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要对响应体加密。</p>
-                     * @return IsEncryptResponse <p>是否需要对响应体加密。</p>
+                     * 获取是否需要对响应体加密。
+                     * @return IsEncryptResponse 是否需要对响应体加密。
                      * 
                      */
                     bool GetIsEncryptResponse() const;
 
                     /**
-                     * 设置<p>是否需要对响应体加密。</p>
-                     * @param _isEncryptResponse <p>是否需要对响应体加密。</p>
+                     * 设置是否需要对响应体加密。
+                     * @param _isEncryptResponse 是否需要对响应体加密。
                      * 
                      */
                     void SetIsEncryptResponse(const bool& _isEncryptResponse);
@@ -149,15 +241,15 @@ namespace TencentCloud
                     bool IsEncryptResponseHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。</p>
-                     * @return Encryption <p>是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。</p>
+                     * 获取是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。
+                     * @return Encryption 是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。
                      * 
                      */
                     Encryption GetEncryption() const;
 
                     /**
-                     * 设置<p>是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。</p>
-                     * @param _encryption <p>是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。</p>
+                     * 设置是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。
+                     * @param _encryption 是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。
                      * 
                      */
                     void SetEncryption(const Encryption& _encryption);
@@ -172,37 +264,60 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>身份证人像面的 Base64 值。</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经Base64编码后不超过 7M。</li><li>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</li><li>ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl&gt;ImageBase64的优先级使用参数。</li></ul>
+                     * 身份证人像面的 Base64 值。
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经Base64编码后不超过 7M。
+- 请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+- ImageBase64、ImageUrl二者必须提供其中之一。若都提供了，则按照ImageUrl>ImageBase64的优先级使用参数。
                      */
                     std::string m_imageBase64;
                     bool m_imageBase64HasBeenSet;
 
                     /**
-                     * <p>身份证人像面的 Url 地址</p><ul><li>支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。</li><li>支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。</li><li>图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。</li><li>非腾讯云存储的 Url 速度和稳定性可能受一定影响。</li></ul>
+                     * 身份证人像面的 Url 地址
+- 支持的图片格式：PNG、JPG、JPEG，暂不支持 GIF 格式。
+- 支持的图片大小：所下载图片经 Base64 编码后不超过 3M。图片下载时间不超过 3 秒。
+- 图片存储于腾讯云的 Url 可保障更高的下载速度和稳定性，建议图片存储于腾讯云。
+- 非腾讯云存储的 Url 速度和稳定性可能受一定影响。
                      */
                     std::string m_imageUrl;
                     bool m_imageUrlHasBeenSet;
 
                     /**
-                     * <p>配置。</p><ul><li><p>以下可选字段均为bool 类型，默认false。<br>CopyWarn，复印件告警。<br>BorderCheckWarn，边框和框内遮挡告警。<br>ReshootWarn，翻拍告警。<br>DetectPsWarn，PS检测告警（疑似存在PS痕迹）。<br>TempIdWarn，临时身份证告警。<br>Quality，图片质量告警（评价图片模糊程度）。</p></li><li><p>SDK 设置方式参考：<br>Config = Json.stringify({&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true})。</p></li><li><p>API 3.0 Explorer 设置方式参考：<br>Config = {&quot;CopyWarn&quot;:true,&quot;ReshootWarn&quot;:true}。</p></li></ul>
+                     * 配置。
+- 以下可选字段均为bool 类型，默认false。
+CopyWarn，复印件告警。
+BorderCheckWarn，边框和框内遮挡告警。
+ReshootWarn，翻拍告警。
+DetectPsWarn，PS检测告警（疑似存在PS痕迹）。
+TempIdWarn，临时身份证告警。
+Quality，图片质量告警（评价图片模糊程度）。
+
+- SDK 设置方式参考：
+Config = Json.stringify({"CopyWarn":true,"ReshootWarn":true})。
+
+- API 3.0 Explorer 设置方式参考：
+Config = {"CopyWarn":true,"ReshootWarn":true}。
                      */
                     std::string m_config;
                     bool m_configHasBeenSet;
 
                     /**
-                     * <p>是否需要对返回中的敏感信息进行加密。</p><ul><li>默认false。</li><li>敏感信息包括：Response.IdNum、Response.Name。</li></ul>
+                     * 是否需要对返回中的敏感信息进行加密。
+- 默认false。
+- 敏感信息包括：Response.IdNum、Response.Name。
                      */
                     bool m_isEncrypt;
                     bool m_isEncryptHasBeenSet;
 
                     /**
-                     * <p>是否需要对响应体加密。</p>
+                     * 是否需要对响应体加密。
                      */
                     bool m_isEncryptResponse;
                     bool m_isEncryptResponseHasBeenSet;
 
                     /**
-                     * <p>是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。</p>
+                     * 是否需要对返回中的敏感信息进行加密,需指定加密算法Algorithm、CBC加密的初始向量、加密后的对称密钥。
                      */
                     Encryption m_encryption;
                     bool m_encryptionHasBeenSet;

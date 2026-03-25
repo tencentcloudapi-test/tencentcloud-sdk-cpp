@@ -26,8 +26,7 @@ ScheduleQualityControlTaskResult::ScheduleQualityControlTaskResult() :
     m_errCodeHasBeenSet(false),
     m_messageHasBeenSet(false),
     m_inputHasBeenSet(false),
-    m_outputHasBeenSet(false),
-    m_progressHasBeenSet(false)
+    m_outputHasBeenSet(false)
 {
 }
 
@@ -110,16 +109,6 @@ CoreInternalOutcome ScheduleQualityControlTaskResult::Deserialize(const rapidjso
         m_outputHasBeenSet = true;
     }
 
-    if (value.HasMember("Progress") && !value["Progress"].IsNull())
-    {
-        if (!value["Progress"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ScheduleQualityControlTaskResult.Progress` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_progress = value["Progress"].GetInt64();
-        m_progressHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -175,14 +164,6 @@ void ScheduleQualityControlTaskResult::ToJsonObject(rapidjson::Value &value, rap
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_output.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_progressHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Progress";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_progress, allocator);
     }
 
 }
@@ -282,21 +263,5 @@ void ScheduleQualityControlTaskResult::SetOutput(const QualityControlData& _outp
 bool ScheduleQualityControlTaskResult::OutputHasBeenSet() const
 {
     return m_outputHasBeenSet;
-}
-
-int64_t ScheduleQualityControlTaskResult::GetProgress() const
-{
-    return m_progress;
-}
-
-void ScheduleQualityControlTaskResult::SetProgress(const int64_t& _progress)
-{
-    m_progress = _progress;
-    m_progressHasBeenSet = true;
-}
-
-bool ScheduleQualityControlTaskResult::ProgressHasBeenSet() const
-{
-    return m_progressHasBeenSet;
 }
 

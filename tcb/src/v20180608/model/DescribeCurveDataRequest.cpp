@@ -27,11 +27,7 @@ DescribeCurveDataRequest::DescribeCurveDataRequest() :
     m_metricNameHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
-    m_resourceIDHasBeenSet(false),
-    m_wxAppIdHasBeenSet(false),
-    m_subresourceIDHasBeenSet(false),
-    m_thirdResourceHasBeenSet(false),
-    m_periodHasBeenSet(false)
+    m_resourceIDHasBeenSet(false)
 {
 }
 
@@ -80,38 +76,6 @@ string DescribeCurveDataRequest::ToJsonString() const
         string key = "ResourceID";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_resourceID.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_wxAppIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "WxAppId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_wxAppId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_subresourceIDHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubresourceID";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_subresourceID.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_thirdResourceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ThirdResource";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_thirdResource.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_periodHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Period";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_period, allocator);
     }
 
 
@@ -200,70 +164,6 @@ void DescribeCurveDataRequest::SetResourceID(const string& _resourceID)
 bool DescribeCurveDataRequest::ResourceIDHasBeenSet() const
 {
     return m_resourceIDHasBeenSet;
-}
-
-string DescribeCurveDataRequest::GetWxAppId() const
-{
-    return m_wxAppId;
-}
-
-void DescribeCurveDataRequest::SetWxAppId(const string& _wxAppId)
-{
-    m_wxAppId = _wxAppId;
-    m_wxAppIdHasBeenSet = true;
-}
-
-bool DescribeCurveDataRequest::WxAppIdHasBeenSet() const
-{
-    return m_wxAppIdHasBeenSet;
-}
-
-string DescribeCurveDataRequest::GetSubresourceID() const
-{
-    return m_subresourceID;
-}
-
-void DescribeCurveDataRequest::SetSubresourceID(const string& _subresourceID)
-{
-    m_subresourceID = _subresourceID;
-    m_subresourceIDHasBeenSet = true;
-}
-
-bool DescribeCurveDataRequest::SubresourceIDHasBeenSet() const
-{
-    return m_subresourceIDHasBeenSet;
-}
-
-string DescribeCurveDataRequest::GetThirdResource() const
-{
-    return m_thirdResource;
-}
-
-void DescribeCurveDataRequest::SetThirdResource(const string& _thirdResource)
-{
-    m_thirdResource = _thirdResource;
-    m_thirdResourceHasBeenSet = true;
-}
-
-bool DescribeCurveDataRequest::ThirdResourceHasBeenSet() const
-{
-    return m_thirdResourceHasBeenSet;
-}
-
-uint64_t DescribeCurveDataRequest::GetPeriod() const
-{
-    return m_period;
-}
-
-void DescribeCurveDataRequest::SetPeriod(const uint64_t& _period)
-{
-    m_period = _period;
-    m_periodHasBeenSet = true;
-}
-
-bool DescribeCurveDataRequest::PeriodHasBeenSet() const
-{
-    return m_periodHasBeenSet;
 }
 
 

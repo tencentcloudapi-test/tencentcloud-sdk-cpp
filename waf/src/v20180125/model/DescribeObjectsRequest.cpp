@@ -25,9 +25,7 @@ using namespace std;
 DescribeObjectsRequest::DescribeObjectsRequest() :
     m_filtersHasBeenSet(false),
     m_orderHasBeenSet(false),
-    m_byHasBeenSet(false),
-    m_memberAppIdListHasBeenSet(false),
-    m_isCrossAccountHasBeenSet(false)
+    m_byHasBeenSet(false)
 {
 }
 
@@ -67,27 +65,6 @@ string DescribeObjectsRequest::ToJsonString() const
         string key = "By";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_by.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_memberAppIdListHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MemberAppIdList";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_memberAppIdList.begin(); itr != m_memberAppIdList.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetUint64(*itr), allocator);
-        }
-    }
-
-    if (m_isCrossAccountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IsCrossAccount";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_isCrossAccount, allocator);
     }
 
 
@@ -144,38 +121,6 @@ void DescribeObjectsRequest::SetBy(const string& _by)
 bool DescribeObjectsRequest::ByHasBeenSet() const
 {
     return m_byHasBeenSet;
-}
-
-vector<uint64_t> DescribeObjectsRequest::GetMemberAppIdList() const
-{
-    return m_memberAppIdList;
-}
-
-void DescribeObjectsRequest::SetMemberAppIdList(const vector<uint64_t>& _memberAppIdList)
-{
-    m_memberAppIdList = _memberAppIdList;
-    m_memberAppIdListHasBeenSet = true;
-}
-
-bool DescribeObjectsRequest::MemberAppIdListHasBeenSet() const
-{
-    return m_memberAppIdListHasBeenSet;
-}
-
-int64_t DescribeObjectsRequest::GetIsCrossAccount() const
-{
-    return m_isCrossAccount;
-}
-
-void DescribeObjectsRequest::SetIsCrossAccount(const int64_t& _isCrossAccount)
-{
-    m_isCrossAccount = _isCrossAccount;
-    m_isCrossAccountHasBeenSet = true;
-}
-
-bool DescribeObjectsRequest::IsCrossAccountHasBeenSet() const
-{
-    return m_isCrossAccountHasBeenSet;
 }
 
 

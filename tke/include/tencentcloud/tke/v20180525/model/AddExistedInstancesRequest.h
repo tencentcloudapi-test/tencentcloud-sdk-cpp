@@ -277,27 +277,6 @@ namespace TencentCloud
                      */
                     bool ImageIdHasBeenSet() const;
 
-                    /**
-                     * 获取直接添加为原生节点
-                     * @return NodeType 直接添加为原生节点
-                     * 
-                     */
-                    std::string GetNodeType() const;
-
-                    /**
-                     * 设置直接添加为原生节点
-                     * @param _nodeType 直接添加为原生节点
-                     * 
-                     */
-                    void SetNodeType(const std::string& _nodeType);
-
-                    /**
-                     * 判断参数 NodeType 是否已赋值
-                     * @return NodeType 是否已赋值
-                     * 
-                     */
-                    bool NodeTypeHasBeenSet() const;
-
                 private:
 
                     /**
@@ -365,12 +344,6 @@ namespace TencentCloud
                      */
                     std::string m_imageId;
                     bool m_imageIdHasBeenSet;
-
-                    /**
-                     * 直接添加为原生节点
-                     */
-                    std::string m_nodeType;
-                    bool m_nodeTypeHasBeenSet;
 
                 };
             }

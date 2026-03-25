@@ -27,8 +27,7 @@ DescribeFormVersionParamRequest::DescribeFormVersionParamRequest() :
     m_codeTemplateIdHasBeenSet(false),
     m_originalParamsHasBeenSet(false),
     m_pageHasBeenSet(false),
-    m_sizeHasBeenSet(false),
-    m_sourceHasBeenSet(false)
+    m_sizeHasBeenSet(false)
 {
 }
 
@@ -82,14 +81,6 @@ string DescribeFormVersionParamRequest::ToJsonString() const
         string key = "Size";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_size, allocator);
-    }
-
-    if (m_sourceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Source";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_source.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -178,22 +169,6 @@ void DescribeFormVersionParamRequest::SetSize(const int64_t& _size)
 bool DescribeFormVersionParamRequest::SizeHasBeenSet() const
 {
     return m_sizeHasBeenSet;
-}
-
-string DescribeFormVersionParamRequest::GetSource() const
-{
-    return m_source;
-}
-
-void DescribeFormVersionParamRequest::SetSource(const string& _source)
-{
-    m_source = _source;
-    m_sourceHasBeenSet = true;
-}
-
-bool DescribeFormVersionParamRequest::SourceHasBeenSet() const
-{
-    return m_sourceHasBeenSet;
 }
 
 

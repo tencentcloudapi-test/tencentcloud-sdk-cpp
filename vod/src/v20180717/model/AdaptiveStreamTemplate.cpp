@@ -25,8 +25,7 @@ AdaptiveStreamTemplate::AdaptiveStreamTemplate() :
     m_audioHasBeenSet(false),
     m_removeAudioHasBeenSet(false),
     m_removeVideoHasBeenSet(false),
-    m_tEHDConfigHasBeenSet(false),
-    m_enhanceConfigHasBeenSet(false)
+    m_tEHDConfigHasBeenSet(false)
 {
 }
 
@@ -106,23 +105,6 @@ CoreInternalOutcome AdaptiveStreamTemplate::Deserialize(const rapidjson::Value &
         m_tEHDConfigHasBeenSet = true;
     }
 
-    if (value.HasMember("EnhanceConfig") && !value["EnhanceConfig"].IsNull())
-    {
-        if (!value["EnhanceConfig"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveStreamTemplate.EnhanceConfig` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_enhanceConfig.Deserialize(value["EnhanceConfig"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_enhanceConfigHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -171,15 +153,6 @@ void AdaptiveStreamTemplate::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_tEHDConfig.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_enhanceConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnhanceConfig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_enhanceConfig.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -263,21 +236,5 @@ void AdaptiveStreamTemplate::SetTEHDConfig(const TEHDConfig& _tEHDConfig)
 bool AdaptiveStreamTemplate::TEHDConfigHasBeenSet() const
 {
     return m_tEHDConfigHasBeenSet;
-}
-
-EnhanceConfig AdaptiveStreamTemplate::GetEnhanceConfig() const
-{
-    return m_enhanceConfig;
-}
-
-void AdaptiveStreamTemplate::SetEnhanceConfig(const EnhanceConfig& _enhanceConfig)
-{
-    m_enhanceConfig = _enhanceConfig;
-    m_enhanceConfigHasBeenSet = true;
-}
-
-bool AdaptiveStreamTemplate::EnhanceConfigHasBeenSet() const
-{
-    return m_enhanceConfigHasBeenSet;
 }
 

@@ -105,8 +105,6 @@
 #include <tencentcloud/ccc/v20200210/model/DescribeExtensionResponse.h>
 #include <tencentcloud/ccc/v20200210/model/DescribeExtensionsRequest.h>
 #include <tencentcloud/ccc/v20200210/model/DescribeExtensionsResponse.h>
-#include <tencentcloud/ccc/v20200210/model/DescribeFlashSMSListRequest.h>
-#include <tencentcloud/ccc/v20200210/model/DescribeFlashSMSListResponse.h>
 #include <tencentcloud/ccc/v20200210/model/DescribeIMCdrListRequest.h>
 #include <tencentcloud/ccc/v20200210/model/DescribeIMCdrListResponse.h>
 #include <tencentcloud/ccc/v20200210/model/DescribeIMCdrsRequest.h>
@@ -163,8 +161,6 @@
 #include <tencentcloud/ccc/v20200210/model/PauseAutoCalloutTaskResponse.h>
 #include <tencentcloud/ccc/v20200210/model/PausePredictiveDialingCampaignRequest.h>
 #include <tencentcloud/ccc/v20200210/model/PausePredictiveDialingCampaignResponse.h>
-#include <tencentcloud/ccc/v20200210/model/PlaySoundCallRequest.h>
-#include <tencentcloud/ccc/v20200210/model/PlaySoundCallResponse.h>
 #include <tencentcloud/ccc/v20200210/model/ResetExtensionPasswordRequest.h>
 #include <tencentcloud/ccc/v20200210/model/ResetExtensionPasswordResponse.h>
 #include <tencentcloud/ccc/v20200210/model/RestoreMemberOnlineRequest.h>
@@ -326,9 +322,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeExtensionsResponse> DescribeExtensionsOutcome;
                 typedef std::future<DescribeExtensionsOutcome> DescribeExtensionsOutcomeCallable;
                 typedef std::function<void(const CccClient*, const Model::DescribeExtensionsRequest&, DescribeExtensionsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeExtensionsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFlashSMSListResponse> DescribeFlashSMSListOutcome;
-                typedef std::future<DescribeFlashSMSListOutcome> DescribeFlashSMSListOutcomeCallable;
-                typedef std::function<void(const CccClient*, const Model::DescribeFlashSMSListRequest&, DescribeFlashSMSListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFlashSMSListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeIMCdrListResponse> DescribeIMCdrListOutcome;
                 typedef std::future<DescribeIMCdrListOutcome> DescribeIMCdrListOutcomeCallable;
                 typedef std::function<void(const CccClient*, const Model::DescribeIMCdrListRequest&, DescribeIMCdrListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeIMCdrListAsyncHandler;
@@ -413,9 +406,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::PausePredictiveDialingCampaignResponse> PausePredictiveDialingCampaignOutcome;
                 typedef std::future<PausePredictiveDialingCampaignOutcome> PausePredictiveDialingCampaignOutcomeCallable;
                 typedef std::function<void(const CccClient*, const Model::PausePredictiveDialingCampaignRequest&, PausePredictiveDialingCampaignOutcome, const std::shared_ptr<const AsyncCallerContext>&)> PausePredictiveDialingCampaignAsyncHandler;
-                typedef Outcome<Core::Error, Model::PlaySoundCallResponse> PlaySoundCallOutcome;
-                typedef std::future<PlaySoundCallOutcome> PlaySoundCallOutcomeCallable;
-                typedef std::function<void(const CccClient*, const Model::PlaySoundCallRequest&, PlaySoundCallOutcome, const std::shared_ptr<const AsyncCallerContext>&)> PlaySoundCallAsyncHandler;
                 typedef Outcome<Core::Error, Model::ResetExtensionPasswordResponse> ResetExtensionPasswordOutcome;
                 typedef std::future<ResetExtensionPasswordOutcome> ResetExtensionPasswordOutcomeCallable;
                 typedef std::function<void(const CccClient*, const Model::ResetExtensionPasswordRequest&, ResetExtensionPasswordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ResetExtensionPasswordAsyncHandler;
@@ -510,9 +500,9 @@ namespace TencentCloud
                 ControlAIConversationOutcomeCallable ControlAIConversationCallable(const Model::ControlAIConversationRequest& request);
 
                 /**
-                 *用于创建**一次性的智能体外呼通话**。你可以在管理端-智能体管理中，新建语音智能体，进行 [对话流程配置](https://cloud.tencent.com/document/product/679/119796) 。该接口可调用配置完成的智能体发起单次的外呼任务。若需创建批量智能体外呼任务，请参考文档 [创建自动外呼任务](https://cloud.tencent.com/document/product/679/69194)。
+                 *用于调用AI模型发起外呼通话，仅限自有电话号码使用，目前开通高级版座席**限时**免费体验。
 
-该功能需购买语音智能体通话套餐，并且仅限自有电话号码使用。详情请参考 [语音智能体通话购买指引](https://cloud.tencent.com/document/product/679/125953)。
+发起通话前，请先确认您的AI模型是否兼容 OpenAI、Azure 或 Minimax 协议，并前往模型服务商网站获取相关鉴权信息。 具体功能说明请参考文档 [腾讯云联络中心AI通话平台](https://cloud.tencent.com/document/product/679/112100)。
                  * @param req CreateAIAgentCallRequest
                  * @return CreateAIAgentCallOutcome
                  */
@@ -521,9 +511,9 @@ namespace TencentCloud
                 CreateAIAgentCallOutcomeCallable CreateAIAgentCallCallable(const Model::CreateAIAgentCallRequest& request);
 
                 /**
-                 *用于 **直接调用AI模型** 发起 **单次** 外呼通话，支持通过API参数直接配置模型、提示词、语音等全部通话要素。
+                 *用于调用AI模型发起外呼通话，仅限自有电话号码使用，目前开通高级版座席**限时**免费体验。
 
-该功能需购买语音智能体通话套餐，并且仅限自有电话号码使用。详情请参考 [语音智能体通话购买指引](https://cloud.tencent.com/document/product/679/125953)。
+发起通话前，请先确认您的AI模型是否兼容 OpenAI、Azure 或 Minimax 协议，并前往模型服务商网站获取相关鉴权信息。 具体功能说明请参考文档 [腾讯云联络中心AI通话平台](https://cloud.tencent.com/document/product/679/112100)。
                  * @param req CreateAICallRequest
                  * @return CreateAICallOutcome
                  */
@@ -550,9 +540,7 @@ namespace TencentCloud
                 CreateAgentCruiseDialingCampaignOutcomeCallable CreateAgentCruiseDialingCampaignCallable(const Model::CreateAgentCruiseDialingCampaignRequest& request);
 
                 /**
-                 *用于**创建批量自动外呼通话**，系统将根据任务配置，自动向指定的**被叫号码列表**发起外呼通话。该接口可调用配置完成的智能体发起批量的外呼任务，你可以在管理端-智能体管理中，新建语音智能体，进行 [对话流程配置](https://cloud.tencent.com/document/product/679/119796)。若需创建单次智能体外呼任务，请参考文档 [创建单次智能体通话](https://cloud.tencent.com/document/product/679/115681)。
-
-该功能需购买语音智能体通话套餐，并且仅限自有电话号码使用。详情请参考 [语音智能体通话购买指引](https://cloud.tencent.com/document/product/679/125953)。
+                 *创建自动外呼任务
                  * @param req CreateAutoCalloutTaskRequest
                  * @return CreateAutoCalloutTaskOutcome
                  */
@@ -700,7 +688,7 @@ namespace TencentCloud
                 DeleteStaffOutcomeCallable DeleteStaffCallable(const Model::DeleteStaffRequest& request);
 
                 /**
-                 *本接口用于分页查询指定实例（SdkAppId）下已配置的智能体信息列表，包括智能体ID和名称等基本信息。
+                 *获取智能体列表
                  * @param req DescribeAIAgentInfoListRequest
                  * @return DescribeAIAgentInfoListOutcome
                  */
@@ -718,7 +706,7 @@ namespace TencentCloud
                 DescribeAIAnalysisResultOutcomeCallable DescribeAIAnalysisResultCallable(const Model::DescribeAIAnalysisResultRequest& request);
 
                 /**
-                 *本接口用于：在语音智能体通话结束后，通过 Session ID 查询指定会话的 **话后标签** 结果。相关话后标签需提前在管理端完成配置，具体说明请参见 [话后标签](https://cloud.tencent.com/document/product/679/119800) 。
+                 *获取 AI 通话内容提取结果。
                  * @param req DescribeAICallExtractResultRequest
                  * @return DescribeAICallExtractResultOutcome
                  */
@@ -727,11 +715,7 @@ namespace TencentCloud
                 DescribeAICallExtractResultOutcomeCallable DescribeAICallExtractResultCallable(const Model::DescribeAICallExtractResultRequest& request);
 
                 /**
-                 *调用该接口，可以通过 Session ID 查询指定会话在特定时间段内，AI服务的处理时延明细与统计数据，时延信息包括：
-- 端到端（ETE）时延：统计从用户语音输入到 AI 返回完整响应的整体耗时。
-- 自动语音识别（ASR）时延：统计语音输入被识别为文本所需的处理耗时。
-- 大语言模型（LLM）时延：统计 AI 模型生成文本内容的推理耗时。
-- 语音合成（TTS）时延：统计文本转换为语音音频的合成耗时。
+                 *获取 AI 时延信息
                  * @param req DescribeAILatencyRequest
                  * @return DescribeAILatencyOutcome
                  */
@@ -758,8 +742,7 @@ namespace TencentCloud
                 DescribeAgentCruiseDialingCampaignOutcomeCallable DescribeAgentCruiseDialingCampaignCallable(const Model::DescribeAgentCruiseDialingCampaignRequest& request);
 
                 /**
-                 *用于通过 TaskId 查询**自动外呼任务的详细信息**，包括任务基础配置、起止时间、外呼名单、执行状态以及实际通话情况等。
-该接口通常与 [创建批量自动外呼任务](https://cloud.tencent.com/document/product/679/69194) 配合使用，用于在任务创建后查看任务配置是否生效、任务当前状态，以及后续执行过程中的实时进展。
+                 *查询自动外呼任务详情
                  * @param req DescribeAutoCalloutTaskRequest
                  * @return DescribeAutoCalloutTaskOutcome
                  */
@@ -840,15 +823,6 @@ namespace TencentCloud
                 DescribeExtensionsOutcome DescribeExtensions(const Model::DescribeExtensionsRequest &request);
                 void DescribeExtensionsAsync(const Model::DescribeExtensionsRequest& request, const DescribeExtensionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeExtensionsOutcomeCallable DescribeExtensionsCallable(const Model::DescribeExtensionsRequest& request);
-
-                /**
-                 *获取闪信记录列表
-                 * @param req DescribeFlashSMSListRequest
-                 * @return DescribeFlashSMSListOutcome
-                 */
-                DescribeFlashSMSListOutcome DescribeFlashSMSList(const Model::DescribeFlashSMSListRequest &request);
-                void DescribeFlashSMSListAsync(const Model::DescribeFlashSMSListRequest& request, const DescribeFlashSMSListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFlashSMSListOutcomeCallable DescribeFlashSMSListCallable(const Model::DescribeFlashSMSListRequest& request);
 
                 /**
                  *获取包括全媒体和文本会话两种类型的服务记录。
@@ -932,7 +906,7 @@ namespace TencentCloud
                 DescribeProtectedTelCdrOutcomeCallable DescribeProtectedTelCdrCallable(const Model::DescribeProtectedTelCdrRequest& request);
 
                 /**
-                 *此接口用于在通话结束后，通过 session id 和时间戳，查询单一通话的通话详情。包括：主被叫信息、录音等。
+                 *获取通话详情
                  * @param req DescribeSessionDetailRequest
                  * @return DescribeSessionDetailOutcome
                  */
@@ -1085,8 +1059,7 @@ namespace TencentCloud
                 ModifyStaffPasswordOutcomeCallable ModifyStaffPasswordCallable(const Model::ModifyStaffPasswordRequest& request);
 
                 /**
-                 *用于通过 TaskId **暂停一个正在执行的自动外呼任务**。调用该接口后，任务将被临时中断，不再发起新的外呼请求；已发起的通话不受影响。
-暂停后的任务可通过 [恢复暂停的自动外呼任务](https://cloud.tencent.com/document/product/679/125356) 接口继续执行。如需永久终止任务，请参考 [停止自动外呼任务](https://cloud.tencent.com/document/product/679/69192)。
+                 *暂停未完成的自动外呼任务
                  * @param req PauseAutoCalloutTaskRequest
                  * @return PauseAutoCalloutTaskOutcome
                  */
@@ -1102,15 +1075,6 @@ namespace TencentCloud
                 PausePredictiveDialingCampaignOutcome PausePredictiveDialingCampaign(const Model::PausePredictiveDialingCampaignRequest &request);
                 void PausePredictiveDialingCampaignAsync(const Model::PausePredictiveDialingCampaignRequest& request, const PausePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 PausePredictiveDialingCampaignOutcomeCallable PausePredictiveDialingCampaignCallable(const Model::PausePredictiveDialingCampaignRequest& request);
-
-                /**
-                 *对与座席通话中的会话，进行放音
-                 * @param req PlaySoundCallRequest
-                 * @return PlaySoundCallOutcome
-                 */
-                PlaySoundCallOutcome PlaySoundCall(const Model::PlaySoundCallRequest &request);
-                void PlaySoundCallAsync(const Model::PlaySoundCallRequest& request, const PlaySoundCallAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                PlaySoundCallOutcomeCallable PlaySoundCallCallable(const Model::PlaySoundCallRequest& request);
 
                 /**
                  *重置话机注册密码
@@ -1131,7 +1095,7 @@ namespace TencentCloud
                 RestoreMemberOnlineOutcomeCallable RestoreMemberOnlineCallable(const Model::RestoreMemberOnlineRequest& request);
 
                 /**
-                 *用于通过 TaskId **恢复一个已被暂停的自动外呼任务**。该接口适用于在调用 [暂停自动外呼任务](https://cloud.tencent.com/document/product/679/125357) 后，需继续执行剩余外呼计划的场景。调用成功后，任务将从暂停状态恢复，重新发起未完成的外呼请求。
+                 *暂停未完成的自动外呼任务
                  * @param req ResumeAutoCalloutTaskRequest
                  * @return ResumeAutoCalloutTaskOutcome
                  */

@@ -26,8 +26,7 @@ using namespace std;
 DescribePulsarProInstanceDetailResponse::DescribePulsarProInstanceDetailResponse() :
     m_clusterInfoHasBeenSet(false),
     m_networkAccessPointInfosHasBeenSet(false),
-    m_clusterSpecInfoHasBeenSet(false),
-    m_certificateListHasBeenSet(false)
+    m_clusterSpecInfoHasBeenSet(false)
 {
 }
 
@@ -119,26 +118,6 @@ CoreInternalOutcome DescribePulsarProInstanceDetailResponse::Deserialize(const s
         m_clusterSpecInfoHasBeenSet = true;
     }
 
-    if (rsp.HasMember("CertificateList") && !rsp["CertificateList"].IsNull())
-    {
-        if (!rsp["CertificateList"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `CertificateList` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["CertificateList"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            CertificateInfo item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_certificateList.push_back(item);
-        }
-        m_certificateListHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -182,21 +161,6 @@ string DescribePulsarProInstanceDetailResponse::ToJsonString() const
         m_clusterSpecInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
-    if (m_certificateListHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CertificateList";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_certificateList.begin(); itr != m_certificateList.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
@@ -237,16 +201,6 @@ PulsarProClusterSpecInfo DescribePulsarProInstanceDetailResponse::GetClusterSpec
 bool DescribePulsarProInstanceDetailResponse::ClusterSpecInfoHasBeenSet() const
 {
     return m_clusterSpecInfoHasBeenSet;
-}
-
-vector<CertificateInfo> DescribePulsarProInstanceDetailResponse::GetCertificateList() const
-{
-    return m_certificateList;
-}
-
-bool DescribePulsarProInstanceDetailResponse::CertificateListHasBeenSet() const
-{
-    return m_certificateListHasBeenSet;
 }
 
 

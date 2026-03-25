@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 <a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>  接口获取。</p>
-                     * @return VpcId <p>网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 <a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>  接口获取。</p>
+                     * 获取网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 [DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)  接口获取。
+                     * @return VpcId 网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 [DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)  接口获取。
                      * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置<p>网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 <a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>  接口获取。</p>
-                     * @param _vpcId <p>网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 <a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>  接口获取。</p>
+                     * 设置网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 [DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)  接口获取。
+                     * @param _vpcId 网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 [DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)  接口获取。
                      * 
                      */
                     void SetVpcId(const std::string& _vpcId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>网关负载均衡后端目标设备所属的私有网络的子网ID。可通过<a href="https://cloud.tencent.com/document/product/215/15784">DescribeSubnets</a>接口获取。</p>
-                     * @return SubnetId <p>网关负载均衡后端目标设备所属的私有网络的子网ID。可通过<a href="https://cloud.tencent.com/document/product/215/15784">DescribeSubnets</a>接口获取。</p>
+                     * 获取网关负载均衡后端目标设备所属的私有网络的子网ID。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
+                     * @return SubnetId 网关负载均衡后端目标设备所属的私有网络的子网ID。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
                      * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
-                     * 设置<p>网关负载均衡后端目标设备所属的私有网络的子网ID。可通过<a href="https://cloud.tencent.com/document/product/215/15784">DescribeSubnets</a>接口获取。</p>
-                     * @param _subnetId <p>网关负载均衡后端目标设备所属的私有网络的子网ID。可通过<a href="https://cloud.tencent.com/document/product/215/15784">DescribeSubnets</a>接口获取。</p>
+                     * 设置网关负载均衡后端目标设备所属的私有网络的子网ID。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
+                     * @param _subnetId 网关负载均衡后端目标设备所属的私有网络的子网ID。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
                      * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>网关负载均衡实例名称。命名规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。不填写时默认自动生成。</p>
-                     * @return LoadBalancerName <p>网关负载均衡实例名称。命名规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。不填写时默认自动生成。</p>
+                     * 获取网关负载均衡实例名称。可支持输入1-60个字符。不填写时默认自动生成。
+                     * @return LoadBalancerName 网关负载均衡实例名称。可支持输入1-60个字符。不填写时默认自动生成。
                      * 
                      */
                     std::string GetLoadBalancerName() const;
 
                     /**
-                     * 设置<p>网关负载均衡实例名称。命名规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。不填写时默认自动生成。</p>
-                     * @param _loadBalancerName <p>网关负载均衡实例名称。命名规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。不填写时默认自动生成。</p>
+                     * 设置网关负载均衡实例名称。可支持输入1-60个字符。不填写时默认自动生成。
+                     * @param _loadBalancerName 网关负载均衡实例名称。可支持输入1-60个字符。不填写时默认自动生成。
                      * 
                      */
                     void SetLoadBalancerName(const std::string& _loadBalancerName);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool LoadBalancerNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。</p>
-                     * @return Number <p>创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。</p>
+                     * 获取创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。
+                     * @return Number 创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。
                      * 
                      */
                     uint64_t GetNumber() const;
 
                     /**
-                     * 设置<p>创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。</p>
-                     * @param _number <p>创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。</p>
+                     * 设置创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。
+                     * @param _number 创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。
                      * 
                      */
                     void SetNumber(const uint64_t& _number);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool NumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。</p>
-                     * @return Tags <p>购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。</p>
+                     * 获取购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。
+                     * @return Tags 购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。
                      * 
                      */
                     std::vector<TagInfo> GetTags() const;
 
                     /**
-                     * 设置<p>购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。</p>
-                     * @param _tags <p>购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。</p>
+                     * 设置购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。
+                     * @param _tags 购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。
                      * 
                      */
                     void SetTags(const std::vector<TagInfo>& _tags);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。</p>
-                     * @return LBChargeType <p>网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。</p>
+                     * 获取网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。
+                     * @return LBChargeType 网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。
                      * 
                      */
                     std::string GetLBChargeType() const;
 
                     /**
-                     * 设置<p>网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。</p>
-                     * @param _lBChargeType <p>网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。</p>
+                     * 设置网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。
+                     * @param _lBChargeType 网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。
                      * 
                      */
                     void SetLBChargeType(const std::string& _lBChargeType);
@@ -172,37 +172,37 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 <a href="https://cloud.tencent.com/document/product/215/15778">DescribeVpcs</a>  接口获取。</p>
+                     * 网关负载均衡后端目标设备所属的私有网络 ID，如vpc-azd4dt1c，可以通过 [DescribeVpcs](https://cloud.tencent.com/document/product/215/15778)  接口获取。
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>网关负载均衡后端目标设备所属的私有网络的子网ID。可通过<a href="https://cloud.tencent.com/document/product/215/15784">DescribeSubnets</a>接口获取。</p>
+                     * 网关负载均衡后端目标设备所属的私有网络的子网ID。可通过[DescribeSubnets](https://cloud.tencent.com/document/product/215/15784)接口获取。
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>网关负载均衡实例名称。命名规则：1-80 个英文字母、汉字等国际通用语言字符，数字，连接线“-”、下划线“_”等常见字符（禁止Unicode补充字符，如emoji表情、生僻汉字等）。不填写时默认自动生成。</p>
+                     * 网关负载均衡实例名称。可支持输入1-60个字符。不填写时默认自动生成。
                      */
                     std::string m_loadBalancerName;
                     bool m_loadBalancerNameHasBeenSet;
 
                     /**
-                     * <p>创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。</p>
+                     * 创建网关负载均衡的个数，默认值为 1。批量创建数量最大支持10个。
                      */
                     uint64_t m_number;
                     bool m_numberHasBeenSet;
 
                     /**
-                     * <p>购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。</p>
+                     * 购买网关负载均衡的同时，给负载均衡打上标签，最大支持20个标签键值对。
                      */
                     std::vector<TagInfo> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。</p>
+                     * 网关负载均衡实例计费类型，当前只支持传POSTPAID_BY_HOUR（按量计费），默认是POSTPAID_BY_HOUR。
                      */
                     std::string m_lBChargeType;
                     bool m_lBChargeTypeHasBeenSet;

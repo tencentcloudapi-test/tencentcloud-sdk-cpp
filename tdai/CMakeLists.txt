@@ -21,7 +21,7 @@ set(tdai_public_header
 set(tdai_public_header_model
   include/tencentcloud/tdai/v20250717/model/RemoveChatRequest.h
   include/tencentcloud/tdai/v20250717/model/SqlAgentParameter.h
-  include/tencentcloud/tdai/v20250717/model/AgentDutyTask.h
+  include/tencentcloud/tdai/v20250717/model/DescribeReportUrlResponse.h
   include/tencentcloud/tdai/v20250717/model/DescribeAgentDutyTaskDetailRequest.h
   include/tencentcloud/tdai/v20250717/model/UploadDelta.h
   include/tencentcloud/tdai/v20250717/model/DescribeChatDetailRequest.h
@@ -29,7 +29,6 @@ set(tdai_public_header_model
   include/tencentcloud/tdai/v20250717/model/DescribeChatsRequest.h
   include/tencentcloud/tdai/v20250717/model/ModifyChatTitleResponse.h
   include/tencentcloud/tdai/v20250717/model/CreateAgentInstanceRequest.h
-  include/tencentcloud/tdai/v20250717/model/ModifyChatTitleRequest.h
   include/tencentcloud/tdai/v20250717/model/UploadChoice.h
   include/tencentcloud/tdai/v20250717/model/DescribeAgentDutyTasksResponse.h
   include/tencentcloud/tdai/v20250717/model/Parameter.h
@@ -37,12 +36,10 @@ set(tdai_public_header_model
   include/tencentcloud/tdai/v20250717/model/InstanceInfos.h
   include/tencentcloud/tdai/v20250717/model/DescribeAgentsResponse.h
   include/tencentcloud/tdai/v20250717/model/CreateChatCompletionRequest.h
-  include/tencentcloud/tdai/v20250717/model/DescribeReportUrlResponse.h
+  include/tencentcloud/tdai/v20250717/model/ModifyChatTitleRequest.h
   include/tencentcloud/tdai/v20250717/model/DescribeAgentInstancesRequest.h
   include/tencentcloud/tdai/v20250717/model/IsolateAgentInstanceResponse.h
   include/tencentcloud/tdai/v20250717/model/PauseAgentWorkRequest.h
-  include/tencentcloud/tdai/v20250717/model/TagItem.h
-  include/tencentcloud/tdai/v20250717/model/ExtraInfo.h
   include/tencentcloud/tdai/v20250717/model/CreateAgentInstanceResponse.h
   include/tencentcloud/tdai/v20250717/model/DescribeAgentDutyTasksRequest.h
   include/tencentcloud/tdai/v20250717/model/PauseAgentWorkResponse.h
@@ -55,7 +52,7 @@ set(tdai_public_header_model
   include/tencentcloud/tdai/v20250717/model/ModifyAgentInstanceParametersRequest.h
   include/tencentcloud/tdai/v20250717/model/ContinueAgentWorkResponse.h
   include/tencentcloud/tdai/v20250717/model/DescribeAgentInstancesResponse.h
-  include/tencentcloud/tdai/v20250717/model/StartAgentTaskRequest.h
+  include/tencentcloud/tdai/v20250717/model/TagItem.h
   include/tencentcloud/tdai/v20250717/model/CreateChatCompletionRes.h
   include/tencentcloud/tdai/v20250717/model/RecoverAgentInstanceRequest.h
   include/tencentcloud/tdai/v20250717/model/CodeRepo.h
@@ -71,14 +68,13 @@ set(tdai_public_header_model
   include/tencentcloud/tdai/v20250717/model/ChatDetail.h
   include/tencentcloud/tdai/v20250717/model/RemoveChatResponse.h
   include/tencentcloud/tdai/v20250717/model/TerminateAgentInstanceRequest.h
-  include/tencentcloud/tdai/v20250717/model/StartAgentTaskResponse.h
   )
 
 set(tdai_src
   src/v20250717/TdaiClient.cpp
   src/v20250717/model/RemoveChatRequest.cpp
   src/v20250717/model/SqlAgentParameter.cpp
-  src/v20250717/model/AgentDutyTask.cpp
+  src/v20250717/model/DescribeReportUrlResponse.cpp
   src/v20250717/model/DescribeAgentDutyTaskDetailRequest.cpp
   src/v20250717/model/UploadDelta.cpp
   src/v20250717/model/DescribeChatDetailRequest.cpp
@@ -86,7 +82,6 @@ set(tdai_src
   src/v20250717/model/DescribeChatsRequest.cpp
   src/v20250717/model/ModifyChatTitleResponse.cpp
   src/v20250717/model/CreateAgentInstanceRequest.cpp
-  src/v20250717/model/ModifyChatTitleRequest.cpp
   src/v20250717/model/UploadChoice.cpp
   src/v20250717/model/DescribeAgentDutyTasksResponse.cpp
   src/v20250717/model/Parameter.cpp
@@ -94,12 +89,10 @@ set(tdai_src
   src/v20250717/model/InstanceInfos.cpp
   src/v20250717/model/DescribeAgentsResponse.cpp
   src/v20250717/model/CreateChatCompletionRequest.cpp
-  src/v20250717/model/DescribeReportUrlResponse.cpp
+  src/v20250717/model/ModifyChatTitleRequest.cpp
   src/v20250717/model/DescribeAgentInstancesRequest.cpp
   src/v20250717/model/IsolateAgentInstanceResponse.cpp
   src/v20250717/model/PauseAgentWorkRequest.cpp
-  src/v20250717/model/TagItem.cpp
-  src/v20250717/model/ExtraInfo.cpp
   src/v20250717/model/CreateAgentInstanceResponse.cpp
   src/v20250717/model/DescribeAgentDutyTasksRequest.cpp
   src/v20250717/model/PauseAgentWorkResponse.cpp
@@ -112,7 +105,7 @@ set(tdai_src
   src/v20250717/model/ModifyAgentInstanceParametersRequest.cpp
   src/v20250717/model/ContinueAgentWorkResponse.cpp
   src/v20250717/model/DescribeAgentInstancesResponse.cpp
-  src/v20250717/model/StartAgentTaskRequest.cpp
+  src/v20250717/model/TagItem.cpp
   src/v20250717/model/CreateChatCompletionRes.cpp
   src/v20250717/model/RecoverAgentInstanceRequest.cpp
   src/v20250717/model/CodeRepo.cpp
@@ -128,7 +121,6 @@ set(tdai_src
   src/v20250717/model/ChatDetail.cpp
   src/v20250717/model/RemoveChatResponse.cpp
   src/v20250717/model/TerminateAgentInstanceRequest.cpp
-  src/v20250717/model/StartAgentTaskResponse.cpp
   )
 
 set(tdai_include

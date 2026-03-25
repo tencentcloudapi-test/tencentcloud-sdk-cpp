@@ -25,8 +25,7 @@ ElasticPlan::ElasticPlan() :
     m_maxElasticClustersHasBeenSet(false),
     m_tolerableQueueTimeHasBeenSet(false),
     m_startTimeHasBeenSet(false),
-    m_endTimeHasBeenSet(false),
-    m_elasticLimitHasBeenSet(false)
+    m_endTimeHasBeenSet(false)
 {
 }
 
@@ -85,16 +84,6 @@ CoreInternalOutcome ElasticPlan::Deserialize(const rapidjson::Value &value)
         m_endTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("ElasticLimit") && !value["ElasticLimit"].IsNull())
-    {
-        if (!value["ElasticLimit"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ElasticPlan.ElasticLimit` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_elasticLimit = value["ElasticLimit"].GetInt64();
-        m_elasticLimitHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -140,14 +129,6 @@ void ElasticPlan::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "EndTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_endTime.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_elasticLimitHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ElasticLimit";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_elasticLimit, allocator);
     }
 
 }
@@ -231,21 +212,5 @@ void ElasticPlan::SetEndTime(const string& _endTime)
 bool ElasticPlan::EndTimeHasBeenSet() const
 {
     return m_endTimeHasBeenSet;
-}
-
-int64_t ElasticPlan::GetElasticLimit() const
-{
-    return m_elasticLimit;
-}
-
-void ElasticPlan::SetElasticLimit(const int64_t& _elasticLimit)
-{
-    m_elasticLimit = _elasticLimit;
-    m_elasticLimitHasBeenSet = true;
-}
-
-bool ElasticPlan::ElasticLimitHasBeenSet() const
-{
-    return m_elasticLimitHasBeenSet;
 }
 

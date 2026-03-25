@@ -58,8 +58,7 @@ DataSourceDetail::DataSourceDetail() :
     m_dbInstanceTypeHasBeenSet(false),
     m_previewTableNameHasBeenSet(false),
     m_publishedTableNameHasBeenSet(false),
-    m_dbSourceTypeHasBeenSet(false),
-    m_stagingSwitchHasBeenSet(false)
+    m_dbSourceTypeHasBeenSet(false)
 {
 }
 
@@ -481,16 +480,6 @@ CoreInternalOutcome DataSourceDetail::Deserialize(const rapidjson::Value &value)
         m_dbSourceTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("StagingSwitch") && !value["StagingSwitch"].IsNull())
-    {
-        if (!value["StagingSwitch"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `DataSourceDetail.StagingSwitch` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_stagingSwitch = value["StagingSwitch"].GetBool();
-        m_stagingSwitchHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -825,14 +814,6 @@ void DataSourceDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "DbSourceType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dbSourceType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_stagingSwitchHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StagingSwitch";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_stagingSwitch, allocator);
     }
 
 }
@@ -1444,21 +1425,5 @@ void DataSourceDetail::SetDbSourceType(const string& _dbSourceType)
 bool DataSourceDetail::DbSourceTypeHasBeenSet() const
 {
     return m_dbSourceTypeHasBeenSet;
-}
-
-bool DataSourceDetail::GetStagingSwitch() const
-{
-    return m_stagingSwitch;
-}
-
-void DataSourceDetail::SetStagingSwitch(const bool& _stagingSwitch)
-{
-    m_stagingSwitch = _stagingSwitch;
-    m_stagingSwitchHasBeenSet = true;
-}
-
-bool DataSourceDetail::StagingSwitchHasBeenSet() const
-{
-    return m_stagingSwitchHasBeenSet;
 }
 

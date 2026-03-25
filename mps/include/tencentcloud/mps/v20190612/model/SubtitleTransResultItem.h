@@ -47,15 +47,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>翻译标识：</p><ul><li>Success</li><li>Error</li></ul>
-                     * @return Status <p>翻译标识：</p><ul><li>Success</li><li>Error</li></ul>
+                     * 获取翻译标识：
+- Success
+- Error
+                     * @return Status 翻译标识：
+- Success
+- Error
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>翻译标识：</p><ul><li>Success</li><li>Error</li></ul>
-                     * @param _status <p>翻译标识：</p><ul><li>Success</li><li>Error</li></ul>
+                     * 设置翻译标识：
+- Success
+- Error
+                     * @param _status 翻译标识：
+- Success
+- Error
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -68,15 +76,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>源语言（如&quot;en&quot;）</p>
-                     * @return TransSrc <p>源语言（如&quot;en&quot;）</p>
+                     * 获取源语言（如"en"）
+                     * @return TransSrc 源语言（如"en"）
                      * 
                      */
                     std::string GetTransSrc() const;
 
                     /**
-                     * 设置<p>源语言（如&quot;en&quot;）</p>
-                     * @param _transSrc <p>源语言（如&quot;en&quot;）</p>
+                     * 设置源语言（如"en"）
+                     * @param _transSrc 源语言（如"en"）
                      * 
                      */
                     void SetTransSrc(const std::string& _transSrc);
@@ -89,15 +97,15 @@ namespace TencentCloud
                     bool TransSrcHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标语言（如&quot;zh&quot;）</p>
-                     * @return TransDst <p>目标语言（如&quot;zh&quot;）</p>
+                     * 获取目标语言（如"zh"）
+                     * @return TransDst 目标语言（如"zh"）
                      * 
                      */
                     std::string GetTransDst() const;
 
                     /**
-                     * 设置<p>目标语言（如&quot;zh&quot;）</p>
-                     * @param _transDst <p>目标语言（如&quot;zh&quot;）</p>
+                     * 设置目标语言（如"zh"）
+                     * @param _transDst 目标语言（如"zh"）
                      * 
                      */
                     void SetTransDst(const std::string& _transDst);
@@ -110,15 +118,15 @@ namespace TencentCloud
                     bool TransDstHasBeenSet() const;
 
                     /**
-                     * 获取<p>字幕文件地址</p>
-                     * @return Path <p>字幕文件地址</p>
+                     * 获取字幕文件地址
+                     * @return Path 字幕文件地址
                      * 
                      */
                     std::string GetPath() const;
 
                     /**
-                     * 设置<p>字幕文件地址</p>
-                     * @param _path <p>字幕文件地址</p>
+                     * 设置字幕文件地址
+                     * @param _path 字幕文件地址
                      * 
                      */
                     void SetPath(const std::string& _path);
@@ -130,58 +138,33 @@ namespace TencentCloud
                      */
                     bool PathHasBeenSet() const;
 
-                    /**
-                     * 获取<p>翻译字幕压制视频路径。</p>
-                     * @return SubtitleEmbedPath <p>翻译字幕压制视频路径。</p>
-                     * 
-                     */
-                    std::string GetSubtitleEmbedPath() const;
-
-                    /**
-                     * 设置<p>翻译字幕压制视频路径。</p>
-                     * @param _subtitleEmbedPath <p>翻译字幕压制视频路径。</p>
-                     * 
-                     */
-                    void SetSubtitleEmbedPath(const std::string& _subtitleEmbedPath);
-
-                    /**
-                     * 判断参数 SubtitleEmbedPath 是否已赋值
-                     * @return SubtitleEmbedPath 是否已赋值
-                     * 
-                     */
-                    bool SubtitleEmbedPathHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>翻译标识：</p><ul><li>Success</li><li>Error</li></ul>
+                     * 翻译标识：
+- Success
+- Error
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>源语言（如&quot;en&quot;）</p>
+                     * 源语言（如"en"）
                      */
                     std::string m_transSrc;
                     bool m_transSrcHasBeenSet;
 
                     /**
-                     * <p>目标语言（如&quot;zh&quot;）</p>
+                     * 目标语言（如"zh"）
                      */
                     std::string m_transDst;
                     bool m_transDstHasBeenSet;
 
                     /**
-                     * <p>字幕文件地址</p>
+                     * 字幕文件地址
                      */
                     std::string m_path;
                     bool m_pathHasBeenSet;
-
-                    /**
-                     * <p>翻译字幕压制视频路径。</p>
-                     */
-                    std::string m_subtitleEmbedPath;
-                    bool m_subtitleEmbedPathHasBeenSet;
 
                 };
             }

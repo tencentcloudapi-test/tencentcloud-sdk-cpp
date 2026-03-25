@@ -90,56 +90,6 @@ MongodbClient::AssignProjectOutcomeCallable MongodbClient::AssignProjectCallable
     return prom->get_future();
 }
 
-MongodbClient::CloseAuditServiceOutcome MongodbClient::CloseAuditService(const CloseAuditServiceRequest &request)
-{
-    auto outcome = MakeRequest(request, "CloseAuditService");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CloseAuditServiceResponse rsp = CloseAuditServiceResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CloseAuditServiceOutcome(rsp);
-        else
-            return CloseAuditServiceOutcome(o.GetError());
-    }
-    else
-    {
-        return CloseAuditServiceOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::CloseAuditServiceAsync(const CloseAuditServiceRequest& request, const CloseAuditServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CloseAuditServiceRequest&;
-    using Resp = CloseAuditServiceResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CloseAuditService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::CloseAuditServiceOutcomeCallable MongodbClient::CloseAuditServiceCallable(const CloseAuditServiceRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CloseAuditServiceOutcome>>();
-    CloseAuditServiceAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const CloseAuditServiceRequest&,
-        CloseAuditServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MongodbClient::CreateAccountUserOutcome MongodbClient::CreateAccountUser(const CreateAccountUserRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateAccountUser");
@@ -790,56 +740,6 @@ MongodbClient::DescribeAsyncRequestInfoOutcomeCallable MongodbClient::DescribeAs
     return prom->get_future();
 }
 
-MongodbClient::DescribeAuditConfigOutcome MongodbClient::DescribeAuditConfig(const DescribeAuditConfigRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAuditConfig");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAuditConfigResponse rsp = DescribeAuditConfigResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAuditConfigOutcome(rsp);
-        else
-            return DescribeAuditConfigOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAuditConfigOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::DescribeAuditConfigAsync(const DescribeAuditConfigRequest& request, const DescribeAuditConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeAuditConfigRequest&;
-    using Resp = DescribeAuditConfigResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::DescribeAuditConfigOutcomeCallable MongodbClient::DescribeAuditConfigCallable(const DescribeAuditConfigRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeAuditConfigOutcome>>();
-    DescribeAuditConfigAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const DescribeAuditConfigRequest&,
-        DescribeAuditConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MongodbClient::DescribeAuditInstanceListOutcome MongodbClient::DescribeAuditInstanceList(const DescribeAuditInstanceListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeAuditInstanceList");
@@ -882,106 +782,6 @@ MongodbClient::DescribeAuditInstanceListOutcomeCallable MongodbClient::DescribeA
         const MongodbClient*,
         const DescribeAuditInstanceListRequest&,
         DescribeAuditInstanceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MongodbClient::DescribeAuditLogFilesOutcome MongodbClient::DescribeAuditLogFiles(const DescribeAuditLogFilesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAuditLogFiles");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAuditLogFilesResponse rsp = DescribeAuditLogFilesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAuditLogFilesOutcome(rsp);
-        else
-            return DescribeAuditLogFilesOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAuditLogFilesOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::DescribeAuditLogFilesAsync(const DescribeAuditLogFilesRequest& request, const DescribeAuditLogFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeAuditLogFilesRequest&;
-    using Resp = DescribeAuditLogFilesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditLogFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::DescribeAuditLogFilesOutcomeCallable MongodbClient::DescribeAuditLogFilesCallable(const DescribeAuditLogFilesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeAuditLogFilesOutcome>>();
-    DescribeAuditLogFilesAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const DescribeAuditLogFilesRequest&,
-        DescribeAuditLogFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MongodbClient::DescribeAuditLogsOutcome MongodbClient::DescribeAuditLogs(const DescribeAuditLogsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAuditLogs");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAuditLogsResponse rsp = DescribeAuditLogsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAuditLogsOutcome(rsp);
-        else
-            return DescribeAuditLogsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAuditLogsOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::DescribeAuditLogsAsync(const DescribeAuditLogsRequest& request, const DescribeAuditLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeAuditLogsRequest&;
-    using Resp = DescribeAuditLogsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::DescribeAuditLogsOutcomeCallable MongodbClient::DescribeAuditLogsCallable(const DescribeAuditLogsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeAuditLogsOutcome>>();
-    DescribeAuditLogsAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const DescribeAuditLogsRequest&,
-        DescribeAuditLogsOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1840,56 +1640,6 @@ MongodbClient::DescribeMongodbLogsOutcomeCallable MongodbClient::DescribeMongodb
     return prom->get_future();
 }
 
-MongodbClient::DescribeSRVConnectionDomainOutcome MongodbClient::DescribeSRVConnectionDomain(const DescribeSRVConnectionDomainRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeSRVConnectionDomain");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeSRVConnectionDomainResponse rsp = DescribeSRVConnectionDomainResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeSRVConnectionDomainOutcome(rsp);
-        else
-            return DescribeSRVConnectionDomainOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeSRVConnectionDomainOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::DescribeSRVConnectionDomainAsync(const DescribeSRVConnectionDomainRequest& request, const DescribeSRVConnectionDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeSRVConnectionDomainRequest&;
-    using Resp = DescribeSRVConnectionDomainResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeSRVConnectionDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::DescribeSRVConnectionDomainOutcomeCallable MongodbClient::DescribeSRVConnectionDomainCallable(const DescribeSRVConnectionDomainRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeSRVConnectionDomainOutcome>>();
-    DescribeSRVConnectionDomainAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const DescribeSRVConnectionDomainRequest&,
-        DescribeSRVConnectionDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MongodbClient::DescribeSecurityGroupOutcome MongodbClient::DescribeSecurityGroup(const DescribeSecurityGroupRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeSecurityGroup");
@@ -2140,56 +1890,6 @@ MongodbClient::DescribeTransparentDataEncryptionStatusOutcomeCallable MongodbCli
     return prom->get_future();
 }
 
-MongodbClient::DisableSRVConnectionUrlOutcome MongodbClient::DisableSRVConnectionUrl(const DisableSRVConnectionUrlRequest &request)
-{
-    auto outcome = MakeRequest(request, "DisableSRVConnectionUrl");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DisableSRVConnectionUrlResponse rsp = DisableSRVConnectionUrlResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DisableSRVConnectionUrlOutcome(rsp);
-        else
-            return DisableSRVConnectionUrlOutcome(o.GetError());
-    }
-    else
-    {
-        return DisableSRVConnectionUrlOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::DisableSRVConnectionUrlAsync(const DisableSRVConnectionUrlRequest& request, const DisableSRVConnectionUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DisableSRVConnectionUrlRequest&;
-    using Resp = DisableSRVConnectionUrlResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DisableSRVConnectionUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::DisableSRVConnectionUrlOutcomeCallable MongodbClient::DisableSRVConnectionUrlCallable(const DisableSRVConnectionUrlRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DisableSRVConnectionUrlOutcome>>();
-    DisableSRVConnectionUrlAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const DisableSRVConnectionUrlRequest&,
-        DisableSRVConnectionUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MongodbClient::DropDBInstanceParamTplOutcome MongodbClient::DropDBInstanceParamTpl(const DropDBInstanceParamTplRequest &request)
 {
     auto outcome = MakeRequest(request, "DropDBInstanceParamTpl");
@@ -2232,56 +1932,6 @@ MongodbClient::DropDBInstanceParamTplOutcomeCallable MongodbClient::DropDBInstan
         const MongodbClient*,
         const DropDBInstanceParamTplRequest&,
         DropDBInstanceParamTplOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MongodbClient::EnableSRVConnectionUrlOutcome MongodbClient::EnableSRVConnectionUrl(const EnableSRVConnectionUrlRequest &request)
-{
-    auto outcome = MakeRequest(request, "EnableSRVConnectionUrl");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        EnableSRVConnectionUrlResponse rsp = EnableSRVConnectionUrlResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return EnableSRVConnectionUrlOutcome(rsp);
-        else
-            return EnableSRVConnectionUrlOutcome(o.GetError());
-    }
-    else
-    {
-        return EnableSRVConnectionUrlOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::EnableSRVConnectionUrlAsync(const EnableSRVConnectionUrlRequest& request, const EnableSRVConnectionUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const EnableSRVConnectionUrlRequest&;
-    using Resp = EnableSRVConnectionUrlResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "EnableSRVConnectionUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::EnableSRVConnectionUrlOutcomeCallable MongodbClient::EnableSRVConnectionUrlCallable(const EnableSRVConnectionUrlRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<EnableSRVConnectionUrlOutcome>>();
-    EnableSRVConnectionUrlAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const EnableSRVConnectionUrlRequest&,
-        EnableSRVConnectionUrlOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3032,56 +2682,6 @@ MongodbClient::ModifyInstanceParamsOutcomeCallable MongodbClient::ModifyInstance
         const MongodbClient*,
         const ModifyInstanceParamsRequest&,
         ModifyInstanceParamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MongodbClient::ModifySRVConnectionUrlOutcome MongodbClient::ModifySRVConnectionUrl(const ModifySRVConnectionUrlRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifySRVConnectionUrl");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifySRVConnectionUrlResponse rsp = ModifySRVConnectionUrlResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifySRVConnectionUrlOutcome(rsp);
-        else
-            return ModifySRVConnectionUrlOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifySRVConnectionUrlOutcome(outcome.GetError());
-    }
-}
-
-void MongodbClient::ModifySRVConnectionUrlAsync(const ModifySRVConnectionUrlRequest& request, const ModifySRVConnectionUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifySRVConnectionUrlRequest&;
-    using Resp = ModifySRVConnectionUrlResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifySRVConnectionUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MongodbClient::ModifySRVConnectionUrlOutcomeCallable MongodbClient::ModifySRVConnectionUrlCallable(const ModifySRVConnectionUrlRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifySRVConnectionUrlOutcome>>();
-    ModifySRVConnectionUrlAsync(
-    request,
-    [prom](
-        const MongodbClient*,
-        const ModifySRVConnectionUrlRequest&,
-        ModifySRVConnectionUrlOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例 ID。</p>
-                     * @return InstanceId <p>实例 ID。</p>
+                     * 获取实例 ID。
+                     * @return InstanceId 实例 ID。
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>实例 ID。</p>
-                     * @param _instanceId <p>实例 ID。</p>
+                     * 设置实例 ID。
+                     * @param _instanceId 实例 ID。
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>账号名称。</p>
-                     * @return AccountName <p>账号名称。</p>
+                     * 获取账号名称。
+                     * @return AccountName 账号名称。
                      * 
                      */
                     std::string GetAccountName() const;
 
                     /**
-                     * 设置<p>账号名称。</p>
-                     * @param _accountName <p>账号名称。</p>
+                     * 设置账号名称。
+                     * @param _accountName 账号名称。
                      * 
                      */
                     void SetAccountName(const std::string& _accountName);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool AccountNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>账号描述信息。</p>
-                     * @return Remark <p>账号描述信息。</p>
+                     * 获取账号描述信息。
+                     * @return Remark 账号描述信息。
                      * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置<p>账号描述信息。</p>
-                     * @param _remark <p>账号描述信息。</p>
+                     * 设置账号描述信息。
+                     * @param _remark 账号描述信息。
                      * 
                      */
                     void SetRemark(const std::string& _remark);
@@ -110,15 +110,27 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
-                     * @return Privilege <p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
+                     * 获取读写权限策略。
+- r：只读。
+- w：只写。
+- rw：读写。
+                     * @return Privilege 读写权限策略。
+- r：只读。
+- w：只写。
+- rw：读写。
                      * 
                      */
                     std::string GetPrivilege() const;
 
                     /**
-                     * 设置<p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
-                     * @param _privilege <p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
+                     * 设置读写权限策略。
+- r：只读。
+- w：只写。
+- rw：读写。
+                     * @param _privilege 读写权限策略。
+- r：只读。
+- w：只写。
+- rw：读写。
                      * 
                      */
                     void SetPrivilege(const std::string& _privilege);
@@ -131,15 +143,23 @@ namespace TencentCloud
                     bool PrivilegeHasBeenSet() const;
 
                     /**
-                     * 获取<p>只读路由策略。- master：主节点。- replication：从节点。</p>
-                     * @return ReadonlyPolicy <p>只读路由策略。- master：主节点。- replication：从节点。</p>
+                     * 获取只读路由策略。
+- master：主节点。
+- replication：从节点。
+                     * @return ReadonlyPolicy 只读路由策略。
+- master：主节点。
+- replication：从节点。
                      * 
                      */
                     std::vector<std::string> GetReadonlyPolicy() const;
 
                     /**
-                     * 设置<p>只读路由策略。- master：主节点。- replication：从节点。</p>
-                     * @param _readonlyPolicy <p>只读路由策略。- master：主节点。- replication：从节点。</p>
+                     * 设置只读路由策略。
+- master：主节点。
+- replication：从节点。
+                     * @param _readonlyPolicy 只读路由策略。
+- master：主节点。
+- replication：从节点。
                      * 
                      */
                     void SetReadonlyPolicy(const std::vector<std::string>& _readonlyPolicy);
@@ -152,15 +172,27 @@ namespace TencentCloud
                     bool ReadonlyPolicyHasBeenSet() const;
 
                     /**
-                     * 获取<p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
-                     * @return Status <p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
+                     * 获取子账号状态.
+- 1：账号变更中。
+- 2：账号有效。
+- 4：账号已删除。
+                     * @return Status 子账号状态.
+- 1：账号变更中。
+- 2：账号有效。
+- 4：账号已删除。
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
-                     * @param _status <p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
+                     * 设置子账号状态.
+- 1：账号变更中。
+- 2：账号有效。
+- 4：账号已删除。
+                     * @param _status 子账号状态.
+- 1：账号变更中。
+- 2：账号有效。
+- 4：账号已删除。
                      * 
                      */
                     void SetStatus(const int64_t& _status);
@@ -173,15 +205,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
-                     * @return CreateTime <p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+                     * 获取创建时间
+                     * @return CreateTime 创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
-                     * @param _createTime <p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+                     * 设置创建时间
+                     * @param _createTime 创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -193,76 +225,57 @@ namespace TencentCloud
                      */
                     bool CreateTimeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
-                     * @return PasswordLastModifiedTime <p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
-                     * 
-                     */
-                    std::string GetPasswordLastModifiedTime() const;
-
-                    /**
-                     * 设置<p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
-                     * @param _passwordLastModifiedTime <p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
-                     * 
-                     */
-                    void SetPasswordLastModifiedTime(const std::string& _passwordLastModifiedTime);
-
-                    /**
-                     * 判断参数 PasswordLastModifiedTime 是否已赋值
-                     * @return PasswordLastModifiedTime 是否已赋值
-                     * 
-                     */
-                    bool PasswordLastModifiedTimeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>实例 ID。</p>
+                     * 实例 ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>账号名称。</p>
+                     * 账号名称。
                      */
                     std::string m_accountName;
                     bool m_accountNameHasBeenSet;
 
                     /**
-                     * <p>账号描述信息。</p>
+                     * 账号描述信息。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>读写权限策略。- r：只读。- w：只写。- rw：读写。</p>
+                     * 读写权限策略。
+- r：只读。
+- w：只写。
+- rw：读写。
                      */
                     std::string m_privilege;
                     bool m_privilegeHasBeenSet;
 
                     /**
-                     * <p>只读路由策略。- master：主节点。- replication：从节点。</p>
+                     * 只读路由策略。
+- master：主节点。
+- replication：从节点。
                      */
                     std::vector<std::string> m_readonlyPolicy;
                     bool m_readonlyPolicyHasBeenSet;
 
                     /**
-                     * <p>子账号状态.- 1：账号变更中。- 2：账号有效。- 4：账号已删除。</p>
+                     * 子账号状态.
+- 1：账号变更中。
+- 2：账号有效。
+- 4：账号已删除。
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>账号创建时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持创建时间记录功能。</p>
+                     * 创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
-
-                    /**
-                     * <p>账号最后修改密码的时间。</p><p>若该参数为空字符串，说明该账号创建于早期版本，未支持密码修改时间记录功能。</p>
-                     */
-                    std::string m_passwordLastModifiedTime;
-                    bool m_passwordLastModifiedTimeHasBeenSet;
 
                 };
             }

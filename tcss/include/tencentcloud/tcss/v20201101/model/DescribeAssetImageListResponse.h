@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>镜像列表</p>
-                     * @return List <p>镜像列表</p>
+                     * 获取镜像列表
+                     * @return List 镜像列表
                      * 
                      */
                     std::vector<ImagesInfo> GetList() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool ListHasBeenSet() const;
 
                     /**
-                     * 获取<p>总数量</p>
-                     * @return TotalCount <p>总数量</p>
+                     * 获取总数量
+                     * @return TotalCount 总数量
                      * 
                      */
                     uint64_t GetTotalCount() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>镜像列表</p>
+                     * 镜像列表
                      */
                     std::vector<ImagesInfo> m_list;
                     bool m_listHasBeenSet;
 
                     /**
-                     * <p>总数量</p>
+                     * 总数量
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

@@ -25,8 +25,8 @@ using namespace std;
 BindStaffSkillGroupListRequest::BindStaffSkillGroupListRequest() :
     m_sdkAppIdHasBeenSet(false),
     m_staffEmailHasBeenSet(false),
-    m_staffSkillGroupListHasBeenSet(false),
-    m_skillGroupListHasBeenSet(false)
+    m_skillGroupListHasBeenSet(false),
+    m_staffSkillGroupListHasBeenSet(false)
 {
 }
 
@@ -53,6 +53,19 @@ string BindStaffSkillGroupListRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_staffEmail.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_skillGroupListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SkillGroupList";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_skillGroupList.begin(); itr != m_skillGroupList.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
+        }
+    }
+
     if (m_staffSkillGroupListHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -65,19 +78,6 @@ string BindStaffSkillGroupListRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_skillGroupListHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SkillGroupList";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_skillGroupList.begin(); itr != m_skillGroupList.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
         }
     }
 
@@ -121,22 +121,6 @@ bool BindStaffSkillGroupListRequest::StaffEmailHasBeenSet() const
     return m_staffEmailHasBeenSet;
 }
 
-vector<StaffSkillGroupList> BindStaffSkillGroupListRequest::GetStaffSkillGroupList() const
-{
-    return m_staffSkillGroupList;
-}
-
-void BindStaffSkillGroupListRequest::SetStaffSkillGroupList(const vector<StaffSkillGroupList>& _staffSkillGroupList)
-{
-    m_staffSkillGroupList = _staffSkillGroupList;
-    m_staffSkillGroupListHasBeenSet = true;
-}
-
-bool BindStaffSkillGroupListRequest::StaffSkillGroupListHasBeenSet() const
-{
-    return m_staffSkillGroupListHasBeenSet;
-}
-
 vector<int64_t> BindStaffSkillGroupListRequest::GetSkillGroupList() const
 {
     return m_skillGroupList;
@@ -151,6 +135,22 @@ void BindStaffSkillGroupListRequest::SetSkillGroupList(const vector<int64_t>& _s
 bool BindStaffSkillGroupListRequest::SkillGroupListHasBeenSet() const
 {
     return m_skillGroupListHasBeenSet;
+}
+
+vector<StaffSkillGroupList> BindStaffSkillGroupListRequest::GetStaffSkillGroupList() const
+{
+    return m_staffSkillGroupList;
+}
+
+void BindStaffSkillGroupListRequest::SetStaffSkillGroupList(const vector<StaffSkillGroupList>& _staffSkillGroupList)
+{
+    m_staffSkillGroupList = _staffSkillGroupList;
+    m_staffSkillGroupListHasBeenSet = true;
+}
+
+bool BindStaffSkillGroupListRequest::StaffSkillGroupListHasBeenSet() const
+{
+    return m_staffSkillGroupListHasBeenSet;
 }
 
 

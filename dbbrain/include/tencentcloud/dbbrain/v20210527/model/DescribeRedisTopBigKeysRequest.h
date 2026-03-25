@@ -64,6 +64,27 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
+                     * 获取查询日期，如2021-05-27，最早可为前30天的日期。
+                     * @return Date 查询日期，如2021-05-27，最早可为前30天的日期。
+                     * 
+                     */
+                    std::string GetDate() const;
+
+                    /**
+                     * 设置查询日期，如2021-05-27，最早可为前30天的日期。
+                     * @param _date 查询日期，如2021-05-27，最早可为前30天的日期。
+                     * 
+                     */
+                    void SetDate(const std::string& _date);
+
+                    /**
+                     * 判断参数 Date 是否已赋值
+                     * @return Date 是否已赋值
+                     * 
+                     */
+                    bool DateHasBeenSet() const;
+
+                    /**
                      * 获取服务产品类型，支持值包括 "redis" - 云数据库 Redis。
                      * @return Product 服务产品类型，支持值包括 "redis" - 云数据库 Redis。
                      * 
@@ -83,27 +104,6 @@ namespace TencentCloud
                      * 
                      */
                     bool ProductHasBeenSet() const;
-
-                    /**
-                     * 获取查询某个日期最新的任务，如2021-05-27，最早可为前30天的日期。该参数与AsyncRequestId参数不可同时为空。
-                     * @return Date 查询某个日期最新的任务，如2021-05-27，最早可为前30天的日期。该参数与AsyncRequestId参数不可同时为空。
-                     * 
-                     */
-                    std::string GetDate() const;
-
-                    /**
-                     * 设置查询某个日期最新的任务，如2021-05-27，最早可为前30天的日期。该参数与AsyncRequestId参数不可同时为空。
-                     * @param _date 查询某个日期最新的任务，如2021-05-27，最早可为前30天的日期。该参数与AsyncRequestId参数不可同时为空。
-                     * 
-                     */
-                    void SetDate(const std::string& _date);
-
-                    /**
-                     * 判断参数 Date 是否已赋值
-                     * @return Date 是否已赋值
-                     * 
-                     */
-                    bool DateHasBeenSet() const;
 
                     /**
                      * 获取排序字段，取值包括Capacity - 内存，ItemCount - 元素数量，默认为Capacity。
@@ -210,31 +210,6 @@ namespace TencentCloud
                      */
                     bool ShardIdsHasBeenSet() const;
 
-                    /**
-                     * 获取是否仅查询未设置过期时间的大Key。
-当为true时，仅查询未设置过期时间的大Key，默认为false。
-                     * @return UnExpireKey 是否仅查询未设置过期时间的大Key。
-当为true时，仅查询未设置过期时间的大Key，默认为false。
-                     * 
-                     */
-                    bool GetUnExpireKey() const;
-
-                    /**
-                     * 设置是否仅查询未设置过期时间的大Key。
-当为true时，仅查询未设置过期时间的大Key，默认为false。
-                     * @param _unExpireKey 是否仅查询未设置过期时间的大Key。
-当为true时，仅查询未设置过期时间的大Key，默认为false。
-                     * 
-                     */
-                    void SetUnExpireKey(const bool& _unExpireKey);
-
-                    /**
-                     * 判断参数 UnExpireKey 是否已赋值
-                     * @return UnExpireKey 是否已赋值
-                     * 
-                     */
-                    bool UnExpireKeyHasBeenSet() const;
-
                 private:
 
                     /**
@@ -244,16 +219,16 @@ namespace TencentCloud
                     bool m_instanceIdHasBeenSet;
 
                     /**
+                     * 查询日期，如2021-05-27，最早可为前30天的日期。
+                     */
+                    std::string m_date;
+                    bool m_dateHasBeenSet;
+
+                    /**
                      * 服务产品类型，支持值包括 "redis" - 云数据库 Redis。
                      */
                     std::string m_product;
                     bool m_productHasBeenSet;
-
-                    /**
-                     * 查询某个日期最新的任务，如2021-05-27，最早可为前30天的日期。该参数与AsyncRequestId参数不可同时为空。
-                     */
-                    std::string m_date;
-                    bool m_dateHasBeenSet;
 
                     /**
                      * 排序字段，取值包括Capacity - 内存，ItemCount - 元素数量，默认为Capacity。
@@ -284,13 +259,6 @@ namespace TencentCloud
                      */
                     std::vector<int64_t> m_shardIds;
                     bool m_shardIdsHasBeenSet;
-
-                    /**
-                     * 是否仅查询未设置过期时间的大Key。
-当为true时，仅查询未设置过期时间的大Key，默认为false。
-                     */
-                    bool m_unExpireKey;
-                    bool m_unExpireKeyHasBeenSet;
 
                 };
             }

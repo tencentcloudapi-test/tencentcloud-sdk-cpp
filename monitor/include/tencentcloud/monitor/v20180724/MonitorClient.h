@@ -181,8 +181,6 @@
 #include <tencentcloud/monitor/v20180724/model/DescribeMonitorResourceInfoResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeMonitorTypesRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeMonitorTypesResponse.h>
-#include <tencentcloud/monitor/v20180724/model/DescribeNotificationContentTemplateSupportsRequest.h>
-#include <tencentcloud/monitor/v20180724/model/DescribeNotificationContentTemplateSupportsResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribePhoneAlarmFlowTotalCountRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DescribePhoneAlarmFlowTotalCountResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribePluginOverviewsRequest.h>
@@ -614,9 +612,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeMonitorTypesResponse> DescribeMonitorTypesOutcome;
                 typedef std::future<DescribeMonitorTypesOutcome> DescribeMonitorTypesOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DescribeMonitorTypesRequest&, DescribeMonitorTypesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMonitorTypesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeNotificationContentTemplateSupportsResponse> DescribeNotificationContentTemplateSupportsOutcome;
-                typedef std::future<DescribeNotificationContentTemplateSupportsOutcome> DescribeNotificationContentTemplateSupportsOutcomeCallable;
-                typedef std::function<void(const MonitorClient*, const Model::DescribeNotificationContentTemplateSupportsRequest&, DescribeNotificationContentTemplateSupportsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeNotificationContentTemplateSupportsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribePhoneAlarmFlowTotalCountResponse> DescribePhoneAlarmFlowTotalCountOutcome;
                 typedef std::future<DescribePhoneAlarmFlowTotalCountOutcome> DescribePhoneAlarmFlowTotalCountOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DescribePhoneAlarmFlowTotalCountRequest&, DescribePhoneAlarmFlowTotalCountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePhoneAlarmFlowTotalCountAsyncHandler;
@@ -1076,9 +1071,7 @@ namespace TencentCloud
                 CreatePrometheusConfigOutcomeCallable CreatePrometheusConfigCallable(const Model::CreatePrometheusConfigRequest& request);
 
                 /**
-                 *之前TPS的接口，迁移后已经不需要该功能
-
-创建全局告警通知渠道。集群内创建的告警规则如果未配置告警通知渠道，默认走全局告警通知渠道（建议在控制台创建告警，集群内创建告警不易维护）
+                 *创建全局告警通知渠道。集群内创建的告警规则如果未配置告警通知渠道，默认走全局告警通知渠道（建议在控制台创建告警，集群内创建告警不易维护）
                  * @param req CreatePrometheusGlobalNotificationRequest
                  * @return CreatePrometheusGlobalNotificationOutcome
                  */
@@ -1224,9 +1217,7 @@ namespace TencentCloud
                 DeleteGrafanaNotificationChannelOutcomeCallable DeleteGrafanaNotificationChannelCallable(const Model::DeleteGrafanaNotificationChannelRequest& request);
 
                 /**
-                 *告警 1.0 API，不能再使用否则会导致后端数据不一致
-
-删除告警策略组
+                 *删除告警策略组
                  * @param req DeletePolicyGroupRequest
                  * @return DeletePolicyGroupOutcome
                  */
@@ -1617,15 +1608,6 @@ namespace TencentCloud
                 DescribeMonitorTypesOutcomeCallable DescribeMonitorTypesCallable(const Model::DescribeMonitorTypesRequest& request);
 
                 /**
-                 *查询告警通知内容模板支持的变量或者函数列表
-                 * @param req DescribeNotificationContentTemplateSupportsRequest
-                 * @return DescribeNotificationContentTemplateSupportsOutcome
-                 */
-                DescribeNotificationContentTemplateSupportsOutcome DescribeNotificationContentTemplateSupports(const Model::DescribeNotificationContentTemplateSupportsRequest &request);
-                void DescribeNotificationContentTemplateSupportsAsync(const Model::DescribeNotificationContentTemplateSupportsRequest& request, const DescribeNotificationContentTemplateSupportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeNotificationContentTemplateSupportsOutcomeCallable DescribeNotificationContentTemplateSupportsCallable(const Model::DescribeNotificationContentTemplateSupportsRequest& request);
-
-                /**
                  *查询周期内电话流水总数
                  * @param req DescribePhoneAlarmFlowTotalCountRequest
                  * @return DescribePhoneAlarmFlowTotalCountOutcome
@@ -1761,9 +1743,7 @@ namespace TencentCloud
                 DescribePrometheusGlobalConfigOutcomeCallable DescribePrometheusGlobalConfigCallable(const Model::DescribePrometheusGlobalConfigRequest& request);
 
                 /**
-                 *之前TPS的接口，迁移后已经不需要
-
-查询全局告警通知渠道
+                 *查询全局告警通知渠道
                  * @param req DescribePrometheusGlobalNotificationRequest
                  * @return DescribePrometheusGlobalNotificationOutcome
                  */
@@ -2005,8 +1985,10 @@ namespace TencentCloud
                 /**
                  *获取云产品的监控数据。此接口不适用于拉取容器服务监控数据，如需拉取容器服务监控数据，请使用[根据维度条件查询监控数据](https://cloud.tencent.com/document/product/248/51845)接口。
 传入产品的命名空间、对象维度描述和监控指标即可获得相应的监控数据。
-接口调用限制：单请求最多可支持批量拉取50个实例的监控数据，单请求的数据点数限制为7200个。
+接口调用限制：单请求最多可支持批量拉取10个实例的监控数据，单请求的数据点数限制为1440个。
 若您需要调用的指标、对象较多，可能存在因限频出现拉取失败的情况，建议尽量将请求按时间维度均摊。
+参数SpecifyStatistics目前可支持返回三种统计方式（avg，max，min），分别为二进制1，2，4。
+例子：3:avg+max，5:avg+min，6:max+min，7:avg+max+min
 拉取数据的粒度和统计方式的对应关系尽量在接入平台进行配置，如果没有配置对应统计方式，请提工单反馈。
 
 >?
@@ -2154,9 +2136,7 @@ namespace TencentCloud
                 ModifyPrometheusConfigOutcomeCallable ModifyPrometheusConfigCallable(const Model::ModifyPrometheusConfigRequest& request);
 
                 /**
-                 *之前TPS接口，迁移后不需要
-
-修改全局告警通知渠道
+                 *修改全局告警通知渠道
                  * @param req ModifyPrometheusGlobalNotificationRequest
                  * @return ModifyPrometheusGlobalNotificationOutcome
                  */

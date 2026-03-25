@@ -50,15 +50,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>请求总量</p>
-                     * @return ActionTotal <p>请求总量</p>
+                     * 获取请求总量
+                     * @return ActionTotal 请求总量
                      * 
                      */
                     int64_t GetActionTotal() const;
 
                     /**
-                     * 设置<p>请求总量</p>
-                     * @param _actionTotal <p>请求总量</p>
+                     * 设置请求总量
+                     * @param _actionTotal 请求总量
                      * 
                      */
                     void SetActionTotal(const int64_t& _actionTotal);
@@ -71,15 +71,15 @@ namespace TencentCloud
                     bool ActionTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>验证总量</p>
-                     * @return VerifyTotal <p>验证总量</p>
+                     * 获取验证总量
+                     * @return VerifyTotal 验证总量
                      * 
                      */
                     int64_t GetVerifyTotal() const;
 
                     /**
-                     * 设置<p>验证总量</p>
-                     * @param _verifyTotal <p>验证总量</p>
+                     * 设置验证总量
+                     * @param _verifyTotal 验证总量
                      * 
                      */
                     void SetVerifyTotal(const int64_t& _verifyTotal);
@@ -92,15 +92,15 @@ namespace TencentCloud
                     bool VerifyTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>验证通过总量</p>
-                     * @return VerifyThroughTotal <p>验证通过总量</p>
+                     * 获取验证通过总量
+                     * @return VerifyThroughTotal 验证通过总量
                      * 
                      */
                     int64_t GetVerifyThroughTotal() const;
 
                     /**
-                     * 设置<p>验证通过总量</p>
-                     * @param _verifyThroughTotal <p>验证通过总量</p>
+                     * 设置验证通过总量
+                     * @param _verifyThroughTotal 验证通过总量
                      * 
                      */
                     void SetVerifyThroughTotal(const int64_t& _verifyThroughTotal);
@@ -113,15 +113,15 @@ namespace TencentCloud
                     bool VerifyThroughTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>验证拦截总量</p>
-                     * @return VerifyInterceptTotal <p>验证拦截总量</p>
+                     * 获取验证拦截总量
+                     * @return VerifyInterceptTotal 验证拦截总量
                      * 
                      */
                     int64_t GetVerifyInterceptTotal() const;
 
                     /**
-                     * 设置<p>验证拦截总量</p>
-                     * @param _verifyInterceptTotal <p>验证拦截总量</p>
+                     * 设置验证拦截总量
+                     * @param _verifyInterceptTotal 验证拦截总量
                      * 
                      */
                     void SetVerifyInterceptTotal(const int64_t& _verifyInterceptTotal);
@@ -134,15 +134,15 @@ namespace TencentCloud
                     bool VerifyInterceptTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>票据校验总量</p>
-                     * @return TicketTotal <p>票据校验总量</p>
+                     * 获取票据校验总量
+                     * @return TicketTotal 票据校验总量
                      * 
                      */
                     int64_t GetTicketTotal() const;
 
                     /**
-                     * 设置<p>票据校验总量</p>
-                     * @param _ticketTotal <p>票据校验总量</p>
+                     * 设置票据校验总量
+                     * @param _ticketTotal 票据校验总量
                      * 
                      */
                     void SetTicketTotal(const int64_t& _ticketTotal);
@@ -155,15 +155,15 @@ namespace TencentCloud
                     bool TicketTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>票据通过总量</p>
-                     * @return TicketThroughTotal <p>票据通过总量</p>
+                     * 获取票据通过总量
+                     * @return TicketThroughTotal 票据通过总量
                      * 
                      */
                     int64_t GetTicketThroughTotal() const;
 
                     /**
-                     * 设置<p>票据通过总量</p>
-                     * @param _ticketThroughTotal <p>票据通过总量</p>
+                     * 设置票据通过总量
+                     * @param _ticketThroughTotal 票据通过总量
                      * 
                      */
                     void SetTicketThroughTotal(const int64_t& _ticketThroughTotal);
@@ -176,15 +176,15 @@ namespace TencentCloud
                     bool TicketThroughTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>票据拦截总量</p>
-                     * @return TicketInterceptTotal <p>票据拦截总量</p>
+                     * 获取票据拦截总量
+                     * @return TicketInterceptTotal 票据拦截总量
                      * 
                      */
                     int64_t GetTicketInterceptTotal() const;
 
                     /**
-                     * 设置<p>票据拦截总量</p>
-                     * @param _ticketInterceptTotal <p>票据拦截总量</p>
+                     * 设置票据拦截总量
+                     * @param _ticketInterceptTotal 票据拦截总量
                      * 
                      */
                     void SetTicketInterceptTotal(const int64_t& _ticketInterceptTotal);
@@ -197,18 +197,18 @@ namespace TencentCloud
                     bool TicketInterceptTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>请求趋势图</p>
+                     * 获取请求趋势图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RequestTrend <p>请求趋势图</p>
+                     * @return RequestTrend 请求趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<RequestTrendObj> GetRequestTrend() const;
 
                     /**
-                     * 设置<p>请求趋势图</p>
+                     * 设置请求趋势图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _requestTrend <p>请求趋势图</p>
+                     * @param _requestTrend 请求趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -222,18 +222,18 @@ namespace TencentCloud
                     bool RequestTrendHasBeenSet() const;
 
                     /**
-                     * 获取<p>拦截率趋势图</p>
+                     * 获取拦截率趋势图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return InterceptPerTrend <p>拦截率趋势图</p>
+                     * @return InterceptPerTrend 拦截率趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<InterceptPerTrendObj> GetInterceptPerTrend() const;
 
                     /**
-                     * 设置<p>拦截率趋势图</p>
+                     * 设置拦截率趋势图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _interceptPerTrend <p>拦截率趋势图</p>
+                     * @param _interceptPerTrend 拦截率趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -247,18 +247,18 @@ namespace TencentCloud
                     bool InterceptPerTrendHasBeenSet() const;
 
                     /**
-                     * 获取<p>票据校验趋势图</p>
+                     * 获取票据校验趋势图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TicketCheckTrend <p>票据校验趋势图</p>
+                     * @return TicketCheckTrend 票据校验趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<TicketCheckTrendObj> GetTicketCheckTrend() const;
 
                     /**
-                     * 设置<p>票据校验趋势图</p>
+                     * 设置票据校验趋势图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _ticketCheckTrend <p>票据校验趋势图</p>
+                     * @param _ticketCheckTrend 票据校验趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -274,63 +274,63 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>请求总量</p>
+                     * 请求总量
                      */
                     int64_t m_actionTotal;
                     bool m_actionTotalHasBeenSet;
 
                     /**
-                     * <p>验证总量</p>
+                     * 验证总量
                      */
                     int64_t m_verifyTotal;
                     bool m_verifyTotalHasBeenSet;
 
                     /**
-                     * <p>验证通过总量</p>
+                     * 验证通过总量
                      */
                     int64_t m_verifyThroughTotal;
                     bool m_verifyThroughTotalHasBeenSet;
 
                     /**
-                     * <p>验证拦截总量</p>
+                     * 验证拦截总量
                      */
                     int64_t m_verifyInterceptTotal;
                     bool m_verifyInterceptTotalHasBeenSet;
 
                     /**
-                     * <p>票据校验总量</p>
+                     * 票据校验总量
                      */
                     int64_t m_ticketTotal;
                     bool m_ticketTotalHasBeenSet;
 
                     /**
-                     * <p>票据通过总量</p>
+                     * 票据通过总量
                      */
                     int64_t m_ticketThroughTotal;
                     bool m_ticketThroughTotalHasBeenSet;
 
                     /**
-                     * <p>票据拦截总量</p>
+                     * 票据拦截总量
                      */
                     int64_t m_ticketInterceptTotal;
                     bool m_ticketInterceptTotalHasBeenSet;
 
                     /**
-                     * <p>请求趋势图</p>
+                     * 请求趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<RequestTrendObj> m_requestTrend;
                     bool m_requestTrendHasBeenSet;
 
                     /**
-                     * <p>拦截率趋势图</p>
+                     * 拦截率趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<InterceptPerTrendObj> m_interceptPerTrend;
                     bool m_interceptPerTrendHasBeenSet;
 
                     /**
-                     * <p>票据校验趋势图</p>
+                     * 票据校验趋势图
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TicketCheckTrendObj> m_ticketCheckTrend;

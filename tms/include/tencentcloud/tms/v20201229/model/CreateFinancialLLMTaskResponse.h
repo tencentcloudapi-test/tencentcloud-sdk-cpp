@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取本次请求返回的任务ID将用于后续查询接口，以获取对应的审校结果。
-                     * @return TaskId 本次请求返回的任务ID将用于后续查询接口，以获取对应的审校结果。
+                     * 获取金融大模型审校任务ID
+                     * @return TaskId 金融大模型审校任务ID
                      * 
                      */
                     std::string GetTaskId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 本次请求返回的任务ID将用于后续查询接口，以获取对应的审校结果。
+                     * 金融大模型审校任务ID
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;

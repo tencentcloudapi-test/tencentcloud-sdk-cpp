@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务ID</p>
-                     * @return FlowId <p>任务ID</p>
+                     * 获取任务ID
+                     * @return FlowId 任务ID
                      * 
                      */
                     int64_t GetFlowId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务ID</p>
+                     * 任务ID
                      */
                     int64_t m_flowId;
                     bool m_flowIdHasBeenSet;

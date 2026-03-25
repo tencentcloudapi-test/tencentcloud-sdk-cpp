@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果</p>
-                     * @return TaskId <p>任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果</p>
+                     * 获取任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果
+                     * @return TaskId 任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果
                      * 
                      */
                     std::string GetTaskId() const;
 
                     /**
-                     * 设置<p>任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果</p>
-                     * @param _taskId <p>任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果</p>
+                     * 设置任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果
+                     * @param _taskId 任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果
                      * 
                      */
                     void SetTaskId(const std::string& _taskId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool TaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例</p>
-                     * @return Limit <p>每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例</p>
+                     * 获取每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例
+                     * @return Limit 每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例
                      * 
                      */
                     std::string GetLimit() const;
 
                     /**
-                     * 设置<p>每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例</p>
-                     * @param _limit <p>每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例</p>
+                     * 设置每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例
+                     * @param _limit 每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例
                      * 
                      */
                     void SetLimit(const std::string& _limit);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前偏移量，默认为0</p>
-                     * @return Offset <p>当前偏移量，默认为0</p>
+                     * 获取当前偏移量，默认为0
+                     * @return Offset 当前偏移量，默认为0
                      * 
                      */
                     std::string GetOffset() const;
 
                     /**
-                     * 设置<p>当前偏移量，默认为0</p>
-                     * @param _offset <p>当前偏移量，默认为0</p>
+                     * 设置当前偏移量，默认为0
+                     * @param _offset 当前偏移量，默认为0
                      * 
                      */
                     void SetOffset(const std::string& _offset);
@@ -106,15 +106,63 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询资源类型的结果详情， 不传则查询所有，取值支持：- clb- cdn- ddos- live- vod- waf- apigateway- teo- tke- cos- tse- tcb</p>
-                     * @return ResourceTypes <p>查询资源类型的结果详情， 不传则查询所有，取值支持：- clb- cdn- ddos- live- vod- waf- apigateway- teo- tke- cos- tse- tcb</p>
+                     * 获取查询资源类型的结果详情， 不传则查询所有，取值支持：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
+                     * @return ResourceTypes 查询资源类型的结果详情， 不传则查询所有，取值支持：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
                      * 
                      */
                     std::vector<std::string> GetResourceTypes() const;
 
                     /**
-                     * 设置<p>查询资源类型的结果详情， 不传则查询所有，取值支持：- clb- cdn- ddos- live- vod- waf- apigateway- teo- tke- cos- tse- tcb</p>
-                     * @param _resourceTypes <p>查询资源类型的结果详情， 不传则查询所有，取值支持：- clb- cdn- ddos- live- vod- waf- apigateway- teo- tke- cos- tse- tcb</p>
+                     * 设置查询资源类型的结果详情， 不传则查询所有，取值支持：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
+                     * @param _resourceTypes 查询资源类型的结果详情， 不传则查询所有，取值支持：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
                      * 
                      */
                     void SetResourceTypes(const std::vector<std::string>& _resourceTypes);
@@ -127,15 +175,15 @@ namespace TencentCloud
                     bool ResourceTypesHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持</p>
-                     * @return Regions <p>查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持</p>
+                     * 获取查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持
+                     * @return Regions 查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持
                      * 
                      */
                     std::vector<std::string> GetRegions() const;
 
                     /**
-                     * 设置<p>查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持</p>
-                     * @param _regions <p>查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持</p>
+                     * 设置查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持
+                     * @param _regions 查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持
                      * 
                      */
                     void SetRegions(const std::vector<std::string>& _regions);
@@ -150,31 +198,43 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果</p>
+                     * 任务ID，根据CreateCertificateBindResourceSyncTask得到的任务ID查询绑定云资源结果
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;
 
                     /**
-                     * <p>每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例</p>
+                     * 每页展示数量， 默认10，最大值100; 分页总数为云资源地域下实例总数， 即第一页会拉群每个云资源的地域下面Limit数量实例
                      */
                     std::string m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>当前偏移量，默认为0</p>
+                     * 当前偏移量，默认为0
                      */
                     std::string m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>查询资源类型的结果详情， 不传则查询所有，取值支持：- clb- cdn- ddos- live- vod- waf- apigateway- teo- tke- cos- tse- tcb</p>
+                     * 查询资源类型的结果详情， 不传则查询所有，取值支持：
+- clb
+- cdn
+- ddos
+- live
+- vod
+- waf
+- apigateway
+- teo
+- tke
+- cos
+- tse
+- tcb
                      */
                     std::vector<std::string> m_resourceTypes;
                     bool m_resourceTypesHasBeenSet;
 
                     /**
-                     * <p>查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持</p>
+                     * 查询地域列表的数据，clb、tke、waf、apigateway、tcb、cos、tse支持地域查询， 其他资源类型不支持
                      */
                     std::vector<std::string> m_regions;
                     bool m_regionsHasBeenSet;

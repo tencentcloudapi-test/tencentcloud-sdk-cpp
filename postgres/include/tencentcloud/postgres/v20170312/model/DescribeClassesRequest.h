@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>可用区名称。可以通过接口<a href="https://cloud.tencent.com/document/product/409/16769">DescribeZones</a>获取。</p>
-                     * @return Zone <p>可用区名称。可以通过接口<a href="https://cloud.tencent.com/document/product/409/16769">DescribeZones</a>获取。</p>
+                     * 获取可用区名称。可以通过接口[DescribeZones](https://cloud.tencent.com/document/product/409/16769)获取。
+                     * @return Zone 可用区名称。可以通过接口[DescribeZones](https://cloud.tencent.com/document/product/409/16769)获取。
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>可用区名称。可以通过接口<a href="https://cloud.tencent.com/document/product/409/16769">DescribeZones</a>获取。</p>
-                     * @param _zone <p>可用区名称。可以通过接口<a href="https://cloud.tencent.com/document/product/409/16769">DescribeZones</a>获取。</p>
+                     * 设置可用区名称。可以通过接口[DescribeZones](https://cloud.tencent.com/document/product/409/16769)获取。
+                     * @param _zone 可用区名称。可以通过接口[DescribeZones](https://cloud.tencent.com/document/product/409/16769)获取。
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -64,15 +64,23 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；</p>
-                     * @return DBEngine <p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；</p>
+                     * 获取数据库引擎，支持：
+1、postgresql（云数据库PostgreSQL）；
+2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
+                     * @return DBEngine 数据库引擎，支持：
+1、postgresql（云数据库PostgreSQL）；
+2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
                      * 
                      */
                     std::string GetDBEngine() const;
 
                     /**
-                     * 设置<p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；</p>
-                     * @param _dBEngine <p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；</p>
+                     * 设置数据库引擎，支持：
+1、postgresql（云数据库PostgreSQL）；
+2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
+                     * @param _dBEngine 数据库引擎，支持：
+1、postgresql（云数据库PostgreSQL）；
+2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
                      * 
                      */
                     void SetDBEngine(const std::string& _dBEngine);
@@ -85,15 +93,15 @@ namespace TencentCloud
                     bool DBEngineHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库主版本号。例如12，13，可以通过接口<a href="https://cloud.tencent.com/document/product/409/89018">DescribeDBVersions</a>获取。</p>
-                     * @return DBMajorVersion <p>数据库主版本号。例如12，13，可以通过接口<a href="https://cloud.tencent.com/document/product/409/89018">DescribeDBVersions</a>获取。</p>
+                     * 获取数据库主版本号。例如12，13，可以通过接口[DescribeDBVersions](https://cloud.tencent.com/document/product/409/89018)获取。
+                     * @return DBMajorVersion 数据库主版本号。例如12，13，可以通过接口[DescribeDBVersions](https://cloud.tencent.com/document/product/409/89018)获取。
                      * 
                      */
                     std::string GetDBMajorVersion() const;
 
                     /**
-                     * 设置<p>数据库主版本号。例如12，13，可以通过接口<a href="https://cloud.tencent.com/document/product/409/89018">DescribeDBVersions</a>获取。</p>
-                     * @param _dBMajorVersion <p>数据库主版本号。例如12，13，可以通过接口<a href="https://cloud.tencent.com/document/product/409/89018">DescribeDBVersions</a>获取。</p>
+                     * 设置数据库主版本号。例如12，13，可以通过接口[DescribeDBVersions](https://cloud.tencent.com/document/product/409/89018)获取。
+                     * @param _dBMajorVersion 数据库主版本号。例如12，13，可以通过接口[DescribeDBVersions](https://cloud.tencent.com/document/product/409/89018)获取。
                      * 
                      */
                     void SetDBMajorVersion(const std::string& _dBMajorVersion);
@@ -105,52 +113,27 @@ namespace TencentCloud
                      */
                     bool DBMajorVersionHasBeenSet() const;
 
-                    /**
-                     * 获取<p>实例存储类型，根据存储类型返回支持的规格。</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
-                     * @return StorageType <p>实例存储类型，根据存储类型返回支持的规格。</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
-                     * 
-                     */
-                    std::string GetStorageType() const;
-
-                    /**
-                     * 设置<p>实例存储类型，根据存储类型返回支持的规格。</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
-                     * @param _storageType <p>实例存储类型，根据存储类型返回支持的规格。</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
-                     * 
-                     */
-                    void SetStorageType(const std::string& _storageType);
-
-                    /**
-                     * 判断参数 StorageType 是否已赋值
-                     * @return StorageType 是否已赋值
-                     * 
-                     */
-                    bool StorageTypeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>可用区名称。可以通过接口<a href="https://cloud.tencent.com/document/product/409/16769">DescribeZones</a>获取。</p>
+                     * 可用区名称。可以通过接口[DescribeZones](https://cloud.tencent.com/document/product/409/16769)获取。
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；</p>
+                     * 数据库引擎，支持：
+1、postgresql（云数据库PostgreSQL）；
+2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
                      */
                     std::string m_dBEngine;
                     bool m_dBEngineHasBeenSet;
 
                     /**
-                     * <p>数据库主版本号。例如12，13，可以通过接口<a href="https://cloud.tencent.com/document/product/409/89018">DescribeDBVersions</a>获取。</p>
+                     * 数据库主版本号。例如12，13，可以通过接口[DescribeDBVersions](https://cloud.tencent.com/document/product/409/89018)获取。
                      */
                     std::string m_dBMajorVersion;
                     bool m_dBMajorVersionHasBeenSet;
-
-                    /**
-                     * <p>实例存储类型，根据存储类型返回支持的规格。</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
-                     */
-                    std::string m_storageType;
-                    bool m_storageTypeHasBeenSet;
 
                 };
             }

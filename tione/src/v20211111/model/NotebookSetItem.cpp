@@ -50,9 +50,7 @@ NotebookSetItem::NotebookSetItem() :
     m_volumeSourceGooseFSHasBeenSet(false),
     m_subUinHasBeenSet(false),
     m_subUinNameHasBeenSet(false),
-    m_appIdHasBeenSet(false),
-    m_exposePortConfigHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_appIdHasBeenSet(false)
 {
 }
 
@@ -405,33 +403,6 @@ CoreInternalOutcome NotebookSetItem::Deserialize(const rapidjson::Value &value)
         m_appIdHasBeenSet = true;
     }
 
-    if (value.HasMember("ExposePortConfig") && !value["ExposePortConfig"].IsNull())
-    {
-        if (!value["ExposePortConfig"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `NotebookSetItem.ExposePortConfig` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_exposePortConfig.Deserialize(value["ExposePortConfig"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_exposePortConfigHasBeenSet = true;
-    }
-
-    if (value.HasMember("Description") && !value["Description"].IsNull())
-    {
-        if (!value["Description"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `NotebookSetItem.Description` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_description = string(value["Description"].GetString());
-        m_descriptionHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -698,23 +669,6 @@ void NotebookSetItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "AppId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_appId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_exposePortConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExposePortConfig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_exposePortConfig.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_descriptionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Description";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1198,37 +1152,5 @@ void NotebookSetItem::SetAppId(const string& _appId)
 bool NotebookSetItem::AppIdHasBeenSet() const
 {
     return m_appIdHasBeenSet;
-}
-
-ExposePortConfig NotebookSetItem::GetExposePortConfig() const
-{
-    return m_exposePortConfig;
-}
-
-void NotebookSetItem::SetExposePortConfig(const ExposePortConfig& _exposePortConfig)
-{
-    m_exposePortConfig = _exposePortConfig;
-    m_exposePortConfigHasBeenSet = true;
-}
-
-bool NotebookSetItem::ExposePortConfigHasBeenSet() const
-{
-    return m_exposePortConfigHasBeenSet;
-}
-
-string NotebookSetItem::GetDescription() const
-{
-    return m_description;
-}
-
-void NotebookSetItem::SetDescription(const string& _description)
-{
-    m_description = _description;
-    m_descriptionHasBeenSet = true;
-}
-
-bool NotebookSetItem::DescriptionHasBeenSet() const
-{
-    return m_descriptionHasBeenSet;
 }
 

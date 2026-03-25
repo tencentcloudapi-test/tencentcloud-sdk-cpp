@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>订单数组</p>
-                     * @return AgentDealSet <p>订单数组</p>
+                     * 获取订单数组
+                     * @return AgentDealSet 订单数组
                      * 
                      */
                     std::vector<AgentDealNewElem> GetAgentDealSet() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool AgentDealSetHasBeenSet() const;
 
                     /**
-                     * 获取<p>符合条件的订单总数量</p>
-                     * @return TotalCount <p>符合条件的订单总数量</p>
+                     * 获取符合条件的订单总数量
+                     * @return TotalCount 符合条件的订单总数量
                      * 
                      */
                     uint64_t GetTotalCount() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>订单数组</p>
+                     * 订单数组
                      */
                     std::vector<AgentDealNewElem> m_agentDealSet;
                     bool m_agentDealSetHasBeenSet;
 
                     /**
-                     * <p>符合条件的订单总数量</p>
+                     * 符合条件的订单总数量
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

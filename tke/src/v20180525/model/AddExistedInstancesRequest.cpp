@@ -33,8 +33,7 @@ AddExistedInstancesRequest::AddExistedInstancesRequest() :
     m_nodePoolHasBeenSet(false),
     m_skipValidateOptionsHasBeenSet(false),
     m_instanceAdvancedSettingsOverridesHasBeenSet(false),
-    m_imageIdHasBeenSet(false),
-    m_nodeTypeHasBeenSet(false)
+    m_imageIdHasBeenSet(false)
 {
 }
 
@@ -157,14 +156,6 @@ string AddExistedInstancesRequest::ToJsonString() const
         string key = "ImageId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_imageId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_nodeTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NodeType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_nodeType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -349,22 +340,6 @@ void AddExistedInstancesRequest::SetImageId(const string& _imageId)
 bool AddExistedInstancesRequest::ImageIdHasBeenSet() const
 {
     return m_imageIdHasBeenSet;
-}
-
-string AddExistedInstancesRequest::GetNodeType() const
-{
-    return m_nodeType;
-}
-
-void AddExistedInstancesRequest::SetNodeType(const string& _nodeType)
-{
-    m_nodeType = _nodeType;
-    m_nodeTypeHasBeenSet = true;
-}
-
-bool AddExistedInstancesRequest::NodeTypeHasBeenSet() const
-{
-    return m_nodeTypeHasBeenSet;
 }
 
 

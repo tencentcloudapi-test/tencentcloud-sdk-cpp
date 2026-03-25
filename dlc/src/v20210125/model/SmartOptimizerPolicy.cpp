@@ -26,8 +26,7 @@ SmartOptimizerPolicy::SmartOptimizerPolicy() :
     m_writtenHasBeenSet(false),
     m_lifecycleHasBeenSet(false),
     m_indexHasBeenSet(false),
-    m_changeTableHasBeenSet(false),
-    m_tableExpirationHasBeenSet(false)
+    m_changeTableHasBeenSet(false)
 {
 }
 
@@ -134,23 +133,6 @@ CoreInternalOutcome SmartOptimizerPolicy::Deserialize(const rapidjson::Value &va
         m_changeTableHasBeenSet = true;
     }
 
-    if (value.HasMember("TableExpiration") && !value["TableExpiration"].IsNull())
-    {
-        if (!value["TableExpiration"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `SmartOptimizerPolicy.TableExpiration` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_tableExpiration.Deserialize(value["TableExpiration"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_tableExpirationHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -215,15 +197,6 @@ void SmartOptimizerPolicy::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_changeTable.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_tableExpirationHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TableExpiration";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_tableExpiration.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -323,21 +296,5 @@ void SmartOptimizerPolicy::SetChangeTable(const SmartOptimizerChangeTablePolicy&
 bool SmartOptimizerPolicy::ChangeTableHasBeenSet() const
 {
     return m_changeTableHasBeenSet;
-}
-
-TableExpirationPolicy SmartOptimizerPolicy::GetTableExpiration() const
-{
-    return m_tableExpiration;
-}
-
-void SmartOptimizerPolicy::SetTableExpiration(const TableExpirationPolicy& _tableExpiration)
-{
-    m_tableExpiration = _tableExpiration;
-    m_tableExpirationHasBeenSet = true;
-}
-
-bool SmartOptimizerPolicy::TableExpirationHasBeenSet() const
-{
-    return m_tableExpirationHasBeenSet;
 }
 

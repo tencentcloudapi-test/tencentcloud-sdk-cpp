@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
-                     * @return ProxyId <p>通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 获取通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
+                     * @return ProxyId 通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      * 
                      */
                     std::string GetProxyId() const;
 
                     /**
-                     * 设置<p>通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
-                     * @param _proxyId <p>通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 设置通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
+                     * @param _proxyId 通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      * 
                      */
                     void SetProxyId(const std::string& _proxyId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ProxyIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
-                     * @return GroupId <p>通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 获取通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
+                     * @return GroupId 通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      * 
                      */
                     std::string GetGroupId() const;
 
                     /**
-                     * 设置<p>通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
-                     * @param _groupId <p>通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 设置通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
+                     * @param _groupId 通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      * 
                      */
                     void SetGroupId(const std::string& _groupId);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
-                     * @return ListenerId <p>过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 获取过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
+                     * @return ListenerId 过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      * 
                      */
                     std::string GetListenerId() const;
 
                     /**
-                     * 设置<p>过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
-                     * @param _listenerId <p>过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 设置过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
+                     * @param _listenerId 过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      * 
                      */
                     void SetListenerId(const std::string& _listenerId);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool ListenerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤条件，按照监听器名称进行精确查询</p>
-                     * @return ListenerName <p>过滤条件，按照监听器名称进行精确查询</p>
+                     * 获取过滤条件，按照监听器名称进行精确查询
+                     * @return ListenerName 过滤条件，按照监听器名称进行精确查询
                      * 
                      */
                     std::string GetListenerName() const;
 
                     /**
-                     * 设置<p>过滤条件，按照监听器名称进行精确查询</p>
-                     * @param _listenerName <p>过滤条件，按照监听器名称进行精确查询</p>
+                     * 设置过滤条件，按照监听器名称进行精确查询
+                     * @param _listenerName 过滤条件，按照监听器名称进行精确查询
                      * 
                      */
                     void SetListenerName(const std::string& _listenerName);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool ListenerNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤条件，按照监听器端口进行精确查询</p>
-                     * @return Port <p>过滤条件，按照监听器端口进行精确查询</p>
+                     * 获取过滤条件，按照监听器端口进行精确查询
+                     * @return Port 过滤条件，按照监听器端口进行精确查询
                      * 
                      */
                     uint64_t GetPort() const;
 
                     /**
-                     * 设置<p>过滤条件，按照监听器端口进行精确查询</p>
-                     * @param _port <p>过滤条件，按照监听器端口进行精确查询</p>
+                     * 设置过滤条件，按照监听器端口进行精确查询
+                     * @param _port 过滤条件，按照监听器端口进行精确查询
                      * 
                      */
                     void SetPort(const uint64_t& _port);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool PortHasBeenSet() const;
 
                     /**
-                     * 获取<p>偏移量，默认为0</p>
-                     * @return Offset <p>偏移量，默认为0</p>
+                     * 获取偏移量，默认为0
+                     * @return Offset 偏移量，默认为0
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量，默认为0</p>
-                     * @param _offset <p>偏移量，默认为0</p>
+                     * 设置偏移量，默认为0
+                     * @param _offset 偏移量，默认为0
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -169,15 +169,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>限制数量，默认为20个</p>
-                     * @return Limit <p>限制数量，默认为20个</p>
+                     * 获取限制数量，默认为20个
+                     * @return Limit 限制数量，默认为20个
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置<p>限制数量，默认为20个</p>
-                     * @param _limit <p>限制数量，默认为20个</p>
+                     * 设置限制数量，默认为20个
+                     * @param _limit 限制数量，默认为20个
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -190,15 +190,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用</p>
-                     * @return SearchValue <p>过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用</p>
+                     * 获取过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用
+                     * @return SearchValue 过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用
                      * 
                      */
                     std::string GetSearchValue() const;
 
                     /**
-                     * 设置<p>过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用</p>
-                     * @param _searchValue <p>过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用</p>
+                     * 设置过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用
+                     * @param _searchValue 过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用
                      * 
                      */
                     void SetSearchValue(const std::string& _searchValue);
@@ -213,49 +213,49 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 通道ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      */
                     std::string m_proxyId;
                     bool m_proxyIdHasBeenSet;
 
                     /**
-                     * <p>通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 通道组ID。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * <p>过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。</p>
+                     * 过滤条件，按照监听器ID进行精确查询。ListenerId、ProxyId、GroupId须至少填写一个，且ProxyId与GroupId至多只能填写其中一个。
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
-                     * <p>过滤条件，按照监听器名称进行精确查询</p>
+                     * 过滤条件，按照监听器名称进行精确查询
                      */
                     std::string m_listenerName;
                     bool m_listenerNameHasBeenSet;
 
                     /**
-                     * <p>过滤条件，按照监听器端口进行精确查询</p>
+                     * 过滤条件，按照监听器端口进行精确查询
                      */
                     uint64_t m_port;
                     bool m_portHasBeenSet;
 
                     /**
-                     * <p>偏移量，默认为0</p>
+                     * 偏移量，默认为0
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>限制数量，默认为20个</p>
+                     * 限制数量，默认为20个
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用</p>
+                     * 过滤条件，支持按照端口或监听器名称进行模糊查询，该参数不能与ListenerName和Port同时使用
                      */
                     std::string m_searchValue;
                     bool m_searchValueHasBeenSet;

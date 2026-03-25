@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cloudapp/v20220530/model/SaleParam.h>
-#include <tencentcloud/cloudapp/v20220530/model/LicenseData.h>
 
 
 namespace TencentCloud
@@ -49,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>License ID</p>
-                     * @return LicenseId <p>License ID</p>
+                     * 获取License ID
+                     * @return LicenseId License ID
                      * 
                      */
                     std::string GetLicenseId() const;
 
                     /**
-                     * 设置<p>License ID</p>
-                     * @param _licenseId <p>License ID</p>
+                     * 设置License ID
+                     * @param _licenseId License ID
                      * 
                      */
                     void SetLicenseId(const std::string& _licenseId);
@@ -70,15 +69,15 @@ namespace TencentCloud
                     bool LicenseIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table></p>
-                     * @return LicenseMode <p>软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table></p>
+                     * 获取软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table>
+                     * @return LicenseMode 软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table>
                      * 
                      */
                     std::string GetLicenseMode() const;
 
                     /**
-                     * 设置<p>软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table></p>
-                     * @param _licenseMode <p>软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table></p>
+                     * 设置软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table>
+                     * @param _licenseMode 软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table>
                      * 
                      */
                     void SetLicenseMode(const std::string& _licenseMode);
@@ -91,15 +90,15 @@ namespace TencentCloud
                     bool LicenseModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table></p>
-                     * @return LicenseStatus <p>软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table></p>
+                     * 获取软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table>
+                     * @return LicenseStatus 软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table>
                      * 
                      */
                     std::string GetLicenseStatus() const;
 
                     /**
-                     * 设置<p>软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table></p>
-                     * @param _licenseStatus <p>软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table></p>
+                     * 设置软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table>
+                     * @param _licenseStatus 软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table>
                      * 
                      */
                     void SetLicenseStatus(const std::string& _licenseStatus);
@@ -112,15 +111,15 @@ namespace TencentCloud
                     bool LicenseStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>软件供应方 ID。</p>
-                     * @return ProviderId <p>软件供应方 ID。</p>
+                     * 获取软件供应方 ID。
+                     * @return ProviderId 软件供应方 ID。
                      * 
                      */
                     uint64_t GetProviderId() const;
 
                     /**
-                     * 设置<p>软件供应方 ID。</p>
-                     * @param _providerId <p>软件供应方 ID。</p>
+                     * 设置软件供应方 ID。
+                     * @param _providerId 软件供应方 ID。
                      * 
                      */
                     void SetProviderId(const uint64_t& _providerId);
@@ -133,15 +132,15 @@ namespace TencentCloud
                     bool ProviderIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>软件包 ID。</p>
-                     * @return SoftwarePackageId <p>软件包 ID。</p>
+                     * 获取软件包 ID。
+                     * @return SoftwarePackageId 软件包 ID。
                      * 
                      */
                     std::string GetSoftwarePackageId() const;
 
                     /**
-                     * 设置<p>软件包 ID。</p>
-                     * @param _softwarePackageId <p>软件包 ID。</p>
+                     * 设置软件包 ID。
+                     * @param _softwarePackageId 软件包 ID。
                      * 
                      */
                     void SetSoftwarePackageId(const std::string& _softwarePackageId);
@@ -154,15 +153,15 @@ namespace TencentCloud
                     bool SoftwarePackageIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>软件包版本。</p>
-                     * @return SoftwarePackageVersion <p>软件包版本。</p>
+                     * 获取软件包版本。
+                     * @return SoftwarePackageVersion 软件包版本。
                      * 
                      */
                     std::string GetSoftwarePackageVersion() const;
 
                     /**
-                     * 设置<p>软件包版本。</p>
-                     * @param _softwarePackageVersion <p>软件包版本。</p>
+                     * 设置软件包版本。
+                     * @param _softwarePackageVersion 软件包版本。
                      * 
                      */
                     void SetSoftwarePackageVersion(const std::string& _softwarePackageVersion);
@@ -175,15 +174,15 @@ namespace TencentCloud
                     bool SoftwarePackageVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>被授权的用户 UIN。</p>
-                     * @return AuthorizedUserUin <p>被授权的用户 UIN。</p>
+                     * 获取被授权的用户 UIN。
+                     * @return AuthorizedUserUin 被授权的用户 UIN。
                      * 
                      */
                     std::string GetAuthorizedUserUin() const;
 
                     /**
-                     * 设置<p>被授权的用户 UIN。</p>
-                     * @param _authorizedUserUin <p>被授权的用户 UIN。</p>
+                     * 设置被授权的用户 UIN。
+                     * @param _authorizedUserUin 被授权的用户 UIN。
                      * 
                      */
                     void SetAuthorizedUserUin(const std::string& _authorizedUserUin);
@@ -196,15 +195,15 @@ namespace TencentCloud
                     bool AuthorizedUserUinHasBeenSet() const;
 
                     /**
-                     * 获取<p>被授权的应用实例 ID。</p>
-                     * @return AuthorizedCloudappId <p>被授权的应用实例 ID。</p>
+                     * 获取被授权的应用实例 ID。
+                     * @return AuthorizedCloudappId 被授权的应用实例 ID。
                      * 
                      */
                     std::string GetAuthorizedCloudappId() const;
 
                     /**
-                     * 设置<p>被授权的应用实例 ID。</p>
-                     * @param _authorizedCloudappId <p>被授权的应用实例 ID。</p>
+                     * 设置被授权的应用实例 ID。
+                     * @param _authorizedCloudappId 被授权的应用实例 ID。
                      * 
                      */
                     void SetAuthorizedCloudappId(const std::string& _authorizedCloudappId);
@@ -217,15 +216,15 @@ namespace TencentCloud
                     bool AuthorizedCloudappIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>被授权的角色 ID。</p>
-                     * @return AuthorizedCloudappRoleId <p>被授权的角色 ID。</p>
+                     * 获取被授权的角色 ID。
+                     * @return AuthorizedCloudappRoleId 被授权的角色 ID。
                      * 
                      */
                     std::string GetAuthorizedCloudappRoleId() const;
 
                     /**
-                     * 设置<p>被授权的角色 ID。</p>
-                     * @param _authorizedCloudappRoleId <p>被授权的角色 ID。</p>
+                     * 设置被授权的角色 ID。
+                     * @param _authorizedCloudappRoleId 被授权的角色 ID。
                      * 
                      */
                     void SetAuthorizedCloudappRoleId(const std::string& _authorizedCloudappRoleId);
@@ -238,15 +237,15 @@ namespace TencentCloud
                     bool AuthorizedCloudappRoleIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>被授权的软件规格，具体字段请参考结构SaleParam</p>
-                     * @return AuthorizedSpecification <p>被授权的软件规格，具体字段请参考结构SaleParam</p>
+                     * 获取被授权的软件规格，具体字段请参考结构SaleParam
+                     * @return AuthorizedSpecification 被授权的软件规格，具体字段请参考结构SaleParam
                      * 
                      */
                     std::vector<SaleParam> GetAuthorizedSpecification() const;
 
                     /**
-                     * 设置<p>被授权的软件规格，具体字段请参考结构SaleParam</p>
-                     * @param _authorizedSpecification <p>被授权的软件规格，具体字段请参考结构SaleParam</p>
+                     * 设置被授权的软件规格，具体字段请参考结构SaleParam
+                     * @param _authorizedSpecification 被授权的软件规格，具体字段请参考结构SaleParam
                      * 
                      */
                     void SetAuthorizedSpecification(const std::vector<SaleParam>& _authorizedSpecification);
@@ -259,15 +258,15 @@ namespace TencentCloud
                     bool AuthorizedSpecificationHasBeenSet() const;
 
                     /**
-                     * 获取<p>被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table></p>
-                     * @return BillingMode <p>被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table></p>
+                     * 获取被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table>
+                     * @return BillingMode 被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table>
                      * 
                      */
                     int64_t GetBillingMode() const;
 
                     /**
-                     * 设置<p>被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table></p>
-                     * @param _billingMode <p>被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table></p>
+                     * 设置被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table>
+                     * @param _billingMode 被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table>
                      * 
                      */
                     void SetBillingMode(const int64_t& _billingMode);
@@ -280,15 +279,15 @@ namespace TencentCloud
                     bool BillingModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）</p>
-                     * @return LifeSpan <p>授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）</p>
+                     * 获取授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）
+                     * @return LifeSpan 授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）
                      * 
                      */
                     int64_t GetLifeSpan() const;
 
                     /**
-                     * 设置<p>授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）</p>
-                     * @param _lifeSpan <p>授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）</p>
+                     * 设置授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）
+                     * @param _lifeSpan 授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）
                      * 
                      */
                     void SetLifeSpan(const int64_t& _lifeSpan);
@@ -301,15 +300,15 @@ namespace TencentCloud
                     bool LifeSpanHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权颁发时间。</p>
-                     * @return IssueDate <p>授权颁发时间。</p>
+                     * 获取授权颁发时间。
+                     * @return IssueDate 授权颁发时间。
                      * 
                      */
                     std::string GetIssueDate() const;
 
                     /**
-                     * 设置<p>授权颁发时间。</p>
-                     * @param _issueDate <p>授权颁发时间。</p>
+                     * 设置授权颁发时间。
+                     * @param _issueDate 授权颁发时间。
                      * 
                      */
                     void SetIssueDate(const std::string& _issueDate);
@@ -322,18 +321,18 @@ namespace TencentCloud
                     bool IssueDateHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权激活时间，如从未激活则返回 null。</p>
+                     * 获取授权激活时间，如从未激活则返回 null。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ActivationDate <p>授权激活时间，如从未激活则返回 null。</p>
+                     * @return ActivationDate 授权激活时间，如从未激活则返回 null。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetActivationDate() const;
 
                     /**
-                     * 设置<p>授权激活时间，如从未激活则返回 null。</p>
+                     * 设置授权激活时间，如从未激活则返回 null。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _activationDate <p>授权激活时间，如从未激活则返回 null。</p>
+                     * @param _activationDate 授权激活时间，如从未激活则返回 null。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -347,18 +346,18 @@ namespace TencentCloud
                     bool ActivationDateHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权过期时间</p>
+                     * 获取授权过期时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ExpirationDate <p>授权过期时间</p>
+                     * @return ExpirationDate 授权过期时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetExpirationDate() const;
 
                     /**
-                     * 设置<p>授权过期时间</p>
+                     * 设置授权过期时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _expirationDate <p>授权过期时间</p>
+                     * @param _expirationDate 授权过期时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -372,15 +371,15 @@ namespace TencentCloud
                     bool ExpirationDateHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权时长单位，枚举值有Y年/M月/D日三种</p>
-                     * @return LifeSpanUnit <p>授权时长单位，枚举值有Y年/M月/D日三种</p>
+                     * 获取授权时长单位，枚举值有Y年/M月/D日三种
+                     * @return LifeSpanUnit 授权时长单位，枚举值有Y年/M月/D日三种
                      * 
                      */
                     std::string GetLifeSpanUnit() const;
 
                     /**
-                     * 设置<p>授权时长单位，枚举值有Y年/M月/D日三种</p>
-                     * @param _lifeSpanUnit <p>授权时长单位，枚举值有Y年/M月/D日三种</p>
+                     * 设置授权时长单位，枚举值有Y年/M月/D日三种
+                     * @param _lifeSpanUnit 授权时长单位，枚举值有Y年/M月/D日三种
                      * 
                      */
                     void SetLifeSpanUnit(const std::string& _lifeSpanUnit);
@@ -393,15 +392,15 @@ namespace TencentCloud
                     bool LifeSpanUnitHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权的类型：Standard正式版/Development开发版/Trial体验版</p>
-                     * @return LicenseType <p>授权的类型：Standard正式版/Development开发版/Trial体验版</p>
+                     * 获取授权的类型：Standard正式版/Development开发版/Trial体验版
+                     * @return LicenseType 授权的类型：Standard正式版/Development开发版/Trial体验版
                      * 
                      */
                     std::string GetLicenseType() const;
 
                     /**
-                     * 设置<p>授权的类型：Standard正式版/Development开发版/Trial体验版</p>
-                     * @param _licenseType <p>授权的类型：Standard正式版/Development开发版/Trial体验版</p>
+                     * 设置授权的类型：Standard正式版/Development开发版/Trial体验版
+                     * @param _licenseType 授权的类型：Standard正式版/Development开发版/Trial体验版
                      * 
                      */
                     void SetLicenseType(const std::string& _licenseType);
@@ -414,15 +413,15 @@ namespace TencentCloud
                     bool LicenseTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权的层级：Master 主授权；Child 子授权/增强型授权</p>
-                     * @return LicenseLevel <p>授权的层级：Master 主授权；Child 子授权/增强型授权</p>
+                     * 获取授权的层级：Master 主授权；Child 子授权/增强型授权
+                     * @return LicenseLevel 授权的层级：Master 主授权；Child 子授权/增强型授权
                      * 
                      */
                     std::string GetLicenseLevel() const;
 
                     /**
-                     * 设置<p>授权的层级：Master 主授权；Child 子授权/增强型授权</p>
-                     * @param _licenseLevel <p>授权的层级：Master 主授权；Child 子授权/增强型授权</p>
+                     * 设置授权的层级：Master 主授权；Child 子授权/增强型授权
+                     * @param _licenseLevel 授权的层级：Master 主授权；Child 子授权/增强型授权
                      * 
                      */
                     void SetLicenseLevel(const std::string& _licenseLevel);
@@ -434,225 +433,117 @@ namespace TencentCloud
                      */
                     bool LicenseLevelHasBeenSet() const;
 
-                    /**
-                     * 获取<p>License 内容信息</p>
-                     * @return LicenseData <p>License 内容信息</p>
-                     * 
-                     */
-                    LicenseData GetLicenseData() const;
-
-                    /**
-                     * 设置<p>License 内容信息</p>
-                     * @param _licenseData <p>License 内容信息</p>
-                     * 
-                     */
-                    void SetLicenseData(const LicenseData& _licenseData);
-
-                    /**
-                     * 判断参数 LicenseData 是否已赋值
-                     * @return LicenseData 是否已赋值
-                     * 
-                     */
-                    bool LicenseDataHasBeenSet() const;
-
-                    /**
-                     * 获取<p>License 颁发地址</p>
-                     * @return IssueURL <p>License 颁发地址</p>
-                     * 
-                     */
-                    std::string GetIssueURL() const;
-
-                    /**
-                     * 设置<p>License 颁发地址</p>
-                     * @param _issueURL <p>License 颁发地址</p>
-                     * 
-                     */
-                    void SetIssueURL(const std::string& _issueURL);
-
-                    /**
-                     * 判断参数 IssueURL 是否已赋值
-                     * @return IssueURL 是否已赋值
-                     * 
-                     */
-                    bool IssueURLHasBeenSet() const;
-
-                    /**
-                     * 获取<p>商品供应商 UIN</p>
-                     * @return ProviderUin <p>商品供应商 UIN</p>
-                     * 
-                     */
-                    std::string GetProviderUin() const;
-
-                    /**
-                     * 设置<p>商品供应商 UIN</p>
-                     * @param _providerUin <p>商品供应商 UIN</p>
-                     * 
-                     */
-                    void SetProviderUin(const std::string& _providerUin);
-
-                    /**
-                     * 判断参数 ProviderUin 是否已赋值
-                     * @return ProviderUin 是否已赋值
-                     * 
-                     */
-                    bool ProviderUinHasBeenSet() const;
-
-                    /**
-                     * 获取<p>License 创建来源 ID</p>
-                     * @return CreateSource <p>License 创建来源 ID</p>
-                     * 
-                     */
-                    std::string GetCreateSource() const;
-
-                    /**
-                     * 设置<p>License 创建来源 ID</p>
-                     * @param _createSource <p>License 创建来源 ID</p>
-                     * 
-                     */
-                    void SetCreateSource(const std::string& _createSource);
-
-                    /**
-                     * 判断参数 CreateSource 是否已赋值
-                     * @return CreateSource 是否已赋值
-                     * 
-                     */
-                    bool CreateSourceHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>License ID</p>
+                     * License ID
                      */
                     std::string m_licenseId;
                     bool m_licenseIdHasBeenSet;
 
                     /**
-                     * <p>软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table></p>
+                     * 软件授权模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Permanent</td><td>永久授权。该授权不受有效期限制。</td></tr><tr><td>Subscription</td><td>订阅授权。授权如果过了有效期，则会进入过期状态。</td></tr><tr><td>Accept</td><td>验收期授权。用于需要验收的软件处于验收期间的授权，授权如果过了验收有效期，则会进入过期状态。</td></tr></tbody></table>
                      */
                     std::string m_licenseMode;
                     bool m_licenseModeHasBeenSet;
 
                     /**
-                     * <p>软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table></p>
+                     * 软件的授权状态。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>Issued</td><td>已颁发，等待激活。一般来说，如果软件已经在运行，不会出现该状态。</td></tr><tr><td>Active</td><td>授权在有效期内，这是软件运行期间最常见的状态。</td></tr><tr><td>Expired</td><td>授权已过期。订阅类的软件授权有有效期，如果服务器时间已晚于有效期，则会进入过期状态。</td></tr><tr><td>Isolated</td><td>授权已隔离。有截止日期的授权，当用户授权到期时，先进入此状态，用户可以去续费，超过7天不续费则授权进入Destroyed状态。</td></tr><tr><td>Destroyed</td><td>授权已失效/销毁。用户如果退货软件，则授权会自动失效。</td></tr></tbody></table>
                      */
                     std::string m_licenseStatus;
                     bool m_licenseStatusHasBeenSet;
 
                     /**
-                     * <p>软件供应方 ID。</p>
+                     * 软件供应方 ID。
                      */
                     uint64_t m_providerId;
                     bool m_providerIdHasBeenSet;
 
                     /**
-                     * <p>软件包 ID。</p>
+                     * 软件包 ID。
                      */
                     std::string m_softwarePackageId;
                     bool m_softwarePackageIdHasBeenSet;
 
                     /**
-                     * <p>软件包版本。</p>
+                     * 软件包版本。
                      */
                     std::string m_softwarePackageVersion;
                     bool m_softwarePackageVersionHasBeenSet;
 
                     /**
-                     * <p>被授权的用户 UIN。</p>
+                     * 被授权的用户 UIN。
                      */
                     std::string m_authorizedUserUin;
                     bool m_authorizedUserUinHasBeenSet;
 
                     /**
-                     * <p>被授权的应用实例 ID。</p>
+                     * 被授权的应用实例 ID。
                      */
                     std::string m_authorizedCloudappId;
                     bool m_authorizedCloudappIdHasBeenSet;
 
                     /**
-                     * <p>被授权的角色 ID。</p>
+                     * 被授权的角色 ID。
                      */
                     std::string m_authorizedCloudappRoleId;
                     bool m_authorizedCloudappRoleIdHasBeenSet;
 
                     /**
-                     * <p>被授权的软件规格，具体字段请参考结构SaleParam</p>
+                     * 被授权的软件规格，具体字段请参考结构SaleParam
                      */
                     std::vector<SaleParam> m_authorizedSpecification;
                     bool m_authorizedSpecificationHasBeenSet;
 
                     /**
-                     * <p>被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table></p>
+                     * 被授权的软件的计费模式。<table><thead><tr><th>枚举值</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>线上计费，软件的授权从腾讯云线上购买，支持续费、退款等操作。</td></tr><tr><td>2</td><td>线下计费，软件的授权线下签订合同购买，定向客户交付，无法从线上续费和退款。</td></tr><tr><td>4</td><td>免费</td></tr></tbody></table>
                      */
                     int64_t m_billingMode;
                     bool m_billingModeHasBeenSet;
 
                     /**
-                     * <p>授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）</p>
+                     * 授权时长（单位由LifeSpanUnit确定，枚举值有Y年/M月/D日三种）
                      */
                     int64_t m_lifeSpan;
                     bool m_lifeSpanHasBeenSet;
 
                     /**
-                     * <p>授权颁发时间。</p>
+                     * 授权颁发时间。
                      */
                     std::string m_issueDate;
                     bool m_issueDateHasBeenSet;
 
                     /**
-                     * <p>授权激活时间，如从未激活则返回 null。</p>
+                     * 授权激活时间，如从未激活则返回 null。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_activationDate;
                     bool m_activationDateHasBeenSet;
 
                     /**
-                     * <p>授权过期时间</p>
+                     * 授权过期时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_expirationDate;
                     bool m_expirationDateHasBeenSet;
 
                     /**
-                     * <p>授权时长单位，枚举值有Y年/M月/D日三种</p>
+                     * 授权时长单位，枚举值有Y年/M月/D日三种
                      */
                     std::string m_lifeSpanUnit;
                     bool m_lifeSpanUnitHasBeenSet;
 
                     /**
-                     * <p>授权的类型：Standard正式版/Development开发版/Trial体验版</p>
+                     * 授权的类型：Standard正式版/Development开发版/Trial体验版
                      */
                     std::string m_licenseType;
                     bool m_licenseTypeHasBeenSet;
 
                     /**
-                     * <p>授权的层级：Master 主授权；Child 子授权/增强型授权</p>
+                     * 授权的层级：Master 主授权；Child 子授权/增强型授权
                      */
                     std::string m_licenseLevel;
                     bool m_licenseLevelHasBeenSet;
-
-                    /**
-                     * <p>License 内容信息</p>
-                     */
-                    LicenseData m_licenseData;
-                    bool m_licenseDataHasBeenSet;
-
-                    /**
-                     * <p>License 颁发地址</p>
-                     */
-                    std::string m_issueURL;
-                    bool m_issueURLHasBeenSet;
-
-                    /**
-                     * <p>商品供应商 UIN</p>
-                     */
-                    std::string m_providerUin;
-                    bool m_providerUinHasBeenSet;
-
-                    /**
-                     * <p>License 创建来源 ID</p>
-                     */
-                    std::string m_createSource;
-                    bool m_createSourceHasBeenSet;
 
                 };
             }

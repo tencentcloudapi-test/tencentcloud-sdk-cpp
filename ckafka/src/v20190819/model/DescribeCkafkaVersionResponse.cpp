@@ -23,8 +23,7 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Ckafka::V20190819::Model;
 using namespace std;
 
-DescribeCkafkaVersionResponse::DescribeCkafkaVersionResponse() :
-    m_resultHasBeenSet(false)
+DescribeCkafkaVersionResponse::DescribeCkafkaVersionResponse()
 {
 }
 
@@ -62,23 +61,6 @@ CoreInternalOutcome DescribeCkafkaVersionResponse::Deserialize(const string &pay
     }
 
 
-    if (rsp.HasMember("Result") && !rsp["Result"].IsNull())
-    {
-        if (!rsp["Result"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `Result` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_result.Deserialize(rsp["Result"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_resultHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -88,15 +70,6 @@ string DescribeCkafkaVersionResponse::ToJsonString() const
     rapidjson::Document value;
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
-
-    if (m_resultHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Result";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_result.ToJsonObject(value[key.c_str()], allocator);
-    }
 
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
@@ -109,15 +82,5 @@ string DescribeCkafkaVersionResponse::ToJsonString() const
     return buffer.GetString();
 }
 
-
-InstanceVersion DescribeCkafkaVersionResponse::GetResult() const
-{
-    return m_result;
-}
-
-bool DescribeCkafkaVersionResponse::ResultHasBeenSet() const
-{
-    return m_resultHasBeenSet;
-}
 
 

@@ -1141,27 +1141,6 @@ namespace TencentCloud
                      */
                     bool DestroyProtectHasBeenSet() const;
 
-                    /**
-                     * 获取TDSQL引擎参数
-                     * @return CpuModel TDSQL引擎参数
-                     * 
-                     */
-                    std::string GetCpuModel() const;
-
-                    /**
-                     * 设置TDSQL引擎参数
-                     * @param _cpuModel TDSQL引擎参数
-                     * 
-                     */
-                    void SetCpuModel(const std::string& _cpuModel);
-
-                    /**
-                     * 判断参数 CpuModel 是否已赋值
-                     * @return CpuModel 是否已赋值
-                     * 
-                     */
-                    bool CpuModelHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1473,12 +1452,6 @@ namespace TencentCloud
                      */
                     std::string m_destroyProtect;
                     bool m_destroyProtectHasBeenSet;
-
-                    /**
-                     * TDSQL引擎参数
-                     */
-                    std::string m_cpuModel;
-                    bool m_cpuModelHasBeenSet;
 
                 };
             }

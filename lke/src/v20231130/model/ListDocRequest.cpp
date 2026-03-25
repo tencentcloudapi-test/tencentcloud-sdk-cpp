@@ -32,8 +32,7 @@ ListDocRequest::ListDocRequest() :
     m_cateBizIdHasBeenSet(false),
     m_fileTypesHasBeenSet(false),
     m_filterFlagHasBeenSet(false),
-    m_showCurrCateHasBeenSet(false),
-    m_enableScopeHasBeenSet(false)
+    m_showCurrCateHasBeenSet(false)
 {
 }
 
@@ -139,14 +138,6 @@ string ListDocRequest::ToJsonString() const
         string key = "ShowCurrCate";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_showCurrCate, allocator);
-    }
-
-    if (m_enableScopeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableScope";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableScope, allocator);
     }
 
 
@@ -315,22 +306,6 @@ void ListDocRequest::SetShowCurrCate(const uint64_t& _showCurrCate)
 bool ListDocRequest::ShowCurrCateHasBeenSet() const
 {
     return m_showCurrCateHasBeenSet;
-}
-
-int64_t ListDocRequest::GetEnableScope() const
-{
-    return m_enableScope;
-}
-
-void ListDocRequest::SetEnableScope(const int64_t& _enableScope)
-{
-    m_enableScope = _enableScope;
-    m_enableScopeHasBeenSet = true;
-}
-
-bool ListDocRequest::EnableScopeHasBeenSet() const
-{
-    return m_enableScopeHasBeenSet;
 }
 
 

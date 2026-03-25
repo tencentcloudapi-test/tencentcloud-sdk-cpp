@@ -46,8 +46,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>列表页统计信息</p>
-                     * @return DomainCountInfo <p>列表页统计信息</p>
+                     * 获取列表页统计信息
+                     * @return DomainCountInfo 列表页统计信息
                      * 
                      */
                     DomainCountInfo GetDomainCountInfo() const;
@@ -60,8 +60,8 @@ namespace TencentCloud
                     bool DomainCountInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>域名列表</p>
-                     * @return DomainList <p>域名列表</p>
+                     * 获取域名列表
+                     * @return DomainList 域名列表
                      * 
                      */
                     std::vector<DomainListItem> GetDomainList() const;
@@ -76,13 +76,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>列表页统计信息</p>
+                     * 列表页统计信息
                      */
                     DomainCountInfo m_domainCountInfo;
                     bool m_domainCountInfoHasBeenSet;
 
                     /**
-                     * <p>域名列表</p>
+                     * 域名列表
                      */
                     std::vector<DomainListItem> m_domainList;
                     bool m_domainListHasBeenSet;

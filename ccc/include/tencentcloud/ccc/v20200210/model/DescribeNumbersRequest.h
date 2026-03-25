@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
-                     * @return SdkAppId <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      * 
                      */
                     uint64_t GetSdkAppId() const;
 
                     /**
-                     * 设置<p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
-                     * @param _sdkAppId <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      * 
                      */
                     void SetSdkAppId(const uint64_t& _sdkAppId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool SdkAppIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>页数，从0开始</p>
-                     * @return PageNumber <p>页数，从0开始</p>
+                     * 获取页数，从0开始
+                     * @return PageNumber 页数，从0开始
                      * 
                      */
                     uint64_t GetPageNumber() const;
 
                     /**
-                     * 设置<p>页数，从0开始</p>
-                     * @param _pageNumber <p>页数，从0开始</p>
+                     * 设置页数，从0开始
+                     * @param _pageNumber 页数，从0开始
                      * 
                      */
                     void SetPageNumber(const uint64_t& _pageNumber);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>分页大小，默认20</p>
-                     * @return PageSize <p>分页大小，默认20</p>
+                     * 获取分页大小，默认20
+                     * @return PageSize 分页大小，默认20
                      * 
                      */
                     uint64_t GetPageSize() const;
 
                     /**
-                     * 设置<p>分页大小，默认20</p>
-                     * @param _pageSize <p>分页大小，默认20</p>
+                     * 设置分页大小，默认20
+                     * @param _pageSize 分页大小，默认20
                      * 
                      */
                     void SetPageSize(const uint64_t& _pageSize);
@@ -108,19 +108,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      */
                     uint64_t m_sdkAppId;
                     bool m_sdkAppIdHasBeenSet;
 
                     /**
-                     * <p>页数，从0开始</p>
+                     * 页数，从0开始
                      */
                     uint64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * <p>分页大小，默认20</p>
+                     * 分页大小，默认20
                      */
                     uint64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;

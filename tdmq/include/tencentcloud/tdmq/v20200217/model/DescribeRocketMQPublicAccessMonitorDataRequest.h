@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取集群 ID
-                     * @return InstanceId 集群 ID
+                     * 获取专享集群ID
+                     * @return InstanceId 专享集群ID
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置集群 ID
-                     * @param _instanceId 集群 ID
+                     * 设置专享集群ID
+                     * @param _instanceId 专享集群ID
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -64,27 +64,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取指标名称，仅支持单指标拉取。指标枚举如下：
-
-- ClientIntraffic：入流量
-- ClientOuttraffic：出流量
-                     * @return MetricName 指标名称，仅支持单指标拉取。指标枚举如下：
-
-- ClientIntraffic：入流量
-- ClientOuttraffic：出流量
+                     * 获取指标名称，仅支持单指标拉取。目前仅支持：ClientIntraffic; ClientOuttraffic
+                     * @return MetricName 指标名称，仅支持单指标拉取。目前仅支持：ClientIntraffic; ClientOuttraffic
                      * 
                      */
                     std::string GetMetricName() const;
 
                     /**
-                     * 设置指标名称，仅支持单指标拉取。指标枚举如下：
-
-- ClientIntraffic：入流量
-- ClientOuttraffic：出流量
-                     * @param _metricName 指标名称，仅支持单指标拉取。指标枚举如下：
-
-- ClientIntraffic：入流量
-- ClientOuttraffic：出流量
+                     * 设置指标名称，仅支持单指标拉取。目前仅支持：ClientIntraffic; ClientOuttraffic
+                     * @param _metricName 指标名称，仅支持单指标拉取。目前仅支持：ClientIntraffic; ClientOuttraffic
                      * 
                      */
                     void SetMetricName(const std::string& _metricName);
@@ -162,16 +150,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 集群 ID
+                     * 专享集群ID
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * 指标名称，仅支持单指标拉取。指标枚举如下：
-
-- ClientIntraffic：入流量
-- ClientOuttraffic：出流量
+                     * 指标名称，仅支持单指标拉取。目前仅支持：ClientIntraffic; ClientOuttraffic
                      */
                     std::string m_metricName;
                     bool m_metricNameHasBeenSet;

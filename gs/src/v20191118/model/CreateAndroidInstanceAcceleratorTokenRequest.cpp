@@ -23,8 +23,8 @@ using namespace TencentCloud::Gs::V20191118::Model;
 using namespace std;
 
 CreateAndroidInstanceAcceleratorTokenRequest::CreateAndroidInstanceAcceleratorTokenRequest() :
-    m_androidInstanceIdsHasBeenSet(false),
-    m_userIPHasBeenSet(false)
+    m_userIPHasBeenSet(false),
+    m_androidInstanceIdsHasBeenSet(false)
 {
 }
 
@@ -34,6 +34,14 @@ string CreateAndroidInstanceAcceleratorTokenRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
+
+    if (m_userIPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserIP";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_userIP.c_str(), allocator).Move(), allocator);
+    }
 
     if (m_androidInstanceIdsHasBeenSet)
     {
@@ -48,14 +56,6 @@ string CreateAndroidInstanceAcceleratorTokenRequest::ToJsonString() const
         }
     }
 
-    if (m_userIPHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UserIP";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_userIP.c_str(), allocator).Move(), allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -63,22 +63,6 @@ string CreateAndroidInstanceAcceleratorTokenRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-vector<string> CreateAndroidInstanceAcceleratorTokenRequest::GetAndroidInstanceIds() const
-{
-    return m_androidInstanceIds;
-}
-
-void CreateAndroidInstanceAcceleratorTokenRequest::SetAndroidInstanceIds(const vector<string>& _androidInstanceIds)
-{
-    m_androidInstanceIds = _androidInstanceIds;
-    m_androidInstanceIdsHasBeenSet = true;
-}
-
-bool CreateAndroidInstanceAcceleratorTokenRequest::AndroidInstanceIdsHasBeenSet() const
-{
-    return m_androidInstanceIdsHasBeenSet;
-}
 
 string CreateAndroidInstanceAcceleratorTokenRequest::GetUserIP() const
 {
@@ -94,6 +78,22 @@ void CreateAndroidInstanceAcceleratorTokenRequest::SetUserIP(const string& _user
 bool CreateAndroidInstanceAcceleratorTokenRequest::UserIPHasBeenSet() const
 {
     return m_userIPHasBeenSet;
+}
+
+vector<string> CreateAndroidInstanceAcceleratorTokenRequest::GetAndroidInstanceIds() const
+{
+    return m_androidInstanceIds;
+}
+
+void CreateAndroidInstanceAcceleratorTokenRequest::SetAndroidInstanceIds(const vector<string>& _androidInstanceIds)
+{
+    m_androidInstanceIds = _androidInstanceIds;
+    m_androidInstanceIdsHasBeenSet = true;
+}
+
+bool CreateAndroidInstanceAcceleratorTokenRequest::AndroidInstanceIdsHasBeenSet() const
+{
+    return m_androidInstanceIdsHasBeenSet;
 }
 
 

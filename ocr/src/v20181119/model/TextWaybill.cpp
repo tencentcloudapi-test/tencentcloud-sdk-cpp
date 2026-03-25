@@ -27,8 +27,7 @@ TextWaybill::TextWaybill() :
     m_senderNameHasBeenSet(false),
     m_senderNumHasBeenSet(false),
     m_senderAddrHasBeenSet(false),
-    m_waybillNumHasBeenSet(false),
-    m_mainWaybillNumHasBeenSet(false)
+    m_waybillNumHasBeenSet(false)
 {
 }
 
@@ -156,23 +155,6 @@ CoreInternalOutcome TextWaybill::Deserialize(const rapidjson::Value &value)
         m_waybillNumHasBeenSet = true;
     }
 
-    if (value.HasMember("MainWaybillNum") && !value["MainWaybillNum"].IsNull())
-    {
-        if (!value["MainWaybillNum"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `TextWaybill.MainWaybillNum` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_mainWaybillNum.Deserialize(value["MainWaybillNum"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_mainWaybillNumHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -241,15 +223,6 @@ void TextWaybill::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_waybillNum.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_mainWaybillNumHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MainWaybillNum";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_mainWaybillNum.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -365,21 +338,5 @@ void TextWaybill::SetWaybillNum(const WaybillObj& _waybillNum)
 bool TextWaybill::WaybillNumHasBeenSet() const
 {
     return m_waybillNumHasBeenSet;
-}
-
-WaybillObj TextWaybill::GetMainWaybillNum() const
-{
-    return m_mainWaybillNum;
-}
-
-void TextWaybill::SetMainWaybillNum(const WaybillObj& _mainWaybillNum)
-{
-    m_mainWaybillNum = _mainWaybillNum;
-    m_mainWaybillNumHasBeenSet = true;
-}
-
-bool TextWaybill::MainWaybillNumHasBeenSet() const
-{
-    return m_mainWaybillNumHasBeenSet;
 }
 

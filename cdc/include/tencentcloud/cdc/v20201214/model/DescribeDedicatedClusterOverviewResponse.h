@@ -172,20 +172,6 @@ namespace TencentCloud
                      */
                     bool HostNormalCountHasBeenSet() const;
 
-                    /**
-                     * 获取异常宿主机数量
-                     * @return HostAbnormalCount 异常宿主机数量
-                     * 
-                     */
-                    uint64_t GetHostAbnormalCount() const;
-
-                    /**
-                     * 判断参数 HostAbnormalCount 是否已赋值
-                     * @return HostAbnormalCount 是否已赋值
-                     * 
-                     */
-                    bool HostAbnormalCountHasBeenSet() const;
-
                 private:
 
                     /**
@@ -241,12 +227,6 @@ namespace TencentCloud
                      */
                     uint64_t m_hostNormalCount;
                     bool m_hostNormalCountHasBeenSet;
-
-                    /**
-                     * 异常宿主机数量
-                     */
-                    uint64_t m_hostAbnormalCount;
-                    bool m_hostAbnormalCountHasBeenSet;
 
                 };
             }

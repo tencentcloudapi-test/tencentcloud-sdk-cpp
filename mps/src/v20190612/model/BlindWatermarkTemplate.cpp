@@ -27,8 +27,7 @@ BlindWatermarkTemplate::BlindWatermarkTemplate() :
     m_textContentHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false),
-    m_strengthHasBeenSet(false)
+    m_updateTimeHasBeenSet(false)
 {
 }
 
@@ -107,16 +106,6 @@ CoreInternalOutcome BlindWatermarkTemplate::Deserialize(const rapidjson::Value &
         m_updateTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("Strength") && !value["Strength"].IsNull())
-    {
-        if (!value["Strength"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `BlindWatermarkTemplate.Strength` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_strength = string(value["Strength"].GetString());
-        m_strengthHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -178,14 +167,6 @@ void BlindWatermarkTemplate::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_strengthHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Strength";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_strength.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -301,21 +282,5 @@ void BlindWatermarkTemplate::SetUpdateTime(const string& _updateTime)
 bool BlindWatermarkTemplate::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
-}
-
-string BlindWatermarkTemplate::GetStrength() const
-{
-    return m_strength;
-}
-
-void BlindWatermarkTemplate::SetStrength(const string& _strength)
-{
-    m_strength = _strength;
-    m_strengthHasBeenSet = true;
-}
-
-bool BlindWatermarkTemplate::StrengthHasBeenSet() const
-{
-    return m_strengthHasBeenSet;
 }
 

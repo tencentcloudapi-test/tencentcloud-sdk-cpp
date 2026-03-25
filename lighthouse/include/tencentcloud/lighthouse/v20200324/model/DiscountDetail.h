@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>计费时长。</p>
-                     * @return TimeSpan <p>计费时长。</p>
+                     * 获取计费时长。
+                     * @return TimeSpan 计费时长。
                      * 
                      */
                     int64_t GetTimeSpan() const;
 
                     /**
-                     * 设置<p>计费时长。</p>
-                     * @param _timeSpan <p>计费时长。</p>
+                     * 设置计费时长。
+                     * @param _timeSpan 计费时长。
                      * 
                      */
                     void SetTimeSpan(const int64_t& _timeSpan);
@@ -69,15 +69,27 @@ namespace TencentCloud
                     bool TimeSpanHasBeenSet() const;
 
                     /**
-                     * 获取<p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
-                     * @return TimeUnit <p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
+                     * 获取时间单位。
+取值为：
+- m - 月
+- d - 日
+                     * @return TimeUnit 时间单位。
+取值为：
+- m - 月
+- d - 日
                      * 
                      */
                     std::string GetTimeUnit() const;
 
                     /**
-                     * 设置<p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
-                     * @param _timeUnit <p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
+                     * 设置时间单位。
+取值为：
+- m - 月
+- d - 日
+                     * @param _timeUnit 时间单位。
+取值为：
+- m - 月
+- d - 日
                      * 
                      */
                     void SetTimeUnit(const std::string& _timeUnit);
@@ -90,15 +102,15 @@ namespace TencentCloud
                     bool TimeUnitHasBeenSet() const;
 
                     /**
-                     * 获取<p>总价。</p><p>单位：元</p>
-                     * @return TotalCost <p>总价。</p><p>单位：元</p>
+                     * 获取总价。
+                     * @return TotalCost 总价。
                      * 
                      */
                     double GetTotalCost() const;
 
                     /**
-                     * 设置<p>总价。</p><p>单位：元</p>
-                     * @param _totalCost <p>总价。</p><p>单位：元</p>
+                     * 设置总价。
+                     * @param _totalCost 总价。
                      * 
                      */
                     void SetTotalCost(const double& _totalCost);
@@ -111,15 +123,15 @@ namespace TencentCloud
                     bool TotalCostHasBeenSet() const;
 
                     /**
-                     * 获取<p>折后总价。</p><p>单位：元</p>
-                     * @return RealTotalCost <p>折后总价。</p><p>单位：元</p>
+                     * 获取折后总价。
+                     * @return RealTotalCost 折后总价。
                      * 
                      */
                     double GetRealTotalCost() const;
 
                     /**
-                     * 设置<p>折后总价。</p><p>单位：元</p>
-                     * @param _realTotalCost <p>折后总价。</p><p>单位：元</p>
+                     * 设置折后总价。
+                     * @param _realTotalCost 折后总价。
                      * 
                      */
                     void SetRealTotalCost(const double& _realTotalCost);
@@ -132,15 +144,15 @@ namespace TencentCloud
                     bool RealTotalCostHasBeenSet() const;
 
                     /**
-                     * 获取<p>折扣。</p>
-                     * @return Discount <p>折扣。</p>
+                     * 获取折扣。
+                     * @return Discount 折扣。
                      * 
                      */
                     double GetDiscount() const;
 
                     /**
-                     * 设置<p>折扣。</p>
-                     * @param _discount <p>折扣。</p>
+                     * 设置折扣。
+                     * @param _discount 折扣。
                      * 
                      */
                     void SetDiscount(const double& _discount);
@@ -153,15 +165,15 @@ namespace TencentCloud
                     bool DiscountHasBeenSet() const;
 
                     /**
-                     * 获取<p>具体折扣详情。</p>
-                     * @return PolicyDetail <p>具体折扣详情。</p>
+                     * 获取具体折扣详情。
+                     * @return PolicyDetail 具体折扣详情。
                      * 
                      */
                     PolicyDetail GetPolicyDetail() const;
 
                     /**
-                     * 设置<p>具体折扣详情。</p>
-                     * @param _policyDetail <p>具体折扣详情。</p>
+                     * 设置具体折扣详情。
+                     * @param _policyDetail 具体折扣详情。
                      * 
                      */
                     void SetPolicyDetail(const PolicyDetail& _policyDetail);
@@ -176,37 +188,40 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>计费时长。</p>
+                     * 计费时长。
                      */
                     int64_t m_timeSpan;
                     bool m_timeSpanHasBeenSet;
 
                     /**
-                     * <p>时间单位。<br>取值为：</p><ul><li>m - 月</li><li>d - 日</li></ul>
+                     * 时间单位。
+取值为：
+- m - 月
+- d - 日
                      */
                     std::string m_timeUnit;
                     bool m_timeUnitHasBeenSet;
 
                     /**
-                     * <p>总价。</p><p>单位：元</p>
+                     * 总价。
                      */
                     double m_totalCost;
                     bool m_totalCostHasBeenSet;
 
                     /**
-                     * <p>折后总价。</p><p>单位：元</p>
+                     * 折后总价。
                      */
                     double m_realTotalCost;
                     bool m_realTotalCostHasBeenSet;
 
                     /**
-                     * <p>折扣。</p>
+                     * 折扣。
                      */
                     double m_discount;
                     bool m_discountHasBeenSet;
 
                     /**
-                     * <p>具体折扣详情。</p>
+                     * 具体折扣详情。
                      */
                     PolicyDetail m_policyDetail;
                     bool m_policyDetailHasBeenSet;

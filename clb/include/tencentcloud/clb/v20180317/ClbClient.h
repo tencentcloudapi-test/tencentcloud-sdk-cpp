@@ -23,8 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/clb/v20180317/model/AssociateCustomizedConfigRequest.h>
-#include <tencentcloud/clb/v20180317/model/AssociateCustomizedConfigResponse.h>
 #include <tencentcloud/clb/v20180317/model/AssociateTargetGroupsRequest.h>
 #include <tencentcloud/clb/v20180317/model/AssociateTargetGroupsResponse.h>
 #include <tencentcloud/clb/v20180317/model/AutoRewriteRequest.h>
@@ -123,8 +121,6 @@
 #include <tencentcloud/clb/v20180317/model/DescribeResourcesResponse.h>
 #include <tencentcloud/clb/v20180317/model/DescribeRewriteRequest.h>
 #include <tencentcloud/clb/v20180317/model/DescribeRewriteResponse.h>
-#include <tencentcloud/clb/v20180317/model/DescribeTargetGroupInstanceStatusRequest.h>
-#include <tencentcloud/clb/v20180317/model/DescribeTargetGroupInstanceStatusResponse.h>
 #include <tencentcloud/clb/v20180317/model/DescribeTargetGroupInstancesRequest.h>
 #include <tencentcloud/clb/v20180317/model/DescribeTargetGroupInstancesResponse.h>
 #include <tencentcloud/clb/v20180317/model/DescribeTargetGroupListRequest.h>
@@ -137,8 +133,6 @@
 #include <tencentcloud/clb/v20180317/model/DescribeTargetsResponse.h>
 #include <tencentcloud/clb/v20180317/model/DescribeTaskStatusRequest.h>
 #include <tencentcloud/clb/v20180317/model/DescribeTaskStatusResponse.h>
-#include <tencentcloud/clb/v20180317/model/DisassociateCustomizedConfigRequest.h>
-#include <tencentcloud/clb/v20180317/model/DisassociateCustomizedConfigResponse.h>
 #include <tencentcloud/clb/v20180317/model/DisassociateTargetGroupsRequest.h>
 #include <tencentcloud/clb/v20180317/model/DisassociateTargetGroupsResponse.h>
 #include <tencentcloud/clb/v20180317/model/InquiryPriceCreateLoadBalancerRequest.h>
@@ -191,8 +185,6 @@
 #include <tencentcloud/clb/v20180317/model/RegisterTargetsResponse.h>
 #include <tencentcloud/clb/v20180317/model/RegisterTargetsWithClassicalLBRequest.h>
 #include <tencentcloud/clb/v20180317/model/RegisterTargetsWithClassicalLBResponse.h>
-#include <tencentcloud/clb/v20180317/model/RenewLoadBalancersRequest.h>
-#include <tencentcloud/clb/v20180317/model/RenewLoadBalancersResponse.h>
 #include <tencentcloud/clb/v20180317/model/ReplaceCertForLoadBalancersRequest.h>
 #include <tencentcloud/clb/v20180317/model/ReplaceCertForLoadBalancersResponse.h>
 #include <tencentcloud/clb/v20180317/model/SetCustomizedConfigForLoadBalancerRequest.h>
@@ -219,9 +211,6 @@ namespace TencentCloud
                 ClbClient(const Credential &credential, const std::string &region);
                 ClbClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::AssociateCustomizedConfigResponse> AssociateCustomizedConfigOutcome;
-                typedef std::future<AssociateCustomizedConfigOutcome> AssociateCustomizedConfigOutcomeCallable;
-                typedef std::function<void(const ClbClient*, const Model::AssociateCustomizedConfigRequest&, AssociateCustomizedConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AssociateCustomizedConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::AssociateTargetGroupsResponse> AssociateTargetGroupsOutcome;
                 typedef std::future<AssociateTargetGroupsOutcome> AssociateTargetGroupsOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::AssociateTargetGroupsRequest&, AssociateTargetGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AssociateTargetGroupsAsyncHandler;
@@ -369,9 +358,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeRewriteResponse> DescribeRewriteOutcome;
                 typedef std::future<DescribeRewriteOutcome> DescribeRewriteOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::DescribeRewriteRequest&, DescribeRewriteOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRewriteAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeTargetGroupInstanceStatusResponse> DescribeTargetGroupInstanceStatusOutcome;
-                typedef std::future<DescribeTargetGroupInstanceStatusOutcome> DescribeTargetGroupInstanceStatusOutcomeCallable;
-                typedef std::function<void(const ClbClient*, const Model::DescribeTargetGroupInstanceStatusRequest&, DescribeTargetGroupInstanceStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTargetGroupInstanceStatusAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTargetGroupInstancesResponse> DescribeTargetGroupInstancesOutcome;
                 typedef std::future<DescribeTargetGroupInstancesOutcome> DescribeTargetGroupInstancesOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::DescribeTargetGroupInstancesRequest&, DescribeTargetGroupInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTargetGroupInstancesAsyncHandler;
@@ -390,9 +376,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeTaskStatusResponse> DescribeTaskStatusOutcome;
                 typedef std::future<DescribeTaskStatusOutcome> DescribeTaskStatusOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::DescribeTaskStatusRequest&, DescribeTaskStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTaskStatusAsyncHandler;
-                typedef Outcome<Core::Error, Model::DisassociateCustomizedConfigResponse> DisassociateCustomizedConfigOutcome;
-                typedef std::future<DisassociateCustomizedConfigOutcome> DisassociateCustomizedConfigOutcomeCallable;
-                typedef std::function<void(const ClbClient*, const Model::DisassociateCustomizedConfigRequest&, DisassociateCustomizedConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisassociateCustomizedConfigAsyncHandler;
                 typedef Outcome<Core::Error, Model::DisassociateTargetGroupsResponse> DisassociateTargetGroupsOutcome;
                 typedef std::future<DisassociateTargetGroupsOutcome> DisassociateTargetGroupsOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::DisassociateTargetGroupsRequest&, DisassociateTargetGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisassociateTargetGroupsAsyncHandler;
@@ -471,9 +454,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::RegisterTargetsWithClassicalLBResponse> RegisterTargetsWithClassicalLBOutcome;
                 typedef std::future<RegisterTargetsWithClassicalLBOutcome> RegisterTargetsWithClassicalLBOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::RegisterTargetsWithClassicalLBRequest&, RegisterTargetsWithClassicalLBOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RegisterTargetsWithClassicalLBAsyncHandler;
-                typedef Outcome<Core::Error, Model::RenewLoadBalancersResponse> RenewLoadBalancersOutcome;
-                typedef std::future<RenewLoadBalancersOutcome> RenewLoadBalancersOutcomeCallable;
-                typedef std::function<void(const ClbClient*, const Model::RenewLoadBalancersRequest&, RenewLoadBalancersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RenewLoadBalancersAsyncHandler;
                 typedef Outcome<Core::Error, Model::ReplaceCertForLoadBalancersResponse> ReplaceCertForLoadBalancersOutcome;
                 typedef std::future<ReplaceCertForLoadBalancersOutcome> ReplaceCertForLoadBalancersOutcomeCallable;
                 typedef std::function<void(const ClbClient*, const Model::ReplaceCertForLoadBalancersRequest&, ReplaceCertForLoadBalancersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ReplaceCertForLoadBalancersAsyncHandler;
@@ -494,15 +474,6 @@ namespace TencentCloud
                 typedef std::function<void(const ClbClient*, const Model::SetSecurityGroupForLoadbalancersRequest&, SetSecurityGroupForLoadbalancersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SetSecurityGroupForLoadbalancersAsyncHandler;
 
 
-
-                /**
-                 *关联配置到server或location，根据配置类型关联到server或location。准备下线，请使用SetCustomizedConfigForLoadBalancer。
-                 * @param req AssociateCustomizedConfigRequest
-                 * @return AssociateCustomizedConfigOutcome
-                 */
-                AssociateCustomizedConfigOutcome AssociateCustomizedConfig(const Model::AssociateCustomizedConfigRequest &request);
-                void AssociateCustomizedConfigAsync(const Model::AssociateCustomizedConfigRequest& request, const AssociateCustomizedConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                AssociateCustomizedConfigOutcomeCallable AssociateCustomizedConfigCallable(const Model::AssociateCustomizedConfigRequest& request);
 
                 /**
                  *本接口(AssociateTargetGroups)用来将目标组绑定到负载均衡的监听器（四层协议）或转发规则（七层协议）上。
@@ -996,15 +967,6 @@ BGP带宽包必须传带宽包id
                 DescribeRewriteOutcomeCallable DescribeRewriteCallable(const Model::DescribeRewriteRequest& request);
 
                 /**
-                 *查询目标组后端服务状态。目前仅支持网关负载均衡类型的目标组支持查询后端服务状态。
-                 * @param req DescribeTargetGroupInstanceStatusRequest
-                 * @return DescribeTargetGroupInstanceStatusOutcome
-                 */
-                DescribeTargetGroupInstanceStatusOutcome DescribeTargetGroupInstanceStatus(const Model::DescribeTargetGroupInstanceStatusRequest &request);
-                void DescribeTargetGroupInstanceStatusAsync(const Model::DescribeTargetGroupInstanceStatusRequest& request, const DescribeTargetGroupInstanceStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeTargetGroupInstanceStatusOutcomeCallable DescribeTargetGroupInstanceStatusCallable(const Model::DescribeTargetGroupInstanceStatusRequest& request);
-
-                /**
                  *获取目标组绑定的服务器信息
                  * @param req DescribeTargetGroupInstancesRequest
                  * @return DescribeTargetGroupInstancesOutcome
@@ -1057,15 +1019,6 @@ BGP带宽包必须传带宽包id
                 DescribeTaskStatusOutcome DescribeTaskStatus(const Model::DescribeTaskStatusRequest &request);
                 void DescribeTaskStatusAsync(const Model::DescribeTaskStatusRequest& request, const DescribeTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeTaskStatusOutcomeCallable DescribeTaskStatusCallable(const Model::DescribeTaskStatusRequest& request);
-
-                /**
-                 *去关联个性化配置，准备下线，请使用SetCustomizedConfigForLoadBalancer。
-                 * @param req DisassociateCustomizedConfigRequest
-                 * @return DisassociateCustomizedConfigOutcome
-                 */
-                DisassociateCustomizedConfigOutcome DisassociateCustomizedConfig(const Model::DisassociateCustomizedConfigRequest &request);
-                void DisassociateCustomizedConfigAsync(const Model::DisassociateCustomizedConfigRequest& request, const DisassociateCustomizedConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DisassociateCustomizedConfigOutcomeCallable DisassociateCustomizedConfigCallable(const Model::DisassociateCustomizedConfigRequest& request);
 
                 /**
                  *解除规则的目标组关联关系。
@@ -1334,15 +1287,6 @@ BGP带宽包必须传带宽包id
                 RegisterTargetsWithClassicalLBOutcome RegisterTargetsWithClassicalLB(const Model::RegisterTargetsWithClassicalLBRequest &request);
                 void RegisterTargetsWithClassicalLBAsync(const Model::RegisterTargetsWithClassicalLBRequest& request, const RegisterTargetsWithClassicalLBAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 RegisterTargetsWithClassicalLBOutcomeCallable RegisterTargetsWithClassicalLBCallable(const Model::RegisterTargetsWithClassicalLBRequest& request);
-
-                /**
-                 *本接口 (RenewLoadBalancers) 用于续费包年包月实例。
-                 * @param req RenewLoadBalancersRequest
-                 * @return RenewLoadBalancersOutcome
-                 */
-                RenewLoadBalancersOutcome RenewLoadBalancers(const Model::RenewLoadBalancersRequest &request);
-                void RenewLoadBalancersAsync(const Model::RenewLoadBalancersRequest& request, const RenewLoadBalancersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                RenewLoadBalancersOutcomeCallable RenewLoadBalancersCallable(const Model::RenewLoadBalancersRequest& request);
 
                 /**
                  *ReplaceCertForLoadBalancers 接口用以替换负载均衡实例所关联的证书，对于各个地域的负载均衡，如果指定的老的证书ID与其有关联关系，则会先解除关联，再建立新证书与该负载均衡的关联关系。

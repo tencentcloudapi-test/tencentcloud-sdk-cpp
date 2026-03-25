@@ -47,18 +47,22 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>规则类型：<br>requestHeader ：对请求头部进行访问控制<br>url ： 对访问url进行访问控制</p>
+                     * 获取requestHeader ：对请求头部进行访问控制
+url ： 对访问url进行访问控制
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RuleType <p>规则类型：<br>requestHeader ：对请求头部进行访问控制<br>url ： 对访问url进行访问控制</p>
+                     * @return RuleType requestHeader ：对请求头部进行访问控制
+url ： 对访问url进行访问控制
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRuleType() const;
 
                     /**
-                     * 设置<p>规则类型：<br>requestHeader ：对请求头部进行访问控制<br>url ： 对访问url进行访问控制</p>
+                     * 设置requestHeader ：对请求头部进行访问控制
+url ： 对访问url进行访问控制
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _ruleType <p>规则类型：<br>requestHeader ：对请求头部进行访问控制<br>url ： 对访问url进行访问控制</p>
+                     * @param _ruleType requestHeader ：对请求头部进行访问控制
+url ： 对访问url进行访问控制
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +76,18 @@ namespace TencentCloud
                     bool RuleTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>封禁内容</p>
+                     * 获取封禁内容
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RuleContent <p>封禁内容</p>
+                     * @return RuleContent 封禁内容
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRuleContent() const;
 
                     /**
-                     * 设置<p>封禁内容</p>
+                     * 设置封禁内容
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _ruleContent <p>封禁内容</p>
+                     * @param _ruleContent 封禁内容
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +101,22 @@ namespace TencentCloud
                     bool RuleContentHasBeenSet() const;
 
                     /**
-                     * 获取<p>on ：正则匹配<br>off ：字面匹配</p>
+                     * 获取on ：正则匹配
+off ：字面匹配
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Regex <p>on ：正则匹配<br>off ：字面匹配</p>
+                     * @return Regex on ：正则匹配
+off ：字面匹配
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRegex() const;
 
                     /**
-                     * 设置<p>on ：正则匹配<br>off ：字面匹配</p>
+                     * 设置on ：正则匹配
+off ：字面匹配
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _regex <p>on ：正则匹配<br>off ：字面匹配</p>
+                     * @param _regex on ：正则匹配
+off ：字面匹配
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +130,18 @@ namespace TencentCloud
                     bool RegexHasBeenSet() const;
 
                     /**
-                     * 获取<p>RuleType为requestHeader时必填，否则不需要填</p>
+                     * 获取RuleType为requestHeader时必填，否则不需要填
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RuleHeader <p>RuleType为requestHeader时必填，否则不需要填</p>
+                     * @return RuleHeader RuleType为requestHeader时必填，否则不需要填
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRuleHeader() const;
 
                     /**
-                     * 设置<p>RuleType为requestHeader时必填，否则不需要填</p>
+                     * 设置RuleType为requestHeader时必填，否则不需要填
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _ruleHeader <p>RuleType为requestHeader时必填，否则不需要填</p>
+                     * @param _ruleHeader RuleType为requestHeader时必填，否则不需要填
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -149,28 +157,30 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>规则类型：<br>requestHeader ：对请求头部进行访问控制<br>url ： 对访问url进行访问控制</p>
+                     * requestHeader ：对请求头部进行访问控制
+url ： 对访问url进行访问控制
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_ruleType;
                     bool m_ruleTypeHasBeenSet;
 
                     /**
-                     * <p>封禁内容</p>
+                     * 封禁内容
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_ruleContent;
                     bool m_ruleContentHasBeenSet;
 
                     /**
-                     * <p>on ：正则匹配<br>off ：字面匹配</p>
+                     * on ：正则匹配
+off ：字面匹配
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_regex;
                     bool m_regexHasBeenSet;
 
                     /**
-                     * <p>RuleType为requestHeader时必填，否则不需要填</p>
+                     * RuleType为requestHeader时必填，否则不需要填
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_ruleHeader;

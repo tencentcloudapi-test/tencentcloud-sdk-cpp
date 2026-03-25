@@ -26,8 +26,7 @@ ResourceRefDetail::ResourceRefDetail() :
     m_nameHasBeenSet(false),
     m_typeHasBeenSet(false),
     m_systemProvideHasBeenSet(false),
-    m_connectorHasBeenSet(false),
-    m_connectorVersionHasBeenSet(false)
+    m_connectorHasBeenSet(false)
 {
 }
 
@@ -96,16 +95,6 @@ CoreInternalOutcome ResourceRefDetail::Deserialize(const rapidjson::Value &value
         m_connectorHasBeenSet = true;
     }
 
-    if (value.HasMember("ConnectorVersion") && !value["ConnectorVersion"].IsNull())
-    {
-        if (!value["ConnectorVersion"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ResourceRefDetail.ConnectorVersion` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_connectorVersion = string(value["ConnectorVersion"].GetString());
-        m_connectorVersionHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -159,14 +148,6 @@ void ResourceRefDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "Connector";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_connector.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_connectorVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ConnectorVersion";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_connectorVersion.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -266,21 +247,5 @@ void ResourceRefDetail::SetConnector(const string& _connector)
 bool ResourceRefDetail::ConnectorHasBeenSet() const
 {
     return m_connectorHasBeenSet;
-}
-
-string ResourceRefDetail::GetConnectorVersion() const
-{
-    return m_connectorVersion;
-}
-
-void ResourceRefDetail::SetConnectorVersion(const string& _connectorVersion)
-{
-    m_connectorVersion = _connectorVersion;
-    m_connectorVersionHasBeenSet = true;
-}
-
-bool ResourceRefDetail::ConnectorVersionHasBeenSet() const
-{
-    return m_connectorVersionHasBeenSet;
 }
 

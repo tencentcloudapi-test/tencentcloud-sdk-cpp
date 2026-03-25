@@ -52,8 +52,7 @@ ModifyRoomRequest::ModifyRoomRequest() :
     m_whiteBoardSnapshotModeHasBeenSet(false),
     m_subtitlesTranscriptionHasBeenSet(false),
     m_guestsHasBeenSet(false),
-    m_recordMergeHasBeenSet(false),
-    m_enableLiveRelayHasBeenSet(false)
+    m_recordMergeHasBeenSet(false)
 {
 }
 
@@ -312,14 +311,6 @@ string ModifyRoomRequest::ToJsonString() const
         string key = "RecordMerge";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_recordMerge, allocator);
-    }
-
-    if (m_enableLiveRelayHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableLiveRelay";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableLiveRelay, allocator);
     }
 
 
@@ -808,22 +799,6 @@ void ModifyRoomRequest::SetRecordMerge(const uint64_t& _recordMerge)
 bool ModifyRoomRequest::RecordMergeHasBeenSet() const
 {
     return m_recordMergeHasBeenSet;
-}
-
-uint64_t ModifyRoomRequest::GetEnableLiveRelay() const
-{
-    return m_enableLiveRelay;
-}
-
-void ModifyRoomRequest::SetEnableLiveRelay(const uint64_t& _enableLiveRelay)
-{
-    m_enableLiveRelay = _enableLiveRelay;
-    m_enableLiveRelayHasBeenSet = true;
-}
-
-bool ModifyRoomRequest::EnableLiveRelayHasBeenSet() const
-{
-    return m_enableLiveRelayHasBeenSet;
 }
 
 

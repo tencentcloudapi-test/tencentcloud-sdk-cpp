@@ -1440,56 +1440,6 @@ CkafkaClient::DeleteGroupOutcomeCallable CkafkaClient::DeleteGroupCallable(const
     return prom->get_future();
 }
 
-CkafkaClient::DeleteGroupSubscribeTopicOutcome CkafkaClient::DeleteGroupSubscribeTopic(const DeleteGroupSubscribeTopicRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteGroupSubscribeTopic");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteGroupSubscribeTopicResponse rsp = DeleteGroupSubscribeTopicResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteGroupSubscribeTopicOutcome(rsp);
-        else
-            return DeleteGroupSubscribeTopicOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteGroupSubscribeTopicOutcome(outcome.GetError());
-    }
-}
-
-void CkafkaClient::DeleteGroupSubscribeTopicAsync(const DeleteGroupSubscribeTopicRequest& request, const DeleteGroupSubscribeTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteGroupSubscribeTopicRequest&;
-    using Resp = DeleteGroupSubscribeTopicResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteGroupSubscribeTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-CkafkaClient::DeleteGroupSubscribeTopicOutcomeCallable CkafkaClient::DeleteGroupSubscribeTopicCallable(const DeleteGroupSubscribeTopicRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteGroupSubscribeTopicOutcome>>();
-    DeleteGroupSubscribeTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteGroupSubscribeTopicRequest&,
-        DeleteGroupSubscribeTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 CkafkaClient::DeleteInstancePostOutcome CkafkaClient::DeleteInstancePost(const DeleteInstancePostRequest &request)
 {
     auto outcome = MakeRequest(request, "DeleteInstancePost");

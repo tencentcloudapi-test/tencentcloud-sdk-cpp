@@ -63,27 +63,6 @@ namespace TencentCloud
                      */
                     bool FileSystemIdHasBeenSet() const;
 
-                    /**
-                     * 获取起始回热任务ID标记
-                     * @return RestoreTaskIdMarker 起始回热任务ID标记
-                     * 
-                     */
-                    uint64_t GetRestoreTaskIdMarker() const;
-
-                    /**
-                     * 设置起始回热任务ID标记
-                     * @param _restoreTaskIdMarker 起始回热任务ID标记
-                     * 
-                     */
-                    void SetRestoreTaskIdMarker(const uint64_t& _restoreTaskIdMarker);
-
-                    /**
-                     * 判断参数 RestoreTaskIdMarker 是否已赋值
-                     * @return RestoreTaskIdMarker 是否已赋值
-                     * 
-                     */
-                    bool RestoreTaskIdMarkerHasBeenSet() const;
-
                 private:
 
                     /**
@@ -91,12 +70,6 @@ namespace TencentCloud
                      */
                     std::string m_fileSystemId;
                     bool m_fileSystemIdHasBeenSet;
-
-                    /**
-                     * 起始回热任务ID标记
-                     */
-                    uint64_t m_restoreTaskIdMarker;
-                    bool m_restoreTaskIdMarkerHasBeenSet;
 
                 };
             }

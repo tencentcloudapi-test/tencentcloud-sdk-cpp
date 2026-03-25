@@ -26,8 +26,7 @@ SecurityPolicy::SecurityPolicy() :
     m_httpDDoSProtectionHasBeenSet(false),
     m_rateLimitingRulesHasBeenSet(false),
     m_exceptionRulesHasBeenSet(false),
-    m_botManagementHasBeenSet(false),
-    m_botManagementLiteHasBeenSet(false)
+    m_botManagementHasBeenSet(false)
 {
 }
 
@@ -138,23 +137,6 @@ CoreInternalOutcome SecurityPolicy::Deserialize(const rapidjson::Value &value)
         m_botManagementHasBeenSet = true;
     }
 
-    if (value.HasMember("BotManagementLite") && !value["BotManagementLite"].IsNull())
-    {
-        if (!value["BotManagementLite"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `SecurityPolicy.BotManagementLite` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_botManagementLite.Deserialize(value["BotManagementLite"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_botManagementLiteHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -214,15 +196,6 @@ void SecurityPolicy::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_botManagement.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_botManagementLiteHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BotManagementLite";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_botManagementLite.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -322,21 +295,5 @@ void SecurityPolicy::SetBotManagement(const BotManagement& _botManagement)
 bool SecurityPolicy::BotManagementHasBeenSet() const
 {
     return m_botManagementHasBeenSet;
-}
-
-BotManagementLite SecurityPolicy::GetBotManagementLite() const
-{
-    return m_botManagementLite;
-}
-
-void SecurityPolicy::SetBotManagementLite(const BotManagementLite& _botManagementLite)
-{
-    m_botManagementLite = _botManagementLite;
-    m_botManagementLiteHasBeenSet = true;
-}
-
-bool SecurityPolicy::BotManagementLiteHasBeenSet() const
-{
-    return m_botManagementLiteHasBeenSet;
 }
 

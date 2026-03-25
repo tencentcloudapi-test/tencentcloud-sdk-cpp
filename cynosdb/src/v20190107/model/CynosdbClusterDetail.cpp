@@ -76,8 +76,7 @@ CynosdbClusterDetail::CynosdbClusterDetail() :
     m_gdnRoleHasBeenSet(false),
     m_usedArchiveStorageHasBeenSet(false),
     m_archiveStatusHasBeenSet(false),
-    m_archiveProgressHasBeenSet(false),
-    m_isOpenTDEHasBeenSet(false)
+    m_archiveProgressHasBeenSet(false)
 {
 }
 
@@ -716,16 +715,6 @@ CoreInternalOutcome CynosdbClusterDetail::Deserialize(const rapidjson::Value &va
         m_archiveProgressHasBeenSet = true;
     }
 
-    if (value.HasMember("IsOpenTDE") && !value["IsOpenTDE"].IsNull())
-    {
-        if (!value["IsOpenTDE"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `CynosdbClusterDetail.IsOpenTDE` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_isOpenTDE = value["IsOpenTDE"].GetBool();
-        m_isOpenTDEHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -1227,14 +1216,6 @@ void CynosdbClusterDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
         string key = "ArchiveProgress";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_archiveProgress, allocator);
-    }
-
-    if (m_isOpenTDEHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IsOpenTDE";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_isOpenTDE, allocator);
     }
 
 }
@@ -2134,21 +2115,5 @@ void CynosdbClusterDetail::SetArchiveProgress(const int64_t& _archiveProgress)
 bool CynosdbClusterDetail::ArchiveProgressHasBeenSet() const
 {
     return m_archiveProgressHasBeenSet;
-}
-
-bool CynosdbClusterDetail::GetIsOpenTDE() const
-{
-    return m_isOpenTDE;
-}
-
-void CynosdbClusterDetail::SetIsOpenTDE(const bool& _isOpenTDE)
-{
-    m_isOpenTDE = _isOpenTDE;
-    m_isOpenTDEHasBeenSet = true;
-}
-
-bool CynosdbClusterDetail::IsOpenTDEHasBeenSet() const
-{
-    return m_isOpenTDEHasBeenSet;
 }
 

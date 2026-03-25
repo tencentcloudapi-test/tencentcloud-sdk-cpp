@@ -147,27 +147,6 @@ namespace TencentCloud
                      */
                     bool EnvTypeHasBeenSet() const;
 
-                    /**
-                     * 获取新角色id
-                     * @return RoleStringId 新角色id
-                     * 
-                     */
-                    std::string GetRoleStringId() const;
-
-                    /**
-                     * 设置新角色id
-                     * @param _roleStringId 新角色id
-                     * 
-                     */
-                    void SetRoleStringId(const std::string& _roleStringId);
-
-                    /**
-                     * 判断参数 RoleStringId 是否已赋值
-                     * @return RoleStringId 是否已赋值
-                     * 
-                     */
-                    bool RoleStringIdHasBeenSet() const;
-
                 private:
 
                     /**
@@ -199,12 +178,6 @@ namespace TencentCloud
                      */
                     std::string m_envType;
                     bool m_envTypeHasBeenSet;
-
-                    /**
-                     * 新角色id
-                     */
-                    std::string m_roleStringId;
-                    bool m_roleStringIdHasBeenSet;
 
                 };
             }

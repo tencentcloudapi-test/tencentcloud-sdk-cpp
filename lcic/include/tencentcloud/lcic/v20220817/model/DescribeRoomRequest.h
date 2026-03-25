@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>课堂Id。</p>
-                     * @return RoomId <p>课堂Id。</p>
+                     * 获取课堂Id。
+                     * @return RoomId 课堂Id。
                      * 
                      */
                     uint64_t GetRoomId() const;
 
                     /**
-                     * 设置<p>课堂Id。</p>
-                     * @param _roomId <p>课堂Id。</p>
+                     * 设置课堂Id。
+                     * @param _roomId 课堂Id。
                      * 
                      */
                     void SetRoomId(const uint64_t& _roomId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool RoomIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>请求RTMP推流链接，0：否，1：是，默认为0。</p>
-                     * @return RTMPStreamingURL <p>请求RTMP推流链接，0：否，1：是，默认为0。</p>
+                     * 获取请求RTMP推流链接，0：否，1：是，默认为0。
+                     * @return RTMPStreamingURL 请求RTMP推流链接，0：否，1：是，默认为0。
                      * 
                      */
                     uint64_t GetRTMPStreamingURL() const;
 
                     /**
-                     * 设置<p>请求RTMP推流链接，0：否，1：是，默认为0。</p>
-                     * @param _rTMPStreamingURL <p>请求RTMP推流链接，0：否，1：是，默认为0。</p>
+                     * 设置请求RTMP推流链接，0：否，1：是，默认为0。
+                     * @param _rTMPStreamingURL 请求RTMP推流链接，0：否，1：是，默认为0。
                      * 
                      */
                     void SetRTMPStreamingURL(const uint64_t& _rTMPStreamingURL);
@@ -87,13 +87,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>课堂Id。</p>
+                     * 课堂Id。
                      */
                     uint64_t m_roomId;
                     bool m_roomIdHasBeenSet;
 
                     /**
-                     * <p>请求RTMP推流链接，0：否，1：是，默认为0。</p>
+                     * 请求RTMP推流链接，0：否，1：是，默认为0。
                      */
                     uint64_t m_rTMPStreamingURL;
                     bool m_rTMPStreamingURLHasBeenSet;

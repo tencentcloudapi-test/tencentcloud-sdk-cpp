@@ -32,8 +32,7 @@ DescribeClusterEndpointsResponse::DescribeClusterEndpointsResponse() :
     m_clusterExternalDomainHasBeenSet(false),
     m_clusterIntranetDomainHasBeenSet(false),
     m_securityGroupHasBeenSet(false),
-    m_clusterIntranetSubnetIdHasBeenSet(false),
-    m_intranetSecurityGroupHasBeenSet(false)
+    m_clusterIntranetSubnetIdHasBeenSet(false)
 {
 }
 
@@ -164,16 +163,6 @@ CoreInternalOutcome DescribeClusterEndpointsResponse::Deserialize(const string &
         m_clusterIntranetSubnetIdHasBeenSet = true;
     }
 
-    if (rsp.HasMember("IntranetSecurityGroup") && !rsp["IntranetSecurityGroup"].IsNull())
-    {
-        if (!rsp["IntranetSecurityGroup"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `IntranetSecurityGroup` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_intranetSecurityGroup = string(rsp["IntranetSecurityGroup"].GetString());
-        m_intranetSecurityGroupHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -259,14 +248,6 @@ string DescribeClusterEndpointsResponse::ToJsonString() const
         string key = "ClusterIntranetSubnetId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_clusterIntranetSubnetId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_intranetSecurityGroupHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IntranetSecurityGroup";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_intranetSecurityGroup.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -369,16 +350,6 @@ string DescribeClusterEndpointsResponse::GetClusterIntranetSubnetId() const
 bool DescribeClusterEndpointsResponse::ClusterIntranetSubnetIdHasBeenSet() const
 {
     return m_clusterIntranetSubnetIdHasBeenSet;
-}
-
-string DescribeClusterEndpointsResponse::GetIntranetSecurityGroup() const
-{
-    return m_intranetSecurityGroup;
-}
-
-bool DescribeClusterEndpointsResponse::IntranetSecurityGroupHasBeenSet() const
-{
-    return m_intranetSecurityGroupHasBeenSet;
 }
 
 

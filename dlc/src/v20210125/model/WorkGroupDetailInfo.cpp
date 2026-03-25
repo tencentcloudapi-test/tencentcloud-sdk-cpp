@@ -29,9 +29,7 @@ WorkGroupDetailInfo::WorkGroupDetailInfo() :
     m_enginePolicyInfoHasBeenSet(false),
     m_workGroupDescriptionHasBeenSet(false),
     m_rowFilterInfoHasBeenSet(false),
-    m_catalogPolicyInfoHasBeenSet(false),
-    m_dataCatalogPolicyInfoHasBeenSet(false),
-    m_modelPolicyInfoHasBeenSet(false)
+    m_catalogPolicyInfoHasBeenSet(false)
 {
 }
 
@@ -165,40 +163,6 @@ CoreInternalOutcome WorkGroupDetailInfo::Deserialize(const rapidjson::Value &val
         m_catalogPolicyInfoHasBeenSet = true;
     }
 
-    if (value.HasMember("DataCatalogPolicyInfo") && !value["DataCatalogPolicyInfo"].IsNull())
-    {
-        if (!value["DataCatalogPolicyInfo"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `WorkGroupDetailInfo.DataCatalogPolicyInfo` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_dataCatalogPolicyInfo.Deserialize(value["DataCatalogPolicyInfo"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_dataCatalogPolicyInfoHasBeenSet = true;
-    }
-
-    if (value.HasMember("ModelPolicyInfo") && !value["ModelPolicyInfo"].IsNull())
-    {
-        if (!value["ModelPolicyInfo"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `WorkGroupDetailInfo.ModelPolicyInfo` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_modelPolicyInfo.Deserialize(value["ModelPolicyInfo"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_modelPolicyInfoHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -281,24 +245,6 @@ void WorkGroupDetailInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_catalogPolicyInfo.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_dataCatalogPolicyInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DataCatalogPolicyInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_dataCatalogPolicyInfo.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_modelPolicyInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ModelPolicyInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_modelPolicyInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -446,37 +392,5 @@ void WorkGroupDetailInfo::SetCatalogPolicyInfo(const Policy& _catalogPolicyInfo)
 bool WorkGroupDetailInfo::CatalogPolicyInfoHasBeenSet() const
 {
     return m_catalogPolicyInfoHasBeenSet;
-}
-
-Policys WorkGroupDetailInfo::GetDataCatalogPolicyInfo() const
-{
-    return m_dataCatalogPolicyInfo;
-}
-
-void WorkGroupDetailInfo::SetDataCatalogPolicyInfo(const Policys& _dataCatalogPolicyInfo)
-{
-    m_dataCatalogPolicyInfo = _dataCatalogPolicyInfo;
-    m_dataCatalogPolicyInfoHasBeenSet = true;
-}
-
-bool WorkGroupDetailInfo::DataCatalogPolicyInfoHasBeenSet() const
-{
-    return m_dataCatalogPolicyInfoHasBeenSet;
-}
-
-Policys WorkGroupDetailInfo::GetModelPolicyInfo() const
-{
-    return m_modelPolicyInfo;
-}
-
-void WorkGroupDetailInfo::SetModelPolicyInfo(const Policys& _modelPolicyInfo)
-{
-    m_modelPolicyInfo = _modelPolicyInfo;
-    m_modelPolicyInfoHasBeenSet = true;
-}
-
-bool WorkGroupDetailInfo::ModelPolicyInfoHasBeenSet() const
-{
-    return m_modelPolicyInfoHasBeenSet;
 }
 

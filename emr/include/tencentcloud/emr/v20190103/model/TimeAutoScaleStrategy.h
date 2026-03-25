@@ -543,27 +543,6 @@ namespace TencentCloud
                      */
                     bool GraceDownLabelHasBeenSet() const;
 
-                    /**
-                     * 获取任务保护时间
-                     * @return GraceDownProtectTime 任务保护时间
-                     * 
-                     */
-                    int64_t GetGraceDownProtectTime() const;
-
-                    /**
-                     * 设置任务保护时间
-                     * @param _graceDownProtectTime 任务保护时间
-                     * 
-                     */
-                    void SetGraceDownProtectTime(const int64_t& _graceDownProtectTime);
-
-                    /**
-                     * 判断参数 GraceDownProtectTime 是否已赋值
-                     * @return GraceDownProtectTime 是否已赋值
-                     * 
-                     */
-                    bool GraceDownProtectTimeHasBeenSet() const;
-
                 private:
 
                     /**
@@ -705,12 +684,6 @@ namespace TencentCloud
                      */
                     std::vector<TkeLabel> m_graceDownLabel;
                     bool m_graceDownLabelHasBeenSet;
-
-                    /**
-                     * 任务保护时间
-                     */
-                    int64_t m_graceDownProtectTime;
-                    bool m_graceDownProtectTimeHasBeenSet;
 
                 };
             }

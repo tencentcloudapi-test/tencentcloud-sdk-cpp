@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>身份证号</p>
-                     * @return IdCard <p>身份证号</p>
+                     * 获取身份证号
+                     * @return IdCard 身份证号
                      * 
                      */
                     std::string GetIdCard() const;
 
                     /**
-                     * 设置<p>身份证号</p>
-                     * @param _idCard <p>身份证号</p>
+                     * 设置身份证号
+                     * @param _idCard 身份证号
                      * 
                      */
                     void SetIdCard(const std::string& _idCard);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool IdCardHasBeenSet() const;
 
                     /**
-                     * 获取<p>姓名。中文请使用UTF-8编码。</p>
-                     * @return Name <p>姓名。中文请使用UTF-8编码。</p>
+                     * 获取姓名。中文请使用UTF-8编码。
+                     * @return Name 姓名。中文请使用UTF-8编码。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>姓名。中文请使用UTF-8编码。</p>
-                     * @param _name <p>姓名。中文请使用UTF-8编码。</p>
+                     * 设置姓名。中文请使用UTF-8编码。
+                     * @param _name 姓名。中文请使用UTF-8编码。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -86,15 +86,23 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>用于人脸比对的照片，图片的Base64值；<br>Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。<br>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</p>
-                     * @return ImageBase64 <p>用于人脸比对的照片，图片的Base64值；<br>Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。<br>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</p>
+                     * 获取用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+                     * @return ImageBase64 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
                      * 
                      */
                     std::string GetImageBase64() const;
 
                     /**
-                     * 设置<p>用于人脸比对的照片，图片的Base64值；<br>Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。<br>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</p>
-                     * @param _imageBase64 <p>用于人脸比对的照片，图片的Base64值；<br>Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。<br>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</p>
+                     * 设置用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
+                     * @param _imageBase64 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
                      * 
                      */
                     void SetImageBase64(const std::string& _imageBase64);
@@ -107,15 +115,15 @@ namespace TencentCloud
                     bool ImageBase64HasBeenSet() const;
 
                     /**
-                     * 获取<p>本接口不需要传递此参数。</p>
-                     * @return Optional <p>本接口不需要传递此参数。</p>
+                     * 获取本接口不需要传递此参数。
+                     * @return Optional 本接口不需要传递此参数。
                      * 
                      */
                     std::string GetOptional() const;
 
                     /**
-                     * 设置<p>本接口不需要传递此参数。</p>
-                     * @param _optional <p>本接口不需要传递此参数。</p>
+                     * 设置本接口不需要传递此参数。
+                     * @param _optional 本接口不需要传递此参数。
                      * 
                      */
                     void SetOptional(const std::string& _optional);
@@ -128,15 +136,15 @@ namespace TencentCloud
                     bool OptionalHasBeenSet() const;
 
                     /**
-                     * 获取<p>敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</p>
-                     * @return Encryption <p>敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</p>
+                     * 获取敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+                     * @return Encryption 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
                      * 
                      */
                     Encryption GetEncryption() const;
 
                     /**
-                     * 设置<p>敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</p>
-                     * @param _encryption <p>敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</p>
+                     * 设置敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
+                     * @param _encryption 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
                      * 
                      */
                     void SetEncryption(const Encryption& _encryption);
@@ -151,31 +159,33 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>身份证号</p>
+                     * 身份证号
                      */
                     std::string m_idCard;
                     bool m_idCardHasBeenSet;
 
                     /**
-                     * <p>姓名。中文请使用UTF-8编码。</p>
+                     * 姓名。中文请使用UTF-8编码。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>用于人脸比对的照片，图片的Base64值；<br>Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。<br>请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。</p>
+                     * 用于人脸比对的照片，图片的Base64值；
+Base64编码后的图片数据大小不超过3M，仅支持jpg、png格式。
+请使用标准的Base64编码方式(带=补位)，编码规范参考RFC4648。
                      */
                     std::string m_imageBase64;
                     bool m_imageBase64HasBeenSet;
 
                     /**
-                     * <p>本接口不需要传递此参数。</p>
+                     * 本接口不需要传递此参数。
                      */
                     std::string m_optional;
                     bool m_optionalHasBeenSet;
 
                     /**
-                     * <p>敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。</p>
+                     * 敏感数据加密信息。对传入信息（姓名、身份证号）有加密需求的用户可使用此参数，详情请点击左侧链接。
                      */
                     Encryption m_encryption;
                     bool m_encryptionHasBeenSet;

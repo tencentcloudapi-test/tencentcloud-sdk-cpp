@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>日志主题ID</p>
-                     * @return TopicId <p>日志主题ID</p>
+                     * 获取日志主题ID
+                     * @return TopicId 日志主题ID
                      * 
                      */
                     std::string GetTopicId() const;
 
                     /**
-                     * 设置<p>日志主题ID</p>
-                     * @param _topicId <p>日志主题ID</p>
+                     * 设置日志主题ID
+                     * @param _topicId 日志主题ID
                      * 
                      */
                     void SetTopicId(const std::string& _topicId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TopicIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出任务ID</p>
-                     * @return ExportId <p>日志导出任务ID</p>
+                     * 获取日志导出任务ID
+                     * @return ExportId 日志导出任务ID
                      * 
                      */
                     std::string GetExportId() const;
 
                     /**
-                     * 设置<p>日志导出任务ID</p>
-                     * @param _exportId <p>日志导出任务ID</p>
+                     * 设置日志导出任务ID
+                     * @param _exportId 日志导出任务ID
                      * 
                      */
                     void SetExportId(const std::string& _exportId);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool ExportIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出查询语句</p>
-                     * @return Query <p>日志导出查询语句</p>
+                     * 获取日志导出查询语句
+                     * @return Query 日志导出查询语句
                      * 
                      */
                     std::string GetQuery() const;
 
                     /**
-                     * 设置<p>日志导出查询语句</p>
-                     * @param _query <p>日志导出查询语句</p>
+                     * 设置日志导出查询语句
+                     * @param _query 日志导出查询语句
                      * 
                      */
                     void SetQuery(const std::string& _query);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool QueryHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出文件名</p>
-                     * @return FileName <p>日志导出文件名</p>
+                     * 获取日志导出文件名
+                     * @return FileName 日志导出文件名
                      * 
                      */
                     std::string GetFileName() const;
 
                     /**
-                     * 设置<p>日志导出文件名</p>
-                     * @param _fileName <p>日志导出文件名</p>
+                     * 设置日志导出文件名
+                     * @param _fileName 日志导出文件名
                      * 
                      */
                     void SetFileName(const std::string& _fileName);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool FileNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志文件大小</p><p>单位：Byte</p>
-                     * @return FileSize <p>日志文件大小</p><p>单位：Byte</p>
+                     * 获取日志文件大小
+                     * @return FileSize 日志文件大小
                      * 
                      */
                     uint64_t GetFileSize() const;
 
                     /**
-                     * 设置<p>日志文件大小</p><p>单位：Byte</p>
-                     * @param _fileSize <p>日志文件大小</p><p>单位：Byte</p>
+                     * 设置日志文件大小
+                     * @param _fileSize 日志文件大小
                      * 
                      */
                     void SetFileSize(const uint64_t& _fileSize);
@@ -152,15 +152,15 @@ namespace TencentCloud
                     bool FileSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出时间排序</p>
-                     * @return Order <p>日志导出时间排序</p>
+                     * 获取日志导出时间排序
+                     * @return Order 日志导出时间排序
                      * 
                      */
                     std::string GetOrder() const;
 
                     /**
-                     * 设置<p>日志导出时间排序</p>
-                     * @param _order <p>日志导出时间排序</p>
+                     * 设置日志导出时间排序
+                     * @param _order 日志导出时间排序
                      * 
                      */
                     void SetOrder(const std::string& _order);
@@ -173,15 +173,15 @@ namespace TencentCloud
                     bool OrderHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出格式</p>
-                     * @return Format <p>日志导出格式</p>
+                     * 获取日志导出格式
+                     * @return Format 日志导出格式
                      * 
                      */
                     std::string GetFormat() const;
 
                     /**
-                     * 设置<p>日志导出格式</p>
-                     * @param _format <p>日志导出格式</p>
+                     * 设置日志导出格式
+                     * @param _format 日志导出格式
                      * 
                      */
                     void SetFormat(const std::string& _format);
@@ -194,15 +194,15 @@ namespace TencentCloud
                     bool FormatHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出数量</p>
-                     * @return Count <p>日志导出数量</p>
+                     * 获取日志导出数量
+                     * @return Count 日志导出数量
                      * 
                      */
                     uint64_t GetCount() const;
 
                     /**
-                     * 设置<p>日志导出数量</p>
-                     * @param _count <p>日志导出数量</p>
+                     * 设置日志导出数量
+                     * @param _count 日志导出数量
                      * 
                      */
                     void SetCount(const uint64_t& _count);
@@ -215,15 +215,15 @@ namespace TencentCloud
                     bool CountHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中</p>
-                     * @return Status <p>日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中</p>
+                     * 获取日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中
+                     * @return Status 日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中</p>
-                     * @param _status <p>日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中</p>
+                     * 设置日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中
+                     * @param _status 日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -236,15 +236,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出起始时间，毫秒时间戳</p>
-                     * @return From <p>日志导出起始时间，毫秒时间戳</p>
+                     * 获取日志导出起始时间，毫秒时间戳
+                     * @return From 日志导出起始时间，毫秒时间戳
                      * 
                      */
                     int64_t GetFrom() const;
 
                     /**
-                     * 设置<p>日志导出起始时间，毫秒时间戳</p>
-                     * @param _from <p>日志导出起始时间，毫秒时间戳</p>
+                     * 设置日志导出起始时间，毫秒时间戳
+                     * @param _from 日志导出起始时间，毫秒时间戳
                      * 
                      */
                     void SetFrom(const int64_t& _from);
@@ -257,15 +257,15 @@ namespace TencentCloud
                     bool FromHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出结束时间，毫秒时间戳</p>
-                     * @return To <p>日志导出结束时间，毫秒时间戳</p>
+                     * 获取日志导出结束时间，毫秒时间戳
+                     * @return To 日志导出结束时间，毫秒时间戳
                      * 
                      */
                     int64_t GetTo() const;
 
                     /**
-                     * 设置<p>日志导出结束时间，毫秒时间戳</p>
-                     * @param _to <p>日志导出结束时间，毫秒时间戳</p>
+                     * 设置日志导出结束时间，毫秒时间戳
+                     * @param _to 日志导出结束时间，毫秒时间戳
                      * 
                      */
                     void SetTo(const int64_t& _to);
@@ -278,15 +278,15 @@ namespace TencentCloud
                     bool ToHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出路径,有效期一个小时，请尽快使用该路径下载。</p>
-                     * @return CosPath <p>日志导出路径,有效期一个小时，请尽快使用该路径下载。</p>
+                     * 获取日志导出路径,有效期一个小时，请尽快使用该路径下载。
+                     * @return CosPath 日志导出路径,有效期一个小时，请尽快使用该路径下载。
                      * 
                      */
                     std::string GetCosPath() const;
 
                     /**
-                     * 设置<p>日志导出路径,有效期一个小时，请尽快使用该路径下载。</p>
-                     * @param _cosPath <p>日志导出路径,有效期一个小时，请尽快使用该路径下载。</p>
+                     * 设置日志导出路径,有效期一个小时，请尽快使用该路径下载。
+                     * @param _cosPath 日志导出路径,有效期一个小时，请尽快使用该路径下载。
                      * 
                      */
                     void SetCosPath(const std::string& _cosPath);
@@ -299,15 +299,19 @@ namespace TencentCloud
                     bool CosPathHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志导出创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss</p>
-                     * @return CreateTime <p>日志导出创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss</p>
+                     * 获取日志导出创建时间
+时间格式：yyyy-MM-dd HH:mm:ss
+                     * @return CreateTime 日志导出创建时间
+时间格式：yyyy-MM-dd HH:mm:ss
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>日志导出创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss</p>
-                     * @param _createTime <p>日志导出创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss</p>
+                     * 设置日志导出创建时间
+时间格式：yyyy-MM-dd HH:mm:ss
+                     * @param _createTime 日志导出创建时间
+时间格式：yyyy-MM-dd HH:mm:ss
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -320,15 +324,19 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>语法规则。 默认值为0。<br>0：Lucene语法，1：CQL语法。</p>
-                     * @return SyntaxRule <p>语法规则。 默认值为0。<br>0：Lucene语法，1：CQL语法。</p>
+                     * 获取语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
+                     * @return SyntaxRule 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
                      * 
                      */
                     uint64_t GetSyntaxRule() const;
 
                     /**
-                     * 设置<p>语法规则。 默认值为0。<br>0：Lucene语法，1：CQL语法。</p>
-                     * @param _syntaxRule <p>语法规则。 默认值为0。<br>0：Lucene语法，1：CQL语法。</p>
+                     * 设置语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
+                     * @param _syntaxRule 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
                      * 
                      */
                     void SetSyntaxRule(const uint64_t& _syntaxRule);
@@ -341,15 +349,15 @@ namespace TencentCloud
                     bool SyntaxRuleHasBeenSet() const;
 
                     /**
-                     * 获取<p>导出字段</p>
-                     * @return DerivedFields <p>导出字段</p>
+                     * 获取导出字段
+                     * @return DerivedFields 导出字段
                      * 
                      */
                     std::vector<std::string> GetDerivedFields() const;
 
                     /**
-                     * 设置<p>导出字段</p>
-                     * @param _derivedFields <p>导出字段</p>
+                     * 设置导出字段
+                     * @param _derivedFields 导出字段
                      * 
                      */
                     void SetDerivedFields(const std::vector<std::string>& _derivedFields);
@@ -364,91 +372,93 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>日志主题ID</p>
+                     * 日志主题ID
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;
 
                     /**
-                     * <p>日志导出任务ID</p>
+                     * 日志导出任务ID
                      */
                     std::string m_exportId;
                     bool m_exportIdHasBeenSet;
 
                     /**
-                     * <p>日志导出查询语句</p>
+                     * 日志导出查询语句
                      */
                     std::string m_query;
                     bool m_queryHasBeenSet;
 
                     /**
-                     * <p>日志导出文件名</p>
+                     * 日志导出文件名
                      */
                     std::string m_fileName;
                     bool m_fileNameHasBeenSet;
 
                     /**
-                     * <p>日志文件大小</p><p>单位：Byte</p>
+                     * 日志文件大小
                      */
                     uint64_t m_fileSize;
                     bool m_fileSizeHasBeenSet;
 
                     /**
-                     * <p>日志导出时间排序</p>
+                     * 日志导出时间排序
                      */
                     std::string m_order;
                     bool m_orderHasBeenSet;
 
                     /**
-                     * <p>日志导出格式</p>
+                     * 日志导出格式
                      */
                     std::string m_format;
                     bool m_formatHasBeenSet;
 
                     /**
-                     * <p>日志导出数量</p>
+                     * 日志导出数量
                      */
                     uint64_t m_count;
                     bool m_countHasBeenSet;
 
                     /**
-                     * <p>日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中</p>
+                     * 日志下载状态。Processing:导出正在进行中，Completed:导出完成，Failed:导出失败，Expired:日志导出已过期(三天有效期), Queuing 排队中
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>日志导出起始时间，毫秒时间戳</p>
+                     * 日志导出起始时间，毫秒时间戳
                      */
                     int64_t m_from;
                     bool m_fromHasBeenSet;
 
                     /**
-                     * <p>日志导出结束时间，毫秒时间戳</p>
+                     * 日志导出结束时间，毫秒时间戳
                      */
                     int64_t m_to;
                     bool m_toHasBeenSet;
 
                     /**
-                     * <p>日志导出路径,有效期一个小时，请尽快使用该路径下载。</p>
+                     * 日志导出路径,有效期一个小时，请尽快使用该路径下载。
                      */
                     std::string m_cosPath;
                     bool m_cosPathHasBeenSet;
 
                     /**
-                     * <p>日志导出创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss</p>
+                     * 日志导出创建时间
+时间格式：yyyy-MM-dd HH:mm:ss
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>语法规则。 默认值为0。<br>0：Lucene语法，1：CQL语法。</p>
+                     * 语法规则。 默认值为0。
+0：Lucene语法，1：CQL语法。
                      */
                     uint64_t m_syntaxRule;
                     bool m_syntaxRuleHasBeenSet;
 
                     /**
-                     * <p>导出字段</p>
+                     * 导出字段
                      */
                     std::vector<std::string> m_derivedFields;
                     bool m_derivedFieldsHasBeenSet;

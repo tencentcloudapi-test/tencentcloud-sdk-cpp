@@ -116,22 +116,6 @@ namespace TencentCloud
                      */
                     bool SingleWorkflowHasBeenSet() const;
 
-                    /**
-                     * 获取使用视觉模型时对话窗口输入字符限制
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return VisionModelInputLimit 使用视觉模型时对话窗口输入字符限制
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    int64_t GetVisionModelInputLimit() const;
-
-                    /**
-                     * 判断参数 VisionModelInputLimit 是否已赋值
-                     * @return VisionModelInputLimit 是否已赋值
-                     * 
-                     */
-                    bool VisionModelInputLimitHasBeenSet() const;
-
                 private:
 
                     /**
@@ -164,13 +148,6 @@ namespace TencentCloud
                      */
                     KnowledgeQaSingleWorkflow m_singleWorkflow;
                     bool m_singleWorkflowHasBeenSet;
-
-                    /**
-                     * 使用视觉模型时对话窗口输入字符限制
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    int64_t m_visionModelInputLimit;
-                    bool m_visionModelInputLimitHasBeenSet;
 
                 };
             }

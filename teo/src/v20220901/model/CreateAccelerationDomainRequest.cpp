@@ -29,8 +29,7 @@ CreateAccelerationDomainRequest::CreateAccelerationDomainRequest() :
     m_originProtocolHasBeenSet(false),
     m_httpOriginPortHasBeenSet(false),
     m_httpsOriginPortHasBeenSet(false),
-    m_iPv6StatusHasBeenSet(false),
-    m_sharedCNAMEHasBeenSet(false)
+    m_iPv6StatusHasBeenSet(false)
 {
 }
 
@@ -96,14 +95,6 @@ string CreateAccelerationDomainRequest::ToJsonString() const
         string key = "IPv6Status";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_iPv6Status.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_sharedCNAMEHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SharedCNAME";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_sharedCNAME.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -224,22 +215,6 @@ void CreateAccelerationDomainRequest::SetIPv6Status(const string& _iPv6Status)
 bool CreateAccelerationDomainRequest::IPv6StatusHasBeenSet() const
 {
     return m_iPv6StatusHasBeenSet;
-}
-
-string CreateAccelerationDomainRequest::GetSharedCNAME() const
-{
-    return m_sharedCNAME;
-}
-
-void CreateAccelerationDomainRequest::SetSharedCNAME(const string& _sharedCNAME)
-{
-    m_sharedCNAME = _sharedCNAME;
-    m_sharedCNAMEHasBeenSet = true;
-}
-
-bool CreateAccelerationDomainRequest::SharedCNAMEHasBeenSet() const
-{
-    return m_sharedCNAMEHasBeenSet;
 }
 
 

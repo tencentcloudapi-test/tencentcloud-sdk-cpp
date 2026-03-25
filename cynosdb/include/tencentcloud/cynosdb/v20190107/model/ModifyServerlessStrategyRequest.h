@@ -302,48 +302,6 @@ namespace TencentCloud
                      */
                     bool AutoArchiveHasBeenSet() const;
 
-                    /**
-                     * 获取升级类型。 默认值：upgradeImmediate。 可选值： upgradeImmediate：立即完成修改 upgradeInMaintain：在维护时间窗口内完成修改
-                     * @return UpgradeType 升级类型。 默认值：upgradeImmediate。 可选值： upgradeImmediate：立即完成修改 upgradeInMaintain：在维护时间窗口内完成修改
-                     * 
-                     */
-                    std::string GetUpgradeType() const;
-
-                    /**
-                     * 设置升级类型。 默认值：upgradeImmediate。 可选值： upgradeImmediate：立即完成修改 upgradeInMaintain：在维护时间窗口内完成修改
-                     * @param _upgradeType 升级类型。 默认值：upgradeImmediate。 可选值： upgradeImmediate：立即完成修改 upgradeInMaintain：在维护时间窗口内完成修改
-                     * 
-                     */
-                    void SetUpgradeType(const std::string& _upgradeType);
-
-                    /**
-                     * 判断参数 UpgradeType 是否已赋值
-                     * @return UpgradeType 是否已赋值
-                     * 
-                     */
-                    bool UpgradeTypeHasBeenSet() const;
-
-                    /**
-                     * 获取新增的只读实例需要绑定的安全组列表。仅仅针对于在这次调整策略过程中新产生的只读实例绑定安全组，存量的实例不绑定。
-                     * @return SecurityGroupIdsForNewRo 新增的只读实例需要绑定的安全组列表。仅仅针对于在这次调整策略过程中新产生的只读实例绑定安全组，存量的实例不绑定。
-                     * 
-                     */
-                    std::vector<std::string> GetSecurityGroupIdsForNewRo() const;
-
-                    /**
-                     * 设置新增的只读实例需要绑定的安全组列表。仅仅针对于在这次调整策略过程中新产生的只读实例绑定安全组，存量的实例不绑定。
-                     * @param _securityGroupIdsForNewRo 新增的只读实例需要绑定的安全组列表。仅仅针对于在这次调整策略过程中新产生的只读实例绑定安全组，存量的实例不绑定。
-                     * 
-                     */
-                    void SetSecurityGroupIdsForNewRo(const std::vector<std::string>& _securityGroupIdsForNewRo);
-
-                    /**
-                     * 判断参数 SecurityGroupIdsForNewRo 是否已赋值
-                     * @return SecurityGroupIdsForNewRo 是否已赋值
-                     * 
-                     */
-                    bool SecurityGroupIdsForNewRoHasBeenSet() const;
-
                 private:
 
                     /**
@@ -419,18 +377,6 @@ namespace TencentCloud
                      */
                     std::string m_autoArchive;
                     bool m_autoArchiveHasBeenSet;
-
-                    /**
-                     * 升级类型。 默认值：upgradeImmediate。 可选值： upgradeImmediate：立即完成修改 upgradeInMaintain：在维护时间窗口内完成修改
-                     */
-                    std::string m_upgradeType;
-                    bool m_upgradeTypeHasBeenSet;
-
-                    /**
-                     * 新增的只读实例需要绑定的安全组列表。仅仅针对于在这次调整策略过程中新产生的只读实例绑定安全组，存量的实例不绑定。
-                     */
-                    std::vector<std::string> m_securityGroupIdsForNewRo;
-                    bool m_securityGroupIdsForNewRoHasBeenSet;
 
                 };
             }

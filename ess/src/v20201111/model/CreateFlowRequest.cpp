@@ -40,9 +40,7 @@ CreateFlowRequest::CreateFlowRequest() :
     m_autoSignSceneHasBeenSet(false),
     m_relatedFlowIdHasBeenSet(false),
     m_callbackUrlHasBeenSet(false),
-    m_flowDisplayTypeHasBeenSet(false),
-    m_workflowHasBeenSet(false),
-    m_flowOperateLimitHasBeenSet(false)
+    m_flowDisplayTypeHasBeenSet(false)
 {
 }
 
@@ -211,23 +209,6 @@ string CreateFlowRequest::ToJsonString() const
         string key = "FlowDisplayType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_flowDisplayType, allocator);
-    }
-
-    if (m_workflowHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Workflow";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_workflow, allocator);
-    }
-
-    if (m_flowOperateLimitHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FlowOperateLimit";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_flowOperateLimit.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -524,38 +505,6 @@ void CreateFlowRequest::SetFlowDisplayType(const int64_t& _flowDisplayType)
 bool CreateFlowRequest::FlowDisplayTypeHasBeenSet() const
 {
     return m_flowDisplayTypeHasBeenSet;
-}
-
-bool CreateFlowRequest::GetWorkflow() const
-{
-    return m_workflow;
-}
-
-void CreateFlowRequest::SetWorkflow(const bool& _workflow)
-{
-    m_workflow = _workflow;
-    m_workflowHasBeenSet = true;
-}
-
-bool CreateFlowRequest::WorkflowHasBeenSet() const
-{
-    return m_workflowHasBeenSet;
-}
-
-FlowOperateLimit CreateFlowRequest::GetFlowOperateLimit() const
-{
-    return m_flowOperateLimit;
-}
-
-void CreateFlowRequest::SetFlowOperateLimit(const FlowOperateLimit& _flowOperateLimit)
-{
-    m_flowOperateLimit = _flowOperateLimit;
-    m_flowOperateLimitHasBeenSet = true;
-}
-
-bool CreateFlowRequest::FlowOperateLimitHasBeenSet() const
-{
-    return m_flowOperateLimitHasBeenSet;
 }
 
 

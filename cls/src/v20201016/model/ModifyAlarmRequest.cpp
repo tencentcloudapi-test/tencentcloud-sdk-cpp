@@ -31,6 +31,7 @@ ModifyAlarmRequest::ModifyAlarmRequest() :
     m_multiConditionsHasBeenSet(false),
     m_triggerCountHasBeenSet(false),
     m_alarmPeriodHasBeenSet(false),
+    m_alarmNoticeIdsHasBeenSet(false),
     m_alarmTargetsHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_enableHasBeenSet(false),
@@ -41,9 +42,7 @@ ModifyAlarmRequest::ModifyAlarmRequest() :
     m_groupTriggerConditionHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_monitorObjectTypeHasBeenSet(false),
-    m_classificationsHasBeenSet(false),
-    m_alarmNoticeIdsHasBeenSet(false),
-    m_monitorNoticeHasBeenSet(false)
+    m_classificationsHasBeenSet(false)
 {
 }
 
@@ -124,6 +123,19 @@ string ModifyAlarmRequest::ToJsonString() const
         string key = "AlarmPeriod";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_alarmPeriod, allocator);
+    }
+
+    if (m_alarmNoticeIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AlarmNoticeIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_alarmNoticeIds.begin(); itr != m_alarmNoticeIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
     }
 
     if (m_alarmTargetsHasBeenSet)
@@ -246,28 +258,6 @@ string ModifyAlarmRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_alarmNoticeIdsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AlarmNoticeIds";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_alarmNoticeIds.begin(); itr != m_alarmNoticeIds.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
-
-    if (m_monitorNoticeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MonitorNotice";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_monitorNotice.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -404,6 +394,22 @@ void ModifyAlarmRequest::SetAlarmPeriod(const int64_t& _alarmPeriod)
 bool ModifyAlarmRequest::AlarmPeriodHasBeenSet() const
 {
     return m_alarmPeriodHasBeenSet;
+}
+
+vector<string> ModifyAlarmRequest::GetAlarmNoticeIds() const
+{
+    return m_alarmNoticeIds;
+}
+
+void ModifyAlarmRequest::SetAlarmNoticeIds(const vector<string>& _alarmNoticeIds)
+{
+    m_alarmNoticeIds = _alarmNoticeIds;
+    m_alarmNoticeIdsHasBeenSet = true;
+}
+
+bool ModifyAlarmRequest::AlarmNoticeIdsHasBeenSet() const
+{
+    return m_alarmNoticeIdsHasBeenSet;
 }
 
 vector<AlarmTarget> ModifyAlarmRequest::GetAlarmTargets() const
@@ -580,38 +586,6 @@ void ModifyAlarmRequest::SetClassifications(const vector<AlarmClassification>& _
 bool ModifyAlarmRequest::ClassificationsHasBeenSet() const
 {
     return m_classificationsHasBeenSet;
-}
-
-vector<string> ModifyAlarmRequest::GetAlarmNoticeIds() const
-{
-    return m_alarmNoticeIds;
-}
-
-void ModifyAlarmRequest::SetAlarmNoticeIds(const vector<string>& _alarmNoticeIds)
-{
-    m_alarmNoticeIds = _alarmNoticeIds;
-    m_alarmNoticeIdsHasBeenSet = true;
-}
-
-bool ModifyAlarmRequest::AlarmNoticeIdsHasBeenSet() const
-{
-    return m_alarmNoticeIdsHasBeenSet;
-}
-
-MonitorNotice ModifyAlarmRequest::GetMonitorNotice() const
-{
-    return m_monitorNotice;
-}
-
-void ModifyAlarmRequest::SetMonitorNotice(const MonitorNotice& _monitorNotice)
-{
-    m_monitorNotice = _monitorNotice;
-    m_monitorNoticeHasBeenSet = true;
-}
-
-bool ModifyAlarmRequest::MonitorNoticeHasBeenSet() const
-{
-    return m_monitorNoticeHasBeenSet;
 }
 
 

@@ -184,15 +184,15 @@ EXIST：导入现有版本
                     bool TrainingModelCosPathHasBeenSet() const;
 
                     /**
-                     * 获取算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION/ONNX)
-                     * @return AlgorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION/ONNX)
+                     * 获取算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
+                     * @return AlgorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
                      * 
                      */
                     std::string GetAlgorithmFramework() const;
 
                     /**
-                     * 设置算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION/ONNX)
-                     * @param _algorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION/ONNX)
+                     * 设置算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
+                     * @param _algorithmFramework 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
                      * 
                      */
                     void SetAlgorithmFramework(const std::string& _algorithmFramework);
@@ -486,15 +486,15 @@ EXIST：导入现有版本
                     bool ModelVersionTypeHasBeenSet() const;
 
                     /**
-                     * 获取模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE_BERT/HUGGING_FACE_STABLE_DIFFUSION/HUGGING_FACE_STABLE_DIFFUSION_LORA/WEB_UI_STABLE_DIFFUSION）
-                     * @return ModelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE_BERT/HUGGING_FACE_STABLE_DIFFUSION/HUGGING_FACE_STABLE_DIFFUSION_LORA/WEB_UI_STABLE_DIFFUSION）
+                     * 获取模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
+                     * @return ModelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
                      * 
                      */
                     std::string GetModelFormat() const;
 
                     /**
-                     * 设置模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE_BERT/HUGGING_FACE_STABLE_DIFFUSION/HUGGING_FACE_STABLE_DIFFUSION_LORA/WEB_UI_STABLE_DIFFUSION）
-                     * @param _modelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE_BERT/HUGGING_FACE_STABLE_DIFFUSION/HUGGING_FACE_STABLE_DIFFUSION_LORA/WEB_UI_STABLE_DIFFUSION）
+                     * 设置模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
+                     * @param _modelFormat 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
                      * 
                      */
                     void SetModelFormat(const std::string& _modelFormat);
@@ -653,7 +653,7 @@ EXIST：导入现有版本
                     bool m_trainingModelCosPathHasBeenSet;
 
                     /**
-                     * 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION/ONNX)
+                     * 算法框架 （PYTORCH/TENSORFLOW/DETECTRON2/PMML/MMDETECTION)
                      */
                     std::string m_algorithmFramework;
                     bool m_algorithmFrameworkHasBeenSet;
@@ -739,7 +739,7 @@ EXIST：导入现有版本
                     bool m_modelVersionTypeHasBeenSet;
 
                     /**
-                     * 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE_BERT/HUGGING_FACE_STABLE_DIFFUSION/HUGGING_FACE_STABLE_DIFFUSION_LORA/WEB_UI_STABLE_DIFFUSION）
+                     * 模型格式 （PYTORCH/TORCH_SCRIPT/DETECTRON2/SAVED_MODEL/FROZEN_GRAPH/PMML/MMDETECTION/ONNX/HUGGING_FACE）
                      */
                     std::string m_modelFormat;
                     bool m_modelFormatHasBeenSet;

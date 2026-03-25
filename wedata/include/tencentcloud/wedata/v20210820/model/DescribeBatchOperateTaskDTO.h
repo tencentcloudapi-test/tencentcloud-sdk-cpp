@@ -401,50 +401,18 @@ presto\SparkJob\SparkSql
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取周期类型D天周期
-H小时
-Ccrontab类型
-I分钟
-O一次性
-Y年
-R用户驱动
-W周
-M月
+                     * 获取周期类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CycleUnit 周期类型D天周期
-H小时
-Ccrontab类型
-I分钟
-O一次性
-Y年
-R用户驱动
-W周
-M月
+                     * @return CycleUnit 周期类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCycleUnit() const;
 
                     /**
-                     * 设置周期类型D天周期
-H小时
-Ccrontab类型
-I分钟
-O一次性
-Y年
-R用户驱动
-W周
-M月
+                     * 设置周期类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _cycleUnit 周期类型D天周期
-H小时
-Ccrontab类型
-I分钟
-O一次性
-Y年
-R用户驱动
-W周
-M月
+                     * @param _cycleUnit 周期类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -531,81 +499,6 @@ M月
                      * 
                      */
                     bool DatasourceTypeHasBeenSet() const;
-
-                    /**
-                     * 获取引擎名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ComputeResource 引擎名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetComputeResource() const;
-
-                    /**
-                     * 设置引擎名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _computeResource 引擎名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetComputeResource(const std::string& _computeResource);
-
-                    /**
-                     * 判断参数 ComputeResource 是否已赋值
-                     * @return ComputeResource 是否已赋值
-                     * 
-                     */
-                    bool ComputeResourceHasBeenSet() const;
-
-                    /**
-                     * 获取dlc地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DlcRegion dlc地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetDlcRegion() const;
-
-                    /**
-                     * 设置dlc地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _dlcRegion dlc地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetDlcRegion(const std::string& _dlcRegion);
-
-                    /**
-                     * 判断参数 DlcRegion 是否已赋值
-                     * @return DlcRegion 是否已赋值
-                     * 
-                     */
-                    bool DlcRegionHasBeenSet() const;
-
-                    /**
-                     * 获取资源组或自定义
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IsInherit 资源组或自定义
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetIsInherit() const;
-
-                    /**
-                     * 设置资源组或自定义
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _isInherit 资源组或自定义
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetIsInherit(const std::string& _isInherit);
-
-                    /**
-                     * 判断参数 IsInherit 是否已赋值
-                     * @return IsInherit 是否已赋值
-                     * 
-                     */
-                    bool IsInheritHasBeenSet() const;
 
                 private:
 
@@ -709,15 +602,7 @@ presto\SparkJob\SparkSql
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * 周期类型D天周期
-H小时
-Ccrontab类型
-I分钟
-O一次性
-Y年
-R用户驱动
-W周
-M月
+                     * 周期类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_cycleUnit;
@@ -743,27 +628,6 @@ M月
                      */
                     std::string m_datasourceType;
                     bool m_datasourceTypeHasBeenSet;
-
-                    /**
-                     * 引擎名称
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_computeResource;
-                    bool m_computeResourceHasBeenSet;
-
-                    /**
-                     * dlc地域
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_dlcRegion;
-                    bool m_dlcRegionHasBeenSet;
-
-                    /**
-                     * 资源组或自定义
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_isInherit;
-                    bool m_isInheritHasBeenSet;
 
                 };
             }

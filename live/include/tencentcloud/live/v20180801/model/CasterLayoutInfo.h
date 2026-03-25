@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>布局Index。</p>取值范围：[1, 1000]
-                     * @return LayoutIndex <p>布局Index。</p>取值范围：[1, 1000]
+                     * 获取布局Index。
+                     * @return LayoutIndex 布局Index。
                      * 
                      */
                     int64_t GetLayoutIndex() const;
 
                     /**
-                     * 设置<p>布局Index。</p>取值范围：[1, 1000]
-                     * @param _layoutIndex <p>布局Index。</p>取值范围：[1, 1000]
+                     * 设置布局Index。
+                     * @param _layoutIndex 布局Index。
                      * 
                      */
                     void SetLayoutIndex(const int64_t& _layoutIndex);
@@ -69,15 +69,27 @@ namespace TencentCloud
                     bool LayoutIndexHasBeenSet() const;
 
                     /**
-                     * 获取<p>布局模板Id。有效值[1，20，21，31，32，41]当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。</p>
-                     * @return LayoutTemplateId <p>布局模板Id。有效值[1，20，21，31，32，41]当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。</p>
+                     * 获取布局模板Id。
+有效值[1，20，21，31，32，41]
+当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。
+
+                     * @return LayoutTemplateId 布局模板Id。
+有效值[1，20，21，31，32，41]
+当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。
+
                      * 
                      */
                     int64_t GetLayoutTemplateId() const;
 
                     /**
-                     * 设置<p>布局模板Id。有效值[1，20，21，31，32，41]当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。</p>
-                     * @param _layoutTemplateId <p>布局模板Id。有效值[1，20，21，31，32，41]当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。</p>
+                     * 设置布局模板Id。
+有效值[1，20，21，31，32，41]
+当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。
+
+                     * @param _layoutTemplateId 布局模板Id。
+有效值[1，20，21，31，32，41]
+当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。
+
                      * 
                      */
                     void SetLayoutTemplateId(const int64_t& _layoutTemplateId);
@@ -90,15 +102,19 @@ namespace TencentCloud
                     bool LayoutTemplateIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。</p>
-                     * @return InputIndexList <p>布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。</p>
+                     * 获取布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。
+已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。
+                     * @return InputIndexList 布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。
+已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。
                      * 
                      */
                     std::string GetInputIndexList() const;
 
                     /**
-                     * 设置<p>布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。</p>
-                     * @param _inputIndexList <p>布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。</p>
+                     * 设置布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。
+已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。
+                     * @param _inputIndexList 布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。
+已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。
                      * 
                      */
                     void SetInputIndexList(const std::string& _inputIndexList);
@@ -111,15 +127,15 @@ namespace TencentCloud
                     bool InputIndexListHasBeenSet() const;
 
                     /**
-                     * 获取<p>详细的布局参数列表。</p>
-                     * @return LayoutParams <p>详细的布局参数列表。</p>
+                     * 获取详细的布局参数列表。
+                     * @return LayoutParams 详细的布局参数列表。
                      * 
                      */
                     std::vector<CasterLayoutParam> GetLayoutParams() const;
 
                     /**
-                     * 设置<p>详细的布局参数列表。</p>
-                     * @param _layoutParams <p>详细的布局参数列表。</p>
+                     * 设置详细的布局参数列表。
+                     * @param _layoutParams 详细的布局参数列表。
                      * 
                      */
                     void SetLayoutParams(const std::vector<CasterLayoutParam>& _layoutParams);
@@ -132,15 +148,23 @@ namespace TencentCloud
                     bool LayoutParamsHasBeenSet() const;
 
                     /**
-                     * 获取<p>布局输出的宽度，单位为像素。默认为1280像素。注：该值仅在画中画布局，且未设置PgmWidth时生效。</p>
-                     * @return LayoutWidth <p>布局输出的宽度，单位为像素。默认为1280像素。注：该值仅在画中画布局，且未设置PgmWidth时生效。</p>
+                     * 获取布局输出的宽度，单位为像素。
+默认为1280像素。
+注：该值仅在画中画布局，且未设置PgmWidth时生效。
+                     * @return LayoutWidth 布局输出的宽度，单位为像素。
+默认为1280像素。
+注：该值仅在画中画布局，且未设置PgmWidth时生效。
                      * 
                      */
                     uint64_t GetLayoutWidth() const;
 
                     /**
-                     * 设置<p>布局输出的宽度，单位为像素。默认为1280像素。注：该值仅在画中画布局，且未设置PgmWidth时生效。</p>
-                     * @param _layoutWidth <p>布局输出的宽度，单位为像素。默认为1280像素。注：该值仅在画中画布局，且未设置PgmWidth时生效。</p>
+                     * 设置布局输出的宽度，单位为像素。
+默认为1280像素。
+注：该值仅在画中画布局，且未设置PgmWidth时生效。
+                     * @param _layoutWidth 布局输出的宽度，单位为像素。
+默认为1280像素。
+注：该值仅在画中画布局，且未设置PgmWidth时生效。
                      * 
                      */
                     void SetLayoutWidth(const uint64_t& _layoutWidth);
@@ -153,15 +177,19 @@ namespace TencentCloud
                     bool LayoutWidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>布局输出的高度，单位为像素。注：该参数仅在画中画布局，且未设置PgmHeight时生效。</p>
-                     * @return LayoutHeight <p>布局输出的高度，单位为像素。注：该参数仅在画中画布局，且未设置PgmHeight时生效。</p>
+                     * 获取布局输出的高度，单位为像素。
+注：该参数仅在画中画布局，且未设置PgmHeight时生效。
+                     * @return LayoutHeight 布局输出的高度，单位为像素。
+注：该参数仅在画中画布局，且未设置PgmHeight时生效。
                      * 
                      */
                     uint64_t GetLayoutHeight() const;
 
                     /**
-                     * 设置<p>布局输出的高度，单位为像素。注：该参数仅在画中画布局，且未设置PgmHeight时生效。</p>
-                     * @param _layoutHeight <p>布局输出的高度，单位为像素。注：该参数仅在画中画布局，且未设置PgmHeight时生效。</p>
+                     * 设置布局输出的高度，单位为像素。
+注：该参数仅在画中画布局，且未设置PgmHeight时生效。
+                     * @param _layoutHeight 布局输出的高度，单位为像素。
+注：该参数仅在画中画布局，且未设置PgmHeight时生效。
                      * 
                      */
                     void SetLayoutHeight(const uint64_t& _layoutHeight);
@@ -176,37 +204,44 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>布局Index。</p>取值范围：[1, 1000]
+                     * 布局Index。
                      */
                     int64_t m_layoutIndex;
                     bool m_layoutIndexHasBeenSet;
 
                     /**
-                     * <p>布局模板Id。有效值[1，20，21，31，32，41]当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。</p>
+                     * 布局模板Id。
+有效值[1，20，21，31，32，41]
+当使用布局模板时，无需LayoutParams参数，导播台将使用模板布局参数。
+
                      */
                     int64_t m_layoutTemplateId;
                     bool m_layoutTemplateIdHasBeenSet;
 
                     /**
-                     * <p>布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。</p>
+                     * 布局绑定的输入列表。按布局LayerId从小到大，按顺序排列。
+已有两个画面的布局为例，输入1对应LayerId为1，输入2对应的LayerId为2，该字段应该填入"1|2"。
                      */
                     std::string m_inputIndexList;
                     bool m_inputIndexListHasBeenSet;
 
                     /**
-                     * <p>详细的布局参数列表。</p>
+                     * 详细的布局参数列表。
                      */
                     std::vector<CasterLayoutParam> m_layoutParams;
                     bool m_layoutParamsHasBeenSet;
 
                     /**
-                     * <p>布局输出的宽度，单位为像素。默认为1280像素。注：该值仅在画中画布局，且未设置PgmWidth时生效。</p>
+                     * 布局输出的宽度，单位为像素。
+默认为1280像素。
+注：该值仅在画中画布局，且未设置PgmWidth时生效。
                      */
                     uint64_t m_layoutWidth;
                     bool m_layoutWidthHasBeenSet;
 
                     /**
-                     * <p>布局输出的高度，单位为像素。注：该参数仅在画中画布局，且未设置PgmHeight时生效。</p>
+                     * 布局输出的高度，单位为像素。
+注：该参数仅在画中画布局，且未设置PgmHeight时生效。
                      */
                     uint64_t m_layoutHeight;
                     bool m_layoutHeightHasBeenSet;

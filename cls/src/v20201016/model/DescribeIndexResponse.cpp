@@ -29,8 +29,7 @@ DescribeIndexResponse::DescribeIndexResponse() :
     m_ruleHasBeenSet(false),
     m_modifyTimeHasBeenSet(false),
     m_includeInternalFieldsHasBeenSet(false),
-    m_metadataFlagHasBeenSet(false),
-    m_coverageFieldHasBeenSet(false)
+    m_metadataFlagHasBeenSet(false)
 {
 }
 
@@ -135,16 +134,6 @@ CoreInternalOutcome DescribeIndexResponse::Deserialize(const string &payload)
         m_metadataFlagHasBeenSet = true;
     }
 
-    if (rsp.HasMember("CoverageField") && !rsp["CoverageField"].IsNull())
-    {
-        if (!rsp["CoverageField"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CoverageField` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_coverageField = string(rsp["CoverageField"].GetString());
-        m_coverageFieldHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -202,14 +191,6 @@ string DescribeIndexResponse::ToJsonString() const
         string key = "MetadataFlag";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_metadataFlag, allocator);
-    }
-
-    if (m_coverageFieldHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CoverageField";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_coverageField.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -282,16 +263,6 @@ uint64_t DescribeIndexResponse::GetMetadataFlag() const
 bool DescribeIndexResponse::MetadataFlagHasBeenSet() const
 {
     return m_metadataFlagHasBeenSet;
-}
-
-string DescribeIndexResponse::GetCoverageField() const
-{
-    return m_coverageField;
-}
-
-bool DescribeIndexResponse::CoverageFieldHasBeenSet() const
-{
-    return m_coverageFieldHasBeenSet;
 }
 
 

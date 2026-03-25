@@ -41,8 +41,7 @@ CreateSignUrlsRequest::CreateSignUrlsRequest() :
     m_hidesHasBeenSet(false),
     m_recipientIdsHasBeenSet(false),
     m_flowGroupUrlInfoHasBeenSet(false),
-    m_urlUseEnvHasBeenSet(false),
-    m_canSkipReadFlowHasBeenSet(false)
+    m_urlUseEnvHasBeenSet(false)
 {
 }
 
@@ -221,14 +220,6 @@ string CreateSignUrlsRequest::ToJsonString() const
         string key = "UrlUseEnv";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_urlUseEnv.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_canSkipReadFlowHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CanSkipReadFlow";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_canSkipReadFlow, allocator);
     }
 
 
@@ -541,22 +532,6 @@ void CreateSignUrlsRequest::SetUrlUseEnv(const string& _urlUseEnv)
 bool CreateSignUrlsRequest::UrlUseEnvHasBeenSet() const
 {
     return m_urlUseEnvHasBeenSet;
-}
-
-bool CreateSignUrlsRequest::GetCanSkipReadFlow() const
-{
-    return m_canSkipReadFlow;
-}
-
-void CreateSignUrlsRequest::SetCanSkipReadFlow(const bool& _canSkipReadFlow)
-{
-    m_canSkipReadFlow = _canSkipReadFlow;
-    m_canSkipReadFlowHasBeenSet = true;
-}
-
-bool CreateSignUrlsRequest::CanSkipReadFlowHasBeenSet() const
-{
-    return m_canSkipReadFlowHasBeenSet;
 }
 
 

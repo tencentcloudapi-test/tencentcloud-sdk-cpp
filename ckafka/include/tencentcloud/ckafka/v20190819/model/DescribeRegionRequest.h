@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>偏移量</p>
-                     * @return Offset <p>偏移量</p>
+                     * 获取偏移量
+                     * @return Offset 偏移量
                      * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量</p>
-                     * @param _offset <p>偏移量</p>
+                     * 设置偏移量
+                     * @param _offset 偏移量
                      * 
                      */
                     void SetOffset(const int64_t& _offset);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回最大结果数</p>
-                     * @return Limit <p>返回最大结果数</p>
+                     * 获取返回最大结果数
+                     * @return Limit 返回最大结果数
                      * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置<p>返回最大结果数</p>
-                     * @param _limit <p>返回最大结果数</p>
+                     * 设置返回最大结果数
+                     * @param _limit 返回最大结果数
                      * 
                      */
                     void SetLimit(const int64_t& _limit);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
-                     * @return Business <p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
+                     * 获取业务字段，可忽略
+                     * @return Business 业务字段，可忽略
                      * 
                      */
                     std::string GetBusiness() const;
 
                     /**
-                     * 设置<p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
-                     * @param _business <p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
+                     * 设置业务字段，可忽略
+                     * @param _business 业务字段，可忽略
                      * 
                      */
                     void SetBusiness(const std::string& _business);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool BusinessHasBeenSet() const;
 
                     /**
-                     * 获取<p>cdc专有集群业务字段，可忽略</p>
-                     * @return CdcId <p>cdc专有集群业务字段，可忽略</p>
+                     * 获取cdc专有集群业务字段，可忽略
+                     * @return CdcId cdc专有集群业务字段，可忽略
                      * 
                      */
                     std::string GetCdcId() const;
 
                     /**
-                     * 设置<p>cdc专有集群业务字段，可忽略</p>
-                     * @param _cdcId <p>cdc专有集群业务字段，可忽略</p>
+                     * 设置cdc专有集群业务字段，可忽略
+                     * @param _cdcId cdc专有集群业务字段，可忽略
                      * 
                      */
                     void SetCdcId(const std::string& _cdcId);
@@ -129,25 +129,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>偏移量</p>
+                     * 偏移量
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>返回最大结果数</p>
+                     * 返回最大结果数
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>业务字段，可忽略</p><p>枚举值：</p><ul><li>ckafka： ckafka业务</li><li>cmq： cmq业务</li></ul><p>默认值：ckafka</p>
+                     * 业务字段，可忽略
                      */
                     std::string m_business;
                     bool m_businessHasBeenSet;
 
                     /**
-                     * <p>cdc专有集群业务字段，可忽略</p>
+                     * cdc专有集群业务字段，可忽略
                      */
                     std::string m_cdcId;
                     bool m_cdcIdHasBeenSet;

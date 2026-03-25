@@ -44,8 +44,10 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>由网关负载均衡实例唯一 ID 组成的数组。<br>存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过<a href="https://cloud.tencent.com/document/api/1782/111700">DescribeTaskStatus</a>接口查询创建的资源ID。</p>
-                     * @return LoadBalancerIds <p>由网关负载均衡实例唯一 ID 组成的数组。<br>存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过<a href="https://cloud.tencent.com/document/api/1782/111700">DescribeTaskStatus</a>接口查询创建的资源ID。</p>
+                     * 获取由网关负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过[DescribeTaskStatus](https://cloud.tencent.com/document/api/1782/111700)接口查询创建的资源ID。
+                     * @return LoadBalancerIds 由网关负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过[DescribeTaskStatus](https://cloud.tencent.com/document/api/1782/111700)接口查询创建的资源ID。
                      * 
                      */
                     std::vector<std::string> GetLoadBalancerIds() const;
@@ -58,8 +60,8 @@ namespace TencentCloud
                     bool LoadBalancerIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>订单号。</p>
-                     * @return DealName <p>订单号。</p>
+                     * 获取订单号。
+                     * @return DealName 订单号。
                      * 
                      */
                     std::string GetDealName() const;
@@ -74,13 +76,14 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>由网关负载均衡实例唯一 ID 组成的数组。<br>存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过<a href="https://cloud.tencent.com/document/api/1782/111700">DescribeTaskStatus</a>接口查询创建的资源ID。</p>
+                     * 由网关负载均衡实例唯一 ID 组成的数组。
+存在某些场景，如创建出现延迟时，此字段可能返回为空；此时可以根据接口返回的RequestId或DealName参数，通过[DescribeTaskStatus](https://cloud.tencent.com/document/api/1782/111700)接口查询创建的资源ID。
                      */
                     std::vector<std::string> m_loadBalancerIds;
                     bool m_loadBalancerIdsHasBeenSet;
 
                     /**
-                     * <p>订单号。</p>
+                     * 订单号。
                      */
                     std::string m_dealName;
                     bool m_dealNameHasBeenSet;

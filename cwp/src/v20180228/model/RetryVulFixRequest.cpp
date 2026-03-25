@@ -25,8 +25,7 @@ using namespace std;
 RetryVulFixRequest::RetryVulFixRequest() :
     m_fixIdHasBeenSet(false),
     m_quuidHasBeenSet(false),
-    m_vulIdHasBeenSet(false),
-    m_kbIdHasBeenSet(false)
+    m_vulIdHasBeenSet(false)
 {
 }
 
@@ -59,14 +58,6 @@ string RetryVulFixRequest::ToJsonString() const
         string key = "VulId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_vulId, allocator);
-    }
-
-    if (m_kbIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "KbId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_kbId, allocator);
     }
 
 
@@ -123,22 +114,6 @@ void RetryVulFixRequest::SetVulId(const uint64_t& _vulId)
 bool RetryVulFixRequest::VulIdHasBeenSet() const
 {
     return m_vulIdHasBeenSet;
-}
-
-uint64_t RetryVulFixRequest::GetKbId() const
-{
-    return m_kbId;
-}
-
-void RetryVulFixRequest::SetKbId(const uint64_t& _kbId)
-{
-    m_kbId = _kbId;
-    m_kbIdHasBeenSet = true;
-}
-
-bool RetryVulFixRequest::KbIdHasBeenSet() const
-{
-    return m_kbIdHasBeenSet;
 }
 
 

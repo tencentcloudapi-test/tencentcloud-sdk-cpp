@@ -25,9 +25,7 @@ SearchStrategy::SearchStrategy() :
     m_tableEnhancementHasBeenSet(false),
     m_embeddingModelHasBeenSet(false),
     m_rerankModelSwitchHasBeenSet(false),
-    m_rerankModelHasBeenSet(false),
-    m_natureLanguageToSqlModelConfigHasBeenSet(false),
-    m_graphRetrievalHasBeenSet(false)
+    m_rerankModelHasBeenSet(false)
 {
 }
 
@@ -86,33 +84,6 @@ CoreInternalOutcome SearchStrategy::Deserialize(const rapidjson::Value &value)
         m_rerankModelHasBeenSet = true;
     }
 
-    if (value.HasMember("NatureLanguageToSqlModelConfig") && !value["NatureLanguageToSqlModelConfig"].IsNull())
-    {
-        if (!value["NatureLanguageToSqlModelConfig"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `SearchStrategy.NatureLanguageToSqlModelConfig` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_natureLanguageToSqlModelConfig.Deserialize(value["NatureLanguageToSqlModelConfig"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_natureLanguageToSqlModelConfigHasBeenSet = true;
-    }
-
-    if (value.HasMember("GraphRetrieval") && !value["GraphRetrieval"].IsNull())
-    {
-        if (!value["GraphRetrieval"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `SearchStrategy.GraphRetrieval` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_graphRetrieval = value["GraphRetrieval"].GetBool();
-        m_graphRetrievalHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -158,23 +129,6 @@ void SearchStrategy::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "RerankModel";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_rerankModel.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_natureLanguageToSqlModelConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NatureLanguageToSqlModelConfig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_natureLanguageToSqlModelConfig.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_graphRetrievalHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "GraphRetrieval";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_graphRetrieval, allocator);
     }
 
 }
@@ -258,37 +212,5 @@ void SearchStrategy::SetRerankModel(const string& _rerankModel)
 bool SearchStrategy::RerankModelHasBeenSet() const
 {
     return m_rerankModelHasBeenSet;
-}
-
-NL2SQLModelConfig SearchStrategy::GetNatureLanguageToSqlModelConfig() const
-{
-    return m_natureLanguageToSqlModelConfig;
-}
-
-void SearchStrategy::SetNatureLanguageToSqlModelConfig(const NL2SQLModelConfig& _natureLanguageToSqlModelConfig)
-{
-    m_natureLanguageToSqlModelConfig = _natureLanguageToSqlModelConfig;
-    m_natureLanguageToSqlModelConfigHasBeenSet = true;
-}
-
-bool SearchStrategy::NatureLanguageToSqlModelConfigHasBeenSet() const
-{
-    return m_natureLanguageToSqlModelConfigHasBeenSet;
-}
-
-bool SearchStrategy::GetGraphRetrieval() const
-{
-    return m_graphRetrieval;
-}
-
-void SearchStrategy::SetGraphRetrieval(const bool& _graphRetrieval)
-{
-    m_graphRetrieval = _graphRetrieval;
-    m_graphRetrievalHasBeenSet = true;
-}
-
-bool SearchStrategy::GraphRetrievalHasBeenSet() const
-{
-    return m_graphRetrievalHasBeenSet;
 }
 

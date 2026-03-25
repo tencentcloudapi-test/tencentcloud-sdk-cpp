@@ -46,15 +46,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>环境Id</p>
-                     * @return EnvId <p>环境Id</p>
+                     * 获取环境Id
+                     * @return EnvId 环境Id
                      * 
                      */
                     std::string GetEnvId() const;
 
                     /**
-                     * 设置<p>环境Id</p>
-                     * @param _envId <p>环境Id</p>
+                     * 设置环境Id
+                     * @param _envId 环境Id
                      * 
                      */
                     void SetEnvId(const std::string& _envId);
@@ -67,15 +67,15 @@ namespace TencentCloud
                     bool EnvIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务名</p>
-                     * @return ServerName <p>服务名</p>
+                     * 获取服务名
+                     * @return ServerName 服务名
                      * 
                      */
                     std::string GetServerName() const;
 
                     /**
-                     * 设置<p>服务名</p>
-                     * @param _serverName <p>服务名</p>
+                     * 设置服务名
+                     * @param _serverName 服务名
                      * 
                      */
                     void SetServerName(const std::string& _serverName);
@@ -88,15 +88,15 @@ namespace TencentCloud
                     bool ServerNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署信息</p>
-                     * @return DeployInfo <p>部署信息</p>
+                     * 获取部署信息
+                     * @return DeployInfo 部署信息
                      * 
                      */
                     DeployParam GetDeployInfo() const;
 
                     /**
-                     * 设置<p>部署信息</p>
-                     * @param _deployInfo <p>部署信息</p>
+                     * 设置部署信息
+                     * @param _deployInfo 部署信息
                      * 
                      */
                     void SetDeployInfo(const DeployParam& _deployInfo);
@@ -109,15 +109,15 @@ namespace TencentCloud
                     bool DeployInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务配置信息(已废弃)</p>
-                     * @return ServerConfig <p>服务配置信息(已废弃)</p>
+                     * 获取服务配置信息(已废弃)
+                     * @return ServerConfig 服务配置信息(已废弃)
                      * 
                      */
                     ServerBaseConfig GetServerConfig() const;
 
                     /**
-                     * 设置<p>服务配置信息(已废弃)</p>
-                     * @param _serverConfig <p>服务配置信息(已废弃)</p>
+                     * 设置服务配置信息(已废弃)
+                     * @param _serverConfig 服务配置信息(已废弃)
                      * 
                      */
                     void SetServerConfig(const ServerBaseConfig& _serverConfig);
@@ -130,15 +130,15 @@ namespace TencentCloud
                     bool ServerConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>业务类型，默认tcr</p>
-                     * @return Business <p>业务类型，默认tcr</p>
+                     * 获取业务类型，默认tcr
+                     * @return Business 业务类型，默认tcr
                      * 
                      */
                     std::string GetBusiness() const;
 
                     /**
-                     * 设置<p>业务类型，默认tcr</p>
-                     * @param _business <p>业务类型，默认tcr</p>
+                     * 设置业务类型，默认tcr
+                     * @param _business 业务类型，默认tcr
                      * 
                      */
                     void SetBusiness(const std::string& _business);
@@ -151,15 +151,15 @@ namespace TencentCloud
                     bool BusinessHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务配置信息</p>
-                     * @return Items <p>服务配置信息</p>
+                     * 获取服务配置信息
+                     * @return Items 服务配置信息
                      * 
                      */
                     std::vector<DiffConfigItem> GetItems() const;
 
                     /**
-                     * 设置<p>服务配置信息</p>
-                     * @param _items <p>服务配置信息</p>
+                     * 设置服务配置信息
+                     * @param _items 服务配置信息
                      * 
                      */
                     void SetItems(const std::vector<DiffConfigItem>& _items);
@@ -174,37 +174,37 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>环境Id</p>
+                     * 环境Id
                      */
                     std::string m_envId;
                     bool m_envIdHasBeenSet;
 
                     /**
-                     * <p>服务名</p>
+                     * 服务名
                      */
                     std::string m_serverName;
                     bool m_serverNameHasBeenSet;
 
                     /**
-                     * <p>部署信息</p>
+                     * 部署信息
                      */
                     DeployParam m_deployInfo;
                     bool m_deployInfoHasBeenSet;
 
                     /**
-                     * <p>服务配置信息(已废弃)</p>
+                     * 服务配置信息(已废弃)
                      */
                     ServerBaseConfig m_serverConfig;
                     bool m_serverConfigHasBeenSet;
 
                     /**
-                     * <p>业务类型，默认tcr</p>
+                     * 业务类型，默认tcr
                      */
                     std::string m_business;
                     bool m_businessHasBeenSet;
 
                     /**
-                     * <p>服务配置信息</p>
+                     * 服务配置信息
                      */
                     std::vector<DiffConfigItem> m_items;
                     bool m_itemsHasBeenSet;

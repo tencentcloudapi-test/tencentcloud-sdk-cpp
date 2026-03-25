@@ -590,106 +590,6 @@ OcrClient::DescribeExtractDocAgentJobOutcomeCallable OcrClient::DescribeExtractD
     return prom->get_future();
 }
 
-OcrClient::DescribeMarkEssayAgentJobOutcome OcrClient::DescribeMarkEssayAgentJob(const DescribeMarkEssayAgentJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeMarkEssayAgentJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeMarkEssayAgentJobResponse rsp = DescribeMarkEssayAgentJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeMarkEssayAgentJobOutcome(rsp);
-        else
-            return DescribeMarkEssayAgentJobOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeMarkEssayAgentJobOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::DescribeMarkEssayAgentJobAsync(const DescribeMarkEssayAgentJobRequest& request, const DescribeMarkEssayAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeMarkEssayAgentJobRequest&;
-    using Resp = DescribeMarkEssayAgentJobResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeMarkEssayAgentJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OcrClient::DescribeMarkEssayAgentJobOutcomeCallable OcrClient::DescribeMarkEssayAgentJobCallable(const DescribeMarkEssayAgentJobRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeMarkEssayAgentJobOutcome>>();
-    DescribeMarkEssayAgentJobAsync(
-    request,
-    [prom](
-        const OcrClient*,
-        const DescribeMarkEssayAgentJobRequest&,
-        DescribeMarkEssayAgentJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-OcrClient::DescribeQuestionMarkAgentJobOutcome OcrClient::DescribeQuestionMarkAgentJob(const DescribeQuestionMarkAgentJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeQuestionMarkAgentJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeQuestionMarkAgentJobResponse rsp = DescribeQuestionMarkAgentJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeQuestionMarkAgentJobOutcome(rsp);
-        else
-            return DescribeQuestionMarkAgentJobOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeQuestionMarkAgentJobOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::DescribeQuestionMarkAgentJobAsync(const DescribeQuestionMarkAgentJobRequest& request, const DescribeQuestionMarkAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeQuestionMarkAgentJobRequest&;
-    using Resp = DescribeQuestionMarkAgentJobResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeQuestionMarkAgentJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OcrClient::DescribeQuestionMarkAgentJobOutcomeCallable OcrClient::DescribeQuestionMarkAgentJobCallable(const DescribeQuestionMarkAgentJobRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeQuestionMarkAgentJobOutcome>>();
-    DescribeQuestionMarkAgentJobAsync(
-    request,
-    [prom](
-        const OcrClient*,
-        const DescribeQuestionMarkAgentJobRequest&,
-        DescribeQuestionMarkAgentJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 OcrClient::DriverLicenseOCROutcome OcrClient::DriverLicenseOCR(const DriverLicenseOCRRequest &request)
 {
     auto outcome = MakeRequest(request, "DriverLicenseOCR");
@@ -982,56 +882,6 @@ OcrClient::EstateCertOCROutcomeCallable OcrClient::EstateCertOCRCallable(const E
         const OcrClient*,
         const EstateCertOCRRequest&,
         EstateCertOCROutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-OcrClient::ExtractDocAgentOutcome OcrClient::ExtractDocAgent(const ExtractDocAgentRequest &request)
-{
-    auto outcome = MakeRequest(request, "ExtractDocAgent");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ExtractDocAgentResponse rsp = ExtractDocAgentResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ExtractDocAgentOutcome(rsp);
-        else
-            return ExtractDocAgentOutcome(o.GetError());
-    }
-    else
-    {
-        return ExtractDocAgentOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::ExtractDocAgentAsync(const ExtractDocAgentRequest& request, const ExtractDocAgentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ExtractDocAgentRequest&;
-    using Resp = ExtractDocAgentResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ExtractDocAgent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OcrClient::ExtractDocAgentOutcomeCallable OcrClient::ExtractDocAgentCallable(const ExtractDocAgentRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ExtractDocAgentOutcome>>();
-    ExtractDocAgentAsync(
-    request,
-    [prom](
-        const OcrClient*,
-        const ExtractDocAgentRequest&,
-        ExtractDocAgentOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3240,6 +3090,56 @@ OcrClient::RecognizeTableAccurateOCROutcomeCallable OcrClient::RecognizeTableAcc
     return prom->get_future();
 }
 
+OcrClient::RecognizeTableMultiOCROutcome OcrClient::RecognizeTableMultiOCR(const RecognizeTableMultiOCRRequest &request)
+{
+    auto outcome = MakeRequest(request, "RecognizeTableMultiOCR");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RecognizeTableMultiOCRResponse rsp = RecognizeTableMultiOCRResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RecognizeTableMultiOCROutcome(rsp);
+        else
+            return RecognizeTableMultiOCROutcome(o.GetError());
+    }
+    else
+    {
+        return RecognizeTableMultiOCROutcome(outcome.GetError());
+    }
+}
+
+void OcrClient::RecognizeTableMultiOCRAsync(const RecognizeTableMultiOCRRequest& request, const RecognizeTableMultiOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RecognizeTableMultiOCRRequest&;
+    using Resp = RecognizeTableMultiOCRResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RecognizeTableMultiOCR", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+OcrClient::RecognizeTableMultiOCROutcomeCallable OcrClient::RecognizeTableMultiOCRCallable(const RecognizeTableMultiOCRRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RecognizeTableMultiOCROutcome>>();
+    RecognizeTableMultiOCRAsync(
+    request,
+    [prom](
+        const OcrClient*,
+        const RecognizeTableMultiOCRRequest&,
+        RecognizeTableMultiOCROutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 OcrClient::RecognizeTableOCROutcome OcrClient::RecognizeTableOCR(const RecognizeTableOCRRequest &request)
 {
     auto outcome = MakeRequest(request, "RecognizeTableOCR");
@@ -3790,106 +3690,6 @@ OcrClient::SubmitExtractDocAgentJobOutcomeCallable OcrClient::SubmitExtractDocAg
     return prom->get_future();
 }
 
-OcrClient::SubmitMarkEssayAgentJobOutcome OcrClient::SubmitMarkEssayAgentJob(const SubmitMarkEssayAgentJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "SubmitMarkEssayAgentJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        SubmitMarkEssayAgentJobResponse rsp = SubmitMarkEssayAgentJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return SubmitMarkEssayAgentJobOutcome(rsp);
-        else
-            return SubmitMarkEssayAgentJobOutcome(o.GetError());
-    }
-    else
-    {
-        return SubmitMarkEssayAgentJobOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::SubmitMarkEssayAgentJobAsync(const SubmitMarkEssayAgentJobRequest& request, const SubmitMarkEssayAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const SubmitMarkEssayAgentJobRequest&;
-    using Resp = SubmitMarkEssayAgentJobResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "SubmitMarkEssayAgentJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OcrClient::SubmitMarkEssayAgentJobOutcomeCallable OcrClient::SubmitMarkEssayAgentJobCallable(const SubmitMarkEssayAgentJobRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<SubmitMarkEssayAgentJobOutcome>>();
-    SubmitMarkEssayAgentJobAsync(
-    request,
-    [prom](
-        const OcrClient*,
-        const SubmitMarkEssayAgentJobRequest&,
-        SubmitMarkEssayAgentJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-OcrClient::SubmitQuestionMarkAgentJobOutcome OcrClient::SubmitQuestionMarkAgentJob(const SubmitQuestionMarkAgentJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "SubmitQuestionMarkAgentJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        SubmitQuestionMarkAgentJobResponse rsp = SubmitQuestionMarkAgentJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return SubmitQuestionMarkAgentJobOutcome(rsp);
-        else
-            return SubmitQuestionMarkAgentJobOutcome(o.GetError());
-    }
-    else
-    {
-        return SubmitQuestionMarkAgentJobOutcome(outcome.GetError());
-    }
-}
-
-void OcrClient::SubmitQuestionMarkAgentJobAsync(const SubmitQuestionMarkAgentJobRequest& request, const SubmitQuestionMarkAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const SubmitQuestionMarkAgentJobRequest&;
-    using Resp = SubmitQuestionMarkAgentJobResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "SubmitQuestionMarkAgentJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OcrClient::SubmitQuestionMarkAgentJobOutcomeCallable OcrClient::SubmitQuestionMarkAgentJobCallable(const SubmitQuestionMarkAgentJobRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<SubmitQuestionMarkAgentJobOutcome>>();
-    SubmitQuestionMarkAgentJobAsync(
-    request,
-    [prom](
-        const OcrClient*,
-        const SubmitQuestionMarkAgentJobRequest&,
-        SubmitQuestionMarkAgentJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 OcrClient::TableOCROutcome OcrClient::TableOCR(const TableOCRRequest &request)
 {
     auto outcome = MakeRequest(request, "TableOCR");
@@ -4382,56 +4182,6 @@ OcrClient::VehicleRegCertOCROutcomeCallable OcrClient::VehicleRegCertOCRCallable
         const OcrClient*,
         const VehicleRegCertOCRRequest&,
         VehicleRegCertOCROutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-OcrClient::VerifyBizLicenseEnterprise4Outcome OcrClient::VerifyBizLicenseEnterprise4(const VerifyBizLicenseEnterprise4Request &request)
-{
-    auto outcome = MakeRequest(request, "VerifyBizLicenseEnterprise4");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        VerifyBizLicenseEnterprise4Response rsp = VerifyBizLicenseEnterprise4Response();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return VerifyBizLicenseEnterprise4Outcome(rsp);
-        else
-            return VerifyBizLicenseEnterprise4Outcome(o.GetError());
-    }
-    else
-    {
-        return VerifyBizLicenseEnterprise4Outcome(outcome.GetError());
-    }
-}
-
-void OcrClient::VerifyBizLicenseEnterprise4Async(const VerifyBizLicenseEnterprise4Request& request, const VerifyBizLicenseEnterprise4AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const VerifyBizLicenseEnterprise4Request&;
-    using Resp = VerifyBizLicenseEnterprise4Response;
-
-    DoRequestAsync<Req, Resp>(
-        "VerifyBizLicenseEnterprise4", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OcrClient::VerifyBizLicenseEnterprise4OutcomeCallable OcrClient::VerifyBizLicenseEnterprise4Callable(const VerifyBizLicenseEnterprise4Request &request)
-{
-    const auto prom = std::make_shared<std::promise<VerifyBizLicenseEnterprise4Outcome>>();
-    VerifyBizLicenseEnterprise4Async(
-    request,
-    [prom](
-        const OcrClient*,
-        const VerifyBizLicenseEnterprise4Request&,
-        VerifyBizLicenseEnterprise4Outcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

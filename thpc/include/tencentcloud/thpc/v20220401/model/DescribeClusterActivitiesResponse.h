@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群活动历史记录列表。</p>
-                     * @return ClusterActivitySet <p>集群活动历史记录列表。</p>
+                     * 获取集群活动历史记录列表。
+                     * @return ClusterActivitySet 集群活动历史记录列表。
                      * 
                      */
                     std::vector<ClusterActivity> GetClusterActivitySet() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool ClusterActivitySetHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群活动历史记录数量。</p>
-                     * @return TotalCount <p>集群活动历史记录数量。</p>
+                     * 获取集群活动历史记录数量。
+                     * @return TotalCount 集群活动历史记录数量。
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>集群活动历史记录列表。</p>
+                     * 集群活动历史记录列表。
                      */
                     std::vector<ClusterActivity> m_clusterActivitySet;
                     bool m_clusterActivitySetHasBeenSet;
 
                     /**
-                     * <p>集群活动历史记录数量。</p>
+                     * 集群活动历史记录数量。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

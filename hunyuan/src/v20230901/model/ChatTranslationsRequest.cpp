@@ -29,8 +29,7 @@ ChatTranslationsRequest::ChatTranslationsRequest() :
     m_sourceHasBeenSet(false),
     m_targetHasBeenSet(false),
     m_fieldHasBeenSet(false),
-    m_referencesHasBeenSet(false),
-    m_glossaryIDsHasBeenSet(false)
+    m_referencesHasBeenSet(false)
 {
 }
 
@@ -101,19 +100,6 @@ string ChatTranslationsRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_glossaryIDsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "GlossaryIDs";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_glossaryIDs.begin(); itr != m_glossaryIDs.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
     }
 
@@ -235,22 +221,6 @@ void ChatTranslationsRequest::SetReferences(const vector<Reference>& _references
 bool ChatTranslationsRequest::ReferencesHasBeenSet() const
 {
     return m_referencesHasBeenSet;
-}
-
-vector<string> ChatTranslationsRequest::GetGlossaryIDs() const
-{
-    return m_glossaryIDs;
-}
-
-void ChatTranslationsRequest::SetGlossaryIDs(const vector<string>& _glossaryIDs)
-{
-    m_glossaryIDs = _glossaryIDs;
-    m_glossaryIDsHasBeenSet = true;
-}
-
-bool ChatTranslationsRequest::GlossaryIDsHasBeenSet() const
-{
-    return m_glossaryIDsHasBeenSet;
 }
 
 

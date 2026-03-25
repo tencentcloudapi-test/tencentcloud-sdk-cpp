@@ -28,8 +28,7 @@ ModifyNatGatewayAttributeRequest::ModifyNatGatewayAttributeRequest() :
     m_internetMaxBandwidthOutHasBeenSet(false),
     m_modifySecurityGroupHasBeenSet(false),
     m_securityGroupIdsHasBeenSet(false),
-    m_deletionProtectionEnabledHasBeenSet(false),
-    m_publicAddressAffinityHasBeenSet(false)
+    m_deletionProtectionEnabledHasBeenSet(false)
 {
 }
 
@@ -91,14 +90,6 @@ string ModifyNatGatewayAttributeRequest::ToJsonString() const
         string key = "DeletionProtectionEnabled";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_deletionProtectionEnabled, allocator);
-    }
-
-    if (m_publicAddressAffinityHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PublicAddressAffinity";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_publicAddressAffinity, allocator);
     }
 
 
@@ -203,22 +194,6 @@ void ModifyNatGatewayAttributeRequest::SetDeletionProtectionEnabled(const bool& 
 bool ModifyNatGatewayAttributeRequest::DeletionProtectionEnabledHasBeenSet() const
 {
     return m_deletionProtectionEnabledHasBeenSet;
-}
-
-bool ModifyNatGatewayAttributeRequest::GetPublicAddressAffinity() const
-{
-    return m_publicAddressAffinity;
-}
-
-void ModifyNatGatewayAttributeRequest::SetPublicAddressAffinity(const bool& _publicAddressAffinity)
-{
-    m_publicAddressAffinity = _publicAddressAffinity;
-    m_publicAddressAffinityHasBeenSet = true;
-}
-
-bool ModifyNatGatewayAttributeRequest::PublicAddressAffinityHasBeenSet() const
-{
-    return m_publicAddressAffinityHasBeenSet;
 }
 
 

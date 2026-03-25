@@ -25,8 +25,7 @@ using namespace std;
 DescribeBillAdjustInfoRequest::DescribeBillAdjustInfoRequest() :
     m_monthHasBeenSet(false),
     m_timeFromHasBeenSet(false),
-    m_timeToHasBeenSet(false),
-    m_payerUinHasBeenSet(false)
+    m_timeToHasBeenSet(false)
 {
 }
 
@@ -59,14 +58,6 @@ string DescribeBillAdjustInfoRequest::ToJsonString() const
         string key = "TimeTo";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_timeTo.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_payerUinHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PayerUin";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_payerUin.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -123,22 +114,6 @@ void DescribeBillAdjustInfoRequest::SetTimeTo(const string& _timeTo)
 bool DescribeBillAdjustInfoRequest::TimeToHasBeenSet() const
 {
     return m_timeToHasBeenSet;
-}
-
-string DescribeBillAdjustInfoRequest::GetPayerUin() const
-{
-    return m_payerUin;
-}
-
-void DescribeBillAdjustInfoRequest::SetPayerUin(const string& _payerUin)
-{
-    m_payerUin = _payerUin;
-    m_payerUinHasBeenSet = true;
-}
-
-bool DescribeBillAdjustInfoRequest::PayerUinHasBeenSet() const
-{
-    return m_payerUinHasBeenSet;
 }
 
 

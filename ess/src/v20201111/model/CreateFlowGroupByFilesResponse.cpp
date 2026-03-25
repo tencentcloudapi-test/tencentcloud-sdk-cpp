@@ -26,8 +26,7 @@ using namespace std;
 CreateFlowGroupByFilesResponse::CreateFlowGroupByFilesResponse() :
     m_flowGroupIdHasBeenSet(false),
     m_flowIdsHasBeenSet(false),
-    m_approversHasBeenSet(false),
-    m_workflowInstanceIdHasBeenSet(false)
+    m_approversHasBeenSet(false)
 {
 }
 
@@ -108,16 +107,6 @@ CoreInternalOutcome CreateFlowGroupByFilesResponse::Deserialize(const string &pa
         m_approversHasBeenSet = true;
     }
 
-    if (rsp.HasMember("WorkflowInstanceId") && !rsp["WorkflowInstanceId"].IsNull())
-    {
-        if (!rsp["WorkflowInstanceId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `WorkflowInstanceId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_workflowInstanceId = string(rsp["WorkflowInstanceId"].GetString());
-        m_workflowInstanceIdHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -164,14 +153,6 @@ string CreateFlowGroupByFilesResponse::ToJsonString() const
         }
     }
 
-    if (m_workflowInstanceIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "WorkflowInstanceId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_workflowInstanceId.c_str(), allocator).Move(), allocator);
-    }
-
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
@@ -212,16 +193,6 @@ vector<FlowGroupApprovers> CreateFlowGroupByFilesResponse::GetApprovers() const
 bool CreateFlowGroupByFilesResponse::ApproversHasBeenSet() const
 {
     return m_approversHasBeenSet;
-}
-
-string CreateFlowGroupByFilesResponse::GetWorkflowInstanceId() const
-{
-    return m_workflowInstanceId;
-}
-
-bool CreateFlowGroupByFilesResponse::WorkflowInstanceIdHasBeenSet() const
-{
-    return m_workflowInstanceIdHasBeenSet;
 }
 
 

@@ -127,27 +127,6 @@ namespace TencentCloud
                      */
                     bool LoginSubAccountUinHasBeenSet() const;
 
-                    /**
-                     * 获取用于操作共享知识库
-                     * @return KnowledgeBizId 用于操作共享知识库
-                     * 
-                     */
-                    std::string GetKnowledgeBizId() const;
-
-                    /**
-                     * 设置用于操作共享知识库
-                     * @param _knowledgeBizId 用于操作共享知识库
-                     * 
-                     */
-                    void SetKnowledgeBizId(const std::string& _knowledgeBizId);
-
-                    /**
-                     * 判断参数 KnowledgeBizId 是否已赋值
-                     * @return KnowledgeBizId 是否已赋值
-                     * 
-                     */
-                    bool KnowledgeBizIdHasBeenSet() const;
-
                 private:
 
                     /**
@@ -173,12 +152,6 @@ namespace TencentCloud
                      */
                     std::string m_loginSubAccountUin;
                     bool m_loginSubAccountUinHasBeenSet;
-
-                    /**
-                     * 用于操作共享知识库
-                     */
-                    std::string m_knowledgeBizId;
-                    bool m_knowledgeBizIdHasBeenSet;
 
                 };
             }

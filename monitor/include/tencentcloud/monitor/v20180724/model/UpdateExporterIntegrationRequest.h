@@ -159,27 +159,6 @@ namespace TencentCloud
                      */
                     bool ClusterIdHasBeenSet() const;
 
-                    /**
-                     * 获取值为true时禁用集成
-                     * @return Disable 值为true时禁用集成
-                     * 
-                     */
-                    bool GetDisable() const;
-
-                    /**
-                     * 设置值为true时禁用集成
-                     * @param _disable 值为true时禁用集成
-                     * 
-                     */
-                    void SetDisable(const bool& _disable);
-
-                    /**
-                     * 判断参数 Disable 是否已赋值
-                     * @return Disable 是否已赋值
-                     * 
-                     */
-                    bool DisableHasBeenSet() const;
-
                 private:
 
                     /**
@@ -214,12 +193,6 @@ namespace TencentCloud
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
-
-                    /**
-                     * 值为true时禁用集成
-                     */
-                    bool m_disable;
-                    bool m_disableHasBeenSet;
 
                 };
             }

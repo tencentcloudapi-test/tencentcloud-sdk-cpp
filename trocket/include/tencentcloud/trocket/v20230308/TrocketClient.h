@@ -29,6 +29,14 @@
 #include <tencentcloud/trocket/v20230308/model/CreateConsumerGroupResponse.h>
 #include <tencentcloud/trocket/v20230308/model/CreateInstanceRequest.h>
 #include <tencentcloud/trocket/v20230308/model/CreateInstanceResponse.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTInsPublicEndpointRequest.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTInsPublicEndpointResponse.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTInstanceRequest.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTInstanceResponse.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTTopicRequest.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTTopicResponse.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTUserRequest.h>
+#include <tencentcloud/trocket/v20230308/model/CreateMQTTUserResponse.h>
 #include <tencentcloud/trocket/v20230308/model/CreateRoleRequest.h>
 #include <tencentcloud/trocket/v20230308/model/CreateRoleResponse.h>
 #include <tencentcloud/trocket/v20230308/model/CreateTopicRequest.h>
@@ -37,6 +45,14 @@
 #include <tencentcloud/trocket/v20230308/model/DeleteConsumerGroupResponse.h>
 #include <tencentcloud/trocket/v20230308/model/DeleteInstanceRequest.h>
 #include <tencentcloud/trocket/v20230308/model/DeleteInstanceResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTInsPublicEndpointRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTInsPublicEndpointResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTInstanceRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTInstanceResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTTopicRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTTopicResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTUserRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DeleteMQTTUserResponse.h>
 #include <tencentcloud/trocket/v20230308/model/DeleteRoleRequest.h>
 #include <tencentcloud/trocket/v20230308/model/DeleteRoleResponse.h>
 #include <tencentcloud/trocket/v20230308/model/DeleteSmoothMigrationTaskRequest.h>
@@ -59,6 +75,30 @@
 #include <tencentcloud/trocket/v20230308/model/DescribeInstanceResponse.h>
 #include <tencentcloud/trocket/v20230308/model/DescribeInstanceListRequest.h>
 #include <tencentcloud/trocket/v20230308/model/DescribeInstanceListResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTClientRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTClientResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInsPublicEndpointsRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInsPublicEndpointsResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInsVPCEndpointsRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInsVPCEndpointsResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInstanceRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInstanceResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInstanceCertRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInstanceCertResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInstanceListRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTInstanceListResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTMessageRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTMessageResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTMessageListRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTMessageListResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTProductSKUListRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTProductSKUListResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTTopicRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTTopicResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTTopicListRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTTopicListResponse.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTUserListRequest.h>
+#include <tencentcloud/trocket/v20230308/model/DescribeMQTTUserListResponse.h>
 #include <tencentcloud/trocket/v20230308/model/DescribeMessageRequest.h>
 #include <tencentcloud/trocket/v20230308/model/DescribeMessageResponse.h>
 #include <tencentcloud/trocket/v20230308/model/DescribeMessageListRequest.h>
@@ -101,6 +141,16 @@
 #include <tencentcloud/trocket/v20230308/model/ModifyInstanceResponse.h>
 #include <tencentcloud/trocket/v20230308/model/ModifyInstanceEndpointRequest.h>
 #include <tencentcloud/trocket/v20230308/model/ModifyInstanceEndpointResponse.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTInsPublicEndpointRequest.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTInsPublicEndpointResponse.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTInstanceRequest.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTInstanceResponse.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTInstanceCertBindingRequest.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTInstanceCertBindingResponse.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTTopicRequest.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTTopicResponse.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTUserRequest.h>
+#include <tencentcloud/trocket/v20230308/model/ModifyMQTTUserResponse.h>
 #include <tencentcloud/trocket/v20230308/model/ModifyRoleRequest.h>
 #include <tencentcloud/trocket/v20230308/model/ModifyRoleResponse.h>
 #include <tencentcloud/trocket/v20230308/model/ModifyTopicRequest.h>
@@ -113,10 +163,6 @@
 #include <tencentcloud/trocket/v20230308/model/ResetConsumerGroupOffsetResponse.h>
 #include <tencentcloud/trocket/v20230308/model/RollbackMigratingTopicStageRequest.h>
 #include <tencentcloud/trocket/v20230308/model/RollbackMigratingTopicStageResponse.h>
-#include <tencentcloud/trocket/v20230308/model/SendMessageRequest.h>
-#include <tencentcloud/trocket/v20230308/model/SendMessageResponse.h>
-#include <tencentcloud/trocket/v20230308/model/VerifyMessageConsumptionRequest.h>
-#include <tencentcloud/trocket/v20230308/model/VerifyMessageConsumptionResponse.h>
 
 
 namespace TencentCloud
@@ -140,6 +186,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateInstanceResponse> CreateInstanceOutcome;
                 typedef std::future<CreateInstanceOutcome> CreateInstanceOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::CreateInstanceRequest&, CreateInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateMQTTInsPublicEndpointResponse> CreateMQTTInsPublicEndpointOutcome;
+                typedef std::future<CreateMQTTInsPublicEndpointOutcome> CreateMQTTInsPublicEndpointOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::CreateMQTTInsPublicEndpointRequest&, CreateMQTTInsPublicEndpointOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMQTTInsPublicEndpointAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateMQTTInstanceResponse> CreateMQTTInstanceOutcome;
+                typedef std::future<CreateMQTTInstanceOutcome> CreateMQTTInstanceOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::CreateMQTTInstanceRequest&, CreateMQTTInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMQTTInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateMQTTTopicResponse> CreateMQTTTopicOutcome;
+                typedef std::future<CreateMQTTTopicOutcome> CreateMQTTTopicOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::CreateMQTTTopicRequest&, CreateMQTTTopicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMQTTTopicAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateMQTTUserResponse> CreateMQTTUserOutcome;
+                typedef std::future<CreateMQTTUserOutcome> CreateMQTTUserOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::CreateMQTTUserRequest&, CreateMQTTUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMQTTUserAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateRoleResponse> CreateRoleOutcome;
                 typedef std::future<CreateRoleOutcome> CreateRoleOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::CreateRoleRequest&, CreateRoleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateRoleAsyncHandler;
@@ -152,6 +210,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteInstanceResponse> DeleteInstanceOutcome;
                 typedef std::future<DeleteInstanceOutcome> DeleteInstanceOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::DeleteInstanceRequest&, DeleteInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteMQTTInsPublicEndpointResponse> DeleteMQTTInsPublicEndpointOutcome;
+                typedef std::future<DeleteMQTTInsPublicEndpointOutcome> DeleteMQTTInsPublicEndpointOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DeleteMQTTInsPublicEndpointRequest&, DeleteMQTTInsPublicEndpointOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMQTTInsPublicEndpointAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteMQTTInstanceResponse> DeleteMQTTInstanceOutcome;
+                typedef std::future<DeleteMQTTInstanceOutcome> DeleteMQTTInstanceOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DeleteMQTTInstanceRequest&, DeleteMQTTInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMQTTInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteMQTTTopicResponse> DeleteMQTTTopicOutcome;
+                typedef std::future<DeleteMQTTTopicOutcome> DeleteMQTTTopicOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DeleteMQTTTopicRequest&, DeleteMQTTTopicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMQTTTopicAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteMQTTUserResponse> DeleteMQTTUserOutcome;
+                typedef std::future<DeleteMQTTUserOutcome> DeleteMQTTUserOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DeleteMQTTUserRequest&, DeleteMQTTUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMQTTUserAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteRoleResponse> DeleteRoleOutcome;
                 typedef std::future<DeleteRoleOutcome> DeleteRoleOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::DeleteRoleRequest&, DeleteRoleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteRoleAsyncHandler;
@@ -185,6 +255,42 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeInstanceListResponse> DescribeInstanceListOutcome;
                 typedef std::future<DescribeInstanceListOutcome> DescribeInstanceListOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::DescribeInstanceListRequest&, DescribeInstanceListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstanceListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTClientResponse> DescribeMQTTClientOutcome;
+                typedef std::future<DescribeMQTTClientOutcome> DescribeMQTTClientOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTClientRequest&, DescribeMQTTClientOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTClientAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTInsPublicEndpointsResponse> DescribeMQTTInsPublicEndpointsOutcome;
+                typedef std::future<DescribeMQTTInsPublicEndpointsOutcome> DescribeMQTTInsPublicEndpointsOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTInsPublicEndpointsRequest&, DescribeMQTTInsPublicEndpointsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTInsPublicEndpointsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTInsVPCEndpointsResponse> DescribeMQTTInsVPCEndpointsOutcome;
+                typedef std::future<DescribeMQTTInsVPCEndpointsOutcome> DescribeMQTTInsVPCEndpointsOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTInsVPCEndpointsRequest&, DescribeMQTTInsVPCEndpointsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTInsVPCEndpointsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTInstanceResponse> DescribeMQTTInstanceOutcome;
+                typedef std::future<DescribeMQTTInstanceOutcome> DescribeMQTTInstanceOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTInstanceRequest&, DescribeMQTTInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTInstanceCertResponse> DescribeMQTTInstanceCertOutcome;
+                typedef std::future<DescribeMQTTInstanceCertOutcome> DescribeMQTTInstanceCertOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTInstanceCertRequest&, DescribeMQTTInstanceCertOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTInstanceCertAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTInstanceListResponse> DescribeMQTTInstanceListOutcome;
+                typedef std::future<DescribeMQTTInstanceListOutcome> DescribeMQTTInstanceListOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTInstanceListRequest&, DescribeMQTTInstanceListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTInstanceListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTMessageResponse> DescribeMQTTMessageOutcome;
+                typedef std::future<DescribeMQTTMessageOutcome> DescribeMQTTMessageOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTMessageRequest&, DescribeMQTTMessageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTMessageAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTMessageListResponse> DescribeMQTTMessageListOutcome;
+                typedef std::future<DescribeMQTTMessageListOutcome> DescribeMQTTMessageListOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTMessageListRequest&, DescribeMQTTMessageListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTMessageListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTProductSKUListResponse> DescribeMQTTProductSKUListOutcome;
+                typedef std::future<DescribeMQTTProductSKUListOutcome> DescribeMQTTProductSKUListOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTProductSKUListRequest&, DescribeMQTTProductSKUListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTProductSKUListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTTopicResponse> DescribeMQTTTopicOutcome;
+                typedef std::future<DescribeMQTTTopicOutcome> DescribeMQTTTopicOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTTopicRequest&, DescribeMQTTTopicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTTopicAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTTopicListResponse> DescribeMQTTTopicListOutcome;
+                typedef std::future<DescribeMQTTTopicListOutcome> DescribeMQTTTopicListOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTTopicListRequest&, DescribeMQTTTopicListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTTopicListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMQTTUserListResponse> DescribeMQTTUserListOutcome;
+                typedef std::future<DescribeMQTTUserListOutcome> DescribeMQTTUserListOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::DescribeMQTTUserListRequest&, DescribeMQTTUserListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMQTTUserListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMessageResponse> DescribeMessageOutcome;
                 typedef std::future<DescribeMessageOutcome> DescribeMessageOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::DescribeMessageRequest&, DescribeMessageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMessageAsyncHandler;
@@ -248,6 +354,21 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyInstanceEndpointResponse> ModifyInstanceEndpointOutcome;
                 typedef std::future<ModifyInstanceEndpointOutcome> ModifyInstanceEndpointOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::ModifyInstanceEndpointRequest&, ModifyInstanceEndpointOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyInstanceEndpointAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyMQTTInsPublicEndpointResponse> ModifyMQTTInsPublicEndpointOutcome;
+                typedef std::future<ModifyMQTTInsPublicEndpointOutcome> ModifyMQTTInsPublicEndpointOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::ModifyMQTTInsPublicEndpointRequest&, ModifyMQTTInsPublicEndpointOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMQTTInsPublicEndpointAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyMQTTInstanceResponse> ModifyMQTTInstanceOutcome;
+                typedef std::future<ModifyMQTTInstanceOutcome> ModifyMQTTInstanceOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::ModifyMQTTInstanceRequest&, ModifyMQTTInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMQTTInstanceAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyMQTTInstanceCertBindingResponse> ModifyMQTTInstanceCertBindingOutcome;
+                typedef std::future<ModifyMQTTInstanceCertBindingOutcome> ModifyMQTTInstanceCertBindingOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::ModifyMQTTInstanceCertBindingRequest&, ModifyMQTTInstanceCertBindingOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMQTTInstanceCertBindingAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyMQTTTopicResponse> ModifyMQTTTopicOutcome;
+                typedef std::future<ModifyMQTTTopicOutcome> ModifyMQTTTopicOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::ModifyMQTTTopicRequest&, ModifyMQTTTopicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMQTTTopicAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyMQTTUserResponse> ModifyMQTTUserOutcome;
+                typedef std::future<ModifyMQTTUserOutcome> ModifyMQTTUserOutcomeCallable;
+                typedef std::function<void(const TrocketClient*, const Model::ModifyMQTTUserRequest&, ModifyMQTTUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMQTTUserAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyRoleResponse> ModifyRoleOutcome;
                 typedef std::future<ModifyRoleOutcome> ModifyRoleOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::ModifyRoleRequest&, ModifyRoleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRoleAsyncHandler;
@@ -266,12 +387,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::RollbackMigratingTopicStageResponse> RollbackMigratingTopicStageOutcome;
                 typedef std::future<RollbackMigratingTopicStageOutcome> RollbackMigratingTopicStageOutcomeCallable;
                 typedef std::function<void(const TrocketClient*, const Model::RollbackMigratingTopicStageRequest&, RollbackMigratingTopicStageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RollbackMigratingTopicStageAsyncHandler;
-                typedef Outcome<Core::Error, Model::SendMessageResponse> SendMessageOutcome;
-                typedef std::future<SendMessageOutcome> SendMessageOutcomeCallable;
-                typedef std::function<void(const TrocketClient*, const Model::SendMessageRequest&, SendMessageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SendMessageAsyncHandler;
-                typedef Outcome<Core::Error, Model::VerifyMessageConsumptionResponse> VerifyMessageConsumptionOutcome;
-                typedef std::future<VerifyMessageConsumptionOutcome> VerifyMessageConsumptionOutcomeCallable;
-                typedef std::function<void(const TrocketClient*, const Model::VerifyMessageConsumptionRequest&, VerifyMessageConsumptionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> VerifyMessageConsumptionAsyncHandler;
 
 
 
@@ -285,8 +400,7 @@ namespace TencentCloud
                 ChangeMigratingTopicToNextStageOutcomeCallable ChangeMigratingTopicToNextStageCallable(const Model::ChangeMigratingTopicToNextStageRequest& request);
 
                 /**
-                 *创建消费组。
-当前 API 适用集群：5.x 集群。4.x 集群的创建消费组接口文档见 [CreateRocketMQGroup](https://cloud.tencent.com/document/api/1179/63428)。
+                 *创建消费组
                  * @param req CreateConsumerGroupRequest
                  * @return CreateConsumerGroupOutcome
                  */
@@ -295,8 +409,7 @@ namespace TencentCloud
                 CreateConsumerGroupOutcomeCallable CreateConsumerGroupCallable(const Model::CreateConsumerGroupRequest& request);
 
                 /**
-                 *创建 RocketMQ 5.x 集群。
-当前 API 适用集群：5.x 集群。创建 4.x 专享/通用集群的接口文档见 [CreateRocketMQVipInstance](https://cloud.tencent.com/document/product/1179/95721)。
+                 *创建 RocketMQ 5.x 集群
                  * @param req CreateInstanceRequest
                  * @return CreateInstanceOutcome
                  */
@@ -305,8 +418,43 @@ namespace TencentCloud
                 CreateInstanceOutcomeCallable CreateInstanceCallable(const Model::CreateInstanceRequest& request);
 
                 /**
-                 *添加角色。
-当前 API 适用集群：5.x 集群。4.x 集群的创建角色接口文档见 [CreateRocketMQRole](https://cloud.tencent.com/document/product/1179/107538)，给角色授权接口文档见 [CreateRocketMQEnvironmentRole](https://cloud.tencent.com/document/product/1179/107539)。
+                 *为MQTT实例创建公网接入点
+                 * @param req CreateMQTTInsPublicEndpointRequest
+                 * @return CreateMQTTInsPublicEndpointOutcome
+                 */
+                CreateMQTTInsPublicEndpointOutcome CreateMQTTInsPublicEndpoint(const Model::CreateMQTTInsPublicEndpointRequest &request);
+                void CreateMQTTInsPublicEndpointAsync(const Model::CreateMQTTInsPublicEndpointRequest& request, const CreateMQTTInsPublicEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateMQTTInsPublicEndpointOutcomeCallable CreateMQTTInsPublicEndpointCallable(const Model::CreateMQTTInsPublicEndpointRequest& request);
+
+                /**
+                 *购买新的MQTT实例
+                 * @param req CreateMQTTInstanceRequest
+                 * @return CreateMQTTInstanceOutcome
+                 */
+                CreateMQTTInstanceOutcome CreateMQTTInstance(const Model::CreateMQTTInstanceRequest &request);
+                void CreateMQTTInstanceAsync(const Model::CreateMQTTInstanceRequest& request, const CreateMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateMQTTInstanceOutcomeCallable CreateMQTTInstanceCallable(const Model::CreateMQTTInstanceRequest& request);
+
+                /**
+                 *创建主题
+                 * @param req CreateMQTTTopicRequest
+                 * @return CreateMQTTTopicOutcome
+                 */
+                CreateMQTTTopicOutcome CreateMQTTTopic(const Model::CreateMQTTTopicRequest &request);
+                void CreateMQTTTopicAsync(const Model::CreateMQTTTopicRequest& request, const CreateMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateMQTTTopicOutcomeCallable CreateMQTTTopicCallable(const Model::CreateMQTTTopicRequest& request);
+
+                /**
+                 *添加mqtt角色
+                 * @param req CreateMQTTUserRequest
+                 * @return CreateMQTTUserOutcome
+                 */
+                CreateMQTTUserOutcome CreateMQTTUser(const Model::CreateMQTTUserRequest &request);
+                void CreateMQTTUserAsync(const Model::CreateMQTTUserRequest& request, const CreateMQTTUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateMQTTUserOutcomeCallable CreateMQTTUserCallable(const Model::CreateMQTTUserRequest& request);
+
+                /**
+                 *添加角色
                  * @param req CreateRoleRequest
                  * @return CreateRoleOutcome
                  */
@@ -315,8 +463,7 @@ namespace TencentCloud
                 CreateRoleOutcomeCallable CreateRoleCallable(const Model::CreateRoleRequest& request);
 
                 /**
-                 *创建 RocketMQ 主题。
-当前 API 适用集群：5.x 集群。4.x 集群的创建主题接口文档见 [CreateRocketMQTopic](https://cloud.tencent.com/document/api/1179/63426)
+                 *创建主题
                  * @param req CreateTopicRequest
                  * @return CreateTopicOutcome
                  */
@@ -326,7 +473,6 @@ namespace TencentCloud
 
                 /**
                  *删除消费组。消费者组删除后，消费者组的所有配置和相关数据都会被清空，且无法找回。删除后，在线的消费者客户端会出现报错，建议您提前下线客户端。
-当前 API 适用集群：5.x 集群。4.x 集群的删除消费组接口文档见 [DeleteRocketMQGroup](https://cloud.tencent.com/document/api/1179/63424)。
                  * @param req DeleteConsumerGroupRequest
                  * @return DeleteConsumerGroupOutcome
                  */
@@ -336,7 +482,6 @@ namespace TencentCloud
 
                 /**
                  *删除 RocketMQ 5.x 集群，删除前请先删除正在使用的主题、消费组和角色信息。
-当前 API 适用集群：5.x 集群。删除 4.x 集群接口文档见 [DeleteRocketMQVipInstance](https://cloud.tencent.com/document/product/1179/95802)。
                  * @param req DeleteInstanceRequest
                  * @return DeleteInstanceOutcome
                  */
@@ -345,8 +490,43 @@ namespace TencentCloud
                 DeleteInstanceOutcomeCallable DeleteInstanceCallable(const Model::DeleteInstanceRequest& request);
 
                 /**
+                 *删除MQTT实例的公网接入点
+                 * @param req DeleteMQTTInsPublicEndpointRequest
+                 * @return DeleteMQTTInsPublicEndpointOutcome
+                 */
+                DeleteMQTTInsPublicEndpointOutcome DeleteMQTTInsPublicEndpoint(const Model::DeleteMQTTInsPublicEndpointRequest &request);
+                void DeleteMQTTInsPublicEndpointAsync(const Model::DeleteMQTTInsPublicEndpointRequest& request, const DeleteMQTTInsPublicEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteMQTTInsPublicEndpointOutcomeCallable DeleteMQTTInsPublicEndpointCallable(const Model::DeleteMQTTInsPublicEndpointRequest& request);
+
+                /**
+                 *删除MQTT实例
+                 * @param req DeleteMQTTInstanceRequest
+                 * @return DeleteMQTTInstanceOutcome
+                 */
+                DeleteMQTTInstanceOutcome DeleteMQTTInstance(const Model::DeleteMQTTInstanceRequest &request);
+                void DeleteMQTTInstanceAsync(const Model::DeleteMQTTInstanceRequest& request, const DeleteMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteMQTTInstanceOutcomeCallable DeleteMQTTInstanceCallable(const Model::DeleteMQTTInstanceRequest& request);
+
+                /**
+                 *删除MQTT主题
+                 * @param req DeleteMQTTTopicRequest
+                 * @return DeleteMQTTTopicOutcome
+                 */
+                DeleteMQTTTopicOutcome DeleteMQTTTopic(const Model::DeleteMQTTTopicRequest &request);
+                void DeleteMQTTTopicAsync(const Model::DeleteMQTTTopicRequest& request, const DeleteMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteMQTTTopicOutcomeCallable DeleteMQTTTopicCallable(const Model::DeleteMQTTTopicRequest& request);
+
+                /**
+                 *删除MQTT访问用户
+                 * @param req DeleteMQTTUserRequest
+                 * @return DeleteMQTTUserOutcome
+                 */
+                DeleteMQTTUserOutcome DeleteMQTTUser(const Model::DeleteMQTTUserRequest &request);
+                void DeleteMQTTUserAsync(const Model::DeleteMQTTUserRequest& request, const DeleteMQTTUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteMQTTUserOutcomeCallable DeleteMQTTUserCallable(const Model::DeleteMQTTUserRequest& request);
+
+                /**
                  *删除角色。请确保该角色相关信息不在当前代码中被使用。删除角色后，原先使用该角色进行生产或消费消息的密钥（AccessKey 和 SecretKey）将立即失效。
-当前 API 适用集群：5.x 集群。4.x 集群的删除角色接口文档见 [DeleteRocketMQRoles](https://cloud.tencent.com/document/product/1179/107536)，删除角色授权接口文档见 [DeleteRocketMQEnvironmentRoles](https://cloud.tencent.com/document/product/1179/107537)。
                  * @param req DeleteRoleRequest
                  * @return DeleteRoleOutcome
                  */
@@ -365,7 +545,6 @@ namespace TencentCloud
 
                 /**
                  *删除主题。主题删除后，主题的所有配置和相关数据都会被清空，且无法找回。
-当前 API 适用集群：5.x 集群。4.x 集群的删除主题接口文档见 [DeleteRocketMQTopic](https://cloud.tencent.com/document/api/1179/63423)。
                  * @param req DeleteTopicRequest
                  * @return DeleteTopicOutcome
                  */
@@ -374,8 +553,7 @@ namespace TencentCloud
                 DeleteTopicOutcomeCallable DeleteTopicCallable(const Model::DeleteTopicRequest& request);
 
                 /**
-                 *查询消费者客户端详情。
-当前 API 适用集群：5.x 集群。4.x 集群的查询消费者客户端详情接口文档见 [DescribeRocketMQConsumerConnectionDetail](https://cloud.tencent.com/document/product/1179/102490)。
+                 *查询消费者客户端详情
                  * @param req DescribeConsumerClientRequest
                  * @return DescribeConsumerClientOutcome
                  */
@@ -385,7 +563,6 @@ namespace TencentCloud
 
                 /**
                  *查询消费组下的客户端连接列表。
-当前 API 适用集群：5.x 集群。4.x 集群的查询消费组下的客户端列表接口文档见 [DescribeRocketMQConsumerConnections](https://cloud.tencent.com/document/product/1179/100460)。
                  * @param req DescribeConsumerClientListRequest
                  * @return DescribeConsumerClientListOutcome
                  */
@@ -394,8 +571,7 @@ namespace TencentCloud
                 DescribeConsumerClientListOutcomeCallable DescribeConsumerClientListCallable(const Model::DescribeConsumerClientListRequest& request);
 
                 /**
-                 *查询消费组详情。
-当前 API 适用集群：5.x 集群。4.x 集群的查询消费组详情接口文档见 [DescribeRocketMQConsumerConnections](https://cloud.tencent.com/document/product/1179/100460)。
+                 *查询消费组详情
                  * @param req DescribeConsumerGroupRequest
                  * @return DescribeConsumerGroupOutcome
                  */
@@ -413,7 +589,6 @@ namespace TencentCloud
 
 Filters示例： 
 [{ "Name": "ConsumeMessageOrderly", "Values": ["true"] }]
-当前 API 适用集群：5.x 集群。4.x 集群的获取消费组列表接口文档见 [DescribeRocketMQGroups](https://cloud.tencent.com/document/api/1179/63420)。
                  * @param req DescribeConsumerGroupListRequest
                  * @return DescribeConsumerGroupListOutcome
                  */
@@ -423,7 +598,6 @@ Filters示例：
 
                 /**
                  *查询指定消费组堆积数。
-当前 API 适用集群：4.x 集群和 5.x 集群。
                  * @param req DescribeConsumerLagRequest
                  * @return DescribeConsumerLagOutcome
                  */
@@ -452,7 +626,6 @@ Filters示例：
 
                 /**
                  *查询 RocketMQ 5.x 集群信息。
-当前 API 适用集群：5.x 集群。查询 4.x 专享/通用集群信息的接口文档见 [DescribeRocketMQVipInstanceDetail](https://cloud.tencent.com/document/product/1179/86725)。
                  * @param req DescribeInstanceRequest
                  * @return DescribeInstanceOutcome
                  */
@@ -481,8 +654,126 @@ Filters示例：
                 DescribeInstanceListOutcomeCallable DescribeInstanceListCallable(const Model::DescribeInstanceListRequest& request);
 
                 /**
-                 *查询消息详情。
-当前 API 适用集群：5.x 集群。4.x 集群的查询消息详情接口文档见 [DescribeRocketMQMsg](https://cloud.tencent.com/document/product/1179/91055)。
+                 *查询 MQTT 客户端详情
+                 * @param req DescribeMQTTClientRequest
+                 * @return DescribeMQTTClientOutcome
+                 */
+                DescribeMQTTClientOutcome DescribeMQTTClient(const Model::DescribeMQTTClientRequest &request);
+                void DescribeMQTTClientAsync(const Model::DescribeMQTTClientRequest& request, const DescribeMQTTClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTClientOutcomeCallable DescribeMQTTClientCallable(const Model::DescribeMQTTClientRequest& request);
+
+                /**
+                 *查询MQTT实例公网接入点
+                 * @param req DescribeMQTTInsPublicEndpointsRequest
+                 * @return DescribeMQTTInsPublicEndpointsOutcome
+                 */
+                DescribeMQTTInsPublicEndpointsOutcome DescribeMQTTInsPublicEndpoints(const Model::DescribeMQTTInsPublicEndpointsRequest &request);
+                void DescribeMQTTInsPublicEndpointsAsync(const Model::DescribeMQTTInsPublicEndpointsRequest& request, const DescribeMQTTInsPublicEndpointsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTInsPublicEndpointsOutcomeCallable DescribeMQTTInsPublicEndpointsCallable(const Model::DescribeMQTTInsPublicEndpointsRequest& request);
+
+                /**
+                 *查询MQTT实例公网接入点
+                 * @param req DescribeMQTTInsVPCEndpointsRequest
+                 * @return DescribeMQTTInsVPCEndpointsOutcome
+                 */
+                DescribeMQTTInsVPCEndpointsOutcome DescribeMQTTInsVPCEndpoints(const Model::DescribeMQTTInsVPCEndpointsRequest &request);
+                void DescribeMQTTInsVPCEndpointsAsync(const Model::DescribeMQTTInsVPCEndpointsRequest& request, const DescribeMQTTInsVPCEndpointsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTInsVPCEndpointsOutcomeCallable DescribeMQTTInsVPCEndpointsCallable(const Model::DescribeMQTTInsVPCEndpointsRequest& request);
+
+                /**
+                 *查询实例信息
+                 * @param req DescribeMQTTInstanceRequest
+                 * @return DescribeMQTTInstanceOutcome
+                 */
+                DescribeMQTTInstanceOutcome DescribeMQTTInstance(const Model::DescribeMQTTInstanceRequest &request);
+                void DescribeMQTTInstanceAsync(const Model::DescribeMQTTInstanceRequest& request, const DescribeMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTInstanceOutcomeCallable DescribeMQTTInstanceCallable(const Model::DescribeMQTTInstanceRequest& request);
+
+                /**
+                 *查询MQTT集群证书列表
+                 * @param req DescribeMQTTInstanceCertRequest
+                 * @return DescribeMQTTInstanceCertOutcome
+                 */
+                DescribeMQTTInstanceCertOutcome DescribeMQTTInstanceCert(const Model::DescribeMQTTInstanceCertRequest &request);
+                void DescribeMQTTInstanceCertAsync(const Model::DescribeMQTTInstanceCertRequest& request, const DescribeMQTTInstanceCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTInstanceCertOutcomeCallable DescribeMQTTInstanceCertCallable(const Model::DescribeMQTTInstanceCertRequest& request);
+
+                /**
+                 *获取实例列表，Filters参数使用说明如下：
+1. InstanceName, 名称模糊查询
+2. InstanceId，实例ID查询
+3. InstanceType, 实例类型查询，支持多选
+3. InstanceStatus，实例状态查询，支持多选
+
+当使用TagFilters查询时，Filters参数失效。
+                 * @param req DescribeMQTTInstanceListRequest
+                 * @return DescribeMQTTInstanceListOutcome
+                 */
+                DescribeMQTTInstanceListOutcome DescribeMQTTInstanceList(const Model::DescribeMQTTInstanceListRequest &request);
+                void DescribeMQTTInstanceListAsync(const Model::DescribeMQTTInstanceListRequest& request, const DescribeMQTTInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTInstanceListOutcomeCallable DescribeMQTTInstanceListCallable(const Model::DescribeMQTTInstanceListRequest& request);
+
+                /**
+                 *查询MQTT消息详情
+                 * @param req DescribeMQTTMessageRequest
+                 * @return DescribeMQTTMessageOutcome
+                 */
+                DescribeMQTTMessageOutcome DescribeMQTTMessage(const Model::DescribeMQTTMessageRequest &request);
+                void DescribeMQTTMessageAsync(const Model::DescribeMQTTMessageRequest& request, const DescribeMQTTMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTMessageOutcomeCallable DescribeMQTTMessageCallable(const Model::DescribeMQTTMessageRequest& request);
+
+                /**
+                 *查询消息列表，如查询死信，请设置ConsumerGroup参数
+                 * @param req DescribeMQTTMessageListRequest
+                 * @return DescribeMQTTMessageListOutcome
+                 */
+                DescribeMQTTMessageListOutcome DescribeMQTTMessageList(const Model::DescribeMQTTMessageListRequest &request);
+                void DescribeMQTTMessageListAsync(const Model::DescribeMQTTMessageListRequest& request, const DescribeMQTTMessageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTMessageListOutcomeCallable DescribeMQTTMessageListCallable(const Model::DescribeMQTTMessageListRequest& request);
+
+                /**
+                 *获取产品售卖规格
+                 * @param req DescribeMQTTProductSKUListRequest
+                 * @return DescribeMQTTProductSKUListOutcome
+                 */
+                DescribeMQTTProductSKUListOutcome DescribeMQTTProductSKUList(const Model::DescribeMQTTProductSKUListRequest &request);
+                void DescribeMQTTProductSKUListAsync(const Model::DescribeMQTTProductSKUListRequest& request, const DescribeMQTTProductSKUListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTProductSKUListOutcomeCallable DescribeMQTTProductSKUListCallable(const Model::DescribeMQTTProductSKUListRequest& request);
+
+                /**
+                 *查询mqtt主题详情
+                 * @param req DescribeMQTTTopicRequest
+                 * @return DescribeMQTTTopicOutcome
+                 */
+                DescribeMQTTTopicOutcome DescribeMQTTTopic(const Model::DescribeMQTTTopicRequest &request);
+                void DescribeMQTTTopicAsync(const Model::DescribeMQTTTopicRequest& request, const DescribeMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTTopicOutcomeCallable DescribeMQTTTopicCallable(const Model::DescribeMQTTTopicRequest& request);
+
+                /**
+                 *获取主题列表，Filter参数使用说明如下：
+
+1. TopicName，主题名称模糊搜索
+2. TopicType，主题类型查询，支持多选，可选值：Normal,Order,Transaction,DelayScheduled
+                 * @param req DescribeMQTTTopicListRequest
+                 * @return DescribeMQTTTopicListOutcome
+                 */
+                DescribeMQTTTopicListOutcome DescribeMQTTTopicList(const Model::DescribeMQTTTopicListRequest &request);
+                void DescribeMQTTTopicListAsync(const Model::DescribeMQTTTopicListRequest& request, const DescribeMQTTTopicListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTTopicListOutcomeCallable DescribeMQTTTopicListCallable(const Model::DescribeMQTTTopicListRequest& request);
+
+                /**
+                 *查询用户列表，Filter参数使用说明如下：
+
+1. Username，用户名称模糊搜索
+                 * @param req DescribeMQTTUserListRequest
+                 * @return DescribeMQTTUserListOutcome
+                 */
+                DescribeMQTTUserListOutcome DescribeMQTTUserList(const Model::DescribeMQTTUserListRequest &request);
+                void DescribeMQTTUserListAsync(const Model::DescribeMQTTUserListRequest& request, const DescribeMQTTUserListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMQTTUserListOutcomeCallable DescribeMQTTUserListCallable(const Model::DescribeMQTTUserListRequest& request);
+
+                /**
+                 *查询消息详情
                  * @param req DescribeMessageRequest
                  * @return DescribeMessageOutcome
                  */
@@ -492,7 +783,6 @@ Filters示例：
 
                 /**
                  *查询消息列表。如果查询死信消息，请设置ConsumerGroup参数。
-当前 API 适用集群：5.x 集群。4.x 集群的查询消息列表接口文档见 [DescribeRocketMQTopicMsgs](https://cloud.tencent.com/document/product/1179/97761)。
                  * @param req DescribeMessageListRequest
                  * @return DescribeMessageListOutcome
                  */
@@ -502,7 +792,6 @@ Filters示例：
 
                 /**
                  *根据消息 ID 查询消息轨迹。
-当前 API 适用集群：5.x 集群。4.x 集群查询消息轨迹接口文档见 [DescribeRocketMQMsgTrace](https://cloud.tencent.com/document/product/1179/97760)。
                  * @param req DescribeMessageTraceRequest
                  * @return DescribeMessageTraceOutcome
                  */
@@ -565,7 +854,6 @@ Type，根据任务类型精确查找
                  *查询主题关联的生产者列表信息，Filters支持以下筛选条件：
 - ClientIP，客户端IP
 - ClientID，客户端ID
-当前 API 适用集群：5.x 集群。4.x 集群的查询生产者客户端列表接口文档见 [DescribeRocketMQProducers](https://cloud.tencent.com/document/api/1179/122749)。
                  * @param req DescribeProducerListRequest
                  * @return DescribeProducerListOutcome
                  */
@@ -590,7 +878,6 @@ Type，根据任务类型精确查找
 
 Filters示例： 
 [{ "Name": "RoleName", "Values": ["test_role"] }]
-当前 API 适用集群：5.x 集群。4.x 集群的查询角色列表接口文档见 [DescribeRocketMQRoles](https://cloud.tencent.com/document/product/1179/107534)，查询角色授权列表接口文档见 [DescribeRocketMQEnvironmentRoles](https://cloud.tencent.com/document/product/1179/107535)。
                  * @param req DescribeRoleListRequest
                  * @return DescribeRoleListOutcome
                  */
@@ -662,7 +949,6 @@ Filters示例：
 
 Filters示例：
  [{ "Name": "TopicName", "Values": ["test_topic"] }]
-当前 API 适用集群：5.x 集群。4.x 集群的获取主题列表接口文档见 [DescribeRocketMQTopics](https://cloud.tencent.com/document/api/1179/63418)。
                  * @param req DescribeTopicListRequest
                  * @return DescribeTopicListOutcome
                  */
@@ -671,13 +957,12 @@ Filters示例：
                 DescribeTopicListOutcomeCallable DescribeTopicListCallable(const Model::DescribeTopicListRequest& request);
 
                 /**
-                 *查询消费组订阅的主题列表，Filter参数使用说明如下：
+                 *根据消费组获取主题列表，Filter参数使用说明如下：
 
 - TopicName 主题名称，从 [DescribeTopicList](https://cloud.tencent.com/document/api/1493/96030) 接口返回的 [TopicItem](https://cloud.tencent.com/document/api/1493/96031#TopicItem) 或控制台获得。
 
 Filters示例： 
 [{ "Name": "TopicName", "Values": ["test_topic"] }]
-当前 API 适用集群：5.x 集群。4.x 集群的查询消费组订阅的主题列表接口文档见 [DescribeRocketMQTopicsByGroup](https://cloud.tencent.com/document/product/1179/108863)。
                  * @param req DescribeTopicListByGroupRequest
                  * @return DescribeTopicListByGroupOutcome
                  */
@@ -713,8 +998,7 @@ Filters示例：
                 ImportSourceClusterTopicsOutcomeCallable ImportSourceClusterTopicsCallable(const Model::ImportSourceClusterTopicsRequest& request);
 
                 /**
-                 *修改消费组属性。
-当前 API 适用集群：5.x 集群。4.x 集群的修改消费组属性接口文档见 [ModifyRocketMQGroup](https://cloud.tencent.com/document/api/1179/63416)。
+                 *修改消费组属性
                  * @param req ModifyConsumerGroupRequest
                  * @return ModifyConsumerGroupOutcome
                  */
@@ -724,7 +1008,6 @@ Filters示例：
 
                 /**
                  *修改 RocketMQ 5.x 集群属性，仅支持修改运行中的集群。
-当前 API 适用集群：5.x 集群。修改 4.x 集群属性的接口文档见 [ModifyRocketMQInstance](https://cloud.tencent.com/document/product/1179/108862)。
                  * @param req ModifyInstanceRequest
                  * @return ModifyInstanceOutcome
                  */
@@ -742,8 +1025,53 @@ Filters示例：
                 ModifyInstanceEndpointOutcomeCallable ModifyInstanceEndpointCallable(const Model::ModifyInstanceEndpointRequest& request);
 
                 /**
-                 *修改角色。
-当前 API 适用集群：5.x 集群。4.x 集群的修改角色接口文档见 [ModifyRocketMQRole](https://cloud.tencent.com/document/product/1179/107532)，修改角色的授权接口文档见 [ModifyRocketMQEnvironmentRole](https://cloud.tencent.com/document/product/1179/107533)。
+                 *更新MQTT实例公网接入点
+                 * @param req ModifyMQTTInsPublicEndpointRequest
+                 * @return ModifyMQTTInsPublicEndpointOutcome
+                 */
+                ModifyMQTTInsPublicEndpointOutcome ModifyMQTTInsPublicEndpoint(const Model::ModifyMQTTInsPublicEndpointRequest &request);
+                void ModifyMQTTInsPublicEndpointAsync(const Model::ModifyMQTTInsPublicEndpointRequest& request, const ModifyMQTTInsPublicEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyMQTTInsPublicEndpointOutcomeCallable ModifyMQTTInsPublicEndpointCallable(const Model::ModifyMQTTInsPublicEndpointRequest& request);
+
+                /**
+                 *修改实例属性
+                 * @param req ModifyMQTTInstanceRequest
+                 * @return ModifyMQTTInstanceOutcome
+                 */
+                ModifyMQTTInstanceOutcome ModifyMQTTInstance(const Model::ModifyMQTTInstanceRequest &request);
+                void ModifyMQTTInstanceAsync(const Model::ModifyMQTTInstanceRequest& request, const ModifyMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyMQTTInstanceOutcomeCallable ModifyMQTTInstanceCallable(const Model::ModifyMQTTInstanceRequest& request);
+
+                /**
+                 *更新MQTT集群绑定证书
+参数传空，则为删除证书
+                 * @param req ModifyMQTTInstanceCertBindingRequest
+                 * @return ModifyMQTTInstanceCertBindingOutcome
+                 */
+                ModifyMQTTInstanceCertBindingOutcome ModifyMQTTInstanceCertBinding(const Model::ModifyMQTTInstanceCertBindingRequest &request);
+                void ModifyMQTTInstanceCertBindingAsync(const Model::ModifyMQTTInstanceCertBindingRequest& request, const ModifyMQTTInstanceCertBindingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyMQTTInstanceCertBindingOutcomeCallable ModifyMQTTInstanceCertBindingCallable(const Model::ModifyMQTTInstanceCertBindingRequest& request);
+
+                /**
+                 *修改主题属性
+                 * @param req ModifyMQTTTopicRequest
+                 * @return ModifyMQTTTopicOutcome
+                 */
+                ModifyMQTTTopicOutcome ModifyMQTTTopic(const Model::ModifyMQTTTopicRequest &request);
+                void ModifyMQTTTopicAsync(const Model::ModifyMQTTTopicRequest& request, const ModifyMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyMQTTTopicOutcomeCallable ModifyMQTTTopicCallable(const Model::ModifyMQTTTopicRequest& request);
+
+                /**
+                 *修改MQTT角色
+                 * @param req ModifyMQTTUserRequest
+                 * @return ModifyMQTTUserOutcome
+                 */
+                ModifyMQTTUserOutcome ModifyMQTTUser(const Model::ModifyMQTTUserRequest &request);
+                void ModifyMQTTUserAsync(const Model::ModifyMQTTUserRequest& request, const ModifyMQTTUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyMQTTUserOutcomeCallable ModifyMQTTUserCallable(const Model::ModifyMQTTUserRequest& request);
+
+                /**
+                 *修改角色
                  * @param req ModifyRoleRequest
                  * @return ModifyRoleOutcome
                  */
@@ -752,8 +1080,7 @@ Filters示例：
                 ModifyRoleOutcomeCallable ModifyRoleCallable(const Model::ModifyRoleRequest& request);
 
                 /**
-                 *修改主题属性。
-当前 API 适用集群：5.x 集群。4.x 集群的修改主题属性接口文档见 [ModifyRocketMQTopic](https://cloud.tencent.com/document/api/1179/63414)。
+                 *修改主题属性
                  * @param req ModifyTopicRequest
                  * @return ModifyTopicOutcome
                  */
@@ -771,8 +1098,7 @@ Filters示例：
                 RemoveMigratingTopicOutcomeCallable RemoveMigratingTopicCallable(const Model::RemoveMigratingTopicRequest& request);
 
                 /**
-                 *重新发送死信消息。
-当前 API 适用集群：5.x集群。4.x 集群的重发死信消息接口文档见 [RetryRocketMQDlqMessage](https://cloud.tencent.com/document/api/1179/114595)。
+                 *重新发送死信消息
                  * @param req ResendDeadLetterMessageRequest
                  * @return ResendDeadLetterMessageOutcome
                  */
@@ -781,8 +1107,7 @@ Filters示例：
                 ResendDeadLetterMessageOutcomeCallable ResendDeadLetterMessageCallable(const Model::ResendDeadLetterMessageRequest& request);
 
                 /**
-                 *重置消费位点。
-当前 API 适用集群：5.x 集群。4.x 集群的重置消费位点接口文档见 [ResetRocketMQConsumerOffSet](https://cloud.tencent.com/document/api/1179/71662)。
+                 *重置消费位点
                  * @param req ResetConsumerGroupOffsetRequest
                  * @return ResetConsumerGroupOffsetOutcome
                  */
@@ -798,26 +1123,6 @@ Filters示例：
                 RollbackMigratingTopicStageOutcome RollbackMigratingTopicStage(const Model::RollbackMigratingTopicStageRequest &request);
                 void RollbackMigratingTopicStageAsync(const Model::RollbackMigratingTopicStageRequest& request, const RollbackMigratingTopicStageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 RollbackMigratingTopicStageOutcomeCallable RollbackMigratingTopicStageCallable(const Model::RollbackMigratingTopicStageRequest& request);
-
-                /**
-                 *发送 RocketMQ 消息，该接口仅用于控制台发送少量测试消息，不保证 SLA，且云 API 存在限流，在真实业务场景下，请使用 RocketMQ SDK 发送消息。
-当前 API 适用集群：5.x 集群。4.x 集群的发送消息接口文档见 [SendRocketMQMessage](https://cloud.tencent.com/document/api/1179/94179)。
-                 * @param req SendMessageRequest
-                 * @return SendMessageOutcome
-                 */
-                SendMessageOutcome SendMessage(const Model::SendMessageRequest &request);
-                void SendMessageAsync(const Model::SendMessageRequest& request, const SendMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                SendMessageOutcomeCallable SendMessageCallable(const Model::SendMessageRequest& request);
-
-                /**
-                 *消息消费验证。
-当前 API 适用集群：5.x 集群。4.x 集群的消息消费验证接口文档见 [VerifyRocketMQConsume](https://cloud.tencent.com/document/api/1179/101061)。
-                 * @param req VerifyMessageConsumptionRequest
-                 * @return VerifyMessageConsumptionOutcome
-                 */
-                VerifyMessageConsumptionOutcome VerifyMessageConsumption(const Model::VerifyMessageConsumptionRequest &request);
-                void VerifyMessageConsumptionAsync(const Model::VerifyMessageConsumptionRequest& request, const VerifyMessageConsumptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                VerifyMessageConsumptionOutcomeCallable VerifyMessageConsumptionCallable(const Model::VerifyMessageConsumptionRequest& request);
 
             };
         }

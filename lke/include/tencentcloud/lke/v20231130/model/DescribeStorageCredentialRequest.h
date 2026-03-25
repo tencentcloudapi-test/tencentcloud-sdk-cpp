@@ -64,19 +64,15 @@ namespace TencentCloud
                     bool BotBizIdHasBeenSet() const;
 
                     /**
-                     * 获取文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind
-
-                     * @return FileType 文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind
-
+                     * 获取文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
+                     * @return FileType 文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
                      * 
                      */
                     std::string GetFileType() const;
 
                     /**
-                     * 设置文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind
-
-                     * @param _fileType 文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind
-
+                     * 设置文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
+                     * @param _fileType 文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
                      * 
                      */
                     void SetFileType(const std::string& _fileType);
@@ -143,8 +139,7 @@ namespace TencentCloud
                     bool m_botBizIdHasBeenSet;
 
                     /**
-                     * 文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind
-
+                     * 文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
                      */
                     std::string m_fileType;
                     bool m_fileTypeHasBeenSet;

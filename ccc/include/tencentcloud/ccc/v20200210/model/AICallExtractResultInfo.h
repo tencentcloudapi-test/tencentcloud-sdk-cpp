@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>提取的类型是文本</p>
-                     * @return Text <p>提取的类型是文本</p>
+                     * 获取提取的类型是文本
+                     * @return Text 提取的类型是文本
                      * 
                      */
                     std::string GetText() const;
 
                     /**
-                     * 设置<p>提取的类型是文本</p>
-                     * @param _text <p>提取的类型是文本</p>
+                     * 设置提取的类型是文本
+                     * @param _text 提取的类型是文本
                      * 
                      */
                     void SetText(const std::string& _text);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TextHasBeenSet() const;
 
                     /**
-                     * 获取<p>提取的类型是选项</p>
-                     * @return Chosen <p>提取的类型是选项</p>
+                     * 获取提取的内型是选项
+                     * @return Chosen 提取的内型是选项
                      * 
                      */
                     std::vector<std::string> GetChosen() const;
 
                     /**
-                     * 设置<p>提取的类型是选项</p>
-                     * @param _chosen <p>提取的类型是选项</p>
+                     * 设置提取的内型是选项
+                     * @param _chosen 提取的内型是选项
                      * 
                      */
                     void SetChosen(const std::vector<std::string>& _chosen);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool ChosenHasBeenSet() const;
 
                     /**
-                     * 获取<p>提取类型是布尔值</p>
-                     * @return Boolean <p>提取类型是布尔值</p>
+                     * 获取提取类型是布尔值
+                     * @return Boolean 提取类型是布尔值
                      * 
                      */
                     bool GetBoolean() const;
 
                     /**
-                     * 设置<p>提取类型是布尔值</p>
-                     * @param _boolean <p>提取类型是布尔值</p>
+                     * 设置提取类型是布尔值
+                     * @param _boolean 提取类型是布尔值
                      * 
                      */
                     void SetBoolean(const bool& _boolean);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool BooleanHasBeenSet() const;
 
                     /**
-                     * 获取<p>提取类型是数字</p>
-                     * @return Number <p>提取类型是数字</p>
+                     * 获取提取类型是数字
+                     * @return Number 提取类型是数字
                      * 
                      */
                     double GetNumber() const;
 
                     /**
-                     * 设置<p>提取类型是数字</p>
-                     * @param _number <p>提取类型是数字</p>
+                     * 设置提取类型是数字
+                     * @param _number 提取类型是数字
                      * 
                      */
                     void SetNumber(const double& _number);
@@ -133,25 +133,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>提取的类型是文本</p>
+                     * 提取的类型是文本
                      */
                     std::string m_text;
                     bool m_textHasBeenSet;
 
                     /**
-                     * <p>提取的类型是选项</p>
+                     * 提取的内型是选项
                      */
                     std::vector<std::string> m_chosen;
                     bool m_chosenHasBeenSet;
 
                     /**
-                     * <p>提取类型是布尔值</p>
+                     * 提取类型是布尔值
                      */
                     bool m_boolean;
                     bool m_booleanHasBeenSet;
 
                     /**
-                     * <p>提取类型是数字</p>
+                     * 提取类型是数字
                      */
                     double m_number;
                     bool m_numberHasBeenSet;

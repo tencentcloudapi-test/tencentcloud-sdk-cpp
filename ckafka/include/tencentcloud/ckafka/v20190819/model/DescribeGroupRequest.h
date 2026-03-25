@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
-                     * @return InstanceId <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 获取ckafka集群实例Id
+                     * @return InstanceId ckafka集群实例Id
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
-                     * @param _instanceId <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * 设置ckafka集群实例Id
+                     * @param _instanceId ckafka集群实例Id
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>搜索关键字</p>
-                     * @return SearchWord <p>搜索关键字</p>
+                     * 获取搜索关键字
+                     * @return SearchWord 搜索关键字
                      * 
                      */
                     std::string GetSearchWord() const;
 
                     /**
-                     * 设置<p>搜索关键字</p>
-                     * @param _searchWord <p>搜索关键字</p>
+                     * 设置搜索关键字
+                     * @param _searchWord 搜索关键字
                      * 
                      */
                     void SetSearchWord(const std::string& _searchWord);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool SearchWordHasBeenSet() const;
 
                     /**
-                     * 获取<p>偏移量</p>
-                     * @return Offset <p>偏移量</p>
+                     * 获取偏移量
+                     * @return Offset 偏移量
                      * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量</p>
-                     * @param _offset <p>偏移量</p>
+                     * 设置偏移量
+                     * @param _offset 偏移量
                      * 
                      */
                     void SetOffset(const int64_t& _offset);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>最大返回数量</p><p>默认值：20</p>
-                     * @return Limit <p>最大返回数量</p><p>默认值：20</p>
+                     * 获取最大返回数量
+                     * @return Limit 最大返回数量
                      * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置<p>最大返回数量</p><p>默认值：20</p>
-                     * @param _limit <p>最大返回数量</p><p>默认值：20</p>
+                     * 设置最大返回数量
+                     * @param _limit 最大返回数量
                      * 
                      */
                     void SetLimit(const int64_t& _limit);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效</p>
-                     * @return Filters <p>仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效</p>
+                     * 获取仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效
+                     * @return Filters 仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效
                      * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置<p>仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效</p>
-                     * @param _filters <p>仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效</p>
+                     * 设置仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效
+                     * @param _filters 仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效
                      * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
@@ -151,31 +151,31 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>ckafka集群实例Id</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/597/40835">DescribeInstances</a></p>
+                     * ckafka集群实例Id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>搜索关键字</p>
+                     * 搜索关键字
                      */
                     std::string m_searchWord;
                     bool m_searchWordHasBeenSet;
 
                     /**
-                     * <p>偏移量</p>
+                     * 偏移量
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>最大返回数量</p><p>默认值：20</p>
+                     * 最大返回数量
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效</p>
+                     * 仅支持 GroupState 筛选,   支持的筛选状态有 Empty/Stable  注意：该参数只能在2.8/3.2 版本生效
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;

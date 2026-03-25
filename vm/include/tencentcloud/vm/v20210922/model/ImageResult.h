@@ -306,27 +306,6 @@ Block 确认违规
                      */
                     bool HitTypeHasBeenSet() const;
 
-                    /**
-                     * 获取截帧请求ID
-                     * @return RequestId 截帧请求ID
-                     * 
-                     */
-                    std::string GetRequestId() const;
-
-                    /**
-                     * 设置截帧请求ID
-                     * @param _requestId 截帧请求ID
-                     * 
-                     */
-                    void SetRequestId(const std::string& _requestId);
-
-                    /**
-                     * 判断参数 RequestId 是否已赋值
-                     * @return RequestId 是否已赋值
-                     * 
-                     */
-                    bool RequestIdHasBeenSet() const;
-
                 private:
 
                     /**
@@ -400,12 +379,6 @@ Block 确认违规
                      */
                     std::string m_hitType;
                     bool m_hitTypeHasBeenSet;
-
-                    /**
-                     * 截帧请求ID
-                     */
-                    std::string m_requestId;
-                    bool m_requestIdHasBeenSet;
 
                 };
             }

@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>描述了续费云盘的价格。</p>
-                     * @return DiskPrice <p>描述了续费云盘的价格。</p>
+                     * 获取描述了续费云盘的价格。
+                     * @return DiskPrice 描述了续费云盘的价格。
                      * 
                      */
                     PrepayPrice GetDiskPrice() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>描述了续费云盘的价格。</p>
+                     * 描述了续费云盘的价格。
                      */
                     PrepayPrice m_diskPrice;
                     bool m_diskPriceHasBeenSet;

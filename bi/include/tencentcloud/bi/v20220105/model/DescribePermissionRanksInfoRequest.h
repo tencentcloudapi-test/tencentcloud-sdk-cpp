@@ -64,47 +64,15 @@ namespace TencentCloud
                     bool TableIdHasBeenSet() const;
 
                     /**
-                     * 获取模式。
-取值范围：
-
-- ALL：全部
-- Specify：指定
-- TAG：标签
-
-默认值：ALL
-示例值：ALL
-                     * @return Mode 模式。
-取值范围：
-
-- ALL：全部
-- Specify：指定
-- TAG：标签
-
-默认值：ALL
-示例值：ALL
+                     * 获取条数
+                     * @return Mode 条数
                      * 
                      */
                     std::string GetMode() const;
 
                     /**
-                     * 设置模式。
-取值范围：
-
-- ALL：全部
-- Specify：指定
-- TAG：标签
-
-默认值：ALL
-示例值：ALL
-                     * @param _mode 模式。
-取值范围：
-
-- ALL：全部
-- Specify：指定
-- TAG：标签
-
-默认值：ALL
-示例值：ALL
+                     * 设置条数
+                     * @param _mode 条数
                      * 
                      */
                     void SetMode(const std::string& _mode);
@@ -117,43 +85,15 @@ namespace TencentCloud
                     bool ModeHasBeenSet() const;
 
                     /**
-                     * 获取角色类型。
-取值范围：
-
-- ROLES：按角色
-- Others：其它
-
-默认值：Others
-示例值：Others
-                     * @return RoleType 角色类型。
-取值范围：
-
-- ROLES：按角色
-- Others：其它
-
-默认值：Others
-示例值：Others
+                     * 获取角色类型
+                     * @return RoleType 角色类型
                      * 
                      */
                     std::string GetRoleType() const;
 
                     /**
-                     * 设置角色类型。
-取值范围：
-
-- ROLES：按角色
-- Others：其它
-
-默认值：Others
-示例值：Others
-                     * @param _roleType 角色类型。
-取值范围：
-
-- ROLES：按角色
-- Others：其它
-
-默认值：Others
-示例值：Others
+                     * 设置角色类型
+                     * @param _roleType 角色类型
                      * 
                      */
                     void SetRoleType(const std::string& _roleType);
@@ -187,43 +127,15 @@ namespace TencentCloud
                     bool RoleIdHasBeenSet() const;
 
                     /**
-                     * 获取类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
-                     * @return Type 类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
+                     * 获取类型
+                     * @return Type 类型
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
-                     * @param _type 类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
+                     * 设置类型
+                     * @param _type 类型
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -265,28 +177,13 @@ namespace TencentCloud
                     bool m_tableIdHasBeenSet;
 
                     /**
-                     * 模式。
-取值范围：
-
-- ALL：全部
-- Specify：指定
-- TAG：标签
-
-默认值：ALL
-示例值：ALL
+                     * 条数
                      */
                     std::string m_mode;
                     bool m_modeHasBeenSet;
 
                     /**
-                     * 角色类型。
-取值范围：
-
-- ROLES：按角色
-- Others：其它
-
-默认值：Others
-示例值：Others
+                     * 角色类型
                      */
                     std::string m_roleType;
                     bool m_roleTypeHasBeenSet;
@@ -298,14 +195,7 @@ namespace TencentCloud
                     bool m_roleIdHasBeenSet;
 
                     /**
-                     * 类型。
-取值范围：
-
-- ROW：行权限
-- COLUMN：列权限
-
-默认值：ROW
-示例值：ROW
+                     * 类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;

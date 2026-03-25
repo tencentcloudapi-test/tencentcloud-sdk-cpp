@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>合同参与方的角色ID</p>
-                     * @return RecipientId <p>合同参与方的角色ID</p>
+                     * 获取合同参与方的角色ID
+                     * @return RecipientId 合同参与方的角色ID
                      * 
                      */
                     std::string GetRecipientId() const;
 
                     /**
-                     * 设置<p>合同参与方的角色ID</p>
-                     * @param _recipientId <p>合同参与方的角色ID</p>
+                     * 设置合同参与方的角色ID
+                     * @param _recipientId 合同参与方的角色ID
                      * 
                      */
                     void SetRecipientId(const std::string& _recipientId);
@@ -68,15 +68,27 @@ namespace TencentCloud
                     bool RecipientIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>参与者类型, 可以选择的类型如下:</p><ul><li> **ENTERPRISE** :此角色为企业参与方</li><li> **INDIVIDUAL** :此角色为个人参与方</li><li> **PROMOTER** :此角色是发起方</li></ul>
-                     * @return RecipientType <p>参与者类型, 可以选择的类型如下:</p><ul><li> **ENTERPRISE** :此角色为企业参与方</li><li> **INDIVIDUAL** :此角色为个人参与方</li><li> **PROMOTER** :此角色是发起方</li></ul>
+                     * 获取参与者类型, 可以选择的类型如下:
+<ul><li> **ENTERPRISE** :此角色为企业参与方</li>
+<li> **INDIVIDUAL** :此角色为个人参与方</li>
+<li> **PROMOTER** :此角色是发起方</li></ul>
+                     * @return RecipientType 参与者类型, 可以选择的类型如下:
+<ul><li> **ENTERPRISE** :此角色为企业参与方</li>
+<li> **INDIVIDUAL** :此角色为个人参与方</li>
+<li> **PROMOTER** :此角色是发起方</li></ul>
                      * 
                      */
                     std::string GetRecipientType() const;
 
                     /**
-                     * 设置<p>参与者类型, 可以选择的类型如下:</p><ul><li> **ENTERPRISE** :此角色为企业参与方</li><li> **INDIVIDUAL** :此角色为个人参与方</li><li> **PROMOTER** :此角色是发起方</li></ul>
-                     * @param _recipientType <p>参与者类型, 可以选择的类型如下:</p><ul><li> **ENTERPRISE** :此角色为企业参与方</li><li> **INDIVIDUAL** :此角色为个人参与方</li><li> **PROMOTER** :此角色是发起方</li></ul>
+                     * 设置参与者类型, 可以选择的类型如下:
+<ul><li> **ENTERPRISE** :此角色为企业参与方</li>
+<li> **INDIVIDUAL** :此角色为个人参与方</li>
+<li> **PROMOTER** :此角色是发起方</li></ul>
+                     * @param _recipientType 参与者类型, 可以选择的类型如下:
+<ul><li> **ENTERPRISE** :此角色为企业参与方</li>
+<li> **INDIVIDUAL** :此角色为个人参与方</li>
+<li> **PROMOTER** :此角色是发起方</li></ul>
                      * 
                      */
                     void SetRecipientType(const std::string& _recipientType);
@@ -89,15 +101,15 @@ namespace TencentCloud
                     bool RecipientTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。</p>
-                     * @return Description <p>合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。</p>
+                     * 获取合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。
+                     * @return Description 合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。
                      * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置<p>合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。</p>
-                     * @param _description <p>合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。</p>
+                     * 设置合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。
+                     * @param _description 合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。
                      * 
                      */
                     void SetDescription(const std::string& _description);
@@ -110,15 +122,15 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。</p>
-                     * @return RoleName <p>合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。</p>
+                     * 获取合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。
+                     * @return RoleName 合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。
                      * 
                      */
                     std::string GetRoleName() const;
 
                     /**
-                     * 设置<p>合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。</p>
-                     * @param _roleName <p>合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。</p>
+                     * 设置合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。
+                     * @param _roleName 合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。
                      * 
                      */
                     void SetRoleName(const std::string& _roleName);
@@ -131,15 +143,23 @@ namespace TencentCloud
                     bool RoleNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要校验，<br>true-是，<br>false-否</p>
-                     * @return RequireValidation <p>是否需要校验，<br>true-是，<br>false-否</p>
+                     * 获取是否需要校验，
+true-是，
+false-否
+                     * @return RequireValidation 是否需要校验，
+true-是，
+false-否
                      * 
                      */
                     bool GetRequireValidation() const;
 
                     /**
-                     * 设置<p>是否需要校验，<br>true-是，<br>false-否</p>
-                     * @param _requireValidation <p>是否需要校验，<br>true-是，<br>false-否</p>
+                     * 设置是否需要校验，
+true-是，
+false-否
+                     * @param _requireValidation 是否需要校验，
+true-是，
+false-否
                      * 
                      */
                     void SetRequireValidation(const bool& _requireValidation);
@@ -152,15 +172,23 @@ namespace TencentCloud
                     bool RequireValidationHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否必须填写，<br>true-是，<br>false-否</p>
-                     * @return RequireSign <p>是否必须填写，<br>true-是，<br>false-否</p>
+                     * 获取是否必须填写，
+true-是，
+false-否
+                     * @return RequireSign 是否必须填写，
+true-是，
+false-否
                      * 
                      */
                     bool GetRequireSign() const;
 
                     /**
-                     * 设置<p>是否必须填写，<br>true-是，<br>false-否</p>
-                     * @param _requireSign <p>是否必须填写，<br>true-是，<br>false-否</p>
+                     * 设置是否必须填写，
+true-是，
+false-否
+                     * @param _requireSign 是否必须填写，
+true-是，
+false-否
                      * 
                      */
                     void SetRequireSign(const bool& _requireSign);
@@ -173,15 +201,15 @@ namespace TencentCloud
                     bool RequireSignHasBeenSet() const;
 
                     /**
-                     * 获取<p>内部字段，签署类型</p><p>枚举值：</p><ul><li>0： 人脸</li></ul>
-                     * @return SignType <p>内部字段，签署类型</p><p>枚举值：</p><ul><li>0： 人脸</li></ul>
+                     * 获取内部字段，签署类型
+                     * @return SignType 内部字段，签署类型
                      * 
                      */
                     int64_t GetSignType() const;
 
                     /**
-                     * 设置<p>内部字段，签署类型</p><p>枚举值：</p><ul><li>0： 人脸</li></ul>
-                     * @param _signType <p>内部字段，签署类型</p><p>枚举值：</p><ul><li>0： 人脸</li></ul>
+                     * 设置内部字段，签署类型
+                     * @param _signType 内部字段，签署类型
                      * 
                      */
                     void SetSignType(const int64_t& _signType);
@@ -194,15 +222,15 @@ namespace TencentCloud
                     bool SignTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>签署顺序：数字越小优先级越高</p>
-                     * @return RoutingOrder <p>签署顺序：数字越小优先级越高</p>
+                     * 获取签署顺序：数字越小优先级越高
+                     * @return RoutingOrder 签署顺序：数字越小优先级越高
                      * 
                      */
                     int64_t GetRoutingOrder() const;
 
                     /**
-                     * 设置<p>签署顺序：数字越小优先级越高</p>
-                     * @param _routingOrder <p>签署顺序：数字越小优先级越高</p>
+                     * 设置签署顺序：数字越小优先级越高
+                     * @param _routingOrder 签署顺序：数字越小优先级越高
                      * 
                      */
                     void SetRoutingOrder(const int64_t& _routingOrder);
@@ -215,15 +243,23 @@ namespace TencentCloud
                     bool RoutingOrderHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否是发起方，<br>true-是<br>false-否</p>
-                     * @return IsPromoter <p>是否是发起方，<br>true-是<br>false-否</p>
+                     * 获取是否是发起方，
+true-是 
+false-否
+                     * @return IsPromoter 是否是发起方，
+true-是 
+false-否
                      * 
                      */
                     bool GetIsPromoter() const;
 
                     /**
-                     * 设置<p>是否是发起方，<br>true-是<br>false-否</p>
-                     * @param _isPromoter <p>是否是发起方，<br>true-是<br>false-否</p>
+                     * 设置是否是发起方，
+true-是 
+false-否
+                     * @param _isPromoter 是否是发起方，
+true-是 
+false-否
                      * 
                      */
                     void SetIsPromoter(const bool& _isPromoter);
@@ -236,15 +272,23 @@ namespace TencentCloud
                     bool IsPromoterHasBeenSet() const;
 
                     /**
-                     * 获取<p>签署人查看合同校验方式, 支持的类型如下:</p><ul><li> 1 :实名认证查看</li><li> 2 :手机号校验查看</li></ul>
-                     * @return ApproverVerifyTypes <p>签署人查看合同校验方式, 支持的类型如下:</p><ul><li> 1 :实名认证查看</li><li> 2 :手机号校验查看</li></ul>
+                     * 获取签署人查看合同校验方式, 支持的类型如下:
+<ul><li> 1 :实名认证查看</li>
+<li> 2 :手机号校验查看</li></ul>
+                     * @return ApproverVerifyTypes 签署人查看合同校验方式, 支持的类型如下:
+<ul><li> 1 :实名认证查看</li>
+<li> 2 :手机号校验查看</li></ul>
                      * 
                      */
                     std::vector<int64_t> GetApproverVerifyTypes() const;
 
                     /**
-                     * 设置<p>签署人查看合同校验方式, 支持的类型如下:</p><ul><li> 1 :实名认证查看</li><li> 2 :手机号校验查看</li></ul>
-                     * @param _approverVerifyTypes <p>签署人查看合同校验方式, 支持的类型如下:</p><ul><li> 1 :实名认证查看</li><li> 2 :手机号校验查看</li></ul>
+                     * 设置签署人查看合同校验方式, 支持的类型如下:
+<ul><li> 1 :实名认证查看</li>
+<li> 2 :手机号校验查看</li></ul>
+                     * @param _approverVerifyTypes 签署人查看合同校验方式, 支持的类型如下:
+<ul><li> 1 :实名认证查看</li>
+<li> 2 :手机号校验查看</li></ul>
                      * 
                      */
                     void SetApproverVerifyTypes(const std::vector<int64_t>& _approverVerifyTypes);
@@ -257,15 +301,39 @@ namespace TencentCloud
                     bool ApproverVerifyTypesHasBeenSet() const;
 
                     /**
-                     * 获取<p>签署人进行合同签署时的认证方式，支持的类型如下:</p><ul><li> 1 :人脸认证</li><li> 2 :签署密码</li><li> 3 :运营商三要素认证</li><li> 4 :UKey认证</li><li> 5 :设备指纹识别</li><li> 6 :设备面容识别</li></ul>
-                     * @return ApproverSignTypes <p>签署人进行合同签署时的认证方式，支持的类型如下:</p><ul><li> 1 :人脸认证</li><li> 2 :签署密码</li><li> 3 :运营商三要素认证</li><li> 4 :UKey认证</li><li> 5 :设备指纹识别</li><li> 6 :设备面容识别</li></ul>
+                     * 获取签署人进行合同签署时的认证方式，支持的类型如下:
+<ul><li> 1 :人脸认证</li>
+<li> 2 :签署密码</li>
+<li> 3 :运营商三要素认证</li>
+<li> 4 :UKey认证</li>
+<li> 5 :设备指纹识别</li>
+<li> 6 :设备面容识别</li></ul>
+                     * @return ApproverSignTypes 签署人进行合同签署时的认证方式，支持的类型如下:
+<ul><li> 1 :人脸认证</li>
+<li> 2 :签署密码</li>
+<li> 3 :运营商三要素认证</li>
+<li> 4 :UKey认证</li>
+<li> 5 :设备指纹识别</li>
+<li> 6 :设备面容识别</li></ul>
                      * 
                      */
                     std::vector<int64_t> GetApproverSignTypes() const;
 
                     /**
-                     * 设置<p>签署人进行合同签署时的认证方式，支持的类型如下:</p><ul><li> 1 :人脸认证</li><li> 2 :签署密码</li><li> 3 :运营商三要素认证</li><li> 4 :UKey认证</li><li> 5 :设备指纹识别</li><li> 6 :设备面容识别</li></ul>
-                     * @param _approverSignTypes <p>签署人进行合同签署时的认证方式，支持的类型如下:</p><ul><li> 1 :人脸认证</li><li> 2 :签署密码</li><li> 3 :运营商三要素认证</li><li> 4 :UKey认证</li><li> 5 :设备指纹识别</li><li> 6 :设备面容识别</li></ul>
+                     * 设置签署人进行合同签署时的认证方式，支持的类型如下:
+<ul><li> 1 :人脸认证</li>
+<li> 2 :签署密码</li>
+<li> 3 :运营商三要素认证</li>
+<li> 4 :UKey认证</li>
+<li> 5 :设备指纹识别</li>
+<li> 6 :设备面容识别</li></ul>
+                     * @param _approverSignTypes 签署人进行合同签署时的认证方式，支持的类型如下:
+<ul><li> 1 :人脸认证</li>
+<li> 2 :签署密码</li>
+<li> 3 :运营商三要素认证</li>
+<li> 4 :UKey认证</li>
+<li> 5 :设备指纹识别</li>
+<li> 6 :设备面容识别</li></ul>
                      * 
                      */
                     void SetApproverSignTypes(const std::vector<int64_t>& _approverSignTypes);
@@ -278,15 +346,27 @@ namespace TencentCloud
                     bool ApproverSignTypesHasBeenSet() const;
 
                     /**
-                     * 获取<p>签署方是否可以转他人处理</p><ul><li> **false** : ( 默认)可以转他人处理</li><li> **true** :不可以转他人处理</li></ul>
-                     * @return NoTransfer <p>签署方是否可以转他人处理</p><ul><li> **false** : ( 默认)可以转他人处理</li><li> **true** :不可以转他人处理</li></ul>
+                     * 获取签署方是否可以转他人处理
+
+<ul><li> **false** : ( 默认)可以转他人处理</li>
+<li> **true** :不可以转他人处理</li></ul>
+                     * @return NoTransfer 签署方是否可以转他人处理
+
+<ul><li> **false** : ( 默认)可以转他人处理</li>
+<li> **true** :不可以转他人处理</li></ul>
                      * 
                      */
                     bool GetNoTransfer() const;
 
                     /**
-                     * 设置<p>签署方是否可以转他人处理</p><ul><li> **false** : ( 默认)可以转他人处理</li><li> **true** :不可以转他人处理</li></ul>
-                     * @param _noTransfer <p>签署方是否可以转他人处理</p><ul><li> **false** : ( 默认)可以转他人处理</li><li> **true** :不可以转他人处理</li></ul>
+                     * 设置签署方是否可以转他人处理
+
+<ul><li> **false** : ( 默认)可以转他人处理</li>
+<li> **true** :不可以转他人处理</li></ul>
+                     * @param _noTransfer 签署方是否可以转他人处理
+
+<ul><li> **false** : ( 默认)可以转他人处理</li>
+<li> **true** :不可以转他人处理</li></ul>
                      * 
                      */
                     void SetNoTransfer(const bool& _noTransfer);
@@ -301,73 +381,93 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>合同参与方的角色ID</p>
+                     * 合同参与方的角色ID
                      */
                     std::string m_recipientId;
                     bool m_recipientIdHasBeenSet;
 
                     /**
-                     * <p>参与者类型, 可以选择的类型如下:</p><ul><li> **ENTERPRISE** :此角色为企业参与方</li><li> **INDIVIDUAL** :此角色为个人参与方</li><li> **PROMOTER** :此角色是发起方</li></ul>
+                     * 参与者类型, 可以选择的类型如下:
+<ul><li> **ENTERPRISE** :此角色为企业参与方</li>
+<li> **INDIVIDUAL** :此角色为个人参与方</li>
+<li> **PROMOTER** :此角色是发起方</li></ul>
                      */
                     std::string m_recipientType;
                     bool m_recipientTypeHasBeenSet;
 
                     /**
-                     * <p>合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。</p>
+                     * 合同参与方的角色描述，长度不能超过100，只能由中文、字母、数字和下划线组成。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。</p>
+                     * 合同参与方的角色名字，长度不能超过20，只能由中文、字母、数字和下划线组成。
                      */
                     std::string m_roleName;
                     bool m_roleNameHasBeenSet;
 
                     /**
-                     * <p>是否需要校验，<br>true-是，<br>false-否</p>
+                     * 是否需要校验，
+true-是，
+false-否
                      */
                     bool m_requireValidation;
                     bool m_requireValidationHasBeenSet;
 
                     /**
-                     * <p>是否必须填写，<br>true-是，<br>false-否</p>
+                     * 是否必须填写，
+true-是，
+false-否
                      */
                     bool m_requireSign;
                     bool m_requireSignHasBeenSet;
 
                     /**
-                     * <p>内部字段，签署类型</p><p>枚举值：</p><ul><li>0： 人脸</li></ul>
+                     * 内部字段，签署类型
                      */
                     int64_t m_signType;
                     bool m_signTypeHasBeenSet;
 
                     /**
-                     * <p>签署顺序：数字越小优先级越高</p>
+                     * 签署顺序：数字越小优先级越高
                      */
                     int64_t m_routingOrder;
                     bool m_routingOrderHasBeenSet;
 
                     /**
-                     * <p>是否是发起方，<br>true-是<br>false-否</p>
+                     * 是否是发起方，
+true-是 
+false-否
                      */
                     bool m_isPromoter;
                     bool m_isPromoterHasBeenSet;
 
                     /**
-                     * <p>签署人查看合同校验方式, 支持的类型如下:</p><ul><li> 1 :实名认证查看</li><li> 2 :手机号校验查看</li></ul>
+                     * 签署人查看合同校验方式, 支持的类型如下:
+<ul><li> 1 :实名认证查看</li>
+<li> 2 :手机号校验查看</li></ul>
                      */
                     std::vector<int64_t> m_approverVerifyTypes;
                     bool m_approverVerifyTypesHasBeenSet;
 
                     /**
-                     * <p>签署人进行合同签署时的认证方式，支持的类型如下:</p><ul><li> 1 :人脸认证</li><li> 2 :签署密码</li><li> 3 :运营商三要素认证</li><li> 4 :UKey认证</li><li> 5 :设备指纹识别</li><li> 6 :设备面容识别</li></ul>
+                     * 签署人进行合同签署时的认证方式，支持的类型如下:
+<ul><li> 1 :人脸认证</li>
+<li> 2 :签署密码</li>
+<li> 3 :运营商三要素认证</li>
+<li> 4 :UKey认证</li>
+<li> 5 :设备指纹识别</li>
+<li> 6 :设备面容识别</li></ul>
                      */
                     std::vector<int64_t> m_approverSignTypes;
                     bool m_approverSignTypesHasBeenSet;
 
                     /**
-                     * <p>签署方是否可以转他人处理</p><ul><li> **false** : ( 默认)可以转他人处理</li><li> **true** :不可以转他人处理</li></ul>
+                     * 签署方是否可以转他人处理
+
+<ul><li> **false** : ( 默认)可以转他人处理</li>
+<li> **true** :不可以转他人处理</li></ul>
                      */
                     bool m_noTransfer;
                     bool m_noTransferHasBeenSet;

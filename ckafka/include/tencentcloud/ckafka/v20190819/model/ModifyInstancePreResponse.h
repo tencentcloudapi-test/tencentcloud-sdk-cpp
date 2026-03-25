@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>变更预付费实例配置返回结构</p>
-                     * @return Result <p>变更预付费实例配置返回结构</p>
+                     * 获取变更预付费实例配置返回结构
+                     * @return Result 变更预付费实例配置返回结构
                      * 
                      */
                     CreateInstancePreResp GetResult() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>变更预付费实例配置返回结构</p>
+                     * 变更预付费实例配置返回结构
                      */
                     CreateInstancePreResp m_result;
                     bool m_resultHasBeenSet;

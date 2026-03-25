@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>7层监听器ID</p>
-                     * @return ListenerId <p>7层监听器ID</p>
+                     * 获取7层监听器ID
+                     * @return ListenerId 7层监听器ID
                      * 
                      */
                     std::string GetListenerId() const;
 
                     /**
-                     * 设置<p>7层监听器ID</p>
-                     * @param _listenerId <p>7层监听器ID</p>
+                     * 设置7层监听器ID
+                     * @param _listenerId 7层监听器ID
                      * 
                      */
                     void SetListenerId(const std::string& _listenerId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool ListenerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>转发规则的域名</p>
-                     * @return Domain <p>转发规则的域名</p>
+                     * 获取转发规则的域名
+                     * @return Domain 转发规则的域名
                      * 
                      */
                     std::string GetDomain() const;
 
                     /**
-                     * 设置<p>转发规则的域名</p>
-                     * @param _domain <p>转发规则的域名</p>
+                     * 设置转发规则的域名
+                     * @param _domain 转发规则的域名
                      * 
                      */
                     void SetDomain(const std::string& _domain);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool DomainHasBeenSet() const;
 
                     /**
-                     * 获取<p>转发规则的路径</p>
-                     * @return Path <p>转发规则的路径</p>
+                     * 获取转发规则的路径
+                     * @return Path 转发规则的路径
                      * 
                      */
                     std::string GetPath() const;
 
                     /**
-                     * 设置<p>转发规则的路径</p>
-                     * @param _path <p>转发规则的路径</p>
+                     * 设置转发规则的路径
+                     * @param _path 转发规则的路径
                      * 
                      */
                     void SetPath(const std::string& _path);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool PathHasBeenSet() const;
 
                     /**
-                     * 获取<p>转发规则对应源站的类型，支持IP和DOMAIN类型。</p>
-                     * @return RealServerType <p>转发规则对应源站的类型，支持IP和DOMAIN类型。</p>
+                     * 获取转发规则对应源站的类型，支持IP和DOMAIN类型。
+                     * @return RealServerType 转发规则对应源站的类型，支持IP和DOMAIN类型。
                      * 
                      */
                     std::string GetRealServerType() const;
 
                     /**
-                     * 设置<p>转发规则对应源站的类型，支持IP和DOMAIN类型。</p>
-                     * @param _realServerType <p>转发规则对应源站的类型，支持IP和DOMAIN类型。</p>
+                     * 设置转发规则对应源站的类型，支持IP和DOMAIN类型。
+                     * @param _realServerType 转发规则对应源站的类型，支持IP和DOMAIN类型。
                      * 
                      */
                     void SetRealServerType(const std::string& _realServerType);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool RealServerTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。</p>
-                     * @return Scheduler <p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。</p>
+                     * 获取监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
+                     * @return Scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
                      * 
                      */
                     std::string GetScheduler() const;
 
                     /**
-                     * 设置<p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。</p>
-                     * @param _scheduler <p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。</p>
+                     * 设置监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
+                     * @param _scheduler 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
                      * 
                      */
                     void SetScheduler(const std::string& _scheduler);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool SchedulerHasBeenSet() const;
 
                     /**
-                     * 获取<p>规则是否开启健康检查，1开启，0关闭。</p>
-                     * @return HealthCheck <p>规则是否开启健康检查，1开启，0关闭。</p>
+                     * 获取规则是否开启健康检查，1开启，0关闭。
+                     * @return HealthCheck 规则是否开启健康检查，1开启，0关闭。
                      * 
                      */
                     uint64_t GetHealthCheck() const;
 
                     /**
-                     * 设置<p>规则是否开启健康检查，1开启，0关闭。</p>
-                     * @param _healthCheck <p>规则是否开启健康检查，1开启，0关闭。</p>
+                     * 设置规则是否开启健康检查，1开启，0关闭。
+                     * @param _healthCheck 规则是否开启健康检查，1开启，0关闭。
                      * 
                      */
                     void SetHealthCheck(const uint64_t& _healthCheck);
@@ -170,15 +170,15 @@ namespace TencentCloud
                     bool HealthCheckHasBeenSet() const;
 
                     /**
-                     * 获取<p>源站健康检查相关参数</p>
-                     * @return CheckParams <p>源站健康检查相关参数</p>
+                     * 获取源站健康检查相关参数
+                     * @return CheckParams 源站健康检查相关参数
                      * 
                      */
                     RuleCheckParams GetCheckParams() const;
 
                     /**
-                     * 设置<p>源站健康检查相关参数</p>
-                     * @param _checkParams <p>源站健康检查相关参数</p>
+                     * 设置源站健康检查相关参数
+                     * @param _checkParams 源站健康检查相关参数
                      * 
                      */
                     void SetCheckParams(const RuleCheckParams& _checkParams);
@@ -191,15 +191,19 @@ namespace TencentCloud
                     bool CheckParamsHasBeenSet() const;
 
                     /**
-                     * 获取<p>加速通道转发到源站的协议类型：支持HTTP或HTTPS。不传递该字段时表示使用对应监听器的ForwardProtocol。</p>
-                     * @return ForwardProtocol <p>加速通道转发到源站的协议类型：支持HTTP或HTTPS。不传递该字段时表示使用对应监听器的ForwardProtocol。</p>
+                     * 获取加速通道转发到源站的协议类型：支持HTTP或HTTPS。
+不传递该字段时表示使用对应监听器的ForwardProtocol。
+                     * @return ForwardProtocol 加速通道转发到源站的协议类型：支持HTTP或HTTPS。
+不传递该字段时表示使用对应监听器的ForwardProtocol。
                      * 
                      */
                     std::string GetForwardProtocol() const;
 
                     /**
-                     * 设置<p>加速通道转发到源站的协议类型：支持HTTP或HTTPS。不传递该字段时表示使用对应监听器的ForwardProtocol。</p>
-                     * @param _forwardProtocol <p>加速通道转发到源站的协议类型：支持HTTP或HTTPS。不传递该字段时表示使用对应监听器的ForwardProtocol。</p>
+                     * 设置加速通道转发到源站的协议类型：支持HTTP或HTTPS。
+不传递该字段时表示使用对应监听器的ForwardProtocol。
+                     * @param _forwardProtocol 加速通道转发到源站的协议类型：支持HTTP或HTTPS。
+不传递该字段时表示使用对应监听器的ForwardProtocol。
                      * 
                      */
                     void SetForwardProtocol(const std::string& _forwardProtocol);
@@ -212,15 +216,15 @@ namespace TencentCloud
                     bool ForwardProtocolHasBeenSet() const;
 
                     /**
-                     * 获取<p>回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。</p>
-                     * @return ForwardHost <p>回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。</p>
+                     * 获取回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。
+                     * @return ForwardHost 回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。
                      * 
                      */
                     std::string GetForwardHost() const;
 
                     /**
-                     * 设置<p>回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。</p>
-                     * @param _forwardHost <p>回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。</p>
+                     * 设置回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。
+                     * @param _forwardHost 回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。
                      * 
                      */
                     void SetForwardHost(const std::string& _forwardHost);
@@ -233,15 +237,15 @@ namespace TencentCloud
                     bool ForwardHostHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。</p>
-                     * @return ServerNameIndicationSwitch <p>服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。</p>
+                     * 获取服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
+                     * @return ServerNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
                      * 
                      */
                     std::string GetServerNameIndicationSwitch() const;
 
                     /**
-                     * 设置<p>服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。</p>
-                     * @param _serverNameIndicationSwitch <p>服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。</p>
+                     * 设置服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
+                     * @param _serverNameIndicationSwitch 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
                      * 
                      */
                     void SetServerNameIndicationSwitch(const std::string& _serverNameIndicationSwitch);
@@ -254,15 +258,15 @@ namespace TencentCloud
                     bool ServerNameIndicationSwitchHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。</p>
-                     * @return ServerNameIndication <p>服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。</p>
+                     * 获取服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
+                     * @return ServerNameIndication 服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
                      * 
                      */
                     std::string GetServerNameIndication() const;
 
                     /**
-                     * 设置<p>服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。</p>
-                     * @param _serverNameIndication <p>服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。</p>
+                     * 设置服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
+                     * @param _serverNameIndication 服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
                      * 
                      */
                     void SetServerNameIndication(const std::string& _serverNameIndication);
@@ -275,15 +279,15 @@ namespace TencentCloud
                     bool ServerNameIndicationHasBeenSet() const;
 
                     /**
-                     * 获取<p>HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。</p>
-                     * @return ForcedRedirect <p>HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。</p>
+                     * 获取HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+                     * @return ForcedRedirect HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
                      * 
                      */
                     std::string GetForcedRedirect() const;
 
                     /**
-                     * 设置<p>HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。</p>
-                     * @param _forcedRedirect <p>HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。</p>
+                     * 设置HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
+                     * @param _forcedRedirect HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
                      * 
                      */
                     void SetForcedRedirect(const std::string& _forcedRedirect);
@@ -298,73 +302,74 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>7层监听器ID</p>
+                     * 7层监听器ID
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
-                     * <p>转发规则的域名</p>
+                     * 转发规则的域名
                      */
                     std::string m_domain;
                     bool m_domainHasBeenSet;
 
                     /**
-                     * <p>转发规则的路径</p>
+                     * 转发规则的路径
                      */
                     std::string m_path;
                     bool m_pathHasBeenSet;
 
                     /**
-                     * <p>转发规则对应源站的类型，支持IP和DOMAIN类型。</p>
+                     * 转发规则对应源站的类型，支持IP和DOMAIN类型。
                      */
                     std::string m_realServerType;
                     bool m_realServerTypeHasBeenSet;
 
                     /**
-                     * <p>监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。</p>
+                     * 监听器源站访问策略，其中：rr表示轮询；wrr表示加权轮询；lc表示最小连接数。
                      */
                     std::string m_scheduler;
                     bool m_schedulerHasBeenSet;
 
                     /**
-                     * <p>规则是否开启健康检查，1开启，0关闭。</p>
+                     * 规则是否开启健康检查，1开启，0关闭。
                      */
                     uint64_t m_healthCheck;
                     bool m_healthCheckHasBeenSet;
 
                     /**
-                     * <p>源站健康检查相关参数</p>
+                     * 源站健康检查相关参数
                      */
                     RuleCheckParams m_checkParams;
                     bool m_checkParamsHasBeenSet;
 
                     /**
-                     * <p>加速通道转发到源站的协议类型：支持HTTP或HTTPS。不传递该字段时表示使用对应监听器的ForwardProtocol。</p>
+                     * 加速通道转发到源站的协议类型：支持HTTP或HTTPS。
+不传递该字段时表示使用对应监听器的ForwardProtocol。
                      */
                     std::string m_forwardProtocol;
                     bool m_forwardProtocolHasBeenSet;
 
                     /**
-                     * <p>回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。</p>
+                     * 回源Host。加速通道转发到源站的host，不设置该参数时，使用默认的host设置，即客户端发起的http请求的host。
                      */
                     std::string m_forwardHost;
                     bool m_forwardHostHasBeenSet;
 
                     /**
-                     * <p>服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。</p>
+                     * 服务器名称指示（ServerNameIndication，简称SNI）开关。ON表示开启，OFF表示关闭。创建HTTP监听器转发规则时，SNI功能默认关闭。
                      */
                     std::string m_serverNameIndicationSwitch;
                     bool m_serverNameIndicationSwitchHasBeenSet;
 
                     /**
-                     * <p>服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。</p>
+                     * 服务器名称指示（ServerNameIndication，简称SNI），当SNI开关打开时，该字段必填。
                      */
                     std::string m_serverNameIndication;
                     bool m_serverNameIndicationHasBeenSet;
 
                     /**
-                     * <p>HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。</p>
+                     * HTTP强制跳转HTTPS。输入当前规则对应的域名与地址。
                      */
                     std::string m_forcedRedirect;
                     bool m_forcedRedirectHasBeenSet;

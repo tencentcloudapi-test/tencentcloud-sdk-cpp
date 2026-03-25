@@ -33,8 +33,7 @@ PermanentResidencePermitInfo::PermanentResidencePermitInfo() :
     m_cardImageHasBeenSet(false),
     m_portraitImageHasBeenSet(false),
     m_holderNumHasBeenSet(false),
-    m_nationalityHasBeenSet(false),
-    m_enNameHasBeenSet(false)
+    m_nationalityHasBeenSet(false)
 {
 }
 
@@ -264,23 +263,6 @@ CoreInternalOutcome PermanentResidencePermitInfo::Deserialize(const rapidjson::V
         m_nationalityHasBeenSet = true;
     }
 
-    if (value.HasMember("EnName") && !value["EnName"].IsNull())
-    {
-        if (!value["EnName"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `PermanentResidencePermitInfo.EnName` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_enName.Deserialize(value["EnName"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_enNameHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -403,15 +385,6 @@ void PermanentResidencePermitInfo::ToJsonObject(rapidjson::Value &value, rapidjs
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_nationality.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_enNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_enName.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -623,21 +596,5 @@ void PermanentResidencePermitInfo::SetNationality(const ContentInfo& _nationalit
 bool PermanentResidencePermitInfo::NationalityHasBeenSet() const
 {
     return m_nationalityHasBeenSet;
-}
-
-ContentInfo PermanentResidencePermitInfo::GetEnName() const
-{
-    return m_enName;
-}
-
-void PermanentResidencePermitInfo::SetEnName(const ContentInfo& _enName)
-{
-    m_enName = _enName;
-    m_enNameHasBeenSet = true;
-}
-
-bool PermanentResidencePermitInfo::EnNameHasBeenSet() const
-{
-    return m_enNameHasBeenSet;
 }
 

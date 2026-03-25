@@ -24,7 +24,6 @@
 #include <tencentcloud/mps/v20190612/model/MediaInputInfo.h>
 #include <tencentcloud/mps/v20190612/model/TaskOutputStorage.h>
 #include <tencentcloud/mps/v20190612/model/ImageTaskInput.h>
-#include <tencentcloud/mps/v20190612/model/AddOnParameter.h>
 
 
 namespace TencentCloud
@@ -160,18 +159,14 @@ namespace TencentCloud
 
                     /**
                      * 获取图片处理模板唯一标识。
-图片模板功能内测中，如需使用请提交工单申请。
                      * @return Definition 图片处理模板唯一标识。
-图片模板功能内测中，如需使用请提交工单申请。
                      * 
                      */
                     uint64_t GetDefinition() const;
 
                     /**
                      * 设置图片处理模板唯一标识。
-图片模板功能内测中，如需使用请提交工单申请。
                      * @param _definition 图片处理模板唯一标识。
-图片模板功能内测中，如需使用请提交工单申请。
                      * 
                      */
                     void SetDefinition(const uint64_t& _definition);
@@ -184,15 +179,15 @@ namespace TencentCloud
                     bool DefinitionHasBeenSet() const;
 
                     /**
-                     * 获取资源ID，需要保证对应资源是开启状态。默认为账号主资源ID。
-                     * @return ResourceId 资源ID，需要保证对应资源是开启状态。默认为账号主资源ID。
+                     * 获取资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+                     * @return ResourceId 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
                      * 
                      */
                     std::string GetResourceId() const;
 
                     /**
-                     * 设置资源ID，需要保证对应资源是开启状态。默认为账号主资源ID。
-                     * @param _resourceId 资源ID，需要保证对应资源是开启状态。默认为账号主资源ID。
+                     * 设置资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
+                     * @param _resourceId 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
                      * 
                      */
                     void SetResourceId(const std::string& _resourceId);
@@ -224,85 +219,6 @@ namespace TencentCloud
                      * 
                      */
                     bool ImageTaskHasBeenSet() const;
-
-                    /**
-                     * 获取图片处理编排场景 ID。
-
-- 30000：文字水印擦除
-- 30010：图片扩展
-- 30100：换装场景
-                     * @return ScheduleId 图片处理编排场景 ID。
-
-- 30000：文字水印擦除
-- 30010：图片扩展
-- 30100：换装场景
-                     * 
-                     */
-                    uint64_t GetScheduleId() const;
-
-                    /**
-                     * 设置图片处理编排场景 ID。
-
-- 30000：文字水印擦除
-- 30010：图片扩展
-- 30100：换装场景
-                     * @param _scheduleId 图片处理编排场景 ID。
-
-- 30000：文字水印擦除
-- 30010：图片扩展
-- 30100：换装场景
-                     * 
-                     */
-                    void SetScheduleId(const uint64_t& _scheduleId);
-
-                    /**
-                     * 判断参数 ScheduleId 是否已赋值
-                     * @return ScheduleId 是否已赋值
-                     * 
-                     */
-                    bool ScheduleIdHasBeenSet() const;
-
-                    /**
-                     * 获取图片处理附加参数。
-                     * @return AddOnParameter 图片处理附加参数。
-                     * 
-                     */
-                    AddOnParameter GetAddOnParameter() const;
-
-                    /**
-                     * 设置图片处理附加参数。
-                     * @param _addOnParameter 图片处理附加参数。
-                     * 
-                     */
-                    void SetAddOnParameter(const AddOnParameter& _addOnParameter);
-
-                    /**
-                     * 判断参数 AddOnParameter 是否已赋值
-                     * @return AddOnParameter 是否已赋值
-                     * 
-                     */
-                    bool AddOnParameterHasBeenSet() const;
-
-                    /**
-                     * 获取图片处理拓展参数。
-                     * @return StdExtInfo 图片处理拓展参数。
-                     * 
-                     */
-                    std::string GetStdExtInfo() const;
-
-                    /**
-                     * 设置图片处理拓展参数。
-                     * @param _stdExtInfo 图片处理拓展参数。
-                     * 
-                     */
-                    void SetStdExtInfo(const std::string& _stdExtInfo);
-
-                    /**
-                     * 判断参数 StdExtInfo 是否已赋值
-                     * @return StdExtInfo 是否已赋值
-                     * 
-                     */
-                    bool StdExtInfoHasBeenSet() const;
 
                 private:
 
@@ -339,13 +255,12 @@ namespace TencentCloud
 
                     /**
                      * 图片处理模板唯一标识。
-图片模板功能内测中，如需使用请提交工单申请。
                      */
                     uint64_t m_definition;
                     bool m_definitionHasBeenSet;
 
                     /**
-                     * 资源ID，需要保证对应资源是开启状态。默认为账号主资源ID。
+                     * 资源ID，需要保证对应资源是开启状态。默认为帐号主资源ID。
                      */
                     std::string m_resourceId;
                     bool m_resourceIdHasBeenSet;
@@ -355,28 +270,6 @@ namespace TencentCloud
                      */
                     ImageTaskInput m_imageTask;
                     bool m_imageTaskHasBeenSet;
-
-                    /**
-                     * 图片处理编排场景 ID。
-
-- 30000：文字水印擦除
-- 30010：图片扩展
-- 30100：换装场景
-                     */
-                    uint64_t m_scheduleId;
-                    bool m_scheduleIdHasBeenSet;
-
-                    /**
-                     * 图片处理附加参数。
-                     */
-                    AddOnParameter m_addOnParameter;
-                    bool m_addOnParameterHasBeenSet;
-
-                    /**
-                     * 图片处理拓展参数。
-                     */
-                    std::string m_stdExtInfo;
-                    bool m_stdExtInfoHasBeenSet;
 
                 };
             }

@@ -271,27 +271,6 @@ namespace TencentCloud
                      */
                     bool ModelHasBeenSet() const;
 
-                    /**
-                     * 获取项目调度模式，task：任务模式 workflow：工作流模式
-                     * @return ScheduleMode 项目调度模式，task：任务模式 workflow：工作流模式
-                     * 
-                     */
-                    std::string GetScheduleMode() const;
-
-                    /**
-                     * 设置项目调度模式，task：任务模式 workflow：工作流模式
-                     * @param _scheduleMode 项目调度模式，task：任务模式 workflow：工作流模式
-                     * 
-                     */
-                    void SetScheduleMode(const std::string& _scheduleMode);
-
-                    /**
-                     * 判断参数 ScheduleMode 是否已赋值
-                     * @return ScheduleMode 是否已赋值
-                     * 
-                     */
-                    bool ScheduleModeHasBeenSet() const;
-
                 private:
 
                     /**
@@ -356,12 +335,6 @@ namespace TencentCloud
                      */
                     std::string m_model;
                     bool m_modelHasBeenSet;
-
-                    /**
-                     * 项目调度模式，task：任务模式 workflow：工作流模式
-                     */
-                    std::string m_scheduleMode;
-                    bool m_scheduleModeHasBeenSet;
 
                 };
             }

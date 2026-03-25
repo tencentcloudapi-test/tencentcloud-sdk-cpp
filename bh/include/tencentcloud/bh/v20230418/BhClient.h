@@ -107,14 +107,8 @@
 #include <tencentcloud/bh/v20230418/model/DescribeChangePwdTaskDetailResponse.h>
 #include <tencentcloud/bh/v20230418/model/DescribeCmdTemplatesRequest.h>
 #include <tencentcloud/bh/v20230418/model/DescribeCmdTemplatesResponse.h>
-#include <tencentcloud/bh/v20230418/model/DescribeDepartmentsRequest.h>
-#include <tencentcloud/bh/v20230418/model/DescribeDepartmentsResponse.h>
 #include <tencentcloud/bh/v20230418/model/DescribeDeviceAccountsRequest.h>
 #include <tencentcloud/bh/v20230418/model/DescribeDeviceAccountsResponse.h>
-#include <tencentcloud/bh/v20230418/model/DescribeDeviceCountRequest.h>
-#include <tencentcloud/bh/v20230418/model/DescribeDeviceCountResponse.h>
-#include <tencentcloud/bh/v20230418/model/DescribeDeviceCountSummaryRequest.h>
-#include <tencentcloud/bh/v20230418/model/DescribeDeviceCountSummaryResponse.h>
 #include <tencentcloud/bh/v20230418/model/DescribeDeviceGroupMembersRequest.h>
 #include <tencentcloud/bh/v20230418/model/DescribeDeviceGroupMembersResponse.h>
 #include <tencentcloud/bh/v20230418/model/DescribeDeviceGroupsRequest.h>
@@ -147,22 +141,14 @@
 #include <tencentcloud/bh/v20230418/model/DescribeUserSyncStatusResponse.h>
 #include <tencentcloud/bh/v20230418/model/DescribeUsersRequest.h>
 #include <tencentcloud/bh/v20230418/model/DescribeUsersResponse.h>
-#include <tencentcloud/bh/v20230418/model/DisableClientTcpAccessRequest.h>
-#include <tencentcloud/bh/v20230418/model/DisableClientTcpAccessResponse.h>
 #include <tencentcloud/bh/v20230418/model/DisableExternalAccessRequest.h>
 #include <tencentcloud/bh/v20230418/model/DisableExternalAccessResponse.h>
 #include <tencentcloud/bh/v20230418/model/DisableIntranetAccessRequest.h>
 #include <tencentcloud/bh/v20230418/model/DisableIntranetAccessResponse.h>
-#include <tencentcloud/bh/v20230418/model/DisableWebAccessRequest.h>
-#include <tencentcloud/bh/v20230418/model/DisableWebAccessResponse.h>
-#include <tencentcloud/bh/v20230418/model/EnableClientTcpAccessRequest.h>
-#include <tencentcloud/bh/v20230418/model/EnableClientTcpAccessResponse.h>
 #include <tencentcloud/bh/v20230418/model/EnableExternalAccessRequest.h>
 #include <tencentcloud/bh/v20230418/model/EnableExternalAccessResponse.h>
 #include <tencentcloud/bh/v20230418/model/EnableIntranetAccessRequest.h>
 #include <tencentcloud/bh/v20230418/model/EnableIntranetAccessResponse.h>
-#include <tencentcloud/bh/v20230418/model/EnableWebAccessRequest.h>
-#include <tencentcloud/bh/v20230418/model/EnableWebAccessResponse.h>
 #include <tencentcloud/bh/v20230418/model/ImportExternalDeviceRequest.h>
 #include <tencentcloud/bh/v20230418/model/ImportExternalDeviceResponse.h>
 #include <tencentcloud/bh/v20230418/model/ModifyAccessWhiteListAutoStatusRequest.h>
@@ -379,18 +365,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeCmdTemplatesResponse> DescribeCmdTemplatesOutcome;
                 typedef std::future<DescribeCmdTemplatesOutcome> DescribeCmdTemplatesOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::DescribeCmdTemplatesRequest&, DescribeCmdTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCmdTemplatesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDepartmentsResponse> DescribeDepartmentsOutcome;
-                typedef std::future<DescribeDepartmentsOutcome> DescribeDepartmentsOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::DescribeDepartmentsRequest&, DescribeDepartmentsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDepartmentsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDeviceAccountsResponse> DescribeDeviceAccountsOutcome;
                 typedef std::future<DescribeDeviceAccountsOutcome> DescribeDeviceAccountsOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::DescribeDeviceAccountsRequest&, DescribeDeviceAccountsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeviceAccountsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDeviceCountResponse> DescribeDeviceCountOutcome;
-                typedef std::future<DescribeDeviceCountOutcome> DescribeDeviceCountOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::DescribeDeviceCountRequest&, DescribeDeviceCountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeviceCountAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDeviceCountSummaryResponse> DescribeDeviceCountSummaryOutcome;
-                typedef std::future<DescribeDeviceCountSummaryOutcome> DescribeDeviceCountSummaryOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::DescribeDeviceCountSummaryRequest&, DescribeDeviceCountSummaryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeviceCountSummaryAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDeviceGroupMembersResponse> DescribeDeviceGroupMembersOutcome;
                 typedef std::future<DescribeDeviceGroupMembersOutcome> DescribeDeviceGroupMembersOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::DescribeDeviceGroupMembersRequest&, DescribeDeviceGroupMembersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeviceGroupMembersAsyncHandler;
@@ -439,30 +416,18 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeUsersResponse> DescribeUsersOutcome;
                 typedef std::future<DescribeUsersOutcome> DescribeUsersOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::DescribeUsersRequest&, DescribeUsersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUsersAsyncHandler;
-                typedef Outcome<Core::Error, Model::DisableClientTcpAccessResponse> DisableClientTcpAccessOutcome;
-                typedef std::future<DisableClientTcpAccessOutcome> DisableClientTcpAccessOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::DisableClientTcpAccessRequest&, DisableClientTcpAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableClientTcpAccessAsyncHandler;
                 typedef Outcome<Core::Error, Model::DisableExternalAccessResponse> DisableExternalAccessOutcome;
                 typedef std::future<DisableExternalAccessOutcome> DisableExternalAccessOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::DisableExternalAccessRequest&, DisableExternalAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableExternalAccessAsyncHandler;
                 typedef Outcome<Core::Error, Model::DisableIntranetAccessResponse> DisableIntranetAccessOutcome;
                 typedef std::future<DisableIntranetAccessOutcome> DisableIntranetAccessOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::DisableIntranetAccessRequest&, DisableIntranetAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableIntranetAccessAsyncHandler;
-                typedef Outcome<Core::Error, Model::DisableWebAccessResponse> DisableWebAccessOutcome;
-                typedef std::future<DisableWebAccessOutcome> DisableWebAccessOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::DisableWebAccessRequest&, DisableWebAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DisableWebAccessAsyncHandler;
-                typedef Outcome<Core::Error, Model::EnableClientTcpAccessResponse> EnableClientTcpAccessOutcome;
-                typedef std::future<EnableClientTcpAccessOutcome> EnableClientTcpAccessOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::EnableClientTcpAccessRequest&, EnableClientTcpAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableClientTcpAccessAsyncHandler;
                 typedef Outcome<Core::Error, Model::EnableExternalAccessResponse> EnableExternalAccessOutcome;
                 typedef std::future<EnableExternalAccessOutcome> EnableExternalAccessOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::EnableExternalAccessRequest&, EnableExternalAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableExternalAccessAsyncHandler;
                 typedef Outcome<Core::Error, Model::EnableIntranetAccessResponse> EnableIntranetAccessOutcome;
                 typedef std::future<EnableIntranetAccessOutcome> EnableIntranetAccessOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::EnableIntranetAccessRequest&, EnableIntranetAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableIntranetAccessAsyncHandler;
-                typedef Outcome<Core::Error, Model::EnableWebAccessResponse> EnableWebAccessOutcome;
-                typedef std::future<EnableWebAccessOutcome> EnableWebAccessOutcomeCallable;
-                typedef std::function<void(const BhClient*, const Model::EnableWebAccessRequest&, EnableWebAccessOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableWebAccessAsyncHandler;
                 typedef Outcome<Core::Error, Model::ImportExternalDeviceResponse> ImportExternalDeviceOutcome;
                 typedef std::future<ImportExternalDeviceOutcome> ImportExternalDeviceOutcomeCallable;
                 typedef std::function<void(const BhClient*, const Model::ImportExternalDeviceRequest&, ImportExternalDeviceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ImportExternalDeviceAsyncHandler;
@@ -959,15 +924,6 @@ namespace TencentCloud
                 DescribeCmdTemplatesOutcomeCallable DescribeCmdTemplatesCallable(const Model::DescribeCmdTemplatesRequest& request);
 
                 /**
-                 *查询部门信息
-                 * @param req DescribeDepartmentsRequest
-                 * @return DescribeDepartmentsOutcome
-                 */
-                DescribeDepartmentsOutcome DescribeDepartments(const Model::DescribeDepartmentsRequest &request);
-                void DescribeDepartmentsAsync(const Model::DescribeDepartmentsRequest& request, const DescribeDepartmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDepartmentsOutcomeCallable DescribeDepartmentsCallable(const Model::DescribeDepartmentsRequest& request);
-
-                /**
                  *查询主机账号列表
                  * @param req DescribeDeviceAccountsRequest
                  * @return DescribeDeviceAccountsOutcome
@@ -975,24 +931,6 @@ namespace TencentCloud
                 DescribeDeviceAccountsOutcome DescribeDeviceAccounts(const Model::DescribeDeviceAccountsRequest &request);
                 void DescribeDeviceAccountsAsync(const Model::DescribeDeviceAccountsRequest& request, const DescribeDeviceAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDeviceAccountsOutcomeCallable DescribeDeviceAccountsCallable(const Model::DescribeDeviceAccountsRequest& request);
-
-                /**
-                 *查询用户导入的主机数
-                 * @param req DescribeDeviceCountRequest
-                 * @return DescribeDeviceCountOutcome
-                 */
-                DescribeDeviceCountOutcome DescribeDeviceCount(const Model::DescribeDeviceCountRequest &request);
-                void DescribeDeviceCountAsync(const Model::DescribeDeviceCountRequest& request, const DescribeDeviceCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDeviceCountOutcomeCallable DescribeDeviceCountCallable(const Model::DescribeDeviceCountRequest& request);
-
-                /**
-                 *查询用户导入的主机数
-                 * @param req DescribeDeviceCountSummaryRequest
-                 * @return DescribeDeviceCountSummaryOutcome
-                 */
-                DescribeDeviceCountSummaryOutcome DescribeDeviceCountSummary(const Model::DescribeDeviceCountSummaryRequest &request);
-                void DescribeDeviceCountSummaryAsync(const Model::DescribeDeviceCountSummaryRequest& request, const DescribeDeviceCountSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDeviceCountSummaryOutcomeCallable DescribeDeviceCountSummaryCallable(const Model::DescribeDeviceCountSummaryRequest& request);
 
                 /**
                  *查询资产组成员列表
@@ -1139,15 +1077,6 @@ namespace TencentCloud
                 DescribeUsersOutcomeCallable DescribeUsersCallable(const Model::DescribeUsersRequest& request);
 
                 /**
-                 *关闭客户端TCP访问堡垒机
-                 * @param req DisableClientTcpAccessRequest
-                 * @return DisableClientTcpAccessOutcome
-                 */
-                DisableClientTcpAccessOutcome DisableClientTcpAccess(const Model::DisableClientTcpAccessRequest &request);
-                void DisableClientTcpAccessAsync(const Model::DisableClientTcpAccessRequest& request, const DisableClientTcpAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DisableClientTcpAccessOutcomeCallable DisableClientTcpAccessCallable(const Model::DisableClientTcpAccessRequest& request);
-
-                /**
                  *关闭公网访问堡垒机
                  * @param req DisableExternalAccessRequest
                  * @return DisableExternalAccessOutcome
@@ -1166,24 +1095,6 @@ namespace TencentCloud
                 DisableIntranetAccessOutcomeCallable DisableIntranetAccessCallable(const Model::DisableIntranetAccessRequest& request);
 
                 /**
-                 *关闭web访问堡垒机
-                 * @param req DisableWebAccessRequest
-                 * @return DisableWebAccessOutcome
-                 */
-                DisableWebAccessOutcome DisableWebAccess(const Model::DisableWebAccessRequest &request);
-                void DisableWebAccessAsync(const Model::DisableWebAccessRequest& request, const DisableWebAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DisableWebAccessOutcomeCallable DisableWebAccessCallable(const Model::DisableWebAccessRequest& request);
-
-                /**
-                 *开启客户端TCP访问堡垒机
-                 * @param req EnableClientTcpAccessRequest
-                 * @return EnableClientTcpAccessOutcome
-                 */
-                EnableClientTcpAccessOutcome EnableClientTcpAccess(const Model::EnableClientTcpAccessRequest &request);
-                void EnableClientTcpAccessAsync(const Model::EnableClientTcpAccessRequest& request, const EnableClientTcpAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                EnableClientTcpAccessOutcomeCallable EnableClientTcpAccessCallable(const Model::EnableClientTcpAccessRequest& request);
-
-                /**
                  *开启公网访问堡垒机
                  * @param req EnableExternalAccessRequest
                  * @return EnableExternalAccessOutcome
@@ -1200,15 +1111,6 @@ namespace TencentCloud
                 EnableIntranetAccessOutcome EnableIntranetAccess(const Model::EnableIntranetAccessRequest &request);
                 void EnableIntranetAccessAsync(const Model::EnableIntranetAccessRequest& request, const EnableIntranetAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 EnableIntranetAccessOutcomeCallable EnableIntranetAccessCallable(const Model::EnableIntranetAccessRequest& request);
-
-                /**
-                 *开启web访问堡垒机
-                 * @param req EnableWebAccessRequest
-                 * @return EnableWebAccessOutcome
-                 */
-                EnableWebAccessOutcome EnableWebAccess(const Model::EnableWebAccessRequest &request);
-                void EnableWebAccessAsync(const Model::EnableWebAccessRequest& request, const EnableWebAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                EnableWebAccessOutcomeCallable EnableWebAccessCallable(const Model::EnableWebAccessRequest& request);
 
                 /**
                  *导入外部资产信息

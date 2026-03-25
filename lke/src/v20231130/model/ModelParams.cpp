@@ -29,9 +29,7 @@ ModelParams::ModelParams() :
     m_repetitionPenaltyHasBeenSet(false),
     m_maxTokensHasBeenSet(false),
     m_stopSequencesHasBeenSet(false),
-    m_replyFormatHasBeenSet(false),
-    m_deepThinkingHasBeenSet(false),
-    m_reasoningEffortHasBeenSet(false)
+    m_replyFormatHasBeenSet(false)
 {
 }
 
@@ -133,26 +131,6 @@ CoreInternalOutcome ModelParams::Deserialize(const rapidjson::Value &value)
         m_replyFormatHasBeenSet = true;
     }
 
-    if (value.HasMember("DeepThinking") && !value["DeepThinking"].IsNull())
-    {
-        if (!value["DeepThinking"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ModelParams.DeepThinking` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_deepThinking = string(value["DeepThinking"].GetString());
-        m_deepThinkingHasBeenSet = true;
-    }
-
-    if (value.HasMember("ReasoningEffort") && !value["ReasoningEffort"].IsNull())
-    {
-        if (!value["ReasoningEffort"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ModelParams.ReasoningEffort` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_reasoningEffort = string(value["ReasoningEffort"].GetString());
-        m_reasoningEffortHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -235,22 +213,6 @@ void ModelParams::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "ReplyFormat";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_replyFormat.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_deepThinkingHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DeepThinking";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_deepThinking.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_reasoningEffortHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ReasoningEffort";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_reasoningEffort.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -398,37 +360,5 @@ void ModelParams::SetReplyFormat(const string& _replyFormat)
 bool ModelParams::ReplyFormatHasBeenSet() const
 {
     return m_replyFormatHasBeenSet;
-}
-
-string ModelParams::GetDeepThinking() const
-{
-    return m_deepThinking;
-}
-
-void ModelParams::SetDeepThinking(const string& _deepThinking)
-{
-    m_deepThinking = _deepThinking;
-    m_deepThinkingHasBeenSet = true;
-}
-
-bool ModelParams::DeepThinkingHasBeenSet() const
-{
-    return m_deepThinkingHasBeenSet;
-}
-
-string ModelParams::GetReasoningEffort() const
-{
-    return m_reasoningEffort;
-}
-
-void ModelParams::SetReasoningEffort(const string& _reasoningEffort)
-{
-    m_reasoningEffort = _reasoningEffort;
-    m_reasoningEffortHasBeenSet = true;
-}
-
-bool ModelParams::ReasoningEffortHasBeenSet() const
-{
-    return m_reasoningEffortHasBeenSet;
 }
 

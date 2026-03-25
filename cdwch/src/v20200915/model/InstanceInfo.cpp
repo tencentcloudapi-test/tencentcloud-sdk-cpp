@@ -74,9 +74,7 @@ InstanceInfo::InstanceInfo() :
     m_isWhiteSGsHasBeenSet(false),
     m_bindSGsHasBeenSet(false),
     m_hasPublicCloudClbHasBeenSet(false),
-    m_upgradeZkVersionsHasBeenSet(false),
-    m_showRipHasBeenSet(false),
-    m_instanceTypeHasBeenSet(false)
+    m_upgradeZkVersionsHasBeenSet(false)
 {
 }
 
@@ -676,26 +674,6 @@ CoreInternalOutcome InstanceInfo::Deserialize(const rapidjson::Value &value)
         m_upgradeZkVersionsHasBeenSet = true;
     }
 
-    if (value.HasMember("ShowRip") && !value["ShowRip"].IsNull())
-    {
-        if (!value["ShowRip"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.ShowRip` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_showRip = string(value["ShowRip"].GetString());
-        m_showRipHasBeenSet = true;
-    }
-
-    if (value.HasMember("InstanceType") && !value["InstanceType"].IsNull())
-    {
-        if (!value["InstanceType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InstanceInfo.InstanceType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_instanceType = string(value["InstanceType"].GetString());
-        m_instanceTypeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -1156,22 +1134,6 @@ void InstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "UpgradeZkVersions";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_upgradeZkVersions.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_showRipHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ShowRip";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_showRip.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_instanceTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "InstanceType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_instanceType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -2039,37 +2001,5 @@ void InstanceInfo::SetUpgradeZkVersions(const string& _upgradeZkVersions)
 bool InstanceInfo::UpgradeZkVersionsHasBeenSet() const
 {
     return m_upgradeZkVersionsHasBeenSet;
-}
-
-string InstanceInfo::GetShowRip() const
-{
-    return m_showRip;
-}
-
-void InstanceInfo::SetShowRip(const string& _showRip)
-{
-    m_showRip = _showRip;
-    m_showRipHasBeenSet = true;
-}
-
-bool InstanceInfo::ShowRipHasBeenSet() const
-{
-    return m_showRipHasBeenSet;
-}
-
-string InstanceInfo::GetInstanceType() const
-{
-    return m_instanceType;
-}
-
-void InstanceInfo::SetInstanceType(const string& _instanceType)
-{
-    m_instanceType = _instanceType;
-    m_instanceTypeHasBeenSet = true;
-}
-
-bool InstanceInfo::InstanceTypeHasBeenSet() const
-{
-    return m_instanceTypeHasBeenSet;
 }
 

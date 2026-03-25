@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>删除签名响应</p>
-                     * @return DeleteSignStatus <p>删除签名响应</p>
+                     * 获取删除签名响应
+                     * @return DeleteSignStatus 删除签名响应
                      * 
                      */
                     DeleteSignStatus GetDeleteSignStatus() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>删除签名响应</p>
+                     * 删除签名响应
                      */
                     DeleteSignStatus m_deleteSignStatus;
                     bool m_deleteSignStatusHasBeenSet;

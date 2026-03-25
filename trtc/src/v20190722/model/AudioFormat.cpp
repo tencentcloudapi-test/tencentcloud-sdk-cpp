@@ -22,8 +22,7 @@ using namespace std;
 
 AudioFormat::AudioFormat() :
     m_formatHasBeenSet(false),
-    m_sampleRateHasBeenSet(false),
-    m_bitrateHasBeenSet(false)
+    m_sampleRateHasBeenSet(false)
 {
 }
 
@@ -52,16 +51,6 @@ CoreInternalOutcome AudioFormat::Deserialize(const rapidjson::Value &value)
         m_sampleRateHasBeenSet = true;
     }
 
-    if (value.HasMember("Bitrate") && !value["Bitrate"].IsNull())
-    {
-        if (!value["Bitrate"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `AudioFormat.Bitrate` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_bitrate = value["Bitrate"].GetUint64();
-        m_bitrateHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -83,14 +72,6 @@ void AudioFormat::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "SampleRate";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_sampleRate, allocator);
-    }
-
-    if (m_bitrateHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Bitrate";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_bitrate, allocator);
     }
 
 }
@@ -126,21 +107,5 @@ void AudioFormat::SetSampleRate(const uint64_t& _sampleRate)
 bool AudioFormat::SampleRateHasBeenSet() const
 {
     return m_sampleRateHasBeenSet;
-}
-
-uint64_t AudioFormat::GetBitrate() const
-{
-    return m_bitrate;
-}
-
-void AudioFormat::SetBitrate(const uint64_t& _bitrate)
-{
-    m_bitrate = _bitrate;
-    m_bitrateHasBeenSet = true;
-}
-
-bool AudioFormat::BitrateHasBeenSet() const
-{
-    return m_bitrateHasBeenSet;
 }
 

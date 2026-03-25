@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>通道个数。</p>
-                     * @return TotalCount <p>通道个数。</p>
+                     * 获取通道个数。
+                     * @return TotalCount 通道个数。
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>（旧参数，请切换到ProxySet）通道实例信息列表。</p>
-                     * @return InstanceSet <p>（旧参数，请切换到ProxySet）通道实例信息列表。</p>
+                     * 获取（旧参数，请切换到ProxySet）通道实例信息列表。
+                     * @return InstanceSet （旧参数，请切换到ProxySet）通道实例信息列表。
                      * 
                      */
                     std::vector<ProxyInfo> GetInstanceSet() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool InstanceSetHasBeenSet() const;
 
                     /**
-                     * 获取<p>（新参数）通道实例信息列表。</p>
-                     * @return ProxySet <p>（新参数）通道实例信息列表。</p>
+                     * 获取（新参数）通道实例信息列表。
+                     * @return ProxySet （新参数）通道实例信息列表。
                      * 
                      */
                     std::vector<ProxyInfo> GetProxySet() const;
@@ -89,19 +89,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>通道个数。</p>
+                     * 通道个数。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>（旧参数，请切换到ProxySet）通道实例信息列表。</p>
+                     * （旧参数，请切换到ProxySet）通道实例信息列表。
                      */
                     std::vector<ProxyInfo> m_instanceSet;
                     bool m_instanceSetHasBeenSet;
 
                     /**
-                     * <p>（新参数）通道实例信息列表。</p>
+                     * （新参数）通道实例信息列表。
                      */
                     std::vector<ProxyInfo> m_proxySet;
                     bool m_proxySetHasBeenSet;

@@ -47,8 +47,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>核身视频结果。</p>
-                     * @return VideoData <p>核身视频结果。</p>
+                     * 获取核身视频结果。
+                     * @return VideoData 核身视频结果。
                      * 
                      */
                     DetectInfoVideoData GetVideoData() const;
@@ -61,8 +61,8 @@ namespace TencentCloud
                     bool VideoDataHasBeenSet() const;
 
                     /**
-                     * 获取<p>意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。</p>
-                     * @return IntentionQuestionResult <p>意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。</p>
+                     * 获取意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
+                     * @return IntentionQuestionResult 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
                      * 
                      */
                     IntentionQuestionResult GetIntentionQuestionResult() const;
@@ -75,9 +75,9 @@ namespace TencentCloud
                     bool IntentionQuestionResultHasBeenSet() const;
 
                     /**
-                     * 获取<p>意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。</p>
+                     * 获取意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IntentionActionResult <p>意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。</p>
+                     * @return IntentionActionResult 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -93,19 +93,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>核身视频结果。</p>
+                     * 核身视频结果。
                      */
                     DetectInfoVideoData m_videoData;
                     bool m_videoDataHasBeenSet;
 
                     /**
-                     * <p>意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。</p>
+                     * 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
                      */
                     IntentionQuestionResult m_intentionQuestionResult;
                     bool m_intentionQuestionResultHasBeenSet;
 
                     /**
-                     * <p>意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。</p>
+                     * 意愿核身点头确认模式的结果信息，若未使用该意愿核身功能，该字段返回值可以不处理。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     IntentionActionResult m_intentionActionResult;

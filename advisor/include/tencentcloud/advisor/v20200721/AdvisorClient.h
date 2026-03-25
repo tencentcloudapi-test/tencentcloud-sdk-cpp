@@ -23,8 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/advisor/v20200721/model/CreateAdvisorAuthorizationRequest.h>
-#include <tencentcloud/advisor/v20200721/model/CreateAdvisorAuthorizationResponse.h>
 #include <tencentcloud/advisor/v20200721/model/DescribeStrategiesRequest.h>
 #include <tencentcloud/advisor/v20200721/model/DescribeStrategiesResponse.h>
 #include <tencentcloud/advisor/v20200721/model/DescribeTaskStrategyRisksRequest.h>
@@ -43,9 +41,6 @@ namespace TencentCloud
                 AdvisorClient(const Credential &credential, const std::string &region);
                 AdvisorClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::CreateAdvisorAuthorizationResponse> CreateAdvisorAuthorizationOutcome;
-                typedef std::future<CreateAdvisorAuthorizationOutcome> CreateAdvisorAuthorizationOutcomeCallable;
-                typedef std::function<void(const AdvisorClient*, const Model::CreateAdvisorAuthorizationRequest&, CreateAdvisorAuthorizationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAdvisorAuthorizationAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeStrategiesResponse> DescribeStrategiesOutcome;
                 typedef std::future<DescribeStrategiesOutcome> DescribeStrategiesOutcomeCallable;
                 typedef std::function<void(const AdvisorClient*, const Model::DescribeStrategiesRequest&, DescribeStrategiesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeStrategiesAsyncHandler;
@@ -54,15 +49,6 @@ namespace TencentCloud
                 typedef std::function<void(const AdvisorClient*, const Model::DescribeTaskStrategyRisksRequest&, DescribeTaskStrategyRisksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTaskStrategyRisksAsyncHandler;
 
 
-
-                /**
-                 *开启智能顾问授权。会同步开启报告解读和云架构协作权限
-                 * @param req CreateAdvisorAuthorizationRequest
-                 * @return CreateAdvisorAuthorizationOutcome
-                 */
-                CreateAdvisorAuthorizationOutcome CreateAdvisorAuthorization(const Model::CreateAdvisorAuthorizationRequest &request);
-                void CreateAdvisorAuthorizationAsync(const Model::CreateAdvisorAuthorizationRequest& request, const CreateAdvisorAuthorizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateAdvisorAuthorizationOutcomeCallable CreateAdvisorAuthorizationCallable(const Model::CreateAdvisorAuthorizationRequest& request);
 
                 /**
                  *用于查询评估项的信息

@@ -129,23 +129,15 @@ namespace TencentCloud
                     bool ReadOnlyCountHasBeenSet() const;
 
                     /**
-                     * 获取实例机器类型，支持值如下：
-- common：表示通用型
-- exclusive：表示独享型
-                     * @return DeviceType 实例机器类型，支持值如下：
-- common：表示通用型
-- exclusive：表示独享型
+                     * 获取实例机器类型
+                     * @return DeviceType 实例机器类型
                      * 
                      */
                     std::string GetDeviceType() const;
 
                     /**
-                     * 设置实例机器类型，支持值如下：
-- common：表示通用型
-- exclusive：表示独享型
-                     * @param _deviceType 实例机器类型，支持值如下：
-- common：表示通用型
-- exclusive：表示独享型
+                     * 设置实例机器类型
+                     * @param _deviceType 实例机器类型
                      * 
                      */
                     void SetDeviceType(const std::string& _deviceType);
@@ -461,9 +453,7 @@ namespace TencentCloud
                     bool m_readOnlyCountHasBeenSet;
 
                     /**
-                     * 实例机器类型，支持值如下：
-- common：表示通用型
-- exclusive：表示独享型
+                     * 实例机器类型
                      */
                     std::string m_deviceType;
                     bool m_deviceTypeHasBeenSet;
