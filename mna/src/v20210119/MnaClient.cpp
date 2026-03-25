@@ -90,6 +90,56 @@ MnaClient::ActivateHardwareOutcomeCallable MnaClient::ActivateHardwareCallable(c
     return prom->get_future();
 }
 
+MnaClient::AddApplicationOutcome MnaClient::AddApplication(const AddApplicationRequest &request)
+{
+    auto outcome = MakeRequest(request, "AddApplication");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AddApplicationResponse rsp = AddApplicationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AddApplicationOutcome(rsp);
+        else
+            return AddApplicationOutcome(o.GetError());
+    }
+    else
+    {
+        return AddApplicationOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::AddApplicationAsync(const AddApplicationRequest& request, const AddApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AddApplicationRequest&;
+    using Resp = AddApplicationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AddApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::AddApplicationOutcomeCallable MnaClient::AddApplicationCallable(const AddApplicationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AddApplicationOutcome>>();
+    AddApplicationAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const AddApplicationRequest&,
+        AddApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 MnaClient::AddDeviceOutcome MnaClient::AddDevice(const AddDeviceRequest &request)
 {
     auto outcome = MakeRequest(request, "AddDevice");
@@ -340,6 +390,56 @@ MnaClient::CreateEncryptedKeyOutcomeCallable MnaClient::CreateEncryptedKeyCallab
     return prom->get_future();
 }
 
+MnaClient::DeleteApplicationOutcome MnaClient::DeleteApplication(const DeleteApplicationRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteApplication");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteApplicationResponse rsp = DeleteApplicationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteApplicationOutcome(rsp);
+        else
+            return DeleteApplicationOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteApplicationOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::DeleteApplicationAsync(const DeleteApplicationRequest& request, const DeleteApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteApplicationRequest&;
+    using Resp = DeleteApplicationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::DeleteApplicationOutcomeCallable MnaClient::DeleteApplicationCallable(const DeleteApplicationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteApplicationOutcome>>();
+    DeleteApplicationAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const DeleteApplicationRequest&,
+        DeleteApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 MnaClient::DeleteDeviceOutcome MnaClient::DeleteDevice(const DeleteDeviceRequest &request)
 {
     auto outcome = MakeRequest(request, "DeleteDevice");
@@ -582,6 +682,106 @@ MnaClient::GetActiveDeviceCountOutcomeCallable MnaClient::GetActiveDeviceCountCa
         const MnaClient*,
         const GetActiveDeviceCountRequest&,
         GetActiveDeviceCountOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MnaClient::GetApplicationOutcome MnaClient::GetApplication(const GetApplicationRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetApplication");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetApplicationResponse rsp = GetApplicationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetApplicationOutcome(rsp);
+        else
+            return GetApplicationOutcome(o.GetError());
+    }
+    else
+    {
+        return GetApplicationOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::GetApplicationAsync(const GetApplicationRequest& request, const GetApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetApplicationRequest&;
+    using Resp = GetApplicationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetApplication", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::GetApplicationOutcomeCallable MnaClient::GetApplicationCallable(const GetApplicationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetApplicationOutcome>>();
+    GetApplicationAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const GetApplicationRequest&,
+        GetApplicationOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MnaClient::GetDestIPByNameOutcome MnaClient::GetDestIPByName(const GetDestIPByNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetDestIPByName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetDestIPByNameResponse rsp = GetDestIPByNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetDestIPByNameOutcome(rsp);
+        else
+            return GetDestIPByNameOutcome(o.GetError());
+    }
+    else
+    {
+        return GetDestIPByNameOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::GetDestIPByNameAsync(const GetDestIPByNameRequest& request, const GetDestIPByNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetDestIPByNameRequest&;
+    using Resp = GetDestIPByNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetDestIPByName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::GetDestIPByNameOutcomeCallable MnaClient::GetDestIPByNameCallable(const GetDestIPByNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetDestIPByNameOutcome>>();
+    GetDestIPByNameAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const GetDestIPByNameRequest&,
+        GetDestIPByNameOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -940,6 +1140,56 @@ MnaClient::GetFlowStatisticByGroupOutcomeCallable MnaClient::GetFlowStatisticByG
     return prom->get_future();
 }
 
+MnaClient::GetFlowStatisticByNameOutcome MnaClient::GetFlowStatisticByName(const GetFlowStatisticByNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetFlowStatisticByName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetFlowStatisticByNameResponse rsp = GetFlowStatisticByNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetFlowStatisticByNameOutcome(rsp);
+        else
+            return GetFlowStatisticByNameOutcome(o.GetError());
+    }
+    else
+    {
+        return GetFlowStatisticByNameOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::GetFlowStatisticByNameAsync(const GetFlowStatisticByNameRequest& request, const GetFlowStatisticByNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetFlowStatisticByNameRequest&;
+    using Resp = GetFlowStatisticByNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetFlowStatisticByName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::GetFlowStatisticByNameOutcomeCallable MnaClient::GetFlowStatisticByNameCallable(const GetFlowStatisticByNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetFlowStatisticByNameOutcome>>();
+    GetFlowStatisticByNameAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const GetFlowStatisticByNameRequest&,
+        GetFlowStatisticByNameOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 MnaClient::GetFlowStatisticByRegionOutcome MnaClient::GetFlowStatisticByRegion(const GetFlowStatisticByRegionRequest &request)
 {
     auto outcome = MakeRequest(request, "GetFlowStatisticByRegion");
@@ -1190,6 +1440,56 @@ MnaClient::GetL3ConnListOutcomeCallable MnaClient::GetL3ConnListCallable(const G
     return prom->get_future();
 }
 
+MnaClient::GetMonitorDataByNameOutcome MnaClient::GetMonitorDataByName(const GetMonitorDataByNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetMonitorDataByName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetMonitorDataByNameResponse rsp = GetMonitorDataByNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetMonitorDataByNameOutcome(rsp);
+        else
+            return GetMonitorDataByNameOutcome(o.GetError());
+    }
+    else
+    {
+        return GetMonitorDataByNameOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::GetMonitorDataByNameAsync(const GetMonitorDataByNameRequest& request, const GetMonitorDataByNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetMonitorDataByNameRequest&;
+    using Resp = GetMonitorDataByNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetMonitorDataByName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::GetMonitorDataByNameOutcomeCallable MnaClient::GetMonitorDataByNameCallable(const GetMonitorDataByNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetMonitorDataByNameOutcome>>();
+    GetMonitorDataByNameAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const GetMonitorDataByNameRequest&,
+        GetMonitorDataByNameOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 MnaClient::GetMultiFlowStatisticOutcome MnaClient::GetMultiFlowStatistic(const GetMultiFlowStatisticRequest &request)
 {
     auto outcome = MakeRequest(request, "GetMultiFlowStatistic");
@@ -1290,6 +1590,56 @@ MnaClient::GetNetMonitorOutcomeCallable MnaClient::GetNetMonitorCallable(const G
     return prom->get_future();
 }
 
+MnaClient::GetNetMonitorByNameOutcome MnaClient::GetNetMonitorByName(const GetNetMonitorByNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetNetMonitorByName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetNetMonitorByNameResponse rsp = GetNetMonitorByNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetNetMonitorByNameOutcome(rsp);
+        else
+            return GetNetMonitorByNameOutcome(o.GetError());
+    }
+    else
+    {
+        return GetNetMonitorByNameOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::GetNetMonitorByNameAsync(const GetNetMonitorByNameRequest& request, const GetNetMonitorByNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetNetMonitorByNameRequest&;
+    using Resp = GetNetMonitorByNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetNetMonitorByName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::GetNetMonitorByNameOutcomeCallable MnaClient::GetNetMonitorByNameCallable(const GetNetMonitorByNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetNetMonitorByNameOutcome>>();
+    GetNetMonitorByNameAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const GetNetMonitorByNameRequest&,
+        GetNetMonitorByNameOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 MnaClient::GetPublicKeyOutcome MnaClient::GetPublicKey(const GetPublicKeyRequest &request)
 {
     auto outcome = MakeRequest(request, "GetPublicKey");
@@ -1382,6 +1732,56 @@ MnaClient::GetStatisticDataOutcomeCallable MnaClient::GetStatisticDataCallable(c
         const MnaClient*,
         const GetStatisticDataRequest&,
         GetStatisticDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MnaClient::GetStatisticDataByNameOutcome MnaClient::GetStatisticDataByName(const GetStatisticDataByNameRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetStatisticDataByName");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetStatisticDataByNameResponse rsp = GetStatisticDataByNameResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetStatisticDataByNameOutcome(rsp);
+        else
+            return GetStatisticDataByNameOutcome(o.GetError());
+    }
+    else
+    {
+        return GetStatisticDataByNameOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::GetStatisticDataByNameAsync(const GetStatisticDataByNameRequest& request, const GetStatisticDataByNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetStatisticDataByNameRequest&;
+    using Resp = GetStatisticDataByNameResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetStatisticDataByName", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::GetStatisticDataByNameOutcomeCallable MnaClient::GetStatisticDataByNameCallable(const GetStatisticDataByNameRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetStatisticDataByNameOutcome>>();
+    GetStatisticDataByNameAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const GetStatisticDataByNameRequest&,
+        GetStatisticDataByNameOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1782,6 +2182,106 @@ MnaClient::SetNotifyUrlOutcomeCallable MnaClient::SetNotifyUrlCallable(const Set
         const MnaClient*,
         const SetNotifyUrlRequest&,
         SetNotifyUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MnaClient::UpdateApplicationInfoOutcome MnaClient::UpdateApplicationInfo(const UpdateApplicationInfoRequest &request)
+{
+    auto outcome = MakeRequest(request, "UpdateApplicationInfo");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        UpdateApplicationInfoResponse rsp = UpdateApplicationInfoResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return UpdateApplicationInfoOutcome(rsp);
+        else
+            return UpdateApplicationInfoOutcome(o.GetError());
+    }
+    else
+    {
+        return UpdateApplicationInfoOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::UpdateApplicationInfoAsync(const UpdateApplicationInfoRequest& request, const UpdateApplicationInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const UpdateApplicationInfoRequest&;
+    using Resp = UpdateApplicationInfoResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "UpdateApplicationInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::UpdateApplicationInfoOutcomeCallable MnaClient::UpdateApplicationInfoCallable(const UpdateApplicationInfoRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<UpdateApplicationInfoOutcome>>();
+    UpdateApplicationInfoAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const UpdateApplicationInfoRequest&,
+        UpdateApplicationInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MnaClient::UpdateApplicationKeyOutcome MnaClient::UpdateApplicationKey(const UpdateApplicationKeyRequest &request)
+{
+    auto outcome = MakeRequest(request, "UpdateApplicationKey");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        UpdateApplicationKeyResponse rsp = UpdateApplicationKeyResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return UpdateApplicationKeyOutcome(rsp);
+        else
+            return UpdateApplicationKeyOutcome(o.GetError());
+    }
+    else
+    {
+        return UpdateApplicationKeyOutcome(outcome.GetError());
+    }
+}
+
+void MnaClient::UpdateApplicationKeyAsync(const UpdateApplicationKeyRequest& request, const UpdateApplicationKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const UpdateApplicationKeyRequest&;
+    using Resp = UpdateApplicationKeyResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "UpdateApplicationKey", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MnaClient::UpdateApplicationKeyOutcomeCallable MnaClient::UpdateApplicationKeyCallable(const UpdateApplicationKeyRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<UpdateApplicationKeyOutcome>>();
+    UpdateApplicationKeyAsync(
+    request,
+    [prom](
+        const MnaClient*,
+        const UpdateApplicationKeyRequest&,
+        UpdateApplicationKeyOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

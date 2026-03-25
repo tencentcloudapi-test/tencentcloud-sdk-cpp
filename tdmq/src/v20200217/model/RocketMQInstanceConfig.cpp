@@ -37,7 +37,10 @@ RocketMQInstanceConfig::RocketMQInstanceConfig() :
     m_minRetentionHasBeenSet(false),
     m_retentionHasBeenSet(false),
     m_topicNumLowerLimitHasBeenSet(false),
-    m_topicNumUpperLimitHasBeenSet(false)
+    m_topicNumUpperLimitHasBeenSet(false),
+    m_sendReceiveRatioHasBeenSet(false),
+    m_tpsLimitHasBeenSet(false),
+    m_generalSkuCodeHasBeenSet(false)
 {
 }
 
@@ -236,6 +239,36 @@ CoreInternalOutcome RocketMQInstanceConfig::Deserialize(const rapidjson::Value &
         m_topicNumUpperLimitHasBeenSet = true;
     }
 
+    if (value.HasMember("SendReceiveRatio") && !value["SendReceiveRatio"].IsNull())
+    {
+        if (!value["SendReceiveRatio"].IsLosslessDouble())
+        {
+            return CoreInternalOutcome(Core::Error("response `RocketMQInstanceConfig.SendReceiveRatio` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
+        }
+        m_sendReceiveRatio = value["SendReceiveRatio"].GetDouble();
+        m_sendReceiveRatioHasBeenSet = true;
+    }
+
+    if (value.HasMember("TpsLimit") && !value["TpsLimit"].IsNull())
+    {
+        if (!value["TpsLimit"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `RocketMQInstanceConfig.TpsLimit` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_tpsLimit = value["TpsLimit"].GetInt64();
+        m_tpsLimitHasBeenSet = true;
+    }
+
+    if (value.HasMember("GeneralSkuCode") && !value["GeneralSkuCode"].IsNull())
+    {
+        if (!value["GeneralSkuCode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `RocketMQInstanceConfig.GeneralSkuCode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_generalSkuCode = string(value["GeneralSkuCode"].GetString());
+        m_generalSkuCodeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -391,6 +424,30 @@ void RocketMQInstanceConfig::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         string key = "TopicNumUpperLimit";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_topicNumUpperLimit, allocator);
+    }
+
+    if (m_sendReceiveRatioHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SendReceiveRatio";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_sendReceiveRatio, allocator);
+    }
+
+    if (m_tpsLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TpsLimit";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tpsLimit, allocator);
+    }
+
+    if (m_generalSkuCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "GeneralSkuCode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_generalSkuCode.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -666,5 +723,53 @@ void RocketMQInstanceConfig::SetTopicNumUpperLimit(const int64_t& _topicNumUpper
 bool RocketMQInstanceConfig::TopicNumUpperLimitHasBeenSet() const
 {
     return m_topicNumUpperLimitHasBeenSet;
+}
+
+double RocketMQInstanceConfig::GetSendReceiveRatio() const
+{
+    return m_sendReceiveRatio;
+}
+
+void RocketMQInstanceConfig::SetSendReceiveRatio(const double& _sendReceiveRatio)
+{
+    m_sendReceiveRatio = _sendReceiveRatio;
+    m_sendReceiveRatioHasBeenSet = true;
+}
+
+bool RocketMQInstanceConfig::SendReceiveRatioHasBeenSet() const
+{
+    return m_sendReceiveRatioHasBeenSet;
+}
+
+int64_t RocketMQInstanceConfig::GetTpsLimit() const
+{
+    return m_tpsLimit;
+}
+
+void RocketMQInstanceConfig::SetTpsLimit(const int64_t& _tpsLimit)
+{
+    m_tpsLimit = _tpsLimit;
+    m_tpsLimitHasBeenSet = true;
+}
+
+bool RocketMQInstanceConfig::TpsLimitHasBeenSet() const
+{
+    return m_tpsLimitHasBeenSet;
+}
+
+string RocketMQInstanceConfig::GetGeneralSkuCode() const
+{
+    return m_generalSkuCode;
+}
+
+void RocketMQInstanceConfig::SetGeneralSkuCode(const string& _generalSkuCode)
+{
+    m_generalSkuCode = _generalSkuCode;
+    m_generalSkuCodeHasBeenSet = true;
+}
+
+bool RocketMQInstanceConfig::GeneralSkuCodeHasBeenSet() const
+{
+    return m_generalSkuCodeHasBeenSet;
 }
 

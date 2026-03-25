@@ -340,6 +340,56 @@ TkeClient::DescribeClusterInstancesOutcomeCallable TkeClient::DescribeClusterIns
     return prom->get_future();
 }
 
+TkeClient::DescribeClusterMachinesOutcome TkeClient::DescribeClusterMachines(const DescribeClusterMachinesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeClusterMachines");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeClusterMachinesResponse rsp = DescribeClusterMachinesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeClusterMachinesOutcome(rsp);
+        else
+            return DescribeClusterMachinesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeClusterMachinesOutcome(outcome.GetError());
+    }
+}
+
+void TkeClient::DescribeClusterMachinesAsync(const DescribeClusterMachinesRequest& request, const DescribeClusterMachinesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeClusterMachinesRequest&;
+    using Resp = DescribeClusterMachinesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeClusterMachines", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TkeClient::DescribeClusterMachinesOutcomeCallable TkeClient::DescribeClusterMachinesCallable(const DescribeClusterMachinesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeClusterMachinesOutcome>>();
+    DescribeClusterMachinesAsync(
+    request,
+    [prom](
+        const TkeClient*,
+        const DescribeClusterMachinesRequest&,
+        DescribeClusterMachinesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 TkeClient::DescribeClustersOutcome TkeClient::DescribeClusters(const DescribeClustersRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeClusters");
@@ -382,6 +432,56 @@ TkeClient::DescribeClustersOutcomeCallable TkeClient::DescribeClustersCallable(c
         const TkeClient*,
         const DescribeClustersRequest&,
         DescribeClustersOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TkeClient::DescribeGPUInfoOutcome TkeClient::DescribeGPUInfo(const DescribeGPUInfoRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeGPUInfo");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeGPUInfoResponse rsp = DescribeGPUInfoResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeGPUInfoOutcome(rsp);
+        else
+            return DescribeGPUInfoOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeGPUInfoOutcome(outcome.GetError());
+    }
+}
+
+void TkeClient::DescribeGPUInfoAsync(const DescribeGPUInfoRequest& request, const DescribeGPUInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeGPUInfoRequest&;
+    using Resp = DescribeGPUInfoResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeGPUInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TkeClient::DescribeGPUInfoOutcomeCallable TkeClient::DescribeGPUInfoCallable(const DescribeGPUInfoRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeGPUInfoOutcome>>();
+    DescribeGPUInfoAsync(
+    request,
+    [prom](
+        const TkeClient*,
+        const DescribeGPUInfoRequest&,
+        DescribeGPUInfoOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -582,6 +682,106 @@ TkeClient::DescribeNodePoolsOutcomeCallable TkeClient::DescribeNodePoolsCallable
         const TkeClient*,
         const DescribeNodePoolsRequest&,
         DescribeNodePoolsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TkeClient::DescribeZoneInstanceConfigInfosOutcome TkeClient::DescribeZoneInstanceConfigInfos(const DescribeZoneInstanceConfigInfosRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeZoneInstanceConfigInfos");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeZoneInstanceConfigInfosResponse rsp = DescribeZoneInstanceConfigInfosResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeZoneInstanceConfigInfosOutcome(rsp);
+        else
+            return DescribeZoneInstanceConfigInfosOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeZoneInstanceConfigInfosOutcome(outcome.GetError());
+    }
+}
+
+void TkeClient::DescribeZoneInstanceConfigInfosAsync(const DescribeZoneInstanceConfigInfosRequest& request, const DescribeZoneInstanceConfigInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeZoneInstanceConfigInfosRequest&;
+    using Resp = DescribeZoneInstanceConfigInfosResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeZoneInstanceConfigInfos", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TkeClient::DescribeZoneInstanceConfigInfosOutcomeCallable TkeClient::DescribeZoneInstanceConfigInfosCallable(const DescribeZoneInstanceConfigInfosRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeZoneInstanceConfigInfosOutcome>>();
+    DescribeZoneInstanceConfigInfosAsync(
+    request,
+    [prom](
+        const TkeClient*,
+        const DescribeZoneInstanceConfigInfosRequest&,
+        DescribeZoneInstanceConfigInfosOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TkeClient::ModifyClusterMachineOutcome TkeClient::ModifyClusterMachine(const ModifyClusterMachineRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyClusterMachine");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyClusterMachineResponse rsp = ModifyClusterMachineResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyClusterMachineOutcome(rsp);
+        else
+            return ModifyClusterMachineOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyClusterMachineOutcome(outcome.GetError());
+    }
+}
+
+void TkeClient::ModifyClusterMachineAsync(const ModifyClusterMachineRequest& request, const ModifyClusterMachineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyClusterMachineRequest&;
+    using Resp = ModifyClusterMachineResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyClusterMachine", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TkeClient::ModifyClusterMachineOutcomeCallable TkeClient::ModifyClusterMachineCallable(const ModifyClusterMachineRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyClusterMachineOutcome>>();
+    ModifyClusterMachineAsync(
+    request,
+    [prom](
+        const TkeClient*,
+        const ModifyClusterMachineRequest&,
+        ModifyClusterMachineOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

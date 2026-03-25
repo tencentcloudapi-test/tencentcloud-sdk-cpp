@@ -20,11 +20,11 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/teo/v20220901/model/RuleBranch.h>
 
 
 namespace TencentCloud
@@ -35,7 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleBranch;
                 /**
                 * 子规则。
                 */
@@ -55,7 +54,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<RuleBranch>> GetBranches() const;
+                    std::vector<RuleBranch> GetBranches() const;
 
                     /**
                      * 设置子规则分支
@@ -64,7 +63,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetBranches(const std::vector<std::shared_ptr<RuleBranch>>& _branches);
+                    void SetBranches(const std::vector<RuleBranch>& _branches);
 
                     /**
                      * 判断参数 Branches 是否已赋值
@@ -100,7 +99,7 @@ namespace TencentCloud
                      * 子规则分支
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<RuleBranch>> m_branches;
+                    std::vector<RuleBranch> m_branches;
                     bool m_branchesHasBeenSet;
 
                     /**

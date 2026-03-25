@@ -45,6 +45,10 @@
 #include <tencentcloud/ocr/v20181119/model/ClassifyStoreNameResponse.h>
 #include <tencentcloud/ocr/v20181119/model/DescribeExtractDocAgentJobRequest.h>
 #include <tencentcloud/ocr/v20181119/model/DescribeExtractDocAgentJobResponse.h>
+#include <tencentcloud/ocr/v20181119/model/DescribeMarkEssayAgentJobRequest.h>
+#include <tencentcloud/ocr/v20181119/model/DescribeMarkEssayAgentJobResponse.h>
+#include <tencentcloud/ocr/v20181119/model/DescribeQuestionMarkAgentJobRequest.h>
+#include <tencentcloud/ocr/v20181119/model/DescribeQuestionMarkAgentJobResponse.h>
 #include <tencentcloud/ocr/v20181119/model/DriverLicenseOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/DriverLicenseOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/DutyPaidProofOCRRequest.h>
@@ -57,6 +61,8 @@
 #include <tencentcloud/ocr/v20181119/model/EnterpriseLicenseOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/EstateCertOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/EstateCertOCRResponse.h>
+#include <tencentcloud/ocr/v20181119/model/ExtractDocAgentRequest.h>
+#include <tencentcloud/ocr/v20181119/model/ExtractDocAgentResponse.h>
 #include <tencentcloud/ocr/v20181119/model/ExtractDocBasicRequest.h>
 #include <tencentcloud/ocr/v20181119/model/ExtractDocBasicResponse.h>
 #include <tencentcloud/ocr/v20181119/model/ExtractDocMultiRequest.h>
@@ -145,8 +151,6 @@
 #include <tencentcloud/ocr/v20181119/model/RecognizeStoreNameResponse.h>
 #include <tencentcloud/ocr/v20181119/model/RecognizeTableAccurateOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/RecognizeTableAccurateOCRResponse.h>
-#include <tencentcloud/ocr/v20181119/model/RecognizeTableMultiOCRRequest.h>
-#include <tencentcloud/ocr/v20181119/model/RecognizeTableMultiOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/RecognizeTableOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/RecognizeTableOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/RecognizeThaiIDCardOCRRequest.h>
@@ -169,6 +173,10 @@
 #include <tencentcloud/ocr/v20181119/model/SmartStructuralOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/SubmitExtractDocAgentJobRequest.h>
 #include <tencentcloud/ocr/v20181119/model/SubmitExtractDocAgentJobResponse.h>
+#include <tencentcloud/ocr/v20181119/model/SubmitMarkEssayAgentJobRequest.h>
+#include <tencentcloud/ocr/v20181119/model/SubmitMarkEssayAgentJobResponse.h>
+#include <tencentcloud/ocr/v20181119/model/SubmitQuestionMarkAgentJobRequest.h>
+#include <tencentcloud/ocr/v20181119/model/SubmitQuestionMarkAgentJobResponse.h>
 #include <tencentcloud/ocr/v20181119/model/TableOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/TableOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/TaxiInvoiceOCRRequest.h>
@@ -189,6 +197,8 @@
 #include <tencentcloud/ocr/v20181119/model/VehicleLicenseOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/VehicleRegCertOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/VehicleRegCertOCRResponse.h>
+#include <tencentcloud/ocr/v20181119/model/VerifyBizLicenseEnterprise4Request.h>
+#include <tencentcloud/ocr/v20181119/model/VerifyBizLicenseEnterprise4Response.h>
 #include <tencentcloud/ocr/v20181119/model/VerifyOfdVatInvoiceOCRRequest.h>
 #include <tencentcloud/ocr/v20181119/model/VerifyOfdVatInvoiceOCRResponse.h>
 #include <tencentcloud/ocr/v20181119/model/VinOCRRequest.h>
@@ -242,6 +252,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeExtractDocAgentJobResponse> DescribeExtractDocAgentJobOutcome;
                 typedef std::future<DescribeExtractDocAgentJobOutcome> DescribeExtractDocAgentJobOutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::DescribeExtractDocAgentJobRequest&, DescribeExtractDocAgentJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeExtractDocAgentJobAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeMarkEssayAgentJobResponse> DescribeMarkEssayAgentJobOutcome;
+                typedef std::future<DescribeMarkEssayAgentJobOutcome> DescribeMarkEssayAgentJobOutcomeCallable;
+                typedef std::function<void(const OcrClient*, const Model::DescribeMarkEssayAgentJobRequest&, DescribeMarkEssayAgentJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMarkEssayAgentJobAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeQuestionMarkAgentJobResponse> DescribeQuestionMarkAgentJobOutcome;
+                typedef std::future<DescribeQuestionMarkAgentJobOutcome> DescribeQuestionMarkAgentJobOutcomeCallable;
+                typedef std::function<void(const OcrClient*, const Model::DescribeQuestionMarkAgentJobRequest&, DescribeQuestionMarkAgentJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeQuestionMarkAgentJobAsyncHandler;
                 typedef Outcome<Core::Error, Model::DriverLicenseOCRResponse> DriverLicenseOCROutcome;
                 typedef std::future<DriverLicenseOCROutcome> DriverLicenseOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::DriverLicenseOCRRequest&, DriverLicenseOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> DriverLicenseOCRAsyncHandler;
@@ -260,6 +276,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::EstateCertOCRResponse> EstateCertOCROutcome;
                 typedef std::future<EstateCertOCROutcome> EstateCertOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::EstateCertOCRRequest&, EstateCertOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> EstateCertOCRAsyncHandler;
+                typedef Outcome<Core::Error, Model::ExtractDocAgentResponse> ExtractDocAgentOutcome;
+                typedef std::future<ExtractDocAgentOutcome> ExtractDocAgentOutcomeCallable;
+                typedef std::function<void(const OcrClient*, const Model::ExtractDocAgentRequest&, ExtractDocAgentOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExtractDocAgentAsyncHandler;
                 typedef Outcome<Core::Error, Model::ExtractDocBasicResponse> ExtractDocBasicOutcome;
                 typedef std::future<ExtractDocBasicOutcome> ExtractDocBasicOutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::ExtractDocBasicRequest&, ExtractDocBasicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExtractDocBasicAsyncHandler;
@@ -392,9 +411,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::RecognizeTableAccurateOCRResponse> RecognizeTableAccurateOCROutcome;
                 typedef std::future<RecognizeTableAccurateOCROutcome> RecognizeTableAccurateOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::RecognizeTableAccurateOCRRequest&, RecognizeTableAccurateOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeTableAccurateOCRAsyncHandler;
-                typedef Outcome<Core::Error, Model::RecognizeTableMultiOCRResponse> RecognizeTableMultiOCROutcome;
-                typedef std::future<RecognizeTableMultiOCROutcome> RecognizeTableMultiOCROutcomeCallable;
-                typedef std::function<void(const OcrClient*, const Model::RecognizeTableMultiOCRRequest&, RecognizeTableMultiOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeTableMultiOCRAsyncHandler;
                 typedef Outcome<Core::Error, Model::RecognizeTableOCRResponse> RecognizeTableOCROutcome;
                 typedef std::future<RecognizeTableOCROutcome> RecognizeTableOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::RecognizeTableOCRRequest&, RecognizeTableOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeTableOCRAsyncHandler;
@@ -428,6 +444,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::SubmitExtractDocAgentJobResponse> SubmitExtractDocAgentJobOutcome;
                 typedef std::future<SubmitExtractDocAgentJobOutcome> SubmitExtractDocAgentJobOutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::SubmitExtractDocAgentJobRequest&, SubmitExtractDocAgentJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SubmitExtractDocAgentJobAsyncHandler;
+                typedef Outcome<Core::Error, Model::SubmitMarkEssayAgentJobResponse> SubmitMarkEssayAgentJobOutcome;
+                typedef std::future<SubmitMarkEssayAgentJobOutcome> SubmitMarkEssayAgentJobOutcomeCallable;
+                typedef std::function<void(const OcrClient*, const Model::SubmitMarkEssayAgentJobRequest&, SubmitMarkEssayAgentJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SubmitMarkEssayAgentJobAsyncHandler;
+                typedef Outcome<Core::Error, Model::SubmitQuestionMarkAgentJobResponse> SubmitQuestionMarkAgentJobOutcome;
+                typedef std::future<SubmitQuestionMarkAgentJobOutcome> SubmitQuestionMarkAgentJobOutcomeCallable;
+                typedef std::function<void(const OcrClient*, const Model::SubmitQuestionMarkAgentJobRequest&, SubmitQuestionMarkAgentJobOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SubmitQuestionMarkAgentJobAsyncHandler;
                 typedef Outcome<Core::Error, Model::TableOCRResponse> TableOCROutcome;
                 typedef std::future<TableOCROutcome> TableOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::TableOCRRequest&, TableOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> TableOCRAsyncHandler;
@@ -458,6 +480,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::VehicleRegCertOCRResponse> VehicleRegCertOCROutcome;
                 typedef std::future<VehicleRegCertOCROutcome> VehicleRegCertOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::VehicleRegCertOCRRequest&, VehicleRegCertOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> VehicleRegCertOCRAsyncHandler;
+                typedef Outcome<Core::Error, Model::VerifyBizLicenseEnterprise4Response> VerifyBizLicenseEnterprise4Outcome;
+                typedef std::future<VerifyBizLicenseEnterprise4Outcome> VerifyBizLicenseEnterprise4OutcomeCallable;
+                typedef std::function<void(const OcrClient*, const Model::VerifyBizLicenseEnterprise4Request&, VerifyBizLicenseEnterprise4Outcome, const std::shared_ptr<const AsyncCallerContext>&)> VerifyBizLicenseEnterprise4AsyncHandler;
                 typedef Outcome<Core::Error, Model::VerifyOfdVatInvoiceOCRResponse> VerifyOfdVatInvoiceOCROutcome;
                 typedef std::future<VerifyOfdVatInvoiceOCROutcome> VerifyOfdVatInvoiceOCROutcomeCallable;
                 typedef std::function<void(const OcrClient*, const Model::VerifyOfdVatInvoiceOCRRequest&, VerifyOfdVatInvoiceOCROutcome, const std::shared_ptr<const AsyncCallerContext>&)> VerifyOfdVatInvoiceOCRAsyncHandler;
@@ -471,9 +496,7 @@ namespace TencentCloud
 
 
                 /**
-                 *本接口支持广告商品图片内文字的检测和识别，返回文本框位置与文字内容。
-
-产品优势：针对广告商品图片普遍存在较多繁体字、艺术字的特点，进行了识别能力的增强。支持中英文、横排、竖排以及倾斜场景文字识别。文字识别的召回率和准确率能达到96%以上。
+                 *支持广告商品图片内文字的检测和识别，返回文本框位置与文字内容。支持中英文、横排、竖排以及倾斜场景文字识别，支持90度、180度、270度翻转以及倾斜场景文字识别，具有较高召回率和准确率。
 
 默认接口请求频率限制：20次/秒。
                  * @param req AdvertiseOCRRequest
@@ -583,13 +606,35 @@ namespace TencentCloud
                 ClassifyStoreNameOutcomeCallable ClassifyStoreNameCallable(const Model::ClassifyStoreNameRequest& request);
 
                 /**
-                 *用于查询文档处理任务。文档处理领域里常见的通用Agent 如抽取、比对之类的，目前我们提供的抽取，但未来可以根据实际情况和客户需求扩展。
+                 *模型参数更大，速度更慢。推荐场景：可以接受异步（超过30s返回），样本输入输出token大于2000，长文本类文档建议用异步模型。需要 SubmitExtractDocAgentJob（提交任务）、DescribeExtractDocAgentJob（查询任务）两个接口配套使用，计费发生在提交任务后。【备注：1.固定价格不限抽取字段数，2.自适应价格抽取字段大于10记两次费用，小于等于10记一次费用】
                  * @param req DescribeExtractDocAgentJobRequest
                  * @return DescribeExtractDocAgentJobOutcome
                  */
                 DescribeExtractDocAgentJobOutcome DescribeExtractDocAgentJob(const Model::DescribeExtractDocAgentJobRequest &request);
                 void DescribeExtractDocAgentJobAsync(const Model::DescribeExtractDocAgentJobRequest& request, const DescribeExtractDocAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeExtractDocAgentJobOutcomeCallable DescribeExtractDocAgentJobCallable(const Model::DescribeExtractDocAgentJobRequest& request);
+
+                /**
+                 *用于作文批改Agent查询任务。基于业界领先的千亿参数多模态大模型技术，提供中英文手写作文的精准批改端到端服务。核心功能涵盖错别字智能识别、好词好句点评、错句纠错，并能够在原文中定位至具体段落与字符位置，同时提供详细的修改建议与优化内容。此能力是作业批改场景中的核心模块。
+
+默认接口请求并发限制：2次/分钟。
+                 * @param req DescribeMarkEssayAgentJobRequest
+                 * @return DescribeMarkEssayAgentJobOutcome
+                 */
+                DescribeMarkEssayAgentJobOutcome DescribeMarkEssayAgentJob(const Model::DescribeMarkEssayAgentJobRequest &request);
+                void DescribeMarkEssayAgentJobAsync(const Model::DescribeMarkEssayAgentJobRequest& request, const DescribeMarkEssayAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeMarkEssayAgentJobOutcomeCallable DescribeMarkEssayAgentJobCallable(const Model::DescribeMarkEssayAgentJobRequest& request);
+
+                /**
+                 *用于试题批改Agent查询任务。主要面向K12的试题批改产品，支持整卷/单题端到端（试卷切题+题目批改+手写坐标回显）处理，主要聚焦的场景包括试题批改（含手写答案）、试题解析（不含手写答案），其中低年级算式批改效果比线上[数学作业批改](https://cloud.tencent.com/document/product/1004)效果更好。精准输出题目、正误判定、答案对比、错误及知识点等结构化评估结果。
+
+默认接口请求并发限制：10张/分钟。
+                 * @param req DescribeQuestionMarkAgentJobRequest
+                 * @return DescribeQuestionMarkAgentJobOutcome
+                 */
+                DescribeQuestionMarkAgentJobOutcome DescribeQuestionMarkAgentJob(const Model::DescribeQuestionMarkAgentJobRequest &request);
+                void DescribeQuestionMarkAgentJobAsync(const Model::DescribeQuestionMarkAgentJobRequest& request, const DescribeQuestionMarkAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeQuestionMarkAgentJobOutcomeCallable DescribeQuestionMarkAgentJobCallable(const Model::DescribeQuestionMarkAgentJobRequest& request);
 
                 /**
                  *本接口支持驾驶证主页和副页所有字段的自动定位与识别，重点字段的识别准确度达到99%以上。
@@ -665,6 +710,15 @@ namespace TencentCloud
                 EstateCertOCROutcome EstateCertOCR(const Model::EstateCertOCRRequest &request);
                 void EstateCertOCRAsync(const Model::EstateCertOCRRequest& request, const EstateCertOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 EstateCertOCROutcomeCallable EstateCertOCRCallable(const Model::EstateCertOCRRequest& request);
+
+                /**
+                 *模型参数更小，速度更快。推荐场景：实时性要求高（30s以内）并且样本输入输出token2000以内，建议用实时模型。【备注：1.固定价格不限抽取字段数，2.自适应价格抽取字段大于10记两次费用，小于等于10记一次费用】
+                 * @param req ExtractDocAgentRequest
+                 * @return ExtractDocAgentOutcome
+                 */
+                ExtractDocAgentOutcome ExtractDocAgent(const Model::ExtractDocAgentRequest &request);
+                void ExtractDocAgentAsync(const Model::ExtractDocAgentRequest& request, const ExtractDocAgentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ExtractDocAgentOutcomeCallable ExtractDocAgentCallable(const Model::ExtractDocAgentRequest& request);
 
                 /**
                  *本接口支持识别并提取制式卡证、票据、表单等结构化场景的字段信息。无需任何配置，灵活高效。适用于各类结构化信息录入场景。点击[立即体验](https://ocrdemo.cloud.tencent.com/?action=ExtractDocBasic)。
@@ -784,8 +838,8 @@ namespace TencentCloud
         </tr>
         <tr>
           <td>支持的语言</td>
-          <td>中文、英文、中英文、泰语、印尼语、日语、韩语、西班牙语、法语、德语、葡萄牙语、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、哈萨克语</td>
-          <td>中文、英文、中英文、日语、韩语、西班牙语、法语、德语、葡萄牙语、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、泰语</td>  
+          <td>中文、英文、泰语、印尼语、日语、韩语、西班牙语（智利）、西班牙语（墨西哥）、法语、德语、葡萄牙语、葡萄牙语（巴西）、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、哈萨克语、阿拉伯语、维吾尔语、藏语、捷克语、希腊语、希伯来语、克罗地亚语、波兰语、罗马尼亚语、斯洛伐克语、斯洛文尼亚语、土耳其语、保加利亚语、爱沙尼亚语、拉脱维亚语、立陶宛语、乌尔都文、塞尔维亚文、欧西坦文、毛利文、阿尔巴尼亚文、斯瓦希里文、乌兹别克文、乌克兰文、阿巴扎文、南非荷兰文、威尔士文、冰岛文、库尔德文、达尔瓦文、因古什文、拉克文、莱兹甘文、塔巴萨兰文、沙特阿拉伯文、阿瓦尔文、阿迪赫文、印度-古吉拉特语、印度-印地语、印度-孟加拉语、印度-卡纳达语、印度-马拉亚拉姆语、印度-马拉地语、印度-旁遮普语、印度-泰米尔语、印度-泰卢固语、阿塞拜疆语、波斯尼亚语、加泰罗尼亚语、卢森堡语、马耳他语、爱尔兰语、白俄罗斯语、高棉语、他加禄语、普什图语、波斯语、塔吉克斯坦语</td>
+          <td>中文、英文、日语、韩语、西班牙语、法语、德语、葡萄牙语、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、泰语</td>  
         </tr>
         <tr>
           <td>自动语言检测</td>
@@ -814,7 +868,8 @@ namespace TencentCloud
                 GeneralAccurateOCROutcomeCallable GeneralAccurateOCRCallable(const Model::GeneralAccurateOCRRequest& request);
 
                 /**
-                 *本接口支持图像整体文字的检测和识别。可以识别中文、英文、中英文、日语、韩语、西班牙语、法语、德语、葡萄牙语、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、泰语，阿拉伯语20种语言，且各种语言均支持与英文混合的文字识别。
+                 ***建议您使用识别效果更好的[通用文字识别（高精度版](https://cloud.tencent.com/document/product/866/34937 )）**
+本接口支持图像整体文字的检测和识别。可以识别中文、英文、中英文、日语、韩语、西班牙语、法语、德语、葡萄牙语、越南语、马来语、俄语、意大利语、荷兰语、瑞典语、芬兰语、丹麦语、挪威语、匈牙利语、泰语，阿拉伯语20种语言，且各种语言均支持与英文混合的文字识别。
 
 适用于印刷文档识别、网络图片识别、广告图文字识别、街景店招牌识别、菜单识别、视频标题识别、头像文字识别等场景。
 
@@ -959,7 +1014,7 @@ namespace TencentCloud
                 GeneralFastOCROutcomeCallable GeneralFastOCRCallable(const Model::GeneralFastOCRRequest& request);
 
                 /**
-                 *<b>此接口为通用手写体识别的旧版本服务，不再进行服务升级，建议您使用识别能力更强、服务性能更优的<a href="https://cloud.tencent.com/document/product/866/34937">通用印刷体识别(高精度)识别服务</a>。</b>
+                 *<b>此接口为通用手写体识别的旧版本服务，建议您使用识别能力更强、服务性能更优的<a href="https://cloud.tencent.com/document/product/866/34937">通用印刷体识别(高精度)识别服务</a>。</b>
 
 本接口支持图片内手写体文字的检测和识别，针对手写字体无规则、字迹潦草、模糊等特点进行了识别能力的增强。
 
@@ -1027,6 +1082,9 @@ namespace TencentCloud
 
 另外，本接口还支持多种扩展能力，满足不同场景的需求。如身份证照片、人像照片的裁剪功能，同时具备7种告警功能，如下表所示。
 
+重要提醒：本产品告警功能依托AI检测技术，不可作为审核的唯一依据，应用前请做好效果测试。
+
+
 <table style="width:650px">
       <thead>
         <tr>
@@ -1046,7 +1104,10 @@ namespace TencentCloud
           <td rowspan="9">告警功能</td>
         </tr>
         <tr>
-          <td>身份证边框不完整告警</td>
+         <td>身份证有效日期不合法告警</td>
+        </tr> 
+        <tr>
+         <td>身份证边框不完整告警</td>
         </tr>
         <tr>
           <td>身份证复印件告警</td>
@@ -1223,7 +1284,7 @@ namespace TencentCloud
                 QuestionOCROutcomeCallable QuestionOCRCallable(const Model::QuestionOCRRequest& request);
 
                 /**
-                 *试卷切题（仅检测）可将整页练习册、试卷或教辅中的题目进行自动切题，返回试题边框和题目元素的坐标位置。
+                 *试卷切题（仅检测）可将整页练习册、试卷或教辅中的题目进行自动切题，返回试题边框的坐标位置。新客户请注意UseNewMode的选择。
 
 默认接口请求频率限制：2次/秒。
                  * @param req QuestionSplitLayoutOCRRequest
@@ -1234,7 +1295,7 @@ namespace TencentCloud
                 QuestionSplitLayoutOCROutcomeCallable QuestionSplitLayoutOCRCallable(const Model::QuestionSplitLayoutOCRRequest& request);
 
                 /**
-                 *试卷切题识别可将整页练习册、试卷或教辅中的题目进行自动切题，并识别出其中的文字内容和坐标位置。
+                 *试卷切题识别可将整页练习册、试卷或教辅中的题目进行自动切题，并识别出其中的文字内容和坐标位置。新接入客户请注意UseNewModel选择
 
 默认接口请求频率限制：2次/秒。
                  * @param req QuestionSplitOCRRequest
@@ -1269,9 +1330,12 @@ namespace TencentCloud
                 /**
                  *身份证识别（安全加密版）接口实现了数据加密传输，能够有效防止个人身份证隐私信息不被窃取泄露。
 
-本接口支持中国大陆居民二代身份证正反面所有字段的识别，包括姓名、性别、民族、出生日期、住址、公民身份证号、签发机关、有效期限，识别准确度达到99%以上。
+本接口支持中国大陆居民二代身份证正反面所有字段的识别，包括姓名、性别、民族、出生日期、住址、公民身份证号、签发机关、有效期限，识别速度快、准确度高。
 
 另外，本接口还支持多种扩展能力，满足不同场景的需求。如身份证照片、人像照片的裁剪功能，同时具备9种告警功能，如下表所示。
+
+重要提醒：本产品告警功能依托AI检测技术，不可作为审核的唯一依据，应用前请做好效果测试。
+
 
 <table style="width:650px">
       <thead>
@@ -1290,7 +1354,7 @@ namespace TencentCloud
         </tr>
         <tr>
           <td rowspan="9">告警功能</td>
-          <td>身份证有效日期不合法，即有效日期不符合5年、10年、20年、长期期限
+          <td>身份证有效日期不合法
 
 </td>
         </tr>
@@ -1339,6 +1403,8 @@ namespace TencentCloud
 
                 /**
                  *支持通用证照的有效性检测告警，包括卡证复印件告警、卡证翻拍告警等功能，支持通用证照的ps伪造检测，可以应用于各种证件信息有效性校验场景。
+
+重要提醒：本产品依托AI检测技术，不可作为审核的唯一依据，应用前请做好效果测试。
 
 默认接口请求频率限制：5次/秒。
                  * @param req RecognizeGeneralCardWarnRequest
@@ -1545,7 +1611,12 @@ namespace TencentCloud
           <td> 25 </td>
         </tr>
         <tr>
-          <td> OtherInvoice </td>
+           <td> ElectronicTollSummary </td>
+          <td> 通行费电子票据汇总单 </td>
+          <td> 26 </td>
+        </tr>
+        <tr>
+           <td> OtherInvoice </td>
           <td> 其他发票 </td>
           <td> -1 </td>
         </tr>
@@ -1615,17 +1686,6 @@ namespace TencentCloud
                 RecognizeTableAccurateOCROutcomeCallable RecognizeTableAccurateOCRCallable(const Model::RecognizeTableAccurateOCRRequest& request);
 
                 /**
-                 *基于MLLM(多模态大语言模型)的表格识别能力，针对复杂表格的算法识别效果更佳，适配财务报表识别场景，并可输出直接对接业务系统的Excel数据。
-
-默认接口请求频率限制：1次/秒。
-                 * @param req RecognizeTableMultiOCRRequest
-                 * @return RecognizeTableMultiOCROutcome
-                 */
-                RecognizeTableMultiOCROutcome RecognizeTableMultiOCR(const Model::RecognizeTableMultiOCRRequest &request);
-                void RecognizeTableMultiOCRAsync(const Model::RecognizeTableMultiOCRRequest& request, const RecognizeTableMultiOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                RecognizeTableMultiOCROutcomeCallable RecognizeTableMultiOCRCallable(const Model::RecognizeTableMultiOCRRequest& request);
-
-                /**
                  *本接口支持中英文图片/ PDF内常规表格、无线表格、多表格的检测和识别，支持日文有线表格识别，返回每个单元格的文字内容，支持旋转的表格图片识别，且支持将识别结果保存为 Excel 格式。
 
 默认接口请求频率限制：10次/秒。
@@ -1663,6 +1723,8 @@ namespace TencentCloud
 
                 /**
                  *本接口支持二代身份证、临时身份证、港澳台居住证、外国人永久居留证，字段内容识别功能，包括姓名、性别、民族、出生、出生日期、住址、公民身份号码、签发机关、有效期限、国籍、通行证号码、持证人持有号码；支持返回证件类型；支持翻拍、复印、边框不完整、遮挡、字段级反光和字段级完整性告警；支持卡片主体框裁剪和头像裁剪。
+
+重要提醒：本产品告警功能依托AI检测技术，不可作为审核的唯一依据，应用前请做好效果测试。
 
 默认接口请求频率限制：5次/秒。
                  * @param req RecognizeValidIDCardOCRRequest
@@ -1740,13 +1802,35 @@ namespace TencentCloud
                 SmartStructuralOCROutcomeCallable SmartStructuralOCRCallable(const Model::SmartStructuralOCRRequest& request);
 
                 /**
-                 *文档处理领域里常见的通用Agent 如抽取、比对之类的，目前我们提供的抽取，但未来可以根据实际情况和客户需求扩展。
+                 *模型参数更大，速度更慢。推荐场景：可以接受异步（超过30s返回），样本输入输出token大于2000，长文本类文档建议用异步模型。需要 SubmitExtractDocAgentJob（提交任务）、DescribeExtractDocAgentJob（查询任务）两个接口配套使用，计费发生在提交任务后。【备注：1.固定价格不限抽取字段数，2.自适应价格抽取字段大于10记两次费用，小于等于10记一次费用】
                  * @param req SubmitExtractDocAgentJobRequest
                  * @return SubmitExtractDocAgentJobOutcome
                  */
                 SubmitExtractDocAgentJobOutcome SubmitExtractDocAgentJob(const Model::SubmitExtractDocAgentJobRequest &request);
                 void SubmitExtractDocAgentJobAsync(const Model::SubmitExtractDocAgentJobRequest& request, const SubmitExtractDocAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 SubmitExtractDocAgentJobOutcomeCallable SubmitExtractDocAgentJobCallable(const Model::SubmitExtractDocAgentJobRequest& request);
+
+                /**
+                 *用于作文批改Agent提交任务。基于业界领先的千亿参数多模态大模型技术，提供中英文手写作文的精准批改端到端服务。核心功能涵盖错别字智能识别、好词好句点评、错句纠错，并能够在原文中定位至具体段落与字符位置，同时提供详细的修改建议与优化内容。此能力是作业批改场景中的核心模块。
+
+默认接口请求并发限制：2次/分钟。
+                 * @param req SubmitMarkEssayAgentJobRequest
+                 * @return SubmitMarkEssayAgentJobOutcome
+                 */
+                SubmitMarkEssayAgentJobOutcome SubmitMarkEssayAgentJob(const Model::SubmitMarkEssayAgentJobRequest &request);
+                void SubmitMarkEssayAgentJobAsync(const Model::SubmitMarkEssayAgentJobRequest& request, const SubmitMarkEssayAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SubmitMarkEssayAgentJobOutcomeCallable SubmitMarkEssayAgentJobCallable(const Model::SubmitMarkEssayAgentJobRequest& request);
+
+                /**
+                 *用于试题批改Agent提交任务。主要面向K12的试题批改产品，支持整卷/单题端到端（试卷切题+题目批改+手写坐标回显）处理，主要聚焦的场景包括试题批改（含手写答案）、试题解析（不含手写答案），其中低年级算式批改效果比线上[数学作业批改](https://cloud.tencent.com/document/product/1004)效果更好。精准输出题目、正误判定、答案对比、错误及知识点等结构化评估结果。
+
+默认接口请求并发限制：10张/分钟。
+                 * @param req SubmitQuestionMarkAgentJobRequest
+                 * @return SubmitQuestionMarkAgentJobOutcome
+                 */
+                SubmitQuestionMarkAgentJobOutcome SubmitQuestionMarkAgentJob(const Model::SubmitQuestionMarkAgentJobRequest &request);
+                void SubmitQuestionMarkAgentJobAsync(const Model::SubmitQuestionMarkAgentJobRequest& request, const SubmitQuestionMarkAgentJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SubmitQuestionMarkAgentJobOutcomeCallable SubmitQuestionMarkAgentJobCallable(const Model::SubmitQuestionMarkAgentJobRequest& request);
 
                 /**
                  *<b>此接口为表格识别的旧版本服务，不再进行服务升级，建议您使用识别能力更强、服务性能更优的<a href="https://cloud.tencent.com/document/product/866/49525">新版表格识别</a>。</b>
@@ -1867,6 +1951,18 @@ namespace TencentCloud
                 VehicleRegCertOCROutcome VehicleRegCertOCR(const Model::VehicleRegCertOCRRequest &request);
                 void VehicleRegCertOCRAsync(const Model::VehicleRegCertOCRRequest& request, const VehicleRegCertOCRAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 VehicleRegCertOCROutcomeCallable VehicleRegCertOCRCallable(const Model::VehicleRegCertOCRRequest& request);
+
+                /**
+                 *提供比对校验企业名称、统一社会信用代码、法人姓名、注册登记证件号码一致性的服务，助力快速核验企业资质。
+注意：
+存在个别特殊情况下核验结果不准确，请选用前知悉；
+按周更新企业信息变更情况，如遇到未及时更新的情况，可联系在线客服转产品团队进行人工处理。
+                 * @param req VerifyBizLicenseEnterprise4Request
+                 * @return VerifyBizLicenseEnterprise4Outcome
+                 */
+                VerifyBizLicenseEnterprise4Outcome VerifyBizLicenseEnterprise4(const Model::VerifyBizLicenseEnterprise4Request &request);
+                void VerifyBizLicenseEnterprise4Async(const Model::VerifyBizLicenseEnterprise4Request& request, const VerifyBizLicenseEnterprise4AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                VerifyBizLicenseEnterprise4OutcomeCallable VerifyBizLicenseEnterprise4Callable(const Model::VerifyBizLicenseEnterprise4Request& request);
 
                 /**
                  *本接口支持OFD格式的增值税电子普通发票、增值税电子专用发票、电子发票（普通发票）、电子发票（增值税专用发票）、电子发票（铁路电子客票）、电子发票（航空运输电子客票行程单）识别，返回发票代码、发票号码、开票日期、验证码、机器编号、密码区，购买方和销售方信息，包括名称、纳税人识别号、地址电话、开户行及账号，以及价税合计、开票人、收款人、复核人、税额、不含税金额等字段信息。

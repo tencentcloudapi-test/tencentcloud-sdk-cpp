@@ -27,6 +27,8 @@
 #include <tencentcloud/antiddos/v20200309/model/AssociateDDoSEipAddressResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/AssociateDDoSEipLoadBalancerRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/AssociateDDoSEipLoadBalancerResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/CreateBgpInstanceRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/CreateBgpInstanceResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateBlackWhiteIpListRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateBlackWhiteIpListResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/CreateBoundIPRequest.h>
@@ -103,6 +105,8 @@
 #include <tencentcloud/antiddos/v20200309/model/DescribeBasicDeviceStatusResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBgpBizTrendRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBgpBizTrendResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBgpInstancesRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeBgpInstancesResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBizHttpStatusRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBizHttpStatusResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeBizMonitorTrendRequest.h>
@@ -157,6 +161,8 @@
 #include <tencentcloud/antiddos/v20200309/model/DescribeListPacketFilterConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListPortAclListRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListPortAclListResponse.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeListProtectThresholdConfigNewRequest.h>
+#include <tencentcloud/antiddos/v20200309/model/DescribeListProtectThresholdConfigNewResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListProtocolBlockConfigRequest.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListProtocolBlockConfigResponse.h>
 #include <tencentcloud/antiddos/v20200309/model/DescribeListSchedulingDomainRequest.h>
@@ -231,6 +237,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::AssociateDDoSEipLoadBalancerResponse> AssociateDDoSEipLoadBalancerOutcome;
                 typedef std::future<AssociateDDoSEipLoadBalancerOutcome> AssociateDDoSEipLoadBalancerOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::AssociateDDoSEipLoadBalancerRequest&, AssociateDDoSEipLoadBalancerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AssociateDDoSEipLoadBalancerAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateBgpInstanceResponse> CreateBgpInstanceOutcome;
+                typedef std::future<CreateBgpInstanceOutcome> CreateBgpInstanceOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::CreateBgpInstanceRequest&, CreateBgpInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateBgpInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateBlackWhiteIpListResponse> CreateBlackWhiteIpListOutcome;
                 typedef std::future<CreateBlackWhiteIpListOutcome> CreateBlackWhiteIpListOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::CreateBlackWhiteIpListRequest&, CreateBlackWhiteIpListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateBlackWhiteIpListAsyncHandler;
@@ -345,6 +354,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeBgpBizTrendResponse> DescribeBgpBizTrendOutcome;
                 typedef std::future<DescribeBgpBizTrendOutcome> DescribeBgpBizTrendOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeBgpBizTrendRequest&, DescribeBgpBizTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBgpBizTrendAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBgpInstancesResponse> DescribeBgpInstancesOutcome;
+                typedef std::future<DescribeBgpInstancesOutcome> DescribeBgpInstancesOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeBgpInstancesRequest&, DescribeBgpInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBgpInstancesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeBizHttpStatusResponse> DescribeBizHttpStatusOutcome;
                 typedef std::future<DescribeBizHttpStatusOutcome> DescribeBizHttpStatusOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeBizHttpStatusRequest&, DescribeBizHttpStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBizHttpStatusAsyncHandler;
@@ -426,6 +438,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeListPortAclListResponse> DescribeListPortAclListOutcome;
                 typedef std::future<DescribeListPortAclListOutcome> DescribeListPortAclListOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeListPortAclListRequest&, DescribeListPortAclListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListPortAclListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeListProtectThresholdConfigNewResponse> DescribeListProtectThresholdConfigNewOutcome;
+                typedef std::future<DescribeListProtectThresholdConfigNewOutcome> DescribeListProtectThresholdConfigNewOutcomeCallable;
+                typedef std::function<void(const AntiddosClient*, const Model::DescribeListProtectThresholdConfigNewRequest&, DescribeListProtectThresholdConfigNewOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListProtectThresholdConfigNewAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeListProtocolBlockConfigResponse> DescribeListProtocolBlockConfigOutcome;
                 typedef std::future<DescribeListProtocolBlockConfigOutcome> DescribeListProtocolBlockConfigOutcomeCallable;
                 typedef std::function<void(const AntiddosClient*, const Model::DescribeListProtocolBlockConfigRequest&, DescribeListProtocolBlockConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeListProtocolBlockConfigAsyncHandler;
@@ -527,6 +542,15 @@ namespace TencentCloud
                 AssociateDDoSEipLoadBalancerOutcome AssociateDDoSEipLoadBalancer(const Model::AssociateDDoSEipLoadBalancerRequest &request);
                 void AssociateDDoSEipLoadBalancerAsync(const Model::AssociateDDoSEipLoadBalancerRequest& request, const AssociateDDoSEipLoadBalancerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 AssociateDDoSEipLoadBalancerOutcomeCallable AssociateDDoSEipLoadBalancerCallable(const Model::AssociateDDoSEipLoadBalancerRequest& request);
+
+                /**
+                 *通过API 购买高防包接口
+                 * @param req CreateBgpInstanceRequest
+                 * @return CreateBgpInstanceOutcome
+                 */
+                CreateBgpInstanceOutcome CreateBgpInstance(const Model::CreateBgpInstanceRequest &request);
+                void CreateBgpInstanceAsync(const Model::CreateBgpInstanceRequest& request, const CreateBgpInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateBgpInstanceOutcomeCallable CreateBgpInstanceCallable(const Model::CreateBgpInstanceRequest& request);
 
                 /**
                  *添加DDoS防护的IP黑白名单
@@ -871,6 +895,15 @@ namespace TencentCloud
                 DescribeBgpBizTrendOutcomeCallable DescribeBgpBizTrendCallable(const Model::DescribeBgpBizTrendRequest& request);
 
                 /**
+                 *购买后，查询购买的高防包实例信息
+                 * @param req DescribeBgpInstancesRequest
+                 * @return DescribeBgpInstancesOutcome
+                 */
+                DescribeBgpInstancesOutcome DescribeBgpInstances(const Model::DescribeBgpInstancesRequest &request);
+                void DescribeBgpInstancesAsync(const Model::DescribeBgpInstancesRequest& request, const DescribeBgpInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBgpInstancesOutcomeCallable DescribeBgpInstancesCallable(const Model::DescribeBgpInstancesRequest& request);
+
+                /**
                  *获取业务流量状态码统计列表
                  * @param req DescribeBizHttpStatusRequest
                  * @return DescribeBizHttpStatusOutcome
@@ -1112,6 +1145,15 @@ namespace TencentCloud
                 DescribeListPortAclListOutcome DescribeListPortAclList(const Model::DescribeListPortAclListRequest &request);
                 void DescribeListPortAclListAsync(const Model::DescribeListPortAclListRequest& request, const DescribeListPortAclListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeListPortAclListOutcomeCallable DescribeListPortAclListCallable(const Model::DescribeListPortAclListRequest& request);
+
+                /**
+                 *获取防护阈值配置列表，包括DDoS的AI、等级、CC阈值开关等。
+                 * @param req DescribeListProtectThresholdConfigNewRequest
+                 * @return DescribeListProtectThresholdConfigNewOutcome
+                 */
+                DescribeListProtectThresholdConfigNewOutcome DescribeListProtectThresholdConfigNew(const Model::DescribeListProtectThresholdConfigNewRequest &request);
+                void DescribeListProtectThresholdConfigNewAsync(const Model::DescribeListProtectThresholdConfigNewRequest& request, const DescribeListProtectThresholdConfigNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeListProtectThresholdConfigNewOutcomeCallable DescribeListProtectThresholdConfigNewCallable(const Model::DescribeListProtectThresholdConfigNewRequest& request);
 
                 /**
                  *获取DDoS防护的协议封禁配置列表

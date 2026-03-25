@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2019 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,6 @@
 // version = (major << 16) + (minor << 8) + patch
 #define TENCENTCLOUD_VERSION ((3 << 16) + (0 << 8) + 8)
 
-#define TENCENTCLOUD_VERSION_STR "3.0.1217"
+#define TENCENTCLOUD_VERSION_STR "3.3.63"
 
 #endif // !TENCENTCLOUD_CORE_CONFIG_H_

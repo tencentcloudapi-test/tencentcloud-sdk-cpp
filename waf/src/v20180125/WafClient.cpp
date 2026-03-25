@@ -240,6 +240,56 @@ WafClient::AddAttackWhiteRuleOutcomeCallable WafClient::AddAttackWhiteRuleCallab
     return prom->get_future();
 }
 
+WafClient::AddBypassAllRuleOutcome WafClient::AddBypassAllRule(const AddBypassAllRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "AddBypassAllRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        AddBypassAllRuleResponse rsp = AddBypassAllRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return AddBypassAllRuleOutcome(rsp);
+        else
+            return AddBypassAllRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return AddBypassAllRuleOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::AddBypassAllRuleAsync(const AddBypassAllRuleRequest& request, const AddBypassAllRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const AddBypassAllRuleRequest&;
+    using Resp = AddBypassAllRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "AddBypassAllRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::AddBypassAllRuleOutcomeCallable WafClient::AddBypassAllRuleCallable(const AddBypassAllRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<AddBypassAllRuleOutcome>>();
+    AddBypassAllRuleAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const AddBypassAllRuleRequest&,
+        AddBypassAllRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 WafClient::AddCustomRuleOutcome WafClient::AddCustomRule(const AddCustomRuleRequest &request)
 {
     auto outcome = MakeRequest(request, "AddCustomRule");
@@ -2340,6 +2390,56 @@ WafClient::DescribeAntiInfoLeakageRulesOutcomeCallable WafClient::DescribeAntiIn
     return prom->get_future();
 }
 
+WafClient::DescribeApiAggregateTopNOutcome WafClient::DescribeApiAggregateTopN(const DescribeApiAggregateTopNRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeApiAggregateTopN");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeApiAggregateTopNResponse rsp = DescribeApiAggregateTopNResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeApiAggregateTopNOutcome(rsp);
+        else
+            return DescribeApiAggregateTopNOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeApiAggregateTopNOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::DescribeApiAggregateTopNAsync(const DescribeApiAggregateTopNRequest& request, const DescribeApiAggregateTopNAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeApiAggregateTopNRequest&;
+    using Resp = DescribeApiAggregateTopNResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiAggregateTopN", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::DescribeApiAggregateTopNOutcomeCallable WafClient::DescribeApiAggregateTopNCallable(const DescribeApiAggregateTopNRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeApiAggregateTopNOutcome>>();
+    DescribeApiAggregateTopNAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const DescribeApiAggregateTopNRequest&,
+        DescribeApiAggregateTopNOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 WafClient::DescribeApiDetailOutcome WafClient::DescribeApiDetail(const DescribeApiDetailRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeApiDetail");
@@ -2432,6 +2532,56 @@ WafClient::DescribeApiListVersionTwoOutcomeCallable WafClient::DescribeApiListVe
         const WafClient*,
         const DescribeApiListVersionTwoRequest&,
         DescribeApiListVersionTwoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+WafClient::DescribeApiSecSensitiveRuleListOutcome WafClient::DescribeApiSecSensitiveRuleList(const DescribeApiSecSensitiveRuleListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeApiSecSensitiveRuleList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeApiSecSensitiveRuleListResponse rsp = DescribeApiSecSensitiveRuleListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeApiSecSensitiveRuleListOutcome(rsp);
+        else
+            return DescribeApiSecSensitiveRuleListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeApiSecSensitiveRuleListOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::DescribeApiSecSensitiveRuleListAsync(const DescribeApiSecSensitiveRuleListRequest& request, const DescribeApiSecSensitiveRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeApiSecSensitiveRuleListRequest&;
+    using Resp = DescribeApiSecSensitiveRuleListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiSecSensitiveRuleList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::DescribeApiSecSensitiveRuleListOutcomeCallable WafClient::DescribeApiSecSensitiveRuleListCallable(const DescribeApiSecSensitiveRuleListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeApiSecSensitiveRuleListOutcome>>();
+    DescribeApiSecSensitiveRuleListAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const DescribeApiSecSensitiveRuleListRequest&,
+        DescribeApiSecSensitiveRuleListOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2832,6 +2982,56 @@ WafClient::DescribeBatchIpAccessControlOutcomeCallable WafClient::DescribeBatchI
         const WafClient*,
         const DescribeBatchIpAccessControlRequest&,
         DescribeBatchIpAccessControlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+WafClient::DescribeBotIdRuleOutcome WafClient::DescribeBotIdRule(const DescribeBotIdRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeBotIdRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeBotIdRuleResponse rsp = DescribeBotIdRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeBotIdRuleOutcome(rsp);
+        else
+            return DescribeBotIdRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeBotIdRuleOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::DescribeBotIdRuleAsync(const DescribeBotIdRuleRequest& request, const DescribeBotIdRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeBotIdRuleRequest&;
+    using Resp = DescribeBotIdRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeBotIdRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::DescribeBotIdRuleOutcomeCallable WafClient::DescribeBotIdRuleCallable(const DescribeBotIdRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeBotIdRuleOutcome>>();
+    DescribeBotIdRuleAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const DescribeBotIdRuleRequest&,
+        DescribeBotIdRuleOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -6290,6 +6490,56 @@ WafClient::GetInstanceQpsLimitOutcomeCallable WafClient::GetInstanceQpsLimitCall
     return prom->get_future();
 }
 
+WafClient::GetOrganizationRoleOutcome WafClient::GetOrganizationRole(const GetOrganizationRoleRequest &request)
+{
+    auto outcome = MakeRequest(request, "GetOrganizationRole");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        GetOrganizationRoleResponse rsp = GetOrganizationRoleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return GetOrganizationRoleOutcome(rsp);
+        else
+            return GetOrganizationRoleOutcome(o.GetError());
+    }
+    else
+    {
+        return GetOrganizationRoleOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::GetOrganizationRoleAsync(const GetOrganizationRoleRequest& request, const GetOrganizationRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const GetOrganizationRoleRequest&;
+    using Resp = GetOrganizationRoleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "GetOrganizationRole", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::GetOrganizationRoleOutcomeCallable WafClient::GetOrganizationRoleCallable(const GetOrganizationRoleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<GetOrganizationRoleOutcome>>();
+    GetOrganizationRoleAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const GetOrganizationRoleRequest&,
+        GetOrganizationRoleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 WafClient::ImportIpAccessControlOutcome WafClient::ImportIpAccessControl(const ImportIpAccessControlRequest &request)
 {
     auto outcome = MakeRequest(request, "ImportIpAccessControl");
@@ -8190,6 +8440,56 @@ WafClient::ModifyObjectOutcomeCallable WafClient::ModifyObjectCallable(const Mod
     return prom->get_future();
 }
 
+WafClient::ModifyObjectsOutcome WafClient::ModifyObjects(const ModifyObjectsRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyObjects");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyObjectsResponse rsp = ModifyObjectsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyObjectsOutcome(rsp);
+        else
+            return ModifyObjectsOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyObjectsOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::ModifyObjectsAsync(const ModifyObjectsRequest& request, const ModifyObjectsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyObjectsRequest&;
+    using Resp = ModifyObjectsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyObjects", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::ModifyObjectsOutcomeCallable WafClient::ModifyObjectsCallable(const ModifyObjectsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyObjectsOutcome>>();
+    ModifyObjectsAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const ModifyObjectsRequest&,
+        ModifyObjectsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 WafClient::ModifyOwaspRuleStatusOutcome WafClient::ModifyOwaspRuleStatus(const ModifyOwaspRuleStatusRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyOwaspRuleStatus");
@@ -9040,6 +9340,56 @@ WafClient::PostAttackDownloadTaskOutcomeCallable WafClient::PostAttackDownloadTa
     return prom->get_future();
 }
 
+WafClient::QueryBypassAllStatusOutcome WafClient::QueryBypassAllStatus(const QueryBypassAllStatusRequest &request)
+{
+    auto outcome = MakeRequest(request, "QueryBypassAllStatus");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        QueryBypassAllStatusResponse rsp = QueryBypassAllStatusResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return QueryBypassAllStatusOutcome(rsp);
+        else
+            return QueryBypassAllStatusOutcome(o.GetError());
+    }
+    else
+    {
+        return QueryBypassAllStatusOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::QueryBypassAllStatusAsync(const QueryBypassAllStatusRequest& request, const QueryBypassAllStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const QueryBypassAllStatusRequest&;
+    using Resp = QueryBypassAllStatusResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "QueryBypassAllStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::QueryBypassAllStatusOutcomeCallable WafClient::QueryBypassAllStatusCallable(const QueryBypassAllStatusRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<QueryBypassAllStatusOutcome>>();
+    QueryBypassAllStatusAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const QueryBypassAllStatusRequest&,
+        QueryBypassAllStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 WafClient::RefreshAccessCheckResultOutcome WafClient::RefreshAccessCheckResult(const RefreshAccessCheckResultRequest &request)
 {
     auto outcome = MakeRequest(request, "RefreshAccessCheckResult");
@@ -9082,6 +9432,56 @@ WafClient::RefreshAccessCheckResultOutcomeCallable WafClient::RefreshAccessCheck
         const WafClient*,
         const RefreshAccessCheckResultRequest&,
         RefreshAccessCheckResultOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+WafClient::RemoveBypassAllRuleOutcome WafClient::RemoveBypassAllRule(const RemoveBypassAllRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "RemoveBypassAllRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RemoveBypassAllRuleResponse rsp = RemoveBypassAllRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RemoveBypassAllRuleOutcome(rsp);
+        else
+            return RemoveBypassAllRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return RemoveBypassAllRuleOutcome(outcome.GetError());
+    }
+}
+
+void WafClient::RemoveBypassAllRuleAsync(const RemoveBypassAllRuleRequest& request, const RemoveBypassAllRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RemoveBypassAllRuleRequest&;
+    using Resp = RemoveBypassAllRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RemoveBypassAllRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+WafClient::RemoveBypassAllRuleOutcomeCallable WafClient::RemoveBypassAllRuleCallable(const RemoveBypassAllRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RemoveBypassAllRuleOutcome>>();
+    RemoveBypassAllRuleAsync(
+    request,
+    [prom](
+        const WafClient*,
+        const RemoveBypassAllRuleRequest&,
+        RemoveBypassAllRuleOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

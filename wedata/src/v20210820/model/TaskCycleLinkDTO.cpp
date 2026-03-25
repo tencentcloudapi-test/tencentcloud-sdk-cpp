@@ -15,7 +15,6 @@
  */
 
 #include <tencentcloud/wedata/v20210820/model/TaskCycleLinkDTO.h>
-#include <tencentcloud/wedata/v20210820/model/TaskDsDTO.h>
 
 using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Wedata::V20210820::Model;
@@ -125,8 +124,7 @@ CoreInternalOutcome TaskCycleLinkDTO::Deserialize(const rapidjson::Value &value)
             return CoreInternalOutcome(Core::Error("response `TaskCycleLinkDTO.TaskToInfo` is not object type").SetRequestId(requestId));
         }
 
-        m_taskToInfo = std::make_shared<TaskDsDTO>();
-        CoreInternalOutcome outcome = m_taskToInfo->Deserialize(value["TaskToInfo"]);
+        CoreInternalOutcome outcome = m_taskToInfo.Deserialize(value["TaskToInfo"]);
         if (!outcome.IsSuccess())
         {
             outcome.GetError().SetRequestId(requestId);
@@ -305,10 +303,7 @@ void TaskCycleLinkDTO::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "TaskToInfo";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        if (m_taskToInfo)
-        {
-            m_taskToInfo->ToJsonObject(value[key.c_str()], allocator);
-        }
+        m_taskToInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
     if (m_mainCyclicConfigHasBeenSet)
@@ -506,12 +501,12 @@ bool TaskCycleLinkDTO::TaskToWorkflowIdHasBeenSet() const
     return m_taskToWorkflowIdHasBeenSet;
 }
 
-shared_ptr<TaskDsDTO> TaskCycleLinkDTO::GetTaskToInfo() const
+TaskDsDTO TaskCycleLinkDTO::GetTaskToInfo() const
 {
     return m_taskToInfo;
 }
 
-void TaskCycleLinkDTO::SetTaskToInfo(const shared_ptr<TaskDsDTO>& _taskToInfo)
+void TaskCycleLinkDTO::SetTaskToInfo(const TaskDsDTO& _taskToInfo)
 {
     m_taskToInfo = _taskToInfo;
     m_taskToInfoHasBeenSet = true;

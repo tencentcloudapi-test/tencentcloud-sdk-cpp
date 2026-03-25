@@ -20,11 +20,11 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/wedata/v20210820/model/TaskDsDTO.h>
 #include <tencentcloud/wedata/v20210820/model/DependencyStrategyDs.h>
 
 
@@ -36,7 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskDsDTO;
                 /**
                 * 依赖配置
                 */
@@ -56,7 +55,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::shared_ptr<TaskDsDTO> GetParentTask() const;
+                    TaskDsDTO GetParentTask() const;
 
                     /**
                      * 设置ParentTask任务
@@ -65,7 +64,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetParentTask(const std::shared_ptr<TaskDsDTO>& _parentTask);
+                    void SetParentTask(const TaskDsDTO& _parentTask);
 
                     /**
                      * 判断参数 ParentTask 是否已赋值
@@ -81,7 +80,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::shared_ptr<TaskDsDTO> GetSonTask() const;
+                    TaskDsDTO GetSonTask() const;
 
                     /**
                      * 设置SonTask任务
@@ -90,7 +89,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetSonTask(const std::shared_ptr<TaskDsDTO>& _sonTask);
+                    void SetSonTask(const TaskDsDTO& _sonTask);
 
                     /**
                      * 判断参数 SonTask 是否已赋值
@@ -205,14 +204,14 @@ namespace TencentCloud
                      * ParentTask任务
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::shared_ptr<TaskDsDTO> m_parentTask;
+                    TaskDsDTO m_parentTask;
                     bool m_parentTaskHasBeenSet;
 
                     /**
                      * SonTask任务
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::shared_ptr<TaskDsDTO> m_sonTask;
+                    TaskDsDTO m_sonTask;
                     bool m_sonTaskHasBeenSet;
 
                     /**

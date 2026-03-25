@@ -149,8 +149,8 @@ CoreInternalOutcome SQLFolderNode::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["Children"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<SQLFolderNode>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            SQLFolderNode item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -269,10 +269,7 @@ void SQLFolderNode::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         for (auto itr = m_children.begin(); itr != m_children.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -447,12 +444,12 @@ bool SQLFolderNode::NodePermissionHasBeenSet() const
     return m_nodePermissionHasBeenSet;
 }
 
-vector<shared_ptr<SQLFolderNode>> SQLFolderNode::GetChildren() const
+vector<SQLFolderNode> SQLFolderNode::GetChildren() const
 {
     return m_children;
 }
 
-void SQLFolderNode::SetChildren(const vector<shared_ptr<SQLFolderNode>>& _children)
+void SQLFolderNode::SetChildren(const vector<SQLFolderNode>& _children)
 {
     m_children = _children;
     m_childrenHasBeenSet = true;

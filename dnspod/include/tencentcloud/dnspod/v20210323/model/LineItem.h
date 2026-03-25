@@ -20,11 +20,11 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/dnspod/v20210323/model/LineItem.h>
 
 
 namespace TencentCloud
@@ -35,7 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineItem;
                 /**
                 * 域名解析记录线路信息
                 */
@@ -147,7 +146,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<LineItem>> GetSubGroup() const;
+                    std::vector<LineItem> GetSubGroup() const;
 
                     /**
                      * 设置当前线路分类下的子线路列表。
@@ -156,7 +155,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetSubGroup(const std::vector<std::shared_ptr<LineItem>>& _subGroup);
+                    void SetSubGroup(const std::vector<LineItem>& _subGroup);
 
                     /**
                      * 判断参数 SubGroup 是否已赋值
@@ -222,7 +221,7 @@ namespace TencentCloud
                      * 当前线路分类下的子线路列表。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<LineItem>> m_subGroup;
+                    std::vector<LineItem> m_subGroup;
                     bool m_subGroupHasBeenSet;
 
                     /**

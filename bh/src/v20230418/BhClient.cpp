@@ -2140,6 +2140,56 @@ BhClient::DescribeCmdTemplatesOutcomeCallable BhClient::DescribeCmdTemplatesCall
     return prom->get_future();
 }
 
+BhClient::DescribeDepartmentsOutcome BhClient::DescribeDepartments(const DescribeDepartmentsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDepartments");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDepartmentsResponse rsp = DescribeDepartmentsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDepartmentsOutcome(rsp);
+        else
+            return DescribeDepartmentsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDepartmentsOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::DescribeDepartmentsAsync(const DescribeDepartmentsRequest& request, const DescribeDepartmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDepartmentsRequest&;
+    using Resp = DescribeDepartmentsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDepartments", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::DescribeDepartmentsOutcomeCallable BhClient::DescribeDepartmentsCallable(const DescribeDepartmentsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDepartmentsOutcome>>();
+    DescribeDepartmentsAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const DescribeDepartmentsRequest&,
+        DescribeDepartmentsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 BhClient::DescribeDeviceAccountsOutcome BhClient::DescribeDeviceAccounts(const DescribeDeviceAccountsRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeDeviceAccounts");
@@ -2182,6 +2232,106 @@ BhClient::DescribeDeviceAccountsOutcomeCallable BhClient::DescribeDeviceAccounts
         const BhClient*,
         const DescribeDeviceAccountsRequest&,
         DescribeDeviceAccountsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+BhClient::DescribeDeviceCountOutcome BhClient::DescribeDeviceCount(const DescribeDeviceCountRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDeviceCount");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDeviceCountResponse rsp = DescribeDeviceCountResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDeviceCountOutcome(rsp);
+        else
+            return DescribeDeviceCountOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDeviceCountOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::DescribeDeviceCountAsync(const DescribeDeviceCountRequest& request, const DescribeDeviceCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDeviceCountRequest&;
+    using Resp = DescribeDeviceCountResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDeviceCount", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::DescribeDeviceCountOutcomeCallable BhClient::DescribeDeviceCountCallable(const DescribeDeviceCountRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDeviceCountOutcome>>();
+    DescribeDeviceCountAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const DescribeDeviceCountRequest&,
+        DescribeDeviceCountOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+BhClient::DescribeDeviceCountSummaryOutcome BhClient::DescribeDeviceCountSummary(const DescribeDeviceCountSummaryRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeDeviceCountSummary");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeDeviceCountSummaryResponse rsp = DescribeDeviceCountSummaryResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeDeviceCountSummaryOutcome(rsp);
+        else
+            return DescribeDeviceCountSummaryOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeDeviceCountSummaryOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::DescribeDeviceCountSummaryAsync(const DescribeDeviceCountSummaryRequest& request, const DescribeDeviceCountSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeDeviceCountSummaryRequest&;
+    using Resp = DescribeDeviceCountSummaryResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeDeviceCountSummary", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::DescribeDeviceCountSummaryOutcomeCallable BhClient::DescribeDeviceCountSummaryCallable(const DescribeDeviceCountSummaryRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeDeviceCountSummaryOutcome>>();
+    DescribeDeviceCountSummaryAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const DescribeDeviceCountSummaryRequest&,
+        DescribeDeviceCountSummaryOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2990,6 +3140,56 @@ BhClient::DescribeUsersOutcomeCallable BhClient::DescribeUsersCallable(const Des
     return prom->get_future();
 }
 
+BhClient::DisableClientTcpAccessOutcome BhClient::DisableClientTcpAccess(const DisableClientTcpAccessRequest &request)
+{
+    auto outcome = MakeRequest(request, "DisableClientTcpAccess");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DisableClientTcpAccessResponse rsp = DisableClientTcpAccessResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DisableClientTcpAccessOutcome(rsp);
+        else
+            return DisableClientTcpAccessOutcome(o.GetError());
+    }
+    else
+    {
+        return DisableClientTcpAccessOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::DisableClientTcpAccessAsync(const DisableClientTcpAccessRequest& request, const DisableClientTcpAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DisableClientTcpAccessRequest&;
+    using Resp = DisableClientTcpAccessResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DisableClientTcpAccess", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::DisableClientTcpAccessOutcomeCallable BhClient::DisableClientTcpAccessCallable(const DisableClientTcpAccessRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DisableClientTcpAccessOutcome>>();
+    DisableClientTcpAccessAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const DisableClientTcpAccessRequest&,
+        DisableClientTcpAccessOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 BhClient::DisableExternalAccessOutcome BhClient::DisableExternalAccess(const DisableExternalAccessRequest &request)
 {
     auto outcome = MakeRequest(request, "DisableExternalAccess");
@@ -3090,6 +3290,106 @@ BhClient::DisableIntranetAccessOutcomeCallable BhClient::DisableIntranetAccessCa
     return prom->get_future();
 }
 
+BhClient::DisableWebAccessOutcome BhClient::DisableWebAccess(const DisableWebAccessRequest &request)
+{
+    auto outcome = MakeRequest(request, "DisableWebAccess");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DisableWebAccessResponse rsp = DisableWebAccessResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DisableWebAccessOutcome(rsp);
+        else
+            return DisableWebAccessOutcome(o.GetError());
+    }
+    else
+    {
+        return DisableWebAccessOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::DisableWebAccessAsync(const DisableWebAccessRequest& request, const DisableWebAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DisableWebAccessRequest&;
+    using Resp = DisableWebAccessResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DisableWebAccess", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::DisableWebAccessOutcomeCallable BhClient::DisableWebAccessCallable(const DisableWebAccessRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DisableWebAccessOutcome>>();
+    DisableWebAccessAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const DisableWebAccessRequest&,
+        DisableWebAccessOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+BhClient::EnableClientTcpAccessOutcome BhClient::EnableClientTcpAccess(const EnableClientTcpAccessRequest &request)
+{
+    auto outcome = MakeRequest(request, "EnableClientTcpAccess");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        EnableClientTcpAccessResponse rsp = EnableClientTcpAccessResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return EnableClientTcpAccessOutcome(rsp);
+        else
+            return EnableClientTcpAccessOutcome(o.GetError());
+    }
+    else
+    {
+        return EnableClientTcpAccessOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::EnableClientTcpAccessAsync(const EnableClientTcpAccessRequest& request, const EnableClientTcpAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const EnableClientTcpAccessRequest&;
+    using Resp = EnableClientTcpAccessResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "EnableClientTcpAccess", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::EnableClientTcpAccessOutcomeCallable BhClient::EnableClientTcpAccessCallable(const EnableClientTcpAccessRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<EnableClientTcpAccessOutcome>>();
+    EnableClientTcpAccessAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const EnableClientTcpAccessRequest&,
+        EnableClientTcpAccessOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 BhClient::EnableExternalAccessOutcome BhClient::EnableExternalAccess(const EnableExternalAccessRequest &request)
 {
     auto outcome = MakeRequest(request, "EnableExternalAccess");
@@ -3182,6 +3482,56 @@ BhClient::EnableIntranetAccessOutcomeCallable BhClient::EnableIntranetAccessCall
         const BhClient*,
         const EnableIntranetAccessRequest&,
         EnableIntranetAccessOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+BhClient::EnableWebAccessOutcome BhClient::EnableWebAccess(const EnableWebAccessRequest &request)
+{
+    auto outcome = MakeRequest(request, "EnableWebAccess");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        EnableWebAccessResponse rsp = EnableWebAccessResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return EnableWebAccessOutcome(rsp);
+        else
+            return EnableWebAccessOutcome(o.GetError());
+    }
+    else
+    {
+        return EnableWebAccessOutcome(outcome.GetError());
+    }
+}
+
+void BhClient::EnableWebAccessAsync(const EnableWebAccessRequest& request, const EnableWebAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const EnableWebAccessRequest&;
+    using Resp = EnableWebAccessResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "EnableWebAccess", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+BhClient::EnableWebAccessOutcomeCallable BhClient::EnableWebAccessCallable(const EnableWebAccessRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<EnableWebAccessOutcome>>();
+    EnableWebAccessAsync(
+    request,
+    [prom](
+        const BhClient*,
+        const EnableWebAccessRequest&,
+        EnableWebAccessOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

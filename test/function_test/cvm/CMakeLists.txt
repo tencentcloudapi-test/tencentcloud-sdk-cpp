@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2019 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,8 +24,8 @@ include_directories("../../../core/include/")
 include_directories("../../../cvm/include/")
 link_directories(${CMAKE_SOURCE_DIR}/ft_build/lib)
 
-add_executable(cvm_ft Cvm_DescribeInstances_Ft.cpp Main.cpp)
-target_link_libraries(cvm_ft tencentcloud-sdk-cpp-cvm tencentcloud-sdk-cpp-core)
+add_executable(cvm_ft Cvm_DescribeInstances_Ft.cpp Cvm_DescribeInstances_withToken_Ft.cpp Main.cpp)
+target_link_libraries(cvm_ft tencentcloud-sdk-cpp-cvm tencentcloud-sdk-cpp-sts tencentcloud-sdk-cpp-core)
 target_link_libraries(cvm_ft gtest gmock_main -lpthread -lm)
 
 set_target_properties(cvm_ft

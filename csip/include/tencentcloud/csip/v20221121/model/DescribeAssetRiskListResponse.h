@@ -22,6 +22,8 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/csip/v20221121/model/AssetRiskItem.h>
+#include <tencentcloud/csip/v20221121/model/StandardItem.h>
+#include <tencentcloud/csip/v20221121/model/AttributeOptionSet.h>
 
 
 namespace TencentCloud
@@ -72,6 +74,34 @@ namespace TencentCloud
                      */
                     bool AssetRiskListHasBeenSet() const;
 
+                    /**
+                     * 获取等保规范名称集合
+                     * @return StandardNameList 等保规范名称集合
+                     * 
+                     */
+                    std::vector<StandardItem> GetStandardNameList() const;
+
+                    /**
+                     * 判断参数 StandardNameList 是否已赋值
+                     * @return StandardNameList 是否已赋值
+                     * 
+                     */
+                    bool StandardNameListHasBeenSet() const;
+
+                    /**
+                     * 获取资产类型集合
+                     * @return AssetTypeList 资产类型集合
+                     * 
+                     */
+                    std::vector<AttributeOptionSet> GetAssetTypeList() const;
+
+                    /**
+                     * 判断参数 AssetTypeList 是否已赋值
+                     * @return AssetTypeList 是否已赋值
+                     * 
+                     */
+                    bool AssetTypeListHasBeenSet() const;
+
                 private:
 
                     /**
@@ -85,6 +115,18 @@ namespace TencentCloud
                      */
                     std::vector<AssetRiskItem> m_assetRiskList;
                     bool m_assetRiskListHasBeenSet;
+
+                    /**
+                     * 等保规范名称集合
+                     */
+                    std::vector<StandardItem> m_standardNameList;
+                    bool m_standardNameListHasBeenSet;
+
+                    /**
+                     * 资产类型集合
+                     */
+                    std::vector<AttributeOptionSet> m_assetTypeList;
+                    bool m_assetTypeListHasBeenSet;
 
                 };
             }

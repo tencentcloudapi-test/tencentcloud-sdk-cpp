@@ -44,15 +44,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取应用ID
-                     * @return BotBizId 应用ID
+                     * 获取应用ID, 获取方式参看 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)。
+查询知识库下文档时，该参数填入知识库ID。
+                     * @return BotBizId 应用ID, 获取方式参看 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)。
+查询知识库下文档时，该参数填入知识库ID。
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置应用ID
-                     * @param _botBizId 应用ID
+                     * 设置应用ID, 获取方式参看 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)。
+查询知识库下文档时，该参数填入知识库ID。
+                     * @param _botBizId 应用ID, 获取方式参看 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)。
+查询知识库下文档时，该参数填入知识库ID。
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -65,15 +69,15 @@ namespace TencentCloud
                     bool BotBizIdHasBeenSet() const;
 
                     /**
-                     * 获取页码
-                     * @return PageNumber 页码
+                     * 获取页码(必须大于0)
+                     * @return PageNumber 页码(必须大于0)
                      * 
                      */
                     uint64_t GetPageNumber() const;
 
                     /**
-                     * 设置页码
-                     * @param _pageNumber 页码
+                     * 设置页码(必须大于0)
+                     * @param _pageNumber 页码(必须大于0)
                      * 
                      */
                     void SetPageNumber(const uint64_t& _pageNumber);
@@ -86,15 +90,15 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取每页数量
-                     * @return PageSize 每页数量
+                     * 获取每页数量(取值范围1-200)
+                     * @return PageSize 每页数量(取值范围1-200)
                      * 
                      */
                     uint64_t GetPageSize() const;
 
                     /**
-                     * 设置每页数量
-                     * @param _pageSize 每页数量
+                     * 设置每页数量(取值范围1-200)
+                     * @param _pageSize 每页数量(取值范围1-200)
                      * 
                      */
                     void SetPageSize(const uint64_t& _pageSize);
@@ -136,15 +140,15 @@ namespace TencentCloud
                     bool QueryHasBeenSet() const;
 
                     /**
-                     * 获取文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10-待发布  11-发布中  12-已发布  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
-                     * @return Status 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10-待发布  11-发布中  12-已发布  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
+                     * 获取文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10,12-导入成功  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
+                     * @return Status 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10,12-导入成功  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
                      * 
                      */
                     std::vector<int64_t> GetStatus() const;
 
                     /**
-                     * 设置文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10-待发布  11-发布中  12-已发布  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
-                     * @param _status 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10-待发布  11-发布中  12-已发布  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
+                     * 设置文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10,12-导入成功  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
+                     * @param _status 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10,12-导入成功  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
                      * 
                      */
                     void SetStatus(const std::vector<int64_t>& _status);
@@ -178,15 +182,15 @@ namespace TencentCloud
                     bool QueryTypeHasBeenSet() const;
 
                     /**
-                     * 获取分类ID
-                     * @return CateBizId 分类ID
+                     * 获取分类ID, 可以通过调用ListDocCate接口,查看其返回结果获取
+                     * @return CateBizId 分类ID, 可以通过调用ListDocCate接口,查看其返回结果获取
                      * 
                      */
                     std::string GetCateBizId() const;
 
                     /**
-                     * 设置分类ID
-                     * @param _cateBizId 分类ID
+                     * 设置分类ID, 可以通过调用ListDocCate接口,查看其返回结果获取
+                     * @param _cateBizId 分类ID, 可以通过调用ListDocCate接口,查看其返回结果获取
                      * 
                      */
                     void SetCateBizId(const std::string& _cateBizId);
@@ -261,22 +265,48 @@ namespace TencentCloud
                      */
                     bool ShowCurrCateHasBeenSet() const;
 
+                    /**
+                     * 获取文档生效域；不检索默认为0。检索枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     * @return EnableScope 文档生效域；不检索默认为0。检索枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     * 
+                     */
+                    int64_t GetEnableScope() const;
+
+                    /**
+                     * 设置文档生效域；不检索默认为0。检索枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     * @param _enableScope 文档生效域；不检索默认为0。检索枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     * 
+                     */
+                    void SetEnableScope(const int64_t& _enableScope);
+
+                    /**
+                     * 判断参数 EnableScope 是否已赋值
+                     * @return EnableScope 是否已赋值
+                     * 
+                     */
+                    bool EnableScopeHasBeenSet() const;
+
                 private:
 
                     /**
-                     * 应用ID
+                     * 应用ID, 获取方式参看 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)。
+查询知识库下文档时，该参数填入知识库ID。
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
 
                     /**
-                     * 页码
+                     * 页码(必须大于0)
                      */
                     uint64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * 每页数量
+                     * 每页数量(取值范围1-200)
                      */
                     uint64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
@@ -290,7 +320,7 @@ namespace TencentCloud
                     bool m_queryHasBeenSet;
 
                     /**
-                     * 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10-待发布  11-发布中  12-已发布  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
+                     * 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功  7-审核中  8-审核失败 9-审核成功  10,12-导入成功  13-学习中  14-学习失败  15-更新中  16-更新失败  17-解析中  18-解析失败  19-导入失败   20-已过期 21-超量失效 22-超量失效恢复
                      */
                     std::vector<int64_t> m_status;
                     bool m_statusHasBeenSet;
@@ -302,7 +332,7 @@ namespace TencentCloud
                     bool m_queryTypeHasBeenSet;
 
                     /**
-                     * 分类ID
+                     * 分类ID, 可以通过调用ListDocCate接口,查看其返回结果获取
                      */
                     std::string m_cateBizId;
                     bool m_cateBizIdHasBeenSet;
@@ -324,6 +354,13 @@ namespace TencentCloud
                      */
                     uint64_t m_showCurrCate;
                     bool m_showCurrCateHasBeenSet;
+
+                    /**
+                     * 文档生效域；不检索默认为0。检索枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     */
+                    int64_t m_enableScope;
+                    bool m_enableScopeHasBeenSet;
 
                 };
             }

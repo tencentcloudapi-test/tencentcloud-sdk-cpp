@@ -15,8 +15,6 @@
  */
 
 #include <tencentcloud/wedata/v20210820/model/TaskDsDTO.h>
-#include <tencentcloud/wedata/v20210820/model/DependencyConfigDsDTO.h>
-#include <tencentcloud/wedata/v20210820/model/TaskCycleLinkDTO.h>
 
 using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Wedata::V20210820::Model;
@@ -125,7 +123,9 @@ TaskDsDTO::TaskDsDTO() :
     m_templateIdHasBeenSet(false),
     m_allowRedoTypeHasBeenSet(false),
     m_bundleIdHasBeenSet(false),
-    m_bundleInfoHasBeenSet(false)
+    m_bundleInfoHasBeenSet(false),
+    m_allowDownstreamDependencyHasBeenSet(false),
+    m_dependencyTriggerPolicyHasBeenSet(false)
 {
 }
 
@@ -706,8 +706,8 @@ CoreInternalOutcome TaskDsDTO::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["Tasks"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<TaskDsDTO>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            TaskDsDTO item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -776,8 +776,8 @@ CoreInternalOutcome TaskDsDTO::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["DependencyConfigList"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<DependencyConfigDsDTO>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            DependencyConfigDsDTO item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -1176,8 +1176,8 @@ CoreInternalOutcome TaskDsDTO::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["CycleDependencyConfigList"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<TaskCycleLinkDTO>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            TaskCycleLinkDTO item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -1266,6 +1266,26 @@ CoreInternalOutcome TaskDsDTO::Deserialize(const rapidjson::Value &value)
         }
         m_bundleInfo = string(value["BundleInfo"].GetString());
         m_bundleInfoHasBeenSet = true;
+    }
+
+    if (value.HasMember("AllowDownstreamDependency") && !value["AllowDownstreamDependency"].IsNull())
+    {
+        if (!value["AllowDownstreamDependency"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskDsDTO.AllowDownstreamDependency` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_allowDownstreamDependency = value["AllowDownstreamDependency"].GetInt64();
+        m_allowDownstreamDependencyHasBeenSet = true;
+    }
+
+    if (value.HasMember("DependencyTriggerPolicy") && !value["DependencyTriggerPolicy"].IsNull())
+    {
+        if (!value["DependencyTriggerPolicy"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TaskDsDTO.DependencyTriggerPolicy` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dependencyTriggerPolicy = string(value["DependencyTriggerPolicy"].GetString());
+        m_dependencyTriggerPolicyHasBeenSet = true;
     }
 
 
@@ -1727,10 +1747,7 @@ void TaskDsDTO::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         for (auto itr = m_tasks.begin(); itr != m_tasks.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -1785,10 +1802,7 @@ void TaskDsDTO::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         for (auto itr = m_dependencyConfigList.begin(); itr != m_dependencyConfigList.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -2102,10 +2116,7 @@ void TaskDsDTO::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         for (auto itr = m_cycleDependencyConfigList.begin(); itr != m_cycleDependencyConfigList.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -2171,6 +2182,22 @@ void TaskDsDTO::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "BundleInfo";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_bundleInfo.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_allowDownstreamDependencyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AllowDownstreamDependency";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_allowDownstreamDependency, allocator);
+    }
+
+    if (m_dependencyTriggerPolicyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DependencyTriggerPolicy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dependencyTriggerPolicy.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -3040,12 +3067,12 @@ bool TaskDsDTO::TargetServerHasBeenSet() const
     return m_targetServerHasBeenSet;
 }
 
-vector<shared_ptr<TaskDsDTO>> TaskDsDTO::GetTasks() const
+vector<TaskDsDTO> TaskDsDTO::GetTasks() const
 {
     return m_tasks;
 }
 
-void TaskDsDTO::SetTasks(const vector<shared_ptr<TaskDsDTO>>& _tasks)
+void TaskDsDTO::SetTasks(const vector<TaskDsDTO>& _tasks)
 {
     m_tasks = _tasks;
     m_tasksHasBeenSet = true;
@@ -3136,12 +3163,12 @@ bool TaskDsDTO::EventPublisherConfigHasBeenSet() const
     return m_eventPublisherConfigHasBeenSet;
 }
 
-vector<shared_ptr<DependencyConfigDsDTO>> TaskDsDTO::GetDependencyConfigList() const
+vector<DependencyConfigDsDTO> TaskDsDTO::GetDependencyConfigList() const
 {
     return m_dependencyConfigList;
 }
 
-void TaskDsDTO::SetDependencyConfigList(const vector<shared_ptr<DependencyConfigDsDTO>>& _dependencyConfigList)
+void TaskDsDTO::SetDependencyConfigList(const vector<DependencyConfigDsDTO>& _dependencyConfigList)
 {
     m_dependencyConfigList = _dependencyConfigList;
     m_dependencyConfigListHasBeenSet = true;
@@ -3680,12 +3707,12 @@ bool TaskDsDTO::TaskRegisterOutputTableHasBeenSet() const
     return m_taskRegisterOutputTableHasBeenSet;
 }
 
-vector<shared_ptr<TaskCycleLinkDTO>> TaskDsDTO::GetCycleDependencyConfigList() const
+vector<TaskCycleLinkDTO> TaskDsDTO::GetCycleDependencyConfigList() const
 {
     return m_cycleDependencyConfigList;
 }
 
-void TaskDsDTO::SetCycleDependencyConfigList(const vector<shared_ptr<TaskCycleLinkDTO>>& _cycleDependencyConfigList)
+void TaskDsDTO::SetCycleDependencyConfigList(const vector<TaskCycleLinkDTO>& _cycleDependencyConfigList)
 {
     m_cycleDependencyConfigList = _cycleDependencyConfigList;
     m_cycleDependencyConfigListHasBeenSet = true;
@@ -3822,5 +3849,37 @@ void TaskDsDTO::SetBundleInfo(const string& _bundleInfo)
 bool TaskDsDTO::BundleInfoHasBeenSet() const
 {
     return m_bundleInfoHasBeenSet;
+}
+
+int64_t TaskDsDTO::GetAllowDownstreamDependency() const
+{
+    return m_allowDownstreamDependency;
+}
+
+void TaskDsDTO::SetAllowDownstreamDependency(const int64_t& _allowDownstreamDependency)
+{
+    m_allowDownstreamDependency = _allowDownstreamDependency;
+    m_allowDownstreamDependencyHasBeenSet = true;
+}
+
+bool TaskDsDTO::AllowDownstreamDependencyHasBeenSet() const
+{
+    return m_allowDownstreamDependencyHasBeenSet;
+}
+
+string TaskDsDTO::GetDependencyTriggerPolicy() const
+{
+    return m_dependencyTriggerPolicy;
+}
+
+void TaskDsDTO::SetDependencyTriggerPolicy(const string& _dependencyTriggerPolicy)
+{
+    m_dependencyTriggerPolicy = _dependencyTriggerPolicy;
+    m_dependencyTriggerPolicyHasBeenSet = true;
+}
+
+bool TaskDsDTO::DependencyTriggerPolicyHasBeenSet() const
+{
+    return m_dependencyTriggerPolicyHasBeenSet;
 }
 

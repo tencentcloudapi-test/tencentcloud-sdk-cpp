@@ -20,13 +20,15 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/wedata/v20210820/model/TaskTypeOpsDto.h>
+#include <tencentcloud/wedata/v20210820/model/InstanceOpsDto.h>
 #include <tencentcloud/wedata/v20210820/model/InstanceLifeCycleOpsDto.h>
+#include <tencentcloud/wedata/v20210820/model/StrToStrMap.h>
+#include <tencentcloud/wedata/v20210820/model/EventCaseAuditLogOptDto.h>
 
 
 namespace TencentCloud
@@ -37,7 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceOpsDto;
                 /**
                 * 实例运维详情
                 */
@@ -1407,7 +1408,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<InstanceOpsDto>> GetRelatedInstanceList() const;
+                    std::vector<InstanceOpsDto> GetRelatedInstanceList() const;
 
                     /**
                      * 设置关联实例信息。
@@ -1416,7 +1417,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetRelatedInstanceList(const std::vector<std::shared_ptr<InstanceOpsDto>>& _relatedInstanceList);
+                    void SetRelatedInstanceList(const std::vector<InstanceOpsDto>& _relatedInstanceList);
 
                     /**
                      * 判断参数 RelatedInstanceList 是否已赋值
@@ -1582,7 +1583,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<InstanceOpsDto>> GetCirculateInstanceList() const;
+                    std::vector<InstanceOpsDto> GetCirculateInstanceList() const;
 
                     /**
                      * 设置循环依赖关联的实例
@@ -1591,7 +1592,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetCirculateInstanceList(const std::vector<std::shared_ptr<InstanceOpsDto>>& _circulateInstanceList);
+                    void SetCirculateInstanceList(const std::vector<InstanceOpsDto>& _circulateInstanceList);
 
                     /**
                      * 判断参数 CirculateInstanceList 是否已赋值
@@ -1712,6 +1713,152 @@ namespace TencentCloud
                      * 
                      */
                     bool InstanceSchedulerDescHasBeenSet() const;
+
+                    /**
+                     * 获取当前用户对该实例的权限列表
+                     * @return Privileges 当前用户对该实例的权限列表
+                     * 
+                     */
+                    std::vector<std::string> GetPrivileges() const;
+
+                    /**
+                     * 设置当前用户对该实例的权限列表
+                     * @param _privileges 当前用户对该实例的权限列表
+                     * 
+                     */
+                    void SetPrivileges(const std::vector<std::string>& _privileges);
+
+                    /**
+                     * 判断参数 Privileges 是否已赋值
+                     * @return Privileges 是否已赋值
+                     * 
+                     */
+                    bool PrivilegesHasBeenSet() const;
+
+                    /**
+                     * 获取任务执行id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return TaskExecutionId 任务执行id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetTaskExecutionId() const;
+
+                    /**
+                     * 设置任务执行id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _taskExecutionId 任务执行id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetTaskExecutionId(const std::string& _taskExecutionId);
+
+                    /**
+                     * 判断参数 TaskExecutionId 是否已赋值
+                     * @return TaskExecutionId 是否已赋值
+                     * 
+                     */
+                    bool TaskExecutionIdHasBeenSet() const;
+
+                    /**
+                     * 获取dlc taskid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return DlcTaskId dlc taskid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetDlcTaskId() const;
+
+                    /**
+                     * 设置dlc taskid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _dlcTaskId dlc taskid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetDlcTaskId(const std::string& _dlcTaskId);
+
+                    /**
+                     * 判断参数 DlcTaskId 是否已赋值
+                     * @return DlcTaskId 是否已赋值
+                     * 
+                     */
+                    bool DlcTaskIdHasBeenSet() const;
+
+                    /**
+                     * 获取dlc jobid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return DlcSparkJobId dlc jobid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetDlcSparkJobId() const;
+
+                    /**
+                     * 设置dlc jobid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _dlcSparkJobId dlc jobid
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetDlcSparkJobId(const std::string& _dlcSparkJobId);
+
+                    /**
+                     * 判断参数 DlcSparkJobId 是否已赋值
+                     * @return DlcSparkJobId 是否已赋值
+                     * 
+                     */
+                    bool DlcSparkJobIdHasBeenSet() const;
+
+                    /**
+                     * 获取扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Ext 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    StrToStrMap GetExt() const;
+
+                    /**
+                     * 设置扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _ext 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetExt(const StrToStrMap& _ext);
+
+                    /**
+                     * 判断参数 Ext 是否已赋值
+                     * @return Ext 是否已赋值
+                     * 
+                     */
+                    bool ExtHasBeenSet() const;
+
+                    /**
+                     * 获取事件列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return RelatedEventList 事件列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<EventCaseAuditLogOptDto> GetRelatedEventList() const;
+
+                    /**
+                     * 设置事件列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _relatedEventList 事件列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetRelatedEventList(const std::vector<EventCaseAuditLogOptDto>& _relatedEventList);
+
+                    /**
+                     * 判断参数 RelatedEventList 是否已赋值
+                     * @return RelatedEventList 是否已赋值
+                     * 
+                     */
+                    bool RelatedEventListHasBeenSet() const;
 
                 private:
 
@@ -2097,7 +2244,7 @@ namespace TencentCloud
                      * 关联实例信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<InstanceOpsDto>> m_relatedInstanceList;
+                    std::vector<InstanceOpsDto> m_relatedInstanceList;
                     bool m_relatedInstanceListHasBeenSet;
 
                     /**
@@ -2146,7 +2293,7 @@ namespace TencentCloud
                      * 循环依赖关联的实例
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<InstanceOpsDto>> m_circulateInstanceList;
+                    std::vector<InstanceOpsDto> m_circulateInstanceList;
                     bool m_circulateInstanceListHasBeenSet;
 
                     /**
@@ -2180,6 +2327,47 @@ namespace TencentCloud
                      */
                     std::string m_instanceSchedulerDesc;
                     bool m_instanceSchedulerDescHasBeenSet;
+
+                    /**
+                     * 当前用户对该实例的权限列表
+                     */
+                    std::vector<std::string> m_privileges;
+                    bool m_privilegesHasBeenSet;
+
+                    /**
+                     * 任务执行id
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_taskExecutionId;
+                    bool m_taskExecutionIdHasBeenSet;
+
+                    /**
+                     * dlc taskid
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_dlcTaskId;
+                    bool m_dlcTaskIdHasBeenSet;
+
+                    /**
+                     * dlc jobid
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_dlcSparkJobId;
+                    bool m_dlcSparkJobIdHasBeenSet;
+
+                    /**
+                     * 扩展属性
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    StrToStrMap m_ext;
+                    bool m_extHasBeenSet;
+
+                    /**
+                     * 事件列表
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<EventCaseAuditLogOptDto> m_relatedEventList;
+                    bool m_relatedEventListHasBeenSet;
 
                 };
             }

@@ -20,12 +20,12 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/ocr/v20181119/model/Polygon.h>
+#include <tencentcloud/ocr/v20181119/model/ResultList.h>
 
 
 namespace TencentCloud
@@ -36,7 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResultList;
                 /**
                 * 试题识别结果-元素内容
                 */
@@ -119,7 +118,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<ResultList>> GetResultList() const;
+                    std::vector<ResultList> GetResultList() const;
 
                     /**
                      * 设置结果列表
@@ -128,7 +127,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetResultList(const std::vector<std::shared_ptr<ResultList>>& _resultList);
+                    void SetResultList(const std::vector<ResultList>& _resultList);
 
                     /**
                      * 判断参数 ResultList 是否已赋值
@@ -182,7 +181,7 @@ namespace TencentCloud
                      * 结果列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<ResultList>> m_resultList;
+                    std::vector<ResultList> m_resultList;
                     bool m_resultListHasBeenSet;
 
                     /**

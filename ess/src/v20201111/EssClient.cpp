@@ -890,6 +890,56 @@ EssClient::CreateContractDiffTaskWebUrlOutcomeCallable EssClient::CreateContract
     return prom->get_future();
 }
 
+EssClient::CreateContractReviewChecklistWebUrlOutcome EssClient::CreateContractReviewChecklistWebUrl(const CreateContractReviewChecklistWebUrlRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateContractReviewChecklistWebUrl");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateContractReviewChecklistWebUrlResponse rsp = CreateContractReviewChecklistWebUrlResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateContractReviewChecklistWebUrlOutcome(rsp);
+        else
+            return CreateContractReviewChecklistWebUrlOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateContractReviewChecklistWebUrlOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::CreateContractReviewChecklistWebUrlAsync(const CreateContractReviewChecklistWebUrlRequest& request, const CreateContractReviewChecklistWebUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateContractReviewChecklistWebUrlRequest&;
+    using Resp = CreateContractReviewChecklistWebUrlResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateContractReviewChecklistWebUrl", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::CreateContractReviewChecklistWebUrlOutcomeCallable EssClient::CreateContractReviewChecklistWebUrlCallable(const CreateContractReviewChecklistWebUrlRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateContractReviewChecklistWebUrlOutcome>>();
+    CreateContractReviewChecklistWebUrlAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const CreateContractReviewChecklistWebUrlRequest&,
+        CreateContractReviewChecklistWebUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::CreateContractReviewWebUrlOutcome EssClient::CreateContractReviewWebUrl(const CreateContractReviewWebUrlRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateContractReviewWebUrl");
@@ -982,6 +1032,56 @@ EssClient::CreateConvertTaskApiOutcomeCallable EssClient::CreateConvertTaskApiCa
         const EssClient*,
         const CreateConvertTaskApiRequest&,
         CreateConvertTaskApiOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::CreateDigitalDataSignOutcome EssClient::CreateDigitalDataSign(const CreateDigitalDataSignRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateDigitalDataSign");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateDigitalDataSignResponse rsp = CreateDigitalDataSignResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateDigitalDataSignOutcome(rsp);
+        else
+            return CreateDigitalDataSignOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateDigitalDataSignOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::CreateDigitalDataSignAsync(const CreateDigitalDataSignRequest& request, const CreateDigitalDataSignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateDigitalDataSignRequest&;
+    using Resp = CreateDigitalDataSignResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateDigitalDataSign", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::CreateDigitalDataSignOutcomeCallable EssClient::CreateDigitalDataSignCallable(const CreateDigitalDataSignRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateDigitalDataSignOutcome>>();
+    CreateDigitalDataSignAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const CreateDigitalDataSignRequest&,
+        CreateDigitalDataSignOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2240,6 +2340,56 @@ EssClient::CreateIntegrationUserRolesOutcomeCallable EssClient::CreateIntegratio
     return prom->get_future();
 }
 
+EssClient::CreateLMInformationExtractionTaskFieldFeedbackOutcome EssClient::CreateLMInformationExtractionTaskFieldFeedback(const CreateLMInformationExtractionTaskFieldFeedbackRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateLMInformationExtractionTaskFieldFeedback");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateLMInformationExtractionTaskFieldFeedbackResponse rsp = CreateLMInformationExtractionTaskFieldFeedbackResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateLMInformationExtractionTaskFieldFeedbackOutcome(rsp);
+        else
+            return CreateLMInformationExtractionTaskFieldFeedbackOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateLMInformationExtractionTaskFieldFeedbackOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::CreateLMInformationExtractionTaskFieldFeedbackAsync(const CreateLMInformationExtractionTaskFieldFeedbackRequest& request, const CreateLMInformationExtractionTaskFieldFeedbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateLMInformationExtractionTaskFieldFeedbackRequest&;
+    using Resp = CreateLMInformationExtractionTaskFieldFeedbackResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateLMInformationExtractionTaskFieldFeedback", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::CreateLMInformationExtractionTaskFieldFeedbackOutcomeCallable EssClient::CreateLMInformationExtractionTaskFieldFeedbackCallable(const CreateLMInformationExtractionTaskFieldFeedbackRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateLMInformationExtractionTaskFieldFeedbackOutcome>>();
+    CreateLMInformationExtractionTaskFieldFeedbackAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const CreateLMInformationExtractionTaskFieldFeedbackRequest&,
+        CreateLMInformationExtractionTaskFieldFeedbackOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::CreateLegalSealQrCodeOutcome EssClient::CreateLegalSealQrCode(const CreateLegalSealQrCodeRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateLegalSealQrCode");
@@ -2690,6 +2840,56 @@ EssClient::CreateOrganizationInfoChangeUrlOutcomeCallable EssClient::CreateOrgan
     return prom->get_future();
 }
 
+EssClient::CreatePartnerAuthorizationLinkOutcome EssClient::CreatePartnerAuthorizationLink(const CreatePartnerAuthorizationLinkRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreatePartnerAuthorizationLink");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreatePartnerAuthorizationLinkResponse rsp = CreatePartnerAuthorizationLinkResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreatePartnerAuthorizationLinkOutcome(rsp);
+        else
+            return CreatePartnerAuthorizationLinkOutcome(o.GetError());
+    }
+    else
+    {
+        return CreatePartnerAuthorizationLinkOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::CreatePartnerAuthorizationLinkAsync(const CreatePartnerAuthorizationLinkRequest& request, const CreatePartnerAuthorizationLinkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreatePartnerAuthorizationLinkRequest&;
+    using Resp = CreatePartnerAuthorizationLinkResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreatePartnerAuthorizationLink", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::CreatePartnerAuthorizationLinkOutcomeCallable EssClient::CreatePartnerAuthorizationLinkCallable(const CreatePartnerAuthorizationLinkRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreatePartnerAuthorizationLinkOutcome>>();
+    CreatePartnerAuthorizationLinkAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const CreatePartnerAuthorizationLinkRequest&,
+        CreatePartnerAuthorizationLinkOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::CreatePartnerAutoSignAuthUrlOutcome EssClient::CreatePartnerAutoSignAuthUrl(const CreatePartnerAutoSignAuthUrlRequest &request)
 {
     auto outcome = MakeRequest(request, "CreatePartnerAutoSignAuthUrl");
@@ -2982,6 +3182,56 @@ EssClient::CreateReleaseFlowOutcomeCallable EssClient::CreateReleaseFlowCallable
         const EssClient*,
         const CreateReleaseFlowRequest&,
         CreateReleaseFlowOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::CreateRiskIdentificationTaskFeedbackOutcome EssClient::CreateRiskIdentificationTaskFeedback(const CreateRiskIdentificationTaskFeedbackRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateRiskIdentificationTaskFeedback");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateRiskIdentificationTaskFeedbackResponse rsp = CreateRiskIdentificationTaskFeedbackResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateRiskIdentificationTaskFeedbackOutcome(rsp);
+        else
+            return CreateRiskIdentificationTaskFeedbackOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateRiskIdentificationTaskFeedbackOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::CreateRiskIdentificationTaskFeedbackAsync(const CreateRiskIdentificationTaskFeedbackRequest& request, const CreateRiskIdentificationTaskFeedbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateRiskIdentificationTaskFeedbackRequest&;
+    using Resp = CreateRiskIdentificationTaskFeedbackResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateRiskIdentificationTaskFeedback", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::CreateRiskIdentificationTaskFeedbackOutcomeCallable EssClient::CreateRiskIdentificationTaskFeedbackCallable(const CreateRiskIdentificationTaskFeedbackRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateRiskIdentificationTaskFeedbackOutcome>>();
+    CreateRiskIdentificationTaskFeedbackAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const CreateRiskIdentificationTaskFeedbackRequest&,
+        CreateRiskIdentificationTaskFeedbackOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4190,6 +4440,156 @@ EssClient::DescribeContractDiffTaskWebUrlOutcomeCallable EssClient::DescribeCont
     return prom->get_future();
 }
 
+EssClient::DescribeContractReviewChecklistWebUrlOutcome EssClient::DescribeContractReviewChecklistWebUrl(const DescribeContractReviewChecklistWebUrlRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeContractReviewChecklistWebUrl");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeContractReviewChecklistWebUrlResponse rsp = DescribeContractReviewChecklistWebUrlResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeContractReviewChecklistWebUrlOutcome(rsp);
+        else
+            return DescribeContractReviewChecklistWebUrlOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeContractReviewChecklistWebUrlOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeContractReviewChecklistWebUrlAsync(const DescribeContractReviewChecklistWebUrlRequest& request, const DescribeContractReviewChecklistWebUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeContractReviewChecklistWebUrlRequest&;
+    using Resp = DescribeContractReviewChecklistWebUrlResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeContractReviewChecklistWebUrl", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeContractReviewChecklistWebUrlOutcomeCallable EssClient::DescribeContractReviewChecklistWebUrlCallable(const DescribeContractReviewChecklistWebUrlRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeContractReviewChecklistWebUrlOutcome>>();
+    DescribeContractReviewChecklistWebUrlAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeContractReviewChecklistWebUrlRequest&,
+        DescribeContractReviewChecklistWebUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::DescribeContractReviewChecklistsWebUrlOutcome EssClient::DescribeContractReviewChecklistsWebUrl(const DescribeContractReviewChecklistsWebUrlRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeContractReviewChecklistsWebUrl");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeContractReviewChecklistsWebUrlResponse rsp = DescribeContractReviewChecklistsWebUrlResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeContractReviewChecklistsWebUrlOutcome(rsp);
+        else
+            return DescribeContractReviewChecklistsWebUrlOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeContractReviewChecklistsWebUrlOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeContractReviewChecklistsWebUrlAsync(const DescribeContractReviewChecklistsWebUrlRequest& request, const DescribeContractReviewChecklistsWebUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeContractReviewChecklistsWebUrlRequest&;
+    using Resp = DescribeContractReviewChecklistsWebUrlResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeContractReviewChecklistsWebUrl", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeContractReviewChecklistsWebUrlOutcomeCallable EssClient::DescribeContractReviewChecklistsWebUrlCallable(const DescribeContractReviewChecklistsWebUrlRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeContractReviewChecklistsWebUrlOutcome>>();
+    DescribeContractReviewChecklistsWebUrlAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeContractReviewChecklistsWebUrlRequest&,
+        DescribeContractReviewChecklistsWebUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::DescribeContractReviewMarkedRiskExportTaskOutcome EssClient::DescribeContractReviewMarkedRiskExportTask(const DescribeContractReviewMarkedRiskExportTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeContractReviewMarkedRiskExportTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeContractReviewMarkedRiskExportTaskResponse rsp = DescribeContractReviewMarkedRiskExportTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeContractReviewMarkedRiskExportTaskOutcome(rsp);
+        else
+            return DescribeContractReviewMarkedRiskExportTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeContractReviewMarkedRiskExportTaskOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeContractReviewMarkedRiskExportTaskAsync(const DescribeContractReviewMarkedRiskExportTaskRequest& request, const DescribeContractReviewMarkedRiskExportTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeContractReviewMarkedRiskExportTaskRequest&;
+    using Resp = DescribeContractReviewMarkedRiskExportTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeContractReviewMarkedRiskExportTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeContractReviewMarkedRiskExportTaskOutcomeCallable EssClient::DescribeContractReviewMarkedRiskExportTaskCallable(const DescribeContractReviewMarkedRiskExportTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeContractReviewMarkedRiskExportTaskOutcome>>();
+    DescribeContractReviewMarkedRiskExportTaskAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeContractReviewMarkedRiskExportTaskRequest&,
+        DescribeContractReviewMarkedRiskExportTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::DescribeContractReviewTaskOutcome EssClient::DescribeContractReviewTask(const DescribeContractReviewTaskRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeContractReviewTask");
@@ -4240,6 +4640,56 @@ EssClient::DescribeContractReviewTaskOutcomeCallable EssClient::DescribeContract
     return prom->get_future();
 }
 
+EssClient::DescribeContractReviewTaskListWebUrlOutcome EssClient::DescribeContractReviewTaskListWebUrl(const DescribeContractReviewTaskListWebUrlRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeContractReviewTaskListWebUrl");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeContractReviewTaskListWebUrlResponse rsp = DescribeContractReviewTaskListWebUrlResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeContractReviewTaskListWebUrlOutcome(rsp);
+        else
+            return DescribeContractReviewTaskListWebUrlOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeContractReviewTaskListWebUrlOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeContractReviewTaskListWebUrlAsync(const DescribeContractReviewTaskListWebUrlRequest& request, const DescribeContractReviewTaskListWebUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeContractReviewTaskListWebUrlRequest&;
+    using Resp = DescribeContractReviewTaskListWebUrlResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeContractReviewTaskListWebUrl", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeContractReviewTaskListWebUrlOutcomeCallable EssClient::DescribeContractReviewTaskListWebUrlCallable(const DescribeContractReviewTaskListWebUrlRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeContractReviewTaskListWebUrlOutcome>>();
+    DescribeContractReviewTaskListWebUrlAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeContractReviewTaskListWebUrlRequest&,
+        DescribeContractReviewTaskListWebUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::DescribeContractReviewWebUrlOutcome EssClient::DescribeContractReviewWebUrl(const DescribeContractReviewWebUrlRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeContractReviewWebUrl");
@@ -4282,6 +4732,56 @@ EssClient::DescribeContractReviewWebUrlOutcomeCallable EssClient::DescribeContra
         const EssClient*,
         const DescribeContractReviewWebUrlRequest&,
         DescribeContractReviewWebUrlOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::DescribeEnterpriseContractReviewChecklistsOutcome EssClient::DescribeEnterpriseContractReviewChecklists(const DescribeEnterpriseContractReviewChecklistsRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeEnterpriseContractReviewChecklists");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeEnterpriseContractReviewChecklistsResponse rsp = DescribeEnterpriseContractReviewChecklistsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeEnterpriseContractReviewChecklistsOutcome(rsp);
+        else
+            return DescribeEnterpriseContractReviewChecklistsOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeEnterpriseContractReviewChecklistsOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeEnterpriseContractReviewChecklistsAsync(const DescribeEnterpriseContractReviewChecklistsRequest& request, const DescribeEnterpriseContractReviewChecklistsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeEnterpriseContractReviewChecklistsRequest&;
+    using Resp = DescribeEnterpriseContractReviewChecklistsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeEnterpriseContractReviewChecklists", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeEnterpriseContractReviewChecklistsOutcomeCallable EssClient::DescribeEnterpriseContractReviewChecklistsCallable(const DescribeEnterpriseContractReviewChecklistsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeEnterpriseContractReviewChecklistsOutcome>>();
+    DescribeEnterpriseContractReviewChecklistsAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeEnterpriseContractReviewChecklistsRequest&,
+        DescribeEnterpriseContractReviewChecklistsOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4990,6 +5490,56 @@ EssClient::DescribeIntegrationRolesOutcomeCallable EssClient::DescribeIntegratio
     return prom->get_future();
 }
 
+EssClient::DescribeLMInformationExtractionTaskFieldFeedbackOutcome EssClient::DescribeLMInformationExtractionTaskFieldFeedback(const DescribeLMInformationExtractionTaskFieldFeedbackRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLMInformationExtractionTaskFieldFeedback");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLMInformationExtractionTaskFieldFeedbackResponse rsp = DescribeLMInformationExtractionTaskFieldFeedbackResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLMInformationExtractionTaskFieldFeedbackOutcome(rsp);
+        else
+            return DescribeLMInformationExtractionTaskFieldFeedbackOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLMInformationExtractionTaskFieldFeedbackOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeLMInformationExtractionTaskFieldFeedbackAsync(const DescribeLMInformationExtractionTaskFieldFeedbackRequest& request, const DescribeLMInformationExtractionTaskFieldFeedbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLMInformationExtractionTaskFieldFeedbackRequest&;
+    using Resp = DescribeLMInformationExtractionTaskFieldFeedbackResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLMInformationExtractionTaskFieldFeedback", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeLMInformationExtractionTaskFieldFeedbackOutcomeCallable EssClient::DescribeLMInformationExtractionTaskFieldFeedbackCallable(const DescribeLMInformationExtractionTaskFieldFeedbackRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLMInformationExtractionTaskFieldFeedbackOutcome>>();
+    DescribeLMInformationExtractionTaskFieldFeedbackAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeLMInformationExtractionTaskFieldFeedbackRequest&,
+        DescribeLMInformationExtractionTaskFieldFeedbackOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::DescribeOrganizationAuthStatusOutcome EssClient::DescribeOrganizationAuthStatus(const DescribeOrganizationAuthStatusRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeOrganizationAuthStatus");
@@ -5232,6 +5782,56 @@ EssClient::DescribePersonCertificateOutcomeCallable EssClient::DescribePersonCer
         const EssClient*,
         const DescribePersonCertificateRequest&,
         DescribePersonCertificateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::DescribeRiskIdentificationTaskFeedbackOutcome EssClient::DescribeRiskIdentificationTaskFeedback(const DescribeRiskIdentificationTaskFeedbackRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeRiskIdentificationTaskFeedback");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeRiskIdentificationTaskFeedbackResponse rsp = DescribeRiskIdentificationTaskFeedbackResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeRiskIdentificationTaskFeedbackOutcome(rsp);
+        else
+            return DescribeRiskIdentificationTaskFeedbackOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeRiskIdentificationTaskFeedbackOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::DescribeRiskIdentificationTaskFeedbackAsync(const DescribeRiskIdentificationTaskFeedbackRequest& request, const DescribeRiskIdentificationTaskFeedbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeRiskIdentificationTaskFeedbackRequest&;
+    using Resp = DescribeRiskIdentificationTaskFeedbackResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeRiskIdentificationTaskFeedback", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::DescribeRiskIdentificationTaskFeedbackOutcomeCallable EssClient::DescribeRiskIdentificationTaskFeedbackCallable(const DescribeRiskIdentificationTaskFeedbackRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeRiskIdentificationTaskFeedbackOutcome>>();
+    DescribeRiskIdentificationTaskFeedbackAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const DescribeRiskIdentificationTaskFeedbackRequest&,
+        DescribeRiskIdentificationTaskFeedbackOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -5640,6 +6240,106 @@ EssClient::ExportContractComparisonTaskOutcomeCallable EssClient::ExportContract
     return prom->get_future();
 }
 
+EssClient::ExportContractReviewMarkedRiskOutcome EssClient::ExportContractReviewMarkedRisk(const ExportContractReviewMarkedRiskRequest &request)
+{
+    auto outcome = MakeRequest(request, "ExportContractReviewMarkedRisk");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ExportContractReviewMarkedRiskResponse rsp = ExportContractReviewMarkedRiskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ExportContractReviewMarkedRiskOutcome(rsp);
+        else
+            return ExportContractReviewMarkedRiskOutcome(o.GetError());
+    }
+    else
+    {
+        return ExportContractReviewMarkedRiskOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::ExportContractReviewMarkedRiskAsync(const ExportContractReviewMarkedRiskRequest& request, const ExportContractReviewMarkedRiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ExportContractReviewMarkedRiskRequest&;
+    using Resp = ExportContractReviewMarkedRiskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ExportContractReviewMarkedRisk", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::ExportContractReviewMarkedRiskOutcomeCallable EssClient::ExportContractReviewMarkedRiskCallable(const ExportContractReviewMarkedRiskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ExportContractReviewMarkedRiskOutcome>>();
+    ExportContractReviewMarkedRiskAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const ExportContractReviewMarkedRiskRequest&,
+        ExportContractReviewMarkedRiskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::ExportContractReviewResultOutcome EssClient::ExportContractReviewResult(const ExportContractReviewResultRequest &request)
+{
+    auto outcome = MakeRequest(request, "ExportContractReviewResult");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ExportContractReviewResultResponse rsp = ExportContractReviewResultResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ExportContractReviewResultOutcome(rsp);
+        else
+            return ExportContractReviewResultOutcome(o.GetError());
+    }
+    else
+    {
+        return ExportContractReviewResultOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::ExportContractReviewResultAsync(const ExportContractReviewResultRequest& request, const ExportContractReviewResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ExportContractReviewResultRequest&;
+    using Resp = ExportContractReviewResultResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ExportContractReviewResult", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::ExportContractReviewResultOutcomeCallable EssClient::ExportContractReviewResultCallable(const ExportContractReviewResultRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ExportContractReviewResultOutcome>>();
+    ExportContractReviewResultAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const ExportContractReviewResultRequest&,
+        ExportContractReviewResultOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 EssClient::GetTaskResultApiOutcome EssClient::GetTaskResultApi(const GetTaskResultApiRequest &request)
 {
     auto outcome = MakeRequest(request, "GetTaskResultApi");
@@ -5932,6 +6632,56 @@ EssClient::ModifyIntegrationRoleOutcomeCallable EssClient::ModifyIntegrationRole
         const EssClient*,
         const ModifyIntegrationRoleRequest&,
         ModifyIntegrationRoleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::ModifyPartnerAuthorizationOutcome EssClient::ModifyPartnerAuthorization(const ModifyPartnerAuthorizationRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyPartnerAuthorization");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyPartnerAuthorizationResponse rsp = ModifyPartnerAuthorizationResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyPartnerAuthorizationOutcome(rsp);
+        else
+            return ModifyPartnerAuthorizationOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyPartnerAuthorizationOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::ModifyPartnerAuthorizationAsync(const ModifyPartnerAuthorizationRequest& request, const ModifyPartnerAuthorizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyPartnerAuthorizationRequest&;
+    using Resp = ModifyPartnerAuthorizationResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyPartnerAuthorization", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::ModifyPartnerAuthorizationOutcomeCallable EssClient::ModifyPartnerAuthorizationCallable(const ModifyPartnerAuthorizationRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyPartnerAuthorizationOutcome>>();
+    ModifyPartnerAuthorizationAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const ModifyPartnerAuthorizationRequest&,
+        ModifyPartnerAuthorizationOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -6432,6 +7182,56 @@ EssClient::VerifyDigitFileOutcomeCallable EssClient::VerifyDigitFileCallable(con
         const EssClient*,
         const VerifyDigitFileRequest&,
         VerifyDigitFileOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+EssClient::VerifyDigitalDataSignOutcome EssClient::VerifyDigitalDataSign(const VerifyDigitalDataSignRequest &request)
+{
+    auto outcome = MakeRequest(request, "VerifyDigitalDataSign");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        VerifyDigitalDataSignResponse rsp = VerifyDigitalDataSignResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return VerifyDigitalDataSignOutcome(rsp);
+        else
+            return VerifyDigitalDataSignOutcome(o.GetError());
+    }
+    else
+    {
+        return VerifyDigitalDataSignOutcome(outcome.GetError());
+    }
+}
+
+void EssClient::VerifyDigitalDataSignAsync(const VerifyDigitalDataSignRequest& request, const VerifyDigitalDataSignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const VerifyDigitalDataSignRequest&;
+    using Resp = VerifyDigitalDataSignResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "VerifyDigitalDataSign", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+EssClient::VerifyDigitalDataSignOutcomeCallable EssClient::VerifyDigitalDataSignCallable(const VerifyDigitalDataSignRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<VerifyDigitalDataSignOutcome>>();
+    VerifyDigitalDataSignAsync(
+    request,
+    [prom](
+        const EssClient*,
+        const VerifyDigitalDataSignRequest&,
+        VerifyDigitalDataSignOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

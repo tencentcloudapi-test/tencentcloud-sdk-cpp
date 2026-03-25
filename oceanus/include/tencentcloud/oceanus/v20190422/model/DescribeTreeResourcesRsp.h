@@ -20,12 +20,12 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/oceanus/v20190422/model/TreeResourceItem.h>
+#include <tencentcloud/oceanus/v20190422/model/DescribeTreeResourcesRsp.h>
 
 
 namespace TencentCloud
@@ -36,7 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeTreeResourcesRsp;
                 /**
                 * 树状结构资源列表对象
                 */
@@ -144,7 +143,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<DescribeTreeResourcesRsp>> GetChildren() const;
+                    std::vector<DescribeTreeResourcesRsp> GetChildren() const;
 
                     /**
                      * 设置子节点
@@ -153,7 +152,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetChildren(const std::vector<std::shared_ptr<DescribeTreeResourcesRsp>>& _children);
+                    void SetChildren(const std::vector<DescribeTreeResourcesRsp>& _children);
 
                     /**
                      * 判断参数 Children 是否已赋值
@@ -218,7 +217,7 @@ namespace TencentCloud
                      * 子节点
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<DescribeTreeResourcesRsp>> m_children;
+                    std::vector<DescribeTreeResourcesRsp> m_children;
                     bool m_childrenHasBeenSet;
 
                     /**

@@ -5640,6 +5640,56 @@ TeoClient::DescribePlansOutcomeCallable TeoClient::DescribePlansCallable(const D
     return prom->get_future();
 }
 
+TeoClient::DescribePrefetchOriginLimitOutcome TeoClient::DescribePrefetchOriginLimit(const DescribePrefetchOriginLimitRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribePrefetchOriginLimit");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribePrefetchOriginLimitResponse rsp = DescribePrefetchOriginLimitResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribePrefetchOriginLimitOutcome(rsp);
+        else
+            return DescribePrefetchOriginLimitOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribePrefetchOriginLimitOutcome(outcome.GetError());
+    }
+}
+
+void TeoClient::DescribePrefetchOriginLimitAsync(const DescribePrefetchOriginLimitRequest& request, const DescribePrefetchOriginLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribePrefetchOriginLimitRequest&;
+    using Resp = DescribePrefetchOriginLimitResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribePrefetchOriginLimit", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TeoClient::DescribePrefetchOriginLimitOutcomeCallable TeoClient::DescribePrefetchOriginLimitCallable(const DescribePrefetchOriginLimitRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribePrefetchOriginLimitOutcome>>();
+    DescribePrefetchOriginLimitAsync(
+    request,
+    [prom](
+        const TeoClient*,
+        const DescribePrefetchOriginLimitRequest&,
+        DescribePrefetchOriginLimitOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 TeoClient::DescribePrefetchTasksOutcome TeoClient::DescribePrefetchTasks(const DescribePrefetchTasksRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribePrefetchTasks");
@@ -8990,6 +9040,56 @@ TeoClient::ModifyPlanOutcomeCallable TeoClient::ModifyPlanCallable(const ModifyP
     return prom->get_future();
 }
 
+TeoClient::ModifyPrefetchOriginLimitOutcome TeoClient::ModifyPrefetchOriginLimit(const ModifyPrefetchOriginLimitRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyPrefetchOriginLimit");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyPrefetchOriginLimitResponse rsp = ModifyPrefetchOriginLimitResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyPrefetchOriginLimitOutcome(rsp);
+        else
+            return ModifyPrefetchOriginLimitOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyPrefetchOriginLimitOutcome(outcome.GetError());
+    }
+}
+
+void TeoClient::ModifyPrefetchOriginLimitAsync(const ModifyPrefetchOriginLimitRequest& request, const ModifyPrefetchOriginLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyPrefetchOriginLimitRequest&;
+    using Resp = ModifyPrefetchOriginLimitResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyPrefetchOriginLimit", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TeoClient::ModifyPrefetchOriginLimitOutcomeCallable TeoClient::ModifyPrefetchOriginLimitCallable(const ModifyPrefetchOriginLimitRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyPrefetchOriginLimitOutcome>>();
+    ModifyPrefetchOriginLimitAsync(
+    request,
+    [prom](
+        const TeoClient*,
+        const ModifyPrefetchOriginLimitRequest&,
+        ModifyPrefetchOriginLimitOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 TeoClient::ModifyRealtimeLogDeliveryTaskOutcome TeoClient::ModifyRealtimeLogDeliveryTask(const ModifyRealtimeLogDeliveryTaskRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyRealtimeLogDeliveryTask");
@@ -9582,6 +9682,56 @@ TeoClient::ModifyZoneStatusOutcomeCallable TeoClient::ModifyZoneStatusCallable(c
         const TeoClient*,
         const ModifyZoneStatusRequest&,
         ModifyZoneStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TeoClient::ModifyZoneWorkModeOutcome TeoClient::ModifyZoneWorkMode(const ModifyZoneWorkModeRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyZoneWorkMode");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyZoneWorkModeResponse rsp = ModifyZoneWorkModeResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyZoneWorkModeOutcome(rsp);
+        else
+            return ModifyZoneWorkModeOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyZoneWorkModeOutcome(outcome.GetError());
+    }
+}
+
+void TeoClient::ModifyZoneWorkModeAsync(const ModifyZoneWorkModeRequest& request, const ModifyZoneWorkModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyZoneWorkModeRequest&;
+    using Resp = ModifyZoneWorkModeResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyZoneWorkMode", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TeoClient::ModifyZoneWorkModeOutcomeCallable TeoClient::ModifyZoneWorkModeCallable(const ModifyZoneWorkModeRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyZoneWorkModeOutcome>>();
+    ModifyZoneWorkModeAsync(
+    request,
+    [prom](
+        const TeoClient*,
+        const ModifyZoneWorkModeRequest&,
+        ModifyZoneWorkModeOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

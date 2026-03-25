@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取PDF文件页X坐标位置,以PDF单页左上角为坐标原点
-                     * @return X PDF文件页X坐标位置,以PDF单页左上角为坐标原点
+                     * 获取PDF文件页X坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
+                     * @return X PDF文件页X坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     double GetX() const;
 
                     /**
-                     * 设置PDF文件页X坐标位置,以PDF单页左上角为坐标原点
-                     * @param _x PDF文件页X坐标位置,以PDF单页左上角为坐标原点
+                     * 设置PDF文件页X坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
+                     * @param _x PDF文件页X坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     void SetX(const double& _x);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool XHasBeenSet() const;
 
                     /**
-                     * 获取PDF文件页Y坐标位置,以PDF单页左上角为坐标原点
-                     * @return Y PDF文件页Y坐标位置,以PDF单页左上角为坐标原点
+                     * 获取PDF文件页Y坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
+                     * @return Y PDF文件页Y坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     double GetY() const;
 
                     /**
-                     * 设置PDF文件页Y坐标位置,以PDF单页左上角为坐标原点
-                     * @param _y PDF文件页Y坐标位置,以PDF单页左上角为坐标原点
+                     * 设置PDF文件页Y坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
+                     * @param _y PDF文件页Y坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     void SetY(const double& _y);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool YHasBeenSet() const;
 
                     /**
-                     * 获取距离X坐标的宽度，用于在PDF文件进行画框。
-                     * @return Width 距离X坐标的宽度，用于在PDF文件进行画框。
+                     * 获取距离X坐标的宽度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
+                     * @return Width 距离X坐标的宽度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     double GetWidth() const;
 
                     /**
-                     * 设置距离X坐标的宽度，用于在PDF文件进行画框。
-                     * @param _width 距离X坐标的宽度，用于在PDF文件进行画框。
+                     * 设置距离X坐标的宽度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
+                     * @param _width 距离X坐标的宽度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     void SetWidth(const double& _width);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool WidthHasBeenSet() const;
 
                     /**
-                     * 获取距离Y坐标的高度，用于在PDF文件进行画框。
-                     * @return Height 距离Y坐标的高度，用于在PDF文件进行画框。
+                     * 获取距离Y坐标的高度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
+                     * @return Height 距离Y坐标的高度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     double GetHeight() const;
 
                     /**
-                     * 设置距离Y坐标的高度，用于在PDF文件进行画框。
-                     * @param _height 距离Y坐标的高度，用于在PDF文件进行画框。
+                     * 设置距离Y坐标的高度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
+                     * @param _height 距离Y坐标的高度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
                      * 
                      */
                     void SetHeight(const double& _height);
@@ -172,28 +172,91 @@ namespace TencentCloud
                      */
                     bool IdHasBeenSet() const;
 
+                    /**
+                     * 获取开始位置
+                     * @return Begin 开始位置
+                     * 
+                     */
+                    int64_t GetBegin() const;
+
+                    /**
+                     * 设置开始位置
+                     * @param _begin 开始位置
+                     * 
+                     */
+                    void SetBegin(const int64_t& _begin);
+
+                    /**
+                     * 判断参数 Begin 是否已赋值
+                     * @return Begin 是否已赋值
+                     * 
+                     */
+                    bool BeginHasBeenSet() const;
+
+                    /**
+                     * 获取结束位置
+                     * @return End 结束位置
+                     * 
+                     */
+                    int64_t GetEnd() const;
+
+                    /**
+                     * 设置结束位置
+                     * @param _end 结束位置
+                     * 
+                     */
+                    void SetEnd(const int64_t& _end);
+
+                    /**
+                     * 判断参数 End 是否已赋值
+                     * @return End 是否已赋值
+                     * 
+                     */
+                    bool EndHasBeenSet() const;
+
+                    /**
+                     * 获取文档类型，1：pdf，2：doc 文档
+                     * @return DocType 文档类型，1：pdf，2：doc 文档
+                     * 
+                     */
+                    int64_t GetDocType() const;
+
+                    /**
+                     * 设置文档类型，1：pdf，2：doc 文档
+                     * @param _docType 文档类型，1：pdf，2：doc 文档
+                     * 
+                     */
+                    void SetDocType(const int64_t& _docType);
+
+                    /**
+                     * 判断参数 DocType 是否已赋值
+                     * @return DocType 是否已赋值
+                     * 
+                     */
+                    bool DocTypeHasBeenSet() const;
+
                 private:
 
                     /**
-                     * PDF文件页X坐标位置,以PDF单页左上角为坐标原点
+                     * PDF文件页X坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
                      */
                     double m_x;
                     bool m_xHasBeenSet;
 
                     /**
-                     * PDF文件页Y坐标位置,以PDF单页左上角为坐标原点
+                     * PDF文件页Y坐标位置,以PDF单页左上角为坐标原点，单位是 “点”（Point，简称 pt）
                      */
                     double m_y;
                     bool m_yHasBeenSet;
 
                     /**
-                     * 距离X坐标的宽度，用于在PDF文件进行画框。
+                     * 距离X坐标的宽度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
                      */
                     double m_width;
                     bool m_widthHasBeenSet;
 
                     /**
-                     * 距离Y坐标的高度，用于在PDF文件进行画框。
+                     * 距离Y坐标的高度，用于在PDF文件进行画框，单位是 “点”（Point，简称 pt）
                      */
                     double m_height;
                     bool m_heightHasBeenSet;
@@ -209,6 +272,24 @@ namespace TencentCloud
                      */
                     std::string m_id;
                     bool m_idHasBeenSet;
+
+                    /**
+                     * 开始位置
+                     */
+                    int64_t m_begin;
+                    bool m_beginHasBeenSet;
+
+                    /**
+                     * 结束位置
+                     */
+                    int64_t m_end;
+                    bool m_endHasBeenSet;
+
+                    /**
+                     * 文档类型，1：pdf，2：doc 文档
+                     */
+                    int64_t m_docType;
+                    bool m_docTypeHasBeenSet;
 
                 };
             }

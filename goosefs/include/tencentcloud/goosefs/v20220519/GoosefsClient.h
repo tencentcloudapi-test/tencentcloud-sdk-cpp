@@ -33,14 +33,22 @@
 #include <tencentcloud/goosefs/v20220519/model/BatchDeleteClientNodesResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/BuildClientNodeMountCommandRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/BuildClientNodeMountCommandResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/BuildCustomerClusterRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/BuildCustomerClusterResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/CancelLoadTaskRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/CancelLoadTaskResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/CreateDataRepositoryTaskRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/CreateDataRepositoryTaskResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/CreateFileSystemRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/CreateFileSystemResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/CreateFilesetRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/CreateFilesetResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/CreateLoadTaskRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/CreateLoadTaskResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DeleteCrossVpcSubnetSupportForClientNodeRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/DeleteCrossVpcSubnetSupportForClientNodeResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/DeleteCustomerClusterRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/DeleteCustomerClusterResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DeleteFileSystemRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/DeleteFileSystemResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DeleteFilesetRequest.h>
@@ -51,8 +59,8 @@
 #include <tencentcloud/goosefs/v20220519/model/DescribeClusterClientTokenResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeClusterRoleTokenRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeClusterRoleTokenResponse.h>
-#include <tencentcloud/goosefs/v20220519/model/DescribeClusterRolesRequest.h>
-#include <tencentcloud/goosefs/v20220519/model/DescribeClusterRolesResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/DescribeCustomerClusterRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/DescribeCustomerClusterResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeDataRepositoryTaskStatusRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeDataRepositoryTaskStatusResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeFileSystemBucketsRequest.h>
@@ -63,12 +71,20 @@
 #include <tencentcloud/goosefs/v20220519/model/DescribeFilesetGeneralConfigResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeFilesetsRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/DescribeFilesetsResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/DescribeLoadTaskRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/DescribeLoadTaskResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/DetachFileSystemBucketRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/DetachFileSystemBucketResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/ExpandCapacityRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/ExpandCapacityResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/ListLoadTasksRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/ListLoadTasksResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/ModifyDataRepositoryBandwidthRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/ModifyDataRepositoryBandwidthResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/MountMultipleStorageFileSystemRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/MountMultipleStorageFileSystemResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/QueryClientNodeMountCommandRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/QueryClientNodeMountCommandResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/QueryCrossVpcSubnetSupportForClientNodeRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/QueryCrossVpcSubnetSupportForClientNodeResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/QueryDataRepositoryBandwidthRequest.h>
@@ -77,6 +93,8 @@
 #include <tencentcloud/goosefs/v20220519/model/UpdateFilesetResponse.h>
 #include <tencentcloud/goosefs/v20220519/model/UpdateFilesetGeneralConfigRequest.h>
 #include <tencentcloud/goosefs/v20220519/model/UpdateFilesetGeneralConfigResponse.h>
+#include <tencentcloud/goosefs/v20220519/model/UpdateLoadTaskPriorityRequest.h>
+#include <tencentcloud/goosefs/v20220519/model/UpdateLoadTaskPriorityResponse.h>
 
 
 namespace TencentCloud
@@ -106,6 +124,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::BuildClientNodeMountCommandResponse> BuildClientNodeMountCommandOutcome;
                 typedef std::future<BuildClientNodeMountCommandOutcome> BuildClientNodeMountCommandOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::BuildClientNodeMountCommandRequest&, BuildClientNodeMountCommandOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BuildClientNodeMountCommandAsyncHandler;
+                typedef Outcome<Core::Error, Model::BuildCustomerClusterResponse> BuildCustomerClusterOutcome;
+                typedef std::future<BuildCustomerClusterOutcome> BuildCustomerClusterOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::BuildCustomerClusterRequest&, BuildCustomerClusterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BuildCustomerClusterAsyncHandler;
+                typedef Outcome<Core::Error, Model::CancelLoadTaskResponse> CancelLoadTaskOutcome;
+                typedef std::future<CancelLoadTaskOutcome> CancelLoadTaskOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::CancelLoadTaskRequest&, CancelLoadTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CancelLoadTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateDataRepositoryTaskResponse> CreateDataRepositoryTaskOutcome;
                 typedef std::future<CreateDataRepositoryTaskOutcome> CreateDataRepositoryTaskOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::CreateDataRepositoryTaskRequest&, CreateDataRepositoryTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDataRepositoryTaskAsyncHandler;
@@ -115,9 +139,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateFilesetResponse> CreateFilesetOutcome;
                 typedef std::future<CreateFilesetOutcome> CreateFilesetOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::CreateFilesetRequest&, CreateFilesetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateFilesetAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateLoadTaskResponse> CreateLoadTaskOutcome;
+                typedef std::future<CreateLoadTaskOutcome> CreateLoadTaskOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::CreateLoadTaskRequest&, CreateLoadTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateLoadTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteCrossVpcSubnetSupportForClientNodeResponse> DeleteCrossVpcSubnetSupportForClientNodeOutcome;
                 typedef std::future<DeleteCrossVpcSubnetSupportForClientNodeOutcome> DeleteCrossVpcSubnetSupportForClientNodeOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::DeleteCrossVpcSubnetSupportForClientNodeRequest&, DeleteCrossVpcSubnetSupportForClientNodeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCrossVpcSubnetSupportForClientNodeAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteCustomerClusterResponse> DeleteCustomerClusterOutcome;
+                typedef std::future<DeleteCustomerClusterOutcome> DeleteCustomerClusterOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::DeleteCustomerClusterRequest&, DeleteCustomerClusterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCustomerClusterAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteFileSystemResponse> DeleteFileSystemOutcome;
                 typedef std::future<DeleteFileSystemOutcome> DeleteFileSystemOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::DeleteFileSystemRequest&, DeleteFileSystemOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteFileSystemAsyncHandler;
@@ -133,9 +163,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeClusterRoleTokenResponse> DescribeClusterRoleTokenOutcome;
                 typedef std::future<DescribeClusterRoleTokenOutcome> DescribeClusterRoleTokenOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::DescribeClusterRoleTokenRequest&, DescribeClusterRoleTokenOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClusterRoleTokenAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeClusterRolesResponse> DescribeClusterRolesOutcome;
-                typedef std::future<DescribeClusterRolesOutcome> DescribeClusterRolesOutcomeCallable;
-                typedef std::function<void(const GoosefsClient*, const Model::DescribeClusterRolesRequest&, DescribeClusterRolesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClusterRolesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeCustomerClusterResponse> DescribeCustomerClusterOutcome;
+                typedef std::future<DescribeCustomerClusterOutcome> DescribeCustomerClusterOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::DescribeCustomerClusterRequest&, DescribeCustomerClusterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCustomerClusterAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataRepositoryTaskStatusResponse> DescribeDataRepositoryTaskStatusOutcome;
                 typedef std::future<DescribeDataRepositoryTaskStatusOutcome> DescribeDataRepositoryTaskStatusOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::DescribeDataRepositoryTaskStatusRequest&, DescribeDataRepositoryTaskStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataRepositoryTaskStatusAsyncHandler;
@@ -151,15 +181,27 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeFilesetsResponse> DescribeFilesetsOutcome;
                 typedef std::future<DescribeFilesetsOutcome> DescribeFilesetsOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::DescribeFilesetsRequest&, DescribeFilesetsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFilesetsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLoadTaskResponse> DescribeLoadTaskOutcome;
+                typedef std::future<DescribeLoadTaskOutcome> DescribeLoadTaskOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::DescribeLoadTaskRequest&, DescribeLoadTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLoadTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::DetachFileSystemBucketResponse> DetachFileSystemBucketOutcome;
                 typedef std::future<DetachFileSystemBucketOutcome> DetachFileSystemBucketOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::DetachFileSystemBucketRequest&, DetachFileSystemBucketOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DetachFileSystemBucketAsyncHandler;
                 typedef Outcome<Core::Error, Model::ExpandCapacityResponse> ExpandCapacityOutcome;
                 typedef std::future<ExpandCapacityOutcome> ExpandCapacityOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::ExpandCapacityRequest&, ExpandCapacityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExpandCapacityAsyncHandler;
+                typedef Outcome<Core::Error, Model::ListLoadTasksResponse> ListLoadTasksOutcome;
+                typedef std::future<ListLoadTasksOutcome> ListLoadTasksOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::ListLoadTasksRequest&, ListLoadTasksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ListLoadTasksAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyDataRepositoryBandwidthResponse> ModifyDataRepositoryBandwidthOutcome;
                 typedef std::future<ModifyDataRepositoryBandwidthOutcome> ModifyDataRepositoryBandwidthOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::ModifyDataRepositoryBandwidthRequest&, ModifyDataRepositoryBandwidthOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDataRepositoryBandwidthAsyncHandler;
+                typedef Outcome<Core::Error, Model::MountMultipleStorageFileSystemResponse> MountMultipleStorageFileSystemOutcome;
+                typedef std::future<MountMultipleStorageFileSystemOutcome> MountMultipleStorageFileSystemOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::MountMultipleStorageFileSystemRequest&, MountMultipleStorageFileSystemOutcome, const std::shared_ptr<const AsyncCallerContext>&)> MountMultipleStorageFileSystemAsyncHandler;
+                typedef Outcome<Core::Error, Model::QueryClientNodeMountCommandResponse> QueryClientNodeMountCommandOutcome;
+                typedef std::future<QueryClientNodeMountCommandOutcome> QueryClientNodeMountCommandOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::QueryClientNodeMountCommandRequest&, QueryClientNodeMountCommandOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryClientNodeMountCommandAsyncHandler;
                 typedef Outcome<Core::Error, Model::QueryCrossVpcSubnetSupportForClientNodeResponse> QueryCrossVpcSubnetSupportForClientNodeOutcome;
                 typedef std::future<QueryCrossVpcSubnetSupportForClientNodeOutcome> QueryCrossVpcSubnetSupportForClientNodeOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::QueryCrossVpcSubnetSupportForClientNodeRequest&, QueryCrossVpcSubnetSupportForClientNodeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryCrossVpcSubnetSupportForClientNodeAsyncHandler;
@@ -172,6 +214,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::UpdateFilesetGeneralConfigResponse> UpdateFilesetGeneralConfigOutcome;
                 typedef std::future<UpdateFilesetGeneralConfigOutcome> UpdateFilesetGeneralConfigOutcomeCallable;
                 typedef std::function<void(const GoosefsClient*, const Model::UpdateFilesetGeneralConfigRequest&, UpdateFilesetGeneralConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateFilesetGeneralConfigAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateLoadTaskPriorityResponse> UpdateLoadTaskPriorityOutcome;
+                typedef std::future<UpdateLoadTaskPriorityOutcome> UpdateLoadTaskPriorityOutcomeCallable;
+                typedef std::function<void(const GoosefsClient*, const Model::UpdateLoadTaskPriorityRequest&, UpdateLoadTaskPriorityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateLoadTaskPriorityAsyncHandler;
 
 
 
@@ -221,6 +266,24 @@ namespace TencentCloud
                 BuildClientNodeMountCommandOutcomeCallable BuildClientNodeMountCommandCallable(const Model::BuildClientNodeMountCommandRequest& request);
 
                 /**
+                 *构建客户端集群
+                 * @param req BuildCustomerClusterRequest
+                 * @return BuildCustomerClusterOutcome
+                 */
+                BuildCustomerClusterOutcome BuildCustomerCluster(const Model::BuildCustomerClusterRequest &request);
+                void BuildCustomerClusterAsync(const Model::BuildCustomerClusterRequest& request, const BuildCustomerClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                BuildCustomerClusterOutcomeCallable BuildCustomerClusterCallable(const Model::BuildCustomerClusterRequest& request);
+
+                /**
+                 *取消单个预热任务，仅任务在 waiting、running 状态时可以调用此接口。注意，该接口需要 GooseFS 集群版本 ≥ 1.5.1。
+                 * @param req CancelLoadTaskRequest
+                 * @return CancelLoadTaskOutcome
+                 */
+                CancelLoadTaskOutcome CancelLoadTask(const Model::CancelLoadTaskRequest &request);
+                void CancelLoadTaskAsync(const Model::CancelLoadTaskRequest& request, const CancelLoadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CancelLoadTaskOutcomeCallable CancelLoadTaskCallable(const Model::CancelLoadTaskRequest& request);
+
+                /**
                  *创建数据流通任务,包括从将文件系统的数据上传到存储桶下, 以及从存储桶下载到文件系统里。
                  * @param req CreateDataRepositoryTaskRequest
                  * @return CreateDataRepositoryTaskOutcome
@@ -248,6 +311,15 @@ namespace TencentCloud
                 CreateFilesetOutcomeCallable CreateFilesetCallable(const Model::CreateFilesetRequest& request);
 
                 /**
+                 *GooseFS 预热相关接口，用于下发，列出，查询，修改预热任务。用于元数据预热、数据预热场景。 注意，该接口需要 GooseFS 集群版本 ≥ 1.5.1。
+                 * @param req CreateLoadTaskRequest
+                 * @return CreateLoadTaskOutcome
+                 */
+                CreateLoadTaskOutcome CreateLoadTask(const Model::CreateLoadTaskRequest &request);
+                void CreateLoadTaskAsync(const Model::CreateLoadTaskRequest& request, const CreateLoadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateLoadTaskOutcomeCallable CreateLoadTaskCallable(const Model::CreateLoadTaskRequest& request);
+
+                /**
                  *为客户端节点删除跨vpc子网访问能力
                  * @param req DeleteCrossVpcSubnetSupportForClientNodeRequest
                  * @return DeleteCrossVpcSubnetSupportForClientNodeOutcome
@@ -255,6 +327,15 @@ namespace TencentCloud
                 DeleteCrossVpcSubnetSupportForClientNodeOutcome DeleteCrossVpcSubnetSupportForClientNode(const Model::DeleteCrossVpcSubnetSupportForClientNodeRequest &request);
                 void DeleteCrossVpcSubnetSupportForClientNodeAsync(const Model::DeleteCrossVpcSubnetSupportForClientNodeRequest& request, const DeleteCrossVpcSubnetSupportForClientNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteCrossVpcSubnetSupportForClientNodeOutcomeCallable DeleteCrossVpcSubnetSupportForClientNodeCallable(const Model::DeleteCrossVpcSubnetSupportForClientNodeRequest& request);
+
+                /**
+                 *删除客户端集群
+                 * @param req DeleteCustomerClusterRequest
+                 * @return DeleteCustomerClusterOutcome
+                 */
+                DeleteCustomerClusterOutcome DeleteCustomerCluster(const Model::DeleteCustomerClusterRequest &request);
+                void DeleteCustomerClusterAsync(const Model::DeleteCustomerClusterRequest& request, const DeleteCustomerClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteCustomerClusterOutcomeCallable DeleteCustomerClusterCallable(const Model::DeleteCustomerClusterRequest& request);
 
                 /**
                  *删除文件系统
@@ -302,15 +383,13 @@ namespace TencentCloud
                 DescribeClusterRoleTokenOutcomeCallable DescribeClusterRoleTokenCallable(const Model::DescribeClusterRoleTokenRequest& request);
 
                 /**
-                 *接口废弃
-
-查询GooseFS集群角色
-                 * @param req DescribeClusterRolesRequest
-                 * @return DescribeClusterRolesOutcome
+                 *查询客户端集群
+                 * @param req DescribeCustomerClusterRequest
+                 * @return DescribeCustomerClusterOutcome
                  */
-                DescribeClusterRolesOutcome DescribeClusterRoles(const Model::DescribeClusterRolesRequest &request);
-                void DescribeClusterRolesAsync(const Model::DescribeClusterRolesRequest& request, const DescribeClusterRolesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeClusterRolesOutcomeCallable DescribeClusterRolesCallable(const Model::DescribeClusterRolesRequest& request);
+                DescribeCustomerClusterOutcome DescribeCustomerCluster(const Model::DescribeCustomerClusterRequest &request);
+                void DescribeCustomerClusterAsync(const Model::DescribeCustomerClusterRequest& request, const DescribeCustomerClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeCustomerClusterOutcomeCallable DescribeCustomerClusterCallable(const Model::DescribeCustomerClusterRequest& request);
 
                 /**
                  *获取数据流通任务实时状态，用作客户端控制
@@ -358,6 +437,15 @@ namespace TencentCloud
                 DescribeFilesetsOutcomeCallable DescribeFilesetsCallable(const Model::DescribeFilesetsRequest& request);
 
                 /**
+                 *查询单个预热任务执行情况。注意，该接口需要 GooseFS 集群版本 ≥ 1.5.1。
+                 * @param req DescribeLoadTaskRequest
+                 * @return DescribeLoadTaskOutcome
+                 */
+                DescribeLoadTaskOutcome DescribeLoadTask(const Model::DescribeLoadTaskRequest &request);
+                void DescribeLoadTaskAsync(const Model::DescribeLoadTaskRequest& request, const DescribeLoadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLoadTaskOutcomeCallable DescribeLoadTaskCallable(const Model::DescribeLoadTaskRequest& request);
+
+                /**
                  *解绑文件系统与Bucket的映射
                  * @param req DetachFileSystemBucketRequest
                  * @return DetachFileSystemBucketOutcome
@@ -376,6 +464,15 @@ namespace TencentCloud
                 ExpandCapacityOutcomeCallable ExpandCapacityCallable(const Model::ExpandCapacityRequest& request);
 
                 /**
+                 *列出该集群下所有预热任务。注意，该接口需要 GooseFS 集群版本 ≥ 1.5.1。
+                 * @param req ListLoadTasksRequest
+                 * @return ListLoadTasksOutcome
+                 */
+                ListLoadTasksOutcome ListLoadTasks(const Model::ListLoadTasksRequest &request);
+                void ListLoadTasksAsync(const Model::ListLoadTasksRequest& request, const ListLoadTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ListLoadTasksOutcomeCallable ListLoadTasksCallable(const Model::ListLoadTasksRequest& request);
+
+                /**
                  *修改数据流动带宽
                  * @param req ModifyDataRepositoryBandwidthRequest
                  * @return ModifyDataRepositoryBandwidthOutcome
@@ -383,6 +480,24 @@ namespace TencentCloud
                 ModifyDataRepositoryBandwidthOutcome ModifyDataRepositoryBandwidth(const Model::ModifyDataRepositoryBandwidthRequest &request);
                 void ModifyDataRepositoryBandwidthAsync(const Model::ModifyDataRepositoryBandwidthRequest& request, const ModifyDataRepositoryBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyDataRepositoryBandwidthOutcomeCallable ModifyDataRepositoryBandwidthCallable(const Model::ModifyDataRepositoryBandwidthRequest& request);
+
+                /**
+                 *客户端集群挂载存储集群
+                 * @param req MountMultipleStorageFileSystemRequest
+                 * @return MountMultipleStorageFileSystemOutcome
+                 */
+                MountMultipleStorageFileSystemOutcome MountMultipleStorageFileSystem(const Model::MountMultipleStorageFileSystemRequest &request);
+                void MountMultipleStorageFileSystemAsync(const Model::MountMultipleStorageFileSystemRequest& request, const MountMultipleStorageFileSystemAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                MountMultipleStorageFileSystemOutcomeCallable MountMultipleStorageFileSystemCallable(const Model::MountMultipleStorageFileSystemRequest& request);
+
+                /**
+                 *生成客户端的挂载命令
+                 * @param req QueryClientNodeMountCommandRequest
+                 * @return QueryClientNodeMountCommandOutcome
+                 */
+                QueryClientNodeMountCommandOutcome QueryClientNodeMountCommand(const Model::QueryClientNodeMountCommandRequest &request);
+                void QueryClientNodeMountCommandAsync(const Model::QueryClientNodeMountCommandRequest& request, const QueryClientNodeMountCommandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                QueryClientNodeMountCommandOutcomeCallable QueryClientNodeMountCommandCallable(const Model::QueryClientNodeMountCommandRequest& request);
 
                 /**
                  *查询客户端节点跨vpc子网访问能力
@@ -419,6 +534,15 @@ namespace TencentCloud
                 UpdateFilesetGeneralConfigOutcome UpdateFilesetGeneralConfig(const Model::UpdateFilesetGeneralConfigRequest &request);
                 void UpdateFilesetGeneralConfigAsync(const Model::UpdateFilesetGeneralConfigRequest& request, const UpdateFilesetGeneralConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 UpdateFilesetGeneralConfigOutcomeCallable UpdateFilesetGeneralConfigCallable(const Model::UpdateFilesetGeneralConfigRequest& request);
+
+                /**
+                 *变更已有 GooseFS 预热任务配置，仅任务状态为 waiting 时可调用该接口。注意，该接口需要 GooseFS 集群版本 ≥ 1.5.1。
+                 * @param req UpdateLoadTaskPriorityRequest
+                 * @return UpdateLoadTaskPriorityOutcome
+                 */
+                UpdateLoadTaskPriorityOutcome UpdateLoadTaskPriority(const Model::UpdateLoadTaskPriorityRequest &request);
+                void UpdateLoadTaskPriorityAsync(const Model::UpdateLoadTaskPriorityRequest& request, const UpdateLoadTaskPriorityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateLoadTaskPriorityOutcomeCallable UpdateLoadTaskPriorityCallable(const Model::UpdateLoadTaskPriorityRequest& request);
 
             };
         }

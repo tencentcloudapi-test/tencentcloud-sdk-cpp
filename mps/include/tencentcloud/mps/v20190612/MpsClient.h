@@ -37,6 +37,10 @@
 #include <tencentcloud/mps/v20190612/model/CreateAIRecognitionTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/CreateAdaptiveDynamicStreamingTemplateRequest.h>
 #include <tencentcloud/mps/v20190612/model/CreateAdaptiveDynamicStreamingTemplateResponse.h>
+#include <tencentcloud/mps/v20190612/model/CreateAigcImageTaskRequest.h>
+#include <tencentcloud/mps/v20190612/model/CreateAigcImageTaskResponse.h>
+#include <tencentcloud/mps/v20190612/model/CreateAigcVideoTaskRequest.h>
+#include <tencentcloud/mps/v20190612/model/CreateAigcVideoTaskResponse.h>
 #include <tencentcloud/mps/v20190612/model/CreateAnimatedGraphicsTemplateRequest.h>
 #include <tencentcloud/mps/v20190612/model/CreateAnimatedGraphicsTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/CreateAsrHotwordsRequest.h>
@@ -77,6 +81,8 @@
 #include <tencentcloud/mps/v20190612/model/CreateStreamLinkOutputInfoResponse.h>
 #include <tencentcloud/mps/v20190612/model/CreateStreamLinkSecurityGroupRequest.h>
 #include <tencentcloud/mps/v20190612/model/CreateStreamLinkSecurityGroupResponse.h>
+#include <tencentcloud/mps/v20190612/model/CreateSubtitleEmbedTemplateRequest.h>
+#include <tencentcloud/mps/v20190612/model/CreateSubtitleEmbedTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/CreateTranscodeTemplateRequest.h>
 #include <tencentcloud/mps/v20190612/model/CreateTranscodeTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/CreateVideoDatabaseEntryTaskRequest.h>
@@ -131,6 +137,8 @@
 #include <tencentcloud/mps/v20190612/model/DeleteStreamLinkOutputResponse.h>
 #include <tencentcloud/mps/v20190612/model/DeleteStreamLinkSecurityGroupRequest.h>
 #include <tencentcloud/mps/v20190612/model/DeleteStreamLinkSecurityGroupResponse.h>
+#include <tencentcloud/mps/v20190612/model/DeleteSubtitleEmbedTemplateRequest.h>
+#include <tencentcloud/mps/v20190612/model/DeleteSubtitleEmbedTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/DeleteTranscodeTemplateRequest.h>
 #include <tencentcloud/mps/v20190612/model/DeleteTranscodeTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/DeleteWatermarkTemplateRequest.h>
@@ -145,6 +153,10 @@
 #include <tencentcloud/mps/v20190612/model/DescribeAIRecognitionTemplatesResponse.h>
 #include <tencentcloud/mps/v20190612/model/DescribeAdaptiveDynamicStreamingTemplatesRequest.h>
 #include <tencentcloud/mps/v20190612/model/DescribeAdaptiveDynamicStreamingTemplatesResponse.h>
+#include <tencentcloud/mps/v20190612/model/DescribeAigcImageTaskRequest.h>
+#include <tencentcloud/mps/v20190612/model/DescribeAigcImageTaskResponse.h>
+#include <tencentcloud/mps/v20190612/model/DescribeAigcVideoTaskRequest.h>
+#include <tencentcloud/mps/v20190612/model/DescribeAigcVideoTaskResponse.h>
 #include <tencentcloud/mps/v20190612/model/DescribeAnimatedGraphicsTemplatesRequest.h>
 #include <tencentcloud/mps/v20190612/model/DescribeAnimatedGraphicsTemplatesResponse.h>
 #include <tencentcloud/mps/v20190612/model/DescribeAsrHotwordsRequest.h>
@@ -209,6 +221,8 @@
 #include <tencentcloud/mps/v20190612/model/DescribeStreamLinkRegionsResponse.h>
 #include <tencentcloud/mps/v20190612/model/DescribeStreamLinkSecurityGroupsRequest.h>
 #include <tencentcloud/mps/v20190612/model/DescribeStreamLinkSecurityGroupsResponse.h>
+#include <tencentcloud/mps/v20190612/model/DescribeSubtitleEmbedTemplatesRequest.h>
+#include <tencentcloud/mps/v20190612/model/DescribeSubtitleEmbedTemplatesResponse.h>
 #include <tencentcloud/mps/v20190612/model/DescribeTaskDetailRequest.h>
 #include <tencentcloud/mps/v20190612/model/DescribeTaskDetailResponse.h>
 #include <tencentcloud/mps/v20190612/model/DescribeTasksRequest.h>
@@ -289,6 +303,8 @@
 #include <tencentcloud/mps/v20190612/model/ModifyStreamLinkOutputInfoResponse.h>
 #include <tencentcloud/mps/v20190612/model/ModifyStreamLinkSecurityGroupRequest.h>
 #include <tencentcloud/mps/v20190612/model/ModifyStreamLinkSecurityGroupResponse.h>
+#include <tencentcloud/mps/v20190612/model/ModifySubtitleEmbedTemplateRequest.h>
+#include <tencentcloud/mps/v20190612/model/ModifySubtitleEmbedTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/ModifyTranscodeTemplateRequest.h>
 #include <tencentcloud/mps/v20190612/model/ModifyTranscodeTemplateResponse.h>
 #include <tencentcloud/mps/v20190612/model/ModifyWatermarkTemplateRequest.h>
@@ -305,6 +321,8 @@
 #include <tencentcloud/mps/v20190612/model/ProcessLiveStreamResponse.h>
 #include <tencentcloud/mps/v20190612/model/ProcessMediaRequest.h>
 #include <tencentcloud/mps/v20190612/model/ProcessMediaResponse.h>
+#include <tencentcloud/mps/v20190612/model/RecognizeAudioRequest.h>
+#include <tencentcloud/mps/v20190612/model/RecognizeAudioResponse.h>
 #include <tencentcloud/mps/v20190612/model/RecognizeMediaForZhiXueRequest.h>
 #include <tencentcloud/mps/v20190612/model/RecognizeMediaForZhiXueResponse.h>
 #include <tencentcloud/mps/v20190612/model/ResetWorkflowRequest.h>
@@ -313,6 +331,10 @@
 #include <tencentcloud/mps/v20190612/model/StartStreamLinkFlowResponse.h>
 #include <tencentcloud/mps/v20190612/model/StopStreamLinkFlowRequest.h>
 #include <tencentcloud/mps/v20190612/model/StopStreamLinkFlowResponse.h>
+#include <tencentcloud/mps/v20190612/model/SyncDubbingRequest.h>
+#include <tencentcloud/mps/v20190612/model/SyncDubbingResponse.h>
+#include <tencentcloud/mps/v20190612/model/TextTranslationRequest.h>
+#include <tencentcloud/mps/v20190612/model/TextTranslationResponse.h>
 #include <tencentcloud/mps/v20190612/model/WithdrawsWatermarkRequest.h>
 #include <tencentcloud/mps/v20190612/model/WithdrawsWatermarkResponse.h>
 
@@ -350,6 +372,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateAdaptiveDynamicStreamingTemplateResponse> CreateAdaptiveDynamicStreamingTemplateOutcome;
                 typedef std::future<CreateAdaptiveDynamicStreamingTemplateOutcome> CreateAdaptiveDynamicStreamingTemplateOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::CreateAdaptiveDynamicStreamingTemplateRequest&, CreateAdaptiveDynamicStreamingTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAdaptiveDynamicStreamingTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcImageTaskResponse> CreateAigcImageTaskOutcome;
+                typedef std::future<CreateAigcImageTaskOutcome> CreateAigcImageTaskOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::CreateAigcImageTaskRequest&, CreateAigcImageTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcImageTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcVideoTaskResponse> CreateAigcVideoTaskOutcome;
+                typedef std::future<CreateAigcVideoTaskOutcome> CreateAigcVideoTaskOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::CreateAigcVideoTaskRequest&, CreateAigcVideoTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcVideoTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateAnimatedGraphicsTemplateResponse> CreateAnimatedGraphicsTemplateOutcome;
                 typedef std::future<CreateAnimatedGraphicsTemplateOutcome> CreateAnimatedGraphicsTemplateOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::CreateAnimatedGraphicsTemplateRequest&, CreateAnimatedGraphicsTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAnimatedGraphicsTemplateAsyncHandler;
@@ -410,6 +438,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateStreamLinkSecurityGroupResponse> CreateStreamLinkSecurityGroupOutcome;
                 typedef std::future<CreateStreamLinkSecurityGroupOutcome> CreateStreamLinkSecurityGroupOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::CreateStreamLinkSecurityGroupRequest&, CreateStreamLinkSecurityGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateStreamLinkSecurityGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateSubtitleEmbedTemplateResponse> CreateSubtitleEmbedTemplateOutcome;
+                typedef std::future<CreateSubtitleEmbedTemplateOutcome> CreateSubtitleEmbedTemplateOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::CreateSubtitleEmbedTemplateRequest&, CreateSubtitleEmbedTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateSubtitleEmbedTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateTranscodeTemplateResponse> CreateTranscodeTemplateOutcome;
                 typedef std::future<CreateTranscodeTemplateOutcome> CreateTranscodeTemplateOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::CreateTranscodeTemplateRequest&, CreateTranscodeTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateTranscodeTemplateAsyncHandler;
@@ -491,6 +522,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteStreamLinkSecurityGroupResponse> DeleteStreamLinkSecurityGroupOutcome;
                 typedef std::future<DeleteStreamLinkSecurityGroupOutcome> DeleteStreamLinkSecurityGroupOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::DeleteStreamLinkSecurityGroupRequest&, DeleteStreamLinkSecurityGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteStreamLinkSecurityGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteSubtitleEmbedTemplateResponse> DeleteSubtitleEmbedTemplateOutcome;
+                typedef std::future<DeleteSubtitleEmbedTemplateOutcome> DeleteSubtitleEmbedTemplateOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::DeleteSubtitleEmbedTemplateRequest&, DeleteSubtitleEmbedTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteSubtitleEmbedTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteTranscodeTemplateResponse> DeleteTranscodeTemplateOutcome;
                 typedef std::future<DeleteTranscodeTemplateOutcome> DeleteTranscodeTemplateOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::DeleteTranscodeTemplateRequest&, DeleteTranscodeTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteTranscodeTemplateAsyncHandler;
@@ -512,6 +546,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAdaptiveDynamicStreamingTemplatesResponse> DescribeAdaptiveDynamicStreamingTemplatesOutcome;
                 typedef std::future<DescribeAdaptiveDynamicStreamingTemplatesOutcome> DescribeAdaptiveDynamicStreamingTemplatesOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::DescribeAdaptiveDynamicStreamingTemplatesRequest&, DescribeAdaptiveDynamicStreamingTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAdaptiveDynamicStreamingTemplatesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAigcImageTaskResponse> DescribeAigcImageTaskOutcome;
+                typedef std::future<DescribeAigcImageTaskOutcome> DescribeAigcImageTaskOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::DescribeAigcImageTaskRequest&, DescribeAigcImageTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAigcImageTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAigcVideoTaskResponse> DescribeAigcVideoTaskOutcome;
+                typedef std::future<DescribeAigcVideoTaskOutcome> DescribeAigcVideoTaskOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::DescribeAigcVideoTaskRequest&, DescribeAigcVideoTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAigcVideoTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeAnimatedGraphicsTemplatesResponse> DescribeAnimatedGraphicsTemplatesOutcome;
                 typedef std::future<DescribeAnimatedGraphicsTemplatesOutcome> DescribeAnimatedGraphicsTemplatesOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::DescribeAnimatedGraphicsTemplatesRequest&, DescribeAnimatedGraphicsTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAnimatedGraphicsTemplatesAsyncHandler;
@@ -608,6 +648,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeStreamLinkSecurityGroupsResponse> DescribeStreamLinkSecurityGroupsOutcome;
                 typedef std::future<DescribeStreamLinkSecurityGroupsOutcome> DescribeStreamLinkSecurityGroupsOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::DescribeStreamLinkSecurityGroupsRequest&, DescribeStreamLinkSecurityGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeStreamLinkSecurityGroupsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeSubtitleEmbedTemplatesResponse> DescribeSubtitleEmbedTemplatesOutcome;
+                typedef std::future<DescribeSubtitleEmbedTemplatesOutcome> DescribeSubtitleEmbedTemplatesOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::DescribeSubtitleEmbedTemplatesRequest&, DescribeSubtitleEmbedTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSubtitleEmbedTemplatesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTaskDetailResponse> DescribeTaskDetailOutcome;
                 typedef std::future<DescribeTaskDetailOutcome> DescribeTaskDetailOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::DescribeTaskDetailRequest&, DescribeTaskDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTaskDetailAsyncHandler;
@@ -728,6 +771,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyStreamLinkSecurityGroupResponse> ModifyStreamLinkSecurityGroupOutcome;
                 typedef std::future<ModifyStreamLinkSecurityGroupOutcome> ModifyStreamLinkSecurityGroupOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::ModifyStreamLinkSecurityGroupRequest&, ModifyStreamLinkSecurityGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyStreamLinkSecurityGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifySubtitleEmbedTemplateResponse> ModifySubtitleEmbedTemplateOutcome;
+                typedef std::future<ModifySubtitleEmbedTemplateOutcome> ModifySubtitleEmbedTemplateOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::ModifySubtitleEmbedTemplateRequest&, ModifySubtitleEmbedTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifySubtitleEmbedTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyTranscodeTemplateResponse> ModifyTranscodeTemplateOutcome;
                 typedef std::future<ModifyTranscodeTemplateOutcome> ModifyTranscodeTemplateOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::ModifyTranscodeTemplateRequest&, ModifyTranscodeTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyTranscodeTemplateAsyncHandler;
@@ -752,6 +798,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ProcessMediaResponse> ProcessMediaOutcome;
                 typedef std::future<ProcessMediaOutcome> ProcessMediaOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::ProcessMediaRequest&, ProcessMediaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ProcessMediaAsyncHandler;
+                typedef Outcome<Core::Error, Model::RecognizeAudioResponse> RecognizeAudioOutcome;
+                typedef std::future<RecognizeAudioOutcome> RecognizeAudioOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::RecognizeAudioRequest&, RecognizeAudioOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeAudioAsyncHandler;
                 typedef Outcome<Core::Error, Model::RecognizeMediaForZhiXueResponse> RecognizeMediaForZhiXueOutcome;
                 typedef std::future<RecognizeMediaForZhiXueOutcome> RecognizeMediaForZhiXueOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::RecognizeMediaForZhiXueRequest&, RecognizeMediaForZhiXueOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RecognizeMediaForZhiXueAsyncHandler;
@@ -764,6 +813,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::StopStreamLinkFlowResponse> StopStreamLinkFlowOutcome;
                 typedef std::future<StopStreamLinkFlowOutcome> StopStreamLinkFlowOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::StopStreamLinkFlowRequest&, StopStreamLinkFlowOutcome, const std::shared_ptr<const AsyncCallerContext>&)> StopStreamLinkFlowAsyncHandler;
+                typedef Outcome<Core::Error, Model::SyncDubbingResponse> SyncDubbingOutcome;
+                typedef std::future<SyncDubbingOutcome> SyncDubbingOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::SyncDubbingRequest&, SyncDubbingOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SyncDubbingAsyncHandler;
+                typedef Outcome<Core::Error, Model::TextTranslationResponse> TextTranslationOutcome;
+                typedef std::future<TextTranslationOutcome> TextTranslationOutcomeCallable;
+                typedef std::function<void(const MpsClient*, const Model::TextTranslationRequest&, TextTranslationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TextTranslationAsyncHandler;
                 typedef Outcome<Core::Error, Model::WithdrawsWatermarkResponse> WithdrawsWatermarkOutcome;
                 typedef std::future<WithdrawsWatermarkOutcome> WithdrawsWatermarkOutcomeCallable;
                 typedef std::function<void(const MpsClient*, const Model::WithdrawsWatermarkRequest&, WithdrawsWatermarkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> WithdrawsWatermarkAsyncHandler;
@@ -835,6 +890,24 @@ namespace TencentCloud
                 CreateAdaptiveDynamicStreamingTemplateOutcomeCallable CreateAdaptiveDynamicStreamingTemplateCallable(const Model::CreateAdaptiveDynamicStreamingTemplateRequest& request);
 
                 /**
+                 *调用该接口用于创建AIGC生图片任务。
+                 * @param req CreateAigcImageTaskRequest
+                 * @return CreateAigcImageTaskOutcome
+                 */
+                CreateAigcImageTaskOutcome CreateAigcImageTask(const Model::CreateAigcImageTaskRequest &request);
+                void CreateAigcImageTaskAsync(const Model::CreateAigcImageTaskRequest& request, const CreateAigcImageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcImageTaskOutcomeCallable CreateAigcImageTaskCallable(const Model::CreateAigcImageTaskRequest& request);
+
+                /**
+                 *调用该接口，用于创建AI生视频任务。
+                 * @param req CreateAigcVideoTaskRequest
+                 * @return CreateAigcVideoTaskOutcome
+                 */
+                CreateAigcVideoTaskOutcome CreateAigcVideoTask(const Model::CreateAigcVideoTaskRequest &request);
+                void CreateAigcVideoTaskAsync(const Model::CreateAigcVideoTaskRequest& request, const CreateAigcVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcVideoTaskOutcomeCallable CreateAigcVideoTaskCallable(const Model::CreateAigcVideoTaskRequest& request);
+
+                /**
                  *创建用户自定义转动图模板，数量上限：16。
                  * @param req CreateAnimatedGraphicsTemplateRequest
                  * @return CreateAnimatedGraphicsTemplateOutcome
@@ -853,7 +926,7 @@ namespace TencentCloud
                 CreateAsrHotwordsOutcomeCallable CreateAsrHotwordsCallable(const Model::CreateAsrHotwordsRequest& request);
 
                 /**
-                 *创建用户自定义数字水印模板，数量上限：1000。
+                 *创建用户自定义数字水印模板。
                  * @param req CreateBlindWatermarkTemplateRequest
                  * @return CreateBlindWatermarkTemplateOutcome
                  */
@@ -1030,6 +1103,15 @@ namespace TencentCloud
                 CreateStreamLinkSecurityGroupOutcome CreateStreamLinkSecurityGroup(const Model::CreateStreamLinkSecurityGroupRequest &request);
                 void CreateStreamLinkSecurityGroupAsync(const Model::CreateStreamLinkSecurityGroupRequest& request, const CreateStreamLinkSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateStreamLinkSecurityGroupOutcomeCallable CreateStreamLinkSecurityGroupCallable(const Model::CreateStreamLinkSecurityGroupRequest& request);
+
+                /**
+                 *创建自定义字幕压制模板
+                 * @param req CreateSubtitleEmbedTemplateRequest
+                 * @return CreateSubtitleEmbedTemplateOutcome
+                 */
+                CreateSubtitleEmbedTemplateOutcome CreateSubtitleEmbedTemplate(const Model::CreateSubtitleEmbedTemplateRequest &request);
+                void CreateSubtitleEmbedTemplateAsync(const Model::CreateSubtitleEmbedTemplateRequest& request, const CreateSubtitleEmbedTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateSubtitleEmbedTemplateOutcomeCallable CreateSubtitleEmbedTemplateCallable(const Model::CreateSubtitleEmbedTemplateRequest& request);
 
                 /**
                  *创建用户自定义转码模板，数量上限：1000
@@ -1289,6 +1371,15 @@ namespace TencentCloud
                 DeleteStreamLinkSecurityGroupOutcomeCallable DeleteStreamLinkSecurityGroupCallable(const Model::DeleteStreamLinkSecurityGroupRequest& request);
 
                 /**
+                 *删除用户自定义字幕压制模板。
+                 * @param req DeleteSubtitleEmbedTemplateRequest
+                 * @return DeleteSubtitleEmbedTemplateOutcome
+                 */
+                DeleteSubtitleEmbedTemplateOutcome DeleteSubtitleEmbedTemplate(const Model::DeleteSubtitleEmbedTemplateRequest &request);
+                void DeleteSubtitleEmbedTemplateAsync(const Model::DeleteSubtitleEmbedTemplateRequest& request, const DeleteSubtitleEmbedTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteSubtitleEmbedTemplateOutcomeCallable DeleteSubtitleEmbedTemplateCallable(const Model::DeleteSubtitleEmbedTemplateRequest& request);
+
+                /**
                  *删除用户自定义转码模板。
                  * @param req DeleteTranscodeTemplateRequest
                  * @return DeleteTranscodeTemplateOutcome
@@ -1350,6 +1441,24 @@ namespace TencentCloud
                 DescribeAdaptiveDynamicStreamingTemplatesOutcome DescribeAdaptiveDynamicStreamingTemplates(const Model::DescribeAdaptiveDynamicStreamingTemplatesRequest &request);
                 void DescribeAdaptiveDynamicStreamingTemplatesAsync(const Model::DescribeAdaptiveDynamicStreamingTemplatesRequest& request, const DescribeAdaptiveDynamicStreamingTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeAdaptiveDynamicStreamingTemplatesOutcomeCallable DescribeAdaptiveDynamicStreamingTemplatesCallable(const Model::DescribeAdaptiveDynamicStreamingTemplatesRequest& request);
+
+                /**
+                 *调用该接口，查询AIGC生图片任务进度以及获取生成结果。
+                 * @param req DescribeAigcImageTaskRequest
+                 * @return DescribeAigcImageTaskOutcome
+                 */
+                DescribeAigcImageTaskOutcome DescribeAigcImageTask(const Model::DescribeAigcImageTaskRequest &request);
+                void DescribeAigcImageTaskAsync(const Model::DescribeAigcImageTaskRequest& request, const DescribeAigcImageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAigcImageTaskOutcomeCallable DescribeAigcImageTaskCallable(const Model::DescribeAigcImageTaskRequest& request);
+
+                /**
+                 *调用该接口，用于查询AIGC生视频任务的进度以及获取生成结果。
+                 * @param req DescribeAigcVideoTaskRequest
+                 * @return DescribeAigcVideoTaskOutcome
+                 */
+                DescribeAigcVideoTaskOutcome DescribeAigcVideoTask(const Model::DescribeAigcVideoTaskRequest &request);
+                void DescribeAigcVideoTaskAsync(const Model::DescribeAigcVideoTaskRequest& request, const DescribeAigcVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAigcVideoTaskOutcomeCallable DescribeAigcVideoTaskCallable(const Model::DescribeAigcVideoTaskRequest& request);
 
                 /**
                  *查询转动图模板列表，支持根据条件，分页查询。
@@ -1638,6 +1747,15 @@ namespace TencentCloud
                 DescribeStreamLinkSecurityGroupsOutcome DescribeStreamLinkSecurityGroups(const Model::DescribeStreamLinkSecurityGroupsRequest &request);
                 void DescribeStreamLinkSecurityGroupsAsync(const Model::DescribeStreamLinkSecurityGroupsRequest& request, const DescribeStreamLinkSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeStreamLinkSecurityGroupsOutcomeCallable DescribeStreamLinkSecurityGroupsCallable(const Model::DescribeStreamLinkSecurityGroupsRequest& request);
+
+                /**
+                 *根据字幕压制模板唯一标识，获取字幕压制模板详情列表。返回结果包含符合条件的所有用户自定义字幕压制模板及系统预置字幕压制模板
+                 * @param req DescribeSubtitleEmbedTemplatesRequest
+                 * @return DescribeSubtitleEmbedTemplatesOutcome
+                 */
+                DescribeSubtitleEmbedTemplatesOutcome DescribeSubtitleEmbedTemplates(const Model::DescribeSubtitleEmbedTemplatesRequest &request);
+                void DescribeSubtitleEmbedTemplatesAsync(const Model::DescribeSubtitleEmbedTemplatesRequest& request, const DescribeSubtitleEmbedTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeSubtitleEmbedTemplatesOutcomeCallable DescribeSubtitleEmbedTemplatesCallable(const Model::DescribeSubtitleEmbedTemplatesRequest& request);
 
                 /**
                  *通过任务 ID 查询任务的执行状态和结果的详细信息（最多可以查询7天之内提交的任务）。
@@ -2018,6 +2136,15 @@ namespace TencentCloud
                 ModifyStreamLinkSecurityGroupOutcomeCallable ModifyStreamLinkSecurityGroupCallable(const Model::ModifyStreamLinkSecurityGroupRequest& request);
 
                 /**
+                 *修改用户自定义字幕压制模板。
+                 * @param req ModifySubtitleEmbedTemplateRequest
+                 * @return ModifySubtitleEmbedTemplateOutcome
+                 */
+                ModifySubtitleEmbedTemplateOutcome ModifySubtitleEmbedTemplate(const Model::ModifySubtitleEmbedTemplateRequest &request);
+                void ModifySubtitleEmbedTemplateAsync(const Model::ModifySubtitleEmbedTemplateRequest& request, const ModifySubtitleEmbedTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifySubtitleEmbedTemplateOutcomeCallable ModifySubtitleEmbedTemplateCallable(const Model::ModifySubtitleEmbedTemplateRequest& request);
+
+                /**
                  *修改用户自定义转码模板信息。
                  * @param req ModifyTranscodeTemplateRequest
                  * @return ModifyTranscodeTemplateOutcome
@@ -2081,7 +2208,7 @@ namespace TencentCloud
 
 * 智能内容审核（画面鉴黄、敏感信息检测、声音鉴黄）；
 * 智能内容识别（人脸、文本全文、文本关键词、语音全文、语音关键词、语音实时翻译、物体识别、游戏打点）。
-* 智能内容分析（新闻实时拆条）。
+* 智能内容分析（拆条，集锦）。
 * 质检（直播流格式诊断、音画内容检测（抖动、模糊、低光照、过曝光、黑边、白边、黑屏、白屏、花屏、噪点、马赛克、二维码等）、无参考打分）。
 * 录制
 
@@ -2095,24 +2222,33 @@ namespace TencentCloud
 
                 /**
                  *对 URL视频链接 或 COS 中的媒体文件发起处理任务，功能包括：
-1. 视频转码（普通转码、极速高清转码、音视频增强）；
-2. 视频转动图；
-3. 对视频按指定时间点截图；
-4. 对视频采样截图；
-5. 对视频截图雪碧图；
-6. 对视频转自适应码流；
-7. 智能内容审核（例如鉴黄、敏感信息检测）；
-8. 智能内容分析（例如标签、分类、封面、按帧标签、拆条、集锦、片头片尾、游戏打点）；
-9. 智能内容识别（例如人脸、文本全文、文本关键词、语音全文、语音关键词、语音翻译、物体识别）；
-10. 媒体质检（例如媒体格式诊断、音画内容检测、无参考打分，其中音画内容检测主要针对抖动、模糊、低光照、过曝光、花屏、噪点、马赛克、二维码等问题）;
-11. 智能字幕（例如语音全文、语音热词、语音翻译）；
-12.  智能擦除（去水印、去字幕、隐私保护）；
+- 音视频转码（例如普通转码、极速高清转码、音视频增强、添加明水印、添加数字水印）；
+- 音视频转自适应码流；
+- 视频转动图；
+- 对视频按指定时间点截图；
+- 对视频采样截图；
+- 对视频截图雪碧图；
+- 媒体质检（例如媒体格式诊断、音画内容检测、无参考打分，其中音画内容检测主要针对抖动、模糊、低光照、过曝光、花屏、噪点、马赛克、二维码等问题）;
+- 智能字幕（例如生成字幕并翻译）；
+- 智能擦除（例如去水印、去字幕、隐私保护）；
+- 智能内容审核（例如鉴黄、敏感信息检测）；
+- 智能内容分析（例如标签、分类、封面、按帧标签、拆条、集锦、片头片尾、游戏打点）；
+- 智能内容识别（例如人脸、文本全文、文本关键词、语音全文、语音关键词、语音翻译、物体识别）；
                  * @param req ProcessMediaRequest
                  * @return ProcessMediaOutcome
                  */
                 ProcessMediaOutcome ProcessMedia(const Model::ProcessMediaRequest &request);
                 void ProcessMediaAsync(const Model::ProcessMediaRequest& request, const ProcessMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ProcessMediaOutcomeCallable ProcessMediaCallable(const Model::ProcessMediaRequest& request);
+
+                /**
+                 *同步接口，返回语音识别结果
+                 * @param req RecognizeAudioRequest
+                 * @return RecognizeAudioOutcome
+                 */
+                RecognizeAudioOutcome RecognizeAudio(const Model::RecognizeAudioRequest &request);
+                void RecognizeAudioAsync(const Model::RecognizeAudioRequest& request, const RecognizeAudioAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                RecognizeAudioOutcomeCallable RecognizeAudioCallable(const Model::RecognizeAudioRequest& request);
 
                 /**
                  *智能媒体识别，包含表情和动作识别。仅用于智学，其他调用无效。
@@ -2149,6 +2285,24 @@ namespace TencentCloud
                 StopStreamLinkFlowOutcome StopStreamLinkFlow(const Model::StopStreamLinkFlowRequest &request);
                 void StopStreamLinkFlowAsync(const Model::StopStreamLinkFlowRequest& request, const StopStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 StopStreamLinkFlowOutcomeCallable StopStreamLinkFlowCallable(const Model::StopStreamLinkFlowRequest& request);
+
+                /**
+                 *同步接口，返回克隆音色Id或合成音频结果
+                 * @param req SyncDubbingRequest
+                 * @return SyncDubbingOutcome
+                 */
+                SyncDubbingOutcome SyncDubbing(const Model::SyncDubbingRequest &request);
+                void SyncDubbingAsync(const Model::SyncDubbingRequest& request, const SyncDubbingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SyncDubbingOutcomeCallable SyncDubbingCallable(const Model::SyncDubbingRequest& request);
+
+                /**
+                 *文本翻译
+                 * @param req TextTranslationRequest
+                 * @return TextTranslationOutcome
+                 */
+                TextTranslationOutcome TextTranslation(const Model::TextTranslationRequest &request);
+                void TextTranslationAsync(const Model::TextTranslationRequest& request, const TextTranslationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                TextTranslationOutcomeCallable TextTranslationCallable(const Model::TextTranslationRequest& request);
 
                 /**
                  *提取视频中的盲水印。

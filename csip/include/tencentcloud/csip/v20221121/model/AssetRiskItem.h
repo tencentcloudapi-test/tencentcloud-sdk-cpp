@@ -24,6 +24,7 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/csip/v20221121/model/StandardTerm.h>
 
 
 namespace TencentCloud
@@ -35,7 +36,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 资产视角风险项
+                * 资产视角风险信息
                 */
                 class AssetRiskItem : public AbstractModel
                 {
@@ -361,6 +362,48 @@ namespace TencentCloud
                      */
                     bool ClassifyHasBeenSet() const;
 
+                    /**
+                     * 获取等保合规
+                     * @return StandardTerms 等保合规
+                     * 
+                     */
+                    std::vector<StandardTerm> GetStandardTerms() const;
+
+                    /**
+                     * 设置等保合规
+                     * @param _standardTerms 等保合规
+                     * 
+                     */
+                    void SetStandardTerms(const std::vector<StandardTerm>& _standardTerms);
+
+                    /**
+                     * 判断参数 StandardTerms 是否已赋值
+                     * @return StandardTerms 是否已赋值
+                     * 
+                     */
+                    bool StandardTermsHasBeenSet() const;
+
+                    /**
+                     * 获取资产类型
+                     * @return AssetType 资产类型
+                     * 
+                     */
+                    std::string GetAssetType() const;
+
+                    /**
+                     * 设置资产类型
+                     * @param _assetType 资产类型
+                     * 
+                     */
+                    void SetAssetType(const std::string& _assetType);
+
+                    /**
+                     * 判断参数 AssetType 是否已赋值
+                     * @return AssetType 是否已赋值
+                     * 
+                     */
+                    bool AssetTypeHasBeenSet() const;
+
                 private:
 
                     /**
@@ -452,6 +495,18 @@ namespace TencentCloud
                      */
                     std::string m_classify;
                     bool m_classifyHasBeenSet;
+
+                    /**
+                     * 等保合规
+                     */
+                    std::vector<StandardTerm> m_standardTerms;
+                    bool m_standardTermsHasBeenSet;
+
+                    /**
+                     * 资产类型
+                     */
+                    std::string m_assetType;
+                    bool m_assetTypeHasBeenSet;
 
                 };
             }

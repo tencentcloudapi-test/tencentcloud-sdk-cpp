@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2019 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -84,6 +84,11 @@ Credential AbstractClient::GetCredential() const
     return m_credential;
 }
 
+void AbstractClient::SetHeader(const std::map<std::string, std::string> &headers)
+{
+    m_headers = headers;
+}
+
 HttpClient::HttpResponseOutcome AbstractClient::MakeRequest(const AbstractModel& request, const std::string &actionName)
 {
     const string body = request.ToJsonString();
@@ -111,7 +116,7 @@ HttpClient::HttpResponseOutcome AbstractClient::DoRequest(const std::string &act
     string endpoint = httpProfile.GetEndpoint();
     if (endpoint == "")
         endpoint = m_endpoint;
-    
+
     string::size_type pos = endpoint.find_first_of(".");
     if (pos != string::npos)
         m_service = endpoint.substr(0, pos);
@@ -126,7 +131,7 @@ HttpClient::HttpResponseOutcome AbstractClient::DoRequest(const std::string &act
     HttpProfile::Scheme scheme = httpProfile.GetProtocol();
     if (scheme == HttpProfile::Scheme::HTTP)
         url.SetScheme("http");
-        
+
     HttpRequest httpRequest(url);
     httpRequest.SetMethod(HttpRequest::Method::POST);
     httpRequest.SetBody(body);
@@ -150,9 +155,21 @@ HttpClient::HttpResponseOutcome AbstractClient::DoRequest(const std::string &act
             httpRequest.AddHeader(iter->first, iter->second);
         }
     }
+    if (m_headers.size() > 0)
+    {
+        for(std::map<std::string, std::string>::iterator iter = m_headers.begin(); iter != m_headers.end(); iter++)
+        {
+            httpRequest.AddHeader(iter->first, iter->second);
+        }
+    }
     GenerateSignature(httpRequest);
     m_httpClient->SetReqTimeout(httpProfile.GetReqTimeout()*1000);
     m_httpClient->SetConnectTimeout(httpProfile.GetConnectTimeout()*1000);
+
+    m_httpClient->SetCaInfo(httpProfile.GetCaInfo());
+    m_httpClient->SetCaPath(httpProfile.GetCaPath());
+
+    m_httpClient->SetResolveIp(httpProfile.GetResolveIp());
 
     return m_httpClient->SendRequest(httpRequest);
 }
@@ -197,4 +214,3 @@ void AbstractClient::GenerateSignature(HttpRequest &request)
                            + ", SignedHeaders=content-type;host" + ", Signature=" + signature;
     request.AddHeader("Authorization", authorization);
 }
-

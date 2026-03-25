@@ -45,7 +45,6 @@ TableMeta::TableMeta() :
     m_bizCatalogIdsHasBeenSet(false),
     m_bizCatalogNamesHasBeenSet(false),
     m_hasFavoriteHasBeenSet(false),
-    m_lifeCycleTimeHasBeenSet(false),
     m_storageSizeWithUnitHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
     m_technologyTypeHasBeenSet(false),
@@ -71,8 +70,10 @@ TableMeta::TableMeta() :
     m_metaCrawlTypeHasBeenSet(false),
     m_isViewHasBeenSet(false),
     m_locationHasBeenSet(false),
+    m_lifeCycleTimeHasBeenSet(false),
     m_isPartitionTableHasBeenSet(false),
     m_partitionColumnsHasBeenSet(false),
+    m_dateFormatHasBeenSet(false),
     m_partitionExpireDaysHasBeenSet(false),
     m_tablePropertiesHasBeenSet(false),
     m_environmentHasBeenSet(false),
@@ -89,7 +90,19 @@ TableMeta::TableMeta() :
     m_engineOwnerHasBeenSet(false),
     m_dataLayerUuidHasBeenSet(false),
     m_dataLayerNameHasBeenSet(false),
-    m_columnCountHasBeenSet(false)
+    m_columnCountHasBeenSet(false),
+    m_tablePermissionFlagHasBeenSet(false),
+    m_assetStatusHasBeenSet(false),
+    m_assetLevelHasBeenSet(false),
+    m_assetCodeHasBeenSet(false),
+    m_assetAuditStatusHasBeenSet(false),
+    m_publishedTimeHasBeenSet(false),
+    m_tagInfoListHasBeenSet(false),
+    m_labelValueSelectionsHasBeenSet(false),
+    m_namespaceHasBeenSet(false),
+    m_metaFromHasBeenSet(false),
+    m_engineCreatorHasBeenSet(false),
+    m_projectStatusHasBeenSet(false)
 {
 }
 
@@ -342,16 +355,6 @@ CoreInternalOutcome TableMeta::Deserialize(const rapidjson::Value &value)
         }
         m_hasFavorite = value["HasFavorite"].GetBool();
         m_hasFavoriteHasBeenSet = true;
-    }
-
-    if (value.HasMember("LifeCycleTime") && !value["LifeCycleTime"].IsNull())
-    {
-        if (!value["LifeCycleTime"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TableMeta.LifeCycleTime` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_lifeCycleTime = value["LifeCycleTime"].GetInt64();
-        m_lifeCycleTimeHasBeenSet = true;
     }
 
     if (value.HasMember("StorageSizeWithUnit") && !value["StorageSizeWithUnit"].IsNull())
@@ -628,6 +631,16 @@ CoreInternalOutcome TableMeta::Deserialize(const rapidjson::Value &value)
         m_locationHasBeenSet = true;
     }
 
+    if (value.HasMember("LifeCycleTime") && !value["LifeCycleTime"].IsNull())
+    {
+        if (!value["LifeCycleTime"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.LifeCycleTime` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_lifeCycleTime = value["LifeCycleTime"].GetInt64();
+        m_lifeCycleTimeHasBeenSet = true;
+    }
+
     if (value.HasMember("IsPartitionTable") && !value["IsPartitionTable"].IsNull())
     {
         if (!value["IsPartitionTable"].IsInt64())
@@ -649,6 +662,16 @@ CoreInternalOutcome TableMeta::Deserialize(const rapidjson::Value &value)
             m_partitionColumns.push_back((*itr).GetString());
         }
         m_partitionColumnsHasBeenSet = true;
+    }
+
+    if (value.HasMember("DateFormat") && !value["DateFormat"].IsNull())
+    {
+        if (!value["DateFormat"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.DateFormat` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dateFormat = string(value["DateFormat"].GetString());
+        m_dateFormatHasBeenSet = true;
     }
 
     if (value.HasMember("PartitionExpireDays") && !value["PartitionExpireDays"].IsNull())
@@ -846,6 +869,146 @@ CoreInternalOutcome TableMeta::Deserialize(const rapidjson::Value &value)
         }
         m_columnCount = value["ColumnCount"].GetInt64();
         m_columnCountHasBeenSet = true;
+    }
+
+    if (value.HasMember("TablePermissionFlag") && !value["TablePermissionFlag"].IsNull())
+    {
+        if (!value["TablePermissionFlag"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.TablePermissionFlag` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_tablePermissionFlag = value["TablePermissionFlag"].GetBool();
+        m_tablePermissionFlagHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssetStatus") && !value["AssetStatus"].IsNull())
+    {
+        if (!value["AssetStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.AssetStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_assetStatus = value["AssetStatus"].GetInt64();
+        m_assetStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssetLevel") && !value["AssetLevel"].IsNull())
+    {
+        if (!value["AssetLevel"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.AssetLevel` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_assetLevel = value["AssetLevel"].GetInt64();
+        m_assetLevelHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssetCode") && !value["AssetCode"].IsNull())
+    {
+        if (!value["AssetCode"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.AssetCode` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_assetCode = string(value["AssetCode"].GetString());
+        m_assetCodeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssetAuditStatus") && !value["AssetAuditStatus"].IsNull())
+    {
+        if (!value["AssetAuditStatus"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.AssetAuditStatus` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_assetAuditStatus = string(value["AssetAuditStatus"].GetString());
+        m_assetAuditStatusHasBeenSet = true;
+    }
+
+    if (value.HasMember("PublishedTime") && !value["PublishedTime"].IsNull())
+    {
+        if (!value["PublishedTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.PublishedTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_publishedTime = string(value["PublishedTime"].GetString());
+        m_publishedTimeHasBeenSet = true;
+    }
+
+    if (value.HasMember("TagInfoList") && !value["TagInfoList"].IsNull())
+    {
+        if (!value["TagInfoList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TableMeta.TagInfoList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["TagInfoList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            LabelTag item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_tagInfoList.push_back(item);
+        }
+        m_tagInfoListHasBeenSet = true;
+    }
+
+    if (value.HasMember("LabelValueSelections") && !value["LabelValueSelections"].IsNull())
+    {
+        if (!value["LabelValueSelections"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `TableMeta.LabelValueSelections` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["LabelValueSelections"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            LabelValueSelection item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_labelValueSelections.push_back(item);
+        }
+        m_labelValueSelectionsHasBeenSet = true;
+    }
+
+    if (value.HasMember("Namespace") && !value["Namespace"].IsNull())
+    {
+        if (!value["Namespace"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.Namespace` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_namespace = string(value["Namespace"].GetString());
+        m_namespaceHasBeenSet = true;
+    }
+
+    if (value.HasMember("MetaFrom") && !value["MetaFrom"].IsNull())
+    {
+        if (!value["MetaFrom"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.MetaFrom` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_metaFrom = string(value["MetaFrom"].GetString());
+        m_metaFromHasBeenSet = true;
+    }
+
+    if (value.HasMember("EngineCreator") && !value["EngineCreator"].IsNull())
+    {
+        if (!value["EngineCreator"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.EngineCreator` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_engineCreator = string(value["EngineCreator"].GetString());
+        m_engineCreatorHasBeenSet = true;
+    }
+
+    if (value.HasMember("ProjectStatus") && !value["ProjectStatus"].IsNull())
+    {
+        if (!value["ProjectStatus"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `TableMeta.ProjectStatus` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_projectStatus = value["ProjectStatus"].GetInt64();
+        m_projectStatusHasBeenSet = true;
     }
 
 
@@ -1057,14 +1220,6 @@ void TableMeta::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         value.AddMember(iKey, m_hasFavorite, allocator);
     }
 
-    if (m_lifeCycleTimeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LifeCycleTime";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_lifeCycleTime, allocator);
-    }
-
     if (m_storageSizeWithUnitHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -1274,6 +1429,14 @@ void TableMeta::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         value.AddMember(iKey, rapidjson::Value(m_location.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_lifeCycleTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LifeCycleTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_lifeCycleTime, allocator);
+    }
+
     if (m_isPartitionTableHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -1293,6 +1456,14 @@ void TableMeta::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
+    }
+
+    if (m_dateFormatHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DateFormat";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dateFormat.c_str(), allocator).Move(), allocator);
     }
 
     if (m_partitionExpireDaysHasBeenSet)
@@ -1444,6 +1615,116 @@ void TableMeta::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "ColumnCount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_columnCount, allocator);
+    }
+
+    if (m_tablePermissionFlagHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TablePermissionFlag";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_tablePermissionFlag, allocator);
+    }
+
+    if (m_assetStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssetStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_assetStatus, allocator);
+    }
+
+    if (m_assetLevelHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssetLevel";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_assetLevel, allocator);
+    }
+
+    if (m_assetCodeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssetCode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_assetCode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_assetAuditStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssetAuditStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_assetAuditStatus.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_publishedTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PublishedTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_publishedTime.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tagInfoListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TagInfoList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_tagInfoList.begin(); itr != m_tagInfoList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_labelValueSelectionsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "LabelValueSelections";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_labelValueSelections.begin(); itr != m_labelValueSelections.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
+    }
+
+    if (m_namespaceHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Namespace";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_namespace.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_metaFromHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MetaFrom";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_metaFrom.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_engineCreatorHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "EngineCreator";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_engineCreator.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_projectStatusHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ProjectStatus";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_projectStatus, allocator);
     }
 
 }
@@ -1831,22 +2112,6 @@ void TableMeta::SetHasFavorite(const bool& _hasFavorite)
 bool TableMeta::HasFavoriteHasBeenSet() const
 {
     return m_hasFavoriteHasBeenSet;
-}
-
-int64_t TableMeta::GetLifeCycleTime() const
-{
-    return m_lifeCycleTime;
-}
-
-void TableMeta::SetLifeCycleTime(const int64_t& _lifeCycleTime)
-{
-    m_lifeCycleTime = _lifeCycleTime;
-    m_lifeCycleTimeHasBeenSet = true;
-}
-
-bool TableMeta::LifeCycleTimeHasBeenSet() const
-{
-    return m_lifeCycleTimeHasBeenSet;
 }
 
 string TableMeta::GetStorageSizeWithUnit() const
@@ -2249,6 +2514,22 @@ bool TableMeta::LocationHasBeenSet() const
     return m_locationHasBeenSet;
 }
 
+int64_t TableMeta::GetLifeCycleTime() const
+{
+    return m_lifeCycleTime;
+}
+
+void TableMeta::SetLifeCycleTime(const int64_t& _lifeCycleTime)
+{
+    m_lifeCycleTime = _lifeCycleTime;
+    m_lifeCycleTimeHasBeenSet = true;
+}
+
+bool TableMeta::LifeCycleTimeHasBeenSet() const
+{
+    return m_lifeCycleTimeHasBeenSet;
+}
+
 int64_t TableMeta::GetIsPartitionTable() const
 {
     return m_isPartitionTable;
@@ -2279,6 +2560,22 @@ void TableMeta::SetPartitionColumns(const vector<string>& _partitionColumns)
 bool TableMeta::PartitionColumnsHasBeenSet() const
 {
     return m_partitionColumnsHasBeenSet;
+}
+
+string TableMeta::GetDateFormat() const
+{
+    return m_dateFormat;
+}
+
+void TableMeta::SetDateFormat(const string& _dateFormat)
+{
+    m_dateFormat = _dateFormat;
+    m_dateFormatHasBeenSet = true;
+}
+
+bool TableMeta::DateFormatHasBeenSet() const
+{
+    return m_dateFormatHasBeenSet;
 }
 
 int64_t TableMeta::GetPartitionExpireDays() const
@@ -2551,5 +2848,197 @@ void TableMeta::SetColumnCount(const int64_t& _columnCount)
 bool TableMeta::ColumnCountHasBeenSet() const
 {
     return m_columnCountHasBeenSet;
+}
+
+bool TableMeta::GetTablePermissionFlag() const
+{
+    return m_tablePermissionFlag;
+}
+
+void TableMeta::SetTablePermissionFlag(const bool& _tablePermissionFlag)
+{
+    m_tablePermissionFlag = _tablePermissionFlag;
+    m_tablePermissionFlagHasBeenSet = true;
+}
+
+bool TableMeta::TablePermissionFlagHasBeenSet() const
+{
+    return m_tablePermissionFlagHasBeenSet;
+}
+
+int64_t TableMeta::GetAssetStatus() const
+{
+    return m_assetStatus;
+}
+
+void TableMeta::SetAssetStatus(const int64_t& _assetStatus)
+{
+    m_assetStatus = _assetStatus;
+    m_assetStatusHasBeenSet = true;
+}
+
+bool TableMeta::AssetStatusHasBeenSet() const
+{
+    return m_assetStatusHasBeenSet;
+}
+
+int64_t TableMeta::GetAssetLevel() const
+{
+    return m_assetLevel;
+}
+
+void TableMeta::SetAssetLevel(const int64_t& _assetLevel)
+{
+    m_assetLevel = _assetLevel;
+    m_assetLevelHasBeenSet = true;
+}
+
+bool TableMeta::AssetLevelHasBeenSet() const
+{
+    return m_assetLevelHasBeenSet;
+}
+
+string TableMeta::GetAssetCode() const
+{
+    return m_assetCode;
+}
+
+void TableMeta::SetAssetCode(const string& _assetCode)
+{
+    m_assetCode = _assetCode;
+    m_assetCodeHasBeenSet = true;
+}
+
+bool TableMeta::AssetCodeHasBeenSet() const
+{
+    return m_assetCodeHasBeenSet;
+}
+
+string TableMeta::GetAssetAuditStatus() const
+{
+    return m_assetAuditStatus;
+}
+
+void TableMeta::SetAssetAuditStatus(const string& _assetAuditStatus)
+{
+    m_assetAuditStatus = _assetAuditStatus;
+    m_assetAuditStatusHasBeenSet = true;
+}
+
+bool TableMeta::AssetAuditStatusHasBeenSet() const
+{
+    return m_assetAuditStatusHasBeenSet;
+}
+
+string TableMeta::GetPublishedTime() const
+{
+    return m_publishedTime;
+}
+
+void TableMeta::SetPublishedTime(const string& _publishedTime)
+{
+    m_publishedTime = _publishedTime;
+    m_publishedTimeHasBeenSet = true;
+}
+
+bool TableMeta::PublishedTimeHasBeenSet() const
+{
+    return m_publishedTimeHasBeenSet;
+}
+
+vector<LabelTag> TableMeta::GetTagInfoList() const
+{
+    return m_tagInfoList;
+}
+
+void TableMeta::SetTagInfoList(const vector<LabelTag>& _tagInfoList)
+{
+    m_tagInfoList = _tagInfoList;
+    m_tagInfoListHasBeenSet = true;
+}
+
+bool TableMeta::TagInfoListHasBeenSet() const
+{
+    return m_tagInfoListHasBeenSet;
+}
+
+vector<LabelValueSelection> TableMeta::GetLabelValueSelections() const
+{
+    return m_labelValueSelections;
+}
+
+void TableMeta::SetLabelValueSelections(const vector<LabelValueSelection>& _labelValueSelections)
+{
+    m_labelValueSelections = _labelValueSelections;
+    m_labelValueSelectionsHasBeenSet = true;
+}
+
+bool TableMeta::LabelValueSelectionsHasBeenSet() const
+{
+    return m_labelValueSelectionsHasBeenSet;
+}
+
+string TableMeta::GetNamespace() const
+{
+    return m_namespace;
+}
+
+void TableMeta::SetNamespace(const string& _namespace)
+{
+    m_namespace = _namespace;
+    m_namespaceHasBeenSet = true;
+}
+
+bool TableMeta::NamespaceHasBeenSet() const
+{
+    return m_namespaceHasBeenSet;
+}
+
+string TableMeta::GetMetaFrom() const
+{
+    return m_metaFrom;
+}
+
+void TableMeta::SetMetaFrom(const string& _metaFrom)
+{
+    m_metaFrom = _metaFrom;
+    m_metaFromHasBeenSet = true;
+}
+
+bool TableMeta::MetaFromHasBeenSet() const
+{
+    return m_metaFromHasBeenSet;
+}
+
+string TableMeta::GetEngineCreator() const
+{
+    return m_engineCreator;
+}
+
+void TableMeta::SetEngineCreator(const string& _engineCreator)
+{
+    m_engineCreator = _engineCreator;
+    m_engineCreatorHasBeenSet = true;
+}
+
+bool TableMeta::EngineCreatorHasBeenSet() const
+{
+    return m_engineCreatorHasBeenSet;
+}
+
+int64_t TableMeta::GetProjectStatus() const
+{
+    return m_projectStatus;
+}
+
+void TableMeta::SetProjectStatus(const int64_t& _projectStatus)
+{
+    m_projectStatus = _projectStatus;
+    m_projectStatusHasBeenSet = true;
+}
+
+bool TableMeta::ProjectStatusHasBeenSet() const
+{
+    return m_projectStatusHasBeenSet;
 }
 

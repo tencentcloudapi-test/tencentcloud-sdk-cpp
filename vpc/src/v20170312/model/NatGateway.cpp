@@ -41,9 +41,15 @@ NatGateway::NatGateway() :
     m_exclusiveGatewayBandwidthHasBeenSet(false),
     m_restrictStateHasBeenSet(false),
     m_natProductVersionHasBeenSet(false),
+    m_strictSnatModeHasBeenSet(false),
     m_smartScheduleModeHasBeenSet(false),
     m_dedicatedClusterIdHasBeenSet(false),
-    m_deletionProtectionEnabledHasBeenSet(false)
+    m_deletionProtectionEnabledHasBeenSet(false),
+    m_connectionStateTimeoutsHasBeenSet(false),
+    m_exclusiveTypeHasBeenSet(false),
+    m_autoScalingHasBeenSet(false),
+    m_iCMPProxyHasBeenSet(false),
+    m_publicAddressAffinityHasBeenSet(false)
 {
 }
 
@@ -298,6 +304,16 @@ CoreInternalOutcome NatGateway::Deserialize(const rapidjson::Value &value)
         m_natProductVersionHasBeenSet = true;
     }
 
+    if (value.HasMember("StrictSnatMode") && !value["StrictSnatMode"].IsNull())
+    {
+        if (!value["StrictSnatMode"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.StrictSnatMode` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_strictSnatMode = value["StrictSnatMode"].GetBool();
+        m_strictSnatModeHasBeenSet = true;
+    }
+
     if (value.HasMember("SmartScheduleMode") && !value["SmartScheduleMode"].IsNull())
     {
         if (!value["SmartScheduleMode"].IsBool())
@@ -326,6 +342,63 @@ CoreInternalOutcome NatGateway::Deserialize(const rapidjson::Value &value)
         }
         m_deletionProtectionEnabled = value["DeletionProtectionEnabled"].GetBool();
         m_deletionProtectionEnabledHasBeenSet = true;
+    }
+
+    if (value.HasMember("ConnectionStateTimeouts") && !value["ConnectionStateTimeouts"].IsNull())
+    {
+        if (!value["ConnectionStateTimeouts"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.ConnectionStateTimeouts` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_connectionStateTimeouts.Deserialize(value["ConnectionStateTimeouts"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_connectionStateTimeoutsHasBeenSet = true;
+    }
+
+    if (value.HasMember("ExclusiveType") && !value["ExclusiveType"].IsNull())
+    {
+        if (!value["ExclusiveType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.ExclusiveType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_exclusiveType = string(value["ExclusiveType"].GetString());
+        m_exclusiveTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AutoScaling") && !value["AutoScaling"].IsNull())
+    {
+        if (!value["AutoScaling"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.AutoScaling` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_autoScaling = value["AutoScaling"].GetBool();
+        m_autoScalingHasBeenSet = true;
+    }
+
+    if (value.HasMember("ICMPProxy") && !value["ICMPProxy"].IsNull())
+    {
+        if (!value["ICMPProxy"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.ICMPProxy` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_iCMPProxy = value["ICMPProxy"].GetBool();
+        m_iCMPProxyHasBeenSet = true;
+    }
+
+    if (value.HasMember("PublicAddressAffinity") && !value["PublicAddressAffinity"].IsNull())
+    {
+        if (!value["PublicAddressAffinity"].IsBool())
+        {
+            return CoreInternalOutcome(Core::Error("response `NatGateway.PublicAddressAffinity` IsBool=false incorrectly").SetRequestId(requestId));
+        }
+        m_publicAddressAffinity = value["PublicAddressAffinity"].GetBool();
+        m_publicAddressAffinityHasBeenSet = true;
     }
 
 
@@ -533,6 +606,14 @@ void NatGateway::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         value.AddMember(iKey, m_natProductVersion, allocator);
     }
 
+    if (m_strictSnatModeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StrictSnatMode";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_strictSnatMode, allocator);
+    }
+
     if (m_smartScheduleModeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -555,6 +636,47 @@ void NatGateway::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "DeletionProtectionEnabled";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_deletionProtectionEnabled, allocator);
+    }
+
+    if (m_connectionStateTimeoutsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConnectionStateTimeouts";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_connectionStateTimeouts.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_exclusiveTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ExclusiveType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_exclusiveType.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_autoScalingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AutoScaling";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_autoScaling, allocator);
+    }
+
+    if (m_iCMPProxyHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ICMPProxy";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_iCMPProxy, allocator);
+    }
+
+    if (m_publicAddressAffinityHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "PublicAddressAffinity";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_publicAddressAffinity, allocator);
     }
 
 }
@@ -880,6 +1002,22 @@ bool NatGateway::NatProductVersionHasBeenSet() const
     return m_natProductVersionHasBeenSet;
 }
 
+bool NatGateway::GetStrictSnatMode() const
+{
+    return m_strictSnatMode;
+}
+
+void NatGateway::SetStrictSnatMode(const bool& _strictSnatMode)
+{
+    m_strictSnatMode = _strictSnatMode;
+    m_strictSnatModeHasBeenSet = true;
+}
+
+bool NatGateway::StrictSnatModeHasBeenSet() const
+{
+    return m_strictSnatModeHasBeenSet;
+}
+
 bool NatGateway::GetSmartScheduleMode() const
 {
     return m_smartScheduleMode;
@@ -926,5 +1064,85 @@ void NatGateway::SetDeletionProtectionEnabled(const bool& _deletionProtectionEna
 bool NatGateway::DeletionProtectionEnabledHasBeenSet() const
 {
     return m_deletionProtectionEnabledHasBeenSet;
+}
+
+ConnectionStateTimeouts NatGateway::GetConnectionStateTimeouts() const
+{
+    return m_connectionStateTimeouts;
+}
+
+void NatGateway::SetConnectionStateTimeouts(const ConnectionStateTimeouts& _connectionStateTimeouts)
+{
+    m_connectionStateTimeouts = _connectionStateTimeouts;
+    m_connectionStateTimeoutsHasBeenSet = true;
+}
+
+bool NatGateway::ConnectionStateTimeoutsHasBeenSet() const
+{
+    return m_connectionStateTimeoutsHasBeenSet;
+}
+
+string NatGateway::GetExclusiveType() const
+{
+    return m_exclusiveType;
+}
+
+void NatGateway::SetExclusiveType(const string& _exclusiveType)
+{
+    m_exclusiveType = _exclusiveType;
+    m_exclusiveTypeHasBeenSet = true;
+}
+
+bool NatGateway::ExclusiveTypeHasBeenSet() const
+{
+    return m_exclusiveTypeHasBeenSet;
+}
+
+bool NatGateway::GetAutoScaling() const
+{
+    return m_autoScaling;
+}
+
+void NatGateway::SetAutoScaling(const bool& _autoScaling)
+{
+    m_autoScaling = _autoScaling;
+    m_autoScalingHasBeenSet = true;
+}
+
+bool NatGateway::AutoScalingHasBeenSet() const
+{
+    return m_autoScalingHasBeenSet;
+}
+
+bool NatGateway::GetICMPProxy() const
+{
+    return m_iCMPProxy;
+}
+
+void NatGateway::SetICMPProxy(const bool& _iCMPProxy)
+{
+    m_iCMPProxy = _iCMPProxy;
+    m_iCMPProxyHasBeenSet = true;
+}
+
+bool NatGateway::ICMPProxyHasBeenSet() const
+{
+    return m_iCMPProxyHasBeenSet;
+}
+
+bool NatGateway::GetPublicAddressAffinity() const
+{
+    return m_publicAddressAffinity;
+}
+
+void NatGateway::SetPublicAddressAffinity(const bool& _publicAddressAffinity)
+{
+    m_publicAddressAffinity = _publicAddressAffinity;
+    m_publicAddressAffinityHasBeenSet = true;
+}
+
+bool NatGateway::PublicAddressAffinityHasBeenSet() const
+{
+    return m_publicAddressAffinityHasBeenSet;
 }
 

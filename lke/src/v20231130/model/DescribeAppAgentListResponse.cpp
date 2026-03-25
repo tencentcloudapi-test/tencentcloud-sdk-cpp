@@ -25,7 +25,9 @@ using namespace std;
 
 DescribeAppAgentListResponse::DescribeAppAgentListResponse() :
     m_staringAgentIdHasBeenSet(false),
-    m_agentsHasBeenSet(false)
+    m_agentsHasBeenSet(false),
+    m_handoffAdvancedSettingHasBeenSet(false),
+    m_maxAgentCountHasBeenSet(false)
 {
 }
 
@@ -93,6 +95,33 @@ CoreInternalOutcome DescribeAppAgentListResponse::Deserialize(const string &payl
         m_agentsHasBeenSet = true;
     }
 
+    if (rsp.HasMember("HandoffAdvancedSetting") && !rsp["HandoffAdvancedSetting"].IsNull())
+    {
+        if (!rsp["HandoffAdvancedSetting"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `HandoffAdvancedSetting` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_handoffAdvancedSetting.Deserialize(rsp["HandoffAdvancedSetting"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_handoffAdvancedSettingHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("MaxAgentCount") && !rsp["MaxAgentCount"].IsNull())
+    {
+        if (!rsp["MaxAgentCount"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `MaxAgentCount` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_maxAgentCount = rsp["MaxAgentCount"].GetInt64();
+        m_maxAgentCountHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -126,6 +155,23 @@ string DescribeAppAgentListResponse::ToJsonString() const
         }
     }
 
+    if (m_handoffAdvancedSettingHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "HandoffAdvancedSetting";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_handoffAdvancedSetting.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_maxAgentCountHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "MaxAgentCount";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_maxAgentCount, allocator);
+    }
+
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
@@ -156,6 +202,26 @@ vector<Agent> DescribeAppAgentListResponse::GetAgents() const
 bool DescribeAppAgentListResponse::AgentsHasBeenSet() const
 {
     return m_agentsHasBeenSet;
+}
+
+AgentHandoffAdvancedSetting DescribeAppAgentListResponse::GetHandoffAdvancedSetting() const
+{
+    return m_handoffAdvancedSetting;
+}
+
+bool DescribeAppAgentListResponse::HandoffAdvancedSettingHasBeenSet() const
+{
+    return m_handoffAdvancedSettingHasBeenSet;
+}
+
+int64_t DescribeAppAgentListResponse::GetMaxAgentCount() const
+{
+    return m_maxAgentCount;
+}
+
+bool DescribeAppAgentListResponse::MaxAgentCountHasBeenSet() const
+{
+    return m_maxAgentCountHasBeenSet;
 }
 
 

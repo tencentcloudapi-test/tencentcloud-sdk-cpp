@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cwp/v20180228/model/MachineExtraInfo.h>
+#include <tencentcloud/cwp/v20180228/model/IPAnalyse.h>
 
 
 namespace TencentCloud
@@ -530,6 +531,48 @@ namespace TencentCloud
                      */
                     bool HostOpProcessTreeHasBeenSet() const;
 
+                    /**
+                     * 获取IP分析
+                     * @return IPAnalyse IP分析
+                     * 
+                     */
+                    IPAnalyse GetIPAnalyse() const;
+
+                    /**
+                     * 设置IP分析
+                     * @param _iPAnalyse IP分析
+                     * 
+                     */
+                    void SetIPAnalyse(const IPAnalyse& _iPAnalyse);
+
+                    /**
+                     * 判断参数 IPAnalyse 是否已赋值
+                     * @return IPAnalyse 是否已赋值
+                     * 
+                     */
+                    bool IPAnalyseHasBeenSet() const;
+
+                    /**
+                     * 获取响应数据包 base64编码
+                     * @return NetResponsePayload 响应数据包 base64编码
+                     * 
+                     */
+                    std::string GetNetResponsePayload() const;
+
+                    /**
+                     * 设置响应数据包 base64编码
+                     * @param _netResponsePayload 响应数据包 base64编码
+                     * 
+                     */
+                    void SetNetResponsePayload(const std::string& _netResponsePayload);
+
+                    /**
+                     * 判断参数 NetResponsePayload 是否已赋值
+                     * @return NetResponsePayload 是否已赋值
+                     * 
+                     */
+                    bool NetResponsePayloadHasBeenSet() const;
+
                 private:
 
                     /**
@@ -669,6 +712,18 @@ namespace TencentCloud
                      */
                     std::string m_hostOpProcessTree;
                     bool m_hostOpProcessTreeHasBeenSet;
+
+                    /**
+                     * IP分析
+                     */
+                    IPAnalyse m_iPAnalyse;
+                    bool m_iPAnalyseHasBeenSet;
+
+                    /**
+                     * 响应数据包 base64编码
+                     */
+                    std::string m_netResponsePayload;
+                    bool m_netResponsePayloadHasBeenSet;
 
                 };
             }

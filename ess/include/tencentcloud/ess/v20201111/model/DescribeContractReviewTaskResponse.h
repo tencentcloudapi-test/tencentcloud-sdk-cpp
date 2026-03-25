@@ -24,6 +24,7 @@
 #include <tencentcloud/ess/v20201111/model/OutputRisk.h>
 #include <tencentcloud/ess/v20201111/model/RiskIdentificationRoleInfo.h>
 #include <tencentcloud/ess/v20201111/model/OutputReference.h>
+#include <tencentcloud/ess/v20201111/model/ContractSummary.h>
 
 
 namespace TencentCloud
@@ -47,8 +48,10 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
-                     * @return ChecklistId 用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
+                     * 获取该字段已不再使用！
+用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
+                     * @return ChecklistId 该字段已不再使用！
+用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
                      * 
                      */
                     std::string GetChecklistId() const;
@@ -59,6 +62,20 @@ namespace TencentCloud
                      * 
                      */
                     bool ChecklistIdHasBeenSet() const;
+
+                    /**
+                     * 获取用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
+                     * @return ChecklistIds 用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
+                     * 
+                     */
+                    std::vector<std::string> GetChecklistIds() const;
+
+                    /**
+                     * 判断参数 ChecklistIds 是否已赋值
+                     * @return ChecklistIds 是否已赋值
+                     * 
+                     */
+                    bool ChecklistIdsHasBeenSet() const;
 
                     /**
                      * 获取合同审查任务创建时间。
@@ -117,8 +134,8 @@ namespace TencentCloud
                     bool PolicyTypeHasBeenSet() const;
 
                     /**
-                     * 获取合同审查的PDF文件资源ID。
-                     * @return ResourceId 合同审查的PDF文件资源ID。
+                     * 获取合同审查的PDF、WORD文件资源ID。
+                     * @return ResourceId 合同审查的PDF、WORD文件资源ID。
                      * 
                      */
                     std::string GetResourceId() const;
@@ -149,9 +166,11 @@ namespace TencentCloud
                     bool RisksHasBeenSet() const;
 
                     /**
-                     * 获取合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
+                     * 获取该字段已不再使用！
+合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Role 合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
+                     * @return Role 该字段已不再使用！
+合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -163,6 +182,20 @@ namespace TencentCloud
                      * 
                      */
                     bool RoleHasBeenSet() const;
+
+                    /**
+                     * 获取合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
+                     * @return Roles 合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
+                     * 
+                     */
+                    std::vector<RiskIdentificationRoleInfo> GetRoles() const;
+
+                    /**
+                     * 判断参数 Roles 是否已赋值
+                     * @return Roles 是否已赋值
+                     * 
+                     */
+                    bool RolesHasBeenSet() const;
 
                     /**
                      * 获取合同审查任务状态。
@@ -284,13 +317,34 @@ namespace TencentCloud
                      */
                     bool ApprovedListsHasBeenSet() const;
 
+                    /**
+                     * 获取摘要信息
+                     * @return Summaries 摘要信息
+                     * 
+                     */
+                    std::vector<ContractSummary> GetSummaries() const;
+
+                    /**
+                     * 判断参数 Summaries 是否已赋值
+                     * @return Summaries 是否已赋值
+                     * 
+                     */
+                    bool SummariesHasBeenSet() const;
+
                 private:
+
+                    /**
+                     * 该字段已不再使用！
+用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
+                     */
+                    std::string m_checklistId;
+                    bool m_checklistIdHasBeenSet;
 
                     /**
                      * 用于审查任务的审查清单ID。注意：如果用户没有配置清单时此值可能为空，需要等大模型根据合同内容推荐出可以使用的审查清单。
                      */
-                    std::string m_checklistId;
-                    bool m_checklistIdHasBeenSet;
+                    std::vector<std::string> m_checklistIds;
+                    bool m_checklistIdsHasBeenSet;
 
                     /**
                      * 合同审查任务创建时间。
@@ -318,7 +372,7 @@ namespace TencentCloud
                     bool m_policyTypeHasBeenSet;
 
                     /**
-                     * 合同审查的PDF文件资源ID。
+                     * 合同审查的PDF、WORD文件资源ID。
                      */
                     std::string m_resourceId;
                     bool m_resourceIdHasBeenSet;
@@ -332,11 +386,18 @@ namespace TencentCloud
                     bool m_risksHasBeenSet;
 
                     /**
-                     * 合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
+                     * 该字段已不再使用！
+合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     RiskIdentificationRoleInfo m_role;
                     bool m_roleHasBeenSet;
+
+                    /**
+                     * 合同审查中的角色信息。注意： `如果用户没有配置审查角色时此值可能为null，需要等大模型根据合同内容推荐出审查角色信息。`
+                     */
+                    std::vector<RiskIdentificationRoleInfo> m_roles;
+                    bool m_rolesHasBeenSet;
 
                     /**
                      * 合同审查任务状态。
@@ -390,6 +451,12 @@ namespace TencentCloud
                      */
                     std::vector<OutputReference> m_approvedLists;
                     bool m_approvedListsHasBeenSet;
+
+                    /**
+                     * 摘要信息
+                     */
+                    std::vector<ContractSummary> m_summaries;
+                    bool m_summariesHasBeenSet;
 
                 };
             }

@@ -116,8 +116,8 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功 7-审核中 8-审核失败 9-审核成功 10-待发布 11-发布中 12-已发布 13-学习中 14-学习失败 15-更新中 16-更新失败 17-解析中 18-解析失败 19-导入失败 20-已过期 21-超量失效 22-超量失效恢复
-                     * @return Status 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功 7-审核中 8-审核失败 9-审核成功 10-待发布 11-发布中 12-已发布 13-学习中 14-学习失败 15-更新中 16-更新失败 17-解析中 18-解析失败 19-导入失败 20-已过期 21-超量失效 22-超量失效恢复
+                     * 获取文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功 7-审核中 8-审核失败 9-审核成功 10,12-导入完成  13-学习中 14-学习失败 15-更新中 16-更新失败 17-解析中 18-解析失败 19-导入失败 20-已过期 21-超量失效 22-超量失效恢复
+                     * @return Status 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功 7-审核中 8-审核失败 9-审核成功 10,12-导入完成  13-学习中 14-学习失败 15-更新中 16-更新失败 17-解析中 18-解析失败 19-导入失败 20-已过期 21-超量失效 22-超量失效恢复
                      * 
                      */
                     int64_t GetStatus() const;
@@ -443,6 +443,52 @@ namespace TencentCloud
                      */
                     bool UpdatePeriodInfoHasBeenSet() const;
 
+                    /**
+                     * 获取从根节点开始的路径分类ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CateBizIdPath 从根节点开始的路径分类ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<std::string> GetCateBizIdPath() const;
+
+                    /**
+                     * 判断参数 CateBizIdPath 是否已赋值
+                     * @return CateBizIdPath 是否已赋值
+                     * 
+                     */
+                    bool CateBizIdPathHasBeenSet() const;
+
+                    /**
+                     * 获取从根节点开始的路径分类名称
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return CateNamePath 从根节点开始的路径分类名称
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::vector<std::string> GetCateNamePath() const;
+
+                    /**
+                     * 判断参数 CateNamePath 是否已赋值
+                     * @return CateNamePath 是否已赋值
+                     * 
+                     */
+                    bool CateNamePathHasBeenSet() const;
+
+                    /**
+                     * 获取文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     * @return EnableScope 文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     * 
+                     */
+                    int64_t GetEnableScope() const;
+
+                    /**
+                     * 判断参数 EnableScope 是否已赋值
+                     * @return EnableScope 是否已赋值
+                     * 
+                     */
+                    bool EnableScopeHasBeenSet() const;
+
                 private:
 
                     /**
@@ -476,7 +522,7 @@ namespace TencentCloud
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功 7-审核中 8-审核失败 9-审核成功 10-待发布 11-发布中 12-已发布 13-学习中 14-学习失败 15-更新中 16-更新失败 17-解析中 18-解析失败 19-导入失败 20-已过期 21-超量失效 22-超量失效恢复
+                     * 文档状态： 1-未生成 2-生成中 3-生成成功 4-生成失败 5-删除中 6-删除成功 7-审核中 8-审核失败 9-审核成功 10,12-导入完成  13-学习中 14-学习失败 15-更新中 16-更新失败 17-解析中 18-解析失败 19-导入失败 20-已过期 21-超量失效 22-超量失效恢复
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
@@ -615,6 +661,26 @@ namespace TencentCloud
                      */
                     UpdatePeriodInfo m_updatePeriodInfo;
                     bool m_updatePeriodInfoHasBeenSet;
+
+                    /**
+                     * 从根节点开始的路径分类ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<std::string> m_cateBizIdPath;
+                    bool m_cateBizIdPathHasBeenSet;
+
+                    /**
+                     * 从根节点开始的路径分类名称
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::vector<std::string> m_cateNamePath;
+                    bool m_cateNamePathHasBeenSet;
+
+                    /**
+                     * 文档生效域: 1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效
+                     */
+                    int64_t m_enableScope;
+                    bool m_enableScopeHasBeenSet;
 
                 };
             }

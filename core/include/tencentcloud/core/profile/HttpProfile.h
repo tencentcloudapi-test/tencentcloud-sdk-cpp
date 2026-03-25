@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2019 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,13 +49,23 @@ namespace TencentCloud
         bool IsKeepAlive() const;
         HttpProfile::Scheme GetProtocol() const;
 
+        void SetCaInfo(std::string caInfo);
+        std::string GetCaInfo() const;
+        void SetResolveIp(std::string resolveIp);
+        std::string GetResolveIp() const;
+        void SetCaPath(std::string caPath);
+        std::string GetCaPath() const;
+
         HttpProfile(const HttpProfile &o) :
             m_reqMethod(o.m_reqMethod),
             m_endpoint(o.m_endpoint),
             m_protocol(o.m_protocol),
             m_reqTimeout(o.m_reqTimeout),
             m_connectTimeout(o.m_connectTimeout),
-            m_keepAlive(o.m_keepAlive)
+            m_keepAlive(o.m_keepAlive),
+            m_caInfo(o.m_caInfo),
+            m_caPath(o.m_caPath),
+            m_resolveIp(o.m_resolveIp)
         {
         }
 
@@ -69,14 +79,8 @@ namespace TencentCloud
                 m_reqTimeout = o.m_reqTimeout;
                 m_connectTimeout = o.m_connectTimeout;
                 m_keepAlive = o.m_keepAlive;
-            }
-            return *this;
-        }
-        HttpProfile & operator=(HttpProfile &&o)
-        {
-            if (this != &o)
-            {
-                *this = std::move(o);
+                m_caInfo = o.m_caInfo;
+                m_caPath = o.m_caPath;
             }
             return *this;
         }
@@ -88,6 +92,9 @@ namespace TencentCloud
         int64_t m_reqTimeout;
         int64_t m_connectTimeout;
         bool m_keepAlive;
+        std::string m_caInfo;
+        std::string m_caPath;
+        std::string m_resolveIp;
     };
 }
 

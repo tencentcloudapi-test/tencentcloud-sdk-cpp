@@ -39,6 +39,9 @@
 #include <tencentcloud/waf/v20180125/model/RCEPkg.h>
 #include <tencentcloud/waf/v20180125/model/LLMPkg.h>
 #include <tencentcloud/waf/v20180125/model/LLMMonPkg.h>
+#include <tencentcloud/waf/v20180125/model/BotSecurityPkg.h>
+#include <tencentcloud/waf/v20180125/model/BotMonitorPkg.h>
+#include <tencentcloud/waf/v20180125/model/DedicatedIPPkg.h>
 
 
 namespace TencentCloud
@@ -1197,6 +1200,90 @@ namespace TencentCloud
                      */
                     bool RegionIdHasBeenSet() const;
 
+                    /**
+                     * 获取BOT安全护航信息
+                     * @return BotSecurityPkg BOT安全护航信息
+                     * 
+                     */
+                    BotSecurityPkg GetBotSecurityPkg() const;
+
+                    /**
+                     * 设置BOT安全护航信息
+                     * @param _botSecurityPkg BOT安全护航信息
+                     * 
+                     */
+                    void SetBotSecurityPkg(const BotSecurityPkg& _botSecurityPkg);
+
+                    /**
+                     * 判断参数 BotSecurityPkg 是否已赋值
+                     * @return BotSecurityPkg 是否已赋值
+                     * 
+                     */
+                    bool BotSecurityPkgHasBeenSet() const;
+
+                    /**
+                     * 获取BOT安全监测资源信息
+                     * @return BotMonitorPkg BOT安全监测资源信息
+                     * 
+                     */
+                    BotMonitorPkg GetBotMonitorPkg() const;
+
+                    /**
+                     * 设置BOT安全监测资源信息
+                     * @param _botMonitorPkg BOT安全监测资源信息
+                     * 
+                     */
+                    void SetBotMonitorPkg(const BotMonitorPkg& _botMonitorPkg);
+
+                    /**
+                     * 判断参数 BotMonitorPkg 是否已赋值
+                     * @return BotMonitorPkg 是否已赋值
+                     * 
+                     */
+                    bool BotMonitorPkgHasBeenSet() const;
+
+                    /**
+                     * 获取独享ip资源信息
+                     * @return DedicatedIPPkg 独享ip资源信息
+                     * 
+                     */
+                    DedicatedIPPkg GetDedicatedIPPkg() const;
+
+                    /**
+                     * 设置独享ip资源信息
+                     * @param _dedicatedIPPkg 独享ip资源信息
+                     * 
+                     */
+                    void SetDedicatedIPPkg(const DedicatedIPPkg& _dedicatedIPPkg);
+
+                    /**
+                     * 判断参数 DedicatedIPPkg 是否已赋值
+                     * @return DedicatedIPPkg 是否已赋值
+                     * 
+                     */
+                    bool DedicatedIPPkgHasBeenSet() const;
+
+                    /**
+                     * 获取已经配置独享ip的数量
+                     * @return DedicatedIPCount 已经配置独享ip的数量
+                     * 
+                     */
+                    int64_t GetDedicatedIPCount() const;
+
+                    /**
+                     * 设置已经配置独享ip的数量
+                     * @param _dedicatedIPCount 已经配置独享ip的数量
+                     * 
+                     */
+                    void SetDedicatedIPCount(const int64_t& _dedicatedIPCount);
+
+                    /**
+                     * 判断参数 DedicatedIPCount 是否已赋值
+                     * @return DedicatedIPCount 是否已赋值
+                     * 
+                     */
+                    bool DedicatedIPCountHasBeenSet() const;
+
                 private:
 
                     /**
@@ -1521,6 +1608,30 @@ namespace TencentCloud
                      */
                     uint64_t m_regionId;
                     bool m_regionIdHasBeenSet;
+
+                    /**
+                     * BOT安全护航信息
+                     */
+                    BotSecurityPkg m_botSecurityPkg;
+                    bool m_botSecurityPkgHasBeenSet;
+
+                    /**
+                     * BOT安全监测资源信息
+                     */
+                    BotMonitorPkg m_botMonitorPkg;
+                    bool m_botMonitorPkgHasBeenSet;
+
+                    /**
+                     * 独享ip资源信息
+                     */
+                    DedicatedIPPkg m_dedicatedIPPkg;
+                    bool m_dedicatedIPPkgHasBeenSet;
+
+                    /**
+                     * 已经配置独享ip的数量
+                     */
+                    int64_t m_dedicatedIPCount;
+                    bool m_dedicatedIPCountHasBeenSet;
 
                 };
             }

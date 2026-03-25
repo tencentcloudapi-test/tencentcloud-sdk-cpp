@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+ * Copyright (c) 2017-2019 Tencent. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -60,6 +60,24 @@ namespace
         CvmClient cvm_client = CvmClient(cred, "ap-guangzhou", clientProfile);
 
         auto outcome = cvm_client.DescribeInstances(req);
+        EXPECT_TRUE(outcome.IsSuccess());
+        EXPECT_TRUE(outcome.GetError().GetErrorCode().empty());
+        EXPECT_TRUE(outcome.GetResult().InstanceSetHasBeenSet());
+
+        TencentCloud::ShutdownAPI();
+    }
+
+    TEST(cvm, DescribeInstances_WithEmptyToken)
+    {
+        TencentCloud::InitAPI();
+
+        string sec_id = CUtils::GetEnv("TENCENTCLOUD_SECRET_ID");
+        string sec_key = CUtils::GetEnv("TENCENTCLOUD_SECRET_KEY");
+        Credential cred = Credential(sec_id, sec_key, "");
+        DescribeInstancesRequest req = DescribeInstancesRequest();
+        CvmClient client = CvmClient(cred, "ap-guangzhou");
+
+        auto outcome = client.DescribeInstances(req);
         EXPECT_TRUE(outcome.IsSuccess());
         EXPECT_TRUE(outcome.GetError().GetErrorCode().empty());
         EXPECT_TRUE(outcome.GetResult().InstanceSetHasBeenSet());

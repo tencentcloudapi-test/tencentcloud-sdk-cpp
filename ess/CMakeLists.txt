@@ -42,10 +42,11 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/NeedReviewApproverInfo.h
   include/tencentcloud/ess/v20201111/model/CreateBatchSignUrlResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeUserAutoSignStatusResponse.h
-  include/tencentcloud/ess/v20201111/model/FlowApproverDetail.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewChecklistWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/Tag.h
   include/tencentcloud/ess/v20201111/model/CreateFlowForwardsResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowEvidenceReportRequest.h
+  include/tencentcloud/ess/v20201111/model/ModifyPartnerAuthorizationResponse.h
   include/tencentcloud/ess/v20201111/model/DeleteSealPoliciesRequest.h
   include/tencentcloud/ess/v20201111/model/CreateFlowGroupByTemplatesResponse.h
   include/tencentcloud/ess/v20201111/model/DetectInfoVideoData.h
@@ -56,9 +57,9 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/OrganizationAuthUrl.h
   include/tencentcloud/ess/v20201111/model/OrganizationCommonInfo.h
   include/tencentcloud/ess/v20201111/model/ArchiveDynamicFlowResponse.h
-  include/tencentcloud/ess/v20201111/model/OrganizationInfo.h
+  include/tencentcloud/ess/v20201111/model/CreateLegalSealQrCodeRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeSingleSignOnEmployeesRequest.h
-  include/tencentcloud/ess/v20201111/model/FailedDeleteStaffData.h
+  include/tencentcloud/ess/v20201111/model/PdfVerifyResult.h
   include/tencentcloud/ess/v20201111/model/CreateUserNameChangeUrlRequest.h
   include/tencentcloud/ess/v20201111/model/AuthRecord.h
   include/tencentcloud/ess/v20201111/model/UnbindEmployeeUserIdWithClientOpenIdRequest.h
@@ -68,9 +69,10 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/OperateSealsRequest.h
   include/tencentcloud/ess/v20201111/model/Staff.h
   include/tencentcloud/ess/v20201111/model/DescribeFileUrlsResponse.h
+  include/tencentcloud/ess/v20201111/model/ContractSummaryInfo.h
   include/tencentcloud/ess/v20201111/model/RelieveInfo.h
   include/tencentcloud/ess/v20201111/model/CreateBatchAdminChangeInvitationsUrlResponse.h
-  include/tencentcloud/ess/v20201111/model/DescribeOrganizationSealsResponse.h
+  include/tencentcloud/ess/v20201111/model/CreateSingleSignOnEmployeesRequest.h
   include/tencentcloud/ess/v20201111/model/RegistrationOrganizationInfo.h
   include/tencentcloud/ess/v20201111/model/TemplateUserFlowType.h
   include/tencentcloud/ess/v20201111/model/ModifyIntegrationRoleRequest.h
@@ -83,6 +85,7 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/FailedCreateRoleData.h
   include/tencentcloud/ess/v20201111/model/CreateEmployeeChangeUrlRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeSingleSignOnEmployeesResponse.h
+  include/tencentcloud/ess/v20201111/model/FeedbackInfoReason.h
   include/tencentcloud/ess/v20201111/model/PositionInfo.h
   include/tencentcloud/ess/v20201111/model/CreateUserAutoSignEnableUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateBatchOrganizationRegistrationTasksRequest.h
@@ -94,10 +97,14 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/OutputReference.h
   include/tencentcloud/ess/v20201111/model/CreateSealResponse.h
   include/tencentcloud/ess/v20201111/model/MiniAppCreateFlowOption.h
+  include/tencentcloud/ess/v20201111/model/VerifyDigitalDataSignRequest.h
   include/tencentcloud/ess/v20201111/model/IntegrationDepartment.h
   include/tencentcloud/ess/v20201111/model/DescribeIntegrationRolesResponse.h
+  include/tencentcloud/ess/v20201111/model/ModifyExtendedServiceResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeBillUsageDetailResponse.h
+  include/tencentcloud/ess/v20201111/model/FlowOperateLimit.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowBriefsResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeRiskIdentificationTaskFeedbackRequest.h
   include/tencentcloud/ess/v20201111/model/CreateBatchAdminChangeInvitationsRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowTemplatesResponse.h
   include/tencentcloud/ess/v20201111/model/ReferenceExcerpt.h
@@ -111,6 +118,7 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/DescribePersonCertificateResponse.h
   include/tencentcloud/ess/v20201111/model/FlowBatchUrlInfo.h
   include/tencentcloud/ess/v20201111/model/CreateBatchAdminChangeInvitationsResponse.h
+  include/tencentcloud/ess/v20201111/model/SignCertificate.h
   include/tencentcloud/ess/v20201111/model/DescribeFileCounterSignResultRequest.h
   include/tencentcloud/ess/v20201111/model/CreateContractDiffTaskWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeContractReviewTaskRequest.h
@@ -119,9 +127,11 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CreateFlowApproversResponse.h
   include/tencentcloud/ess/v20201111/model/ModifyExtendedServiceRequest.h
   include/tencentcloud/ess/v20201111/model/DeleteOrganizationAuthorizationInfo.h
+  include/tencentcloud/ess/v20201111/model/CreateLMInformationExtractionTaskFieldFeedbackRequest.h
   include/tencentcloud/ess/v20201111/model/ReviewerInfo.h
   include/tencentcloud/ess/v20201111/model/CreateContractReviewWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/DisableUserAutoSignResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewChecklistsWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateContractComparisonTaskResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeFileUrlsRequest.h
   include/tencentcloud/ess/v20201111/model/CreateMiniAppPrepareFlowResponse.h
@@ -130,20 +140,25 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CreateBatchQuickSignUrlResponse.h
   include/tencentcloud/ess/v20201111/model/FlowCreateApprover.h
   include/tencentcloud/ess/v20201111/model/DeleteSingleSignOnEmployeesResponse.h
+  include/tencentcloud/ess/v20201111/model/Permission.h
   include/tencentcloud/ess/v20201111/model/CreateUserMobileChangeUrlResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowTemplatesRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowEvidenceReportResponse.h
+  include/tencentcloud/ess/v20201111/model/CreateRiskIdentificationTaskFeedbackResponse.h
   include/tencentcloud/ess/v20201111/model/BatchOrganizationRegistrationTasksDetails.h
   include/tencentcloud/ess/v20201111/model/RecipientComponentInfo.h
+  include/tencentcloud/ess/v20201111/model/ExportContractReviewResultResponse.h
   include/tencentcloud/ess/v20201111/model/SingleSignOnEmployees.h
   include/tencentcloud/ess/v20201111/model/WebThemeConfig.h
   include/tencentcloud/ess/v20201111/model/CreateBatchContractReviewTaskRequest.h
   include/tencentcloud/ess/v20201111/model/DeleteIntegrationDepartmentResponse.h
   include/tencentcloud/ess/v20201111/model/AutoSignConfig.h
   include/tencentcloud/ess/v20201111/model/DescribeThirdPartyAuthCodeRequest.h
+  include/tencentcloud/ess/v20201111/model/ContractSummary.h
   include/tencentcloud/ess/v20201111/model/CreateBatchInitOrganizationUrlRequest.h
   include/tencentcloud/ess/v20201111/model/DeleteOrganizationAuthorizationsResponse.h
   include/tencentcloud/ess/v20201111/model/MiniAppCreateFlowPageOption.h
+  include/tencentcloud/ess/v20201111/model/FlowApproverDetail.h
   include/tencentcloud/ess/v20201111/model/CreateFlowForwardsRequest.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationDepartmentResponse.h
   include/tencentcloud/ess/v20201111/model/JumpEvent.h
@@ -161,20 +176,27 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CreateIntegrationRoleResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowComponentsRequest.h
   include/tencentcloud/ess/v20201111/model/VerifyDigitFileResponse.h
+  include/tencentcloud/ess/v20201111/model/CreateContractReviewChecklistWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/DeleteIntegrationEmployeesRequest.h
   include/tencentcloud/ess/v20201111/model/FailedUpdateStaffData.h
   include/tencentcloud/ess/v20201111/model/GetTaskResultApiRequest.h
+  include/tencentcloud/ess/v20201111/model/Checklist.h
+  include/tencentcloud/ess/v20201111/model/CreatePartnerAuthorizationLinkRequest.h
+  include/tencentcloud/ess/v20201111/model/DynamicSignOption.h
   include/tencentcloud/ess/v20201111/model/FlowDetailInfo.h
   include/tencentcloud/ess/v20201111/model/CreatePersonAuthCertificateImageRequest.h
   include/tencentcloud/ess/v20201111/model/CreateFlowByFilesResponse.h
   include/tencentcloud/ess/v20201111/model/UploadFilesResponse.h
   include/tencentcloud/ess/v20201111/model/PresetApproverInfo.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewChecklistsWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeBillUsageResponse.h
   include/tencentcloud/ess/v20201111/model/ModifyIntegrationDepartmentRequest.h
   include/tencentcloud/ess/v20201111/model/FlowForwardInfo.h
   include/tencentcloud/ess/v20201111/model/CreateOrganizationBatchSignUrlResponse.h
   include/tencentcloud/ess/v20201111/model/FileInfo.h
+  include/tencentcloud/ess/v20201111/model/FeedbackInfo.h
   include/tencentcloud/ess/v20201111/model/CreatePartnerAutoSignAuthUrlRequest.h
+  include/tencentcloud/ess/v20201111/model/CreatePartnerAuthorizationLinkResponse.h
   include/tencentcloud/ess/v20201111/model/CreateExtendedServiceAuthInfosResponse.h
   include/tencentcloud/ess/v20201111/model/ExtractionTaskResult.h
   include/tencentcloud/ess/v20201111/model/ApproverRestriction.h
@@ -183,6 +205,7 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/IntegrateRole.h
   include/tencentcloud/ess/v20201111/model/DeleteIntegrationDepartmentRequest.h
   include/tencentcloud/ess/v20201111/model/MiniAppCreateApproverInfo.h
+  include/tencentcloud/ess/v20201111/model/ExtendScene.h
   include/tencentcloud/ess/v20201111/model/DescribeFileCounterSignResultResponse.h
   include/tencentcloud/ess/v20201111/model/IntentionActionResult.h
   include/tencentcloud/ess/v20201111/model/CreateBatchSignUrlRequest.h
@@ -193,9 +216,10 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CreateInformationExtractionWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/CreateFlowGroupSignReviewRequest.h
   include/tencentcloud/ess/v20201111/model/Admin.h
-  include/tencentcloud/ess/v20201111/model/OccupiedSeal.h
+  include/tencentcloud/ess/v20201111/model/Caller.h
   include/tencentcloud/ess/v20201111/model/ExportContractComparisonTaskResponse.h
   include/tencentcloud/ess/v20201111/model/EmbedUrlOption.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewMarkedRiskExportTaskRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeContractComparisonTaskResponse.h
   include/tencentcloud/ess/v20201111/model/CreateModifyAdminAuthorizationUrlResponse.h
   include/tencentcloud/ess/v20201111/model/CreateOrganizationInfoChangeUrlResponse.h
@@ -215,14 +239,16 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/WebUrlOption.h
   include/tencentcloud/ess/v20201111/model/DescribeOrganizationVerifyStatusResponse.h
   include/tencentcloud/ess/v20201111/model/DeleteExtendedServiceAuthInfosResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeEnterpriseContractReviewChecklistsResponse.h
   include/tencentcloud/ess/v20201111/model/AuthInfoDetail.h
   include/tencentcloud/ess/v20201111/model/ModifyApplicationCallbackInfoResponse.h
   include/tencentcloud/ess/v20201111/model/RiskIdentificationRoleInfo.h
   include/tencentcloud/ess/v20201111/model/CreateUserVerifyUrlRequest.h
+  include/tencentcloud/ess/v20201111/model/DescribeLMInformationExtractionTaskFieldFeedbackRequest.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationEmployeesRequest.h
   include/tencentcloud/ess/v20201111/model/CreateFlowOption.h
   include/tencentcloud/ess/v20201111/model/DescribeContractDiffTaskWebUrlResponse.h
-  include/tencentcloud/ess/v20201111/model/CreateLegalSealQrCodeRequest.h
+  include/tencentcloud/ess/v20201111/model/OrganizationInfo.h
   include/tencentcloud/ess/v20201111/model/ArchiveDynamicApproverData.h
   include/tencentcloud/ess/v20201111/model/CreateOrganizationAuthUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationRoleRequest.h
@@ -235,21 +261,26 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CallbackInfo.h
   include/tencentcloud/ess/v20201111/model/DescribeBatchOrganizationRegistrationUrlsRequest.h
   include/tencentcloud/ess/v20201111/model/TemplateInfo.h
+  include/tencentcloud/ess/v20201111/model/DescribeEnterpriseContractReviewChecklistsRequest.h
   include/tencentcloud/ess/v20201111/model/CreateDocumentResponse.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationUserRolesResponse.h
   include/tencentcloud/ess/v20201111/model/CreateEmbedWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/StaffRole.h
   include/tencentcloud/ess/v20201111/model/UnbindEmployeeUserIdWithClientOpenIdResponse.h
   include/tencentcloud/ess/v20201111/model/CreateReleaseFlowResponse.h
+  include/tencentcloud/ess/v20201111/model/ContractReviewChecklistWebUrlOption.h
   include/tencentcloud/ess/v20201111/model/BindEmployeeUserIdWithClientOpenIdRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeIntegrationDepartmentsRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeExtendedServiceAuthDetailRequest.h
   include/tencentcloud/ess/v20201111/model/CreateOrganizationAuthFileRequest.h
   include/tencentcloud/ess/v20201111/model/ComponentLimit.h
+  include/tencentcloud/ess/v20201111/model/ModifyPartnerAuthorizationRequest.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationSubOrganizationActiveRecordResponse.h
   include/tencentcloud/ess/v20201111/model/FillApproverInfo.h
   include/tencentcloud/ess/v20201111/model/CreatePersonAuthCertificateImageResponse.h
   include/tencentcloud/ess/v20201111/model/FlowForwardResult.h
+  include/tencentcloud/ess/v20201111/model/DescribeLMInformationExtractionTaskFieldFeedbackResponse.h
+  include/tencentcloud/ess/v20201111/model/CreateLMInformationExtractionTaskFieldFeedbackResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeIntegrationEmployeesResponse.h
   include/tencentcloud/ess/v20201111/model/ModifyFlowDeadlineResponse.h
   include/tencentcloud/ess/v20201111/model/CreateBatchCancelFlowUrlResponse.h
@@ -271,10 +302,12 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CreatePreparedPersonalEsignResponse.h
   include/tencentcloud/ess/v20201111/model/FlowGroupOptions.h
   include/tencentcloud/ess/v20201111/model/RegisterInfo.h
+  include/tencentcloud/ess/v20201111/model/RiskIdentificationFeedbackInfo.h
   include/tencentcloud/ess/v20201111/model/CreateReleaseFlowRequest.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationUserRolesRequest.h
   include/tencentcloud/ess/v20201111/model/SuccessUpdateStaffData.h
   include/tencentcloud/ess/v20201111/model/SuccessCreateStaffData.h
+  include/tencentcloud/ess/v20201111/model/Identity.h
   include/tencentcloud/ess/v20201111/model/UploadFile.h
   include/tencentcloud/ess/v20201111/model/CreateFlowSignReviewResponse.h
   include/tencentcloud/ess/v20201111/model/RenewAutoSignLicenseRequest.h
@@ -289,7 +322,7 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/VerifyDigitFileResult.h
   include/tencentcloud/ess/v20201111/model/CreatePrepareFlowRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeCancelFlowsTaskRequest.h
-  include/tencentcloud/ess/v20201111/model/ModifyExtendedServiceResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewMarkedRiskExportTaskResponse.h
   include/tencentcloud/ess/v20201111/model/CreateSealPolicyRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeContractReviewTaskResponse.h
   include/tencentcloud/ess/v20201111/model/CancelFlowRequest.h
@@ -301,6 +334,7 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/SignUrl.h
   include/tencentcloud/ess/v20201111/model/DescribeOrganizationSealsRequest.h
   include/tencentcloud/ess/v20201111/model/CreateBatchOrganizationAuthorizationUrlRequest.h
+  include/tencentcloud/ess/v20201111/model/CreateDigitalDataSignRequest.h
   include/tencentcloud/ess/v20201111/model/CreateBatchCancelFlowUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateMultiFlowSignQRCodeRequest.h
   include/tencentcloud/ess/v20201111/model/DeleteExtendedServiceAuthInfosRequest.h
@@ -312,6 +346,7 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/CreateResultPageConfig.h
   include/tencentcloud/ess/v20201111/model/Component.h
   include/tencentcloud/ess/v20201111/model/FlowGroupUrlInfo.h
+  include/tencentcloud/ess/v20201111/model/SubTaskFeedback.h
   include/tencentcloud/ess/v20201111/model/UpdateIntegrationEmployeesResponse.h
   include/tencentcloud/ess/v20201111/model/ModifyPartnerAutoSignAuthUrlRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeInformationExtractionWebUrlResponse.h
@@ -321,29 +356,33 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/DescribeThirdPartyAuthCodeResponse.h
   include/tencentcloud/ess/v20201111/model/CreateBatchInitOrganizationUrlResponse.h
   include/tencentcloud/ess/v20201111/model/BindEmployeeUserIdWithClientOpenIdResponse.h
+  include/tencentcloud/ess/v20201111/model/CreateDigitalDataSignResponse.h
   include/tencentcloud/ess/v20201111/model/CreateOrganizationAuthFileResponse.h
   include/tencentcloud/ess/v20201111/model/FlowBatchApproverInfo.h
   include/tencentcloud/ess/v20201111/model/StartFlowResponse.h
-  include/tencentcloud/ess/v20201111/model/DescribeContractReviewWebUrlResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeRiskIdentificationTaskFeedbackResponse.h
   include/tencentcloud/ess/v20201111/model/SignComponentConfig.h
   include/tencentcloud/ess/v20201111/model/DescribeInformationExtractionWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeFlowComponentsResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/CancelFailureFlow.h
   include/tencentcloud/ess/v20201111/model/DescribeIntegrationEmployeesRequest.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewTaskListWebUrlResponse.h
   include/tencentcloud/ess/v20201111/model/CreateFlowRequest.h
   include/tencentcloud/ess/v20201111/model/FileUrl.h
   include/tencentcloud/ess/v20201111/model/CreateContractReviewWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateDynamicFlowApproverResponse.h
   include/tencentcloud/ess/v20201111/model/CreateBatchOrganizationRegistrationTasksResponse.h
   include/tencentcloud/ess/v20201111/model/Option.h
-  include/tencentcloud/ess/v20201111/model/CreateSingleSignOnEmployeesRequest.h
+  include/tencentcloud/ess/v20201111/model/DescribeOrganizationSealsResponse.h
   include/tencentcloud/ess/v20201111/model/DescribeBillUsageDetailRequest.h
+  include/tencentcloud/ess/v20201111/model/FeedbackList.h
   include/tencentcloud/ess/v20201111/model/CreateBatchAdminChangeInvitationsUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateUserAutoSignSealUrlResponse.h
-  include/tencentcloud/ess/v20201111/model/Caller.h
+  include/tencentcloud/ess/v20201111/model/OccupiedSeal.h
   include/tencentcloud/ess/v20201111/model/IntentionActionResultDetail.h
   include/tencentcloud/ess/v20201111/model/CreateEmployeeQualificationSealQrCodeRequest.h
-  include/tencentcloud/ess/v20201111/model/PdfVerifyResult.h
+  include/tencentcloud/ess/v20201111/model/FailedDeleteStaffData.h
   include/tencentcloud/ess/v20201111/model/DescribeInformationExtractionTaskResponse.h
   include/tencentcloud/ess/v20201111/model/OutputRisk.h
   include/tencentcloud/ess/v20201111/model/CreateEmployeeChangeUrlResponse.h
@@ -363,20 +402,25 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/Intention.h
   include/tencentcloud/ess/v20201111/model/CreateFlowBlockchainEvidenceUrlResponse.h
   include/tencentcloud/ess/v20201111/model/CreateDocumentRequest.h
+  include/tencentcloud/ess/v20201111/model/CreateContractReviewChecklistWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateUserMobileChangeUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateEmbedWebUrlRequest.h
+  include/tencentcloud/ess/v20201111/model/ExportContractReviewMarkedRiskResponse.h
   include/tencentcloud/ess/v20201111/model/CreateFlowGroupByFilesResponse.h
   include/tencentcloud/ess/v20201111/model/DeleteIntegrationRoleUsersRequest.h
   include/tencentcloud/ess/v20201111/model/CreateFlowSignUrlRequest.h
   include/tencentcloud/ess/v20201111/model/CreateIntegrationEmployeesResponse.h
-  include/tencentcloud/ess/v20201111/model/ExtendScene.h
+  include/tencentcloud/ess/v20201111/model/VerifyDigitalDataSignResponse.h
+  include/tencentcloud/ess/v20201111/model/ExportContractReviewResultRequest.h
   include/tencentcloud/ess/v20201111/model/CreateModifyAdminAuthorizationUrlRequest.h
   include/tencentcloud/ess/v20201111/model/ApproverInfo.h
   include/tencentcloud/ess/v20201111/model/Filter.h
+  include/tencentcloud/ess/v20201111/model/RegisterInfoOption.h
   include/tencentcloud/ess/v20201111/model/DynamicFlowApproverResult.h
   include/tencentcloud/ess/v20201111/model/DeleteOrganizationAuthorizationsRequest.h
   include/tencentcloud/ess/v20201111/model/CancelUserAutoSignEnableUrlRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeUserVerifyStatusResponse.h
+  include/tencentcloud/ess/v20201111/model/ExportContractReviewMarkedRiskRequest.h
   include/tencentcloud/ess/v20201111/model/OrgBillSummary.h
   include/tencentcloud/ess/v20201111/model/SubOrgBillSummary.h
   include/tencentcloud/ess/v20201111/model/DescribeBillUsageRequest.h
@@ -386,7 +430,9 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/AdminChangeInvitationInfo.h
   include/tencentcloud/ess/v20201111/model/ApproverOption.h
   include/tencentcloud/ess/v20201111/model/DeleteIntegrationEmployeesResponse.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewChecklistWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/PermissionGroup.h
+  include/tencentcloud/ess/v20201111/model/ProxyOrganizationInfo.h
   include/tencentcloud/ess/v20201111/model/CreateFlowRemindsRequest.h
   include/tencentcloud/ess/v20201111/model/DescribeSignFaceVideoResponse.h
   include/tencentcloud/ess/v20201111/model/VerifyPdfResponse.h
@@ -395,9 +441,10 @@ set(ess_public_header_model
   include/tencentcloud/ess/v20201111/model/DescribeBatchOrganizationRegistrationUrlsResponse.h
   include/tencentcloud/ess/v20201111/model/ExportContractComparisonTaskRequest.h
   include/tencentcloud/ess/v20201111/model/CreateInformationExtractionWebUrlRequest.h
-  include/tencentcloud/ess/v20201111/model/Permission.h
+  include/tencentcloud/ess/v20201111/model/CreateRiskIdentificationTaskFeedbackRequest.h
   include/tencentcloud/ess/v20201111/model/ReleasedApprover.h
   include/tencentcloud/ess/v20201111/model/DescribeUserFlowTypeRequest.h
+  include/tencentcloud/ess/v20201111/model/DescribeContractReviewTaskListWebUrlRequest.h
   include/tencentcloud/ess/v20201111/model/FlowBrief.h
   include/tencentcloud/ess/v20201111/model/DescribeOrganizationGroupOrganizationsResponse.h
   include/tencentcloud/ess/v20201111/model/IntentionQuestion.h
@@ -428,10 +475,11 @@ set(ess_src
   src/v20201111/model/NeedReviewApproverInfo.cpp
   src/v20201111/model/CreateBatchSignUrlResponse.cpp
   src/v20201111/model/DescribeUserAutoSignStatusResponse.cpp
-  src/v20201111/model/FlowApproverDetail.cpp
+  src/v20201111/model/DescribeContractReviewChecklistWebUrlResponse.cpp
   src/v20201111/model/Tag.cpp
   src/v20201111/model/CreateFlowForwardsResponse.cpp
   src/v20201111/model/DescribeFlowEvidenceReportRequest.cpp
+  src/v20201111/model/ModifyPartnerAuthorizationResponse.cpp
   src/v20201111/model/DeleteSealPoliciesRequest.cpp
   src/v20201111/model/CreateFlowGroupByTemplatesResponse.cpp
   src/v20201111/model/DetectInfoVideoData.cpp
@@ -442,9 +490,9 @@ set(ess_src
   src/v20201111/model/OrganizationAuthUrl.cpp
   src/v20201111/model/OrganizationCommonInfo.cpp
   src/v20201111/model/ArchiveDynamicFlowResponse.cpp
-  src/v20201111/model/OrganizationInfo.cpp
+  src/v20201111/model/CreateLegalSealQrCodeRequest.cpp
   src/v20201111/model/DescribeSingleSignOnEmployeesRequest.cpp
-  src/v20201111/model/FailedDeleteStaffData.cpp
+  src/v20201111/model/PdfVerifyResult.cpp
   src/v20201111/model/CreateUserNameChangeUrlRequest.cpp
   src/v20201111/model/AuthRecord.cpp
   src/v20201111/model/UnbindEmployeeUserIdWithClientOpenIdRequest.cpp
@@ -454,9 +502,10 @@ set(ess_src
   src/v20201111/model/OperateSealsRequest.cpp
   src/v20201111/model/Staff.cpp
   src/v20201111/model/DescribeFileUrlsResponse.cpp
+  src/v20201111/model/ContractSummaryInfo.cpp
   src/v20201111/model/RelieveInfo.cpp
   src/v20201111/model/CreateBatchAdminChangeInvitationsUrlResponse.cpp
-  src/v20201111/model/DescribeOrganizationSealsResponse.cpp
+  src/v20201111/model/CreateSingleSignOnEmployeesRequest.cpp
   src/v20201111/model/RegistrationOrganizationInfo.cpp
   src/v20201111/model/TemplateUserFlowType.cpp
   src/v20201111/model/ModifyIntegrationRoleRequest.cpp
@@ -469,6 +518,7 @@ set(ess_src
   src/v20201111/model/FailedCreateRoleData.cpp
   src/v20201111/model/CreateEmployeeChangeUrlRequest.cpp
   src/v20201111/model/DescribeSingleSignOnEmployeesResponse.cpp
+  src/v20201111/model/FeedbackInfoReason.cpp
   src/v20201111/model/PositionInfo.cpp
   src/v20201111/model/CreateUserAutoSignEnableUrlRequest.cpp
   src/v20201111/model/CreateBatchOrganizationRegistrationTasksRequest.cpp
@@ -480,10 +530,14 @@ set(ess_src
   src/v20201111/model/OutputReference.cpp
   src/v20201111/model/CreateSealResponse.cpp
   src/v20201111/model/MiniAppCreateFlowOption.cpp
+  src/v20201111/model/VerifyDigitalDataSignRequest.cpp
   src/v20201111/model/IntegrationDepartment.cpp
   src/v20201111/model/DescribeIntegrationRolesResponse.cpp
+  src/v20201111/model/ModifyExtendedServiceResponse.cpp
   src/v20201111/model/DescribeBillUsageDetailResponse.cpp
+  src/v20201111/model/FlowOperateLimit.cpp
   src/v20201111/model/DescribeFlowBriefsResponse.cpp
+  src/v20201111/model/DescribeRiskIdentificationTaskFeedbackRequest.cpp
   src/v20201111/model/CreateBatchAdminChangeInvitationsRequest.cpp
   src/v20201111/model/DescribeFlowTemplatesResponse.cpp
   src/v20201111/model/ReferenceExcerpt.cpp
@@ -497,6 +551,7 @@ set(ess_src
   src/v20201111/model/DescribePersonCertificateResponse.cpp
   src/v20201111/model/FlowBatchUrlInfo.cpp
   src/v20201111/model/CreateBatchAdminChangeInvitationsResponse.cpp
+  src/v20201111/model/SignCertificate.cpp
   src/v20201111/model/DescribeFileCounterSignResultRequest.cpp
   src/v20201111/model/CreateContractDiffTaskWebUrlRequest.cpp
   src/v20201111/model/DescribeContractReviewTaskRequest.cpp
@@ -505,9 +560,11 @@ set(ess_src
   src/v20201111/model/CreateFlowApproversResponse.cpp
   src/v20201111/model/ModifyExtendedServiceRequest.cpp
   src/v20201111/model/DeleteOrganizationAuthorizationInfo.cpp
+  src/v20201111/model/CreateLMInformationExtractionTaskFieldFeedbackRequest.cpp
   src/v20201111/model/ReviewerInfo.cpp
   src/v20201111/model/CreateContractReviewWebUrlResponse.cpp
   src/v20201111/model/DisableUserAutoSignResponse.cpp
+  src/v20201111/model/DescribeContractReviewChecklistsWebUrlRequest.cpp
   src/v20201111/model/CreateContractComparisonTaskResponse.cpp
   src/v20201111/model/DescribeFileUrlsRequest.cpp
   src/v20201111/model/CreateMiniAppPrepareFlowResponse.cpp
@@ -516,20 +573,25 @@ set(ess_src
   src/v20201111/model/CreateBatchQuickSignUrlResponse.cpp
   src/v20201111/model/FlowCreateApprover.cpp
   src/v20201111/model/DeleteSingleSignOnEmployeesResponse.cpp
+  src/v20201111/model/Permission.cpp
   src/v20201111/model/CreateUserMobileChangeUrlResponse.cpp
   src/v20201111/model/DescribeFlowTemplatesRequest.cpp
   src/v20201111/model/DescribeFlowEvidenceReportResponse.cpp
+  src/v20201111/model/CreateRiskIdentificationTaskFeedbackResponse.cpp
   src/v20201111/model/BatchOrganizationRegistrationTasksDetails.cpp
   src/v20201111/model/RecipientComponentInfo.cpp
+  src/v20201111/model/ExportContractReviewResultResponse.cpp
   src/v20201111/model/SingleSignOnEmployees.cpp
   src/v20201111/model/WebThemeConfig.cpp
   src/v20201111/model/CreateBatchContractReviewTaskRequest.cpp
   src/v20201111/model/DeleteIntegrationDepartmentResponse.cpp
   src/v20201111/model/AutoSignConfig.cpp
   src/v20201111/model/DescribeThirdPartyAuthCodeRequest.cpp
+  src/v20201111/model/ContractSummary.cpp
   src/v20201111/model/CreateBatchInitOrganizationUrlRequest.cpp
   src/v20201111/model/DeleteOrganizationAuthorizationsResponse.cpp
   src/v20201111/model/MiniAppCreateFlowPageOption.cpp
+  src/v20201111/model/FlowApproverDetail.cpp
   src/v20201111/model/CreateFlowForwardsRequest.cpp
   src/v20201111/model/CreateIntegrationDepartmentResponse.cpp
   src/v20201111/model/JumpEvent.cpp
@@ -547,20 +609,27 @@ set(ess_src
   src/v20201111/model/CreateIntegrationRoleResponse.cpp
   src/v20201111/model/DescribeFlowComponentsRequest.cpp
   src/v20201111/model/VerifyDigitFileResponse.cpp
+  src/v20201111/model/CreateContractReviewChecklistWebUrlResponse.cpp
   src/v20201111/model/DeleteIntegrationEmployeesRequest.cpp
   src/v20201111/model/FailedUpdateStaffData.cpp
   src/v20201111/model/GetTaskResultApiRequest.cpp
+  src/v20201111/model/Checklist.cpp
+  src/v20201111/model/CreatePartnerAuthorizationLinkRequest.cpp
+  src/v20201111/model/DynamicSignOption.cpp
   src/v20201111/model/FlowDetailInfo.cpp
   src/v20201111/model/CreatePersonAuthCertificateImageRequest.cpp
   src/v20201111/model/CreateFlowByFilesResponse.cpp
   src/v20201111/model/UploadFilesResponse.cpp
   src/v20201111/model/PresetApproverInfo.cpp
+  src/v20201111/model/DescribeContractReviewChecklistsWebUrlResponse.cpp
   src/v20201111/model/DescribeBillUsageResponse.cpp
   src/v20201111/model/ModifyIntegrationDepartmentRequest.cpp
   src/v20201111/model/FlowForwardInfo.cpp
   src/v20201111/model/CreateOrganizationBatchSignUrlResponse.cpp
   src/v20201111/model/FileInfo.cpp
+  src/v20201111/model/FeedbackInfo.cpp
   src/v20201111/model/CreatePartnerAutoSignAuthUrlRequest.cpp
+  src/v20201111/model/CreatePartnerAuthorizationLinkResponse.cpp
   src/v20201111/model/CreateExtendedServiceAuthInfosResponse.cpp
   src/v20201111/model/ExtractionTaskResult.cpp
   src/v20201111/model/ApproverRestriction.cpp
@@ -569,6 +638,7 @@ set(ess_src
   src/v20201111/model/IntegrateRole.cpp
   src/v20201111/model/DeleteIntegrationDepartmentRequest.cpp
   src/v20201111/model/MiniAppCreateApproverInfo.cpp
+  src/v20201111/model/ExtendScene.cpp
   src/v20201111/model/DescribeFileCounterSignResultResponse.cpp
   src/v20201111/model/IntentionActionResult.cpp
   src/v20201111/model/CreateBatchSignUrlRequest.cpp
@@ -579,9 +649,10 @@ set(ess_src
   src/v20201111/model/CreateInformationExtractionWebUrlResponse.cpp
   src/v20201111/model/CreateFlowGroupSignReviewRequest.cpp
   src/v20201111/model/Admin.cpp
-  src/v20201111/model/OccupiedSeal.cpp
+  src/v20201111/model/Caller.cpp
   src/v20201111/model/ExportContractComparisonTaskResponse.cpp
   src/v20201111/model/EmbedUrlOption.cpp
+  src/v20201111/model/DescribeContractReviewMarkedRiskExportTaskRequest.cpp
   src/v20201111/model/DescribeContractComparisonTaskResponse.cpp
   src/v20201111/model/CreateModifyAdminAuthorizationUrlResponse.cpp
   src/v20201111/model/CreateOrganizationInfoChangeUrlResponse.cpp
@@ -601,14 +672,16 @@ set(ess_src
   src/v20201111/model/WebUrlOption.cpp
   src/v20201111/model/DescribeOrganizationVerifyStatusResponse.cpp
   src/v20201111/model/DeleteExtendedServiceAuthInfosResponse.cpp
+  src/v20201111/model/DescribeEnterpriseContractReviewChecklistsResponse.cpp
   src/v20201111/model/AuthInfoDetail.cpp
   src/v20201111/model/ModifyApplicationCallbackInfoResponse.cpp
   src/v20201111/model/RiskIdentificationRoleInfo.cpp
   src/v20201111/model/CreateUserVerifyUrlRequest.cpp
+  src/v20201111/model/DescribeLMInformationExtractionTaskFieldFeedbackRequest.cpp
   src/v20201111/model/CreateIntegrationEmployeesRequest.cpp
   src/v20201111/model/CreateFlowOption.cpp
   src/v20201111/model/DescribeContractDiffTaskWebUrlResponse.cpp
-  src/v20201111/model/CreateLegalSealQrCodeRequest.cpp
+  src/v20201111/model/OrganizationInfo.cpp
   src/v20201111/model/ArchiveDynamicApproverData.cpp
   src/v20201111/model/CreateOrganizationAuthUrlRequest.cpp
   src/v20201111/model/CreateIntegrationRoleRequest.cpp
@@ -621,21 +694,26 @@ set(ess_src
   src/v20201111/model/CallbackInfo.cpp
   src/v20201111/model/DescribeBatchOrganizationRegistrationUrlsRequest.cpp
   src/v20201111/model/TemplateInfo.cpp
+  src/v20201111/model/DescribeEnterpriseContractReviewChecklistsRequest.cpp
   src/v20201111/model/CreateDocumentResponse.cpp
   src/v20201111/model/CreateIntegrationUserRolesResponse.cpp
   src/v20201111/model/CreateEmbedWebUrlResponse.cpp
   src/v20201111/model/StaffRole.cpp
   src/v20201111/model/UnbindEmployeeUserIdWithClientOpenIdResponse.cpp
   src/v20201111/model/CreateReleaseFlowResponse.cpp
+  src/v20201111/model/ContractReviewChecklistWebUrlOption.cpp
   src/v20201111/model/BindEmployeeUserIdWithClientOpenIdRequest.cpp
   src/v20201111/model/DescribeIntegrationDepartmentsRequest.cpp
   src/v20201111/model/DescribeExtendedServiceAuthDetailRequest.cpp
   src/v20201111/model/CreateOrganizationAuthFileRequest.cpp
   src/v20201111/model/ComponentLimit.cpp
+  src/v20201111/model/ModifyPartnerAuthorizationRequest.cpp
   src/v20201111/model/CreateIntegrationSubOrganizationActiveRecordResponse.cpp
   src/v20201111/model/FillApproverInfo.cpp
   src/v20201111/model/CreatePersonAuthCertificateImageResponse.cpp
   src/v20201111/model/FlowForwardResult.cpp
+  src/v20201111/model/DescribeLMInformationExtractionTaskFieldFeedbackResponse.cpp
+  src/v20201111/model/CreateLMInformationExtractionTaskFieldFeedbackResponse.cpp
   src/v20201111/model/DescribeIntegrationEmployeesResponse.cpp
   src/v20201111/model/ModifyFlowDeadlineResponse.cpp
   src/v20201111/model/CreateBatchCancelFlowUrlResponse.cpp
@@ -657,10 +735,12 @@ set(ess_src
   src/v20201111/model/CreatePreparedPersonalEsignResponse.cpp
   src/v20201111/model/FlowGroupOptions.cpp
   src/v20201111/model/RegisterInfo.cpp
+  src/v20201111/model/RiskIdentificationFeedbackInfo.cpp
   src/v20201111/model/CreateReleaseFlowRequest.cpp
   src/v20201111/model/CreateIntegrationUserRolesRequest.cpp
   src/v20201111/model/SuccessUpdateStaffData.cpp
   src/v20201111/model/SuccessCreateStaffData.cpp
+  src/v20201111/model/Identity.cpp
   src/v20201111/model/UploadFile.cpp
   src/v20201111/model/CreateFlowSignReviewResponse.cpp
   src/v20201111/model/RenewAutoSignLicenseRequest.cpp
@@ -675,7 +755,7 @@ set(ess_src
   src/v20201111/model/VerifyDigitFileResult.cpp
   src/v20201111/model/CreatePrepareFlowRequest.cpp
   src/v20201111/model/DescribeCancelFlowsTaskRequest.cpp
-  src/v20201111/model/ModifyExtendedServiceResponse.cpp
+  src/v20201111/model/DescribeContractReviewMarkedRiskExportTaskResponse.cpp
   src/v20201111/model/CreateSealPolicyRequest.cpp
   src/v20201111/model/DescribeContractReviewTaskResponse.cpp
   src/v20201111/model/CancelFlowRequest.cpp
@@ -687,6 +767,7 @@ set(ess_src
   src/v20201111/model/SignUrl.cpp
   src/v20201111/model/DescribeOrganizationSealsRequest.cpp
   src/v20201111/model/CreateBatchOrganizationAuthorizationUrlRequest.cpp
+  src/v20201111/model/CreateDigitalDataSignRequest.cpp
   src/v20201111/model/CreateBatchCancelFlowUrlRequest.cpp
   src/v20201111/model/CreateMultiFlowSignQRCodeRequest.cpp
   src/v20201111/model/DeleteExtendedServiceAuthInfosRequest.cpp
@@ -698,6 +779,7 @@ set(ess_src
   src/v20201111/model/CreateResultPageConfig.cpp
   src/v20201111/model/Component.cpp
   src/v20201111/model/FlowGroupUrlInfo.cpp
+  src/v20201111/model/SubTaskFeedback.cpp
   src/v20201111/model/UpdateIntegrationEmployeesResponse.cpp
   src/v20201111/model/ModifyPartnerAutoSignAuthUrlRequest.cpp
   src/v20201111/model/DescribeInformationExtractionWebUrlResponse.cpp
@@ -707,29 +789,33 @@ set(ess_src
   src/v20201111/model/DescribeThirdPartyAuthCodeResponse.cpp
   src/v20201111/model/CreateBatchInitOrganizationUrlResponse.cpp
   src/v20201111/model/BindEmployeeUserIdWithClientOpenIdResponse.cpp
+  src/v20201111/model/CreateDigitalDataSignResponse.cpp
   src/v20201111/model/CreateOrganizationAuthFileResponse.cpp
   src/v20201111/model/FlowBatchApproverInfo.cpp
   src/v20201111/model/StartFlowResponse.cpp
-  src/v20201111/model/DescribeContractReviewWebUrlResponse.cpp
+  src/v20201111/model/DescribeRiskIdentificationTaskFeedbackResponse.cpp
   src/v20201111/model/SignComponentConfig.cpp
   src/v20201111/model/DescribeInformationExtractionWebUrlRequest.cpp
   src/v20201111/model/DescribeFlowComponentsResponse.cpp
+  src/v20201111/model/DescribeContractReviewWebUrlResponse.cpp
   src/v20201111/model/CancelFailureFlow.cpp
   src/v20201111/model/DescribeIntegrationEmployeesRequest.cpp
+  src/v20201111/model/DescribeContractReviewTaskListWebUrlResponse.cpp
   src/v20201111/model/CreateFlowRequest.cpp
   src/v20201111/model/FileUrl.cpp
   src/v20201111/model/CreateContractReviewWebUrlRequest.cpp
   src/v20201111/model/CreateDynamicFlowApproverResponse.cpp
   src/v20201111/model/CreateBatchOrganizationRegistrationTasksResponse.cpp
   src/v20201111/model/Option.cpp
-  src/v20201111/model/CreateSingleSignOnEmployeesRequest.cpp
+  src/v20201111/model/DescribeOrganizationSealsResponse.cpp
   src/v20201111/model/DescribeBillUsageDetailRequest.cpp
+  src/v20201111/model/FeedbackList.cpp
   src/v20201111/model/CreateBatchAdminChangeInvitationsUrlRequest.cpp
   src/v20201111/model/CreateUserAutoSignSealUrlResponse.cpp
-  src/v20201111/model/Caller.cpp
+  src/v20201111/model/OccupiedSeal.cpp
   src/v20201111/model/IntentionActionResultDetail.cpp
   src/v20201111/model/CreateEmployeeQualificationSealQrCodeRequest.cpp
-  src/v20201111/model/PdfVerifyResult.cpp
+  src/v20201111/model/FailedDeleteStaffData.cpp
   src/v20201111/model/DescribeInformationExtractionTaskResponse.cpp
   src/v20201111/model/OutputRisk.cpp
   src/v20201111/model/CreateEmployeeChangeUrlResponse.cpp
@@ -749,20 +835,25 @@ set(ess_src
   src/v20201111/model/Intention.cpp
   src/v20201111/model/CreateFlowBlockchainEvidenceUrlResponse.cpp
   src/v20201111/model/CreateDocumentRequest.cpp
+  src/v20201111/model/CreateContractReviewChecklistWebUrlRequest.cpp
   src/v20201111/model/CreateUserMobileChangeUrlRequest.cpp
   src/v20201111/model/CreateEmbedWebUrlRequest.cpp
+  src/v20201111/model/ExportContractReviewMarkedRiskResponse.cpp
   src/v20201111/model/CreateFlowGroupByFilesResponse.cpp
   src/v20201111/model/DeleteIntegrationRoleUsersRequest.cpp
   src/v20201111/model/CreateFlowSignUrlRequest.cpp
   src/v20201111/model/CreateIntegrationEmployeesResponse.cpp
-  src/v20201111/model/ExtendScene.cpp
+  src/v20201111/model/VerifyDigitalDataSignResponse.cpp
+  src/v20201111/model/ExportContractReviewResultRequest.cpp
   src/v20201111/model/CreateModifyAdminAuthorizationUrlRequest.cpp
   src/v20201111/model/ApproverInfo.cpp
   src/v20201111/model/Filter.cpp
+  src/v20201111/model/RegisterInfoOption.cpp
   src/v20201111/model/DynamicFlowApproverResult.cpp
   src/v20201111/model/DeleteOrganizationAuthorizationsRequest.cpp
   src/v20201111/model/CancelUserAutoSignEnableUrlRequest.cpp
   src/v20201111/model/DescribeUserVerifyStatusResponse.cpp
+  src/v20201111/model/ExportContractReviewMarkedRiskRequest.cpp
   src/v20201111/model/OrgBillSummary.cpp
   src/v20201111/model/SubOrgBillSummary.cpp
   src/v20201111/model/DescribeBillUsageRequest.cpp
@@ -772,7 +863,9 @@ set(ess_src
   src/v20201111/model/AdminChangeInvitationInfo.cpp
   src/v20201111/model/ApproverOption.cpp
   src/v20201111/model/DeleteIntegrationEmployeesResponse.cpp
+  src/v20201111/model/DescribeContractReviewChecklistWebUrlRequest.cpp
   src/v20201111/model/PermissionGroup.cpp
+  src/v20201111/model/ProxyOrganizationInfo.cpp
   src/v20201111/model/CreateFlowRemindsRequest.cpp
   src/v20201111/model/DescribeSignFaceVideoResponse.cpp
   src/v20201111/model/VerifyPdfResponse.cpp
@@ -781,9 +874,10 @@ set(ess_src
   src/v20201111/model/DescribeBatchOrganizationRegistrationUrlsResponse.cpp
   src/v20201111/model/ExportContractComparisonTaskRequest.cpp
   src/v20201111/model/CreateInformationExtractionWebUrlRequest.cpp
-  src/v20201111/model/Permission.cpp
+  src/v20201111/model/CreateRiskIdentificationTaskFeedbackRequest.cpp
   src/v20201111/model/ReleasedApprover.cpp
   src/v20201111/model/DescribeUserFlowTypeRequest.cpp
+  src/v20201111/model/DescribeContractReviewTaskListWebUrlRequest.cpp
   src/v20201111/model/FlowBrief.cpp
   src/v20201111/model/DescribeOrganizationGroupOrganizationsResponse.cpp
   src/v20201111/model/IntentionQuestion.cpp

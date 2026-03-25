@@ -25,8 +25,8 @@ using namespace std;
 CreateFlowByFilesRequest::CreateFlowByFilesRequest() :
     m_operatorHasBeenSet(false),
     m_flowNameHasBeenSet(false),
-    m_approversHasBeenSet(false),
     m_fileIdsHasBeenSet(false),
+    m_approversHasBeenSet(false),
     m_flowDescriptionHasBeenSet(false),
     m_flowTypeHasBeenSet(false),
     m_componentsHasBeenSet(false),
@@ -45,7 +45,9 @@ CreateFlowByFilesRequest::CreateFlowByFilesRequest() :
     m_autoSignSceneHasBeenSet(false),
     m_needSignReviewHasBeenSet(false),
     m_flowDisplayTypeHasBeenSet(false),
-    m_openDynamicSignFlowHasBeenSet(false)
+    m_openDynamicSignFlowHasBeenSet(false),
+    m_workflowHasBeenSet(false),
+    m_flowOperateLimitHasBeenSet(false)
 {
 }
 
@@ -73,6 +75,19 @@ string CreateFlowByFilesRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_flowName.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_fileIdsHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FileIds";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_fileIds.begin(); itr != m_fileIds.end(); ++itr)
+        {
+            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
     if (m_approversHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -85,19 +100,6 @@ string CreateFlowByFilesRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_fileIdsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FileIds";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_fileIds.begin(); itr != m_fileIds.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
     }
 
@@ -268,6 +270,23 @@ string CreateFlowByFilesRequest::ToJsonString() const
         d.AddMember(iKey, m_openDynamicSignFlow, allocator);
     }
 
+    if (m_workflowHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Workflow";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_workflow, allocator);
+    }
+
+    if (m_flowOperateLimitHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FlowOperateLimit";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_flowOperateLimit.ToJsonObject(d[key.c_str()], allocator);
+    }
+
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -308,22 +327,6 @@ bool CreateFlowByFilesRequest::FlowNameHasBeenSet() const
     return m_flowNameHasBeenSet;
 }
 
-vector<ApproverInfo> CreateFlowByFilesRequest::GetApprovers() const
-{
-    return m_approvers;
-}
-
-void CreateFlowByFilesRequest::SetApprovers(const vector<ApproverInfo>& _approvers)
-{
-    m_approvers = _approvers;
-    m_approversHasBeenSet = true;
-}
-
-bool CreateFlowByFilesRequest::ApproversHasBeenSet() const
-{
-    return m_approversHasBeenSet;
-}
-
 vector<string> CreateFlowByFilesRequest::GetFileIds() const
 {
     return m_fileIds;
@@ -338,6 +341,22 @@ void CreateFlowByFilesRequest::SetFileIds(const vector<string>& _fileIds)
 bool CreateFlowByFilesRequest::FileIdsHasBeenSet() const
 {
     return m_fileIdsHasBeenSet;
+}
+
+vector<ApproverInfo> CreateFlowByFilesRequest::GetApprovers() const
+{
+    return m_approvers;
+}
+
+void CreateFlowByFilesRequest::SetApprovers(const vector<ApproverInfo>& _approvers)
+{
+    m_approvers = _approvers;
+    m_approversHasBeenSet = true;
+}
+
+bool CreateFlowByFilesRequest::ApproversHasBeenSet() const
+{
+    return m_approversHasBeenSet;
 }
 
 string CreateFlowByFilesRequest::GetFlowDescription() const
@@ -642,6 +661,38 @@ void CreateFlowByFilesRequest::SetOpenDynamicSignFlow(const bool& _openDynamicSi
 bool CreateFlowByFilesRequest::OpenDynamicSignFlowHasBeenSet() const
 {
     return m_openDynamicSignFlowHasBeenSet;
+}
+
+bool CreateFlowByFilesRequest::GetWorkflow() const
+{
+    return m_workflow;
+}
+
+void CreateFlowByFilesRequest::SetWorkflow(const bool& _workflow)
+{
+    m_workflow = _workflow;
+    m_workflowHasBeenSet = true;
+}
+
+bool CreateFlowByFilesRequest::WorkflowHasBeenSet() const
+{
+    return m_workflowHasBeenSet;
+}
+
+FlowOperateLimit CreateFlowByFilesRequest::GetFlowOperateLimit() const
+{
+    return m_flowOperateLimit;
+}
+
+void CreateFlowByFilesRequest::SetFlowOperateLimit(const FlowOperateLimit& _flowOperateLimit)
+{
+    m_flowOperateLimit = _flowOperateLimit;
+    m_flowOperateLimitHasBeenSet = true;
+}
+
+bool CreateFlowByFilesRequest::FlowOperateLimitHasBeenSet() const
+{
+    return m_flowOperateLimitHasBeenSet;
 }
 
 

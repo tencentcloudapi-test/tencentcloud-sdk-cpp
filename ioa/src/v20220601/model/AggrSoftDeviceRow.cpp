@@ -38,7 +38,10 @@ AggrSoftDeviceRow::AggrSoftDeviceRow() :
     m_idHasBeenSet(false),
     m_newVersionHasBeenSet(false),
     m_upgradeSoftIdHasBeenSet(false),
-    m_remarkNameHasBeenSet(false)
+    m_remarkNameHasBeenSet(false),
+    m_softwareIdHasBeenSet(false),
+    m_osTypeHasBeenSet(false),
+    m_assetTypeHasBeenSet(false)
 {
 }
 
@@ -227,6 +230,36 @@ CoreInternalOutcome AggrSoftDeviceRow::Deserialize(const rapidjson::Value &value
         m_remarkNameHasBeenSet = true;
     }
 
+    if (value.HasMember("SoftwareId") && !value["SoftwareId"].IsNull())
+    {
+        if (!value["SoftwareId"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AggrSoftDeviceRow.SoftwareId` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_softwareId = value["SoftwareId"].GetInt64();
+        m_softwareIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("OsType") && !value["OsType"].IsNull())
+    {
+        if (!value["OsType"].IsInt64())
+        {
+            return CoreInternalOutcome(Core::Error("response `AggrSoftDeviceRow.OsType` IsInt64=false incorrectly").SetRequestId(requestId));
+        }
+        m_osType = value["OsType"].GetInt64();
+        m_osTypeHasBeenSet = true;
+    }
+
+    if (value.HasMember("AssetType") && !value["AssetType"].IsNull())
+    {
+        if (!value["AssetType"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `AggrSoftDeviceRow.AssetType` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_assetType = string(value["AssetType"].GetString());
+        m_assetTypeHasBeenSet = true;
+    }
+
 
     return CoreInternalOutcome(true);
 }
@@ -376,6 +409,30 @@ void AggrSoftDeviceRow::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "RemarkName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_remarkName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_softwareIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "SoftwareId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_softwareId, allocator);
+    }
+
+    if (m_osTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OsType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, m_osType, allocator);
+    }
+
+    if (m_assetTypeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "AssetType";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_assetType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -667,5 +724,53 @@ void AggrSoftDeviceRow::SetRemarkName(const string& _remarkName)
 bool AggrSoftDeviceRow::RemarkNameHasBeenSet() const
 {
     return m_remarkNameHasBeenSet;
+}
+
+int64_t AggrSoftDeviceRow::GetSoftwareId() const
+{
+    return m_softwareId;
+}
+
+void AggrSoftDeviceRow::SetSoftwareId(const int64_t& _softwareId)
+{
+    m_softwareId = _softwareId;
+    m_softwareIdHasBeenSet = true;
+}
+
+bool AggrSoftDeviceRow::SoftwareIdHasBeenSet() const
+{
+    return m_softwareIdHasBeenSet;
+}
+
+int64_t AggrSoftDeviceRow::GetOsType() const
+{
+    return m_osType;
+}
+
+void AggrSoftDeviceRow::SetOsType(const int64_t& _osType)
+{
+    m_osType = _osType;
+    m_osTypeHasBeenSet = true;
+}
+
+bool AggrSoftDeviceRow::OsTypeHasBeenSet() const
+{
+    return m_osTypeHasBeenSet;
+}
+
+string AggrSoftDeviceRow::GetAssetType() const
+{
+    return m_assetType;
+}
+
+void AggrSoftDeviceRow::SetAssetType(const string& _assetType)
+{
+    m_assetType = _assetType;
+    m_assetTypeHasBeenSet = true;
+}
+
+bool AggrSoftDeviceRow::AssetTypeHasBeenSet() const
+{
+    return m_assetTypeHasBeenSet;
 }
 

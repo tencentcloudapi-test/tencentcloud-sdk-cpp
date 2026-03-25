@@ -25,6 +25,7 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tdmq/v20200217/model/PartitionsTopic.h>
+#include <tencentcloud/tdmq/v20200217/model/Tag.h>
 
 
 namespace TencentCloud
@@ -750,6 +751,69 @@ namespace TencentCloud
                      */
                     bool AckTimeOutHasBeenSet() const;
 
+                    /**
+                     * 获取Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+                     * @return PulsarTopicMessageType Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+                     * 
+                     */
+                    int64_t GetPulsarTopicMessageType() const;
+
+                    /**
+                     * 设置Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+                     * @param _pulsarTopicMessageType Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+                     * 
+                     */
+                    void SetPulsarTopicMessageType(const int64_t& _pulsarTopicMessageType);
+
+                    /**
+                     * 判断参数 PulsarTopicMessageType 是否已赋值
+                     * @return PulsarTopicMessageType 是否已赋值
+                     * 
+                     */
+                    bool PulsarTopicMessageTypeHasBeenSet() const;
+
+                    /**
+                     * 获取主题标签
+                     * @return Tags 主题标签
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置主题标签
+                     * @param _tags 主题标签
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
+
+                    /**
+                     * 获取defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+                     * @return DelayMessagePolicy defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+                     * 
+                     */
+                    std::string GetDelayMessagePolicy() const;
+
+                    /**
+                     * 设置defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+                     * @param _delayMessagePolicy defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+                     * 
+                     */
+                    void SetDelayMessagePolicy(const std::string& _delayMessagePolicy);
+
+                    /**
+                     * 判断参数 DelayMessagePolicy 是否已赋值
+                     * @return DelayMessagePolicy 是否已赋值
+                     * 
+                     */
+                    bool DelayMessagePolicyHasBeenSet() const;
+
                 private:
 
                     /**
@@ -947,6 +1011,24 @@ namespace TencentCloud
                      */
                     int64_t m_ackTimeOut;
                     bool m_ackTimeOutHasBeenSet;
+
+                    /**
+                     * Pulsar主题消息类型0: 混合消息1:普通消息2:延迟消息
+                     */
+                    int64_t m_pulsarTopicMessageType;
+                    bool m_pulsarTopicMessageTypeHasBeenSet;
+
+                    /**
+                     * 主题标签
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
+
+                    /**
+                     * defaultPolicy/timingwheelPolicy不传默认是社区版本延迟消息策略
+                     */
+                    std::string m_delayMessagePolicy;
+                    bool m_delayMessagePolicyHasBeenSet;
 
                 };
             }

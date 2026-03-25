@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取可用区名称
-                     * @return Zone 可用区名称
+                     * 获取<p>可用区名称</p>
+                     * @return Zone <p>可用区名称</p>
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置可用区名称
-                     * @param _zone 可用区名称
+                     * 设置<p>可用区名称</p>
+                     * @param _zone <p>可用区名称</p>
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -64,27 +64,15 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取数据库引擎，支持：
-1、postgresql（云数据库PostgreSQL）；
-2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
-如不指定默认使用postgresql。
-                     * @return DBEngine 数据库引擎，支持：
-1、postgresql（云数据库PostgreSQL）；
-2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
-如不指定默认使用postgresql。
+                     * 获取<p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；<br>如不指定默认使用postgresql。</p>
+                     * @return DBEngine <p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；<br>如不指定默认使用postgresql。</p>
                      * 
                      */
                     std::string GetDBEngine() const;
 
                     /**
-                     * 设置数据库引擎，支持：
-1、postgresql（云数据库PostgreSQL）；
-2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
-如不指定默认使用postgresql。
-                     * @param _dBEngine 数据库引擎，支持：
-1、postgresql（云数据库PostgreSQL）；
-2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
-如不指定默认使用postgresql。
+                     * 设置<p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；<br>如不指定默认使用postgresql。</p>
+                     * @param _dBEngine <p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；<br>如不指定默认使用postgresql。</p>
                      * 
                      */
                     void SetDBEngine(const std::string& _dBEngine);
@@ -96,22 +84,46 @@ namespace TencentCloud
                      */
                     bool DBEngineHasBeenSet() const;
 
+                    /**
+                     * 获取<p>实例存储类型，根据存储类型返回支持的版本和规格</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
+                     * @return StorageType <p>实例存储类型，根据存储类型返回支持的版本和规格</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
+                     * 
+                     */
+                    std::string GetStorageType() const;
+
+                    /**
+                     * 设置<p>实例存储类型，根据存储类型返回支持的版本和规格</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
+                     * @param _storageType <p>实例存储类型，根据存储类型返回支持的版本和规格</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
+                     * 
+                     */
+                    void SetStorageType(const std::string& _storageType);
+
+                    /**
+                     * 判断参数 StorageType 是否已赋值
+                     * @return StorageType 是否已赋值
+                     * 
+                     */
+                    bool StorageTypeHasBeenSet() const;
+
                 private:
 
                     /**
-                     * 可用区名称
+                     * <p>可用区名称</p>
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * 数据库引擎，支持：
-1、postgresql（云数据库PostgreSQL）；
-2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；
-如不指定默认使用postgresql。
+                     * <p>数据库引擎，支持：<br>1、postgresql（云数据库PostgreSQL）；<br>2、mssql_compatible（MSSQL兼容-云数据库PostgreSQL）；<br>如不指定默认使用postgresql。</p>
                      */
                     std::string m_dBEngine;
                     bool m_dBEngineHasBeenSet;
+
+                    /**
+                     * <p>实例存储类型，根据存储类型返回支持的版本和规格</p><p>枚举值：</p><ul><li>PHYSICAL_LOCAL_SSD： 物理机本地ssd硬盘</li><li>CLOUD_PREMIUM： 高性能云硬盘</li><li>CLOUD_SSD： ssd云硬盘</li><li>CLOUD_HSSD： 增强型ssd云硬盘</li></ul><p>默认值：PHYSICAL_LOCAL_SSD</p>
+                     */
+                    std::string m_storageType;
+                    bool m_storageTypeHasBeenSet;
 
                 };
             }

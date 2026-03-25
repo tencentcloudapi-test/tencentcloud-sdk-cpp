@@ -36,6 +36,8 @@
 #include <tencentcloud/vod/v20180717/model/MediaMiniProgramReviewInfo.h>
 #include <tencentcloud/vod/v20180717/model/MediaSubtitleInfo.h>
 #include <tencentcloud/vod/v20180717/model/FileReviewInfo.h>
+#include <tencentcloud/vod/v20180717/model/MPSAiMediaInfo.h>
+#include <tencentcloud/vod/v20180717/model/ImageUnderstandingInfo.h>
 
 
 namespace TencentCloud
@@ -379,6 +381,52 @@ namespace TencentCloud
                      */
                     bool ReviewInfoHasBeenSet() const;
 
+                    /**
+                     * 获取MPS智能媒资信息
+                     * @return MPSAiMediaInfo MPS智能媒资信息
+                     * 
+                     */
+                    MPSAiMediaInfo GetMPSAiMediaInfo() const;
+
+                    /**
+                     * 设置MPS智能媒资信息
+                     * @param _mPSAiMediaInfo MPS智能媒资信息
+                     * 
+                     */
+                    void SetMPSAiMediaInfo(const MPSAiMediaInfo& _mPSAiMediaInfo);
+
+                    /**
+                     * 判断参数 MPSAiMediaInfo 是否已赋值
+                     * @return MPSAiMediaInfo 是否已赋值
+                     * 
+                     */
+                    bool MPSAiMediaInfoHasBeenSet() const;
+
+                    /**
+                     * 获取图片理解信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ImageUnderstandingInfo 图片理解信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    ImageUnderstandingInfo GetImageUnderstandingInfo() const;
+
+                    /**
+                     * 设置图片理解信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _imageUnderstandingInfo 图片理解信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetImageUnderstandingInfo(const ImageUnderstandingInfo& _imageUnderstandingInfo);
+
+                    /**
+                     * 判断参数 ImageUnderstandingInfo 是否已赋值
+                     * @return ImageUnderstandingInfo 是否已赋值
+                     * 
+                     */
+                    bool ImageUnderstandingInfoHasBeenSet() const;
+
                 private:
 
                     /**
@@ -470,6 +518,19 @@ namespace TencentCloud
                      */
                     FileReviewInfo m_reviewInfo;
                     bool m_reviewInfoHasBeenSet;
+
+                    /**
+                     * MPS智能媒资信息
+                     */
+                    MPSAiMediaInfo m_mPSAiMediaInfo;
+                    bool m_mPSAiMediaInfoHasBeenSet;
+
+                    /**
+                     * 图片理解信息。
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    ImageUnderstandingInfo m_imageUnderstandingInfo;
+                    bool m_imageUnderstandingInfoHasBeenSet;
 
                 };
             }

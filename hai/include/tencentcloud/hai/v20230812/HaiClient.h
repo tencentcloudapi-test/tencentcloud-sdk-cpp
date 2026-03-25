@@ -25,14 +25,22 @@
 #include <tencentcloud/core/AsyncCallerContext.h>
 #include <tencentcloud/hai/v20230812/model/CreateApplicationRequest.h>
 #include <tencentcloud/hai/v20230812/model/CreateApplicationResponse.h>
+#include <tencentcloud/hai/v20230812/model/CreateInferServiceByTemplateRequest.h>
+#include <tencentcloud/hai/v20230812/model/CreateInferServiceByTemplateResponse.h>
 #include <tencentcloud/hai/v20230812/model/CreateMuskPromptRequest.h>
 #include <tencentcloud/hai/v20230812/model/CreateMuskPromptResponse.h>
+#include <tencentcloud/hai/v20230812/model/DeployInferServiceRequest.h>
+#include <tencentcloud/hai/v20230812/model/DeployInferServiceResponse.h>
 #include <tencentcloud/hai/v20230812/model/DescribeApplicationsRequest.h>
 #include <tencentcloud/hai/v20230812/model/DescribeApplicationsResponse.h>
+#include <tencentcloud/hai/v20230812/model/DescribeDeployTemplatesRequest.h>
+#include <tencentcloud/hai/v20230812/model/DescribeDeployTemplatesResponse.h>
 #include <tencentcloud/hai/v20230812/model/DescribeInstanceNetworkStatusRequest.h>
 #include <tencentcloud/hai/v20230812/model/DescribeInstanceNetworkStatusResponse.h>
 #include <tencentcloud/hai/v20230812/model/DescribeInstancesRequest.h>
 #include <tencentcloud/hai/v20230812/model/DescribeInstancesResponse.h>
+#include <tencentcloud/hai/v20230812/model/DescribeModelsRequest.h>
+#include <tencentcloud/hai/v20230812/model/DescribeModelsResponse.h>
 #include <tencentcloud/hai/v20230812/model/DescribeMuskPromptsRequest.h>
 #include <tencentcloud/hai/v20230812/model/DescribeMuskPromptsResponse.h>
 #include <tencentcloud/hai/v20230812/model/DescribeRegionsRequest.h>
@@ -41,8 +49,12 @@
 #include <tencentcloud/hai/v20230812/model/DescribeScenesResponse.h>
 #include <tencentcloud/hai/v20230812/model/DescribeServiceLoginSettingsRequest.h>
 #include <tencentcloud/hai/v20230812/model/DescribeServiceLoginSettingsResponse.h>
+#include <tencentcloud/hai/v20230812/model/DescribeServicesRequest.h>
+#include <tencentcloud/hai/v20230812/model/DescribeServicesResponse.h>
 #include <tencentcloud/hai/v20230812/model/InquirePriceRunInstancesRequest.h>
 #include <tencentcloud/hai/v20230812/model/InquirePriceRunInstancesResponse.h>
+#include <tencentcloud/hai/v20230812/model/InquirePriceUpdateServiceConfigsRequest.h>
+#include <tencentcloud/hai/v20230812/model/InquirePriceUpdateServiceConfigsResponse.h>
 #include <tencentcloud/hai/v20230812/model/ResetInstancesPasswordRequest.h>
 #include <tencentcloud/hai/v20230812/model/ResetInstancesPasswordResponse.h>
 #include <tencentcloud/hai/v20230812/model/ResizeInstanceDiskRequest.h>
@@ -55,6 +67,8 @@
 #include <tencentcloud/hai/v20230812/model/StopInstanceResponse.h>
 #include <tencentcloud/hai/v20230812/model/TerminateInstancesRequest.h>
 #include <tencentcloud/hai/v20230812/model/TerminateInstancesResponse.h>
+#include <tencentcloud/hai/v20230812/model/UpdateServiceConfigsRequest.h>
+#include <tencentcloud/hai/v20230812/model/UpdateServiceConfigsResponse.h>
 
 
 namespace TencentCloud
@@ -72,18 +86,30 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateApplicationResponse> CreateApplicationOutcome;
                 typedef std::future<CreateApplicationOutcome> CreateApplicationOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::CreateApplicationRequest&, CreateApplicationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateApplicationAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateInferServiceByTemplateResponse> CreateInferServiceByTemplateOutcome;
+                typedef std::future<CreateInferServiceByTemplateOutcome> CreateInferServiceByTemplateOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::CreateInferServiceByTemplateRequest&, CreateInferServiceByTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateInferServiceByTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateMuskPromptResponse> CreateMuskPromptOutcome;
                 typedef std::future<CreateMuskPromptOutcome> CreateMuskPromptOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::CreateMuskPromptRequest&, CreateMuskPromptOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMuskPromptAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeployInferServiceResponse> DeployInferServiceOutcome;
+                typedef std::future<DeployInferServiceOutcome> DeployInferServiceOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::DeployInferServiceRequest&, DeployInferServiceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeployInferServiceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeApplicationsResponse> DescribeApplicationsOutcome;
                 typedef std::future<DescribeApplicationsOutcome> DescribeApplicationsOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::DescribeApplicationsRequest&, DescribeApplicationsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeDeployTemplatesResponse> DescribeDeployTemplatesOutcome;
+                typedef std::future<DescribeDeployTemplatesOutcome> DescribeDeployTemplatesOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::DescribeDeployTemplatesRequest&, DescribeDeployTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDeployTemplatesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeInstanceNetworkStatusResponse> DescribeInstanceNetworkStatusOutcome;
                 typedef std::future<DescribeInstanceNetworkStatusOutcome> DescribeInstanceNetworkStatusOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::DescribeInstanceNetworkStatusRequest&, DescribeInstanceNetworkStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstanceNetworkStatusAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeInstancesResponse> DescribeInstancesOutcome;
                 typedef std::future<DescribeInstancesOutcome> DescribeInstancesOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::DescribeInstancesRequest&, DescribeInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeModelsResponse> DescribeModelsOutcome;
+                typedef std::future<DescribeModelsOutcome> DescribeModelsOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::DescribeModelsRequest&, DescribeModelsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeModelsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMuskPromptsResponse> DescribeMuskPromptsOutcome;
                 typedef std::future<DescribeMuskPromptsOutcome> DescribeMuskPromptsOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::DescribeMuskPromptsRequest&, DescribeMuskPromptsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMuskPromptsAsyncHandler;
@@ -96,9 +122,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeServiceLoginSettingsResponse> DescribeServiceLoginSettingsOutcome;
                 typedef std::future<DescribeServiceLoginSettingsOutcome> DescribeServiceLoginSettingsOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::DescribeServiceLoginSettingsRequest&, DescribeServiceLoginSettingsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeServiceLoginSettingsAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeServicesResponse> DescribeServicesOutcome;
+                typedef std::future<DescribeServicesOutcome> DescribeServicesOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::DescribeServicesRequest&, DescribeServicesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeServicesAsyncHandler;
                 typedef Outcome<Core::Error, Model::InquirePriceRunInstancesResponse> InquirePriceRunInstancesOutcome;
                 typedef std::future<InquirePriceRunInstancesOutcome> InquirePriceRunInstancesOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::InquirePriceRunInstancesRequest&, InquirePriceRunInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InquirePriceRunInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::InquirePriceUpdateServiceConfigsResponse> InquirePriceUpdateServiceConfigsOutcome;
+                typedef std::future<InquirePriceUpdateServiceConfigsOutcome> InquirePriceUpdateServiceConfigsOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::InquirePriceUpdateServiceConfigsRequest&, InquirePriceUpdateServiceConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InquirePriceUpdateServiceConfigsAsyncHandler;
                 typedef Outcome<Core::Error, Model::ResetInstancesPasswordResponse> ResetInstancesPasswordOutcome;
                 typedef std::future<ResetInstancesPasswordOutcome> ResetInstancesPasswordOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::ResetInstancesPasswordRequest&, ResetInstancesPasswordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ResetInstancesPasswordAsyncHandler;
@@ -117,6 +149,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::TerminateInstancesResponse> TerminateInstancesOutcome;
                 typedef std::future<TerminateInstancesOutcome> TerminateInstancesOutcomeCallable;
                 typedef std::function<void(const HaiClient*, const Model::TerminateInstancesRequest&, TerminateInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateInstancesAsyncHandler;
+                typedef Outcome<Core::Error, Model::UpdateServiceConfigsResponse> UpdateServiceConfigsOutcome;
+                typedef std::future<UpdateServiceConfigsOutcome> UpdateServiceConfigsOutcomeCallable;
+                typedef std::function<void(const HaiClient*, const Model::UpdateServiceConfigsRequest&, UpdateServiceConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> UpdateServiceConfigsAsyncHandler;
 
 
 
@@ -130,6 +165,15 @@ namespace TencentCloud
                 CreateApplicationOutcomeCallable CreateApplicationCallable(const Model::CreateApplicationRequest& request);
 
                 /**
+                 *本接口(CreateInferServiceByTemplate)用于根据模板创建服务
+                 * @param req CreateInferServiceByTemplateRequest
+                 * @return CreateInferServiceByTemplateOutcome
+                 */
+                CreateInferServiceByTemplateOutcome CreateInferServiceByTemplate(const Model::CreateInferServiceByTemplateRequest &request);
+                void CreateInferServiceByTemplateAsync(const Model::CreateInferServiceByTemplateRequest& request, const CreateInferServiceByTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateInferServiceByTemplateOutcomeCallable CreateInferServiceByTemplateCallable(const Model::CreateInferServiceByTemplateRequest& request);
+
+                /**
                  *创建musk prompt 任务
                  * @param req CreateMuskPromptRequest
                  * @return CreateMuskPromptOutcome
@@ -139,6 +183,15 @@ namespace TencentCloud
                 CreateMuskPromptOutcomeCallable CreateMuskPromptCallable(const Model::CreateMuskPromptRequest& request);
 
                 /**
+                 *本接口(DeployInferService)用于部署推理服务
+                 * @param req DeployInferServiceRequest
+                 * @return DeployInferServiceOutcome
+                 */
+                DeployInferServiceOutcome DeployInferService(const Model::DeployInferServiceRequest &request);
+                void DeployInferServiceAsync(const Model::DeployInferServiceRequest& request, const DeployInferServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeployInferServiceOutcomeCallable DeployInferServiceCallable(const Model::DeployInferServiceRequest& request);
+
+                /**
                  *本接口（DescribeApplications）用于查询应用
                  * @param req DescribeApplicationsRequest
                  * @return DescribeApplicationsOutcome
@@ -146,6 +199,15 @@ namespace TencentCloud
                 DescribeApplicationsOutcome DescribeApplications(const Model::DescribeApplicationsRequest &request);
                 void DescribeApplicationsAsync(const Model::DescribeApplicationsRequest& request, const DescribeApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeApplicationsOutcomeCallable DescribeApplicationsCallable(const Model::DescribeApplicationsRequest& request);
+
+                /**
+                 *本接口(DescribeDeployTemplates)用于查询模型支持的部署模板
+                 * @param req DescribeDeployTemplatesRequest
+                 * @return DescribeDeployTemplatesOutcome
+                 */
+                DescribeDeployTemplatesOutcome DescribeDeployTemplates(const Model::DescribeDeployTemplatesRequest &request);
+                void DescribeDeployTemplatesAsync(const Model::DescribeDeployTemplatesRequest& request, const DescribeDeployTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeDeployTemplatesOutcomeCallable DescribeDeployTemplatesCallable(const Model::DescribeDeployTemplatesRequest& request);
 
                 /**
                  *本接口（DescribeInstanceNetworkStatus）用于查询实例的网络配置及消耗情况
@@ -164,6 +226,15 @@ namespace TencentCloud
                 DescribeInstancesOutcome DescribeInstances(const Model::DescribeInstancesRequest &request);
                 void DescribeInstancesAsync(const Model::DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeInstancesOutcomeCallable DescribeInstancesCallable(const Model::DescribeInstancesRequest& request);
+
+                /**
+                 *本接口(DescribeModels)用于查询模型
+                 * @param req DescribeModelsRequest
+                 * @return DescribeModelsOutcome
+                 */
+                DescribeModelsOutcome DescribeModels(const Model::DescribeModelsRequest &request);
+                void DescribeModelsAsync(const Model::DescribeModelsRequest& request, const DescribeModelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeModelsOutcomeCallable DescribeModelsCallable(const Model::DescribeModelsRequest& request);
 
                 /**
                  *获取prompt任务列表
@@ -202,6 +273,15 @@ namespace TencentCloud
                 DescribeServiceLoginSettingsOutcomeCallable DescribeServiceLoginSettingsCallable(const Model::DescribeServiceLoginSettingsRequest& request);
 
                 /**
+                 *本接口 (DescribeServices) 用于查询一个或多个服务
+                 * @param req DescribeServicesRequest
+                 * @return DescribeServicesOutcome
+                 */
+                DescribeServicesOutcome DescribeServices(const Model::DescribeServicesRequest &request);
+                void DescribeServicesAsync(const Model::DescribeServicesRequest& request, const DescribeServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeServicesOutcomeCallable DescribeServicesCallable(const Model::DescribeServicesRequest& request);
+
+                /**
                  *本接口 (InquirePriceRunInstances) 用于实例询价。
                  * @param req InquirePriceRunInstancesRequest
                  * @return InquirePriceRunInstancesOutcome
@@ -209,6 +289,15 @@ namespace TencentCloud
                 InquirePriceRunInstancesOutcome InquirePriceRunInstances(const Model::InquirePriceRunInstancesRequest &request);
                 void InquirePriceRunInstancesAsync(const Model::InquirePriceRunInstancesRequest& request, const InquirePriceRunInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 InquirePriceRunInstancesOutcomeCallable InquirePriceRunInstancesCallable(const Model::InquirePriceRunInstancesRequest& request);
+
+                /**
+                 *本接口(InquirePriceUpdateServiceConfigs)用于更新服务配置询价
+                 * @param req InquirePriceUpdateServiceConfigsRequest
+                 * @return InquirePriceUpdateServiceConfigsOutcome
+                 */
+                InquirePriceUpdateServiceConfigsOutcome InquirePriceUpdateServiceConfigs(const Model::InquirePriceUpdateServiceConfigsRequest &request);
+                void InquirePriceUpdateServiceConfigsAsync(const Model::InquirePriceUpdateServiceConfigsRequest& request, const InquirePriceUpdateServiceConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                InquirePriceUpdateServiceConfigsOutcomeCallable InquirePriceUpdateServiceConfigsCallable(const Model::InquirePriceUpdateServiceConfigsRequest& request);
 
                 /**
                  *本接口 (ResetInstancesPassword) 用于重置实例的用户密码。
@@ -265,6 +354,15 @@ namespace TencentCloud
                 TerminateInstancesOutcome TerminateInstances(const Model::TerminateInstancesRequest &request);
                 void TerminateInstancesAsync(const Model::TerminateInstancesRequest& request, const TerminateInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 TerminateInstancesOutcomeCallable TerminateInstancesCallable(const Model::TerminateInstancesRequest& request);
+
+                /**
+                 *本接口(UpdateServiceConfigs)用于更新服务配置
+                 * @param req UpdateServiceConfigsRequest
+                 * @return UpdateServiceConfigsOutcome
+                 */
+                UpdateServiceConfigsOutcome UpdateServiceConfigs(const Model::UpdateServiceConfigsRequest &request);
+                void UpdateServiceConfigsAsync(const Model::UpdateServiceConfigsRequest& request, const UpdateServiceConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                UpdateServiceConfigsOutcomeCallable UpdateServiceConfigsCallable(const Model::UpdateServiceConfigsRequest& request);
 
             };
         }

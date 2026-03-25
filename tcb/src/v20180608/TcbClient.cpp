@@ -40,48 +40,148 @@ TcbClient::TcbClient(const Credential &credential, const string &region, const C
 }
 
 
-TcbClient::BindEnvGatewayOutcome TcbClient::BindEnvGateway(const BindEnvGatewayRequest &request)
+TcbClient::AddProviderOutcome TcbClient::AddProvider(const AddProviderRequest &request)
 {
-    auto outcome = MakeRequest(request, "BindEnvGateway");
+    auto outcome = MakeRequest(request, "AddProvider");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        BindEnvGatewayResponse rsp = BindEnvGatewayResponse();
+        AddProviderResponse rsp = AddProviderResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return BindEnvGatewayOutcome(rsp);
+            return AddProviderOutcome(rsp);
         else
-            return BindEnvGatewayOutcome(o.GetError());
+            return AddProviderOutcome(o.GetError());
     }
     else
     {
-        return BindEnvGatewayOutcome(outcome.GetError());
+        return AddProviderOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::BindEnvGatewayAsync(const BindEnvGatewayRequest& request, const BindEnvGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::AddProviderAsync(const AddProviderRequest& request, const AddProviderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindEnvGatewayRequest&;
-    using Resp = BindEnvGatewayResponse;
+    using Req = const AddProviderRequest&;
+    using Resp = AddProviderResponse;
 
     DoRequestAsync<Req, Resp>(
-        "BindEnvGateway", request, {{{"Content-Type", "application/json"}}},
+        "AddProvider", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::BindEnvGatewayOutcomeCallable TcbClient::BindEnvGatewayCallable(const BindEnvGatewayRequest &request)
+TcbClient::AddProviderOutcomeCallable TcbClient::AddProviderCallable(const AddProviderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindEnvGatewayOutcome>>();
-    BindEnvGatewayAsync(
+    const auto prom = std::make_shared<std::promise<AddProviderOutcome>>();
+    AddProviderAsync(
     request,
     [prom](
         const TcbClient*,
-        const BindEnvGatewayRequest&,
-        BindEnvGatewayOutcome resp,
+        const AddProviderRequest&,
+        AddProviderOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::BindCloudBaseAccessDomainOutcome TcbClient::BindCloudBaseAccessDomain(const BindCloudBaseAccessDomainRequest &request)
+{
+    auto outcome = MakeRequest(request, "BindCloudBaseAccessDomain");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        BindCloudBaseAccessDomainResponse rsp = BindCloudBaseAccessDomainResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return BindCloudBaseAccessDomainOutcome(rsp);
+        else
+            return BindCloudBaseAccessDomainOutcome(o.GetError());
+    }
+    else
+    {
+        return BindCloudBaseAccessDomainOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::BindCloudBaseAccessDomainAsync(const BindCloudBaseAccessDomainRequest& request, const BindCloudBaseAccessDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const BindCloudBaseAccessDomainRequest&;
+    using Resp = BindCloudBaseAccessDomainResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "BindCloudBaseAccessDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::BindCloudBaseAccessDomainOutcomeCallable TcbClient::BindCloudBaseAccessDomainCallable(const BindCloudBaseAccessDomainRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<BindCloudBaseAccessDomainOutcome>>();
+    BindCloudBaseAccessDomainAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const BindCloudBaseAccessDomainRequest&,
+        BindCloudBaseAccessDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::BindCloudBaseGWDomainOutcome TcbClient::BindCloudBaseGWDomain(const BindCloudBaseGWDomainRequest &request)
+{
+    auto outcome = MakeRequest(request, "BindCloudBaseGWDomain");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        BindCloudBaseGWDomainResponse rsp = BindCloudBaseGWDomainResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return BindCloudBaseGWDomainOutcome(rsp);
+        else
+            return BindCloudBaseGWDomainOutcome(o.GetError());
+    }
+    else
+    {
+        return BindCloudBaseGWDomainOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::BindCloudBaseGWDomainAsync(const BindCloudBaseGWDomainRequest& request, const BindCloudBaseGWDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const BindCloudBaseGWDomainRequest&;
+    using Resp = BindCloudBaseGWDomainResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "BindCloudBaseGWDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::BindCloudBaseGWDomainOutcomeCallable TcbClient::BindCloudBaseGWDomainCallable(const BindCloudBaseGWDomainRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<BindCloudBaseGWDomainOutcome>>();
+    BindCloudBaseGWDomainAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const BindCloudBaseGWDomainRequest&,
+        BindCloudBaseGWDomainOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -140,106 +240,6 @@ TcbClient::CheckTcbServiceOutcomeCallable TcbClient::CheckTcbServiceCallable(con
     return prom->get_future();
 }
 
-TcbClient::CommonServiceAPIOutcome TcbClient::CommonServiceAPI(const CommonServiceAPIRequest &request)
-{
-    auto outcome = MakeRequest(request, "CommonServiceAPI");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CommonServiceAPIResponse rsp = CommonServiceAPIResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CommonServiceAPIOutcome(rsp);
-        else
-            return CommonServiceAPIOutcome(o.GetError());
-    }
-    else
-    {
-        return CommonServiceAPIOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::CommonServiceAPIAsync(const CommonServiceAPIRequest& request, const CommonServiceAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CommonServiceAPIRequest&;
-    using Resp = CommonServiceAPIResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CommonServiceAPI", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::CommonServiceAPIOutcomeCallable TcbClient::CommonServiceAPICallable(const CommonServiceAPIRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CommonServiceAPIOutcome>>();
-    CommonServiceAPIAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const CommonServiceAPIRequest&,
-        CommonServiceAPIOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::CreateAndDeployCloudBaseProjectOutcome TcbClient::CreateAndDeployCloudBaseProject(const CreateAndDeployCloudBaseProjectRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateAndDeployCloudBaseProject");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateAndDeployCloudBaseProjectResponse rsp = CreateAndDeployCloudBaseProjectResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateAndDeployCloudBaseProjectOutcome(rsp);
-        else
-            return CreateAndDeployCloudBaseProjectOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateAndDeployCloudBaseProjectOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::CreateAndDeployCloudBaseProjectAsync(const CreateAndDeployCloudBaseProjectRequest& request, const CreateAndDeployCloudBaseProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateAndDeployCloudBaseProjectRequest&;
-    using Resp = CreateAndDeployCloudBaseProjectResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateAndDeployCloudBaseProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::CreateAndDeployCloudBaseProjectOutcomeCallable TcbClient::CreateAndDeployCloudBaseProjectCallable(const CreateAndDeployCloudBaseProjectRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateAndDeployCloudBaseProjectOutcome>>();
-    CreateAndDeployCloudBaseProjectAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const CreateAndDeployCloudBaseProjectRequest&,
-        CreateAndDeployCloudBaseProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TcbClient::CreateAuthDomainOutcome TcbClient::CreateAuthDomain(const CreateAuthDomainRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateAuthDomain");
@@ -290,48 +290,48 @@ TcbClient::CreateAuthDomainOutcomeCallable TcbClient::CreateAuthDomainCallable(c
     return prom->get_future();
 }
 
-TcbClient::CreateCloudBaseRunResourceOutcome TcbClient::CreateCloudBaseRunResource(const CreateCloudBaseRunResourceRequest &request)
+TcbClient::CreateBillDealOutcome TcbClient::CreateBillDeal(const CreateBillDealRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateCloudBaseRunResource");
+    auto outcome = MakeRequest(request, "CreateBillDeal");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateCloudBaseRunResourceResponse rsp = CreateCloudBaseRunResourceResponse();
+        CreateBillDealResponse rsp = CreateBillDealResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateCloudBaseRunResourceOutcome(rsp);
+            return CreateBillDealOutcome(rsp);
         else
-            return CreateCloudBaseRunResourceOutcome(o.GetError());
+            return CreateBillDealOutcome(o.GetError());
     }
     else
     {
-        return CreateCloudBaseRunResourceOutcome(outcome.GetError());
+        return CreateBillDealOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::CreateCloudBaseRunResourceAsync(const CreateCloudBaseRunResourceRequest& request, const CreateCloudBaseRunResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::CreateBillDealAsync(const CreateBillDealRequest& request, const CreateBillDealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudBaseRunResourceRequest&;
-    using Resp = CreateCloudBaseRunResourceResponse;
+    using Req = const CreateBillDealRequest&;
+    using Resp = CreateBillDealResponse;
 
     DoRequestAsync<Req, Resp>(
-        "CreateCloudBaseRunResource", request, {{{"Content-Type", "application/json"}}},
+        "CreateBillDeal", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::CreateCloudBaseRunResourceOutcomeCallable TcbClient::CreateCloudBaseRunResourceCallable(const CreateCloudBaseRunResourceRequest &request)
+TcbClient::CreateBillDealOutcomeCallable TcbClient::CreateBillDealCallable(const CreateBillDealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudBaseRunResourceOutcome>>();
-    CreateCloudBaseRunResourceAsync(
+    const auto prom = std::make_shared<std::promise<CreateBillDealOutcome>>();
+    CreateBillDealAsync(
     request,
     [prom](
         const TcbClient*,
-        const CreateCloudBaseRunResourceRequest&,
-        CreateCloudBaseRunResourceOutcome resp,
+        const CreateBillDealRequest&,
+        CreateBillDealOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -340,48 +340,148 @@ TcbClient::CreateCloudBaseRunResourceOutcomeCallable TcbClient::CreateCloudBaseR
     return prom->get_future();
 }
 
-TcbClient::CreateCloudBaseRunServerVersionOutcome TcbClient::CreateCloudBaseRunServerVersion(const CreateCloudBaseRunServerVersionRequest &request)
+TcbClient::CreateCloudBaseGWAPIOutcome TcbClient::CreateCloudBaseGWAPI(const CreateCloudBaseGWAPIRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateCloudBaseRunServerVersion");
+    auto outcome = MakeRequest(request, "CreateCloudBaseGWAPI");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateCloudBaseRunServerVersionResponse rsp = CreateCloudBaseRunServerVersionResponse();
+        CreateCloudBaseGWAPIResponse rsp = CreateCloudBaseGWAPIResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateCloudBaseRunServerVersionOutcome(rsp);
+            return CreateCloudBaseGWAPIOutcome(rsp);
         else
-            return CreateCloudBaseRunServerVersionOutcome(o.GetError());
+            return CreateCloudBaseGWAPIOutcome(o.GetError());
     }
     else
     {
-        return CreateCloudBaseRunServerVersionOutcome(outcome.GetError());
+        return CreateCloudBaseGWAPIOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::CreateCloudBaseRunServerVersionAsync(const CreateCloudBaseRunServerVersionRequest& request, const CreateCloudBaseRunServerVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::CreateCloudBaseGWAPIAsync(const CreateCloudBaseGWAPIRequest& request, const CreateCloudBaseGWAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudBaseRunServerVersionRequest&;
-    using Resp = CreateCloudBaseRunServerVersionResponse;
+    using Req = const CreateCloudBaseGWAPIRequest&;
+    using Resp = CreateCloudBaseGWAPIResponse;
 
     DoRequestAsync<Req, Resp>(
-        "CreateCloudBaseRunServerVersion", request, {{{"Content-Type", "application/json"}}},
+        "CreateCloudBaseGWAPI", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::CreateCloudBaseRunServerVersionOutcomeCallable TcbClient::CreateCloudBaseRunServerVersionCallable(const CreateCloudBaseRunServerVersionRequest &request)
+TcbClient::CreateCloudBaseGWAPIOutcomeCallable TcbClient::CreateCloudBaseGWAPICallable(const CreateCloudBaseGWAPIRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudBaseRunServerVersionOutcome>>();
-    CreateCloudBaseRunServerVersionAsync(
+    const auto prom = std::make_shared<std::promise<CreateCloudBaseGWAPIOutcome>>();
+    CreateCloudBaseGWAPIAsync(
     request,
     [prom](
         const TcbClient*,
-        const CreateCloudBaseRunServerVersionRequest&,
-        CreateCloudBaseRunServerVersionOutcome resp,
+        const CreateCloudBaseGWAPIRequest&,
+        CreateCloudBaseGWAPIOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::CreateEnvOutcome TcbClient::CreateEnv(const CreateEnvRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateEnv");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateEnvResponse rsp = CreateEnvResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateEnvOutcome(rsp);
+        else
+            return CreateEnvOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateEnvOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::CreateEnvAsync(const CreateEnvRequest& request, const CreateEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateEnvRequest&;
+    using Resp = CreateEnvResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateEnv", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::CreateEnvOutcomeCallable TcbClient::CreateEnvCallable(const CreateEnvRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateEnvOutcome>>();
+    CreateEnvAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const CreateEnvRequest&,
+        CreateEnvOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::CreateEnvResourceOutcome TcbClient::CreateEnvResource(const CreateEnvResourceRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateEnvResource");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateEnvResourceResponse rsp = CreateEnvResourceResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateEnvResourceOutcome(rsp);
+        else
+            return CreateEnvResourceOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateEnvResourceOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::CreateEnvResourceAsync(const CreateEnvResourceRequest& request, const CreateEnvResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateEnvResourceRequest&;
+    using Resp = CreateEnvResourceResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateEnvResource", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::CreateEnvResourceOutcomeCallable TcbClient::CreateEnvResourceCallable(const CreateEnvResourceRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateEnvResourceOutcome>>();
+    CreateEnvResourceAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const CreateEnvResourceRequest&,
+        CreateEnvResourceOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -440,98 +540,48 @@ TcbClient::CreateHostingDomainOutcomeCallable TcbClient::CreateHostingDomainCall
     return prom->get_future();
 }
 
-TcbClient::CreatePostpayPackageOutcome TcbClient::CreatePostpayPackage(const CreatePostpayPackageRequest &request)
+TcbClient::CreateMySQLOutcome TcbClient::CreateMySQL(const CreateMySQLRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreatePostpayPackage");
+    auto outcome = MakeRequest(request, "CreateMySQL");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreatePostpayPackageResponse rsp = CreatePostpayPackageResponse();
+        CreateMySQLResponse rsp = CreateMySQLResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreatePostpayPackageOutcome(rsp);
+            return CreateMySQLOutcome(rsp);
         else
-            return CreatePostpayPackageOutcome(o.GetError());
+            return CreateMySQLOutcome(o.GetError());
     }
     else
     {
-        return CreatePostpayPackageOutcome(outcome.GetError());
+        return CreateMySQLOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::CreatePostpayPackageAsync(const CreatePostpayPackageRequest& request, const CreatePostpayPackageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::CreateMySQLAsync(const CreateMySQLRequest& request, const CreateMySQLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePostpayPackageRequest&;
-    using Resp = CreatePostpayPackageResponse;
+    using Req = const CreateMySQLRequest&;
+    using Resp = CreateMySQLResponse;
 
     DoRequestAsync<Req, Resp>(
-        "CreatePostpayPackage", request, {{{"Content-Type", "application/json"}}},
+        "CreateMySQL", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::CreatePostpayPackageOutcomeCallable TcbClient::CreatePostpayPackageCallable(const CreatePostpayPackageRequest &request)
+TcbClient::CreateMySQLOutcomeCallable TcbClient::CreateMySQLCallable(const CreateMySQLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePostpayPackageOutcome>>();
-    CreatePostpayPackageAsync(
+    const auto prom = std::make_shared<std::promise<CreateMySQLOutcome>>();
+    CreateMySQLAsync(
     request,
     [prom](
         const TcbClient*,
-        const CreatePostpayPackageRequest&,
-        CreatePostpayPackageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::CreateStandaloneGatewayOutcome TcbClient::CreateStandaloneGateway(const CreateStandaloneGatewayRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateStandaloneGateway");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateStandaloneGatewayResponse rsp = CreateStandaloneGatewayResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateStandaloneGatewayOutcome(rsp);
-        else
-            return CreateStandaloneGatewayOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateStandaloneGatewayOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::CreateStandaloneGatewayAsync(const CreateStandaloneGatewayRequest& request, const CreateStandaloneGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateStandaloneGatewayRequest&;
-    using Resp = CreateStandaloneGatewayResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateStandaloneGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::CreateStandaloneGatewayOutcomeCallable TcbClient::CreateStandaloneGatewayCallable(const CreateStandaloneGatewayRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateStandaloneGatewayOutcome>>();
-    CreateStandaloneGatewayAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const CreateStandaloneGatewayRequest&,
-        CreateStandaloneGatewayOutcome resp,
+        const CreateMySQLRequest&,
+        CreateMySQLOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -590,48 +640,48 @@ TcbClient::CreateStaticStoreOutcomeCallable TcbClient::CreateStaticStoreCallable
     return prom->get_future();
 }
 
-TcbClient::CreateWxCloudBaseRunEnvOutcome TcbClient::CreateWxCloudBaseRunEnv(const CreateWxCloudBaseRunEnvRequest &request)
+TcbClient::CreateTableOutcome TcbClient::CreateTable(const CreateTableRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateWxCloudBaseRunEnv");
+    auto outcome = MakeRequest(request, "CreateTable");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateWxCloudBaseRunEnvResponse rsp = CreateWxCloudBaseRunEnvResponse();
+        CreateTableResponse rsp = CreateTableResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateWxCloudBaseRunEnvOutcome(rsp);
+            return CreateTableOutcome(rsp);
         else
-            return CreateWxCloudBaseRunEnvOutcome(o.GetError());
+            return CreateTableOutcome(o.GetError());
     }
     else
     {
-        return CreateWxCloudBaseRunEnvOutcome(outcome.GetError());
+        return CreateTableOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::CreateWxCloudBaseRunEnvAsync(const CreateWxCloudBaseRunEnvRequest& request, const CreateWxCloudBaseRunEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::CreateTableAsync(const CreateTableRequest& request, const CreateTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWxCloudBaseRunEnvRequest&;
-    using Resp = CreateWxCloudBaseRunEnvResponse;
+    using Req = const CreateTableRequest&;
+    using Resp = CreateTableResponse;
 
     DoRequestAsync<Req, Resp>(
-        "CreateWxCloudBaseRunEnv", request, {{{"Content-Type", "application/json"}}},
+        "CreateTable", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::CreateWxCloudBaseRunEnvOutcomeCallable TcbClient::CreateWxCloudBaseRunEnvCallable(const CreateWxCloudBaseRunEnvRequest &request)
+TcbClient::CreateTableOutcomeCallable TcbClient::CreateTableCallable(const CreateTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWxCloudBaseRunEnvOutcome>>();
-    CreateWxCloudBaseRunEnvAsync(
+    const auto prom = std::make_shared<std::promise<CreateTableOutcome>>();
+    CreateTableAsync(
     request,
     [prom](
         const TcbClient*,
-        const CreateWxCloudBaseRunEnvRequest&,
-        CreateWxCloudBaseRunEnvOutcome resp,
+        const CreateTableRequest&,
+        CreateTableOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -640,48 +690,48 @@ TcbClient::CreateWxCloudBaseRunEnvOutcomeCallable TcbClient::CreateWxCloudBaseRu
     return prom->get_future();
 }
 
-TcbClient::CreateWxCloudBaseRunServerDBClusterOutcome TcbClient::CreateWxCloudBaseRunServerDBCluster(const CreateWxCloudBaseRunServerDBClusterRequest &request)
+TcbClient::CreateUserOutcome TcbClient::CreateUser(const CreateUserRequest &request)
 {
-    auto outcome = MakeRequest(request, "CreateWxCloudBaseRunServerDBCluster");
+    auto outcome = MakeRequest(request, "CreateUser");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        CreateWxCloudBaseRunServerDBClusterResponse rsp = CreateWxCloudBaseRunServerDBClusterResponse();
+        CreateUserResponse rsp = CreateUserResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return CreateWxCloudBaseRunServerDBClusterOutcome(rsp);
+            return CreateUserOutcome(rsp);
         else
-            return CreateWxCloudBaseRunServerDBClusterOutcome(o.GetError());
+            return CreateUserOutcome(o.GetError());
     }
     else
     {
-        return CreateWxCloudBaseRunServerDBClusterOutcome(outcome.GetError());
+        return CreateUserOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::CreateWxCloudBaseRunServerDBClusterAsync(const CreateWxCloudBaseRunServerDBClusterRequest& request, const CreateWxCloudBaseRunServerDBClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::CreateUserAsync(const CreateUserRequest& request, const CreateUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWxCloudBaseRunServerDBClusterRequest&;
-    using Resp = CreateWxCloudBaseRunServerDBClusterResponse;
+    using Req = const CreateUserRequest&;
+    using Resp = CreateUserResponse;
 
     DoRequestAsync<Req, Resp>(
-        "CreateWxCloudBaseRunServerDBCluster", request, {{{"Content-Type", "application/json"}}},
+        "CreateUser", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::CreateWxCloudBaseRunServerDBClusterOutcomeCallable TcbClient::CreateWxCloudBaseRunServerDBClusterCallable(const CreateWxCloudBaseRunServerDBClusterRequest &request)
+TcbClient::CreateUserOutcomeCallable TcbClient::CreateUserCallable(const CreateUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWxCloudBaseRunServerDBClusterOutcome>>();
-    CreateWxCloudBaseRunServerDBClusterAsync(
+    const auto prom = std::make_shared<std::promise<CreateUserOutcome>>();
+    CreateUserAsync(
     request,
     [prom](
         const TcbClient*,
-        const CreateWxCloudBaseRunServerDBClusterRequest&,
-        CreateWxCloudBaseRunServerDBClusterOutcome resp,
+        const CreateUserRequest&,
+        CreateUserOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -690,48 +740,48 @@ TcbClient::CreateWxCloudBaseRunServerDBClusterOutcomeCallable TcbClient::CreateW
     return prom->get_future();
 }
 
-TcbClient::DeleteCloudBaseProjectLatestVersionOutcome TcbClient::DeleteCloudBaseProjectLatestVersion(const DeleteCloudBaseProjectLatestVersionRequest &request)
+TcbClient::DeleteAuthDomainOutcome TcbClient::DeleteAuthDomain(const DeleteAuthDomainRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteCloudBaseProjectLatestVersion");
+    auto outcome = MakeRequest(request, "DeleteAuthDomain");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteCloudBaseProjectLatestVersionResponse rsp = DeleteCloudBaseProjectLatestVersionResponse();
+        DeleteAuthDomainResponse rsp = DeleteAuthDomainResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteCloudBaseProjectLatestVersionOutcome(rsp);
+            return DeleteAuthDomainOutcome(rsp);
         else
-            return DeleteCloudBaseProjectLatestVersionOutcome(o.GetError());
+            return DeleteAuthDomainOutcome(o.GetError());
     }
     else
     {
-        return DeleteCloudBaseProjectLatestVersionOutcome(outcome.GetError());
+        return DeleteAuthDomainOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DeleteCloudBaseProjectLatestVersionAsync(const DeleteCloudBaseProjectLatestVersionRequest& request, const DeleteCloudBaseProjectLatestVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DeleteAuthDomainAsync(const DeleteAuthDomainRequest& request, const DeleteAuthDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudBaseProjectLatestVersionRequest&;
-    using Resp = DeleteCloudBaseProjectLatestVersionResponse;
+    using Req = const DeleteAuthDomainRequest&;
+    using Resp = DeleteAuthDomainResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DeleteCloudBaseProjectLatestVersion", request, {{{"Content-Type", "application/json"}}},
+        "DeleteAuthDomain", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DeleteCloudBaseProjectLatestVersionOutcomeCallable TcbClient::DeleteCloudBaseProjectLatestVersionCallable(const DeleteCloudBaseProjectLatestVersionRequest &request)
+TcbClient::DeleteAuthDomainOutcomeCallable TcbClient::DeleteAuthDomainCallable(const DeleteAuthDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudBaseProjectLatestVersionOutcome>>();
-    DeleteCloudBaseProjectLatestVersionAsync(
+    const auto prom = std::make_shared<std::promise<DeleteAuthDomainOutcome>>();
+    DeleteAuthDomainAsync(
     request,
     [prom](
         const TcbClient*,
-        const DeleteCloudBaseProjectLatestVersionRequest&,
-        DeleteCloudBaseProjectLatestVersionOutcome resp,
+        const DeleteAuthDomainRequest&,
+        DeleteAuthDomainOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -740,48 +790,48 @@ TcbClient::DeleteCloudBaseProjectLatestVersionOutcomeCallable TcbClient::DeleteC
     return prom->get_future();
 }
 
-TcbClient::DeleteCloudBaseRunServerVersionOutcome TcbClient::DeleteCloudBaseRunServerVersion(const DeleteCloudBaseRunServerVersionRequest &request)
+TcbClient::DeleteCloudBaseGWAPIOutcome TcbClient::DeleteCloudBaseGWAPI(const DeleteCloudBaseGWAPIRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteCloudBaseRunServerVersion");
+    auto outcome = MakeRequest(request, "DeleteCloudBaseGWAPI");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteCloudBaseRunServerVersionResponse rsp = DeleteCloudBaseRunServerVersionResponse();
+        DeleteCloudBaseGWAPIResponse rsp = DeleteCloudBaseGWAPIResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteCloudBaseRunServerVersionOutcome(rsp);
+            return DeleteCloudBaseGWAPIOutcome(rsp);
         else
-            return DeleteCloudBaseRunServerVersionOutcome(o.GetError());
+            return DeleteCloudBaseGWAPIOutcome(o.GetError());
     }
     else
     {
-        return DeleteCloudBaseRunServerVersionOutcome(outcome.GetError());
+        return DeleteCloudBaseGWAPIOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DeleteCloudBaseRunServerVersionAsync(const DeleteCloudBaseRunServerVersionRequest& request, const DeleteCloudBaseRunServerVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DeleteCloudBaseGWAPIAsync(const DeleteCloudBaseGWAPIRequest& request, const DeleteCloudBaseGWAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudBaseRunServerVersionRequest&;
-    using Resp = DeleteCloudBaseRunServerVersionResponse;
+    using Req = const DeleteCloudBaseGWAPIRequest&;
+    using Resp = DeleteCloudBaseGWAPIResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DeleteCloudBaseRunServerVersion", request, {{{"Content-Type", "application/json"}}},
+        "DeleteCloudBaseGWAPI", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DeleteCloudBaseRunServerVersionOutcomeCallable TcbClient::DeleteCloudBaseRunServerVersionCallable(const DeleteCloudBaseRunServerVersionRequest &request)
+TcbClient::DeleteCloudBaseGWAPIOutcomeCallable TcbClient::DeleteCloudBaseGWAPICallable(const DeleteCloudBaseGWAPIRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudBaseRunServerVersionOutcome>>();
-    DeleteCloudBaseRunServerVersionAsync(
+    const auto prom = std::make_shared<std::promise<DeleteCloudBaseGWAPIOutcome>>();
+    DeleteCloudBaseGWAPIAsync(
     request,
     [prom](
         const TcbClient*,
-        const DeleteCloudBaseRunServerVersionRequest&,
-        DeleteCloudBaseRunServerVersionOutcome resp,
+        const DeleteCloudBaseGWAPIRequest&,
+        DeleteCloudBaseGWAPIOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -790,48 +840,48 @@ TcbClient::DeleteCloudBaseRunServerVersionOutcomeCallable TcbClient::DeleteCloud
     return prom->get_future();
 }
 
-TcbClient::DeleteEndUserOutcome TcbClient::DeleteEndUser(const DeleteEndUserRequest &request)
+TcbClient::DeleteCloudBaseGWDomainOutcome TcbClient::DeleteCloudBaseGWDomain(const DeleteCloudBaseGWDomainRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteEndUser");
+    auto outcome = MakeRequest(request, "DeleteCloudBaseGWDomain");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteEndUserResponse rsp = DeleteEndUserResponse();
+        DeleteCloudBaseGWDomainResponse rsp = DeleteCloudBaseGWDomainResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteEndUserOutcome(rsp);
+            return DeleteCloudBaseGWDomainOutcome(rsp);
         else
-            return DeleteEndUserOutcome(o.GetError());
+            return DeleteCloudBaseGWDomainOutcome(o.GetError());
     }
     else
     {
-        return DeleteEndUserOutcome(outcome.GetError());
+        return DeleteCloudBaseGWDomainOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DeleteEndUserAsync(const DeleteEndUserRequest& request, const DeleteEndUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DeleteCloudBaseGWDomainAsync(const DeleteCloudBaseGWDomainRequest& request, const DeleteCloudBaseGWDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteEndUserRequest&;
-    using Resp = DeleteEndUserResponse;
+    using Req = const DeleteCloudBaseGWDomainRequest&;
+    using Resp = DeleteCloudBaseGWDomainResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DeleteEndUser", request, {{{"Content-Type", "application/json"}}},
+        "DeleteCloudBaseGWDomain", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DeleteEndUserOutcomeCallable TcbClient::DeleteEndUserCallable(const DeleteEndUserRequest &request)
+TcbClient::DeleteCloudBaseGWDomainOutcomeCallable TcbClient::DeleteCloudBaseGWDomainCallable(const DeleteCloudBaseGWDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteEndUserOutcome>>();
-    DeleteEndUserAsync(
+    const auto prom = std::make_shared<std::promise<DeleteCloudBaseGWDomainOutcome>>();
+    DeleteCloudBaseGWDomainAsync(
     request,
     [prom](
         const TcbClient*,
-        const DeleteEndUserRequest&,
-        DeleteEndUserOutcome resp,
+        const DeleteCloudBaseGWDomainRequest&,
+        DeleteCloudBaseGWDomainOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -840,48 +890,48 @@ TcbClient::DeleteEndUserOutcomeCallable TcbClient::DeleteEndUserCallable(const D
     return prom->get_future();
 }
 
-TcbClient::DeleteGatewayVersionOutcome TcbClient::DeleteGatewayVersion(const DeleteGatewayVersionRequest &request)
+TcbClient::DeleteProviderOutcome TcbClient::DeleteProvider(const DeleteProviderRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteGatewayVersion");
+    auto outcome = MakeRequest(request, "DeleteProvider");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteGatewayVersionResponse rsp = DeleteGatewayVersionResponse();
+        DeleteProviderResponse rsp = DeleteProviderResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteGatewayVersionOutcome(rsp);
+            return DeleteProviderOutcome(rsp);
         else
-            return DeleteGatewayVersionOutcome(o.GetError());
+            return DeleteProviderOutcome(o.GetError());
     }
     else
     {
-        return DeleteGatewayVersionOutcome(outcome.GetError());
+        return DeleteProviderOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DeleteGatewayVersionAsync(const DeleteGatewayVersionRequest& request, const DeleteGatewayVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DeleteProviderAsync(const DeleteProviderRequest& request, const DeleteProviderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGatewayVersionRequest&;
-    using Resp = DeleteGatewayVersionResponse;
+    using Req = const DeleteProviderRequest&;
+    using Resp = DeleteProviderResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DeleteGatewayVersion", request, {{{"Content-Type", "application/json"}}},
+        "DeleteProvider", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DeleteGatewayVersionOutcomeCallable TcbClient::DeleteGatewayVersionCallable(const DeleteGatewayVersionRequest &request)
+TcbClient::DeleteProviderOutcomeCallable TcbClient::DeleteProviderCallable(const DeleteProviderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGatewayVersionOutcome>>();
-    DeleteGatewayVersionAsync(
+    const auto prom = std::make_shared<std::promise<DeleteProviderOutcome>>();
+    DeleteProviderAsync(
     request,
     [prom](
         const TcbClient*,
-        const DeleteGatewayVersionRequest&,
-        DeleteGatewayVersionOutcome resp,
+        const DeleteProviderRequest&,
+        DeleteProviderOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -890,48 +940,48 @@ TcbClient::DeleteGatewayVersionOutcomeCallable TcbClient::DeleteGatewayVersionCa
     return prom->get_future();
 }
 
-TcbClient::DeleteWxGatewayRouteOutcome TcbClient::DeleteWxGatewayRoute(const DeleteWxGatewayRouteRequest &request)
+TcbClient::DeleteTableOutcome TcbClient::DeleteTable(const DeleteTableRequest &request)
 {
-    auto outcome = MakeRequest(request, "DeleteWxGatewayRoute");
+    auto outcome = MakeRequest(request, "DeleteTable");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DeleteWxGatewayRouteResponse rsp = DeleteWxGatewayRouteResponse();
+        DeleteTableResponse rsp = DeleteTableResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DeleteWxGatewayRouteOutcome(rsp);
+            return DeleteTableOutcome(rsp);
         else
-            return DeleteWxGatewayRouteOutcome(o.GetError());
+            return DeleteTableOutcome(o.GetError());
     }
     else
     {
-        return DeleteWxGatewayRouteOutcome(outcome.GetError());
+        return DeleteTableOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DeleteWxGatewayRouteAsync(const DeleteWxGatewayRouteRequest& request, const DeleteWxGatewayRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DeleteTableAsync(const DeleteTableRequest& request, const DeleteTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWxGatewayRouteRequest&;
-    using Resp = DeleteWxGatewayRouteResponse;
+    using Req = const DeleteTableRequest&;
+    using Resp = DeleteTableResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DeleteWxGatewayRoute", request, {{{"Content-Type", "application/json"}}},
+        "DeleteTable", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DeleteWxGatewayRouteOutcomeCallable TcbClient::DeleteWxGatewayRouteCallable(const DeleteWxGatewayRouteRequest &request)
+TcbClient::DeleteTableOutcomeCallable TcbClient::DeleteTableCallable(const DeleteTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWxGatewayRouteOutcome>>();
-    DeleteWxGatewayRouteAsync(
+    const auto prom = std::make_shared<std::promise<DeleteTableOutcome>>();
+    DeleteTableAsync(
     request,
     [prom](
         const TcbClient*,
-        const DeleteWxGatewayRouteRequest&,
-        DeleteWxGatewayRouteOutcome resp,
+        const DeleteTableRequest&,
+        DeleteTableOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -940,48 +990,98 @@ TcbClient::DeleteWxGatewayRouteOutcomeCallable TcbClient::DeleteWxGatewayRouteCa
     return prom->get_future();
 }
 
-TcbClient::DescribeActivityRecordOutcome TcbClient::DescribeActivityRecord(const DescribeActivityRecordRequest &request)
+TcbClient::DeleteUsersOutcome TcbClient::DeleteUsers(const DeleteUsersRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeActivityRecord");
+    auto outcome = MakeRequest(request, "DeleteUsers");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeActivityRecordResponse rsp = DescribeActivityRecordResponse();
+        DeleteUsersResponse rsp = DeleteUsersResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeActivityRecordOutcome(rsp);
+            return DeleteUsersOutcome(rsp);
         else
-            return DescribeActivityRecordOutcome(o.GetError());
+            return DeleteUsersOutcome(o.GetError());
     }
     else
     {
-        return DescribeActivityRecordOutcome(outcome.GetError());
+        return DeleteUsersOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeActivityRecordAsync(const DescribeActivityRecordRequest& request, const DescribeActivityRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DeleteUsersAsync(const DeleteUsersRequest& request, const DeleteUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeActivityRecordRequest&;
-    using Resp = DescribeActivityRecordResponse;
+    using Req = const DeleteUsersRequest&;
+    using Resp = DeleteUsersResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeActivityRecord", request, {{{"Content-Type", "application/json"}}},
+        "DeleteUsers", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeActivityRecordOutcomeCallable TcbClient::DescribeActivityRecordCallable(const DescribeActivityRecordRequest &request)
+TcbClient::DeleteUsersOutcomeCallable TcbClient::DeleteUsersCallable(const DeleteUsersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeActivityRecordOutcome>>();
-    DescribeActivityRecordAsync(
+    const auto prom = std::make_shared<std::promise<DeleteUsersOutcome>>();
+    DeleteUsersAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeActivityRecordRequest&,
-        DescribeActivityRecordOutcome resp,
+        const DeleteUsersRequest&,
+        DeleteUsersOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::DeleteVmInstanceOutcome TcbClient::DeleteVmInstance(const DeleteVmInstanceRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteVmInstance");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteVmInstanceResponse rsp = DeleteVmInstanceResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteVmInstanceOutcome(rsp);
+        else
+            return DeleteVmInstanceOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteVmInstanceOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::DeleteVmInstanceAsync(const DeleteVmInstanceRequest& request, const DeleteVmInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteVmInstanceRequest&;
+    using Resp = DeleteVmInstanceResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteVmInstance", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::DeleteVmInstanceOutcomeCallable TcbClient::DeleteVmInstanceCallable(const DeleteVmInstanceRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteVmInstanceOutcome>>();
+    DeleteVmInstanceAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const DeleteVmInstanceRequest&,
+        DeleteVmInstanceOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1140,48 +1240,48 @@ TcbClient::DescribeBillingInfoOutcomeCallable TcbClient::DescribeBillingInfoCall
     return prom->get_future();
 }
 
-TcbClient::DescribeCbrServerVersionOutcome TcbClient::DescribeCbrServerVersion(const DescribeCbrServerVersionRequest &request)
+TcbClient::DescribeClientOutcome TcbClient::DescribeClient(const DescribeClientRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeCbrServerVersion");
+    auto outcome = MakeRequest(request, "DescribeClient");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeCbrServerVersionResponse rsp = DescribeCbrServerVersionResponse();
+        DescribeClientResponse rsp = DescribeClientResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeCbrServerVersionOutcome(rsp);
+            return DescribeClientOutcome(rsp);
         else
-            return DescribeCbrServerVersionOutcome(o.GetError());
+            return DescribeClientOutcome(o.GetError());
     }
     else
     {
-        return DescribeCbrServerVersionOutcome(outcome.GetError());
+        return DescribeClientOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeCbrServerVersionAsync(const DescribeCbrServerVersionRequest& request, const DescribeCbrServerVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeClientAsync(const DescribeClientRequest& request, const DescribeClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCbrServerVersionRequest&;
-    using Resp = DescribeCbrServerVersionResponse;
+    using Req = const DescribeClientRequest&;
+    using Resp = DescribeClientResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeCbrServerVersion", request, {{{"Content-Type", "application/json"}}},
+        "DescribeClient", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeCbrServerVersionOutcomeCallable TcbClient::DescribeCbrServerVersionCallable(const DescribeCbrServerVersionRequest &request)
+TcbClient::DescribeClientOutcomeCallable TcbClient::DescribeClientCallable(const DescribeClientRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCbrServerVersionOutcome>>();
-    DescribeCbrServerVersionAsync(
+    const auto prom = std::make_shared<std::promise<DescribeClientOutcome>>();
+    DescribeClientAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeCbrServerVersionRequest&,
-        DescribeCbrServerVersionOutcome resp,
+        const DescribeClientRequest&,
+        DescribeClientOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1240,48 +1340,48 @@ TcbClient::DescribeCloudBaseBuildServiceOutcomeCallable TcbClient::DescribeCloud
     return prom->get_future();
 }
 
-TcbClient::DescribeCloudBaseProjectLatestVersionListOutcome TcbClient::DescribeCloudBaseProjectLatestVersionList(const DescribeCloudBaseProjectLatestVersionListRequest &request)
+TcbClient::DescribeCloudBaseGWAPIOutcome TcbClient::DescribeCloudBaseGWAPI(const DescribeCloudBaseGWAPIRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeCloudBaseProjectLatestVersionList");
+    auto outcome = MakeRequest(request, "DescribeCloudBaseGWAPI");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseProjectLatestVersionListResponse rsp = DescribeCloudBaseProjectLatestVersionListResponse();
+        DescribeCloudBaseGWAPIResponse rsp = DescribeCloudBaseGWAPIResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeCloudBaseProjectLatestVersionListOutcome(rsp);
+            return DescribeCloudBaseGWAPIOutcome(rsp);
         else
-            return DescribeCloudBaseProjectLatestVersionListOutcome(o.GetError());
+            return DescribeCloudBaseGWAPIOutcome(o.GetError());
     }
     else
     {
-        return DescribeCloudBaseProjectLatestVersionListOutcome(outcome.GetError());
+        return DescribeCloudBaseGWAPIOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeCloudBaseProjectLatestVersionListAsync(const DescribeCloudBaseProjectLatestVersionListRequest& request, const DescribeCloudBaseProjectLatestVersionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeCloudBaseGWAPIAsync(const DescribeCloudBaseGWAPIRequest& request, const DescribeCloudBaseGWAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudBaseProjectLatestVersionListRequest&;
-    using Resp = DescribeCloudBaseProjectLatestVersionListResponse;
+    using Req = const DescribeCloudBaseGWAPIRequest&;
+    using Resp = DescribeCloudBaseGWAPIResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseProjectLatestVersionList", request, {{{"Content-Type", "application/json"}}},
+        "DescribeCloudBaseGWAPI", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeCloudBaseProjectLatestVersionListOutcomeCallable TcbClient::DescribeCloudBaseProjectLatestVersionListCallable(const DescribeCloudBaseProjectLatestVersionListRequest &request)
+TcbClient::DescribeCloudBaseGWAPIOutcomeCallable TcbClient::DescribeCloudBaseGWAPICallable(const DescribeCloudBaseGWAPIRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseProjectLatestVersionListOutcome>>();
-    DescribeCloudBaseProjectLatestVersionListAsync(
+    const auto prom = std::make_shared<std::promise<DescribeCloudBaseGWAPIOutcome>>();
+    DescribeCloudBaseGWAPIAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeCloudBaseProjectLatestVersionListRequest&,
-        DescribeCloudBaseProjectLatestVersionListOutcome resp,
+        const DescribeCloudBaseGWAPIRequest&,
+        DescribeCloudBaseGWAPIOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1290,498 +1390,48 @@ TcbClient::DescribeCloudBaseProjectLatestVersionListOutcomeCallable TcbClient::D
     return prom->get_future();
 }
 
-TcbClient::DescribeCloudBaseProjectVersionListOutcome TcbClient::DescribeCloudBaseProjectVersionList(const DescribeCloudBaseProjectVersionListRequest &request)
+TcbClient::DescribeCloudBaseGWServiceOutcome TcbClient::DescribeCloudBaseGWService(const DescribeCloudBaseGWServiceRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeCloudBaseProjectVersionList");
+    auto outcome = MakeRequest(request, "DescribeCloudBaseGWService");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseProjectVersionListResponse rsp = DescribeCloudBaseProjectVersionListResponse();
+        DescribeCloudBaseGWServiceResponse rsp = DescribeCloudBaseGWServiceResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeCloudBaseProjectVersionListOutcome(rsp);
+            return DescribeCloudBaseGWServiceOutcome(rsp);
         else
-            return DescribeCloudBaseProjectVersionListOutcome(o.GetError());
+            return DescribeCloudBaseGWServiceOutcome(o.GetError());
     }
     else
     {
-        return DescribeCloudBaseProjectVersionListOutcome(outcome.GetError());
+        return DescribeCloudBaseGWServiceOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeCloudBaseProjectVersionListAsync(const DescribeCloudBaseProjectVersionListRequest& request, const DescribeCloudBaseProjectVersionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeCloudBaseGWServiceAsync(const DescribeCloudBaseGWServiceRequest& request, const DescribeCloudBaseGWServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudBaseProjectVersionListRequest&;
-    using Resp = DescribeCloudBaseProjectVersionListResponse;
+    using Req = const DescribeCloudBaseGWServiceRequest&;
+    using Resp = DescribeCloudBaseGWServiceResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseProjectVersionList", request, {{{"Content-Type", "application/json"}}},
+        "DescribeCloudBaseGWService", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeCloudBaseProjectVersionListOutcomeCallable TcbClient::DescribeCloudBaseProjectVersionListCallable(const DescribeCloudBaseProjectVersionListRequest &request)
+TcbClient::DescribeCloudBaseGWServiceOutcomeCallable TcbClient::DescribeCloudBaseGWServiceCallable(const DescribeCloudBaseGWServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseProjectVersionListOutcome>>();
-    DescribeCloudBaseProjectVersionListAsync(
+    const auto prom = std::make_shared<std::promise<DescribeCloudBaseGWServiceOutcome>>();
+    DescribeCloudBaseGWServiceAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeCloudBaseProjectVersionListRequest&,
-        DescribeCloudBaseProjectVersionListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunAllVpcsOutcome TcbClient::DescribeCloudBaseRunAllVpcs(const DescribeCloudBaseRunAllVpcsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunAllVpcs");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunAllVpcsResponse rsp = DescribeCloudBaseRunAllVpcsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunAllVpcsOutcome(rsp);
-        else
-            return DescribeCloudBaseRunAllVpcsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunAllVpcsOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunAllVpcsAsync(const DescribeCloudBaseRunAllVpcsRequest& request, const DescribeCloudBaseRunAllVpcsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunAllVpcsRequest&;
-    using Resp = DescribeCloudBaseRunAllVpcsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunAllVpcs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunAllVpcsOutcomeCallable TcbClient::DescribeCloudBaseRunAllVpcsCallable(const DescribeCloudBaseRunAllVpcsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunAllVpcsOutcome>>();
-    DescribeCloudBaseRunAllVpcsAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunAllVpcsRequest&,
-        DescribeCloudBaseRunAllVpcsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunConfForGateWayOutcome TcbClient::DescribeCloudBaseRunConfForGateWay(const DescribeCloudBaseRunConfForGateWayRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunConfForGateWay");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunConfForGateWayResponse rsp = DescribeCloudBaseRunConfForGateWayResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunConfForGateWayOutcome(rsp);
-        else
-            return DescribeCloudBaseRunConfForGateWayOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunConfForGateWayOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunConfForGateWayAsync(const DescribeCloudBaseRunConfForGateWayRequest& request, const DescribeCloudBaseRunConfForGateWayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunConfForGateWayRequest&;
-    using Resp = DescribeCloudBaseRunConfForGateWayResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunConfForGateWay", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunConfForGateWayOutcomeCallable TcbClient::DescribeCloudBaseRunConfForGateWayCallable(const DescribeCloudBaseRunConfForGateWayRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunConfForGateWayOutcome>>();
-    DescribeCloudBaseRunConfForGateWayAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunConfForGateWayRequest&,
-        DescribeCloudBaseRunConfForGateWayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunOneClickTaskExternalOutcome TcbClient::DescribeCloudBaseRunOneClickTaskExternal(const DescribeCloudBaseRunOneClickTaskExternalRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunOneClickTaskExternal");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunOneClickTaskExternalResponse rsp = DescribeCloudBaseRunOneClickTaskExternalResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunOneClickTaskExternalOutcome(rsp);
-        else
-            return DescribeCloudBaseRunOneClickTaskExternalOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunOneClickTaskExternalOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunOneClickTaskExternalAsync(const DescribeCloudBaseRunOneClickTaskExternalRequest& request, const DescribeCloudBaseRunOneClickTaskExternalAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunOneClickTaskExternalRequest&;
-    using Resp = DescribeCloudBaseRunOneClickTaskExternalResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunOneClickTaskExternal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunOneClickTaskExternalOutcomeCallable TcbClient::DescribeCloudBaseRunOneClickTaskExternalCallable(const DescribeCloudBaseRunOneClickTaskExternalRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunOneClickTaskExternalOutcome>>();
-    DescribeCloudBaseRunOneClickTaskExternalAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunOneClickTaskExternalRequest&,
-        DescribeCloudBaseRunOneClickTaskExternalOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunOperationTypesOutcome TcbClient::DescribeCloudBaseRunOperationTypes(const DescribeCloudBaseRunOperationTypesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunOperationTypes");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunOperationTypesResponse rsp = DescribeCloudBaseRunOperationTypesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunOperationTypesOutcome(rsp);
-        else
-            return DescribeCloudBaseRunOperationTypesOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunOperationTypesOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunOperationTypesAsync(const DescribeCloudBaseRunOperationTypesRequest& request, const DescribeCloudBaseRunOperationTypesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunOperationTypesRequest&;
-    using Resp = DescribeCloudBaseRunOperationTypesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunOperationTypes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunOperationTypesOutcomeCallable TcbClient::DescribeCloudBaseRunOperationTypesCallable(const DescribeCloudBaseRunOperationTypesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunOperationTypesOutcome>>();
-    DescribeCloudBaseRunOperationTypesAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunOperationTypesRequest&,
-        DescribeCloudBaseRunOperationTypesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunPodListOutcome TcbClient::DescribeCloudBaseRunPodList(const DescribeCloudBaseRunPodListRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunPodList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunPodListResponse rsp = DescribeCloudBaseRunPodListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunPodListOutcome(rsp);
-        else
-            return DescribeCloudBaseRunPodListOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunPodListOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunPodListAsync(const DescribeCloudBaseRunPodListRequest& request, const DescribeCloudBaseRunPodListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunPodListRequest&;
-    using Resp = DescribeCloudBaseRunPodListResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunPodList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunPodListOutcomeCallable TcbClient::DescribeCloudBaseRunPodListCallable(const DescribeCloudBaseRunPodListRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunPodListOutcome>>();
-    DescribeCloudBaseRunPodListAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunPodListRequest&,
-        DescribeCloudBaseRunPodListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunResourceOutcome TcbClient::DescribeCloudBaseRunResource(const DescribeCloudBaseRunResourceRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunResource");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunResourceResponse rsp = DescribeCloudBaseRunResourceResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunResourceOutcome(rsp);
-        else
-            return DescribeCloudBaseRunResourceOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunResourceOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunResourceAsync(const DescribeCloudBaseRunResourceRequest& request, const DescribeCloudBaseRunResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunResourceRequest&;
-    using Resp = DescribeCloudBaseRunResourceResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunResourceOutcomeCallable TcbClient::DescribeCloudBaseRunResourceCallable(const DescribeCloudBaseRunResourceRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunResourceOutcome>>();
-    DescribeCloudBaseRunResourceAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunResourceRequest&,
-        DescribeCloudBaseRunResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunResourceForExtendOutcome TcbClient::DescribeCloudBaseRunResourceForExtend(const DescribeCloudBaseRunResourceForExtendRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunResourceForExtend");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunResourceForExtendResponse rsp = DescribeCloudBaseRunResourceForExtendResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunResourceForExtendOutcome(rsp);
-        else
-            return DescribeCloudBaseRunResourceForExtendOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunResourceForExtendOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunResourceForExtendAsync(const DescribeCloudBaseRunResourceForExtendRequest& request, const DescribeCloudBaseRunResourceForExtendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunResourceForExtendRequest&;
-    using Resp = DescribeCloudBaseRunResourceForExtendResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunResourceForExtend", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunResourceForExtendOutcomeCallable TcbClient::DescribeCloudBaseRunResourceForExtendCallable(const DescribeCloudBaseRunResourceForExtendRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunResourceForExtendOutcome>>();
-    DescribeCloudBaseRunResourceForExtendAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunResourceForExtendRequest&,
-        DescribeCloudBaseRunResourceForExtendOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunServerOutcome TcbClient::DescribeCloudBaseRunServer(const DescribeCloudBaseRunServerRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunServer");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunServerResponse rsp = DescribeCloudBaseRunServerResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunServerOutcome(rsp);
-        else
-            return DescribeCloudBaseRunServerOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunServerOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunServerAsync(const DescribeCloudBaseRunServerRequest& request, const DescribeCloudBaseRunServerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunServerRequest&;
-    using Resp = DescribeCloudBaseRunServerResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunServer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunServerOutcomeCallable TcbClient::DescribeCloudBaseRunServerCallable(const DescribeCloudBaseRunServerRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunServerOutcome>>();
-    DescribeCloudBaseRunServerAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunServerRequest&,
-        DescribeCloudBaseRunServerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunServerDomainNameOutcome TcbClient::DescribeCloudBaseRunServerDomainName(const DescribeCloudBaseRunServerDomainNameRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunServerDomainName");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunServerDomainNameResponse rsp = DescribeCloudBaseRunServerDomainNameResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunServerDomainNameOutcome(rsp);
-        else
-            return DescribeCloudBaseRunServerDomainNameOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunServerDomainNameOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunServerDomainNameAsync(const DescribeCloudBaseRunServerDomainNameRequest& request, const DescribeCloudBaseRunServerDomainNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunServerDomainNameRequest&;
-    using Resp = DescribeCloudBaseRunServerDomainNameResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunServerDomainName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunServerDomainNameOutcomeCallable TcbClient::DescribeCloudBaseRunServerDomainNameCallable(const DescribeCloudBaseRunServerDomainNameRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunServerDomainNameOutcome>>();
-    DescribeCloudBaseRunServerDomainNameAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunServerDomainNameRequest&,
-        DescribeCloudBaseRunServerDomainNameOutcome resp,
+        const DescribeCloudBaseGWServiceRequest&,
+        DescribeCloudBaseGWServiceOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1840,148 +1490,48 @@ TcbClient::DescribeCloudBaseRunServerVersionOutcomeCallable TcbClient::DescribeC
     return prom->get_future();
 }
 
-TcbClient::DescribeCloudBaseRunVersionOutcome TcbClient::DescribeCloudBaseRunVersion(const DescribeCloudBaseRunVersionRequest &request)
+TcbClient::DescribeCreateMySQLResultOutcome TcbClient::DescribeCreateMySQLResult(const DescribeCreateMySQLResultRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunVersion");
+    auto outcome = MakeRequest(request, "DescribeCreateMySQLResult");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunVersionResponse rsp = DescribeCloudBaseRunVersionResponse();
+        DescribeCreateMySQLResultResponse rsp = DescribeCreateMySQLResultResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeCloudBaseRunVersionOutcome(rsp);
+            return DescribeCreateMySQLResultOutcome(rsp);
         else
-            return DescribeCloudBaseRunVersionOutcome(o.GetError());
+            return DescribeCreateMySQLResultOutcome(o.GetError());
     }
     else
     {
-        return DescribeCloudBaseRunVersionOutcome(outcome.GetError());
+        return DescribeCreateMySQLResultOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeCloudBaseRunVersionAsync(const DescribeCloudBaseRunVersionRequest& request, const DescribeCloudBaseRunVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeCreateMySQLResultAsync(const DescribeCreateMySQLResultRequest& request, const DescribeCreateMySQLResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudBaseRunVersionRequest&;
-    using Resp = DescribeCloudBaseRunVersionResponse;
+    using Req = const DescribeCreateMySQLResultRequest&;
+    using Resp = DescribeCreateMySQLResultResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunVersion", request, {{{"Content-Type", "application/json"}}},
+        "DescribeCreateMySQLResult", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeCloudBaseRunVersionOutcomeCallable TcbClient::DescribeCloudBaseRunVersionCallable(const DescribeCloudBaseRunVersionRequest &request)
+TcbClient::DescribeCreateMySQLResultOutcomeCallable TcbClient::DescribeCreateMySQLResultCallable(const DescribeCreateMySQLResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunVersionOutcome>>();
-    DescribeCloudBaseRunVersionAsync(
+    const auto prom = std::make_shared<std::promise<DescribeCreateMySQLResultOutcome>>();
+    DescribeCreateMySQLResultAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeCloudBaseRunVersionRequest&,
-        DescribeCloudBaseRunVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunVersionRsByConditionOutcome TcbClient::DescribeCloudBaseRunVersionRsByCondition(const DescribeCloudBaseRunVersionRsByConditionRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunVersionRsByCondition");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunVersionRsByConditionResponse rsp = DescribeCloudBaseRunVersionRsByConditionResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunVersionRsByConditionOutcome(rsp);
-        else
-            return DescribeCloudBaseRunVersionRsByConditionOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunVersionRsByConditionOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunVersionRsByConditionAsync(const DescribeCloudBaseRunVersionRsByConditionRequest& request, const DescribeCloudBaseRunVersionRsByConditionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunVersionRsByConditionRequest&;
-    using Resp = DescribeCloudBaseRunVersionRsByConditionResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunVersionRsByCondition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunVersionRsByConditionOutcomeCallable TcbClient::DescribeCloudBaseRunVersionRsByConditionCallable(const DescribeCloudBaseRunVersionRsByConditionRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunVersionRsByConditionOutcome>>();
-    DescribeCloudBaseRunVersionRsByConditionAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunVersionRsByConditionRequest&,
-        DescribeCloudBaseRunVersionRsByConditionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeCloudBaseRunVersionSnapshotOutcome TcbClient::DescribeCloudBaseRunVersionSnapshot(const DescribeCloudBaseRunVersionSnapshotRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCloudBaseRunVersionSnapshot");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCloudBaseRunVersionSnapshotResponse rsp = DescribeCloudBaseRunVersionSnapshotResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCloudBaseRunVersionSnapshotOutcome(rsp);
-        else
-            return DescribeCloudBaseRunVersionSnapshotOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCloudBaseRunVersionSnapshotOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeCloudBaseRunVersionSnapshotAsync(const DescribeCloudBaseRunVersionSnapshotRequest& request, const DescribeCloudBaseRunVersionSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCloudBaseRunVersionSnapshotRequest&;
-    using Resp = DescribeCloudBaseRunVersionSnapshotResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudBaseRunVersionSnapshot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeCloudBaseRunVersionSnapshotOutcomeCallable TcbClient::DescribeCloudBaseRunVersionSnapshotCallable(const DescribeCloudBaseRunVersionSnapshotRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCloudBaseRunVersionSnapshotOutcome>>();
-    DescribeCloudBaseRunVersionSnapshotAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeCloudBaseRunVersionSnapshotRequest&,
-        DescribeCloudBaseRunVersionSnapshotOutcome resp,
+        const DescribeCreateMySQLResultRequest&,
+        DescribeCreateMySQLResultOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2090,298 +1640,48 @@ TcbClient::DescribeDatabaseACLOutcomeCallable TcbClient::DescribeDatabaseACLCall
     return prom->get_future();
 }
 
-TcbClient::DescribeDownloadFileOutcome TcbClient::DescribeDownloadFile(const DescribeDownloadFileRequest &request)
+TcbClient::DescribeEnvAccountCircleOutcome TcbClient::DescribeEnvAccountCircle(const DescribeEnvAccountCircleRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeDownloadFile");
+    auto outcome = MakeRequest(request, "DescribeEnvAccountCircle");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeDownloadFileResponse rsp = DescribeDownloadFileResponse();
+        DescribeEnvAccountCircleResponse rsp = DescribeEnvAccountCircleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeDownloadFileOutcome(rsp);
+            return DescribeEnvAccountCircleOutcome(rsp);
         else
-            return DescribeDownloadFileOutcome(o.GetError());
+            return DescribeEnvAccountCircleOutcome(o.GetError());
     }
     else
     {
-        return DescribeDownloadFileOutcome(outcome.GetError());
+        return DescribeEnvAccountCircleOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeDownloadFileAsync(const DescribeDownloadFileRequest& request, const DescribeDownloadFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeEnvAccountCircleAsync(const DescribeEnvAccountCircleRequest& request, const DescribeEnvAccountCircleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDownloadFileRequest&;
-    using Resp = DescribeDownloadFileResponse;
+    using Req = const DescribeEnvAccountCircleRequest&;
+    using Resp = DescribeEnvAccountCircleResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeDownloadFile", request, {{{"Content-Type", "application/json"}}},
+        "DescribeEnvAccountCircle", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeDownloadFileOutcomeCallable TcbClient::DescribeDownloadFileCallable(const DescribeDownloadFileRequest &request)
+TcbClient::DescribeEnvAccountCircleOutcomeCallable TcbClient::DescribeEnvAccountCircleCallable(const DescribeEnvAccountCircleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDownloadFileOutcome>>();
-    DescribeDownloadFileAsync(
+    const auto prom = std::make_shared<std::promise<DescribeEnvAccountCircleOutcome>>();
+    DescribeEnvAccountCircleAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeDownloadFileRequest&,
-        DescribeDownloadFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeEndUserLoginStatisticOutcome TcbClient::DescribeEndUserLoginStatistic(const DescribeEndUserLoginStatisticRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeEndUserLoginStatistic");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeEndUserLoginStatisticResponse rsp = DescribeEndUserLoginStatisticResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeEndUserLoginStatisticOutcome(rsp);
-        else
-            return DescribeEndUserLoginStatisticOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeEndUserLoginStatisticOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeEndUserLoginStatisticAsync(const DescribeEndUserLoginStatisticRequest& request, const DescribeEndUserLoginStatisticAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeEndUserLoginStatisticRequest&;
-    using Resp = DescribeEndUserLoginStatisticResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeEndUserLoginStatistic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeEndUserLoginStatisticOutcomeCallable TcbClient::DescribeEndUserLoginStatisticCallable(const DescribeEndUserLoginStatisticRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeEndUserLoginStatisticOutcome>>();
-    DescribeEndUserLoginStatisticAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeEndUserLoginStatisticRequest&,
-        DescribeEndUserLoginStatisticOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeEndUserStatisticOutcome TcbClient::DescribeEndUserStatistic(const DescribeEndUserStatisticRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeEndUserStatistic");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeEndUserStatisticResponse rsp = DescribeEndUserStatisticResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeEndUserStatisticOutcome(rsp);
-        else
-            return DescribeEndUserStatisticOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeEndUserStatisticOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeEndUserStatisticAsync(const DescribeEndUserStatisticRequest& request, const DescribeEndUserStatisticAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeEndUserStatisticRequest&;
-    using Resp = DescribeEndUserStatisticResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeEndUserStatistic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeEndUserStatisticOutcomeCallable TcbClient::DescribeEndUserStatisticCallable(const DescribeEndUserStatisticRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeEndUserStatisticOutcome>>();
-    DescribeEndUserStatisticAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeEndUserStatisticRequest&,
-        DescribeEndUserStatisticOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeEndUsersOutcome TcbClient::DescribeEndUsers(const DescribeEndUsersRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeEndUsers");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeEndUsersResponse rsp = DescribeEndUsersResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeEndUsersOutcome(rsp);
-        else
-            return DescribeEndUsersOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeEndUsersOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeEndUsersAsync(const DescribeEndUsersRequest& request, const DescribeEndUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeEndUsersRequest&;
-    using Resp = DescribeEndUsersResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeEndUsers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeEndUsersOutcomeCallable TcbClient::DescribeEndUsersCallable(const DescribeEndUsersRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeEndUsersOutcome>>();
-    DescribeEndUsersAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeEndUsersRequest&,
-        DescribeEndUsersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeEnvDealRegionOutcome TcbClient::DescribeEnvDealRegion(const DescribeEnvDealRegionRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeEnvDealRegion");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeEnvDealRegionResponse rsp = DescribeEnvDealRegionResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeEnvDealRegionOutcome(rsp);
-        else
-            return DescribeEnvDealRegionOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeEnvDealRegionOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeEnvDealRegionAsync(const DescribeEnvDealRegionRequest& request, const DescribeEnvDealRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeEnvDealRegionRequest&;
-    using Resp = DescribeEnvDealRegionResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvDealRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeEnvDealRegionOutcomeCallable TcbClient::DescribeEnvDealRegionCallable(const DescribeEnvDealRegionRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeEnvDealRegionOutcome>>();
-    DescribeEnvDealRegionAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeEnvDealRegionRequest&,
-        DescribeEnvDealRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeEnvFreeQuotaOutcome TcbClient::DescribeEnvFreeQuota(const DescribeEnvFreeQuotaRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeEnvFreeQuota");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeEnvFreeQuotaResponse rsp = DescribeEnvFreeQuotaResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeEnvFreeQuotaOutcome(rsp);
-        else
-            return DescribeEnvFreeQuotaOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeEnvFreeQuotaOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeEnvFreeQuotaAsync(const DescribeEnvFreeQuotaRequest& request, const DescribeEnvFreeQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeEnvFreeQuotaRequest&;
-    using Resp = DescribeEnvFreeQuotaResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvFreeQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeEnvFreeQuotaOutcomeCallable TcbClient::DescribeEnvFreeQuotaCallable(const DescribeEnvFreeQuotaRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeEnvFreeQuotaOutcome>>();
-    DescribeEnvFreeQuotaAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeEnvFreeQuotaRequest&,
-        DescribeEnvFreeQuotaOutcome resp,
+        const DescribeEnvAccountCircleRequest&,
+        DescribeEnvAccountCircleOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2440,56 +1740,6 @@ TcbClient::DescribeEnvLimitOutcomeCallable TcbClient::DescribeEnvLimitCallable(c
     return prom->get_future();
 }
 
-TcbClient::DescribeEnvPostpaidDeductOutcome TcbClient::DescribeEnvPostpaidDeduct(const DescribeEnvPostpaidDeductRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeEnvPostpaidDeduct");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeEnvPostpaidDeductResponse rsp = DescribeEnvPostpaidDeductResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeEnvPostpaidDeductOutcome(rsp);
-        else
-            return DescribeEnvPostpaidDeductOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeEnvPostpaidDeductOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeEnvPostpaidDeductAsync(const DescribeEnvPostpaidDeductRequest& request, const DescribeEnvPostpaidDeductAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeEnvPostpaidDeductRequest&;
-    using Resp = DescribeEnvPostpaidDeductResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvPostpaidDeduct", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeEnvPostpaidDeductOutcomeCallable TcbClient::DescribeEnvPostpaidDeductCallable(const DescribeEnvPostpaidDeductRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeEnvPostpaidDeductOutcome>>();
-    DescribeEnvPostpaidDeductAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeEnvPostpaidDeductRequest&,
-        DescribeEnvPostpaidDeductOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TcbClient::DescribeEnvsOutcome TcbClient::DescribeEnvs(const DescribeEnvsRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeEnvs");
@@ -2532,256 +1782,6 @@ TcbClient::DescribeEnvsOutcomeCallable TcbClient::DescribeEnvsCallable(const Des
         const TcbClient*,
         const DescribeEnvsRequest&,
         DescribeEnvsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeExtensionUploadInfoOutcome TcbClient::DescribeExtensionUploadInfo(const DescribeExtensionUploadInfoRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeExtensionUploadInfo");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeExtensionUploadInfoResponse rsp = DescribeExtensionUploadInfoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeExtensionUploadInfoOutcome(rsp);
-        else
-            return DescribeExtensionUploadInfoOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeExtensionUploadInfoOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeExtensionUploadInfoAsync(const DescribeExtensionUploadInfoRequest& request, const DescribeExtensionUploadInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeExtensionUploadInfoRequest&;
-    using Resp = DescribeExtensionUploadInfoResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeExtensionUploadInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeExtensionUploadInfoOutcomeCallable TcbClient::DescribeExtensionUploadInfoCallable(const DescribeExtensionUploadInfoRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeExtensionUploadInfoOutcome>>();
-    DescribeExtensionUploadInfoAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeExtensionUploadInfoRequest&,
-        DescribeExtensionUploadInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeExtraPkgBillingInfoOutcome TcbClient::DescribeExtraPkgBillingInfo(const DescribeExtraPkgBillingInfoRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeExtraPkgBillingInfo");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeExtraPkgBillingInfoResponse rsp = DescribeExtraPkgBillingInfoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeExtraPkgBillingInfoOutcome(rsp);
-        else
-            return DescribeExtraPkgBillingInfoOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeExtraPkgBillingInfoOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeExtraPkgBillingInfoAsync(const DescribeExtraPkgBillingInfoRequest& request, const DescribeExtraPkgBillingInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeExtraPkgBillingInfoRequest&;
-    using Resp = DescribeExtraPkgBillingInfoResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeExtraPkgBillingInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeExtraPkgBillingInfoOutcomeCallable TcbClient::DescribeExtraPkgBillingInfoCallable(const DescribeExtraPkgBillingInfoRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeExtraPkgBillingInfoOutcome>>();
-    DescribeExtraPkgBillingInfoAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeExtraPkgBillingInfoRequest&,
-        DescribeExtraPkgBillingInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeGatewayCurveDataOutcome TcbClient::DescribeGatewayCurveData(const DescribeGatewayCurveDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeGatewayCurveData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeGatewayCurveDataResponse rsp = DescribeGatewayCurveDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeGatewayCurveDataOutcome(rsp);
-        else
-            return DescribeGatewayCurveDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeGatewayCurveDataOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeGatewayCurveDataAsync(const DescribeGatewayCurveDataRequest& request, const DescribeGatewayCurveDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeGatewayCurveDataRequest&;
-    using Resp = DescribeGatewayCurveDataResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayCurveData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeGatewayCurveDataOutcomeCallable TcbClient::DescribeGatewayCurveDataCallable(const DescribeGatewayCurveDataRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeGatewayCurveDataOutcome>>();
-    DescribeGatewayCurveDataAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeGatewayCurveDataRequest&,
-        DescribeGatewayCurveDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeGatewayVersionsOutcome TcbClient::DescribeGatewayVersions(const DescribeGatewayVersionsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeGatewayVersions");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeGatewayVersionsResponse rsp = DescribeGatewayVersionsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeGatewayVersionsOutcome(rsp);
-        else
-            return DescribeGatewayVersionsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeGatewayVersionsOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeGatewayVersionsAsync(const DescribeGatewayVersionsRequest& request, const DescribeGatewayVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeGatewayVersionsRequest&;
-    using Resp = DescribeGatewayVersionsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayVersions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeGatewayVersionsOutcomeCallable TcbClient::DescribeGatewayVersionsCallable(const DescribeGatewayVersionsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeGatewayVersionsOutcome>>();
-    DescribeGatewayVersionsAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeGatewayVersionsRequest&,
-        DescribeGatewayVersionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeGraphDataOutcome TcbClient::DescribeGraphData(const DescribeGraphDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeGraphData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeGraphDataResponse rsp = DescribeGraphDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeGraphDataOutcome(rsp);
-        else
-            return DescribeGraphDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeGraphDataOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeGraphDataAsync(const DescribeGraphDataRequest& request, const DescribeGraphDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeGraphDataRequest&;
-    using Resp = DescribeGraphDataResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeGraphData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeGraphDataOutcomeCallable TcbClient::DescribeGraphDataCallable(const DescribeGraphDataRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeGraphDataOutcome>>();
-    DescribeGraphDataAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeGraphDataRequest&,
-        DescribeGraphDataOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2840,48 +1840,48 @@ TcbClient::DescribeHostingDomainTaskOutcomeCallable TcbClient::DescribeHostingDo
     return prom->get_future();
 }
 
-TcbClient::DescribePostpayFreeQuotasOutcome TcbClient::DescribePostpayFreeQuotas(const DescribePostpayFreeQuotasRequest &request)
+TcbClient::DescribeLoginConfigOutcome TcbClient::DescribeLoginConfig(const DescribeLoginConfigRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribePostpayFreeQuotas");
+    auto outcome = MakeRequest(request, "DescribeLoginConfig");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribePostpayFreeQuotasResponse rsp = DescribePostpayFreeQuotasResponse();
+        DescribeLoginConfigResponse rsp = DescribeLoginConfigResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribePostpayFreeQuotasOutcome(rsp);
+            return DescribeLoginConfigOutcome(rsp);
         else
-            return DescribePostpayFreeQuotasOutcome(o.GetError());
+            return DescribeLoginConfigOutcome(o.GetError());
     }
     else
     {
-        return DescribePostpayFreeQuotasOutcome(outcome.GetError());
+        return DescribeLoginConfigOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribePostpayFreeQuotasAsync(const DescribePostpayFreeQuotasRequest& request, const DescribePostpayFreeQuotasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeLoginConfigAsync(const DescribeLoginConfigRequest& request, const DescribeLoginConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePostpayFreeQuotasRequest&;
-    using Resp = DescribePostpayFreeQuotasResponse;
+    using Req = const DescribeLoginConfigRequest&;
+    using Resp = DescribeLoginConfigResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribePostpayFreeQuotas", request, {{{"Content-Type", "application/json"}}},
+        "DescribeLoginConfig", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribePostpayFreeQuotasOutcomeCallable TcbClient::DescribePostpayFreeQuotasCallable(const DescribePostpayFreeQuotasRequest &request)
+TcbClient::DescribeLoginConfigOutcomeCallable TcbClient::DescribeLoginConfigCallable(const DescribeLoginConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePostpayFreeQuotasOutcome>>();
-    DescribePostpayFreeQuotasAsync(
+    const auto prom = std::make_shared<std::promise<DescribeLoginConfigOutcome>>();
+    DescribeLoginConfigAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribePostpayFreeQuotasRequest&,
-        DescribePostpayFreeQuotasOutcome resp,
+        const DescribeLoginConfigRequest&,
+        DescribeLoginConfigOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2890,48 +1890,98 @@ TcbClient::DescribePostpayFreeQuotasOutcomeCallable TcbClient::DescribePostpayFr
     return prom->get_future();
 }
 
-TcbClient::DescribePostpayPackageFreeQuotasOutcome TcbClient::DescribePostpayPackageFreeQuotas(const DescribePostpayPackageFreeQuotasRequest &request)
+TcbClient::DescribeMySQLClusterDetailOutcome TcbClient::DescribeMySQLClusterDetail(const DescribeMySQLClusterDetailRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribePostpayPackageFreeQuotas");
+    auto outcome = MakeRequest(request, "DescribeMySQLClusterDetail");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribePostpayPackageFreeQuotasResponse rsp = DescribePostpayPackageFreeQuotasResponse();
+        DescribeMySQLClusterDetailResponse rsp = DescribeMySQLClusterDetailResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribePostpayPackageFreeQuotasOutcome(rsp);
+            return DescribeMySQLClusterDetailOutcome(rsp);
         else
-            return DescribePostpayPackageFreeQuotasOutcome(o.GetError());
+            return DescribeMySQLClusterDetailOutcome(o.GetError());
     }
     else
     {
-        return DescribePostpayPackageFreeQuotasOutcome(outcome.GetError());
+        return DescribeMySQLClusterDetailOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribePostpayPackageFreeQuotasAsync(const DescribePostpayPackageFreeQuotasRequest& request, const DescribePostpayPackageFreeQuotasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeMySQLClusterDetailAsync(const DescribeMySQLClusterDetailRequest& request, const DescribeMySQLClusterDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePostpayPackageFreeQuotasRequest&;
-    using Resp = DescribePostpayPackageFreeQuotasResponse;
+    using Req = const DescribeMySQLClusterDetailRequest&;
+    using Resp = DescribeMySQLClusterDetailResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribePostpayPackageFreeQuotas", request, {{{"Content-Type", "application/json"}}},
+        "DescribeMySQLClusterDetail", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribePostpayPackageFreeQuotasOutcomeCallable TcbClient::DescribePostpayPackageFreeQuotasCallable(const DescribePostpayPackageFreeQuotasRequest &request)
+TcbClient::DescribeMySQLClusterDetailOutcomeCallable TcbClient::DescribeMySQLClusterDetailCallable(const DescribeMySQLClusterDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePostpayPackageFreeQuotasOutcome>>();
-    DescribePostpayPackageFreeQuotasAsync(
+    const auto prom = std::make_shared<std::promise<DescribeMySQLClusterDetailOutcome>>();
+    DescribeMySQLClusterDetailAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribePostpayPackageFreeQuotasRequest&,
-        DescribePostpayPackageFreeQuotasOutcome resp,
+        const DescribeMySQLClusterDetailRequest&,
+        DescribeMySQLClusterDetailOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::DescribeMySQLTaskStatusOutcome TcbClient::DescribeMySQLTaskStatus(const DescribeMySQLTaskStatusRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeMySQLTaskStatus");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeMySQLTaskStatusResponse rsp = DescribeMySQLTaskStatusResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeMySQLTaskStatusOutcome(rsp);
+        else
+            return DescribeMySQLTaskStatusOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeMySQLTaskStatusOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::DescribeMySQLTaskStatusAsync(const DescribeMySQLTaskStatusRequest& request, const DescribeMySQLTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeMySQLTaskStatusRequest&;
+    using Resp = DescribeMySQLTaskStatusResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeMySQLTaskStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::DescribeMySQLTaskStatusOutcomeCallable TcbClient::DescribeMySQLTaskStatusCallable(const DescribeMySQLTaskStatusRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeMySQLTaskStatusOutcome>>();
+    DescribeMySQLTaskStatusAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const DescribeMySQLTaskStatusRequest&,
+        DescribeMySQLTaskStatusOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2990,48 +2040,48 @@ TcbClient::DescribeQuotaDataOutcomeCallable TcbClient::DescribeQuotaDataCallable
     return prom->get_future();
 }
 
-TcbClient::DescribeSmsQuotasOutcome TcbClient::DescribeSmsQuotas(const DescribeSmsQuotasRequest &request)
+TcbClient::DescribeSafeRuleOutcome TcbClient::DescribeSafeRule(const DescribeSafeRuleRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeSmsQuotas");
+    auto outcome = MakeRequest(request, "DescribeSafeRule");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeSmsQuotasResponse rsp = DescribeSmsQuotasResponse();
+        DescribeSafeRuleResponse rsp = DescribeSafeRuleResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeSmsQuotasOutcome(rsp);
+            return DescribeSafeRuleOutcome(rsp);
         else
-            return DescribeSmsQuotasOutcome(o.GetError());
+            return DescribeSafeRuleOutcome(o.GetError());
     }
     else
     {
-        return DescribeSmsQuotasOutcome(outcome.GetError());
+        return DescribeSafeRuleOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeSmsQuotasAsync(const DescribeSmsQuotasRequest& request, const DescribeSmsQuotasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeSafeRuleAsync(const DescribeSafeRuleRequest& request, const DescribeSafeRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSmsQuotasRequest&;
-    using Resp = DescribeSmsQuotasResponse;
+    using Req = const DescribeSafeRuleRequest&;
+    using Resp = DescribeSafeRuleResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeSmsQuotas", request, {{{"Content-Type", "application/json"}}},
+        "DescribeSafeRule", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeSmsQuotasOutcomeCallable TcbClient::DescribeSmsQuotasCallable(const DescribeSmsQuotasRequest &request)
+TcbClient::DescribeSafeRuleOutcomeCallable TcbClient::DescribeSafeRuleCallable(const DescribeSafeRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSmsQuotasOutcome>>();
-    DescribeSmsQuotasAsync(
+    const auto prom = std::make_shared<std::promise<DescribeSafeRuleOutcome>>();
+    DescribeSafeRuleAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeSmsQuotasRequest&,
-        DescribeSmsQuotasOutcome resp,
+        const DescribeSafeRuleRequest&,
+        DescribeSafeRuleOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3040,48 +2090,48 @@ TcbClient::DescribeSmsQuotasOutcomeCallable TcbClient::DescribeSmsQuotasCallable
     return prom->get_future();
 }
 
-TcbClient::DescribeSpecialCostItemsOutcome TcbClient::DescribeSpecialCostItems(const DescribeSpecialCostItemsRequest &request)
+TcbClient::DescribeStaticStoreOutcome TcbClient::DescribeStaticStore(const DescribeStaticStoreRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeSpecialCostItems");
+    auto outcome = MakeRequest(request, "DescribeStaticStore");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeSpecialCostItemsResponse rsp = DescribeSpecialCostItemsResponse();
+        DescribeStaticStoreResponse rsp = DescribeStaticStoreResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeSpecialCostItemsOutcome(rsp);
+            return DescribeStaticStoreOutcome(rsp);
         else
-            return DescribeSpecialCostItemsOutcome(o.GetError());
+            return DescribeStaticStoreOutcome(o.GetError());
     }
     else
     {
-        return DescribeSpecialCostItemsOutcome(outcome.GetError());
+        return DescribeStaticStoreOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeSpecialCostItemsAsync(const DescribeSpecialCostItemsRequest& request, const DescribeSpecialCostItemsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeStaticStoreAsync(const DescribeStaticStoreRequest& request, const DescribeStaticStoreAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSpecialCostItemsRequest&;
-    using Resp = DescribeSpecialCostItemsResponse;
+    using Req = const DescribeStaticStoreRequest&;
+    using Resp = DescribeStaticStoreResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeSpecialCostItems", request, {{{"Content-Type", "application/json"}}},
+        "DescribeStaticStore", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeSpecialCostItemsOutcomeCallable TcbClient::DescribeSpecialCostItemsCallable(const DescribeSpecialCostItemsRequest &request)
+TcbClient::DescribeStaticStoreOutcomeCallable TcbClient::DescribeStaticStoreCallable(const DescribeStaticStoreRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSpecialCostItemsOutcome>>();
-    DescribeSpecialCostItemsAsync(
+    const auto prom = std::make_shared<std::promise<DescribeStaticStoreOutcome>>();
+    DescribeStaticStoreAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeSpecialCostItemsRequest&,
-        DescribeSpecialCostItemsOutcome resp,
+        const DescribeStaticStoreRequest&,
+        DescribeStaticStoreOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3090,48 +2140,48 @@ TcbClient::DescribeSpecialCostItemsOutcomeCallable TcbClient::DescribeSpecialCos
     return prom->get_future();
 }
 
-TcbClient::DescribeStandaloneGatewayOutcome TcbClient::DescribeStandaloneGateway(const DescribeStandaloneGatewayRequest &request)
+TcbClient::DescribeTableOutcome TcbClient::DescribeTable(const DescribeTableRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeStandaloneGateway");
+    auto outcome = MakeRequest(request, "DescribeTable");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeStandaloneGatewayResponse rsp = DescribeStandaloneGatewayResponse();
+        DescribeTableResponse rsp = DescribeTableResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeStandaloneGatewayOutcome(rsp);
+            return DescribeTableOutcome(rsp);
         else
-            return DescribeStandaloneGatewayOutcome(o.GetError());
+            return DescribeTableOutcome(o.GetError());
     }
     else
     {
-        return DescribeStandaloneGatewayOutcome(outcome.GetError());
+        return DescribeTableOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeStandaloneGatewayAsync(const DescribeStandaloneGatewayRequest& request, const DescribeStandaloneGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeTableAsync(const DescribeTableRequest& request, const DescribeTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStandaloneGatewayRequest&;
-    using Resp = DescribeStandaloneGatewayResponse;
+    using Req = const DescribeTableRequest&;
+    using Resp = DescribeTableResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeStandaloneGateway", request, {{{"Content-Type", "application/json"}}},
+        "DescribeTable", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeStandaloneGatewayOutcomeCallable TcbClient::DescribeStandaloneGatewayCallable(const DescribeStandaloneGatewayRequest &request)
+TcbClient::DescribeTableOutcomeCallable TcbClient::DescribeTableCallable(const DescribeTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStandaloneGatewayOutcome>>();
-    DescribeStandaloneGatewayAsync(
+    const auto prom = std::make_shared<std::promise<DescribeTableOutcome>>();
+    DescribeTableAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeStandaloneGatewayRequest&,
-        DescribeStandaloneGatewayOutcome resp,
+        const DescribeTableRequest&,
+        DescribeTableOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3140,48 +2190,48 @@ TcbClient::DescribeStandaloneGatewayOutcomeCallable TcbClient::DescribeStandalon
     return prom->get_future();
 }
 
-TcbClient::DescribeStandaloneGatewayPackageOutcome TcbClient::DescribeStandaloneGatewayPackage(const DescribeStandaloneGatewayPackageRequest &request)
+TcbClient::DescribeTablesOutcome TcbClient::DescribeTables(const DescribeTablesRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeStandaloneGatewayPackage");
+    auto outcome = MakeRequest(request, "DescribeTables");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeStandaloneGatewayPackageResponse rsp = DescribeStandaloneGatewayPackageResponse();
+        DescribeTablesResponse rsp = DescribeTablesResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeStandaloneGatewayPackageOutcome(rsp);
+            return DescribeTablesOutcome(rsp);
         else
-            return DescribeStandaloneGatewayPackageOutcome(o.GetError());
+            return DescribeTablesOutcome(o.GetError());
     }
     else
     {
-        return DescribeStandaloneGatewayPackageOutcome(outcome.GetError());
+        return DescribeTablesOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeStandaloneGatewayPackageAsync(const DescribeStandaloneGatewayPackageRequest& request, const DescribeStandaloneGatewayPackageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeTablesAsync(const DescribeTablesRequest& request, const DescribeTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStandaloneGatewayPackageRequest&;
-    using Resp = DescribeStandaloneGatewayPackageResponse;
+    using Req = const DescribeTablesRequest&;
+    using Resp = DescribeTablesResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeStandaloneGatewayPackage", request, {{{"Content-Type", "application/json"}}},
+        "DescribeTables", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeStandaloneGatewayPackageOutcomeCallable TcbClient::DescribeStandaloneGatewayPackageCallable(const DescribeStandaloneGatewayPackageRequest &request)
+TcbClient::DescribeTablesOutcomeCallable TcbClient::DescribeTablesCallable(const DescribeTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStandaloneGatewayPackageOutcome>>();
-    DescribeStandaloneGatewayPackageAsync(
+    const auto prom = std::make_shared<std::promise<DescribeTablesOutcome>>();
+    DescribeTablesAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeStandaloneGatewayPackageRequest&,
-        DescribeStandaloneGatewayPackageOutcome resp,
+        const DescribeTablesRequest&,
+        DescribeTablesOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3190,48 +2240,48 @@ TcbClient::DescribeStandaloneGatewayPackageOutcomeCallable TcbClient::DescribeSt
     return prom->get_future();
 }
 
-TcbClient::DescribeUserActivityInfoOutcome TcbClient::DescribeUserActivityInfo(const DescribeUserActivityInfoRequest &request)
+TcbClient::DescribeUserListOutcome TcbClient::DescribeUserList(const DescribeUserListRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeUserActivityInfo");
+    auto outcome = MakeRequest(request, "DescribeUserList");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeUserActivityInfoResponse rsp = DescribeUserActivityInfoResponse();
+        DescribeUserListResponse rsp = DescribeUserListResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeUserActivityInfoOutcome(rsp);
+            return DescribeUserListOutcome(rsp);
         else
-            return DescribeUserActivityInfoOutcome(o.GetError());
+            return DescribeUserListOutcome(o.GetError());
     }
     else
     {
-        return DescribeUserActivityInfoOutcome(outcome.GetError());
+        return DescribeUserListOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeUserActivityInfoAsync(const DescribeUserActivityInfoRequest& request, const DescribeUserActivityInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeUserListAsync(const DescribeUserListRequest& request, const DescribeUserListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserActivityInfoRequest&;
-    using Resp = DescribeUserActivityInfoResponse;
+    using Req = const DescribeUserListRequest&;
+    using Resp = DescribeUserListResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeUserActivityInfo", request, {{{"Content-Type", "application/json"}}},
+        "DescribeUserList", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeUserActivityInfoOutcomeCallable TcbClient::DescribeUserActivityInfoCallable(const DescribeUserActivityInfoRequest &request)
+TcbClient::DescribeUserListOutcomeCallable TcbClient::DescribeUserListCallable(const DescribeUserListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserActivityInfoOutcome>>();
-    DescribeUserActivityInfoAsync(
+    const auto prom = std::make_shared<std::promise<DescribeUserListOutcome>>();
+    DescribeUserListAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeUserActivityInfoRequest&,
-        DescribeUserActivityInfoOutcome resp,
+        const DescribeUserListRequest&,
+        DescribeUserListOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3240,48 +2290,48 @@ TcbClient::DescribeUserActivityInfoOutcomeCallable TcbClient::DescribeUserActivi
     return prom->get_future();
 }
 
-TcbClient::DescribeWxCloudBaseRunEnvsOutcome TcbClient::DescribeWxCloudBaseRunEnvs(const DescribeWxCloudBaseRunEnvsRequest &request)
+TcbClient::DescribeVmInstancesOutcome TcbClient::DescribeVmInstances(const DescribeVmInstancesRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeWxCloudBaseRunEnvs");
+    auto outcome = MakeRequest(request, "DescribeVmInstances");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeWxCloudBaseRunEnvsResponse rsp = DescribeWxCloudBaseRunEnvsResponse();
+        DescribeVmInstancesResponse rsp = DescribeVmInstancesResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeWxCloudBaseRunEnvsOutcome(rsp);
+            return DescribeVmInstancesOutcome(rsp);
         else
-            return DescribeWxCloudBaseRunEnvsOutcome(o.GetError());
+            return DescribeVmInstancesOutcome(o.GetError());
     }
     else
     {
-        return DescribeWxCloudBaseRunEnvsOutcome(outcome.GetError());
+        return DescribeVmInstancesOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeWxCloudBaseRunEnvsAsync(const DescribeWxCloudBaseRunEnvsRequest& request, const DescribeWxCloudBaseRunEnvsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeVmInstancesAsync(const DescribeVmInstancesRequest& request, const DescribeVmInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWxCloudBaseRunEnvsRequest&;
-    using Resp = DescribeWxCloudBaseRunEnvsResponse;
+    using Req = const DescribeVmInstancesRequest&;
+    using Resp = DescribeVmInstancesResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeWxCloudBaseRunEnvs", request, {{{"Content-Type", "application/json"}}},
+        "DescribeVmInstances", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeWxCloudBaseRunEnvsOutcomeCallable TcbClient::DescribeWxCloudBaseRunEnvsCallable(const DescribeWxCloudBaseRunEnvsRequest &request)
+TcbClient::DescribeVmInstancesOutcomeCallable TcbClient::DescribeVmInstancesCallable(const DescribeVmInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWxCloudBaseRunEnvsOutcome>>();
-    DescribeWxCloudBaseRunEnvsAsync(
+    const auto prom = std::make_shared<std::promise<DescribeVmInstancesOutcome>>();
+    DescribeVmInstancesAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeWxCloudBaseRunEnvsRequest&,
-        DescribeWxCloudBaseRunEnvsOutcome resp,
+        const DescribeVmInstancesRequest&,
+        DescribeVmInstancesOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3290,148 +2340,48 @@ TcbClient::DescribeWxCloudBaseRunEnvsOutcomeCallable TcbClient::DescribeWxCloudB
     return prom->get_future();
 }
 
-TcbClient::DescribeWxCloudBaseRunSubNetsOutcome TcbClient::DescribeWxCloudBaseRunSubNets(const DescribeWxCloudBaseRunSubNetsRequest &request)
+TcbClient::DescribeVmSpecOutcome TcbClient::DescribeVmSpec(const DescribeVmSpecRequest &request)
 {
-    auto outcome = MakeRequest(request, "DescribeWxCloudBaseRunSubNets");
+    auto outcome = MakeRequest(request, "DescribeVmSpec");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DescribeWxCloudBaseRunSubNetsResponse rsp = DescribeWxCloudBaseRunSubNetsResponse();
+        DescribeVmSpecResponse rsp = DescribeVmSpecResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DescribeWxCloudBaseRunSubNetsOutcome(rsp);
+            return DescribeVmSpecOutcome(rsp);
         else
-            return DescribeWxCloudBaseRunSubNetsOutcome(o.GetError());
+            return DescribeVmSpecOutcome(o.GetError());
     }
     else
     {
-        return DescribeWxCloudBaseRunSubNetsOutcome(outcome.GetError());
+        return DescribeVmSpecOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DescribeWxCloudBaseRunSubNetsAsync(const DescribeWxCloudBaseRunSubNetsRequest& request, const DescribeWxCloudBaseRunSubNetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DescribeVmSpecAsync(const DescribeVmSpecRequest& request, const DescribeVmSpecAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWxCloudBaseRunSubNetsRequest&;
-    using Resp = DescribeWxCloudBaseRunSubNetsResponse;
+    using Req = const DescribeVmSpecRequest&;
+    using Resp = DescribeVmSpecResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DescribeWxCloudBaseRunSubNets", request, {{{"Content-Type", "application/json"}}},
+        "DescribeVmSpec", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DescribeWxCloudBaseRunSubNetsOutcomeCallable TcbClient::DescribeWxCloudBaseRunSubNetsCallable(const DescribeWxCloudBaseRunSubNetsRequest &request)
+TcbClient::DescribeVmSpecOutcomeCallable TcbClient::DescribeVmSpecCallable(const DescribeVmSpecRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWxCloudBaseRunSubNetsOutcome>>();
-    DescribeWxCloudBaseRunSubNetsAsync(
+    const auto prom = std::make_shared<std::promise<DescribeVmSpecOutcome>>();
+    DescribeVmSpecAsync(
     request,
     [prom](
         const TcbClient*,
-        const DescribeWxCloudBaseRunSubNetsRequest&,
-        DescribeWxCloudBaseRunSubNetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeWxGatewayRoutesOutcome TcbClient::DescribeWxGatewayRoutes(const DescribeWxGatewayRoutesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeWxGatewayRoutes");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeWxGatewayRoutesResponse rsp = DescribeWxGatewayRoutesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeWxGatewayRoutesOutcome(rsp);
-        else
-            return DescribeWxGatewayRoutesOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeWxGatewayRoutesOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeWxGatewayRoutesAsync(const DescribeWxGatewayRoutesRequest& request, const DescribeWxGatewayRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeWxGatewayRoutesRequest&;
-    using Resp = DescribeWxGatewayRoutesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeWxGatewayRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeWxGatewayRoutesOutcomeCallable TcbClient::DescribeWxGatewayRoutesCallable(const DescribeWxGatewayRoutesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeWxGatewayRoutesOutcome>>();
-    DescribeWxGatewayRoutesAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeWxGatewayRoutesRequest&,
-        DescribeWxGatewayRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::DescribeWxGatewaysOutcome TcbClient::DescribeWxGateways(const DescribeWxGatewaysRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeWxGateways");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeWxGatewaysResponse rsp = DescribeWxGatewaysResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeWxGatewaysOutcome(rsp);
-        else
-            return DescribeWxGatewaysOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeWxGatewaysOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::DescribeWxGatewaysAsync(const DescribeWxGatewaysRequest& request, const DescribeWxGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeWxGatewaysRequest&;
-    using Resp = DescribeWxGatewaysResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeWxGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::DescribeWxGatewaysOutcomeCallable TcbClient::DescribeWxGatewaysCallable(const DescribeWxGatewaysRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeWxGatewaysOutcome>>();
-    DescribeWxGatewaysAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const DescribeWxGatewaysRequest&,
-        DescribeWxGatewaysOutcome resp,
+        const DescribeVmSpecRequest&,
+        DescribeVmSpecOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3490,48 +2440,48 @@ TcbClient::DestroyEnvOutcomeCallable TcbClient::DestroyEnvCallable(const Destroy
     return prom->get_future();
 }
 
-TcbClient::DestroyStandaloneGatewayOutcome TcbClient::DestroyStandaloneGateway(const DestroyStandaloneGatewayRequest &request)
+TcbClient::DestroyMySQLOutcome TcbClient::DestroyMySQL(const DestroyMySQLRequest &request)
 {
-    auto outcome = MakeRequest(request, "DestroyStandaloneGateway");
+    auto outcome = MakeRequest(request, "DestroyMySQL");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        DestroyStandaloneGatewayResponse rsp = DestroyStandaloneGatewayResponse();
+        DestroyMySQLResponse rsp = DestroyMySQLResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return DestroyStandaloneGatewayOutcome(rsp);
+            return DestroyMySQLOutcome(rsp);
         else
-            return DestroyStandaloneGatewayOutcome(o.GetError());
+            return DestroyMySQLOutcome(o.GetError());
     }
     else
     {
-        return DestroyStandaloneGatewayOutcome(outcome.GetError());
+        return DestroyMySQLOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::DestroyStandaloneGatewayAsync(const DestroyStandaloneGatewayRequest& request, const DestroyStandaloneGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::DestroyMySQLAsync(const DestroyMySQLRequest& request, const DestroyMySQLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyStandaloneGatewayRequest&;
-    using Resp = DestroyStandaloneGatewayResponse;
+    using Req = const DestroyMySQLRequest&;
+    using Resp = DestroyMySQLResponse;
 
     DoRequestAsync<Req, Resp>(
-        "DestroyStandaloneGateway", request, {{{"Content-Type", "application/json"}}},
+        "DestroyMySQL", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::DestroyStandaloneGatewayOutcomeCallable TcbClient::DestroyStandaloneGatewayCallable(const DestroyStandaloneGatewayRequest &request)
+TcbClient::DestroyMySQLOutcomeCallable TcbClient::DestroyMySQLCallable(const DestroyMySQLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyStandaloneGatewayOutcome>>();
-    DestroyStandaloneGatewayAsync(
+    const auto prom = std::make_shared<std::promise<DestroyMySQLOutcome>>();
+    DestroyMySQLAsync(
     request,
     [prom](
         const TcbClient*,
-        const DestroyStandaloneGatewayRequest&,
-        DestroyStandaloneGatewayOutcome resp,
+        const DestroyMySQLRequest&,
+        DestroyMySQLOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3640,48 +2590,48 @@ TcbClient::EditAuthConfigOutcomeCallable TcbClient::EditAuthConfigCallable(const
     return prom->get_future();
 }
 
-TcbClient::EstablishCloudBaseRunServerOutcome TcbClient::EstablishCloudBaseRunServer(const EstablishCloudBaseRunServerRequest &request)
+TcbClient::GetProvidersOutcome TcbClient::GetProviders(const GetProvidersRequest &request)
 {
-    auto outcome = MakeRequest(request, "EstablishCloudBaseRunServer");
+    auto outcome = MakeRequest(request, "GetProviders");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        EstablishCloudBaseRunServerResponse rsp = EstablishCloudBaseRunServerResponse();
+        GetProvidersResponse rsp = GetProvidersResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return EstablishCloudBaseRunServerOutcome(rsp);
+            return GetProvidersOutcome(rsp);
         else
-            return EstablishCloudBaseRunServerOutcome(o.GetError());
+            return GetProvidersOutcome(o.GetError());
     }
     else
     {
-        return EstablishCloudBaseRunServerOutcome(outcome.GetError());
+        return GetProvidersOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::EstablishCloudBaseRunServerAsync(const EstablishCloudBaseRunServerRequest& request, const EstablishCloudBaseRunServerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::GetProvidersAsync(const GetProvidersRequest& request, const GetProvidersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EstablishCloudBaseRunServerRequest&;
-    using Resp = EstablishCloudBaseRunServerResponse;
+    using Req = const GetProvidersRequest&;
+    using Resp = GetProvidersResponse;
 
     DoRequestAsync<Req, Resp>(
-        "EstablishCloudBaseRunServer", request, {{{"Content-Type", "application/json"}}},
+        "GetProviders", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::EstablishCloudBaseRunServerOutcomeCallable TcbClient::EstablishCloudBaseRunServerCallable(const EstablishCloudBaseRunServerRequest &request)
+TcbClient::GetProvidersOutcomeCallable TcbClient::GetProvidersCallable(const GetProvidersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EstablishCloudBaseRunServerOutcome>>();
-    EstablishCloudBaseRunServerAsync(
+    const auto prom = std::make_shared<std::promise<GetProvidersOutcome>>();
+    GetProvidersAsync(
     request,
     [prom](
         const TcbClient*,
-        const EstablishCloudBaseRunServerRequest&,
-        EstablishCloudBaseRunServerOutcome resp,
+        const GetProvidersRequest&,
+        GetProvidersOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3690,48 +2640,48 @@ TcbClient::EstablishCloudBaseRunServerOutcomeCallable TcbClient::EstablishCloudB
     return prom->get_future();
 }
 
-TcbClient::EstablishWxGatewayRouteOutcome TcbClient::EstablishWxGatewayRoute(const EstablishWxGatewayRouteRequest &request)
+TcbClient::InquireVmPriceOutcome TcbClient::InquireVmPrice(const InquireVmPriceRequest &request)
 {
-    auto outcome = MakeRequest(request, "EstablishWxGatewayRoute");
+    auto outcome = MakeRequest(request, "InquireVmPrice");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        EstablishWxGatewayRouteResponse rsp = EstablishWxGatewayRouteResponse();
+        InquireVmPriceResponse rsp = InquireVmPriceResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return EstablishWxGatewayRouteOutcome(rsp);
+            return InquireVmPriceOutcome(rsp);
         else
-            return EstablishWxGatewayRouteOutcome(o.GetError());
+            return InquireVmPriceOutcome(o.GetError());
     }
     else
     {
-        return EstablishWxGatewayRouteOutcome(outcome.GetError());
+        return InquireVmPriceOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::EstablishWxGatewayRouteAsync(const EstablishWxGatewayRouteRequest& request, const EstablishWxGatewayRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::InquireVmPriceAsync(const InquireVmPriceRequest& request, const InquireVmPriceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EstablishWxGatewayRouteRequest&;
-    using Resp = EstablishWxGatewayRouteResponse;
+    using Req = const InquireVmPriceRequest&;
+    using Resp = InquireVmPriceResponse;
 
     DoRequestAsync<Req, Resp>(
-        "EstablishWxGatewayRoute", request, {{{"Content-Type", "application/json"}}},
+        "InquireVmPrice", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::EstablishWxGatewayRouteOutcomeCallable TcbClient::EstablishWxGatewayRouteCallable(const EstablishWxGatewayRouteRequest &request)
+TcbClient::InquireVmPriceOutcomeCallable TcbClient::InquireVmPriceCallable(const InquireVmPriceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EstablishWxGatewayRouteOutcome>>();
-    EstablishWxGatewayRouteAsync(
+    const auto prom = std::make_shared<std::promise<InquireVmPriceOutcome>>();
+    InquireVmPriceAsync(
     request,
     [prom](
         const TcbClient*,
-        const EstablishWxGatewayRouteRequest&,
-        EstablishWxGatewayRouteOutcome resp,
+        const InquireVmPriceRequest&,
+        InquireVmPriceOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3740,48 +2690,48 @@ TcbClient::EstablishWxGatewayRouteOutcomeCallable TcbClient::EstablishWxGatewayR
     return prom->get_future();
 }
 
-TcbClient::FreezeCloudBaseRunServersOutcome TcbClient::FreezeCloudBaseRunServers(const FreezeCloudBaseRunServersRequest &request)
+TcbClient::ListTablesOutcome TcbClient::ListTables(const ListTablesRequest &request)
 {
-    auto outcome = MakeRequest(request, "FreezeCloudBaseRunServers");
+    auto outcome = MakeRequest(request, "ListTables");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        FreezeCloudBaseRunServersResponse rsp = FreezeCloudBaseRunServersResponse();
+        ListTablesResponse rsp = ListTablesResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return FreezeCloudBaseRunServersOutcome(rsp);
+            return ListTablesOutcome(rsp);
         else
-            return FreezeCloudBaseRunServersOutcome(o.GetError());
+            return ListTablesOutcome(o.GetError());
     }
     else
     {
-        return FreezeCloudBaseRunServersOutcome(outcome.GetError());
+        return ListTablesOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::FreezeCloudBaseRunServersAsync(const FreezeCloudBaseRunServersRequest& request, const FreezeCloudBaseRunServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::ListTablesAsync(const ListTablesRequest& request, const ListTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FreezeCloudBaseRunServersRequest&;
-    using Resp = FreezeCloudBaseRunServersResponse;
+    using Req = const ListTablesRequest&;
+    using Resp = ListTablesResponse;
 
     DoRequestAsync<Req, Resp>(
-        "FreezeCloudBaseRunServers", request, {{{"Content-Type", "application/json"}}},
+        "ListTables", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::FreezeCloudBaseRunServersOutcomeCallable TcbClient::FreezeCloudBaseRunServersCallable(const FreezeCloudBaseRunServersRequest &request)
+TcbClient::ListTablesOutcomeCallable TcbClient::ListTablesCallable(const ListTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FreezeCloudBaseRunServersOutcome>>();
-    FreezeCloudBaseRunServersAsync(
+    const auto prom = std::make_shared<std::promise<ListTablesOutcome>>();
+    ListTablesAsync(
     request,
     [prom](
         const TcbClient*,
-        const FreezeCloudBaseRunServersRequest&,
-        FreezeCloudBaseRunServersOutcome resp,
+        const ListTablesRequest&,
+        ListTablesOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3790,48 +2740,48 @@ TcbClient::FreezeCloudBaseRunServersOutcomeCallable TcbClient::FreezeCloudBaseRu
     return prom->get_future();
 }
 
-TcbClient::ModifyCloudBaseRunServerFlowConfOutcome TcbClient::ModifyCloudBaseRunServerFlowConf(const ModifyCloudBaseRunServerFlowConfRequest &request)
+TcbClient::ModifyClientOutcome TcbClient::ModifyClient(const ModifyClientRequest &request)
 {
-    auto outcome = MakeRequest(request, "ModifyCloudBaseRunServerFlowConf");
+    auto outcome = MakeRequest(request, "ModifyClient");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ModifyCloudBaseRunServerFlowConfResponse rsp = ModifyCloudBaseRunServerFlowConfResponse();
+        ModifyClientResponse rsp = ModifyClientResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ModifyCloudBaseRunServerFlowConfOutcome(rsp);
+            return ModifyClientOutcome(rsp);
         else
-            return ModifyCloudBaseRunServerFlowConfOutcome(o.GetError());
+            return ModifyClientOutcome(o.GetError());
     }
     else
     {
-        return ModifyCloudBaseRunServerFlowConfOutcome(outcome.GetError());
+        return ModifyClientOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::ModifyCloudBaseRunServerFlowConfAsync(const ModifyCloudBaseRunServerFlowConfRequest& request, const ModifyCloudBaseRunServerFlowConfAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::ModifyClientAsync(const ModifyClientRequest& request, const ModifyClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudBaseRunServerFlowConfRequest&;
-    using Resp = ModifyCloudBaseRunServerFlowConfResponse;
+    using Req = const ModifyClientRequest&;
+    using Resp = ModifyClientResponse;
 
     DoRequestAsync<Req, Resp>(
-        "ModifyCloudBaseRunServerFlowConf", request, {{{"Content-Type", "application/json"}}},
+        "ModifyClient", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::ModifyCloudBaseRunServerFlowConfOutcomeCallable TcbClient::ModifyCloudBaseRunServerFlowConfCallable(const ModifyCloudBaseRunServerFlowConfRequest &request)
+TcbClient::ModifyClientOutcomeCallable TcbClient::ModifyClientCallable(const ModifyClientRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudBaseRunServerFlowConfOutcome>>();
-    ModifyCloudBaseRunServerFlowConfAsync(
+    const auto prom = std::make_shared<std::promise<ModifyClientOutcome>>();
+    ModifyClientAsync(
     request,
     [prom](
         const TcbClient*,
-        const ModifyCloudBaseRunServerFlowConfRequest&,
-        ModifyCloudBaseRunServerFlowConfOutcome resp,
+        const ModifyClientRequest&,
+        ModifyClientOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3840,48 +2790,48 @@ TcbClient::ModifyCloudBaseRunServerFlowConfOutcomeCallable TcbClient::ModifyClou
     return prom->get_future();
 }
 
-TcbClient::ModifyCloudBaseRunServerVersionOutcome TcbClient::ModifyCloudBaseRunServerVersion(const ModifyCloudBaseRunServerVersionRequest &request)
+TcbClient::ModifyCloudBaseGWAPIOutcome TcbClient::ModifyCloudBaseGWAPI(const ModifyCloudBaseGWAPIRequest &request)
 {
-    auto outcome = MakeRequest(request, "ModifyCloudBaseRunServerVersion");
+    auto outcome = MakeRequest(request, "ModifyCloudBaseGWAPI");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ModifyCloudBaseRunServerVersionResponse rsp = ModifyCloudBaseRunServerVersionResponse();
+        ModifyCloudBaseGWAPIResponse rsp = ModifyCloudBaseGWAPIResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ModifyCloudBaseRunServerVersionOutcome(rsp);
+            return ModifyCloudBaseGWAPIOutcome(rsp);
         else
-            return ModifyCloudBaseRunServerVersionOutcome(o.GetError());
+            return ModifyCloudBaseGWAPIOutcome(o.GetError());
     }
     else
     {
-        return ModifyCloudBaseRunServerVersionOutcome(outcome.GetError());
+        return ModifyCloudBaseGWAPIOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::ModifyCloudBaseRunServerVersionAsync(const ModifyCloudBaseRunServerVersionRequest& request, const ModifyCloudBaseRunServerVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::ModifyCloudBaseGWAPIAsync(const ModifyCloudBaseGWAPIRequest& request, const ModifyCloudBaseGWAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudBaseRunServerVersionRequest&;
-    using Resp = ModifyCloudBaseRunServerVersionResponse;
+    using Req = const ModifyCloudBaseGWAPIRequest&;
+    using Resp = ModifyCloudBaseGWAPIResponse;
 
     DoRequestAsync<Req, Resp>(
-        "ModifyCloudBaseRunServerVersion", request, {{{"Content-Type", "application/json"}}},
+        "ModifyCloudBaseGWAPI", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::ModifyCloudBaseRunServerVersionOutcomeCallable TcbClient::ModifyCloudBaseRunServerVersionCallable(const ModifyCloudBaseRunServerVersionRequest &request)
+TcbClient::ModifyCloudBaseGWAPIOutcomeCallable TcbClient::ModifyCloudBaseGWAPICallable(const ModifyCloudBaseGWAPIRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudBaseRunServerVersionOutcome>>();
-    ModifyCloudBaseRunServerVersionAsync(
+    const auto prom = std::make_shared<std::promise<ModifyCloudBaseGWAPIOutcome>>();
+    ModifyCloudBaseGWAPIAsync(
     request,
     [prom](
         const TcbClient*,
-        const ModifyCloudBaseRunServerVersionRequest&,
-        ModifyCloudBaseRunServerVersionOutcome resp,
+        const ModifyCloudBaseGWAPIRequest&,
+        ModifyCloudBaseGWAPIOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3990,56 +2940,6 @@ TcbClient::ModifyDatabaseACLOutcomeCallable TcbClient::ModifyDatabaseACLCallable
     return prom->get_future();
 }
 
-TcbClient::ModifyEndUserOutcome TcbClient::ModifyEndUser(const ModifyEndUserRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyEndUser");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyEndUserResponse rsp = ModifyEndUserResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyEndUserOutcome(rsp);
-        else
-            return ModifyEndUserOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyEndUserOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::ModifyEndUserAsync(const ModifyEndUserRequest& request, const ModifyEndUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyEndUserRequest&;
-    using Resp = ModifyEndUserResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyEndUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::ModifyEndUserOutcomeCallable TcbClient::ModifyEndUserCallable(const ModifyEndUserRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyEndUserOutcome>>();
-    ModifyEndUserAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const ModifyEndUserRequest&,
-        ModifyEndUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TcbClient::ModifyEnvOutcome TcbClient::ModifyEnv(const ModifyEnvRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyEnv");
@@ -4090,48 +2990,248 @@ TcbClient::ModifyEnvOutcomeCallable TcbClient::ModifyEnvCallable(const ModifyEnv
     return prom->get_future();
 }
 
-TcbClient::ModifyGatewayVersionTrafficOutcome TcbClient::ModifyGatewayVersionTraffic(const ModifyGatewayVersionTrafficRequest &request)
+TcbClient::ModifyEnvPlanOutcome TcbClient::ModifyEnvPlan(const ModifyEnvPlanRequest &request)
 {
-    auto outcome = MakeRequest(request, "ModifyGatewayVersionTraffic");
+    auto outcome = MakeRequest(request, "ModifyEnvPlan");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ModifyGatewayVersionTrafficResponse rsp = ModifyGatewayVersionTrafficResponse();
+        ModifyEnvPlanResponse rsp = ModifyEnvPlanResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ModifyGatewayVersionTrafficOutcome(rsp);
+            return ModifyEnvPlanOutcome(rsp);
         else
-            return ModifyGatewayVersionTrafficOutcome(o.GetError());
+            return ModifyEnvPlanOutcome(o.GetError());
     }
     else
     {
-        return ModifyGatewayVersionTrafficOutcome(outcome.GetError());
+        return ModifyEnvPlanOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::ModifyGatewayVersionTrafficAsync(const ModifyGatewayVersionTrafficRequest& request, const ModifyGatewayVersionTrafficAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::ModifyEnvPlanAsync(const ModifyEnvPlanRequest& request, const ModifyEnvPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGatewayVersionTrafficRequest&;
-    using Resp = ModifyGatewayVersionTrafficResponse;
+    using Req = const ModifyEnvPlanRequest&;
+    using Resp = ModifyEnvPlanResponse;
 
     DoRequestAsync<Req, Resp>(
-        "ModifyGatewayVersionTraffic", request, {{{"Content-Type", "application/json"}}},
+        "ModifyEnvPlan", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::ModifyGatewayVersionTrafficOutcomeCallable TcbClient::ModifyGatewayVersionTrafficCallable(const ModifyGatewayVersionTrafficRequest &request)
+TcbClient::ModifyEnvPlanOutcomeCallable TcbClient::ModifyEnvPlanCallable(const ModifyEnvPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGatewayVersionTrafficOutcome>>();
-    ModifyGatewayVersionTrafficAsync(
+    const auto prom = std::make_shared<std::promise<ModifyEnvPlanOutcome>>();
+    ModifyEnvPlanAsync(
     request,
     [prom](
         const TcbClient*,
-        const ModifyGatewayVersionTrafficRequest&,
-        ModifyGatewayVersionTrafficOutcome resp,
+        const ModifyEnvPlanRequest&,
+        ModifyEnvPlanOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::ModifyLoginConfigOutcome TcbClient::ModifyLoginConfig(const ModifyLoginConfigRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyLoginConfig");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyLoginConfigResponse rsp = ModifyLoginConfigResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyLoginConfigOutcome(rsp);
+        else
+            return ModifyLoginConfigOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyLoginConfigOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::ModifyLoginConfigAsync(const ModifyLoginConfigRequest& request, const ModifyLoginConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyLoginConfigRequest&;
+    using Resp = ModifyLoginConfigResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyLoginConfig", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::ModifyLoginConfigOutcomeCallable TcbClient::ModifyLoginConfigCallable(const ModifyLoginConfigRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyLoginConfigOutcome>>();
+    ModifyLoginConfigAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const ModifyLoginConfigRequest&,
+        ModifyLoginConfigOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::ModifyProviderOutcome TcbClient::ModifyProvider(const ModifyProviderRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyProvider");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyProviderResponse rsp = ModifyProviderResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyProviderOutcome(rsp);
+        else
+            return ModifyProviderOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyProviderOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::ModifyProviderAsync(const ModifyProviderRequest& request, const ModifyProviderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyProviderRequest&;
+    using Resp = ModifyProviderResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyProvider", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::ModifyProviderOutcomeCallable TcbClient::ModifyProviderCallable(const ModifyProviderRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyProviderOutcome>>();
+    ModifyProviderAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const ModifyProviderRequest&,
+        ModifyProviderOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::ModifySafeRuleOutcome TcbClient::ModifySafeRule(const ModifySafeRuleRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifySafeRule");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifySafeRuleResponse rsp = ModifySafeRuleResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifySafeRuleOutcome(rsp);
+        else
+            return ModifySafeRuleOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifySafeRuleOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::ModifySafeRuleAsync(const ModifySafeRuleRequest& request, const ModifySafeRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifySafeRuleRequest&;
+    using Resp = ModifySafeRuleResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifySafeRule", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::ModifySafeRuleOutcomeCallable TcbClient::ModifySafeRuleCallable(const ModifySafeRuleRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifySafeRuleOutcome>>();
+    ModifySafeRuleAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const ModifySafeRuleRequest&,
+        ModifySafeRuleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::ModifyUserOutcome TcbClient::ModifyUser(const ModifyUserRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyUser");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyUserResponse rsp = ModifyUserResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyUserOutcome(rsp);
+        else
+            return ModifyUserOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyUserOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::ModifyUserAsync(const ModifyUserRequest& request, const ModifyUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyUserRequest&;
+    using Resp = ModifyUserResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyUser", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::ModifyUserOutcomeCallable TcbClient::ModifyUserCallable(const ModifyUserRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyUserOutcome>>();
+    ModifyUserAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const ModifyUserRequest&,
+        ModifyUserOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4190,48 +3290,48 @@ TcbClient::ReinstateEnvOutcomeCallable TcbClient::ReinstateEnvCallable(const Rei
     return prom->get_future();
 }
 
-TcbClient::ReplaceActivityRecordOutcome TcbClient::ReplaceActivityRecord(const ReplaceActivityRecordRequest &request)
+TcbClient::RenewEnvOutcome TcbClient::RenewEnv(const RenewEnvRequest &request)
 {
-    auto outcome = MakeRequest(request, "ReplaceActivityRecord");
+    auto outcome = MakeRequest(request, "RenewEnv");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        ReplaceActivityRecordResponse rsp = ReplaceActivityRecordResponse();
+        RenewEnvResponse rsp = RenewEnvResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return ReplaceActivityRecordOutcome(rsp);
+            return RenewEnvOutcome(rsp);
         else
-            return ReplaceActivityRecordOutcome(o.GetError());
+            return RenewEnvOutcome(o.GetError());
     }
     else
     {
-        return ReplaceActivityRecordOutcome(outcome.GetError());
+        return RenewEnvOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::ReplaceActivityRecordAsync(const ReplaceActivityRecordRequest& request, const ReplaceActivityRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::RenewEnvAsync(const RenewEnvRequest& request, const RenewEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceActivityRecordRequest&;
-    using Resp = ReplaceActivityRecordResponse;
+    using Req = const RenewEnvRequest&;
+    using Resp = RenewEnvResponse;
 
     DoRequestAsync<Req, Resp>(
-        "ReplaceActivityRecord", request, {{{"Content-Type", "application/json"}}},
+        "RenewEnv", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::ReplaceActivityRecordOutcomeCallable TcbClient::ReplaceActivityRecordCallable(const ReplaceActivityRecordRequest &request)
+TcbClient::RenewEnvOutcomeCallable TcbClient::RenewEnvCallable(const RenewEnvRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceActivityRecordOutcome>>();
-    ReplaceActivityRecordAsync(
+    const auto prom = std::make_shared<std::promise<RenewEnvOutcome>>();
+    RenewEnvAsync(
     request,
     [prom](
         const TcbClient*,
-        const ReplaceActivityRecordRequest&,
-        ReplaceActivityRecordOutcome resp,
+        const RenewEnvRequest&,
+        RenewEnvOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4240,48 +3340,98 @@ TcbClient::ReplaceActivityRecordOutcomeCallable TcbClient::ReplaceActivityRecord
     return prom->get_future();
 }
 
-TcbClient::RollUpdateCloudBaseRunServerVersionOutcome TcbClient::RollUpdateCloudBaseRunServerVersion(const RollUpdateCloudBaseRunServerVersionRequest &request)
+TcbClient::RunCommandsOutcome TcbClient::RunCommands(const RunCommandsRequest &request)
 {
-    auto outcome = MakeRequest(request, "RollUpdateCloudBaseRunServerVersion");
+    auto outcome = MakeRequest(request, "RunCommands");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        RollUpdateCloudBaseRunServerVersionResponse rsp = RollUpdateCloudBaseRunServerVersionResponse();
+        RunCommandsResponse rsp = RunCommandsResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return RollUpdateCloudBaseRunServerVersionOutcome(rsp);
+            return RunCommandsOutcome(rsp);
         else
-            return RollUpdateCloudBaseRunServerVersionOutcome(o.GetError());
+            return RunCommandsOutcome(o.GetError());
     }
     else
     {
-        return RollUpdateCloudBaseRunServerVersionOutcome(outcome.GetError());
+        return RunCommandsOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::RollUpdateCloudBaseRunServerVersionAsync(const RollUpdateCloudBaseRunServerVersionRequest& request, const RollUpdateCloudBaseRunServerVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::RunCommandsAsync(const RunCommandsRequest& request, const RunCommandsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RollUpdateCloudBaseRunServerVersionRequest&;
-    using Resp = RollUpdateCloudBaseRunServerVersionResponse;
+    using Req = const RunCommandsRequest&;
+    using Resp = RunCommandsResponse;
 
     DoRequestAsync<Req, Resp>(
-        "RollUpdateCloudBaseRunServerVersion", request, {{{"Content-Type", "application/json"}}},
+        "RunCommands", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::RollUpdateCloudBaseRunServerVersionOutcomeCallable TcbClient::RollUpdateCloudBaseRunServerVersionCallable(const RollUpdateCloudBaseRunServerVersionRequest &request)
+TcbClient::RunCommandsOutcomeCallable TcbClient::RunCommandsCallable(const RunCommandsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RollUpdateCloudBaseRunServerVersionOutcome>>();
-    RollUpdateCloudBaseRunServerVersionAsync(
+    const auto prom = std::make_shared<std::promise<RunCommandsOutcome>>();
+    RunCommandsAsync(
     request,
     [prom](
         const TcbClient*,
-        const RollUpdateCloudBaseRunServerVersionRequest&,
-        RollUpdateCloudBaseRunServerVersionOutcome resp,
+        const RunCommandsRequest&,
+        RunCommandsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TcbClient::RunSqlOutcome TcbClient::RunSql(const RunSqlRequest &request)
+{
+    auto outcome = MakeRequest(request, "RunSql");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        RunSqlResponse rsp = RunSqlResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return RunSqlOutcome(rsp);
+        else
+            return RunSqlOutcome(o.GetError());
+    }
+    else
+    {
+        return RunSqlOutcome(outcome.GetError());
+    }
+}
+
+void TcbClient::RunSqlAsync(const RunSqlRequest& request, const RunSqlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const RunSqlRequest&;
+    using Resp = RunSqlResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "RunSql", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TcbClient::RunSqlOutcomeCallable TcbClient::RunSqlCallable(const RunSqlRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<RunSqlOutcome>>();
+    RunSqlAsync(
+    request,
+    [prom](
+        const TcbClient*,
+        const RunSqlRequest&,
+        RunSqlOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4340,148 +3490,48 @@ TcbClient::SearchClsLogOutcomeCallable TcbClient::SearchClsLogCallable(const Sea
     return prom->get_future();
 }
 
-TcbClient::TurnOffStandaloneGatewayOutcome TcbClient::TurnOffStandaloneGateway(const TurnOffStandaloneGatewayRequest &request)
+TcbClient::UpdateTableOutcome TcbClient::UpdateTable(const UpdateTableRequest &request)
 {
-    auto outcome = MakeRequest(request, "TurnOffStandaloneGateway");
+    auto outcome = MakeRequest(request, "UpdateTable");
     if (outcome.IsSuccess())
     {
         auto r = outcome.GetResult();
         string payload = string(r.Body(), r.BodySize());
-        TurnOffStandaloneGatewayResponse rsp = TurnOffStandaloneGatewayResponse();
+        UpdateTableResponse rsp = UpdateTableResponse();
         auto o = rsp.Deserialize(payload);
         if (o.IsSuccess())
-            return TurnOffStandaloneGatewayOutcome(rsp);
+            return UpdateTableOutcome(rsp);
         else
-            return TurnOffStandaloneGatewayOutcome(o.GetError());
+            return UpdateTableOutcome(o.GetError());
     }
     else
     {
-        return TurnOffStandaloneGatewayOutcome(outcome.GetError());
+        return UpdateTableOutcome(outcome.GetError());
     }
 }
 
-void TcbClient::TurnOffStandaloneGatewayAsync(const TurnOffStandaloneGatewayRequest& request, const TurnOffStandaloneGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+void TcbClient::UpdateTableAsync(const UpdateTableRequest& request, const UpdateTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TurnOffStandaloneGatewayRequest&;
-    using Resp = TurnOffStandaloneGatewayResponse;
+    using Req = const UpdateTableRequest&;
+    using Resp = UpdateTableResponse;
 
     DoRequestAsync<Req, Resp>(
-        "TurnOffStandaloneGateway", request, {{{"Content-Type", "application/json"}}},
+        "UpdateTable", request, {{{"Content-Type", "application/json"}}},
         [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
         {
             handler(this, req, std::move(resp), context);
         });
 }
 
-TcbClient::TurnOffStandaloneGatewayOutcomeCallable TcbClient::TurnOffStandaloneGatewayCallable(const TurnOffStandaloneGatewayRequest &request)
+TcbClient::UpdateTableOutcomeCallable TcbClient::UpdateTableCallable(const UpdateTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TurnOffStandaloneGatewayOutcome>>();
-    TurnOffStandaloneGatewayAsync(
+    const auto prom = std::make_shared<std::promise<UpdateTableOutcome>>();
+    UpdateTableAsync(
     request,
     [prom](
         const TcbClient*,
-        const TurnOffStandaloneGatewayRequest&,
-        TurnOffStandaloneGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::TurnOnStandaloneGatewayOutcome TcbClient::TurnOnStandaloneGateway(const TurnOnStandaloneGatewayRequest &request)
-{
-    auto outcome = MakeRequest(request, "TurnOnStandaloneGateway");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        TurnOnStandaloneGatewayResponse rsp = TurnOnStandaloneGatewayResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return TurnOnStandaloneGatewayOutcome(rsp);
-        else
-            return TurnOnStandaloneGatewayOutcome(o.GetError());
-    }
-    else
-    {
-        return TurnOnStandaloneGatewayOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::TurnOnStandaloneGatewayAsync(const TurnOnStandaloneGatewayRequest& request, const TurnOnStandaloneGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const TurnOnStandaloneGatewayRequest&;
-    using Resp = TurnOnStandaloneGatewayResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "TurnOnStandaloneGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::TurnOnStandaloneGatewayOutcomeCallable TcbClient::TurnOnStandaloneGatewayCallable(const TurnOnStandaloneGatewayRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<TurnOnStandaloneGatewayOutcome>>();
-    TurnOnStandaloneGatewayAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const TurnOnStandaloneGatewayRequest&,
-        TurnOnStandaloneGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcbClient::UnfreezeCloudBaseRunServersOutcome TcbClient::UnfreezeCloudBaseRunServers(const UnfreezeCloudBaseRunServersRequest &request)
-{
-    auto outcome = MakeRequest(request, "UnfreezeCloudBaseRunServers");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        UnfreezeCloudBaseRunServersResponse rsp = UnfreezeCloudBaseRunServersResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return UnfreezeCloudBaseRunServersOutcome(rsp);
-        else
-            return UnfreezeCloudBaseRunServersOutcome(o.GetError());
-    }
-    else
-    {
-        return UnfreezeCloudBaseRunServersOutcome(outcome.GetError());
-    }
-}
-
-void TcbClient::UnfreezeCloudBaseRunServersAsync(const UnfreezeCloudBaseRunServersRequest& request, const UnfreezeCloudBaseRunServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const UnfreezeCloudBaseRunServersRequest&;
-    using Resp = UnfreezeCloudBaseRunServersResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "UnfreezeCloudBaseRunServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcbClient::UnfreezeCloudBaseRunServersOutcomeCallable TcbClient::UnfreezeCloudBaseRunServersCallable(const UnfreezeCloudBaseRunServersRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<UnfreezeCloudBaseRunServersOutcome>>();
-    UnfreezeCloudBaseRunServersAsync(
-    request,
-    [prom](
-        const TcbClient*,
-        const UnfreezeCloudBaseRunServersRequest&,
-        UnfreezeCloudBaseRunServersOutcome resp,
+        const UpdateTableRequest&,
+        UpdateTableOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

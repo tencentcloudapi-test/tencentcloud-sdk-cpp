@@ -44,14 +44,18 @@ namespace TencentCloud
 
                     /**
                      * 获取应用ID
+若要操作共享知识库，传KnowledgeBizId
                      * @return BotBizId 应用ID
+若要操作共享知识库，传KnowledgeBizId
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
                      * 设置应用ID
+若要操作共享知识库，传KnowledgeBizId
                      * @param _botBizId 应用ID
+若要操作共享知识库，传KnowledgeBizId
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -64,15 +68,15 @@ namespace TencentCloud
                     bool BotBizIdHasBeenSet() const;
 
                     /**
-                     * 获取页码
-                     * @return PageNumber 页码
+                     * 获取页码（取值范围>0）
+                     * @return PageNumber 页码（取值范围>0）
                      * 
                      */
                     int64_t GetPageNumber() const;
 
                     /**
-                     * 设置页码
-                     * @param _pageNumber 页码
+                     * 设置页码（取值范围>0）
+                     * @param _pageNumber 页码（取值范围>0）
                      * 
                      */
                     void SetPageNumber(const int64_t& _pageNumber);
@@ -85,15 +89,15 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取每页大小
-                     * @return PageSize 每页大小
+                     * 获取每页大小(取值范围1-200)
+                     * @return PageSize 每页大小(取值范围1-200)
                      * 
                      */
                     int64_t GetPageSize() const;
 
                     /**
-                     * 设置每页大小
-                     * @param _pageSize 每页大小
+                     * 设置每页大小(取值范围1-200)
+                     * @param _pageSize 每页大小(取值范围1-200)
                      * 
                      */
                     void SetPageSize(const int64_t& _pageSize);
@@ -136,14 +140,18 @@ namespace TencentCloud
 
                     /**
                      * 获取校验状态(1未校验2采纳3不采纳)
+如果不填默认值为空数组，表示不筛选，返回所有状态
                      * @return AcceptStatus 校验状态(1未校验2采纳3不采纳)
+如果不填默认值为空数组，表示不筛选，返回所有状态
                      * 
                      */
                     std::vector<int64_t> GetAcceptStatus() const;
 
                     /**
                      * 设置校验状态(1未校验2采纳3不采纳)
+如果不填默认值为空数组，表示不筛选，返回所有状态
                      * @param _acceptStatus 校验状态(1未校验2采纳3不采纳)
+如果不填默认值为空数组，表示不筛选，返回所有状态
                      * 
                      */
                     void SetAcceptStatus(const std::vector<int64_t>& _acceptStatus);
@@ -156,15 +164,19 @@ namespace TencentCloud
                     bool AcceptStatusHasBeenSet() const;
 
                     /**
-                     * 获取发布状态(2待发布 3发布中 4已发布 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
-                     * @return ReleaseStatus 发布状态(2待发布 3发布中 4已发布 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+                     * 获取发布状态(2,4导入成功 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+如果不填默认值为空数组，表示不筛选返回所有状态
+                     * @return ReleaseStatus 发布状态(2,4导入成功 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+如果不填默认值为空数组，表示不筛选返回所有状态
                      * 
                      */
                     std::vector<int64_t> GetReleaseStatus() const;
 
                     /**
-                     * 设置发布状态(2待发布 3发布中 4已发布 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
-                     * @param _releaseStatus 发布状态(2待发布 3发布中 4已发布 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+                     * 设置发布状态(2,4导入成功 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+如果不填默认值为空数组，表示不筛选返回所有状态
+                     * @param _releaseStatus 发布状态(2,4导入成功 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+如果不填默认值为空数组，表示不筛选返回所有状态
                      * 
                      */
                     void SetReleaseStatus(const std::vector<int64_t>& _releaseStatus);
@@ -199,14 +211,18 @@ namespace TencentCloud
 
                     /**
                      * 获取来源(1 文档生成 2 批量导入 3 手动添加)
+不填默认值为0，表示不过滤，返回所有状态
                      * @return Source 来源(1 文档生成 2 批量导入 3 手动添加)
+不填默认值为0，表示不过滤，返回所有状态
                      * 
                      */
                     int64_t GetSource() const;
 
                     /**
                      * 设置来源(1 文档生成 2 批量导入 3 手动添加)
+不填默认值为0，表示不过滤，返回所有状态
                      * @param _source 来源(1 文档生成 2 批量导入 3 手动添加)
+不填默认值为0，表示不过滤，返回所有状态
                      * 
                      */
                     void SetSource(const int64_t& _source);
@@ -283,14 +299,18 @@ namespace TencentCloud
 
                     /**
                      * 获取查询类型 filename 名称、 attribute 标签
+如果不填默认值为"filename"
                      * @return QueryType 查询类型 filename 名称、 attribute 标签
+如果不填默认值为"filename"
                      * 
                      */
                     std::string GetQueryType() const;
 
                     /**
                      * 设置查询类型 filename 名称、 attribute 标签
+如果不填默认值为"filename"
                      * @param _queryType 查询类型 filename 名称、 attribute 标签
+如果不填默认值为"filename"
                      * 
                      */
                     void SetQueryType(const std::string& _queryType);
@@ -323,22 +343,48 @@ namespace TencentCloud
                      */
                     bool ShowCurrCateHasBeenSet() const;
 
+                    /**
+                     * 获取问答生效域检索，不检索不传。枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
+                     * @return EnableScope 问答生效域检索，不检索不传。枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
+                     * 
+                     */
+                    int64_t GetEnableScope() const;
+
+                    /**
+                     * 设置问答生效域检索，不检索不传。枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
+                     * @param _enableScope 问答生效域检索，不检索不传。枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
+                     * 
+                     */
+                    void SetEnableScope(const int64_t& _enableScope);
+
+                    /**
+                     * 判断参数 EnableScope 是否已赋值
+                     * @return EnableScope 是否已赋值
+                     * 
+                     */
+                    bool EnableScopeHasBeenSet() const;
+
                 private:
 
                     /**
                      * 应用ID
+若要操作共享知识库，传KnowledgeBizId
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
 
                     /**
-                     * 页码
+                     * 页码（取值范围>0）
                      */
                     int64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * 每页大小
+                     * 每页大小(取值范围1-200)
                      */
                     int64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
@@ -353,12 +399,14 @@ namespace TencentCloud
 
                     /**
                      * 校验状态(1未校验2采纳3不采纳)
+如果不填默认值为空数组，表示不筛选，返回所有状态
                      */
                     std::vector<int64_t> m_acceptStatus;
                     bool m_acceptStatusHasBeenSet;
 
                     /**
-                     * 发布状态(2待发布 3发布中 4已发布 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+                     * 发布状态(2,4导入成功 7审核中 8审核失败 9人工申述中 11人工申述失败 12已过期 13超量失效 14超量失效恢复)
+如果不填默认值为空数组，表示不筛选返回所有状态
                      */
                     std::vector<int64_t> m_releaseStatus;
                     bool m_releaseStatusHasBeenSet;
@@ -371,6 +419,7 @@ namespace TencentCloud
 
                     /**
                      * 来源(1 文档生成 2 批量导入 3 手动添加)
+不填默认值为0，表示不过滤，返回所有状态
                      */
                     int64_t m_source;
                     bool m_sourceHasBeenSet;
@@ -395,6 +444,7 @@ namespace TencentCloud
 
                     /**
                      * 查询类型 filename 名称、 attribute 标签
+如果不填默认值为"filename"
                      */
                     std::string m_queryType;
                     bool m_queryTypeHasBeenSet;
@@ -404,6 +454,13 @@ namespace TencentCloud
                      */
                     uint64_t m_showCurrCate;
                     bool m_showCurrCateHasBeenSet;
+
+                    /**
+                     * 问答生效域检索，不检索不传。枚举值如下：
+1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。
+                     */
+                    int64_t m_enableScope;
+                    bool m_enableScopeHasBeenSet;
 
                 };
             }

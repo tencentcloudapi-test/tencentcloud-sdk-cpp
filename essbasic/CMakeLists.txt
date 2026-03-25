@@ -239,6 +239,7 @@ set(essbasic_public_header_model
   include/tencentcloud/essbasic/v20210526/model/AutoSignConfig.h
   include/tencentcloud/essbasic/v20210526/model/StaffRole.h
   include/tencentcloud/essbasic/v20210526/model/CreateBatchOrganizationRegistrationTasksResponse.h
+  include/tencentcloud/essbasic/v20210526/model/FlowOperateLimit.h
   include/tencentcloud/essbasic/v20210526/model/ChannelVerifyPdfRequest.h
   include/tencentcloud/essbasic/v20210526/model/CreateChannelFlowEvidenceReportRequest.h
   include/tencentcloud/essbasic/v20210526/model/ChannelCancelFlowRequest.h
@@ -364,6 +365,7 @@ set(essbasic_public_header_model
   include/tencentcloud/essbasic/v20210526/model/ChannelCreateReleaseFlowRequest.h
   include/tencentcloud/essbasic/v20210526/model/ChannelDescribeFlowComponentsResponse.h
   include/tencentcloud/essbasic/v20210526/model/UserFlowType.h
+  include/tencentcloud/essbasic/v20210526/model/DynamicSignOption.h
   include/tencentcloud/essbasic/v20210526/model/DeleteOrganizationAuthorizationsRequest.h
   include/tencentcloud/essbasic/v20210526/model/ChannelCreateFlowGroupByFilesResponse.h
   include/tencentcloud/essbasic/v20210526/model/ChannelCreateMultiFlowSignQRCodeResponse.h
@@ -657,6 +659,7 @@ set(essbasic_src
   src/v20210526/model/AutoSignConfig.cpp
   src/v20210526/model/StaffRole.cpp
   src/v20210526/model/CreateBatchOrganizationRegistrationTasksResponse.cpp
+  src/v20210526/model/FlowOperateLimit.cpp
   src/v20210526/model/ChannelVerifyPdfRequest.cpp
   src/v20210526/model/CreateChannelFlowEvidenceReportRequest.cpp
   src/v20210526/model/ChannelCancelFlowRequest.cpp
@@ -782,6 +785,7 @@ set(essbasic_src
   src/v20210526/model/ChannelCreateReleaseFlowRequest.cpp
   src/v20210526/model/ChannelDescribeFlowComponentsResponse.cpp
   src/v20210526/model/UserFlowType.cpp
+  src/v20210526/model/DynamicSignOption.cpp
   src/v20210526/model/DeleteOrganizationAuthorizationsRequest.cpp
   src/v20210526/model/ChannelCreateFlowGroupByFilesResponse.cpp
   src/v20210526/model/ChannelCreateMultiFlowSignQRCodeResponse.cpp

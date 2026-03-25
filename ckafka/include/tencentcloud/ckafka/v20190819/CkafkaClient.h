@@ -79,6 +79,8 @@
 #include <tencentcloud/ckafka/v20190819/model/DeleteDatahubTopicResponse.h>
 #include <tencentcloud/ckafka/v20190819/model/DeleteGroupRequest.h>
 #include <tencentcloud/ckafka/v20190819/model/DeleteGroupResponse.h>
+#include <tencentcloud/ckafka/v20190819/model/DeleteGroupSubscribeTopicRequest.h>
+#include <tencentcloud/ckafka/v20190819/model/DeleteGroupSubscribeTopicResponse.h>
 #include <tencentcloud/ckafka/v20190819/model/DeleteInstancePostRequest.h>
 #include <tencentcloud/ckafka/v20190819/model/DeleteInstancePostResponse.h>
 #include <tencentcloud/ckafka/v20190819/model/DeleteInstancePreRequest.h>
@@ -305,6 +307,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteGroupResponse> DeleteGroupOutcome;
                 typedef std::future<DeleteGroupOutcome> DeleteGroupOutcomeCallable;
                 typedef std::function<void(const CkafkaClient*, const Model::DeleteGroupRequest&, DeleteGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteGroupAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteGroupSubscribeTopicResponse> DeleteGroupSubscribeTopicOutcome;
+                typedef std::future<DeleteGroupSubscribeTopicOutcome> DeleteGroupSubscribeTopicOutcomeCallable;
+                typedef std::function<void(const CkafkaClient*, const Model::DeleteGroupSubscribeTopicRequest&, DeleteGroupSubscribeTopicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteGroupSubscribeTopicAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteInstancePostResponse> DeleteInstancePostOutcome;
                 typedef std::future<DeleteInstancePostOutcome> DeleteInstancePostOutcomeCallable;
                 typedef std::function<void(const CkafkaClient*, const Model::DeleteInstancePostRequest&, DeleteInstancePostOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteInstancePostAsyncHandler;
@@ -753,6 +758,15 @@ namespace TencentCloud
                 DeleteGroupOutcomeCallable DeleteGroupCallable(const Model::DeleteGroupRequest& request);
 
                 /**
+                 *删除消费分组订阅的topic(消费分组必须是Empty 状态)
+                 * @param req DeleteGroupSubscribeTopicRequest
+                 * @return DeleteGroupSubscribeTopicOutcome
+                 */
+                DeleteGroupSubscribeTopicOutcome DeleteGroupSubscribeTopic(const Model::DeleteGroupSubscribeTopicRequest &request);
+                void DeleteGroupSubscribeTopicAsync(const Model::DeleteGroupSubscribeTopicRequest& request, const DeleteGroupSubscribeTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteGroupSubscribeTopicOutcomeCallable DeleteGroupSubscribeTopicCallable(const Model::DeleteGroupSubscribeTopicRequest& request);
+
+                /**
                  *删除后付费实例，通过调用API删除不会对连接器和任务进行关联预检查，直接进行实例销毁。
                  * @param req DeleteInstancePostRequest
                  * @return DeleteInstancePostOutcome
@@ -1005,7 +1019,7 @@ namespace TencentCloud
                 DescribePrometheusOutcomeCallable DescribePrometheusCallable(const Model::DescribePrometheusRequest& request);
 
                 /**
-                 *枚举地域,只支持广州地域
+                 *枚举地域信息
                  * @param req DescribeRegionRequest
                  * @return DescribeRegionOutcome
                  */

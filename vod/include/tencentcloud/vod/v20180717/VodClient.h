@@ -39,8 +39,24 @@
 #include <tencentcloud/vod/v20180717/model/CreateAIRecognitionTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateAdaptiveDynamicStreamingTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateAdaptiveDynamicStreamingTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcAdvancedCustomElementRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcAdvancedCustomElementResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcApiTokenRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcApiTokenResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcCustomElementRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcCustomElementResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcCustomVoiceRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcCustomVoiceResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcImageTaskRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcImageTaskResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcSubjectRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcSubjectResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcVideoTaskRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateAigcVideoTaskResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateAnimatedGraphicsTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateAnimatedGraphicsTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateBlindWatermarkTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateBlindWatermarkTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateCLSLogsetRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateCLSLogsetResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateCLSTopicRequest.h>
@@ -63,12 +79,16 @@
 #include <tencentcloud/vod/v20180717/model/CreateImageSpriteTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateJustInTimeTranscodeTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateJustInTimeTranscodeTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateLLMComprehendTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateLLMComprehendTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateMPSTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateMPSTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreatePersonSampleRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreatePersonSampleResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateProcedureTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateProcedureTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateProcessImageAsyncTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateProcessImageAsyncTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateQualityInspectTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateQualityInspectTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateRebuildMediaTemplateRequest.h>
@@ -79,6 +99,10 @@
 #include <tencentcloud/vod/v20180717/model/CreateRoundPlayResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateSampleSnapshotTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateSampleSnapshotTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateSceneAigcImageTaskRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateSceneAigcImageTaskResponse.h>
+#include <tencentcloud/vod/v20180717/model/CreateSceneAigcVideoTaskRequest.h>
+#include <tencentcloud/vod/v20180717/model/CreateSceneAigcVideoTaskResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateSnapshotByTimeOffsetTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/CreateSnapshotByTimeOffsetTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/CreateStorageRegionRequest.h>
@@ -101,8 +125,12 @@
 #include <tencentcloud/vod/v20180717/model/DeleteAIRecognitionTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteAdaptiveDynamicStreamingTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteAdaptiveDynamicStreamingTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/DeleteAigcApiTokenRequest.h>
+#include <tencentcloud/vod/v20180717/model/DeleteAigcApiTokenResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteAnimatedGraphicsTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteAnimatedGraphicsTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/DeleteBlindWatermarkTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/DeleteBlindWatermarkTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteCLSTopicRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteCLSTopicResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteClassRequest.h>
@@ -119,6 +147,8 @@
 #include <tencentcloud/vod/v20180717/model/DeleteImageSpriteTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteJustInTimeTranscodeTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteJustInTimeTranscodeTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/DeleteLLMComprehendTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/DeleteLLMComprehendTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteMPSTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteMPSTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteMediaRequest.h>
@@ -127,6 +157,8 @@
 #include <tencentcloud/vod/v20180717/model/DeletePersonSampleResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteProcedureTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteProcedureTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/DeleteProcessImageAsyncTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/DeleteProcessImageAsyncTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteQualityInspectTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/DeleteQualityInspectTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/DeleteRebuildMediaTemplateRequest.h>
@@ -155,10 +187,18 @@
 #include <tencentcloud/vod/v20180717/model/DescribeAIRecognitionTemplatesResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeAdaptiveDynamicStreamingTemplatesRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeAdaptiveDynamicStreamingTemplatesResponse.h>
+#include <tencentcloud/vod/v20180717/model/DescribeAigcApiTokensRequest.h>
+#include <tencentcloud/vod/v20180717/model/DescribeAigcApiTokensResponse.h>
+#include <tencentcloud/vod/v20180717/model/DescribeAigcFaceInfoRequest.h>
+#include <tencentcloud/vod/v20180717/model/DescribeAigcFaceInfoResponse.h>
+#include <tencentcloud/vod/v20180717/model/DescribeAigcUsageDataRequest.h>
+#include <tencentcloud/vod/v20180717/model/DescribeAigcUsageDataResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeAllClassRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeAllClassResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeAnimatedGraphicsTemplatesRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeAnimatedGraphicsTemplatesResponse.h>
+#include <tencentcloud/vod/v20180717/model/DescribeBlindWatermarkTemplatesRequest.h>
+#include <tencentcloud/vod/v20180717/model/DescribeBlindWatermarkTemplatesResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeCDNStatDetailsRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeCDNStatDetailsResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeCDNUsageDataRequest.h>
@@ -207,6 +247,8 @@
 #include <tencentcloud/vod/v20180717/model/DescribeImageSpriteTemplatesResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeJustInTimeTranscodeTemplatesRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeJustInTimeTranscodeTemplatesResponse.h>
+#include <tencentcloud/vod/v20180717/model/DescribeLLMComprehendTemplatesRequest.h>
+#include <tencentcloud/vod/v20180717/model/DescribeLLMComprehendTemplatesResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeLicenseUsageDataRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeLicenseUsageDataResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeMPSTemplatesRequest.h>
@@ -223,6 +265,8 @@
 #include <tencentcloud/vod/v20180717/model/DescribePrepaidProductsResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeProcedureTemplatesRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeProcedureTemplatesResponse.h>
+#include <tencentcloud/vod/v20180717/model/DescribeProcessImageAsyncTemplatesRequest.h>
+#include <tencentcloud/vod/v20180717/model/DescribeProcessImageAsyncTemplatesResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeQualityInspectTemplatesRequest.h>
 #include <tencentcloud/vod/v20180717/model/DescribeQualityInspectTemplatesResponse.h>
 #include <tencentcloud/vod/v20180717/model/DescribeRebuildMediaTemplatesRequest.h>
@@ -267,6 +311,8 @@
 #include <tencentcloud/vod/v20180717/model/EnhanceMediaQualityResponse.h>
 #include <tencentcloud/vod/v20180717/model/ExecuteFunctionRequest.h>
 #include <tencentcloud/vod/v20180717/model/ExecuteFunctionResponse.h>
+#include <tencentcloud/vod/v20180717/model/ExtractBlindWatermarkRequest.h>
+#include <tencentcloud/vod/v20180717/model/ExtractBlindWatermarkResponse.h>
 #include <tencentcloud/vod/v20180717/model/ExtractCopyRightWatermarkRequest.h>
 #include <tencentcloud/vod/v20180717/model/ExtractCopyRightWatermarkResponse.h>
 #include <tencentcloud/vod/v20180717/model/ExtractTraceWatermarkRequest.h>
@@ -277,8 +323,12 @@
 #include <tencentcloud/vod/v20180717/model/ForbidMediaDistributionResponse.h>
 #include <tencentcloud/vod/v20180717/model/HandleCurrentPlaylistRequest.h>
 #include <tencentcloud/vod/v20180717/model/HandleCurrentPlaylistResponse.h>
+#include <tencentcloud/vod/v20180717/model/ImportMediaKnowledgeRequest.h>
+#include <tencentcloud/vod/v20180717/model/ImportMediaKnowledgeResponse.h>
 #include <tencentcloud/vod/v20180717/model/InspectMediaQualityRequest.h>
 #include <tencentcloud/vod/v20180717/model/InspectMediaQualityResponse.h>
+#include <tencentcloud/vod/v20180717/model/ListFilesRequest.h>
+#include <tencentcloud/vod/v20180717/model/ListFilesResponse.h>
 #include <tencentcloud/vod/v20180717/model/LiveRealTimeClipRequest.h>
 #include <tencentcloud/vod/v20180717/model/LiveRealTimeClipResponse.h>
 #include <tencentcloud/vod/v20180717/model/ManageTaskRequest.h>
@@ -291,6 +341,8 @@
 #include <tencentcloud/vod/v20180717/model/ModifyAdaptiveDynamicStreamingTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyAnimatedGraphicsTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/ModifyAnimatedGraphicsTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/ModifyBlindWatermarkTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/ModifyBlindWatermarkTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyClassRequest.h>
 #include <tencentcloud/vod/v20180717/model/ModifyClassResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyContentReviewTemplateRequest.h>
@@ -309,6 +361,8 @@
 #include <tencentcloud/vod/v20180717/model/ModifyImageSpriteTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyJustInTimeTranscodeTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/ModifyJustInTimeTranscodeTemplateResponse.h>
+#include <tencentcloud/vod/v20180717/model/ModifyLLMComprehendTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/ModifyLLMComprehendTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyMPSTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/ModifyMPSTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyMediaInfoRequest.h>
@@ -317,6 +371,8 @@
 #include <tencentcloud/vod/v20180717/model/ModifyMediaStorageClassResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyPersonSampleRequest.h>
 #include <tencentcloud/vod/v20180717/model/ModifyPersonSampleResponse.h>
+#include <tencentcloud/vod/v20180717/model/ModifyProcessImageAsyncTemplateRequest.h>
+#include <tencentcloud/vod/v20180717/model/ModifyProcessImageAsyncTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyQualityInspectTemplateRequest.h>
 #include <tencentcloud/vod/v20180717/model/ModifyQualityInspectTemplateResponse.h>
 #include <tencentcloud/vod/v20180717/model/ModifyRebuildMediaTemplateRequest.h>
@@ -349,6 +405,8 @@
 #include <tencentcloud/vod/v20180717/model/ParseStreamingManifestResponse.h>
 #include <tencentcloud/vod/v20180717/model/ProcessImageRequest.h>
 #include <tencentcloud/vod/v20180717/model/ProcessImageResponse.h>
+#include <tencentcloud/vod/v20180717/model/ProcessImageAsyncRequest.h>
+#include <tencentcloud/vod/v20180717/model/ProcessImageAsyncResponse.h>
 #include <tencentcloud/vod/v20180717/model/ProcessMediaRequest.h>
 #include <tencentcloud/vod/v20180717/model/ProcessMediaResponse.h>
 #include <tencentcloud/vod/v20180717/model/ProcessMediaByMPSRequest.h>
@@ -381,6 +439,8 @@
 #include <tencentcloud/vod/v20180717/model/ReviewImageResponse.h>
 #include <tencentcloud/vod/v20180717/model/SearchMediaRequest.h>
 #include <tencentcloud/vod/v20180717/model/SearchMediaResponse.h>
+#include <tencentcloud/vod/v20180717/model/SearchMediaBySemanticsRequest.h>
+#include <tencentcloud/vod/v20180717/model/SearchMediaBySemanticsResponse.h>
 #include <tencentcloud/vod/v20180717/model/SetCLSPushTargetRequest.h>
 #include <tencentcloud/vod/v20180717/model/SetCLSPushTargetResponse.h>
 #include <tencentcloud/vod/v20180717/model/SetDrmKeyProviderInfoRequest.h>
@@ -433,9 +493,33 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateAdaptiveDynamicStreamingTemplateResponse> CreateAdaptiveDynamicStreamingTemplateOutcome;
                 typedef std::future<CreateAdaptiveDynamicStreamingTemplateOutcome> CreateAdaptiveDynamicStreamingTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateAdaptiveDynamicStreamingTemplateRequest&, CreateAdaptiveDynamicStreamingTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAdaptiveDynamicStreamingTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcAdvancedCustomElementResponse> CreateAigcAdvancedCustomElementOutcome;
+                typedef std::future<CreateAigcAdvancedCustomElementOutcome> CreateAigcAdvancedCustomElementOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcAdvancedCustomElementRequest&, CreateAigcAdvancedCustomElementOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcAdvancedCustomElementAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcApiTokenResponse> CreateAigcApiTokenOutcome;
+                typedef std::future<CreateAigcApiTokenOutcome> CreateAigcApiTokenOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcApiTokenRequest&, CreateAigcApiTokenOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcApiTokenAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcCustomElementResponse> CreateAigcCustomElementOutcome;
+                typedef std::future<CreateAigcCustomElementOutcome> CreateAigcCustomElementOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcCustomElementRequest&, CreateAigcCustomElementOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcCustomElementAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcCustomVoiceResponse> CreateAigcCustomVoiceOutcome;
+                typedef std::future<CreateAigcCustomVoiceOutcome> CreateAigcCustomVoiceOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcCustomVoiceRequest&, CreateAigcCustomVoiceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcCustomVoiceAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcImageTaskResponse> CreateAigcImageTaskOutcome;
+                typedef std::future<CreateAigcImageTaskOutcome> CreateAigcImageTaskOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcImageTaskRequest&, CreateAigcImageTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcImageTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcSubjectResponse> CreateAigcSubjectOutcome;
+                typedef std::future<CreateAigcSubjectOutcome> CreateAigcSubjectOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcSubjectRequest&, CreateAigcSubjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcSubjectAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateAigcVideoTaskResponse> CreateAigcVideoTaskOutcome;
+                typedef std::future<CreateAigcVideoTaskOutcome> CreateAigcVideoTaskOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateAigcVideoTaskRequest&, CreateAigcVideoTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAigcVideoTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateAnimatedGraphicsTemplateResponse> CreateAnimatedGraphicsTemplateOutcome;
                 typedef std::future<CreateAnimatedGraphicsTemplateOutcome> CreateAnimatedGraphicsTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateAnimatedGraphicsTemplateRequest&, CreateAnimatedGraphicsTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAnimatedGraphicsTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateBlindWatermarkTemplateResponse> CreateBlindWatermarkTemplateOutcome;
+                typedef std::future<CreateBlindWatermarkTemplateOutcome> CreateBlindWatermarkTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateBlindWatermarkTemplateRequest&, CreateBlindWatermarkTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateBlindWatermarkTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateCLSLogsetResponse> CreateCLSLogsetOutcome;
                 typedef std::future<CreateCLSLogsetOutcome> CreateCLSLogsetOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateCLSLogsetRequest&, CreateCLSLogsetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCLSLogsetAsyncHandler;
@@ -469,6 +553,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateJustInTimeTranscodeTemplateResponse> CreateJustInTimeTranscodeTemplateOutcome;
                 typedef std::future<CreateJustInTimeTranscodeTemplateOutcome> CreateJustInTimeTranscodeTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateJustInTimeTranscodeTemplateRequest&, CreateJustInTimeTranscodeTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateJustInTimeTranscodeTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateLLMComprehendTemplateResponse> CreateLLMComprehendTemplateOutcome;
+                typedef std::future<CreateLLMComprehendTemplateOutcome> CreateLLMComprehendTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateLLMComprehendTemplateRequest&, CreateLLMComprehendTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateLLMComprehendTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateMPSTemplateResponse> CreateMPSTemplateOutcome;
                 typedef std::future<CreateMPSTemplateOutcome> CreateMPSTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateMPSTemplateRequest&, CreateMPSTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMPSTemplateAsyncHandler;
@@ -478,6 +565,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateProcedureTemplateResponse> CreateProcedureTemplateOutcome;
                 typedef std::future<CreateProcedureTemplateOutcome> CreateProcedureTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateProcedureTemplateRequest&, CreateProcedureTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProcedureTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateProcessImageAsyncTemplateResponse> CreateProcessImageAsyncTemplateOutcome;
+                typedef std::future<CreateProcessImageAsyncTemplateOutcome> CreateProcessImageAsyncTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateProcessImageAsyncTemplateRequest&, CreateProcessImageAsyncTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProcessImageAsyncTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateQualityInspectTemplateResponse> CreateQualityInspectTemplateOutcome;
                 typedef std::future<CreateQualityInspectTemplateOutcome> CreateQualityInspectTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateQualityInspectTemplateRequest&, CreateQualityInspectTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateQualityInspectTemplateAsyncHandler;
@@ -493,6 +583,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateSampleSnapshotTemplateResponse> CreateSampleSnapshotTemplateOutcome;
                 typedef std::future<CreateSampleSnapshotTemplateOutcome> CreateSampleSnapshotTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateSampleSnapshotTemplateRequest&, CreateSampleSnapshotTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateSampleSnapshotTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateSceneAigcImageTaskResponse> CreateSceneAigcImageTaskOutcome;
+                typedef std::future<CreateSceneAigcImageTaskOutcome> CreateSceneAigcImageTaskOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateSceneAigcImageTaskRequest&, CreateSceneAigcImageTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateSceneAigcImageTaskAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateSceneAigcVideoTaskResponse> CreateSceneAigcVideoTaskOutcome;
+                typedef std::future<CreateSceneAigcVideoTaskOutcome> CreateSceneAigcVideoTaskOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::CreateSceneAigcVideoTaskRequest&, CreateSceneAigcVideoTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateSceneAigcVideoTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateSnapshotByTimeOffsetTemplateResponse> CreateSnapshotByTimeOffsetTemplateOutcome;
                 typedef std::future<CreateSnapshotByTimeOffsetTemplateOutcome> CreateSnapshotByTimeOffsetTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::CreateSnapshotByTimeOffsetTemplateRequest&, CreateSnapshotByTimeOffsetTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateSnapshotByTimeOffsetTemplateAsyncHandler;
@@ -526,9 +622,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteAdaptiveDynamicStreamingTemplateResponse> DeleteAdaptiveDynamicStreamingTemplateOutcome;
                 typedef std::future<DeleteAdaptiveDynamicStreamingTemplateOutcome> DeleteAdaptiveDynamicStreamingTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteAdaptiveDynamicStreamingTemplateRequest&, DeleteAdaptiveDynamicStreamingTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAdaptiveDynamicStreamingTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteAigcApiTokenResponse> DeleteAigcApiTokenOutcome;
+                typedef std::future<DeleteAigcApiTokenOutcome> DeleteAigcApiTokenOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DeleteAigcApiTokenRequest&, DeleteAigcApiTokenOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAigcApiTokenAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteAnimatedGraphicsTemplateResponse> DeleteAnimatedGraphicsTemplateOutcome;
                 typedef std::future<DeleteAnimatedGraphicsTemplateOutcome> DeleteAnimatedGraphicsTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteAnimatedGraphicsTemplateRequest&, DeleteAnimatedGraphicsTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAnimatedGraphicsTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteBlindWatermarkTemplateResponse> DeleteBlindWatermarkTemplateOutcome;
+                typedef std::future<DeleteBlindWatermarkTemplateOutcome> DeleteBlindWatermarkTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DeleteBlindWatermarkTemplateRequest&, DeleteBlindWatermarkTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteBlindWatermarkTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteCLSTopicResponse> DeleteCLSTopicOutcome;
                 typedef std::future<DeleteCLSTopicOutcome> DeleteCLSTopicOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteCLSTopicRequest&, DeleteCLSTopicOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCLSTopicAsyncHandler;
@@ -553,6 +655,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteJustInTimeTranscodeTemplateResponse> DeleteJustInTimeTranscodeTemplateOutcome;
                 typedef std::future<DeleteJustInTimeTranscodeTemplateOutcome> DeleteJustInTimeTranscodeTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteJustInTimeTranscodeTemplateRequest&, DeleteJustInTimeTranscodeTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteJustInTimeTranscodeTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteLLMComprehendTemplateResponse> DeleteLLMComprehendTemplateOutcome;
+                typedef std::future<DeleteLLMComprehendTemplateOutcome> DeleteLLMComprehendTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DeleteLLMComprehendTemplateRequest&, DeleteLLMComprehendTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteLLMComprehendTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteMPSTemplateResponse> DeleteMPSTemplateOutcome;
                 typedef std::future<DeleteMPSTemplateOutcome> DeleteMPSTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteMPSTemplateRequest&, DeleteMPSTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteMPSTemplateAsyncHandler;
@@ -565,6 +670,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteProcedureTemplateResponse> DeleteProcedureTemplateOutcome;
                 typedef std::future<DeleteProcedureTemplateOutcome> DeleteProcedureTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteProcedureTemplateRequest&, DeleteProcedureTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteProcedureTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::DeleteProcessImageAsyncTemplateResponse> DeleteProcessImageAsyncTemplateOutcome;
+                typedef std::future<DeleteProcessImageAsyncTemplateOutcome> DeleteProcessImageAsyncTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DeleteProcessImageAsyncTemplateRequest&, DeleteProcessImageAsyncTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteProcessImageAsyncTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteQualityInspectTemplateResponse> DeleteQualityInspectTemplateOutcome;
                 typedef std::future<DeleteQualityInspectTemplateOutcome> DeleteQualityInspectTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DeleteQualityInspectTemplateRequest&, DeleteQualityInspectTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteQualityInspectTemplateAsyncHandler;
@@ -607,12 +715,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAdaptiveDynamicStreamingTemplatesResponse> DescribeAdaptiveDynamicStreamingTemplatesOutcome;
                 typedef std::future<DescribeAdaptiveDynamicStreamingTemplatesOutcome> DescribeAdaptiveDynamicStreamingTemplatesOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeAdaptiveDynamicStreamingTemplatesRequest&, DescribeAdaptiveDynamicStreamingTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAdaptiveDynamicStreamingTemplatesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAigcApiTokensResponse> DescribeAigcApiTokensOutcome;
+                typedef std::future<DescribeAigcApiTokensOutcome> DescribeAigcApiTokensOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DescribeAigcApiTokensRequest&, DescribeAigcApiTokensOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAigcApiTokensAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAigcFaceInfoResponse> DescribeAigcFaceInfoOutcome;
+                typedef std::future<DescribeAigcFaceInfoOutcome> DescribeAigcFaceInfoOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DescribeAigcFaceInfoRequest&, DescribeAigcFaceInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAigcFaceInfoAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeAigcUsageDataResponse> DescribeAigcUsageDataOutcome;
+                typedef std::future<DescribeAigcUsageDataOutcome> DescribeAigcUsageDataOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DescribeAigcUsageDataRequest&, DescribeAigcUsageDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAigcUsageDataAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeAllClassResponse> DescribeAllClassOutcome;
                 typedef std::future<DescribeAllClassOutcome> DescribeAllClassOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeAllClassRequest&, DescribeAllClassOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAllClassAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeAnimatedGraphicsTemplatesResponse> DescribeAnimatedGraphicsTemplatesOutcome;
                 typedef std::future<DescribeAnimatedGraphicsTemplatesOutcome> DescribeAnimatedGraphicsTemplatesOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeAnimatedGraphicsTemplatesRequest&, DescribeAnimatedGraphicsTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAnimatedGraphicsTemplatesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeBlindWatermarkTemplatesResponse> DescribeBlindWatermarkTemplatesOutcome;
+                typedef std::future<DescribeBlindWatermarkTemplatesOutcome> DescribeBlindWatermarkTemplatesOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DescribeBlindWatermarkTemplatesRequest&, DescribeBlindWatermarkTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBlindWatermarkTemplatesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeCDNStatDetailsResponse> DescribeCDNStatDetailsOutcome;
                 typedef std::future<DescribeCDNStatDetailsOutcome> DescribeCDNStatDetailsOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeCDNStatDetailsRequest&, DescribeCDNStatDetailsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCDNStatDetailsAsyncHandler;
@@ -685,6 +805,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeJustInTimeTranscodeTemplatesResponse> DescribeJustInTimeTranscodeTemplatesOutcome;
                 typedef std::future<DescribeJustInTimeTranscodeTemplatesOutcome> DescribeJustInTimeTranscodeTemplatesOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeJustInTimeTranscodeTemplatesRequest&, DescribeJustInTimeTranscodeTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeJustInTimeTranscodeTemplatesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeLLMComprehendTemplatesResponse> DescribeLLMComprehendTemplatesOutcome;
+                typedef std::future<DescribeLLMComprehendTemplatesOutcome> DescribeLLMComprehendTemplatesOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DescribeLLMComprehendTemplatesRequest&, DescribeLLMComprehendTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLLMComprehendTemplatesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeLicenseUsageDataResponse> DescribeLicenseUsageDataOutcome;
                 typedef std::future<DescribeLicenseUsageDataOutcome> DescribeLicenseUsageDataOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeLicenseUsageDataRequest&, DescribeLicenseUsageDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLicenseUsageDataAsyncHandler;
@@ -709,6 +832,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeProcedureTemplatesResponse> DescribeProcedureTemplatesOutcome;
                 typedef std::future<DescribeProcedureTemplatesOutcome> DescribeProcedureTemplatesOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeProcedureTemplatesRequest&, DescribeProcedureTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProcedureTemplatesAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeProcessImageAsyncTemplatesResponse> DescribeProcessImageAsyncTemplatesOutcome;
+                typedef std::future<DescribeProcessImageAsyncTemplatesOutcome> DescribeProcessImageAsyncTemplatesOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::DescribeProcessImageAsyncTemplatesRequest&, DescribeProcessImageAsyncTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProcessImageAsyncTemplatesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeQualityInspectTemplatesResponse> DescribeQualityInspectTemplatesOutcome;
                 typedef std::future<DescribeQualityInspectTemplatesOutcome> DescribeQualityInspectTemplatesOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::DescribeQualityInspectTemplatesRequest&, DescribeQualityInspectTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeQualityInspectTemplatesAsyncHandler;
@@ -775,6 +901,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ExecuteFunctionResponse> ExecuteFunctionOutcome;
                 typedef std::future<ExecuteFunctionOutcome> ExecuteFunctionOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ExecuteFunctionRequest&, ExecuteFunctionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExecuteFunctionAsyncHandler;
+                typedef Outcome<Core::Error, Model::ExtractBlindWatermarkResponse> ExtractBlindWatermarkOutcome;
+                typedef std::future<ExtractBlindWatermarkOutcome> ExtractBlindWatermarkOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ExtractBlindWatermarkRequest&, ExtractBlindWatermarkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExtractBlindWatermarkAsyncHandler;
                 typedef Outcome<Core::Error, Model::ExtractCopyRightWatermarkResponse> ExtractCopyRightWatermarkOutcome;
                 typedef std::future<ExtractCopyRightWatermarkOutcome> ExtractCopyRightWatermarkOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ExtractCopyRightWatermarkRequest&, ExtractCopyRightWatermarkOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExtractCopyRightWatermarkAsyncHandler;
@@ -790,9 +919,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::HandleCurrentPlaylistResponse> HandleCurrentPlaylistOutcome;
                 typedef std::future<HandleCurrentPlaylistOutcome> HandleCurrentPlaylistOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::HandleCurrentPlaylistRequest&, HandleCurrentPlaylistOutcome, const std::shared_ptr<const AsyncCallerContext>&)> HandleCurrentPlaylistAsyncHandler;
+                typedef Outcome<Core::Error, Model::ImportMediaKnowledgeResponse> ImportMediaKnowledgeOutcome;
+                typedef std::future<ImportMediaKnowledgeOutcome> ImportMediaKnowledgeOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ImportMediaKnowledgeRequest&, ImportMediaKnowledgeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ImportMediaKnowledgeAsyncHandler;
                 typedef Outcome<Core::Error, Model::InspectMediaQualityResponse> InspectMediaQualityOutcome;
                 typedef std::future<InspectMediaQualityOutcome> InspectMediaQualityOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::InspectMediaQualityRequest&, InspectMediaQualityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InspectMediaQualityAsyncHandler;
+                typedef Outcome<Core::Error, Model::ListFilesResponse> ListFilesOutcome;
+                typedef std::future<ListFilesOutcome> ListFilesOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ListFilesRequest&, ListFilesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ListFilesAsyncHandler;
                 typedef Outcome<Core::Error, Model::LiveRealTimeClipResponse> LiveRealTimeClipOutcome;
                 typedef std::future<LiveRealTimeClipOutcome> LiveRealTimeClipOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::LiveRealTimeClipRequest&, LiveRealTimeClipOutcome, const std::shared_ptr<const AsyncCallerContext>&)> LiveRealTimeClipAsyncHandler;
@@ -811,6 +946,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyAnimatedGraphicsTemplateResponse> ModifyAnimatedGraphicsTemplateOutcome;
                 typedef std::future<ModifyAnimatedGraphicsTemplateOutcome> ModifyAnimatedGraphicsTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ModifyAnimatedGraphicsTemplateRequest&, ModifyAnimatedGraphicsTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAnimatedGraphicsTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyBlindWatermarkTemplateResponse> ModifyBlindWatermarkTemplateOutcome;
+                typedef std::future<ModifyBlindWatermarkTemplateOutcome> ModifyBlindWatermarkTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ModifyBlindWatermarkTemplateRequest&, ModifyBlindWatermarkTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyBlindWatermarkTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyClassResponse> ModifyClassOutcome;
                 typedef std::future<ModifyClassOutcome> ModifyClassOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ModifyClassRequest&, ModifyClassOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyClassAsyncHandler;
@@ -838,6 +976,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyJustInTimeTranscodeTemplateResponse> ModifyJustInTimeTranscodeTemplateOutcome;
                 typedef std::future<ModifyJustInTimeTranscodeTemplateOutcome> ModifyJustInTimeTranscodeTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ModifyJustInTimeTranscodeTemplateRequest&, ModifyJustInTimeTranscodeTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyJustInTimeTranscodeTemplateAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyLLMComprehendTemplateResponse> ModifyLLMComprehendTemplateOutcome;
+                typedef std::future<ModifyLLMComprehendTemplateOutcome> ModifyLLMComprehendTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ModifyLLMComprehendTemplateRequest&, ModifyLLMComprehendTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyLLMComprehendTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyMPSTemplateResponse> ModifyMPSTemplateOutcome;
                 typedef std::future<ModifyMPSTemplateOutcome> ModifyMPSTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ModifyMPSTemplateRequest&, ModifyMPSTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyMPSTemplateAsyncHandler;
@@ -850,6 +991,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyPersonSampleResponse> ModifyPersonSampleOutcome;
                 typedef std::future<ModifyPersonSampleOutcome> ModifyPersonSampleOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ModifyPersonSampleRequest&, ModifyPersonSampleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyPersonSampleAsyncHandler;
+                typedef Outcome<Core::Error, Model::ModifyProcessImageAsyncTemplateResponse> ModifyProcessImageAsyncTemplateOutcome;
+                typedef std::future<ModifyProcessImageAsyncTemplateOutcome> ModifyProcessImageAsyncTemplateOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ModifyProcessImageAsyncTemplateRequest&, ModifyProcessImageAsyncTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyProcessImageAsyncTemplateAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyQualityInspectTemplateResponse> ModifyQualityInspectTemplateOutcome;
                 typedef std::future<ModifyQualityInspectTemplateOutcome> ModifyQualityInspectTemplateOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ModifyQualityInspectTemplateRequest&, ModifyQualityInspectTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyQualityInspectTemplateAsyncHandler;
@@ -898,6 +1042,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ProcessImageResponse> ProcessImageOutcome;
                 typedef std::future<ProcessImageOutcome> ProcessImageOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ProcessImageRequest&, ProcessImageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ProcessImageAsyncHandler;
+                typedef Outcome<Core::Error, Model::ProcessImageAsyncResponse> ProcessImageAsyncOutcome;
+                typedef std::future<ProcessImageAsyncOutcome> ProcessImageAsyncOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::ProcessImageAsyncRequest&, ProcessImageAsyncOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ProcessImageAsyncAsyncHandler;
                 typedef Outcome<Core::Error, Model::ProcessMediaResponse> ProcessMediaOutcome;
                 typedef std::future<ProcessMediaOutcome> ProcessMediaOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::ProcessMediaRequest&, ProcessMediaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ProcessMediaAsyncHandler;
@@ -946,6 +1093,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::SearchMediaResponse> SearchMediaOutcome;
                 typedef std::future<SearchMediaOutcome> SearchMediaOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::SearchMediaRequest&, SearchMediaOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SearchMediaAsyncHandler;
+                typedef Outcome<Core::Error, Model::SearchMediaBySemanticsResponse> SearchMediaBySemanticsOutcome;
+                typedef std::future<SearchMediaBySemanticsOutcome> SearchMediaBySemanticsOutcomeCallable;
+                typedef std::function<void(const VodClient*, const Model::SearchMediaBySemanticsRequest&, SearchMediaBySemanticsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SearchMediaBySemanticsAsyncHandler;
                 typedef Outcome<Core::Error, Model::SetCLSPushTargetResponse> SetCLSPushTargetOutcome;
                 typedef std::future<SetCLSPushTargetOutcome> SetCLSPushTargetOutcomeCallable;
                 typedef std::function<void(const VodClient*, const Model::SetCLSPushTargetRequest&, SetCLSPushTargetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SetCLSPushTargetAsyncHandler;
@@ -1058,6 +1208,69 @@ namespace TencentCloud
                 CreateAdaptiveDynamicStreamingTemplateOutcomeCallable CreateAdaptiveDynamicStreamingTemplateCallable(const Model::CreateAdaptiveDynamicStreamingTemplateRequest& request);
 
                 /**
+                 *该接口用于创建 AIGC 高级自定义主体。
+                 * @param req CreateAigcAdvancedCustomElementRequest
+                 * @return CreateAigcAdvancedCustomElementOutcome
+                 */
+                CreateAigcAdvancedCustomElementOutcome CreateAigcAdvancedCustomElement(const Model::CreateAigcAdvancedCustomElementRequest &request);
+                void CreateAigcAdvancedCustomElementAsync(const Model::CreateAigcAdvancedCustomElementRequest& request, const CreateAigcAdvancedCustomElementAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcAdvancedCustomElementOutcomeCallable CreateAigcAdvancedCustomElementCallable(const Model::CreateAigcAdvancedCustomElementRequest& request);
+
+                /**
+                 *创建AIGC调用API的Token。创建后数据同步有延时，约30秒后可查询或删除。
+                 * @param req CreateAigcApiTokenRequest
+                 * @return CreateAigcApiTokenOutcome
+                 */
+                CreateAigcApiTokenOutcome CreateAigcApiToken(const Model::CreateAigcApiTokenRequest &request);
+                void CreateAigcApiTokenAsync(const Model::CreateAigcApiTokenRequest& request, const CreateAigcApiTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcApiTokenOutcomeCallable CreateAigcApiTokenCallable(const Model::CreateAigcApiTokenRequest& request);
+
+                /**
+                 *调用该接口，针对指定模型进行主体创建。
+                 * @param req CreateAigcCustomElementRequest
+                 * @return CreateAigcCustomElementOutcome
+                 */
+                CreateAigcCustomElementOutcome CreateAigcCustomElement(const Model::CreateAigcCustomElementRequest &request);
+                void CreateAigcCustomElementAsync(const Model::CreateAigcCustomElementRequest& request, const CreateAigcCustomElementAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcCustomElementOutcomeCallable CreateAigcCustomElementCallable(const Model::CreateAigcCustomElementRequest& request);
+
+                /**
+                 *该接口用于创建 AIGC 自定义音色。
+                 * @param req CreateAigcCustomVoiceRequest
+                 * @return CreateAigcCustomVoiceOutcome
+                 */
+                CreateAigcCustomVoiceOutcome CreateAigcCustomVoice(const Model::CreateAigcCustomVoiceRequest &request);
+                void CreateAigcCustomVoiceAsync(const Model::CreateAigcCustomVoiceRequest& request, const CreateAigcCustomVoiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcCustomVoiceOutcomeCallable CreateAigcCustomVoiceCallable(const Model::CreateAigcCustomVoiceRequest& request);
+
+                /**
+                 *该接口用于[生成 AIGC 图片](https://cloud.tencent.com/document/product/266/124473)。<b>接口处于内测阶段，如需使用请[联系我们](https://cloud.tencent.com/online-service?from=sales_sales&source=PRESALE)，接口调用会产生实际费用，</b>请参考点播 [AIGC 生图片计费文档](https://cloud.tencent.com/document/product/266/95125#9c4dc6ff-4b3f-4b25-bf2d-393889dfb9ac)。该功能结算模式为[后付费](https://cloud.tencent.com/document/product/266/2838)，日结客户当天使用将在第二天出账，月结客户将在次月1日统一出上月使用费用。
+                 * @param req CreateAigcImageTaskRequest
+                 * @return CreateAigcImageTaskOutcome
+                 */
+                CreateAigcImageTaskOutcome CreateAigcImageTask(const Model::CreateAigcImageTaskRequest &request);
+                void CreateAigcImageTaskAsync(const Model::CreateAigcImageTaskRequest& request, const CreateAigcImageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcImageTaskOutcomeCallable CreateAigcImageTaskCallable(const Model::CreateAigcImageTaskRequest& request);
+
+                /**
+                 *该接口用于创建 AIGC 自定义主体（Vidu）。注意，调用本接口会产生费用，请参考[计费文档](https://cloud.tencent.com/document/product/266/95125#96b3b59a-f9e1-49e9-966a-bedb70a4bf12)。
+                 * @param req CreateAigcSubjectRequest
+                 * @return CreateAigcSubjectOutcome
+                 */
+                CreateAigcSubjectOutcome CreateAigcSubject(const Model::CreateAigcSubjectRequest &request);
+                void CreateAigcSubjectAsync(const Model::CreateAigcSubjectRequest& request, const CreateAigcSubjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcSubjectOutcomeCallable CreateAigcSubjectCallable(const Model::CreateAigcSubjectRequest& request);
+
+                /**
+                 *该接口用于[生成 AIGC 视频](https://cloud.tencent.com/document/product/266/124474)。<b>接口处于内测阶段，如需使用请[联系我们](https://cloud.tencent.com/online-service?from=sales_sales&source=PRESALE)，接口调用会产生实际费用</b>，请参考点播 [AIGC 生视频计费文档](https://cloud.tencent.com/document/product/266/95125#96b3b59a-f9e1-49e9-966a-bedb70a4bf12)。该功能结算模式为[后付费](https://cloud.tencent.com/document/product/266/2838)，日结客户当天使用将在第二天出账，月结客户将在次月1日统一出上月使用费用。
+                 * @param req CreateAigcVideoTaskRequest
+                 * @return CreateAigcVideoTaskOutcome
+                 */
+                CreateAigcVideoTaskOutcome CreateAigcVideoTask(const Model::CreateAigcVideoTaskRequest &request);
+                void CreateAigcVideoTaskAsync(const Model::CreateAigcVideoTaskRequest& request, const CreateAigcVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateAigcVideoTaskOutcomeCallable CreateAigcVideoTaskCallable(const Model::CreateAigcVideoTaskRequest& request);
+
+                /**
                  *创建用户自定义转动图模板，数量上限：16。
                  * @param req CreateAnimatedGraphicsTemplateRequest
                  * @return CreateAnimatedGraphicsTemplateOutcome
@@ -1065,6 +1278,15 @@ namespace TencentCloud
                 CreateAnimatedGraphicsTemplateOutcome CreateAnimatedGraphicsTemplate(const Model::CreateAnimatedGraphicsTemplateRequest &request);
                 void CreateAnimatedGraphicsTemplateAsync(const Model::CreateAnimatedGraphicsTemplateRequest& request, const CreateAnimatedGraphicsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateAnimatedGraphicsTemplateOutcomeCallable CreateAnimatedGraphicsTemplateCallable(const Model::CreateAnimatedGraphicsTemplateRequest& request);
+
+                /**
+                 *创建用户自定义数字水印模板。
+                 * @param req CreateBlindWatermarkTemplateRequest
+                 * @return CreateBlindWatermarkTemplateOutcome
+                 */
+                CreateBlindWatermarkTemplateOutcome CreateBlindWatermarkTemplate(const Model::CreateBlindWatermarkTemplateRequest &request);
+                void CreateBlindWatermarkTemplateAsync(const Model::CreateBlindWatermarkTemplateRequest& request, const CreateBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateBlindWatermarkTemplateOutcomeCallable CreateBlindWatermarkTemplateCallable(const Model::CreateBlindWatermarkTemplateRequest& request);
 
                 /**
                  *由 VOD 创建新的日志集。
@@ -1183,6 +1405,15 @@ namespace TencentCloud
                 CreateJustInTimeTranscodeTemplateOutcomeCallable CreateJustInTimeTranscodeTemplateCallable(const Model::CreateJustInTimeTranscodeTemplateRequest& request);
 
                 /**
+                 *创建大模型解析模板
+                 * @param req CreateLLMComprehendTemplateRequest
+                 * @return CreateLLMComprehendTemplateOutcome
+                 */
+                CreateLLMComprehendTemplateOutcome CreateLLMComprehendTemplate(const Model::CreateLLMComprehendTemplateRequest &request);
+                void CreateLLMComprehendTemplateAsync(const Model::CreateLLMComprehendTemplateRequest& request, const CreateLLMComprehendTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateLLMComprehendTemplateOutcomeCallable CreateLLMComprehendTemplateCallable(const Model::CreateLLMComprehendTemplateRequest& request);
+
+                /**
                  *该接口用于创建自定义模板，模板用于 ProcessMediaByMPS 接口的部分功能。
 创建模板时，需要将 MPS 相关参数以 JSON 格式填入 MPSCreateTemplateParams 参数中。关于具体的任务参数配置方法，请参考 MPS 任务模板相关文档说明。
 当前支持创建自定义模板的 MPS 功能：
@@ -1215,6 +1446,15 @@ namespace TencentCloud
                 CreateProcedureTemplateOutcome CreateProcedureTemplate(const Model::CreateProcedureTemplateRequest &request);
                 void CreateProcedureTemplateAsync(const Model::CreateProcedureTemplateRequest& request, const CreateProcedureTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateProcedureTemplateOutcomeCallable CreateProcedureTemplateCallable(const Model::CreateProcedureTemplateRequest& request);
+
+                /**
+                 *创建用户自定义图像异步处理模板，数量上限：50。暂时不支持 HLS 格式。
+                 * @param req CreateProcessImageAsyncTemplateRequest
+                 * @return CreateProcessImageAsyncTemplateOutcome
+                 */
+                CreateProcessImageAsyncTemplateOutcome CreateProcessImageAsyncTemplate(const Model::CreateProcessImageAsyncTemplateRequest &request);
+                void CreateProcessImageAsyncTemplateAsync(const Model::CreateProcessImageAsyncTemplateRequest& request, const CreateProcessImageAsyncTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateProcessImageAsyncTemplateOutcomeCallable CreateProcessImageAsyncTemplateCallable(const Model::CreateProcessImageAsyncTemplateRequest& request);
 
                 /**
                  *创建音画质检测模板。
@@ -1264,6 +1504,24 @@ namespace TencentCloud
                 CreateSampleSnapshotTemplateOutcome CreateSampleSnapshotTemplate(const Model::CreateSampleSnapshotTemplateRequest &request);
                 void CreateSampleSnapshotTemplateAsync(const Model::CreateSampleSnapshotTemplateRequest& request, const CreateSampleSnapshotTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateSampleSnapshotTemplateOutcomeCallable CreateSampleSnapshotTemplateCallable(const Model::CreateSampleSnapshotTemplateRequest& request);
+
+                /**
+                 *该接口用于生成场景化 AIGC 图片。<b>接口处于内测阶段，如需使用请[联系我们](https://cloud.tencent.com/online-service?from=sales_sales&source=PRESALE)，接口调用会产生实际费用。</b>
+                 * @param req CreateSceneAigcImageTaskRequest
+                 * @return CreateSceneAigcImageTaskOutcome
+                 */
+                CreateSceneAigcImageTaskOutcome CreateSceneAigcImageTask(const Model::CreateSceneAigcImageTaskRequest &request);
+                void CreateSceneAigcImageTaskAsync(const Model::CreateSceneAigcImageTaskRequest& request, const CreateSceneAigcImageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateSceneAigcImageTaskOutcomeCallable CreateSceneAigcImageTaskCallable(const Model::CreateSceneAigcImageTaskRequest& request);
+
+                /**
+                 *该接口用于生成场景化 AIGC 图片。<b>接口处于内测阶段，如需使用请[联系我们](https://cloud.tencent.com/online-service?from=sales_sales&source=PRESALE)，接口调用会产生实际费用。</b>
+                 * @param req CreateSceneAigcVideoTaskRequest
+                 * @return CreateSceneAigcVideoTaskOutcome
+                 */
+                CreateSceneAigcVideoTaskOutcome CreateSceneAigcVideoTask(const Model::CreateSceneAigcVideoTaskRequest &request);
+                void CreateSceneAigcVideoTaskAsync(const Model::CreateSceneAigcVideoTaskRequest& request, const CreateSceneAigcVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateSceneAigcVideoTaskOutcomeCallable CreateSceneAigcVideoTaskCallable(const Model::CreateSceneAigcVideoTaskRequest& request);
 
                 /**
                  *创建用户自定义指定时间点截图模板，数量上限：16。
@@ -1371,6 +1629,15 @@ namespace TencentCloud
                 DeleteAdaptiveDynamicStreamingTemplateOutcomeCallable DeleteAdaptiveDynamicStreamingTemplateCallable(const Model::DeleteAdaptiveDynamicStreamingTemplateRequest& request);
 
                 /**
+                 *删除 AIGC API Token
+                 * @param req DeleteAigcApiTokenRequest
+                 * @return DeleteAigcApiTokenOutcome
+                 */
+                DeleteAigcApiTokenOutcome DeleteAigcApiToken(const Model::DeleteAigcApiTokenRequest &request);
+                void DeleteAigcApiTokenAsync(const Model::DeleteAigcApiTokenRequest& request, const DeleteAigcApiTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteAigcApiTokenOutcomeCallable DeleteAigcApiTokenCallable(const Model::DeleteAigcApiTokenRequest& request);
+
+                /**
                  *删除用户自定义转动图模板。
                  * @param req DeleteAnimatedGraphicsTemplateRequest
                  * @return DeleteAnimatedGraphicsTemplateOutcome
@@ -1378,6 +1645,15 @@ namespace TencentCloud
                 DeleteAnimatedGraphicsTemplateOutcome DeleteAnimatedGraphicsTemplate(const Model::DeleteAnimatedGraphicsTemplateRequest &request);
                 void DeleteAnimatedGraphicsTemplateAsync(const Model::DeleteAnimatedGraphicsTemplateRequest& request, const DeleteAnimatedGraphicsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteAnimatedGraphicsTemplateOutcomeCallable DeleteAnimatedGraphicsTemplateCallable(const Model::DeleteAnimatedGraphicsTemplateRequest& request);
+
+                /**
+                 *删除用户自定义数字水印模板。
+                 * @param req DeleteBlindWatermarkTemplateRequest
+                 * @return DeleteBlindWatermarkTemplateOutcome
+                 */
+                DeleteBlindWatermarkTemplateOutcome DeleteBlindWatermarkTemplate(const Model::DeleteBlindWatermarkTemplateRequest &request);
+                void DeleteBlindWatermarkTemplateAsync(const Model::DeleteBlindWatermarkTemplateRequest& request, const DeleteBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteBlindWatermarkTemplateOutcomeCallable DeleteBlindWatermarkTemplateCallable(const Model::DeleteBlindWatermarkTemplateRequest& request);
 
                 /**
                  *删除点播开通的日志主题。
@@ -1455,6 +1731,17 @@ namespace TencentCloud
                 DeleteJustInTimeTranscodeTemplateOutcomeCallable DeleteJustInTimeTranscodeTemplateCallable(const Model::DeleteJustInTimeTranscodeTemplateRequest& request);
 
                 /**
+                 *删除用户自定义图像异步处理模板。
+
+注意：模板 ID 为 10000 以下的为系统预置模板，不允许删除。
+                 * @param req DeleteLLMComprehendTemplateRequest
+                 * @return DeleteLLMComprehendTemplateOutcome
+                 */
+                DeleteLLMComprehendTemplateOutcome DeleteLLMComprehendTemplate(const Model::DeleteLLMComprehendTemplateRequest &request);
+                void DeleteLLMComprehendTemplateAsync(const Model::DeleteLLMComprehendTemplateRequest& request, const DeleteLLMComprehendTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteLLMComprehendTemplateOutcomeCallable DeleteLLMComprehendTemplateCallable(const Model::DeleteLLMComprehendTemplateRequest& request);
+
+                /**
                  *删除用户自定义 MPS 任务模板。
                  * @param req DeleteMPSTemplateRequest
                  * @return DeleteMPSTemplateOutcome
@@ -1491,6 +1778,17 @@ namespace TencentCloud
                 DeleteProcedureTemplateOutcome DeleteProcedureTemplate(const Model::DeleteProcedureTemplateRequest &request);
                 void DeleteProcedureTemplateAsync(const Model::DeleteProcedureTemplateRequest& request, const DeleteProcedureTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteProcedureTemplateOutcomeCallable DeleteProcedureTemplateCallable(const Model::DeleteProcedureTemplateRequest& request);
+
+                /**
+                 *删除用户自定义图像异步处理模板。
+
+注意：模板 ID 为 10000 以下的为系统预置模板，不允许删除。
+                 * @param req DeleteProcessImageAsyncTemplateRequest
+                 * @return DeleteProcessImageAsyncTemplateOutcome
+                 */
+                DeleteProcessImageAsyncTemplateOutcome DeleteProcessImageAsyncTemplate(const Model::DeleteProcessImageAsyncTemplateRequest &request);
+                void DeleteProcessImageAsyncTemplateAsync(const Model::DeleteProcessImageAsyncTemplateRequest& request, const DeleteProcessImageAsyncTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DeleteProcessImageAsyncTemplateOutcomeCallable DeleteProcessImageAsyncTemplateCallable(const Model::DeleteProcessImageAsyncTemplateRequest& request);
 
                 /**
                  *删除音画质检测模板。
@@ -1624,6 +1922,36 @@ namespace TencentCloud
                 DescribeAdaptiveDynamicStreamingTemplatesOutcomeCallable DescribeAdaptiveDynamicStreamingTemplatesCallable(const Model::DescribeAdaptiveDynamicStreamingTemplatesRequest& request);
 
                 /**
+                 *查询 AIGC API Token 列表。创建或删除后数据同步有延时，约30秒后可查询最新数据。
+                 * @param req DescribeAigcApiTokensRequest
+                 * @return DescribeAigcApiTokensOutcome
+                 */
+                DescribeAigcApiTokensOutcome DescribeAigcApiTokens(const Model::DescribeAigcApiTokensRequest &request);
+                void DescribeAigcApiTokensAsync(const Model::DescribeAigcApiTokensRequest& request, const DescribeAigcApiTokensAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAigcApiTokensOutcomeCallable DescribeAigcApiTokensCallable(const Model::DescribeAigcApiTokensRequest& request);
+
+                /**
+                 *该接口用于获取 AIGC 人脸信息。注意，调用本接口会产生人脸识别费用，请参考[计费文档](https://cloud.tencent.com/document/product/266/95125#96b3b59a-f9e1-49e9-966a-bedb70a4bf12)。
+                 * @param req DescribeAigcFaceInfoRequest
+                 * @return DescribeAigcFaceInfoOutcome
+                 */
+                DescribeAigcFaceInfoOutcome DescribeAigcFaceInfo(const Model::DescribeAigcFaceInfoRequest &request);
+                void DescribeAigcFaceInfoAsync(const Model::DescribeAigcFaceInfoRequest& request, const DescribeAigcFaceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAigcFaceInfoOutcomeCallable DescribeAigcFaceInfoCallable(const Model::DescribeAigcFaceInfoRequest& request);
+
+                /**
+                 *该接口返回查询时间范围内AIGC的统计信息。
+   1. 可以查询最近365天内的AIGC统计数据。
+   2. 查询时间跨度不超过90天。
+   3. 查询时间跨度超过1天的，返回以天为粒度的数据，否则，返回以5分钟为粒度的数据。
+                 * @param req DescribeAigcUsageDataRequest
+                 * @return DescribeAigcUsageDataOutcome
+                 */
+                DescribeAigcUsageDataOutcome DescribeAigcUsageData(const Model::DescribeAigcUsageDataRequest &request);
+                void DescribeAigcUsageDataAsync(const Model::DescribeAigcUsageDataRequest& request, const DescribeAigcUsageDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeAigcUsageDataOutcomeCallable DescribeAigcUsageDataCallable(const Model::DescribeAigcUsageDataRequest& request);
+
+                /**
                  ** 获得用户的所有分类信息。
                  * @param req DescribeAllClassRequest
                  * @return DescribeAllClassOutcome
@@ -1642,6 +1970,15 @@ namespace TencentCloud
                 DescribeAnimatedGraphicsTemplatesOutcomeCallable DescribeAnimatedGraphicsTemplatesCallable(const Model::DescribeAnimatedGraphicsTemplatesRequest& request);
 
                 /**
+                 *查询用户自定义数字水印模板。
+                 * @param req DescribeBlindWatermarkTemplatesRequest
+                 * @return DescribeBlindWatermarkTemplatesOutcome
+                 */
+                DescribeBlindWatermarkTemplatesOutcome DescribeBlindWatermarkTemplates(const Model::DescribeBlindWatermarkTemplatesRequest &request);
+                void DescribeBlindWatermarkTemplatesAsync(const Model::DescribeBlindWatermarkTemplatesRequest& request, const DescribeBlindWatermarkTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeBlindWatermarkTemplatesOutcomeCallable DescribeBlindWatermarkTemplatesCallable(const Model::DescribeBlindWatermarkTemplatesRequest& request);
+
+                /**
                  *该接口用于查询点播域名的 CDN 带宽、流量等统计数据。
 * 查询的起始时间和结束时间跨度不超过90天。
 * 可以查询不同服务区域的数据。
@@ -1656,7 +1993,7 @@ namespace TencentCloud
 
                 /**
                  *该接口用于查询点播 CDN 的流量、带宽等统计数据。
-   1. 可以查询最近365天内的 CDN 用量数据。
+   1. CDN 用量数据系统侧保留 13 个月，您通过接口仅可查询最近 365 天内的用量数据。如需调取超出 365 天的历史用量数据，请联系我们。
    2. 查询时间跨度不超过90天。
    3. 可以指定用量数据的时间粒度，支持5分钟、1小时、1天的时间粒度。
    4. 流量为查询时间粒度内的总流量，带宽为查询时间粒度内的峰值带宽。
@@ -1905,6 +2242,15 @@ namespace TencentCloud
                 DescribeJustInTimeTranscodeTemplatesOutcomeCallable DescribeJustInTimeTranscodeTemplatesCallable(const Model::DescribeJustInTimeTranscodeTemplatesRequest& request);
 
                 /**
+                 *根据大模型解析模板唯一标识，获取大模型解析模板详情列表。返回结果包含符合条件的所有用户自定义大模型解析模板。
+                 * @param req DescribeLLMComprehendTemplatesRequest
+                 * @return DescribeLLMComprehendTemplatesOutcome
+                 */
+                DescribeLLMComprehendTemplatesOutcome DescribeLLMComprehendTemplates(const Model::DescribeLLMComprehendTemplatesRequest &request);
+                void DescribeLLMComprehendTemplatesAsync(const Model::DescribeLLMComprehendTemplatesRequest& request, const DescribeLLMComprehendTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeLLMComprehendTemplatesOutcomeCallable DescribeLLMComprehendTemplatesCallable(const Model::DescribeLLMComprehendTemplatesRequest& request);
+
+                /**
                  *该接口返回查询时间范围内每天 License 请求次数信息。
    1. 可以查询最近365天内的 License 请求次数统计数据。
    2. 查询时间跨度不超过90天。
@@ -1961,7 +2307,7 @@ namespace TencentCloud
 
                 /**
                  *该接口返回查询时间范围内每天使用的视频处理用量信息。
-   1. 可以查询最近365天内的视频处理统计数据。
+   1. 视频处理用量数据系统侧保留 13 个月，您通过接口仅可查询最近 365 天内的用量数据。如需调取超出 365 天的历史用量数据，请联系我们。
    2. 查询时间跨度不超过90天。
                  * @param req DescribeMediaProcessUsageDataRequest
                  * @return DescribeMediaProcessUsageDataOutcome
@@ -1998,6 +2344,15 @@ namespace TencentCloud
                 DescribeProcedureTemplatesOutcome DescribeProcedureTemplates(const Model::DescribeProcedureTemplatesRequest &request);
                 void DescribeProcedureTemplatesAsync(const Model::DescribeProcedureTemplatesRequest& request, const DescribeProcedureTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeProcedureTemplatesOutcomeCallable DescribeProcedureTemplatesCallable(const Model::DescribeProcedureTemplatesRequest& request);
+
+                /**
+                 *根据图像异步处理模板唯一标识，获取图像异步处理模板详情列表。返回结果包含符合条件的所有用户自定义图像异步处理模板。
+                 * @param req DescribeProcessImageAsyncTemplatesRequest
+                 * @return DescribeProcessImageAsyncTemplatesOutcome
+                 */
+                DescribeProcessImageAsyncTemplatesOutcome DescribeProcessImageAsyncTemplates(const Model::DescribeProcessImageAsyncTemplatesRequest &request);
+                void DescribeProcessImageAsyncTemplatesAsync(const Model::DescribeProcessImageAsyncTemplatesRequest& request, const DescribeProcessImageAsyncTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeProcessImageAsyncTemplatesOutcomeCallable DescribeProcessImageAsyncTemplatesCallable(const Model::DescribeProcessImageAsyncTemplatesRequest& request);
 
                 /**
                  *获取音画质检测模板列表。
@@ -2080,7 +2435,7 @@ namespace TencentCloud
 
                 /**
                  *该接口返回查询时间范围内使用的点播存储空间，单位：字节。
-    1. 可以查询最近365天内的存储空间数据；
+    1. 存储用量数据系统侧保留 13 个月，您通过接口仅可查询最近 365 天内的用量数据。如需调取超出 365 天的历史用量数据，请联系我们；
     2. 查询时间跨度不超过90天；
     3. 分钟粒度查询跨度不超过7天；
                  * @param req DescribeStorageDetailsRequest
@@ -2229,6 +2584,15 @@ namespace TencentCloud
                 ExecuteFunctionOutcomeCallable ExecuteFunctionCallable(const Model::ExecuteFunctionRequest& request);
 
                 /**
+                 *用于发起提取视频数字水印任务，提取结果可以通过DescribeTaskDetail查询。
+                 * @param req ExtractBlindWatermarkRequest
+                 * @return ExtractBlindWatermarkOutcome
+                 */
+                ExtractBlindWatermarkOutcome ExtractBlindWatermark(const Model::ExtractBlindWatermarkRequest &request);
+                void ExtractBlindWatermarkAsync(const Model::ExtractBlindWatermarkRequest& request, const ExtractBlindWatermarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ExtractBlindWatermarkOutcomeCallable ExtractBlindWatermarkCallable(const Model::ExtractBlindWatermarkRequest& request);
+
+                /**
                  *如果有盗录溯源需求，请参考 [幽灵水印](https://cloud.tencent.com/document/product/266/94228)。
                  * @param req ExtractCopyRightWatermarkRequest
                  * @return ExtractCopyRightWatermarkOutcome
@@ -2280,6 +2644,15 @@ namespace TencentCloud
                 HandleCurrentPlaylistOutcomeCallable HandleCurrentPlaylistCallable(const Model::HandleCurrentPlaylistRequest& request);
 
                 /**
+                 *用于将智能分析的结果导入到知识库中。
+                 * @param req ImportMediaKnowledgeRequest
+                 * @return ImportMediaKnowledgeOutcome
+                 */
+                ImportMediaKnowledgeOutcome ImportMediaKnowledge(const Model::ImportMediaKnowledgeRequest &request);
+                void ImportMediaKnowledgeAsync(const Model::ImportMediaKnowledgeRequest& request, const ImportMediaKnowledgeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ImportMediaKnowledgeOutcomeCallable ImportMediaKnowledgeCallable(const Model::ImportMediaKnowledgeRequest& request);
+
+                /**
                  *对点播中的音视频媒体发起音画质检测任务。
                  * @param req InspectMediaQualityRequest
                  * @return InspectMediaQualityOutcome
@@ -2287,6 +2660,17 @@ namespace TencentCloud
                 InspectMediaQualityOutcome InspectMediaQuality(const Model::InspectMediaQualityRequest &request);
                 void InspectMediaQualityAsync(const Model::InspectMediaQualityRequest& request, const InspectMediaQualityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 InspectMediaQualityOutcomeCallable InspectMediaQualityCallable(const Model::InspectMediaQualityRequest& request);
+
+                /**
+                 *用于列出子应用下存储的文件条目。
+
+**此API只在“FileID+Path模式”下可用**
+                 * @param req ListFilesRequest
+                 * @return ListFilesOutcome
+                 */
+                ListFilesOutcome ListFiles(const Model::ListFilesRequest &request);
+                void ListFilesAsync(const Model::ListFilesRequest& request, const ListFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ListFilesOutcomeCallable ListFilesCallable(const Model::ListFilesRequest& request);
 
                 /**
                  *直播即时剪辑，是指在直播过程中（即直播尚未结束时），客户可以在过往直播内容中选择一段，实时生成一个新的视频（HLS 格式），开发者可以将其立即分享出去，或者长久保存起来。
@@ -2368,6 +2752,15 @@ namespace TencentCloud
                 ModifyAnimatedGraphicsTemplateOutcome ModifyAnimatedGraphicsTemplate(const Model::ModifyAnimatedGraphicsTemplateRequest &request);
                 void ModifyAnimatedGraphicsTemplateAsync(const Model::ModifyAnimatedGraphicsTemplateRequest& request, const ModifyAnimatedGraphicsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyAnimatedGraphicsTemplateOutcomeCallable ModifyAnimatedGraphicsTemplateCallable(const Model::ModifyAnimatedGraphicsTemplateRequest& request);
+
+                /**
+                 *修改用户自定义数字水印模板，数字水印类型不允许修改。
+                 * @param req ModifyBlindWatermarkTemplateRequest
+                 * @return ModifyBlindWatermarkTemplateOutcome
+                 */
+                ModifyBlindWatermarkTemplateOutcome ModifyBlindWatermarkTemplate(const Model::ModifyBlindWatermarkTemplateRequest &request);
+                void ModifyBlindWatermarkTemplateAsync(const Model::ModifyBlindWatermarkTemplateRequest& request, const ModifyBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyBlindWatermarkTemplateOutcomeCallable ModifyBlindWatermarkTemplateCallable(const Model::ModifyBlindWatermarkTemplateRequest& request);
 
                 /**
                  *修改媒体分类属性。
@@ -2461,6 +2854,15 @@ namespace TencentCloud
                 ModifyJustInTimeTranscodeTemplateOutcomeCallable ModifyJustInTimeTranscodeTemplateCallable(const Model::ModifyJustInTimeTranscodeTemplateRequest& request);
 
                 /**
+                 *修改大模型解析模板
+                 * @param req ModifyLLMComprehendTemplateRequest
+                 * @return ModifyLLMComprehendTemplateOutcome
+                 */
+                ModifyLLMComprehendTemplateOutcome ModifyLLMComprehendTemplate(const Model::ModifyLLMComprehendTemplateRequest &request);
+                void ModifyLLMComprehendTemplateAsync(const Model::ModifyLLMComprehendTemplateRequest& request, const ModifyLLMComprehendTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyLLMComprehendTemplateOutcomeCallable ModifyLLMComprehendTemplateCallable(const Model::ModifyLLMComprehendTemplateRequest& request);
+
+                /**
                  *修改用户自定义 MPS 任务模板。
 修改模板时，需要将 MPS 相关参数以 JSON 格式填入 MPSModifyTemplateParams 参数中。关于具体的任务参数配置方法，请参考 MPS 任务模板相关文档说明。
                  * @param req ModifyMPSTemplateRequest
@@ -2508,6 +2910,17 @@ namespace TencentCloud
                 ModifyPersonSampleOutcome ModifyPersonSample(const Model::ModifyPersonSampleRequest &request);
                 void ModifyPersonSampleAsync(const Model::ModifyPersonSampleRequest& request, const ModifyPersonSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyPersonSampleOutcomeCallable ModifyPersonSampleCallable(const Model::ModifyPersonSampleRequest& request);
+
+                /**
+                 *修改用户自定义图像异步处理模板。
+
+注意：模板 ID 10000 以下的为系统预置模板，不允许修改。
+                 * @param req ModifyProcessImageAsyncTemplateRequest
+                 * @return ModifyProcessImageAsyncTemplateOutcome
+                 */
+                ModifyProcessImageAsyncTemplateOutcome ModifyProcessImageAsyncTemplate(const Model::ModifyProcessImageAsyncTemplateRequest &request);
+                void ModifyProcessImageAsyncTemplateAsync(const Model::ModifyProcessImageAsyncTemplateRequest& request, const ModifyProcessImageAsyncTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ModifyProcessImageAsyncTemplateOutcomeCallable ModifyProcessImageAsyncTemplateCallable(const Model::ModifyProcessImageAsyncTemplateRequest& request);
 
                 /**
                  *修改音画质检测模板。
@@ -2666,6 +3079,15 @@ namespace TencentCloud
                 ProcessImageOutcome ProcessImage(const Model::ProcessImageRequest &request);
                 void ProcessImageAsync(const Model::ProcessImageRequest& request, const ProcessImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ProcessImageOutcomeCallable ProcessImageCallable(const Model::ProcessImageRequest& request);
+
+                /**
+                 *该接口用于图片处理任务
+                 * @param req ProcessImageAsyncRequest
+                 * @return ProcessImageAsyncOutcome
+                 */
+                ProcessImageAsyncOutcome ProcessImageAsync(const Model::ProcessImageAsyncRequest &request);
+                void ProcessImageAsyncAsync(const Model::ProcessImageAsyncRequest& request, const ProcessImageAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                ProcessImageAsyncOutcomeCallable ProcessImageAsyncCallable(const Model::ProcessImageAsyncRequest& request);
 
                 /**
                  *对点播中的音视频媒体发起处理任务，功能包括：
@@ -2895,6 +3317,15 @@ namespace TencentCloud
                 SearchMediaOutcome SearchMedia(const Model::SearchMediaRequest &request);
                 void SearchMediaAsync(const Model::SearchMediaRequest& request, const SearchMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 SearchMediaOutcomeCallable SearchMediaCallable(const Model::SearchMediaRequest& request);
+
+                /**
+                 *使用自然语言对媒体进行语义搜索。
+                 * @param req SearchMediaBySemanticsRequest
+                 * @return SearchMediaBySemanticsOutcome
+                 */
+                SearchMediaBySemanticsOutcome SearchMediaBySemantics(const Model::SearchMediaBySemanticsRequest &request);
+                void SearchMediaBySemanticsAsync(const Model::SearchMediaBySemanticsRequest& request, const SearchMediaBySemanticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SearchMediaBySemanticsOutcomeCallable SearchMediaBySemanticsCallable(const Model::SearchMediaBySemanticsRequest& request);
 
                 /**
                  *为点播域名设置投递 CLS 的目标。

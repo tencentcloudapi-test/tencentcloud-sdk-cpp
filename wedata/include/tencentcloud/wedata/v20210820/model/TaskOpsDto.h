@@ -31,6 +31,7 @@
 #include <tencentcloud/wedata/v20210820/model/AiopsDLCResourceConfigDto.h>
 #include <tencentcloud/wedata/v20210820/model/AiopsSimpleTaskDto.h>
 #include <tencentcloud/wedata/v20210820/model/ExtResourceFlagDto.h>
+#include <tencentcloud/wedata/v20210820/model/TaskExtOpsDto.h>
 
 
 namespace TencentCloud
@@ -2357,6 +2358,156 @@ no：任务无需满足自依赖
                      */
                     bool OwnerIdHasBeenSet() const;
 
+                    /**
+                     * 获取当前用户对该任务的权限列表， 当前支持
+CAN_MANAGE : 有权限管理操作
+                     * @return Privileges 当前用户对该任务的权限列表， 当前支持
+CAN_MANAGE : 有权限管理操作
+                     * 
+                     */
+                    std::vector<std::string> GetPrivileges() const;
+
+                    /**
+                     * 设置当前用户对该任务的权限列表， 当前支持
+CAN_MANAGE : 有权限管理操作
+                     * @param _privileges 当前用户对该任务的权限列表， 当前支持
+CAN_MANAGE : 有权限管理操作
+                     * 
+                     */
+                    void SetPrivileges(const std::vector<std::string>& _privileges);
+
+                    /**
+                     * 判断参数 Privileges 是否已赋值
+                     * @return Privileges 是否已赋值
+                     * 
+                     */
+                    bool PrivilegesHasBeenSet() const;
+
+                    /**
+                     * 获取bundle客户端唯一id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return BundleId bundle客户端唯一id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetBundleId() const;
+
+                    /**
+                     * 设置bundle客户端唯一id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _bundleId bundle客户端唯一id
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetBundleId(const std::string& _bundleId);
+
+                    /**
+                     * 判断参数 BundleId 是否已赋值
+                     * @return BundleId 是否已赋值
+                     * 
+                     */
+                    bool BundleIdHasBeenSet() const;
+
+                    /**
+                     * 获取bundle客户端信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return BundleInfo bundle客户端信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetBundleInfo() const;
+
+                    /**
+                     * 设置bundle客户端信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _bundleInfo bundle客户端信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetBundleInfo(const std::string& _bundleInfo);
+
+                    /**
+                     * 判断参数 BundleInfo 是否已赋值
+                     * @return BundleInfo 是否已赋值
+                     * 
+                     */
+                    bool BundleInfoHasBeenSet() const;
+
+                    /**
+                     * 获取工作流类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return WorkflowType 工作流类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetWorkflowType() const;
+
+                    /**
+                     * 设置工作流类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _workflowType 工作流类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetWorkflowType(const std::string& _workflowType);
+
+                    /**
+                     * 判断参数 WorkflowType 是否已赋值
+                     * @return WorkflowType 是否已赋值
+                     * 
+                     */
+                    bool WorkflowTypeHasBeenSet() const;
+
+                    /**
+                     * 获取任务扩展信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return TaskExtDTO 任务扩展信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    TaskExtOpsDto GetTaskExtDTO() const;
+
+                    /**
+                     * 设置任务扩展信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _taskExtDTO 任务扩展信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetTaskExtDTO(const TaskExtOpsDto& _taskExtDTO);
+
+                    /**
+                     * 判断参数 TaskExtDTO 是否已赋值
+                     * @return TaskExtDTO 是否已赋值
+                     * 
+                     */
+                    bool TaskExtDTOHasBeenSet() const;
+
+                    /**
+                     * 获取任务时区
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ScheduleTimeZone 任务时区
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetScheduleTimeZone() const;
+
+                    /**
+                     * 设置任务时区
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _scheduleTimeZone 任务时区
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetScheduleTimeZone(const std::string& _scheduleTimeZone);
+
+                    /**
+                     * 判断参数 ScheduleTimeZone 是否已赋值
+                     * @return ScheduleTimeZone 是否已赋值
+                     * 
+                     */
+                    bool ScheduleTimeZoneHasBeenSet() const;
+
                 private:
 
                     /**
@@ -3003,6 +3154,48 @@ no：任务无需满足自依赖
                      */
                     std::string m_ownerId;
                     bool m_ownerIdHasBeenSet;
+
+                    /**
+                     * 当前用户对该任务的权限列表， 当前支持
+CAN_MANAGE : 有权限管理操作
+                     */
+                    std::vector<std::string> m_privileges;
+                    bool m_privilegesHasBeenSet;
+
+                    /**
+                     * bundle客户端唯一id
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_bundleId;
+                    bool m_bundleIdHasBeenSet;
+
+                    /**
+                     * bundle客户端信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_bundleInfo;
+                    bool m_bundleInfoHasBeenSet;
+
+                    /**
+                     * 工作流类型
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_workflowType;
+                    bool m_workflowTypeHasBeenSet;
+
+                    /**
+                     * 任务扩展信息
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    TaskExtOpsDto m_taskExtDTO;
+                    bool m_taskExtDTOHasBeenSet;
+
+                    /**
+                     * 任务时区
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_scheduleTimeZone;
+                    bool m_scheduleTimeZoneHasBeenSet;
 
                 };
             }

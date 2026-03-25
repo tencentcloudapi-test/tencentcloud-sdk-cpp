@@ -1390,6 +1390,56 @@ DlcClient::CreateDatabaseOutcomeCallable DlcClient::CreateDatabaseCallable(const
     return prom->get_future();
 }
 
+DlcClient::CreateDatasourceConnectionOutcome DlcClient::CreateDatasourceConnection(const CreateDatasourceConnectionRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateDatasourceConnection");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateDatasourceConnectionResponse rsp = CreateDatasourceConnectionResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateDatasourceConnectionOutcome(rsp);
+        else
+            return CreateDatasourceConnectionOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateDatasourceConnectionOutcome(outcome.GetError());
+    }
+}
+
+void DlcClient::CreateDatasourceConnectionAsync(const CreateDatasourceConnectionRequest& request, const CreateDatasourceConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateDatasourceConnectionRequest&;
+    using Resp = CreateDatasourceConnectionResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateDatasourceConnection", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+DlcClient::CreateDatasourceConnectionOutcomeCallable DlcClient::CreateDatasourceConnectionCallable(const CreateDatasourceConnectionRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateDatasourceConnectionOutcome>>();
+    CreateDatasourceConnectionAsync(
+    request,
+    [prom](
+        const DlcClient*,
+        const CreateDatasourceConnectionRequest&,
+        CreateDatasourceConnectionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 DlcClient::CreateExportTaskOutcome DlcClient::CreateExportTask(const CreateExportTaskRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateExportTask");
@@ -4840,6 +4890,56 @@ DlcClient::DescribeOtherCHDFSBindingListOutcomeCallable DlcClient::DescribeOther
     return prom->get_future();
 }
 
+DlcClient::DescribeResourceGroupUsageInfoOutcome DlcClient::DescribeResourceGroupUsageInfo(const DescribeResourceGroupUsageInfoRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeResourceGroupUsageInfo");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeResourceGroupUsageInfoResponse rsp = DescribeResourceGroupUsageInfoResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeResourceGroupUsageInfoOutcome(rsp);
+        else
+            return DescribeResourceGroupUsageInfoOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeResourceGroupUsageInfoOutcome(outcome.GetError());
+    }
+}
+
+void DlcClient::DescribeResourceGroupUsageInfoAsync(const DescribeResourceGroupUsageInfoRequest& request, const DescribeResourceGroupUsageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeResourceGroupUsageInfoRequest&;
+    using Resp = DescribeResourceGroupUsageInfoResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeResourceGroupUsageInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+DlcClient::DescribeResourceGroupUsageInfoOutcomeCallable DlcClient::DescribeResourceGroupUsageInfoCallable(const DescribeResourceGroupUsageInfoRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeResourceGroupUsageInfoOutcome>>();
+    DescribeResourceGroupUsageInfoAsync(
+    request,
+    [prom](
+        const DlcClient*,
+        const DescribeResourceGroupUsageInfoRequest&,
+        DescribeResourceGroupUsageInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 DlcClient::DescribeResultDownloadOutcome DlcClient::DescribeResultDownload(const DescribeResultDownloadRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeResultDownload");
@@ -8282,6 +8382,56 @@ DlcClient::RollbackDataEngineImageOutcomeCallable DlcClient::RollbackDataEngineI
         const DlcClient*,
         const RollbackDataEngineImageRequest&,
         RollbackDataEngineImageOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+DlcClient::SetOptimizerPolicyOutcome DlcClient::SetOptimizerPolicy(const SetOptimizerPolicyRequest &request)
+{
+    auto outcome = MakeRequest(request, "SetOptimizerPolicy");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SetOptimizerPolicyResponse rsp = SetOptimizerPolicyResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SetOptimizerPolicyOutcome(rsp);
+        else
+            return SetOptimizerPolicyOutcome(o.GetError());
+    }
+    else
+    {
+        return SetOptimizerPolicyOutcome(outcome.GetError());
+    }
+}
+
+void DlcClient::SetOptimizerPolicyAsync(const SetOptimizerPolicyRequest& request, const SetOptimizerPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SetOptimizerPolicyRequest&;
+    using Resp = SetOptimizerPolicyResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SetOptimizerPolicy", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+DlcClient::SetOptimizerPolicyOutcomeCallable DlcClient::SetOptimizerPolicyCallable(const SetOptimizerPolicyRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SetOptimizerPolicyOutcome>>();
+    SetOptimizerPolicyAsync(
+    request,
+    [prom](
+        const DlcClient*,
+        const SetOptimizerPolicyRequest&,
+        SetOptimizerPolicyOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

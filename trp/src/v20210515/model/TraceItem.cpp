@@ -15,7 +15,6 @@
  */
 
 #include <tencentcloud/trp/v20210515/model/TraceItem.h>
-#include <tencentcloud/trp/v20210515/model/TraceData.h>
 
 using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Trp::V20210515::Model;
@@ -131,8 +130,8 @@ CoreInternalOutcome TraceItem::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["Attrs"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<TraceItem>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            TraceItem item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -151,8 +150,8 @@ CoreInternalOutcome TraceItem::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["List"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<TraceData>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            TraceData item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -250,10 +249,7 @@ void TraceItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         for (auto itr = m_attrs.begin(); itr != m_attrs.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -268,10 +264,7 @@ void TraceItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         for (auto itr = m_list.begin(); itr != m_list.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -406,12 +399,12 @@ bool TraceItem::ExtHasBeenSet() const
     return m_extHasBeenSet;
 }
 
-vector<shared_ptr<TraceItem>> TraceItem::GetAttrs() const
+vector<TraceItem> TraceItem::GetAttrs() const
 {
     return m_attrs;
 }
 
-void TraceItem::SetAttrs(const vector<shared_ptr<TraceItem>>& _attrs)
+void TraceItem::SetAttrs(const vector<TraceItem>& _attrs)
 {
     m_attrs = _attrs;
     m_attrsHasBeenSet = true;
@@ -422,12 +415,12 @@ bool TraceItem::AttrsHasBeenSet() const
     return m_attrsHasBeenSet;
 }
 
-vector<shared_ptr<TraceData>> TraceItem::GetList() const
+vector<TraceData> TraceItem::GetList() const
 {
     return m_list;
 }
 
-void TraceItem::SetList(const vector<shared_ptr<TraceData>>& _list)
+void TraceItem::SetList(const vector<TraceData>& _list)
 {
     m_list = _list;
     m_listHasBeenSet = true;

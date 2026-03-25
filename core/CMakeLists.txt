@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2019 THL A29 Limited, a Tencent company. All Rights Reserved.
+# Copyright (c) 2017-2019 Tencent. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ include_directories("include/tencentcloud/core/utils/rapidjson")
 find_package(CURL REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-include_directories(${CURL_INCLUDE_DIR})
+include_directories(${CURL_INCLUDE_DIRS})
 include_directories(${OPENSSL_INCLUDE_DIR})
 
 add_library(core ${LIB_TYPE}
@@ -101,7 +101,6 @@ target_include_directories(core
     PRIVATE include )
 
 target_link_libraries(core
-    uuid
     ${OPENSSL_LIBRARIES}
     ${CURL_LIBRARIES} )
 

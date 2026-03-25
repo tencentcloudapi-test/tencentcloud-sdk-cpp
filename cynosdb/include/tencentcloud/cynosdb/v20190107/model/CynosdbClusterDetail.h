@@ -159,15 +159,51 @@ namespace TencentCloud
                     bool PhysicalZoneHasBeenSet() const;
 
                     /**
-                     * 获取状态
-                     * @return Status 状态
+                     * 获取状态，支持的值如下：
+- creating：创建中
+- running：运行中
+- isolating：隔离中
+- isolated：已隔离
+- activating：从回收站重新恢复
+- offlining：下线中
+- offlined：已下线
+- deleting：删除中
+- deleted：已删除
+                     * @return Status 状态，支持的值如下：
+- creating：创建中
+- running：运行中
+- isolating：隔离中
+- isolated：已隔离
+- activating：从回收站重新恢复
+- offlining：下线中
+- offlined：已下线
+- deleting：删除中
+- deleted：已删除
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置状态
-                     * @param _status 状态
+                     * 设置状态，支持的值如下：
+- creating：创建中
+- running：运行中
+- isolating：隔离中
+- isolated：已隔离
+- activating：从回收站重新恢复
+- offlining：下线中
+- offlined：已下线
+- deleting：删除中
+- deleted：已删除
+                     * @param _status 状态，支持的值如下：
+- creating：创建中
+- running：运行中
+- isolating：隔离中
+- isolated：已隔离
+- activating：从回收站重新恢复
+- offlining：下线中
+- offlined：已下线
+- deleting：删除中
+- deleted：已删除
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -1257,6 +1293,27 @@ pausing
                      */
                     bool ArchiveProgressHasBeenSet() const;
 
+                    /**
+                     * 获取是否开启透明加密
+                     * @return IsOpenTDE 是否开启透明加密
+                     * 
+                     */
+                    bool GetIsOpenTDE() const;
+
+                    /**
+                     * 设置是否开启透明加密
+                     * @param _isOpenTDE 是否开启透明加密
+                     * 
+                     */
+                    void SetIsOpenTDE(const bool& _isOpenTDE);
+
+                    /**
+                     * 判断参数 IsOpenTDE 是否已赋值
+                     * @return IsOpenTDE 是否已赋值
+                     * 
+                     */
+                    bool IsOpenTDEHasBeenSet() const;
+
                 private:
 
                     /**
@@ -1290,7 +1347,16 @@ pausing
                     bool m_physicalZoneHasBeenSet;
 
                     /**
-                     * 状态
+                     * 状态，支持的值如下：
+- creating：创建中
+- running：运行中
+- isolating：隔离中
+- isolated：已隔离
+- activating：从回收站重新恢复
+- offlining：下线中
+- offlined：已下线
+- deleting：删除中
+- deleted：已删除
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
@@ -1601,6 +1667,12 @@ pausing
                      */
                     int64_t m_archiveProgress;
                     bool m_archiveProgressHasBeenSet;
+
+                    /**
+                     * 是否开启透明加密
+                     */
+                    bool m_isOpenTDE;
+                    bool m_isOpenTDEHasBeenSet;
 
                 };
             }

@@ -21,6 +21,7 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/waf/v20180125/model/JobDateTime.h>
 
 
 namespace TencentCloud
@@ -274,15 +275,15 @@ namespace TencentCloud
                     bool MatchFuncHasBeenSet() const;
 
                     /**
-                     * 获取CC的匹配条件JSON序列化的字符串，示例：[{\"key\":\"Method\",\"args\":[\"=R0VU\"],\"match\":\"0\",\"encodeflag\":true}] Key可选值为 Method、Post、Referer、Cookie、User-Agent、CustomHeader、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore match可选值为，当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、2（包含），3（不等于）、7（不包含）、 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、16（数值不等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true，当Key为Post、Cookie、CustomHeader时，用等号=来分别串接Key和Value，并分别用Base64编码，类似YWJj=YWJj。当Key为Referer、User-Agent时，用等号=来串接Value，类似=YWJj。
-                     * @return OptionsArr CC的匹配条件JSON序列化的字符串，示例：[{\"key\":\"Method\",\"args\":[\"=R0VU\"],\"match\":\"0\",\"encodeflag\":true}] Key可选值为 Method、Post、Referer、Cookie、User-Agent、CustomHeader、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore match可选值为，当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、2（包含），3（不等于）、7（不包含）、 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、16（数值不等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true，当Key为Post、Cookie、CustomHeader时，用等号=来分别串接Key和Value，并分别用Base64编码，类似YWJj=YWJj。当Key为Referer、User-Agent时，用等号=来串接Value，类似=YWJj。
+                     * 获取CC的匹配条件JSON序列化的字符串，示例：[{"key":"Method","args":["=R0VU"],"match":"0","encodeflag":true}] Key可选值为 URL、Method、Post、Referer、Cookie、User-Agent、CustomHeader、IPLocation、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore，match可选值为：当Key为URL的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）。 当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）， 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、4（内容为空）、5（不存在）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为15（数值等于）、16（数值不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true。当匹配字段（Key）为Post、Cookie、CustomHeader时，需要将具体的参数名和参数值分别进行Base64编码并去掉末尾的等号=，然后再用等号=连接起来，类似YWJj=ZGVm；当匹配字段（Key）为Referer、User-Agent时，只需将目标值进行Base64编码并去掉末尾的等号=，然后再在其前面用等号=来串接，类似=YWJj。
+                     * @return OptionsArr CC的匹配条件JSON序列化的字符串，示例：[{"key":"Method","args":["=R0VU"],"match":"0","encodeflag":true}] Key可选值为 URL、Method、Post、Referer、Cookie、User-Agent、CustomHeader、IPLocation、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore，match可选值为：当Key为URL的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）。 当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）， 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、4（内容为空）、5（不存在）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为15（数值等于）、16（数值不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true。当匹配字段（Key）为Post、Cookie、CustomHeader时，需要将具体的参数名和参数值分别进行Base64编码并去掉末尾的等号=，然后再用等号=连接起来，类似YWJj=ZGVm；当匹配字段（Key）为Referer、User-Agent时，只需将目标值进行Base64编码并去掉末尾的等号=，然后再在其前面用等号=来串接，类似=YWJj。
                      * 
                      */
                     std::string GetOptionsArr() const;
 
                     /**
-                     * 设置CC的匹配条件JSON序列化的字符串，示例：[{\"key\":\"Method\",\"args\":[\"=R0VU\"],\"match\":\"0\",\"encodeflag\":true}] Key可选值为 Method、Post、Referer、Cookie、User-Agent、CustomHeader、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore match可选值为，当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、2（包含），3（不等于）、7（不包含）、 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、16（数值不等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true，当Key为Post、Cookie、CustomHeader时，用等号=来分别串接Key和Value，并分别用Base64编码，类似YWJj=YWJj。当Key为Referer、User-Agent时，用等号=来串接Value，类似=YWJj。
-                     * @param _optionsArr CC的匹配条件JSON序列化的字符串，示例：[{\"key\":\"Method\",\"args\":[\"=R0VU\"],\"match\":\"0\",\"encodeflag\":true}] Key可选值为 Method、Post、Referer、Cookie、User-Agent、CustomHeader、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore match可选值为，当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、2（包含），3（不等于）、7（不包含）、 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、16（数值不等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true，当Key为Post、Cookie、CustomHeader时，用等号=来分别串接Key和Value，并分别用Base64编码，类似YWJj=YWJj。当Key为Referer、User-Agent时，用等号=来串接Value，类似=YWJj。
+                     * 设置CC的匹配条件JSON序列化的字符串，示例：[{"key":"Method","args":["=R0VU"],"match":"0","encodeflag":true}] Key可选值为 URL、Method、Post、Referer、Cookie、User-Agent、CustomHeader、IPLocation、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore，match可选值为：当Key为URL的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）。 当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）， 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、4（内容为空）、5（不存在）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为15（数值等于）、16（数值不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true。当匹配字段（Key）为Post、Cookie、CustomHeader时，需要将具体的参数名和参数值分别进行Base64编码并去掉末尾的等号=，然后再用等号=连接起来，类似YWJj=ZGVm；当匹配字段（Key）为Referer、User-Agent时，只需将目标值进行Base64编码并去掉末尾的等号=，然后再在其前面用等号=来串接，类似=YWJj。
+                     * @param _optionsArr CC的匹配条件JSON序列化的字符串，示例：[{"key":"Method","args":["=R0VU"],"match":"0","encodeflag":true}] Key可选值为 URL、Method、Post、Referer、Cookie、User-Agent、CustomHeader、IPLocation、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore，match可选值为：当Key为URL的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）。 当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）， 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、4（内容为空）、5（不存在）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为15（数值等于）、16（数值不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true。当匹配字段（Key）为Post、Cookie、CustomHeader时，需要将具体的参数名和参数值分别进行Base64编码并去掉末尾的等号=，然后再用等号=连接起来，类似YWJj=ZGVm；当匹配字段（Key）为Referer、User-Agent时，只需将目标值进行Base64编码并去掉末尾的等号=，然后再在其前面用等号=来串接，类似=YWJj。
                      * 
                      */
                     void SetOptionsArr(const std::string& _optionsArr);
@@ -567,6 +568,90 @@ namespace TencentCloud
                      */
                     bool SourceHasBeenSet() const;
 
+                    /**
+                     * 获取forever
+                     * @return JobType forever
+                     * 
+                     */
+                    std::string GetJobType() const;
+
+                    /**
+                     * 设置forever
+                     * @param _jobType forever
+                     * 
+                     */
+                    void SetJobType(const std::string& _jobType);
+
+                    /**
+                     * 判断参数 JobType 是否已赋值
+                     * @return JobType 是否已赋值
+                     * 
+                     */
+                    bool JobTypeHasBeenSet() const;
+
+                    /**
+                     * 获取无
+                     * @return JobDateTime 无
+                     * 
+                     */
+                    JobDateTime GetJobDateTime() const;
+
+                    /**
+                     * 设置无
+                     * @param _jobDateTime 无
+                     * 
+                     */
+                    void SetJobDateTime(const JobDateTime& _jobDateTime);
+
+                    /**
+                     * 判断参数 JobDateTime 是否已赋值
+                     * @return JobDateTime 是否已赋值
+                     * 
+                     */
+                    bool JobDateTimeHasBeenSet() const;
+
+                    /**
+                     * 获取0
+                     * @return ExpireTime 0
+                     * 
+                     */
+                    uint64_t GetExpireTime() const;
+
+                    /**
+                     * 设置0
+                     * @param _expireTime 0
+                     * 
+                     */
+                    void SetExpireTime(const uint64_t& _expireTime);
+
+                    /**
+                     * 判断参数 ExpireTime 是否已赋值
+                     * @return ExpireTime 是否已赋值
+                     * 
+                     */
+                    bool ExpireTimeHasBeenSet() const;
+
+                    /**
+                     * 获取有效性
+                     * @return ValidStatus 有效性
+                     * 
+                     */
+                    int64_t GetValidStatus() const;
+
+                    /**
+                     * 设置有效性
+                     * @param _validStatus 有效性
+                     * 
+                     */
+                    void SetValidStatus(const int64_t& _validStatus);
+
+                    /**
+                     * 判断参数 ValidStatus 是否已赋值
+                     * @return ValidStatus 是否已赋值
+                     * 
+                     */
+                    bool ValidStatusHasBeenSet() const;
+
                 private:
 
                     /**
@@ -636,7 +721,7 @@ namespace TencentCloud
                     bool m_matchFuncHasBeenSet;
 
                     /**
-                     * CC的匹配条件JSON序列化的字符串，示例：[{\"key\":\"Method\",\"args\":[\"=R0VU\"],\"match\":\"0\",\"encodeflag\":true}] Key可选值为 Method、Post、Referer、Cookie、User-Agent、CustomHeader、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore match可选值为，当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、2（包含），3（不等于）、7（不包含）、 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为0（等于）、3（不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、16（数值不等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true，当Key为Post、Cookie、CustomHeader时，用等号=来分别串接Key和Value，并分别用Base64编码，类似YWJj=YWJj。当Key为Referer、User-Agent时，用等号=来串接Value，类似=YWJj。
+                     * CC的匹配条件JSON序列化的字符串，示例：[{"key":"Method","args":["=R0VU"],"match":"0","encodeflag":true}] Key可选值为 URL、Method、Post、Referer、Cookie、User-Agent、CustomHeader、IPLocation、CaptchaRisk、CaptchaDeviceRisk、CaptchaScore，match可选值为：当Key为URL的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）。 当Key为Method的时候可选值为0（等于）、3（不等于）。 Key为Post的时候可选值为0（等于）、3（不等于），Key为Cookie的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）， 当Key为Referer的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为User-Agent的时候可选值为0（等于）、3（不等于）、1（前缀匹配）、6（后缀匹配）、2（包含）、7（不包含）、12（存在）、5（不存在）、4（内容为空）， 当Key为CustomHeader的时候可选值为0（等于）、3（不等于）、2（包含）、7（不包含）、4（内容为空）、5（不存在）。 Key为IPLocation时，可选值为13（属于）、14（不属于）。 Key为CaptchaRisk时，可选值为15（数值等于）、16（数值不等于）、13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaDeviceRisk时，可选值为13（属于）、14（不属于）、12（存在）、5（不存在）。 Key为CaptchaScore时，可选值为15（数值等于）、17（数值大于）、18（数值小于）、19（数值大于等于）、20（数值小于等于）、12（存在）、5（不存在）。args用来表示匹配内容，需要设置encodeflag为true。当匹配字段（Key）为Post、Cookie、CustomHeader时，需要将具体的参数名和参数值分别进行Base64编码并去掉末尾的等号=，然后再用等号=连接起来，类似YWJj=ZGVm；当匹配字段（Key）为Referer、User-Agent时，只需将目标值进行Base64编码并去掉末尾的等号=，然后再在其前面用等号=来串接，类似=YWJj。
                      */
                     std::string m_optionsArr;
                     bool m_optionsArrHasBeenSet;
@@ -718,6 +803,30 @@ namespace TencentCloud
                      */
                     std::string m_source;
                     bool m_sourceHasBeenSet;
+
+                    /**
+                     * forever
+                     */
+                    std::string m_jobType;
+                    bool m_jobTypeHasBeenSet;
+
+                    /**
+                     * 无
+                     */
+                    JobDateTime m_jobDateTime;
+                    bool m_jobDateTimeHasBeenSet;
+
+                    /**
+                     * 0
+                     */
+                    uint64_t m_expireTime;
+                    bool m_expireTimeHasBeenSet;
+
+                    /**
+                     * 有效性
+                     */
+                    int64_t m_validStatus;
+                    bool m_validStatusHasBeenSet;
 
                 };
             }

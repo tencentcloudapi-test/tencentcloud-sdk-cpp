@@ -424,15 +424,15 @@ namespace TencentCloud
                     bool ReplicasHasBeenSet() const;
 
                     /**
-                     * 获取是否更新存量节点
-                     * @return UpdateExistedNode 是否更新存量节点
+                     * 获取是否更新存量节点MetaData(包括： metadata、annotation、label)
+                     * @return UpdateExistedNode 是否更新存量节点MetaData(包括： metadata、annotation、label)
                      * 
                      */
                     bool GetUpdateExistedNode() const;
 
                     /**
-                     * 设置是否更新存量节点
-                     * @param _updateExistedNode 是否更新存量节点
+                     * 设置是否更新存量节点MetaData(包括： metadata、annotation、label)
+                     * @param _updateExistedNode 是否更新存量节点MetaData(包括： metadata、annotation、label)
                      * 
                      */
                     void SetUpdateExistedNode(const bool& _updateExistedNode);
@@ -466,6 +466,35 @@ namespace TencentCloud
                     bool DataDisksHasBeenSet() const;
 
                     /**
+                     * 获取节点management参数存量更新开关，有enable（打开）、disable（关闭）两个状态可选
+
+management包括：nameserver、host、kubelet、kernel参数
+                     * @return UpdateMachineManagement 节点management参数存量更新开关，有enable（打开）、disable（关闭）两个状态可选
+
+management包括：nameserver、host、kubelet、kernel参数
+                     * 
+                     */
+                    std::string GetUpdateMachineManagement() const;
+
+                    /**
+                     * 设置节点management参数存量更新开关，有enable（打开）、disable（关闭）两个状态可选
+
+management包括：nameserver、host、kubelet、kernel参数
+                     * @param _updateMachineManagement 节点management参数存量更新开关，有enable（打开）、disable（关闭）两个状态可选
+
+management包括：nameserver、host、kubelet、kernel参数
+                     * 
+                     */
+                    void SetUpdateMachineManagement(const std::string& _updateMachineManagement);
+
+                    /**
+                     * 判断参数 UpdateMachineManagement 是否已赋值
+                     * @return UpdateMachineManagement 是否已赋值
+                     * 
+                     */
+                    bool UpdateMachineManagementHasBeenSet() const;
+
+                    /**
                      * 获取ssh公钥id数组
                      * @return KeyIds ssh公钥id数组
                      * 
@@ -487,6 +516,27 @@ namespace TencentCloud
                     bool KeyIdsHasBeenSet() const;
 
                     /**
+                     * 获取节点移出策略，有Random（随机）、Newest（优先移出最新实例）、Oldest（优先移出最旧实例）三种可选，默认是Newest
+                     * @return DeletePolicy 节点移出策略，有Random（随机）、Newest（优先移出最新实例）、Oldest（优先移出最旧实例）三种可选，默认是Newest
+                     * 
+                     */
+                    std::string GetDeletePolicy() const;
+
+                    /**
+                     * 设置节点移出策略，有Random（随机）、Newest（优先移出最新实例）、Oldest（优先移出最旧实例）三种可选，默认是Newest
+                     * @param _deletePolicy 节点移出策略，有Random（随机）、Newest（优先移出最新实例）、Oldest（优先移出最旧实例）三种可选，默认是Newest
+                     * 
+                     */
+                    void SetDeletePolicy(const std::string& _deletePolicy);
+
+                    /**
+                     * 判断参数 DeletePolicy 是否已赋值
+                     * @return DeletePolicy 是否已赋值
+                     * 
+                     */
+                    bool DeletePolicyHasBeenSet() const;
+
+                    /**
                      * 获取节点池 GPU 配置
                      * @return GPUConfigs 节点池 GPU 配置
                      * 
@@ -506,6 +556,48 @@ namespace TencentCloud
                      * 
                      */
                     bool GPUConfigsHasBeenSet() const;
+
+                    /**
+                     * 获取原生节点池安装自动化助手开关状态
+                     * @return AutomationService 原生节点池安装自动化助手开关状态
+                     * 
+                     */
+                    bool GetAutomationService() const;
+
+                    /**
+                     * 设置原生节点池安装自动化助手开关状态
+                     * @param _automationService 原生节点池安装自动化助手开关状态
+                     * 
+                     */
+                    void SetAutomationService(const bool& _automationService);
+
+                    /**
+                     * 判断参数 AutomationService 是否已赋值
+                     * @return AutomationService 是否已赋值
+                     * 
+                     */
+                    bool AutomationServiceHasBeenSet() const;
+
+                    /**
+                     * 获取原生节点池密码
+                     * @return Password 原生节点池密码
+                     * 
+                     */
+                    std::string GetPassword() const;
+
+                    /**
+                     * 设置原生节点池密码
+                     * @param _password 原生节点池密码
+                     * 
+                     */
+                    void SetPassword(const std::string& _password);
+
+                    /**
+                     * 判断参数 Password 是否已赋值
+                     * @return Password 是否已赋值
+                     * 
+                     */
+                    bool PasswordHasBeenSet() const;
 
                 private:
 
@@ -615,7 +707,7 @@ namespace TencentCloud
                     bool m_replicasHasBeenSet;
 
                     /**
-                     * 是否更新存量节点
+                     * 是否更新存量节点MetaData(包括： metadata、annotation、label)
                      */
                     bool m_updateExistedNode;
                     bool m_updateExistedNodeHasBeenSet;
@@ -627,16 +719,42 @@ namespace TencentCloud
                     bool m_dataDisksHasBeenSet;
 
                     /**
+                     * 节点management参数存量更新开关，有enable（打开）、disable（关闭）两个状态可选
+
+management包括：nameserver、host、kubelet、kernel参数
+                     */
+                    std::string m_updateMachineManagement;
+                    bool m_updateMachineManagementHasBeenSet;
+
+                    /**
                      * ssh公钥id数组
                      */
                     std::vector<std::string> m_keyIds;
                     bool m_keyIdsHasBeenSet;
 
                     /**
+                     * 节点移出策略，有Random（随机）、Newest（优先移出最新实例）、Oldest（优先移出最旧实例）三种可选，默认是Newest
+                     */
+                    std::string m_deletePolicy;
+                    bool m_deletePolicyHasBeenSet;
+
+                    /**
                      * 节点池 GPU 配置
                      */
                     std::vector<GPUConfig> m_gPUConfigs;
                     bool m_gPUConfigsHasBeenSet;
+
+                    /**
+                     * 原生节点池安装自动化助手开关状态
+                     */
+                    bool m_automationService;
+                    bool m_automationServiceHasBeenSet;
+
+                    /**
+                     * 原生节点池密码
+                     */
+                    std::string m_password;
+                    bool m_passwordHasBeenSet;
 
                 };
             }

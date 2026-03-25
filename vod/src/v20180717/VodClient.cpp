@@ -440,6 +440,356 @@ VodClient::CreateAdaptiveDynamicStreamingTemplateOutcomeCallable VodClient::Crea
     return prom->get_future();
 }
 
+VodClient::CreateAigcAdvancedCustomElementOutcome VodClient::CreateAigcAdvancedCustomElement(const CreateAigcAdvancedCustomElementRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcAdvancedCustomElement");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcAdvancedCustomElementResponse rsp = CreateAigcAdvancedCustomElementResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcAdvancedCustomElementOutcome(rsp);
+        else
+            return CreateAigcAdvancedCustomElementOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcAdvancedCustomElementOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcAdvancedCustomElementAsync(const CreateAigcAdvancedCustomElementRequest& request, const CreateAigcAdvancedCustomElementAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcAdvancedCustomElementRequest&;
+    using Resp = CreateAigcAdvancedCustomElementResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcAdvancedCustomElement", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcAdvancedCustomElementOutcomeCallable VodClient::CreateAigcAdvancedCustomElementCallable(const CreateAigcAdvancedCustomElementRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcAdvancedCustomElementOutcome>>();
+    CreateAigcAdvancedCustomElementAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcAdvancedCustomElementRequest&,
+        CreateAigcAdvancedCustomElementOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateAigcApiTokenOutcome VodClient::CreateAigcApiToken(const CreateAigcApiTokenRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcApiToken");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcApiTokenResponse rsp = CreateAigcApiTokenResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcApiTokenOutcome(rsp);
+        else
+            return CreateAigcApiTokenOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcApiTokenOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcApiTokenAsync(const CreateAigcApiTokenRequest& request, const CreateAigcApiTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcApiTokenRequest&;
+    using Resp = CreateAigcApiTokenResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcApiToken", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcApiTokenOutcomeCallable VodClient::CreateAigcApiTokenCallable(const CreateAigcApiTokenRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcApiTokenOutcome>>();
+    CreateAigcApiTokenAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcApiTokenRequest&,
+        CreateAigcApiTokenOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateAigcCustomElementOutcome VodClient::CreateAigcCustomElement(const CreateAigcCustomElementRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcCustomElement");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcCustomElementResponse rsp = CreateAigcCustomElementResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcCustomElementOutcome(rsp);
+        else
+            return CreateAigcCustomElementOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcCustomElementOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcCustomElementAsync(const CreateAigcCustomElementRequest& request, const CreateAigcCustomElementAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcCustomElementRequest&;
+    using Resp = CreateAigcCustomElementResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcCustomElement", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcCustomElementOutcomeCallable VodClient::CreateAigcCustomElementCallable(const CreateAigcCustomElementRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcCustomElementOutcome>>();
+    CreateAigcCustomElementAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcCustomElementRequest&,
+        CreateAigcCustomElementOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateAigcCustomVoiceOutcome VodClient::CreateAigcCustomVoice(const CreateAigcCustomVoiceRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcCustomVoice");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcCustomVoiceResponse rsp = CreateAigcCustomVoiceResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcCustomVoiceOutcome(rsp);
+        else
+            return CreateAigcCustomVoiceOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcCustomVoiceOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcCustomVoiceAsync(const CreateAigcCustomVoiceRequest& request, const CreateAigcCustomVoiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcCustomVoiceRequest&;
+    using Resp = CreateAigcCustomVoiceResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcCustomVoice", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcCustomVoiceOutcomeCallable VodClient::CreateAigcCustomVoiceCallable(const CreateAigcCustomVoiceRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcCustomVoiceOutcome>>();
+    CreateAigcCustomVoiceAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcCustomVoiceRequest&,
+        CreateAigcCustomVoiceOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateAigcImageTaskOutcome VodClient::CreateAigcImageTask(const CreateAigcImageTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcImageTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcImageTaskResponse rsp = CreateAigcImageTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcImageTaskOutcome(rsp);
+        else
+            return CreateAigcImageTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcImageTaskOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcImageTaskAsync(const CreateAigcImageTaskRequest& request, const CreateAigcImageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcImageTaskRequest&;
+    using Resp = CreateAigcImageTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcImageTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcImageTaskOutcomeCallable VodClient::CreateAigcImageTaskCallable(const CreateAigcImageTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcImageTaskOutcome>>();
+    CreateAigcImageTaskAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcImageTaskRequest&,
+        CreateAigcImageTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateAigcSubjectOutcome VodClient::CreateAigcSubject(const CreateAigcSubjectRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcSubject");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcSubjectResponse rsp = CreateAigcSubjectResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcSubjectOutcome(rsp);
+        else
+            return CreateAigcSubjectOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcSubjectOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcSubjectAsync(const CreateAigcSubjectRequest& request, const CreateAigcSubjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcSubjectRequest&;
+    using Resp = CreateAigcSubjectResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcSubject", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcSubjectOutcomeCallable VodClient::CreateAigcSubjectCallable(const CreateAigcSubjectRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcSubjectOutcome>>();
+    CreateAigcSubjectAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcSubjectRequest&,
+        CreateAigcSubjectOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateAigcVideoTaskOutcome VodClient::CreateAigcVideoTask(const CreateAigcVideoTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateAigcVideoTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateAigcVideoTaskResponse rsp = CreateAigcVideoTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateAigcVideoTaskOutcome(rsp);
+        else
+            return CreateAigcVideoTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateAigcVideoTaskOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateAigcVideoTaskAsync(const CreateAigcVideoTaskRequest& request, const CreateAigcVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateAigcVideoTaskRequest&;
+    using Resp = CreateAigcVideoTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateAigcVideoTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateAigcVideoTaskOutcomeCallable VodClient::CreateAigcVideoTaskCallable(const CreateAigcVideoTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateAigcVideoTaskOutcome>>();
+    CreateAigcVideoTaskAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateAigcVideoTaskRequest&,
+        CreateAigcVideoTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::CreateAnimatedGraphicsTemplateOutcome VodClient::CreateAnimatedGraphicsTemplate(const CreateAnimatedGraphicsTemplateRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateAnimatedGraphicsTemplate");
@@ -482,6 +832,56 @@ VodClient::CreateAnimatedGraphicsTemplateOutcomeCallable VodClient::CreateAnimat
         const VodClient*,
         const CreateAnimatedGraphicsTemplateRequest&,
         CreateAnimatedGraphicsTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateBlindWatermarkTemplateOutcome VodClient::CreateBlindWatermarkTemplate(const CreateBlindWatermarkTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateBlindWatermarkTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateBlindWatermarkTemplateResponse rsp = CreateBlindWatermarkTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateBlindWatermarkTemplateOutcome(rsp);
+        else
+            return CreateBlindWatermarkTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateBlindWatermarkTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateBlindWatermarkTemplateAsync(const CreateBlindWatermarkTemplateRequest& request, const CreateBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateBlindWatermarkTemplateRequest&;
+    using Resp = CreateBlindWatermarkTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateBlindWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateBlindWatermarkTemplateOutcomeCallable VodClient::CreateBlindWatermarkTemplateCallable(const CreateBlindWatermarkTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateBlindWatermarkTemplateOutcome>>();
+    CreateBlindWatermarkTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateBlindWatermarkTemplateRequest&,
+        CreateBlindWatermarkTemplateOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1040,6 +1440,56 @@ VodClient::CreateJustInTimeTranscodeTemplateOutcomeCallable VodClient::CreateJus
     return prom->get_future();
 }
 
+VodClient::CreateLLMComprehendTemplateOutcome VodClient::CreateLLMComprehendTemplate(const CreateLLMComprehendTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateLLMComprehendTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateLLMComprehendTemplateResponse rsp = CreateLLMComprehendTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateLLMComprehendTemplateOutcome(rsp);
+        else
+            return CreateLLMComprehendTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateLLMComprehendTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateLLMComprehendTemplateAsync(const CreateLLMComprehendTemplateRequest& request, const CreateLLMComprehendTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateLLMComprehendTemplateRequest&;
+    using Resp = CreateLLMComprehendTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateLLMComprehendTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateLLMComprehendTemplateOutcomeCallable VodClient::CreateLLMComprehendTemplateCallable(const CreateLLMComprehendTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateLLMComprehendTemplateOutcome>>();
+    CreateLLMComprehendTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateLLMComprehendTemplateRequest&,
+        CreateLLMComprehendTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::CreateMPSTemplateOutcome VodClient::CreateMPSTemplate(const CreateMPSTemplateRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateMPSTemplate");
@@ -1182,6 +1632,56 @@ VodClient::CreateProcedureTemplateOutcomeCallable VodClient::CreateProcedureTemp
         const VodClient*,
         const CreateProcedureTemplateRequest&,
         CreateProcedureTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateProcessImageAsyncTemplateOutcome VodClient::CreateProcessImageAsyncTemplate(const CreateProcessImageAsyncTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateProcessImageAsyncTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateProcessImageAsyncTemplateResponse rsp = CreateProcessImageAsyncTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateProcessImageAsyncTemplateOutcome(rsp);
+        else
+            return CreateProcessImageAsyncTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateProcessImageAsyncTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateProcessImageAsyncTemplateAsync(const CreateProcessImageAsyncTemplateRequest& request, const CreateProcessImageAsyncTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateProcessImageAsyncTemplateRequest&;
+    using Resp = CreateProcessImageAsyncTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateProcessImageAsyncTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateProcessImageAsyncTemplateOutcomeCallable VodClient::CreateProcessImageAsyncTemplateCallable(const CreateProcessImageAsyncTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateProcessImageAsyncTemplateOutcome>>();
+    CreateProcessImageAsyncTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateProcessImageAsyncTemplateRequest&,
+        CreateProcessImageAsyncTemplateOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1432,6 +1932,106 @@ VodClient::CreateSampleSnapshotTemplateOutcomeCallable VodClient::CreateSampleSn
         const VodClient*,
         const CreateSampleSnapshotTemplateRequest&,
         CreateSampleSnapshotTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateSceneAigcImageTaskOutcome VodClient::CreateSceneAigcImageTask(const CreateSceneAigcImageTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateSceneAigcImageTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateSceneAigcImageTaskResponse rsp = CreateSceneAigcImageTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateSceneAigcImageTaskOutcome(rsp);
+        else
+            return CreateSceneAigcImageTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateSceneAigcImageTaskOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateSceneAigcImageTaskAsync(const CreateSceneAigcImageTaskRequest& request, const CreateSceneAigcImageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateSceneAigcImageTaskRequest&;
+    using Resp = CreateSceneAigcImageTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateSceneAigcImageTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateSceneAigcImageTaskOutcomeCallable VodClient::CreateSceneAigcImageTaskCallable(const CreateSceneAigcImageTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateSceneAigcImageTaskOutcome>>();
+    CreateSceneAigcImageTaskAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateSceneAigcImageTaskRequest&,
+        CreateSceneAigcImageTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::CreateSceneAigcVideoTaskOutcome VodClient::CreateSceneAigcVideoTask(const CreateSceneAigcVideoTaskRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateSceneAigcVideoTask");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateSceneAigcVideoTaskResponse rsp = CreateSceneAigcVideoTaskResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateSceneAigcVideoTaskOutcome(rsp);
+        else
+            return CreateSceneAigcVideoTaskOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateSceneAigcVideoTaskOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::CreateSceneAigcVideoTaskAsync(const CreateSceneAigcVideoTaskRequest& request, const CreateSceneAigcVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateSceneAigcVideoTaskRequest&;
+    using Resp = CreateSceneAigcVideoTaskResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateSceneAigcVideoTask", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::CreateSceneAigcVideoTaskOutcomeCallable VodClient::CreateSceneAigcVideoTaskCallable(const CreateSceneAigcVideoTaskRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateSceneAigcVideoTaskOutcome>>();
+    CreateSceneAigcVideoTaskAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const CreateSceneAigcVideoTaskRequest&,
+        CreateSceneAigcVideoTaskOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1990,6 +2590,56 @@ VodClient::DeleteAdaptiveDynamicStreamingTemplateOutcomeCallable VodClient::Dele
     return prom->get_future();
 }
 
+VodClient::DeleteAigcApiTokenOutcome VodClient::DeleteAigcApiToken(const DeleteAigcApiTokenRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteAigcApiToken");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteAigcApiTokenResponse rsp = DeleteAigcApiTokenResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteAigcApiTokenOutcome(rsp);
+        else
+            return DeleteAigcApiTokenOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteAigcApiTokenOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DeleteAigcApiTokenAsync(const DeleteAigcApiTokenRequest& request, const DeleteAigcApiTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteAigcApiTokenRequest&;
+    using Resp = DeleteAigcApiTokenResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteAigcApiToken", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DeleteAigcApiTokenOutcomeCallable VodClient::DeleteAigcApiTokenCallable(const DeleteAigcApiTokenRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteAigcApiTokenOutcome>>();
+    DeleteAigcApiTokenAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DeleteAigcApiTokenRequest&,
+        DeleteAigcApiTokenOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::DeleteAnimatedGraphicsTemplateOutcome VodClient::DeleteAnimatedGraphicsTemplate(const DeleteAnimatedGraphicsTemplateRequest &request)
 {
     auto outcome = MakeRequest(request, "DeleteAnimatedGraphicsTemplate");
@@ -2032,6 +2682,56 @@ VodClient::DeleteAnimatedGraphicsTemplateOutcomeCallable VodClient::DeleteAnimat
         const VodClient*,
         const DeleteAnimatedGraphicsTemplateRequest&,
         DeleteAnimatedGraphicsTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::DeleteBlindWatermarkTemplateOutcome VodClient::DeleteBlindWatermarkTemplate(const DeleteBlindWatermarkTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteBlindWatermarkTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteBlindWatermarkTemplateResponse rsp = DeleteBlindWatermarkTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteBlindWatermarkTemplateOutcome(rsp);
+        else
+            return DeleteBlindWatermarkTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteBlindWatermarkTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DeleteBlindWatermarkTemplateAsync(const DeleteBlindWatermarkTemplateRequest& request, const DeleteBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteBlindWatermarkTemplateRequest&;
+    using Resp = DeleteBlindWatermarkTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteBlindWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DeleteBlindWatermarkTemplateOutcomeCallable VodClient::DeleteBlindWatermarkTemplateCallable(const DeleteBlindWatermarkTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteBlindWatermarkTemplateOutcome>>();
+    DeleteBlindWatermarkTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DeleteBlindWatermarkTemplateRequest&,
+        DeleteBlindWatermarkTemplateOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2440,6 +3140,56 @@ VodClient::DeleteJustInTimeTranscodeTemplateOutcomeCallable VodClient::DeleteJus
     return prom->get_future();
 }
 
+VodClient::DeleteLLMComprehendTemplateOutcome VodClient::DeleteLLMComprehendTemplate(const DeleteLLMComprehendTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteLLMComprehendTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteLLMComprehendTemplateResponse rsp = DeleteLLMComprehendTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteLLMComprehendTemplateOutcome(rsp);
+        else
+            return DeleteLLMComprehendTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteLLMComprehendTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DeleteLLMComprehendTemplateAsync(const DeleteLLMComprehendTemplateRequest& request, const DeleteLLMComprehendTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteLLMComprehendTemplateRequest&;
+    using Resp = DeleteLLMComprehendTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteLLMComprehendTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DeleteLLMComprehendTemplateOutcomeCallable VodClient::DeleteLLMComprehendTemplateCallable(const DeleteLLMComprehendTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteLLMComprehendTemplateOutcome>>();
+    DeleteLLMComprehendTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DeleteLLMComprehendTemplateRequest&,
+        DeleteLLMComprehendTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::DeleteMPSTemplateOutcome VodClient::DeleteMPSTemplate(const DeleteMPSTemplateRequest &request)
 {
     auto outcome = MakeRequest(request, "DeleteMPSTemplate");
@@ -2632,6 +3382,56 @@ VodClient::DeleteProcedureTemplateOutcomeCallable VodClient::DeleteProcedureTemp
         const VodClient*,
         const DeleteProcedureTemplateRequest&,
         DeleteProcedureTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::DeleteProcessImageAsyncTemplateOutcome VodClient::DeleteProcessImageAsyncTemplate(const DeleteProcessImageAsyncTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteProcessImageAsyncTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteProcessImageAsyncTemplateResponse rsp = DeleteProcessImageAsyncTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteProcessImageAsyncTemplateOutcome(rsp);
+        else
+            return DeleteProcessImageAsyncTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteProcessImageAsyncTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DeleteProcessImageAsyncTemplateAsync(const DeleteProcessImageAsyncTemplateRequest& request, const DeleteProcessImageAsyncTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteProcessImageAsyncTemplateRequest&;
+    using Resp = DeleteProcessImageAsyncTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteProcessImageAsyncTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DeleteProcessImageAsyncTemplateOutcomeCallable VodClient::DeleteProcessImageAsyncTemplateCallable(const DeleteProcessImageAsyncTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteProcessImageAsyncTemplateOutcome>>();
+    DeleteProcessImageAsyncTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DeleteProcessImageAsyncTemplateRequest&,
+        DeleteProcessImageAsyncTemplateOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3340,6 +4140,156 @@ VodClient::DescribeAdaptiveDynamicStreamingTemplatesOutcomeCallable VodClient::D
     return prom->get_future();
 }
 
+VodClient::DescribeAigcApiTokensOutcome VodClient::DescribeAigcApiTokens(const DescribeAigcApiTokensRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeAigcApiTokens");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeAigcApiTokensResponse rsp = DescribeAigcApiTokensResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeAigcApiTokensOutcome(rsp);
+        else
+            return DescribeAigcApiTokensOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeAigcApiTokensOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DescribeAigcApiTokensAsync(const DescribeAigcApiTokensRequest& request, const DescribeAigcApiTokensAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeAigcApiTokensRequest&;
+    using Resp = DescribeAigcApiTokensResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeAigcApiTokens", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DescribeAigcApiTokensOutcomeCallable VodClient::DescribeAigcApiTokensCallable(const DescribeAigcApiTokensRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeAigcApiTokensOutcome>>();
+    DescribeAigcApiTokensAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DescribeAigcApiTokensRequest&,
+        DescribeAigcApiTokensOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::DescribeAigcFaceInfoOutcome VodClient::DescribeAigcFaceInfo(const DescribeAigcFaceInfoRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeAigcFaceInfo");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeAigcFaceInfoResponse rsp = DescribeAigcFaceInfoResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeAigcFaceInfoOutcome(rsp);
+        else
+            return DescribeAigcFaceInfoOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeAigcFaceInfoOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DescribeAigcFaceInfoAsync(const DescribeAigcFaceInfoRequest& request, const DescribeAigcFaceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeAigcFaceInfoRequest&;
+    using Resp = DescribeAigcFaceInfoResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeAigcFaceInfo", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DescribeAigcFaceInfoOutcomeCallable VodClient::DescribeAigcFaceInfoCallable(const DescribeAigcFaceInfoRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeAigcFaceInfoOutcome>>();
+    DescribeAigcFaceInfoAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DescribeAigcFaceInfoRequest&,
+        DescribeAigcFaceInfoOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::DescribeAigcUsageDataOutcome VodClient::DescribeAigcUsageData(const DescribeAigcUsageDataRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeAigcUsageData");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeAigcUsageDataResponse rsp = DescribeAigcUsageDataResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeAigcUsageDataOutcome(rsp);
+        else
+            return DescribeAigcUsageDataOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeAigcUsageDataOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DescribeAigcUsageDataAsync(const DescribeAigcUsageDataRequest& request, const DescribeAigcUsageDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeAigcUsageDataRequest&;
+    using Resp = DescribeAigcUsageDataResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeAigcUsageData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DescribeAigcUsageDataOutcomeCallable VodClient::DescribeAigcUsageDataCallable(const DescribeAigcUsageDataRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeAigcUsageDataOutcome>>();
+    DescribeAigcUsageDataAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DescribeAigcUsageDataRequest&,
+        DescribeAigcUsageDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::DescribeAllClassOutcome VodClient::DescribeAllClass(const DescribeAllClassRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeAllClass");
@@ -3432,6 +4382,56 @@ VodClient::DescribeAnimatedGraphicsTemplatesOutcomeCallable VodClient::DescribeA
         const VodClient*,
         const DescribeAnimatedGraphicsTemplatesRequest&,
         DescribeAnimatedGraphicsTemplatesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::DescribeBlindWatermarkTemplatesOutcome VodClient::DescribeBlindWatermarkTemplates(const DescribeBlindWatermarkTemplatesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeBlindWatermarkTemplates");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeBlindWatermarkTemplatesResponse rsp = DescribeBlindWatermarkTemplatesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeBlindWatermarkTemplatesOutcome(rsp);
+        else
+            return DescribeBlindWatermarkTemplatesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeBlindWatermarkTemplatesOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DescribeBlindWatermarkTemplatesAsync(const DescribeBlindWatermarkTemplatesRequest& request, const DescribeBlindWatermarkTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeBlindWatermarkTemplatesRequest&;
+    using Resp = DescribeBlindWatermarkTemplatesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeBlindWatermarkTemplates", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DescribeBlindWatermarkTemplatesOutcomeCallable VodClient::DescribeBlindWatermarkTemplatesCallable(const DescribeBlindWatermarkTemplatesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeBlindWatermarkTemplatesOutcome>>();
+    DescribeBlindWatermarkTemplatesAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DescribeBlindWatermarkTemplatesRequest&,
+        DescribeBlindWatermarkTemplatesOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4640,6 +5640,56 @@ VodClient::DescribeJustInTimeTranscodeTemplatesOutcomeCallable VodClient::Descri
     return prom->get_future();
 }
 
+VodClient::DescribeLLMComprehendTemplatesOutcome VodClient::DescribeLLMComprehendTemplates(const DescribeLLMComprehendTemplatesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLLMComprehendTemplates");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLLMComprehendTemplatesResponse rsp = DescribeLLMComprehendTemplatesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLLMComprehendTemplatesOutcome(rsp);
+        else
+            return DescribeLLMComprehendTemplatesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLLMComprehendTemplatesOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DescribeLLMComprehendTemplatesAsync(const DescribeLLMComprehendTemplatesRequest& request, const DescribeLLMComprehendTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLLMComprehendTemplatesRequest&;
+    using Resp = DescribeLLMComprehendTemplatesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLLMComprehendTemplates", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DescribeLLMComprehendTemplatesOutcomeCallable VodClient::DescribeLLMComprehendTemplatesCallable(const DescribeLLMComprehendTemplatesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLLMComprehendTemplatesOutcome>>();
+    DescribeLLMComprehendTemplatesAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DescribeLLMComprehendTemplatesRequest&,
+        DescribeLLMComprehendTemplatesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::DescribeLicenseUsageDataOutcome VodClient::DescribeLicenseUsageData(const DescribeLicenseUsageDataRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeLicenseUsageData");
@@ -5032,6 +6082,56 @@ VodClient::DescribeProcedureTemplatesOutcomeCallable VodClient::DescribeProcedur
         const VodClient*,
         const DescribeProcedureTemplatesRequest&,
         DescribeProcedureTemplatesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::DescribeProcessImageAsyncTemplatesOutcome VodClient::DescribeProcessImageAsyncTemplates(const DescribeProcessImageAsyncTemplatesRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeProcessImageAsyncTemplates");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeProcessImageAsyncTemplatesResponse rsp = DescribeProcessImageAsyncTemplatesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeProcessImageAsyncTemplatesOutcome(rsp);
+        else
+            return DescribeProcessImageAsyncTemplatesOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeProcessImageAsyncTemplatesOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::DescribeProcessImageAsyncTemplatesAsync(const DescribeProcessImageAsyncTemplatesRequest& request, const DescribeProcessImageAsyncTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeProcessImageAsyncTemplatesRequest&;
+    using Resp = DescribeProcessImageAsyncTemplatesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeProcessImageAsyncTemplates", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::DescribeProcessImageAsyncTemplatesOutcomeCallable VodClient::DescribeProcessImageAsyncTemplatesCallable(const DescribeProcessImageAsyncTemplatesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeProcessImageAsyncTemplatesOutcome>>();
+    DescribeProcessImageAsyncTemplatesAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const DescribeProcessImageAsyncTemplatesRequest&,
+        DescribeProcessImageAsyncTemplatesOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -6140,6 +7240,56 @@ VodClient::ExecuteFunctionOutcomeCallable VodClient::ExecuteFunctionCallable(con
     return prom->get_future();
 }
 
+VodClient::ExtractBlindWatermarkOutcome VodClient::ExtractBlindWatermark(const ExtractBlindWatermarkRequest &request)
+{
+    auto outcome = MakeRequest(request, "ExtractBlindWatermark");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ExtractBlindWatermarkResponse rsp = ExtractBlindWatermarkResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ExtractBlindWatermarkOutcome(rsp);
+        else
+            return ExtractBlindWatermarkOutcome(o.GetError());
+    }
+    else
+    {
+        return ExtractBlindWatermarkOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ExtractBlindWatermarkAsync(const ExtractBlindWatermarkRequest& request, const ExtractBlindWatermarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ExtractBlindWatermarkRequest&;
+    using Resp = ExtractBlindWatermarkResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ExtractBlindWatermark", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ExtractBlindWatermarkOutcomeCallable VodClient::ExtractBlindWatermarkCallable(const ExtractBlindWatermarkRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ExtractBlindWatermarkOutcome>>();
+    ExtractBlindWatermarkAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ExtractBlindWatermarkRequest&,
+        ExtractBlindWatermarkOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::ExtractCopyRightWatermarkOutcome VodClient::ExtractCopyRightWatermark(const ExtractCopyRightWatermarkRequest &request)
 {
     auto outcome = MakeRequest(request, "ExtractCopyRightWatermark");
@@ -6390,6 +7540,56 @@ VodClient::HandleCurrentPlaylistOutcomeCallable VodClient::HandleCurrentPlaylist
     return prom->get_future();
 }
 
+VodClient::ImportMediaKnowledgeOutcome VodClient::ImportMediaKnowledge(const ImportMediaKnowledgeRequest &request)
+{
+    auto outcome = MakeRequest(request, "ImportMediaKnowledge");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ImportMediaKnowledgeResponse rsp = ImportMediaKnowledgeResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ImportMediaKnowledgeOutcome(rsp);
+        else
+            return ImportMediaKnowledgeOutcome(o.GetError());
+    }
+    else
+    {
+        return ImportMediaKnowledgeOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ImportMediaKnowledgeAsync(const ImportMediaKnowledgeRequest& request, const ImportMediaKnowledgeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ImportMediaKnowledgeRequest&;
+    using Resp = ImportMediaKnowledgeResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ImportMediaKnowledge", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ImportMediaKnowledgeOutcomeCallable VodClient::ImportMediaKnowledgeCallable(const ImportMediaKnowledgeRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ImportMediaKnowledgeOutcome>>();
+    ImportMediaKnowledgeAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ImportMediaKnowledgeRequest&,
+        ImportMediaKnowledgeOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::InspectMediaQualityOutcome VodClient::InspectMediaQuality(const InspectMediaQualityRequest &request)
 {
     auto outcome = MakeRequest(request, "InspectMediaQuality");
@@ -6432,6 +7632,56 @@ VodClient::InspectMediaQualityOutcomeCallable VodClient::InspectMediaQualityCall
         const VodClient*,
         const InspectMediaQualityRequest&,
         InspectMediaQualityOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::ListFilesOutcome VodClient::ListFiles(const ListFilesRequest &request)
+{
+    auto outcome = MakeRequest(request, "ListFiles");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ListFilesResponse rsp = ListFilesResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ListFilesOutcome(rsp);
+        else
+            return ListFilesOutcome(o.GetError());
+    }
+    else
+    {
+        return ListFilesOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ListFilesAsync(const ListFilesRequest& request, const ListFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ListFilesRequest&;
+    using Resp = ListFilesResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ListFiles", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ListFilesOutcomeCallable VodClient::ListFilesCallable(const ListFilesRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ListFilesOutcome>>();
+    ListFilesAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ListFilesRequest&,
+        ListFilesOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -6732,6 +7982,56 @@ VodClient::ModifyAnimatedGraphicsTemplateOutcomeCallable VodClient::ModifyAnimat
         const VodClient*,
         const ModifyAnimatedGraphicsTemplateRequest&,
         ModifyAnimatedGraphicsTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::ModifyBlindWatermarkTemplateOutcome VodClient::ModifyBlindWatermarkTemplate(const ModifyBlindWatermarkTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyBlindWatermarkTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyBlindWatermarkTemplateResponse rsp = ModifyBlindWatermarkTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyBlindWatermarkTemplateOutcome(rsp);
+        else
+            return ModifyBlindWatermarkTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyBlindWatermarkTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ModifyBlindWatermarkTemplateAsync(const ModifyBlindWatermarkTemplateRequest& request, const ModifyBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyBlindWatermarkTemplateRequest&;
+    using Resp = ModifyBlindWatermarkTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyBlindWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ModifyBlindWatermarkTemplateOutcomeCallable VodClient::ModifyBlindWatermarkTemplateCallable(const ModifyBlindWatermarkTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyBlindWatermarkTemplateOutcome>>();
+    ModifyBlindWatermarkTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ModifyBlindWatermarkTemplateRequest&,
+        ModifyBlindWatermarkTemplateOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -7190,6 +8490,56 @@ VodClient::ModifyJustInTimeTranscodeTemplateOutcomeCallable VodClient::ModifyJus
     return prom->get_future();
 }
 
+VodClient::ModifyLLMComprehendTemplateOutcome VodClient::ModifyLLMComprehendTemplate(const ModifyLLMComprehendTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyLLMComprehendTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyLLMComprehendTemplateResponse rsp = ModifyLLMComprehendTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyLLMComprehendTemplateOutcome(rsp);
+        else
+            return ModifyLLMComprehendTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyLLMComprehendTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ModifyLLMComprehendTemplateAsync(const ModifyLLMComprehendTemplateRequest& request, const ModifyLLMComprehendTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyLLMComprehendTemplateRequest&;
+    using Resp = ModifyLLMComprehendTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyLLMComprehendTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ModifyLLMComprehendTemplateOutcomeCallable VodClient::ModifyLLMComprehendTemplateCallable(const ModifyLLMComprehendTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyLLMComprehendTemplateOutcome>>();
+    ModifyLLMComprehendTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ModifyLLMComprehendTemplateRequest&,
+        ModifyLLMComprehendTemplateOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::ModifyMPSTemplateOutcome VodClient::ModifyMPSTemplate(const ModifyMPSTemplateRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyMPSTemplate");
@@ -7382,6 +8732,56 @@ VodClient::ModifyPersonSampleOutcomeCallable VodClient::ModifyPersonSampleCallab
         const VodClient*,
         const ModifyPersonSampleRequest&,
         ModifyPersonSampleOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::ModifyProcessImageAsyncTemplateOutcome VodClient::ModifyProcessImageAsyncTemplate(const ModifyProcessImageAsyncTemplateRequest &request)
+{
+    auto outcome = MakeRequest(request, "ModifyProcessImageAsyncTemplate");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ModifyProcessImageAsyncTemplateResponse rsp = ModifyProcessImageAsyncTemplateResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ModifyProcessImageAsyncTemplateOutcome(rsp);
+        else
+            return ModifyProcessImageAsyncTemplateOutcome(o.GetError());
+    }
+    else
+    {
+        return ModifyProcessImageAsyncTemplateOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ModifyProcessImageAsyncTemplateAsync(const ModifyProcessImageAsyncTemplateRequest& request, const ModifyProcessImageAsyncTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ModifyProcessImageAsyncTemplateRequest&;
+    using Resp = ModifyProcessImageAsyncTemplateResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ModifyProcessImageAsyncTemplate", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ModifyProcessImageAsyncTemplateOutcomeCallable VodClient::ModifyProcessImageAsyncTemplateCallable(const ModifyProcessImageAsyncTemplateRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ModifyProcessImageAsyncTemplateOutcome>>();
+    ModifyProcessImageAsyncTemplateAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ModifyProcessImageAsyncTemplateRequest&,
+        ModifyProcessImageAsyncTemplateOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -8190,6 +9590,56 @@ VodClient::ProcessImageOutcomeCallable VodClient::ProcessImageCallable(const Pro
     return prom->get_future();
 }
 
+VodClient::ProcessImageAsyncOutcome VodClient::ProcessImageAsync(const ProcessImageAsyncRequest &request)
+{
+    auto outcome = MakeRequest(request, "ProcessImageAsync");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        ProcessImageAsyncResponse rsp = ProcessImageAsyncResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return ProcessImageAsyncOutcome(rsp);
+        else
+            return ProcessImageAsyncOutcome(o.GetError());
+    }
+    else
+    {
+        return ProcessImageAsyncOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::ProcessImageAsyncAsync(const ProcessImageAsyncRequest& request, const ProcessImageAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const ProcessImageAsyncRequest&;
+    using Resp = ProcessImageAsyncResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "ProcessImageAsync", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::ProcessImageAsyncOutcomeCallable VodClient::ProcessImageAsyncCallable(const ProcessImageAsyncRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<ProcessImageAsyncOutcome>>();
+    ProcessImageAsyncAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const ProcessImageAsyncRequest&,
+        ProcessImageAsyncOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 VodClient::ProcessMediaOutcome VodClient::ProcessMedia(const ProcessMediaRequest &request)
 {
     auto outcome = MakeRequest(request, "ProcessMedia");
@@ -8982,6 +10432,56 @@ VodClient::SearchMediaOutcomeCallable VodClient::SearchMediaCallable(const Searc
         const VodClient*,
         const SearchMediaRequest&,
         SearchMediaOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+VodClient::SearchMediaBySemanticsOutcome VodClient::SearchMediaBySemantics(const SearchMediaBySemanticsRequest &request)
+{
+    auto outcome = MakeRequest(request, "SearchMediaBySemantics");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        SearchMediaBySemanticsResponse rsp = SearchMediaBySemanticsResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return SearchMediaBySemanticsOutcome(rsp);
+        else
+            return SearchMediaBySemanticsOutcome(o.GetError());
+    }
+    else
+    {
+        return SearchMediaBySemanticsOutcome(outcome.GetError());
+    }
+}
+
+void VodClient::SearchMediaBySemanticsAsync(const SearchMediaBySemanticsRequest& request, const SearchMediaBySemanticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const SearchMediaBySemanticsRequest&;
+    using Resp = SearchMediaBySemanticsResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "SearchMediaBySemantics", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+VodClient::SearchMediaBySemanticsOutcomeCallable VodClient::SearchMediaBySemanticsCallable(const SearchMediaBySemanticsRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<SearchMediaBySemanticsOutcome>>();
+    SearchMediaBySemanticsAsync(
+    request,
+    [prom](
+        const VodClient*,
+        const SearchMediaBySemanticsRequest&,
+        SearchMediaBySemanticsOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

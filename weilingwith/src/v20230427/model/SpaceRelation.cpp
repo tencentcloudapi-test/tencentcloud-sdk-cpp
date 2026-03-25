@@ -93,8 +93,8 @@ CoreInternalOutcome SpaceRelation::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["Children"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<SpaceRelation>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            SpaceRelation item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -163,10 +163,7 @@ void SpaceRelation::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         for (auto itr = m_children.begin(); itr != m_children.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -253,12 +250,12 @@ bool SpaceRelation::ParentSpaceCodeHasBeenSet() const
     return m_parentSpaceCodeHasBeenSet;
 }
 
-vector<shared_ptr<SpaceRelation>> SpaceRelation::GetChildren() const
+vector<SpaceRelation> SpaceRelation::GetChildren() const
 {
     return m_children;
 }
 
-void SpaceRelation::SetChildren(const vector<shared_ptr<SpaceRelation>>& _children)
+void SpaceRelation::SetChildren(const vector<SpaceRelation>& _children)
 {
     m_children = _children;
     m_childrenHasBeenSet = true;

@@ -95,8 +95,8 @@ CoreInternalOutcome DescribeTreeJobsRsp::Deserialize(const rapidjson::Value &val
         const rapidjson::Value &tmpValue = value["Children"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<DescribeTreeJobsRsp>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            DescribeTreeJobsRsp item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -194,10 +194,7 @@ void DescribeTreeJobsRsp::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         for (auto itr = m_children.begin(); itr != m_children.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -292,12 +289,12 @@ bool DescribeTreeJobsRsp::JobSetHasBeenSet() const
     return m_jobSetHasBeenSet;
 }
 
-vector<shared_ptr<DescribeTreeJobsRsp>> DescribeTreeJobsRsp::GetChildren() const
+vector<DescribeTreeJobsRsp> DescribeTreeJobsRsp::GetChildren() const
 {
     return m_children;
 }
 
-void DescribeTreeJobsRsp::SetChildren(const vector<shared_ptr<DescribeTreeJobsRsp>>& _children)
+void DescribeTreeJobsRsp::SetChildren(const vector<DescribeTreeJobsRsp>& _children)
 {
     m_children = _children;
     m_childrenHasBeenSet = true;

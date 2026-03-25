@@ -290,6 +290,56 @@ TrtcClient::CreateCloudSliceTaskOutcomeCallable TrtcClient::CreateCloudSliceTask
     return prom->get_future();
 }
 
+TrtcClient::CreateCloudTranscriptionOutcome TrtcClient::CreateCloudTranscription(const CreateCloudTranscriptionRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateCloudTranscription");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateCloudTranscriptionResponse rsp = CreateCloudTranscriptionResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateCloudTranscriptionOutcome(rsp);
+        else
+            return CreateCloudTranscriptionOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateCloudTranscriptionOutcome(outcome.GetError());
+    }
+}
+
+void TrtcClient::CreateCloudTranscriptionAsync(const CreateCloudTranscriptionRequest& request, const CreateCloudTranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateCloudTranscriptionRequest&;
+    using Resp = CreateCloudTranscriptionResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateCloudTranscription", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TrtcClient::CreateCloudTranscriptionOutcomeCallable TrtcClient::CreateCloudTranscriptionCallable(const CreateCloudTranscriptionRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateCloudTranscriptionOutcome>>();
+    CreateCloudTranscriptionAsync(
+    request,
+    [prom](
+        const TrtcClient*,
+        const CreateCloudTranscriptionRequest&,
+        CreateCloudTranscriptionOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 TrtcClient::CreatePictureOutcome TrtcClient::CreatePicture(const CreatePictureRequest &request)
 {
     auto outcome = MakeRequest(request, "CreatePicture");
@@ -532,6 +582,56 @@ TrtcClient::DeleteCloudSliceTaskOutcomeCallable TrtcClient::DeleteCloudSliceTask
         const TrtcClient*,
         const DeleteCloudSliceTaskRequest&,
         DeleteCloudSliceTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TrtcClient::DeleteCloudTranscriptionOutcome TrtcClient::DeleteCloudTranscription(const DeleteCloudTranscriptionRequest &request)
+{
+    auto outcome = MakeRequest(request, "DeleteCloudTranscription");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DeleteCloudTranscriptionResponse rsp = DeleteCloudTranscriptionResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DeleteCloudTranscriptionOutcome(rsp);
+        else
+            return DeleteCloudTranscriptionOutcome(o.GetError());
+    }
+    else
+    {
+        return DeleteCloudTranscriptionOutcome(outcome.GetError());
+    }
+}
+
+void TrtcClient::DeleteCloudTranscriptionAsync(const DeleteCloudTranscriptionRequest& request, const DeleteCloudTranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DeleteCloudTranscriptionRequest&;
+    using Resp = DeleteCloudTranscriptionResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DeleteCloudTranscription", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TrtcClient::DeleteCloudTranscriptionOutcomeCallable TrtcClient::DeleteCloudTranscriptionCallable(const DeleteCloudTranscriptionRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DeleteCloudTranscriptionOutcome>>();
+    DeleteCloudTranscriptionAsync(
+    request,
+    [prom](
+        const TrtcClient*,
+        const DeleteCloudTranscriptionRequest&,
+        DeleteCloudTranscriptionOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -932,6 +1032,56 @@ TrtcClient::DescribeCloudSliceTaskOutcomeCallable TrtcClient::DescribeCloudSlice
         const TrtcClient*,
         const DescribeCloudSliceTaskRequest&,
         DescribeCloudSliceTaskOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+TrtcClient::DescribeCloudTranscriptionOutcome TrtcClient::DescribeCloudTranscription(const DescribeCloudTranscriptionRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeCloudTranscription");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeCloudTranscriptionResponse rsp = DescribeCloudTranscriptionResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeCloudTranscriptionOutcome(rsp);
+        else
+            return DescribeCloudTranscriptionOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeCloudTranscriptionOutcome(outcome.GetError());
+    }
+}
+
+void TrtcClient::DescribeCloudTranscriptionAsync(const DescribeCloudTranscriptionRequest& request, const DescribeCloudTranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeCloudTranscriptionRequest&;
+    using Resp = DescribeCloudTranscriptionResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeCloudTranscription", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+TrtcClient::DescribeCloudTranscriptionOutcomeCallable TrtcClient::DescribeCloudTranscriptionCallable(const DescribeCloudTranscriptionRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeCloudTranscriptionOutcome>>();
+    DescribeCloudTranscriptionAsync(
+    request,
+    [prom](
+        const TrtcClient*,
+        const DescribeCloudTranscriptionRequest&,
+        DescribeCloudTranscriptionOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1390,56 +1540,6 @@ TrtcClient::DescribeTRTCMarketQualityDataOutcomeCallable TrtcClient::DescribeTRT
     return prom->get_future();
 }
 
-TrtcClient::DescribeTRTCMarketQualityMetricDataOutcome TrtcClient::DescribeTRTCMarketQualityMetricData(const DescribeTRTCMarketQualityMetricDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTRTCMarketQualityMetricData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTRTCMarketQualityMetricDataResponse rsp = DescribeTRTCMarketQualityMetricDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTRTCMarketQualityMetricDataOutcome(rsp);
-        else
-            return DescribeTRTCMarketQualityMetricDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTRTCMarketQualityMetricDataOutcome(outcome.GetError());
-    }
-}
-
-void TrtcClient::DescribeTRTCMarketQualityMetricDataAsync(const DescribeTRTCMarketQualityMetricDataRequest& request, const DescribeTRTCMarketQualityMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTRTCMarketQualityMetricDataRequest&;
-    using Resp = DescribeTRTCMarketQualityMetricDataResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTRTCMarketQualityMetricData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TrtcClient::DescribeTRTCMarketQualityMetricDataOutcomeCallable TrtcClient::DescribeTRTCMarketQualityMetricDataCallable(const DescribeTRTCMarketQualityMetricDataRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTRTCMarketQualityMetricDataOutcome>>();
-    DescribeTRTCMarketQualityMetricDataAsync(
-    request,
-    [prom](
-        const TrtcClient*,
-        const DescribeTRTCMarketQualityMetricDataRequest&,
-        DescribeTRTCMarketQualityMetricDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TrtcClient::DescribeTRTCMarketScaleDataOutcome TrtcClient::DescribeTRTCMarketScaleData(const DescribeTRTCMarketScaleDataRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeTRTCMarketScaleData");
@@ -1590,56 +1690,6 @@ TrtcClient::DescribeTRTCRealTimeQualityDataOutcomeCallable TrtcClient::DescribeT
     return prom->get_future();
 }
 
-TrtcClient::DescribeTRTCRealTimeQualityMetricDataOutcome TrtcClient::DescribeTRTCRealTimeQualityMetricData(const DescribeTRTCRealTimeQualityMetricDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTRTCRealTimeQualityMetricData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTRTCRealTimeQualityMetricDataResponse rsp = DescribeTRTCRealTimeQualityMetricDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTRTCRealTimeQualityMetricDataOutcome(rsp);
-        else
-            return DescribeTRTCRealTimeQualityMetricDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTRTCRealTimeQualityMetricDataOutcome(outcome.GetError());
-    }
-}
-
-void TrtcClient::DescribeTRTCRealTimeQualityMetricDataAsync(const DescribeTRTCRealTimeQualityMetricDataRequest& request, const DescribeTRTCRealTimeQualityMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTRTCRealTimeQualityMetricDataRequest&;
-    using Resp = DescribeTRTCRealTimeQualityMetricDataResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTRTCRealTimeQualityMetricData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TrtcClient::DescribeTRTCRealTimeQualityMetricDataOutcomeCallable TrtcClient::DescribeTRTCRealTimeQualityMetricDataCallable(const DescribeTRTCRealTimeQualityMetricDataRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTRTCRealTimeQualityMetricDataOutcome>>();
-    DescribeTRTCRealTimeQualityMetricDataAsync(
-    request,
-    [prom](
-        const TrtcClient*,
-        const DescribeTRTCRealTimeQualityMetricDataRequest&,
-        DescribeTRTCRealTimeQualityMetricDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TrtcClient::DescribeTRTCRealTimeScaleDataOutcome TrtcClient::DescribeTRTCRealTimeScaleData(const DescribeTRTCRealTimeScaleDataRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeTRTCRealTimeScaleData");
@@ -1682,56 +1732,6 @@ TrtcClient::DescribeTRTCRealTimeScaleDataOutcomeCallable TrtcClient::DescribeTRT
         const TrtcClient*,
         const DescribeTRTCRealTimeScaleDataRequest&,
         DescribeTRTCRealTimeScaleDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TrtcClient::DescribeTRTCRealTimeScaleMetricDataOutcome TrtcClient::DescribeTRTCRealTimeScaleMetricData(const DescribeTRTCRealTimeScaleMetricDataRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeTRTCRealTimeScaleMetricData");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeTRTCRealTimeScaleMetricDataResponse rsp = DescribeTRTCRealTimeScaleMetricDataResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeTRTCRealTimeScaleMetricDataOutcome(rsp);
-        else
-            return DescribeTRTCRealTimeScaleMetricDataOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeTRTCRealTimeScaleMetricDataOutcome(outcome.GetError());
-    }
-}
-
-void TrtcClient::DescribeTRTCRealTimeScaleMetricDataAsync(const DescribeTRTCRealTimeScaleMetricDataRequest& request, const DescribeTRTCRealTimeScaleMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeTRTCRealTimeScaleMetricDataRequest&;
-    using Resp = DescribeTRTCRealTimeScaleMetricDataResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeTRTCRealTimeScaleMetricData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TrtcClient::DescribeTRTCRealTimeScaleMetricDataOutcomeCallable TrtcClient::DescribeTRTCRealTimeScaleMetricDataCallable(const DescribeTRTCRealTimeScaleMetricDataRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeTRTCRealTimeScaleMetricDataOutcome>>();
-    DescribeTRTCRealTimeScaleMetricDataAsync(
-    request,
-    [prom](
-        const TrtcClient*,
-        const DescribeTRTCRealTimeScaleMetricDataRequest&,
-        DescribeTRTCRealTimeScaleMetricDataOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

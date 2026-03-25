@@ -243,27 +243,6 @@ namespace TencentCloud
                     bool ExecutionEndTimeHasBeenSet() const;
 
                     /**
-                     * 获取调度类型: 0 正常调度 1 空跑调度，默认为 0
-                     * @return ScheduleRunType 调度类型: 0 正常调度 1 空跑调度，默认为 0
-                     * 
-                     */
-                    std::string GetScheduleRunType() const;
-
-                    /**
-                     * 设置调度类型: 0 正常调度 1 空跑调度，默认为 0
-                     * @param _scheduleRunType 调度类型: 0 正常调度 1 空跑调度，默认为 0
-                     * 
-                     */
-                    void SetScheduleRunType(const std::string& _scheduleRunType);
-
-                    /**
-                     * 判断参数 ScheduleRunType 是否已赋值
-                     * @return ScheduleRunType 是否已赋值
-                     * 
-                     */
-                    bool ScheduleRunTypeHasBeenSet() const;
-
-                    /**
                      * 获取日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
                      * @return CalendarOpen 日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
                      * 
@@ -367,111 +346,6 @@ namespace TencentCloud
                      * 
                      */
                     bool EventListenerListHasBeenSet() const;
-
-                    /**
-                     * 获取任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
-                     * @return RunPriority 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
-                     * 
-                     */
-                    std::string GetRunPriority() const;
-
-                    /**
-                     * 设置任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
-                     * @param _runPriority 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
-                     * 
-                     */
-                    void SetRunPriority(const std::string& _runPriority);
-
-                    /**
-                     * 判断参数 RunPriority 是否已赋值
-                     * @return RunPriority 是否已赋值
-                     * 
-                     */
-                    bool RunPriorityHasBeenSet() const;
-
-                    /**
-                     * 获取重试策略 重试等待时间,单位分钟: 默认: 5
-                     * @return RetryWait 重试策略 重试等待时间,单位分钟: 默认: 5
-                     * 
-                     */
-                    std::string GetRetryWait() const;
-
-                    /**
-                     * 设置重试策略 重试等待时间,单位分钟: 默认: 5
-                     * @param _retryWait 重试策略 重试等待时间,单位分钟: 默认: 5
-                     * 
-                     */
-                    void SetRetryWait(const std::string& _retryWait);
-
-                    /**
-                     * 判断参数 RetryWait 是否已赋值
-                     * @return RetryWait 是否已赋值
-                     * 
-                     */
-                    bool RetryWaitHasBeenSet() const;
-
-                    /**
-                     * 获取重试策略 最大尝试次数, 默认: 4
-                     * @return MaxRetryAttempts 重试策略 最大尝试次数, 默认: 4
-                     * 
-                     */
-                    std::string GetMaxRetryAttempts() const;
-
-                    /**
-                     * 设置重试策略 最大尝试次数, 默认: 4
-                     * @param _maxRetryAttempts 重试策略 最大尝试次数, 默认: 4
-                     * 
-                     */
-                    void SetMaxRetryAttempts(const std::string& _maxRetryAttempts);
-
-                    /**
-                     * 判断参数 MaxRetryAttempts 是否已赋值
-                     * @return MaxRetryAttempts 是否已赋值
-                     * 
-                     */
-                    bool MaxRetryAttemptsHasBeenSet() const;
-
-                    /**
-                     * 获取超时处理策略 运行耗时超时（单位：分钟）默认为 -1
-                     * @return ExecutionTTL 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
-                     * 
-                     */
-                    std::string GetExecutionTTL() const;
-
-                    /**
-                     * 设置超时处理策略 运行耗时超时（单位：分钟）默认为 -1
-                     * @param _executionTTL 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
-                     * 
-                     */
-                    void SetExecutionTTL(const std::string& _executionTTL);
-
-                    /**
-                     * 判断参数 ExecutionTTL 是否已赋值
-                     * @return ExecutionTTL 是否已赋值
-                     * 
-                     */
-                    bool ExecutionTTLHasBeenSet() const;
-
-                    /**
-                     * 获取超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
-                     * @return WaitExecutionTotalTTL 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
-                     * 
-                     */
-                    std::string GetWaitExecutionTotalTTL() const;
-
-                    /**
-                     * 设置超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
-                     * @param _waitExecutionTotalTTL 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
-                     * 
-                     */
-                    void SetWaitExecutionTotalTTL(const std::string& _waitExecutionTotalTTL);
-
-                    /**
-                     * 判断参数 WaitExecutionTotalTTL 是否已赋值
-                     * @return WaitExecutionTotalTTL 是否已赋值
-                     * 
-                     */
-                    bool WaitExecutionTotalTTLHasBeenSet() const;
 
                     /**
                      * 获取重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
@@ -586,6 +460,327 @@ namespace TencentCloud
                      */
                     bool InitStrategyHasBeenSet() const;
 
+                    /**
+                     * 获取调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @return ScheduleRunType 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @deprecated
+                     */
+                    std::string GetScheduleRunType() const;
+
+                    /**
+                     * 设置调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @param _scheduleRunType 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @deprecated
+                     */
+                    void SetScheduleRunType(const std::string& _scheduleRunType);
+
+                    /**
+                     * 判断参数 ScheduleRunType 是否已赋值
+                     * @return ScheduleRunType 是否已赋值
+                     * @deprecated
+                     */
+                    bool ScheduleRunTypeHasBeenSet() const;
+
+                    /**
+                     * 获取任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @return RunPriority 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @deprecated
+                     */
+                    std::string GetRunPriority() const;
+
+                    /**
+                     * 设置任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @param _runPriority 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @deprecated
+                     */
+                    void SetRunPriority(const std::string& _runPriority);
+
+                    /**
+                     * 判断参数 RunPriority 是否已赋值
+                     * @return RunPriority 是否已赋值
+                     * @deprecated
+                     */
+                    bool RunPriorityHasBeenSet() const;
+
+                    /**
+                     * 获取重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @return RetryWait 重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @deprecated
+                     */
+                    std::string GetRetryWait() const;
+
+                    /**
+                     * 设置重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @param _retryWait 重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @deprecated
+                     */
+                    void SetRetryWait(const std::string& _retryWait);
+
+                    /**
+                     * 判断参数 RetryWait 是否已赋值
+                     * @return RetryWait 是否已赋值
+                     * @deprecated
+                     */
+                    bool RetryWaitHasBeenSet() const;
+
+                    /**
+                     * 获取重试策略 最大尝试次数, 默认: 4
+                     * @return MaxRetryAttempts 重试策略 最大尝试次数, 默认: 4
+                     * @deprecated
+                     */
+                    std::string GetMaxRetryAttempts() const;
+
+                    /**
+                     * 设置重试策略 最大尝试次数, 默认: 4
+                     * @param _maxRetryAttempts 重试策略 最大尝试次数, 默认: 4
+                     * @deprecated
+                     */
+                    void SetMaxRetryAttempts(const std::string& _maxRetryAttempts);
+
+                    /**
+                     * 判断参数 MaxRetryAttempts 是否已赋值
+                     * @return MaxRetryAttempts 是否已赋值
+                     * @deprecated
+                     */
+                    bool MaxRetryAttemptsHasBeenSet() const;
+
+                    /**
+                     * 获取超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @return ExecutionTTL 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @deprecated
+                     */
+                    std::string GetExecutionTTL() const;
+
+                    /**
+                     * 设置超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @param _executionTTL 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @deprecated
+                     */
+                    void SetExecutionTTL(const std::string& _executionTTL);
+
+                    /**
+                     * 判断参数 ExecutionTTL 是否已赋值
+                     * @return ExecutionTTL 是否已赋值
+                     * @deprecated
+                     */
+                    bool ExecutionTTLHasBeenSet() const;
+
+                    /**
+                     * 获取超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @return WaitExecutionTotalTTL 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @deprecated
+                     */
+                    std::string GetWaitExecutionTotalTTL() const;
+
+                    /**
+                     * 设置超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @param _waitExecutionTotalTTL 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @deprecated
+                     */
+                    void SetWaitExecutionTotalTTL(const std::string& _waitExecutionTotalTTL);
+
+                    /**
+                     * 判断参数 WaitExecutionTotalTTL 是否已赋值
+                     * @return WaitExecutionTotalTTL 是否已赋值
+                     * @deprecated
+                     */
+                    bool WaitExecutionTotalTTLHasBeenSet() const;
+
+                    /**
+                     * 获取调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @return ScheduleType 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * 
+                     */
+                    int64_t GetScheduleType() const;
+
+                    /**
+                     * 设置调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @param _scheduleType 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * 
+                     */
+                    void SetScheduleType(const int64_t& _scheduleType);
+
+                    /**
+                     * 判断参数 ScheduleType 是否已赋值
+                     * @return ScheduleType 是否已赋值
+                     * 
+                     */
+                    bool ScheduleTypeHasBeenSet() const;
+
+                    /**
+                     * 获取任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @return RunPriorityType 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * 
+                     */
+                    int64_t GetRunPriorityType() const;
+
+                    /**
+                     * 设置任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @param _runPriorityType 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * 
+                     */
+                    void SetRunPriorityType(const int64_t& _runPriorityType);
+
+                    /**
+                     * 判断参数 RunPriorityType 是否已赋值
+                     * @return RunPriorityType 是否已赋值
+                     * 
+                     */
+                    bool RunPriorityTypeHasBeenSet() const;
+
+                    /**
+                     * 获取重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @return RetryWaitMinute 重试策略 重试等待时间,单位分钟: 默认: 5
+                     * 
+                     */
+                    int64_t GetRetryWaitMinute() const;
+
+                    /**
+                     * 设置重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @param _retryWaitMinute 重试策略 重试等待时间,单位分钟: 默认: 5
+                     * 
+                     */
+                    void SetRetryWaitMinute(const int64_t& _retryWaitMinute);
+
+                    /**
+                     * 判断参数 RetryWaitMinute 是否已赋值
+                     * @return RetryWaitMinute 是否已赋值
+                     * 
+                     */
+                    bool RetryWaitMinuteHasBeenSet() const;
+
+                    /**
+                     * 获取重试策略 最大尝试次数, 默认: 4
+                     * @return MaxRetryNumber 重试策略 最大尝试次数, 默认: 4
+                     * 
+                     */
+                    int64_t GetMaxRetryNumber() const;
+
+                    /**
+                     * 设置重试策略 最大尝试次数, 默认: 4
+                     * @param _maxRetryNumber 重试策略 最大尝试次数, 默认: 4
+                     * 
+                     */
+                    void SetMaxRetryNumber(const int64_t& _maxRetryNumber);
+
+                    /**
+                     * 判断参数 MaxRetryNumber 是否已赋值
+                     * @return MaxRetryNumber 是否已赋值
+                     * 
+                     */
+                    bool MaxRetryNumberHasBeenSet() const;
+
+                    /**
+                     * 获取超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @return ExecutionTTLMinute 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    int64_t GetExecutionTTLMinute() const;
+
+                    /**
+                     * 设置超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @param _executionTTLMinute 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    void SetExecutionTTLMinute(const int64_t& _executionTTLMinute);
+
+                    /**
+                     * 判断参数 ExecutionTTLMinute 是否已赋值
+                     * @return ExecutionTTLMinute 是否已赋值
+                     * 
+                     */
+                    bool ExecutionTTLMinuteHasBeenSet() const;
+
+                    /**
+                     * 获取超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @return WaitExecutionTotalTTLMinute 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    int64_t GetWaitExecutionTotalTTLMinute() const;
+
+                    /**
+                     * 设置超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @param _waitExecutionTotalTTLMinute 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    void SetWaitExecutionTotalTTLMinute(const int64_t& _waitExecutionTotalTTLMinute);
+
+                    /**
+                     * 判断参数 WaitExecutionTotalTTLMinute 是否已赋值
+                     * @return WaitExecutionTotalTTLMinute 是否已赋值
+                     * 
+                     */
+                    bool WaitExecutionTotalTTLMinuteHasBeenSet() const;
+
+                    /**
+                     * 获取- 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+                     * @return DependencyTriggerPolicy - 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+                     * 
+                     */
+                    std::string GetDependencyTriggerPolicy() const;
+
+                    /**
+                     * 设置- 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+                     * @param _dependencyTriggerPolicy - 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+                     * 
+                     */
+                    void SetDependencyTriggerPolicy(const std::string& _dependencyTriggerPolicy);
+
+                    /**
+                     * 判断参数 DependencyTriggerPolicy 是否已赋值
+                     * @return DependencyTriggerPolicy 是否已赋值
+                     * 
+                     */
+                    bool DependencyTriggerPolicyHasBeenSet() const;
+
                 private:
 
                     /**
@@ -642,12 +837,6 @@ namespace TencentCloud
                     bool m_executionEndTimeHasBeenSet;
 
                     /**
-                     * 调度类型: 0 正常调度 1 空跑调度，默认为 0
-                     */
-                    std::string m_scheduleRunType;
-                    bool m_scheduleRunTypeHasBeenSet;
-
-                    /**
                      * 日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
                      */
                     std::string m_calendarOpen;
@@ -676,36 +865,6 @@ namespace TencentCloud
                      */
                     std::vector<EventListener> m_eventListenerList;
                     bool m_eventListenerListHasBeenSet;
-
-                    /**
-                     * 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
-                     */
-                    std::string m_runPriority;
-                    bool m_runPriorityHasBeenSet;
-
-                    /**
-                     * 重试策略 重试等待时间,单位分钟: 默认: 5
-                     */
-                    std::string m_retryWait;
-                    bool m_retryWaitHasBeenSet;
-
-                    /**
-                     * 重试策略 最大尝试次数, 默认: 4
-                     */
-                    std::string m_maxRetryAttempts;
-                    bool m_maxRetryAttemptsHasBeenSet;
-
-                    /**
-                     * 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
-                     */
-                    std::string m_executionTTL;
-                    bool m_executionTTLHasBeenSet;
-
-                    /**
-                     * 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
-                     */
-                    std::string m_waitExecutionTotalTTL;
-                    bool m_waitExecutionTotalTTLHasBeenSet;
 
                     /**
                      * 重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
@@ -738,6 +897,96 @@ namespace TencentCloud
                      */
                     std::string m_initStrategy;
                     bool m_initStrategyHasBeenSet;
+
+                    /**
+                     * 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     */
+                    std::string m_scheduleRunType;
+                    bool m_scheduleRunTypeHasBeenSet;
+
+                    /**
+                     * 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     */
+                    std::string m_runPriority;
+                    bool m_runPriorityHasBeenSet;
+
+                    /**
+                     * 重试策略 重试等待时间,单位分钟: 默认: 5
+                     */
+                    std::string m_retryWait;
+                    bool m_retryWaitHasBeenSet;
+
+                    /**
+                     * 重试策略 最大尝试次数, 默认: 4
+                     */
+                    std::string m_maxRetryAttempts;
+                    bool m_maxRetryAttemptsHasBeenSet;
+
+                    /**
+                     * 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     */
+                    std::string m_executionTTL;
+                    bool m_executionTTLHasBeenSet;
+
+                    /**
+                     * 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     */
+                    std::string m_waitExecutionTotalTTL;
+                    bool m_waitExecutionTotalTTLHasBeenSet;
+
+                    /**
+                     * 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     */
+                    int64_t m_scheduleType;
+                    bool m_scheduleTypeHasBeenSet;
+
+                    /**
+                     * 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     */
+                    int64_t m_runPriorityType;
+                    bool m_runPriorityTypeHasBeenSet;
+
+                    /**
+                     * 重试策略 重试等待时间,单位分钟: 默认: 5
+                     */
+                    int64_t m_retryWaitMinute;
+                    bool m_retryWaitMinuteHasBeenSet;
+
+                    /**
+                     * 重试策略 最大尝试次数, 默认: 4
+                     */
+                    int64_t m_maxRetryNumber;
+                    bool m_maxRetryNumberHasBeenSet;
+
+                    /**
+                     * 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     */
+                    int64_t m_executionTTLMinute;
+                    bool m_executionTTLMinuteHasBeenSet;
+
+                    /**
+                     * 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     */
+                    int64_t m_waitExecutionTotalTTLMinute;
+                    bool m_waitExecutionTotalTTLMinuteHasBeenSet;
+
+                    /**
+                     * - 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+                     */
+                    std::string m_dependencyTriggerPolicy;
+                    bool m_dependencyTriggerPolicyHasBeenSet;
 
                 };
             }

@@ -862,6 +862,48 @@ HYBRID_PAID:
                      */
                     bool VolumeMountsHasBeenSet() const;
 
+                    /**
+                     * 获取调度策略 [binpack] 优先占满整机，尽量避免碎卡（默认值）[spread] 优先分散在各个节点，确保服务高可用
+                     * @return SchedulingStrategy 调度策略 [binpack] 优先占满整机，尽量避免碎卡（默认值）[spread] 优先分散在各个节点，确保服务高可用
+                     * 
+                     */
+                    std::string GetSchedulingStrategy() const;
+
+                    /**
+                     * 设置调度策略 [binpack] 优先占满整机，尽量避免碎卡（默认值）[spread] 优先分散在各个节点，确保服务高可用
+                     * @param _schedulingStrategy 调度策略 [binpack] 优先占满整机，尽量避免碎卡（默认值）[spread] 优先分散在各个节点，确保服务高可用
+                     * 
+                     */
+                    void SetSchedulingStrategy(const std::string& _schedulingStrategy);
+
+                    /**
+                     * 判断参数 SchedulingStrategy 是否已赋值
+                     * @return SchedulingStrategy 是否已赋值
+                     * 
+                     */
+                    bool SchedulingStrategyHasBeenSet() const;
+
+                    /**
+                     * 获取目标工作空间，不为0则进行迁移，源服务只允许在默认空间
+                     * @return TargetProjectId 目标工作空间，不为0则进行迁移，源服务只允许在默认空间
+                     * 
+                     */
+                    int64_t GetTargetProjectId() const;
+
+                    /**
+                     * 设置目标工作空间，不为0则进行迁移，源服务只允许在默认空间
+                     * @param _targetProjectId 目标工作空间，不为0则进行迁移，源服务只允许在默认空间
+                     * 
+                     */
+                    void SetTargetProjectId(const int64_t& _targetProjectId);
+
+                    /**
+                     * 判断参数 TargetProjectId 是否已赋值
+                     * @return TargetProjectId 是否已赋值
+                     * 
+                     */
+                    bool TargetProjectIdHasBeenSet() const;
+
                 private:
 
                     /**
@@ -1090,6 +1132,18 @@ HYBRID_PAID:
                      */
                     std::vector<VolumeMount> m_volumeMounts;
                     bool m_volumeMountsHasBeenSet;
+
+                    /**
+                     * 调度策略 [binpack] 优先占满整机，尽量避免碎卡（默认值）[spread] 优先分散在各个节点，确保服务高可用
+                     */
+                    std::string m_schedulingStrategy;
+                    bool m_schedulingStrategyHasBeenSet;
+
+                    /**
+                     * 目标工作空间，不为0则进行迁移，源服务只允许在默认空间
+                     */
+                    int64_t m_targetProjectId;
+                    bool m_targetProjectIdHasBeenSet;
 
                 };
             }

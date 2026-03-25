@@ -87,7 +87,13 @@ InstanceOpsDto::InstanceOpsDto() :
     m_scheduleRunTypeHasBeenSet(false),
     m_allowRedoTypeHasBeenSet(false),
     m_instanceCycleTypeHasBeenSet(false),
-    m_instanceSchedulerDescHasBeenSet(false)
+    m_instanceSchedulerDescHasBeenSet(false),
+    m_privilegesHasBeenSet(false),
+    m_taskExecutionIdHasBeenSet(false),
+    m_dlcTaskIdHasBeenSet(false),
+    m_dlcSparkJobIdHasBeenSet(false),
+    m_extHasBeenSet(false),
+    m_relatedEventListHasBeenSet(false)
 {
 }
 
@@ -651,8 +657,8 @@ CoreInternalOutcome InstanceOpsDto::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["RelatedInstanceList"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<InstanceOpsDto>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            InstanceOpsDto item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -741,8 +747,8 @@ CoreInternalOutcome InstanceOpsDto::Deserialize(const rapidjson::Value &value)
         const rapidjson::Value &tmpValue = value["CirculateInstanceList"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<InstanceOpsDto>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            InstanceOpsDto item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -801,6 +807,86 @@ CoreInternalOutcome InstanceOpsDto::Deserialize(const rapidjson::Value &value)
         }
         m_instanceSchedulerDesc = string(value["InstanceSchedulerDesc"].GetString());
         m_instanceSchedulerDescHasBeenSet = true;
+    }
+
+    if (value.HasMember("Privileges") && !value["Privileges"].IsNull())
+    {
+        if (!value["Privileges"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `InstanceOpsDto.Privileges` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["Privileges"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_privileges.push_back((*itr).GetString());
+        }
+        m_privilegesHasBeenSet = true;
+    }
+
+    if (value.HasMember("TaskExecutionId") && !value["TaskExecutionId"].IsNull())
+    {
+        if (!value["TaskExecutionId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceOpsDto.TaskExecutionId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_taskExecutionId = string(value["TaskExecutionId"].GetString());
+        m_taskExecutionIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DlcTaskId") && !value["DlcTaskId"].IsNull())
+    {
+        if (!value["DlcTaskId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceOpsDto.DlcTaskId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dlcTaskId = string(value["DlcTaskId"].GetString());
+        m_dlcTaskIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("DlcSparkJobId") && !value["DlcSparkJobId"].IsNull())
+    {
+        if (!value["DlcSparkJobId"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceOpsDto.DlcSparkJobId` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_dlcSparkJobId = string(value["DlcSparkJobId"].GetString());
+        m_dlcSparkJobIdHasBeenSet = true;
+    }
+
+    if (value.HasMember("Ext") && !value["Ext"].IsNull())
+    {
+        if (!value["Ext"].IsObject())
+        {
+            return CoreInternalOutcome(Core::Error("response `InstanceOpsDto.Ext` is not object type").SetRequestId(requestId));
+        }
+
+        CoreInternalOutcome outcome = m_ext.Deserialize(value["Ext"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_extHasBeenSet = true;
+    }
+
+    if (value.HasMember("RelatedEventList") && !value["RelatedEventList"].IsNull())
+    {
+        if (!value["RelatedEventList"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `InstanceOpsDto.RelatedEventList` is not array type"));
+
+        const rapidjson::Value &tmpValue = value["RelatedEventList"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            EventCaseAuditLogOptDto item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
+            if (!outcome.IsSuccess())
+            {
+                outcome.GetError().SetRequestId(requestId);
+                return outcome;
+            }
+            m_relatedEventList.push_back(item);
+        }
+        m_relatedEventListHasBeenSet = true;
     }
 
 
@@ -1254,10 +1340,7 @@ void InstanceOpsDto::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         for (auto itr = m_relatedInstanceList.begin(); itr != m_relatedInstanceList.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -1326,10 +1409,7 @@ void InstanceOpsDto::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         for (auto itr = m_circulateInstanceList.begin(); itr != m_circulateInstanceList.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -1371,6 +1451,67 @@ void InstanceOpsDto::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "InstanceSchedulerDesc";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_instanceSchedulerDesc.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_privilegesHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Privileges";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        for (auto itr = m_privileges.begin(); itr != m_privileges.end(); ++itr)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
+        }
+    }
+
+    if (m_taskExecutionIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TaskExecutionId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_taskExecutionId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dlcTaskIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DlcTaskId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dlcTaskId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_dlcSparkJobIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "DlcSparkJobId";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_dlcSparkJobId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_extHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Ext";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_ext.ToJsonObject(value[key.c_str()], allocator);
+    }
+
+    if (m_relatedEventListHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RelatedEventList";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+
+        int i=0;
+        for (auto itr = m_relatedEventList.begin(); itr != m_relatedEventList.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
 }
@@ -2240,12 +2381,12 @@ bool InstanceOpsDto::ExecutorGroupNameHasBeenSet() const
     return m_executorGroupNameHasBeenSet;
 }
 
-vector<shared_ptr<InstanceOpsDto>> InstanceOpsDto::GetRelatedInstanceList() const
+vector<InstanceOpsDto> InstanceOpsDto::GetRelatedInstanceList() const
 {
     return m_relatedInstanceList;
 }
 
-void InstanceOpsDto::SetRelatedInstanceList(const vector<shared_ptr<InstanceOpsDto>>& _relatedInstanceList)
+void InstanceOpsDto::SetRelatedInstanceList(const vector<InstanceOpsDto>& _relatedInstanceList)
 {
     m_relatedInstanceList = _relatedInstanceList;
     m_relatedInstanceListHasBeenSet = true;
@@ -2352,12 +2493,12 @@ bool InstanceOpsDto::DeletedFatherListHasBeenSet() const
     return m_deletedFatherListHasBeenSet;
 }
 
-vector<shared_ptr<InstanceOpsDto>> InstanceOpsDto::GetCirculateInstanceList() const
+vector<InstanceOpsDto> InstanceOpsDto::GetCirculateInstanceList() const
 {
     return m_circulateInstanceList;
 }
 
-void InstanceOpsDto::SetCirculateInstanceList(const vector<shared_ptr<InstanceOpsDto>>& _circulateInstanceList)
+void InstanceOpsDto::SetCirculateInstanceList(const vector<InstanceOpsDto>& _circulateInstanceList)
 {
     m_circulateInstanceList = _circulateInstanceList;
     m_circulateInstanceListHasBeenSet = true;
@@ -2446,5 +2587,101 @@ void InstanceOpsDto::SetInstanceSchedulerDesc(const string& _instanceSchedulerDe
 bool InstanceOpsDto::InstanceSchedulerDescHasBeenSet() const
 {
     return m_instanceSchedulerDescHasBeenSet;
+}
+
+vector<string> InstanceOpsDto::GetPrivileges() const
+{
+    return m_privileges;
+}
+
+void InstanceOpsDto::SetPrivileges(const vector<string>& _privileges)
+{
+    m_privileges = _privileges;
+    m_privilegesHasBeenSet = true;
+}
+
+bool InstanceOpsDto::PrivilegesHasBeenSet() const
+{
+    return m_privilegesHasBeenSet;
+}
+
+string InstanceOpsDto::GetTaskExecutionId() const
+{
+    return m_taskExecutionId;
+}
+
+void InstanceOpsDto::SetTaskExecutionId(const string& _taskExecutionId)
+{
+    m_taskExecutionId = _taskExecutionId;
+    m_taskExecutionIdHasBeenSet = true;
+}
+
+bool InstanceOpsDto::TaskExecutionIdHasBeenSet() const
+{
+    return m_taskExecutionIdHasBeenSet;
+}
+
+string InstanceOpsDto::GetDlcTaskId() const
+{
+    return m_dlcTaskId;
+}
+
+void InstanceOpsDto::SetDlcTaskId(const string& _dlcTaskId)
+{
+    m_dlcTaskId = _dlcTaskId;
+    m_dlcTaskIdHasBeenSet = true;
+}
+
+bool InstanceOpsDto::DlcTaskIdHasBeenSet() const
+{
+    return m_dlcTaskIdHasBeenSet;
+}
+
+string InstanceOpsDto::GetDlcSparkJobId() const
+{
+    return m_dlcSparkJobId;
+}
+
+void InstanceOpsDto::SetDlcSparkJobId(const string& _dlcSparkJobId)
+{
+    m_dlcSparkJobId = _dlcSparkJobId;
+    m_dlcSparkJobIdHasBeenSet = true;
+}
+
+bool InstanceOpsDto::DlcSparkJobIdHasBeenSet() const
+{
+    return m_dlcSparkJobIdHasBeenSet;
+}
+
+StrToStrMap InstanceOpsDto::GetExt() const
+{
+    return m_ext;
+}
+
+void InstanceOpsDto::SetExt(const StrToStrMap& _ext)
+{
+    m_ext = _ext;
+    m_extHasBeenSet = true;
+}
+
+bool InstanceOpsDto::ExtHasBeenSet() const
+{
+    return m_extHasBeenSet;
+}
+
+vector<EventCaseAuditLogOptDto> InstanceOpsDto::GetRelatedEventList() const
+{
+    return m_relatedEventList;
+}
+
+void InstanceOpsDto::SetRelatedEventList(const vector<EventCaseAuditLogOptDto>& _relatedEventList)
+{
+    m_relatedEventList = _relatedEventList;
+    m_relatedEventListHasBeenSet = true;
+}
+
+bool InstanceOpsDto::RelatedEventListHasBeenSet() const
+{
+    return m_relatedEventListHasBeenSet;
 }
 

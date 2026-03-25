@@ -96,8 +96,8 @@ CoreInternalOutcome PluginToolReqParam::Deserialize(const rapidjson::Value &valu
         const rapidjson::Value &tmpValue = value["SubParams"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<PluginToolReqParam>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            PluginToolReqParam item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -126,8 +126,8 @@ CoreInternalOutcome PluginToolReqParam::Deserialize(const rapidjson::Value &valu
         const rapidjson::Value &tmpValue = value["OneOf"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<PluginToolReqParam>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            PluginToolReqParam item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -146,8 +146,8 @@ CoreInternalOutcome PluginToolReqParam::Deserialize(const rapidjson::Value &valu
         const rapidjson::Value &tmpValue = value["AnyOf"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<PluginToolReqParam>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            PluginToolReqParam item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -216,10 +216,7 @@ void PluginToolReqParam::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         for (auto itr = m_subParams.begin(); itr != m_subParams.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -242,10 +239,7 @@ void PluginToolReqParam::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         for (auto itr = m_oneOf.begin(); itr != m_oneOf.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -260,10 +254,7 @@ void PluginToolReqParam::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         for (auto itr = m_anyOf.begin(); itr != m_anyOf.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -350,12 +341,12 @@ bool PluginToolReqParam::DefaultValueHasBeenSet() const
     return m_defaultValueHasBeenSet;
 }
 
-vector<shared_ptr<PluginToolReqParam>> PluginToolReqParam::GetSubParams() const
+vector<PluginToolReqParam> PluginToolReqParam::GetSubParams() const
 {
     return m_subParams;
 }
 
-void PluginToolReqParam::SetSubParams(const vector<shared_ptr<PluginToolReqParam>>& _subParams)
+void PluginToolReqParam::SetSubParams(const vector<PluginToolReqParam>& _subParams)
 {
     m_subParams = _subParams;
     m_subParamsHasBeenSet = true;
@@ -382,12 +373,12 @@ bool PluginToolReqParam::GlobalHiddenHasBeenSet() const
     return m_globalHiddenHasBeenSet;
 }
 
-vector<shared_ptr<PluginToolReqParam>> PluginToolReqParam::GetOneOf() const
+vector<PluginToolReqParam> PluginToolReqParam::GetOneOf() const
 {
     return m_oneOf;
 }
 
-void PluginToolReqParam::SetOneOf(const vector<shared_ptr<PluginToolReqParam>>& _oneOf)
+void PluginToolReqParam::SetOneOf(const vector<PluginToolReqParam>& _oneOf)
 {
     m_oneOf = _oneOf;
     m_oneOfHasBeenSet = true;
@@ -398,12 +389,12 @@ bool PluginToolReqParam::OneOfHasBeenSet() const
     return m_oneOfHasBeenSet;
 }
 
-vector<shared_ptr<PluginToolReqParam>> PluginToolReqParam::GetAnyOf() const
+vector<PluginToolReqParam> PluginToolReqParam::GetAnyOf() const
 {
     return m_anyOf;
 }
 
-void PluginToolReqParam::SetAnyOf(const vector<shared_ptr<PluginToolReqParam>>& _anyOf)
+void PluginToolReqParam::SetAnyOf(const vector<PluginToolReqParam>& _anyOf)
 {
     m_anyOf = _anyOf;
     m_anyOfHasBeenSet = true;

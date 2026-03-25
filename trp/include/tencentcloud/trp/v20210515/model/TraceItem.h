@@ -20,11 +20,12 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
+#include <tencentcloud/trp/v20210515/model/TraceItem.h>
+#include <tencentcloud/trp/v20210515/model/TraceData.h>
 
 
 namespace TencentCloud
@@ -35,8 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TraceItem;
-                class TraceData;
                 /**
                 * 溯源数据项 Type 的枚举值
 
@@ -248,14 +247,14 @@ mp:小程序类型
                      * @return Attrs 额外属性
                      * 
                      */
-                    std::vector<std::shared_ptr<TraceItem>> GetAttrs() const;
+                    std::vector<TraceItem> GetAttrs() const;
 
                     /**
                      * 设置额外属性
                      * @param _attrs 额外属性
                      * 
                      */
-                    void SetAttrs(const std::vector<std::shared_ptr<TraceItem>>& _attrs);
+                    void SetAttrs(const std::vector<TraceItem>& _attrs);
 
                     /**
                      * 判断参数 Attrs 是否已赋值
@@ -269,14 +268,14 @@ mp:小程序类型
                      * @return List 子页面，只读
                      * 
                      */
-                    std::vector<std::shared_ptr<TraceData>> GetList() const;
+                    std::vector<TraceData> GetList() const;
 
                     /**
                      * 设置子页面，只读
                      * @param _list 子页面，只读
                      * 
                      */
-                    void SetList(const std::vector<std::shared_ptr<TraceData>>& _list);
+                    void SetList(const std::vector<TraceData>& _list);
 
                     /**
                      * 判断参数 List 是否已赋值
@@ -342,13 +341,13 @@ mp:小程序类型
                     /**
                      * 额外属性
                      */
-                    std::vector<std::shared_ptr<TraceItem>> m_attrs;
+                    std::vector<TraceItem> m_attrs;
                     bool m_attrsHasBeenSet;
 
                     /**
                      * 子页面，只读
                      */
-                    std::vector<std::shared_ptr<TraceData>> m_list;
+                    std::vector<TraceData> m_list;
                     bool m_listHasBeenSet;
 
                 };

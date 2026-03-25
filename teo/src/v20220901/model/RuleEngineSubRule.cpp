@@ -15,7 +15,6 @@
  */
 
 #include <tencentcloud/teo/v20220901/model/RuleEngineSubRule.h>
-#include <tencentcloud/teo/v20220901/model/RuleBranch.h>
 
 using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Teo::V20220901::Model;
@@ -40,8 +39,8 @@ CoreInternalOutcome RuleEngineSubRule::Deserialize(const rapidjson::Value &value
         const rapidjson::Value &tmpValue = value["Branches"];
         for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
         {
-            auto item = std::make_shared<RuleBranch>();
-            CoreInternalOutcome outcome = item->Deserialize(*itr);
+            RuleBranch item;
+            CoreInternalOutcome outcome = item.Deserialize(*itr);
             if (!outcome.IsSuccess())
             {
                 outcome.GetError().SetRequestId(requestId);
@@ -83,10 +82,7 @@ void RuleEngineSubRule::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         for (auto itr = m_branches.begin(); itr != m_branches.end(); ++itr, ++i)
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            if (*itr)
-            {
-                (*itr)->ToJsonObject(value[key.c_str()][i], allocator);
-            }
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -106,12 +102,12 @@ void RuleEngineSubRule::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
 }
 
 
-vector<shared_ptr<RuleBranch>> RuleEngineSubRule::GetBranches() const
+vector<RuleBranch> RuleEngineSubRule::GetBranches() const
 {
     return m_branches;
 }
 
-void RuleEngineSubRule::SetBranches(const vector<shared_ptr<RuleBranch>>& _branches)
+void RuleEngineSubRule::SetBranches(const vector<RuleBranch>& _branches)
 {
     m_branches = _branches;
     m_branchesHasBeenSet = true;

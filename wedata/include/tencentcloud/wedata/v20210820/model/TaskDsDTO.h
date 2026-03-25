@@ -20,7 +20,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -28,11 +27,14 @@
 #include <tencentcloud/wedata/v20210820/model/TaskTypeDsVO.h>
 #include <tencentcloud/wedata/v20210820/model/TaskExtDsVO.h>
 #include <tencentcloud/wedata/v20210820/model/AlarmDsVO.h>
+#include <tencentcloud/wedata/v20210820/model/TaskDsDTO.h>
+#include <tencentcloud/wedata/v20210820/model/DependencyConfigDsDTO.h>
 #include <tencentcloud/wedata/v20210820/model/ParameterTaskDsDto.h>
 #include <tencentcloud/wedata/v20210820/model/TaskLinkDsDTO.h>
 #include <tencentcloud/wedata/v20210820/model/ParameterTaskInDsDto.h>
 #include <tencentcloud/wedata/v20210820/model/ParameterTaskOutDsDto.h>
 #include <tencentcloud/wedata/v20210820/model/TaskDataRegistryDTO.h>
+#include <tencentcloud/wedata/v20210820/model/TaskCycleLinkDTO.h>
 
 
 namespace TencentCloud
@@ -43,9 +45,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskDsDTO;
-                class DependencyConfigDsDTO;
-                class TaskCycleLinkDTO;
                 /**
                 * 任务信息
                 */
@@ -1459,7 +1458,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<TaskDsDTO>> GetTasks() const;
+                    std::vector<TaskDsDTO> GetTasks() const;
 
                     /**
                      * 设置父子节点树
@@ -1468,7 +1467,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetTasks(const std::vector<std::shared_ptr<TaskDsDTO>>& _tasks);
+                    void SetTasks(const std::vector<TaskDsDTO>& _tasks);
 
                     /**
                      * 判断参数 Tasks 是否已赋值
@@ -1609,7 +1608,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<DependencyConfigDsDTO>> GetDependencyConfigList() const;
+                    std::vector<DependencyConfigDsDTO> GetDependencyConfigList() const;
 
                     /**
                      * 设置依赖配置
@@ -1618,7 +1617,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetDependencyConfigList(const std::vector<std::shared_ptr<DependencyConfigDsDTO>>& _dependencyConfigList);
+                    void SetDependencyConfigList(const std::vector<DependencyConfigDsDTO>& _dependencyConfigList);
 
                     /**
                      * 判断参数 DependencyConfigList 是否已赋值
@@ -2495,7 +2494,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<std::shared_ptr<TaskCycleLinkDTO>> GetCycleDependencyConfigList() const;
+                    std::vector<TaskCycleLinkDTO> GetCycleDependencyConfigList() const;
 
                     /**
                      * 设置循环依赖配置
@@ -2504,7 +2503,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetCycleDependencyConfigList(const std::vector<std::shared_ptr<TaskCycleLinkDTO>>& _cycleDependencyConfigList);
+                    void SetCycleDependencyConfigList(const std::vector<TaskCycleLinkDTO>& _cycleDependencyConfigList);
 
                     /**
                      * 判断参数 CycleDependencyConfigList 是否已赋值
@@ -2716,6 +2715,104 @@ CI/CD工程生成的bundle唯一标识
                      * 
                      */
                     bool BundleInfoHasBeenSet() const;
+
+                    /**
+                     * 获取是否允许下游依赖 0 不允许 1 允许
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return AllowDownstreamDependency 是否允许下游依赖 0 不允许 1 允许
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    int64_t GetAllowDownstreamDependency() const;
+
+                    /**
+                     * 设置是否允许下游依赖 0 不允许 1 允许
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _allowDownstreamDependency 是否允许下游依赖 0 不允许 1 允许
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetAllowDownstreamDependency(const int64_t& _allowDownstreamDependency);
+
+                    /**
+                     * 判断参数 AllowDownstreamDependency 是否已赋值
+                     * @return AllowDownstreamDependency 是否已赋值
+                     * 
+                     */
+                    bool AllowDownstreamDependencyHasBeenSet() const;
+
+                    /**
+                     * 获取- 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return DependencyTriggerPolicy - 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    std::string GetDependencyTriggerPolicy() const;
+
+                    /**
+                     * 设置- 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _dependencyTriggerPolicy - 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+注意：此字段可能返回 null，表示取不到有效值。
+                     * 
+                     */
+                    void SetDependencyTriggerPolicy(const std::string& _dependencyTriggerPolicy);
+
+                    /**
+                     * 判断参数 DependencyTriggerPolicy 是否已赋值
+                     * @return DependencyTriggerPolicy 是否已赋值
+                     * 
+                     */
+                    bool DependencyTriggerPolicyHasBeenSet() const;
 
                 private:
 
@@ -3112,7 +3209,7 @@ CI/CD工程生成的bundle唯一标识
                      * 父子节点树
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<TaskDsDTO>> m_tasks;
+                    std::vector<TaskDsDTO> m_tasks;
                     bool m_tasksHasBeenSet;
 
                     /**
@@ -3154,7 +3251,7 @@ CI/CD工程生成的bundle唯一标识
                      * 依赖配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<DependencyConfigDsDTO>> m_dependencyConfigList;
+                    std::vector<DependencyConfigDsDTO> m_dependencyConfigList;
                     bool m_dependencyConfigListHasBeenSet;
 
                     /**
@@ -3401,7 +3498,7 @@ CI/CD工程生成的bundle唯一标识
                      * 循环依赖配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<std::shared_ptr<TaskCycleLinkDTO>> m_cycleDependencyConfigList;
+                    std::vector<TaskCycleLinkDTO> m_cycleDependencyConfigList;
                     bool m_cycleDependencyConfigListHasBeenSet;
 
                     /**
@@ -3460,6 +3557,32 @@ CI/CD工程生成的bundle唯一标识
                      */
                     std::string m_bundleInfo;
                     bool m_bundleInfoHasBeenSet;
+
+                    /**
+                     * 是否允许下游依赖 0 不允许 1 允许
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    int64_t m_allowDownstreamDependency;
+                    bool m_allowDownstreamDependencyHasBeenSet;
+
+                    /**
+                     * - 任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置
+- ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败
+- ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行
+- ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功
+- ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行
+- ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行
+- ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行
+- ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行
+- ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游
+- NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败
+- ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行
+- NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行
+- ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行
+注意：此字段可能返回 null，表示取不到有效值。
+                     */
+                    std::string m_dependencyTriggerPolicy;
+                    bool m_dependencyTriggerPolicyHasBeenSet;
 
                 };
             }

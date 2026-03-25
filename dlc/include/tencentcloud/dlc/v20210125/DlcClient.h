@@ -77,6 +77,8 @@
 #include <tencentcloud/dlc/v20210125/model/CreateDataMaskStrategyResponse.h>
 #include <tencentcloud/dlc/v20210125/model/CreateDatabaseRequest.h>
 #include <tencentcloud/dlc/v20210125/model/CreateDatabaseResponse.h>
+#include <tencentcloud/dlc/v20210125/model/CreateDatasourceConnectionRequest.h>
+#include <tencentcloud/dlc/v20210125/model/CreateDatasourceConnectionResponse.h>
 #include <tencentcloud/dlc/v20210125/model/CreateExportTaskRequest.h>
 #include <tencentcloud/dlc/v20210125/model/CreateExportTaskResponse.h>
 #include <tencentcloud/dlc/v20210125/model/CreateImportTaskRequest.h>
@@ -215,6 +217,8 @@
 #include <tencentcloud/dlc/v20210125/model/DescribeNotebookSessionsResponse.h>
 #include <tencentcloud/dlc/v20210125/model/DescribeOtherCHDFSBindingListRequest.h>
 #include <tencentcloud/dlc/v20210125/model/DescribeOtherCHDFSBindingListResponse.h>
+#include <tencentcloud/dlc/v20210125/model/DescribeResourceGroupUsageInfoRequest.h>
+#include <tencentcloud/dlc/v20210125/model/DescribeResourceGroupUsageInfoResponse.h>
 #include <tencentcloud/dlc/v20210125/model/DescribeResultDownloadRequest.h>
 #include <tencentcloud/dlc/v20210125/model/DescribeResultDownloadResponse.h>
 #include <tencentcloud/dlc/v20210125/model/DescribeScriptsRequest.h>
@@ -353,6 +357,8 @@
 #include <tencentcloud/dlc/v20210125/model/RevokeDLCCatalogAccessResponse.h>
 #include <tencentcloud/dlc/v20210125/model/RollbackDataEngineImageRequest.h>
 #include <tencentcloud/dlc/v20210125/model/RollbackDataEngineImageResponse.h>
+#include <tencentcloud/dlc/v20210125/model/SetOptimizerPolicyRequest.h>
+#include <tencentcloud/dlc/v20210125/model/SetOptimizerPolicyResponse.h>
 #include <tencentcloud/dlc/v20210125/model/SuspendResumeDataEngineRequest.h>
 #include <tencentcloud/dlc/v20210125/model/SuspendResumeDataEngineResponse.h>
 #include <tencentcloud/dlc/v20210125/model/SwitchDataEngineRequest.h>
@@ -484,6 +490,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateDatabaseResponse> CreateDatabaseOutcome;
                 typedef std::future<CreateDatabaseOutcome> CreateDatabaseOutcomeCallable;
                 typedef std::function<void(const DlcClient*, const Model::CreateDatabaseRequest&, CreateDatabaseOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDatabaseAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateDatasourceConnectionResponse> CreateDatasourceConnectionOutcome;
+                typedef std::future<CreateDatasourceConnectionOutcome> CreateDatasourceConnectionOutcomeCallable;
+                typedef std::function<void(const DlcClient*, const Model::CreateDatasourceConnectionRequest&, CreateDatasourceConnectionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDatasourceConnectionAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateExportTaskResponse> CreateExportTaskOutcome;
                 typedef std::future<CreateExportTaskOutcome> CreateExportTaskOutcomeCallable;
                 typedef std::function<void(const DlcClient*, const Model::CreateExportTaskRequest&, CreateExportTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateExportTaskAsyncHandler;
@@ -691,6 +700,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeOtherCHDFSBindingListResponse> DescribeOtherCHDFSBindingListOutcome;
                 typedef std::future<DescribeOtherCHDFSBindingListOutcome> DescribeOtherCHDFSBindingListOutcomeCallable;
                 typedef std::function<void(const DlcClient*, const Model::DescribeOtherCHDFSBindingListRequest&, DescribeOtherCHDFSBindingListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeOtherCHDFSBindingListAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeResourceGroupUsageInfoResponse> DescribeResourceGroupUsageInfoOutcome;
+                typedef std::future<DescribeResourceGroupUsageInfoOutcome> DescribeResourceGroupUsageInfoOutcomeCallable;
+                typedef std::function<void(const DlcClient*, const Model::DescribeResourceGroupUsageInfoRequest&, DescribeResourceGroupUsageInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourceGroupUsageInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeResultDownloadResponse> DescribeResultDownloadOutcome;
                 typedef std::future<DescribeResultDownloadOutcome> DescribeResultDownloadOutcomeCallable;
                 typedef std::function<void(const DlcClient*, const Model::DescribeResultDownloadRequest&, DescribeResultDownloadOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResultDownloadAsyncHandler;
@@ -898,6 +910,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::RollbackDataEngineImageResponse> RollbackDataEngineImageOutcome;
                 typedef std::future<RollbackDataEngineImageOutcome> RollbackDataEngineImageOutcomeCallable;
                 typedef std::function<void(const DlcClient*, const Model::RollbackDataEngineImageRequest&, RollbackDataEngineImageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RollbackDataEngineImageAsyncHandler;
+                typedef Outcome<Core::Error, Model::SetOptimizerPolicyResponse> SetOptimizerPolicyOutcome;
+                typedef std::future<SetOptimizerPolicyOutcome> SetOptimizerPolicyOutcomeCallable;
+                typedef std::function<void(const DlcClient*, const Model::SetOptimizerPolicyRequest&, SetOptimizerPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SetOptimizerPolicyAsyncHandler;
                 typedef Outcome<Core::Error, Model::SuspendResumeDataEngineResponse> SuspendResumeDataEngineOutcome;
                 typedef std::future<SuspendResumeDataEngineOutcome> SuspendResumeDataEngineOutcomeCallable;
                 typedef std::function<void(const DlcClient*, const Model::SuspendResumeDataEngineRequest&, SuspendResumeDataEngineOutcome, const std::shared_ptr<const AsyncCallerContext>&)> SuspendResumeDataEngineAsyncHandler;
@@ -1197,6 +1212,15 @@ namespace TencentCloud
                 CreateDatabaseOutcome CreateDatabase(const Model::CreateDatabaseRequest &request);
                 void CreateDatabaseAsync(const Model::CreateDatabaseRequest& request, const CreateDatabaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateDatabaseOutcomeCallable CreateDatabaseCallable(const Model::CreateDatabaseRequest& request);
+
+                /**
+                 *创建数据源
+                 * @param req CreateDatasourceConnectionRequest
+                 * @return CreateDatasourceConnectionOutcome
+                 */
+                CreateDatasourceConnectionOutcome CreateDatasourceConnection(const Model::CreateDatasourceConnectionRequest &request);
+                void CreateDatasourceConnectionAsync(const Model::CreateDatasourceConnectionRequest& request, const CreateDatasourceConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateDatasourceConnectionOutcomeCallable CreateDatasourceConnectionCallable(const Model::CreateDatasourceConnectionRequest& request);
 
                 /**
                  *该接口（CreateExportTask）用于创建导出任务
@@ -1822,6 +1846,15 @@ namespace TencentCloud
                 DescribeOtherCHDFSBindingListOutcomeCallable DescribeOtherCHDFSBindingListCallable(const Model::DescribeOtherCHDFSBindingListRequest& request);
 
                 /**
+                 *本接口根据资源组ID查询资源组CU使用情况
+                 * @param req DescribeResourceGroupUsageInfoRequest
+                 * @return DescribeResourceGroupUsageInfoOutcome
+                 */
+                DescribeResourceGroupUsageInfoOutcome DescribeResourceGroupUsageInfo(const Model::DescribeResourceGroupUsageInfoRequest &request);
+                void DescribeResourceGroupUsageInfoAsync(const Model::DescribeResourceGroupUsageInfoRequest& request, const DescribeResourceGroupUsageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeResourceGroupUsageInfoOutcomeCallable DescribeResourceGroupUsageInfoCallable(const Model::DescribeResourceGroupUsageInfoRequest& request);
+
+                /**
                  *查询结果下载任务
                  * @param req DescribeResultDownloadRequest
                  * @return DescribeResultDownloadOutcome
@@ -2441,6 +2474,15 @@ namespace TencentCloud
                 RollbackDataEngineImageOutcome RollbackDataEngineImage(const Model::RollbackDataEngineImageRequest &request);
                 void RollbackDataEngineImageAsync(const Model::RollbackDataEngineImageRequest& request, const RollbackDataEngineImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 RollbackDataEngineImageOutcomeCallable RollbackDataEngineImageCallable(const Model::RollbackDataEngineImageRequest& request);
+
+                /**
+                 *设置优化策略的接口
+                 * @param req SetOptimizerPolicyRequest
+                 * @return SetOptimizerPolicyOutcome
+                 */
+                SetOptimizerPolicyOutcome SetOptimizerPolicy(const Model::SetOptimizerPolicyRequest &request);
+                void SetOptimizerPolicyAsync(const Model::SetOptimizerPolicyRequest& request, const SetOptimizerPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                SetOptimizerPolicyOutcomeCallable SetOptimizerPolicyCallable(const Model::SetOptimizerPolicyRequest& request);
 
                 /**
                  *本接口用于控制挂起或启动数据引擎

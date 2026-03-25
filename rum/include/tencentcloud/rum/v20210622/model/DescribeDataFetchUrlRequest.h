@@ -358,15 +358,15 @@ namespace TencentCloud
                     bool ExtFirstHasBeenSet() const;
 
                     /**
-                     * 获取网络类型
-                     * @return NetType 网络类型
+                     * 获取网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+                     * @return NetType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
                      * 
                      */
                     std::string GetNetType() const;
 
                     /**
-                     * 设置网络类型
-                     * @param _netType 网络类型
+                     * 设置网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
+                     * @param _netType 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
                      * 
                      */
                     void SetNetType(const std::string& _netType);
@@ -463,15 +463,15 @@ namespace TencentCloud
                     bool BrowserHasBeenSet() const;
 
                     /**
-                     * 获取耗时计算方式
-                     * @return CostType 耗时计算方式
+                     * 获取耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+                     * @return CostType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
                      * 
                      */
                     std::string GetCostType() const;
 
                     /**
-                     * 设置耗时计算方式
-                     * @param _costType 耗时计算方式
+                     * 设置耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
+                     * @param _costType 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
                      * 
                      */
                     void SetCostType(const std::string& _costType);
@@ -526,15 +526,15 @@ namespace TencentCloud
                     bool EnvHasBeenSet() const;
 
                     /**
-                     * 获取httpcode响应码
-                     * @return Status httpcode响应码
+                     * 获取HTTP 状态码（tag 值）：用于过滤字段 status；支持 4xx（status =~ /4[0-9]{2}/）和 5xx（status =~ /5[0-9]{2}/）等错误码统计。
+                     * @return Status HTTP 状态码（tag 值）：用于过滤字段 status；支持 4xx（status =~ /4[0-9]{2}/）和 5xx（status =~ /5[0-9]{2}/）等错误码统计。
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置httpcode响应码
-                     * @param _status httpcode响应码
+                     * 设置HTTP 状态码（tag 值）：用于过滤字段 status；支持 4xx（status =~ /4[0-9]{2}/）和 5xx（status =~ /5[0-9]{2}/）等错误码统计。
+                     * @param _status HTTP 状态码（tag 值）：用于过滤字段 status；支持 4xx（status =~ /4[0-9]{2}/）和 5xx（status =~ /5[0-9]{2}/）等错误码统计。
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -568,15 +568,15 @@ namespace TencentCloud
                     bool RetHasBeenSet() const;
 
                     /**
-                     * 获取网络状态
-                     * @return NetStatus 网络状态
+                     * 获取网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。
+                     * @return NetStatus 网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。
                      * 
                      */
                     std::string GetNetStatus() const;
 
                     /**
-                     * 设置网络状态
-                     * @param _netStatus 网络状态
+                     * 设置网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。
+                     * @param _netStatus 网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。
                      * 
                      */
                     void SetNetStatus(const std::string& _netStatus);
@@ -681,7 +681,7 @@ namespace TencentCloud
                     bool m_extFirstHasBeenSet;
 
                     /**
-                     * 网络类型
+                     * 网络类型(tag 值):用于过滤/聚合字段 netType；枚举值：1(WiFi)、2(2G)、3(3G)、4(4G)、5(5G)、6(6G)、100(未知网络)。
                      */
                     std::string m_netType;
                     bool m_netTypeHasBeenSet;
@@ -711,7 +711,7 @@ namespace TencentCloud
                     bool m_browserHasBeenSet;
 
                     /**
-                     * 耗时计算方式
+                     * 耗时口径："50"/"75"/"90"/"95"/"99"/"99.5" 分别表示 TP50/TP75/TP90/TP95/TP99/TP99.5（percentile2）；"avg" 表示均值（avg）。
                      */
                     std::string m_costType;
                     bool m_costTypeHasBeenSet;
@@ -729,7 +729,7 @@ namespace TencentCloud
                     bool m_envHasBeenSet;
 
                     /**
-                     * httpcode响应码
+                     * HTTP 状态码（tag 值）：用于过滤字段 status；支持 4xx（status =~ /4[0-9]{2}/）和 5xx（status =~ /5[0-9]{2}/）等错误码统计。
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
@@ -741,7 +741,7 @@ namespace TencentCloud
                     bool m_retHasBeenSet;
 
                     /**
-                     * 网络状态
+                     * 网络状态(tag 值):用于过滤/聚合字段 netStatus；枚举值：0(正常)、1(弱网)、2(断网)、3(其他)。
                      */
                     std::string m_netStatus;
                     bool m_netStatusHasBeenSet;

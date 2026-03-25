@@ -2090,6 +2090,56 @@ CccClient::DescribeExtensionsOutcomeCallable CccClient::DescribeExtensionsCallab
     return prom->get_future();
 }
 
+CccClient::DescribeFlashSMSListOutcome CccClient::DescribeFlashSMSList(const DescribeFlashSMSListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeFlashSMSList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeFlashSMSListResponse rsp = DescribeFlashSMSListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeFlashSMSListOutcome(rsp);
+        else
+            return DescribeFlashSMSListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeFlashSMSListOutcome(outcome.GetError());
+    }
+}
+
+void CccClient::DescribeFlashSMSListAsync(const DescribeFlashSMSListRequest& request, const DescribeFlashSMSListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeFlashSMSListRequest&;
+    using Resp = DescribeFlashSMSListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeFlashSMSList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CccClient::DescribeFlashSMSListOutcomeCallable CccClient::DescribeFlashSMSListCallable(const DescribeFlashSMSListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeFlashSMSListOutcome>>();
+    DescribeFlashSMSListAsync(
+    request,
+    [prom](
+        const CccClient*,
+        const DescribeFlashSMSListRequest&,
+        DescribeFlashSMSListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
 CccClient::DescribeIMCdrListOutcome CccClient::DescribeIMCdrList(const DescribeIMCdrListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeIMCdrList");
@@ -3482,6 +3532,56 @@ CccClient::PausePredictiveDialingCampaignOutcomeCallable CccClient::PausePredict
         const CccClient*,
         const PausePredictiveDialingCampaignRequest&,
         PausePredictiveDialingCampaignOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+CccClient::PlaySoundCallOutcome CccClient::PlaySoundCall(const PlaySoundCallRequest &request)
+{
+    auto outcome = MakeRequest(request, "PlaySoundCall");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        PlaySoundCallResponse rsp = PlaySoundCallResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return PlaySoundCallOutcome(rsp);
+        else
+            return PlaySoundCallOutcome(o.GetError());
+    }
+    else
+    {
+        return PlaySoundCallOutcome(outcome.GetError());
+    }
+}
+
+void CccClient::PlaySoundCallAsync(const PlaySoundCallRequest& request, const PlaySoundCallAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const PlaySoundCallRequest&;
+    using Resp = PlaySoundCallResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "PlaySoundCall", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+CccClient::PlaySoundCallOutcomeCallable CccClient::PlaySoundCallCallable(const PlaySoundCallRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<PlaySoundCallOutcome>>();
+    PlaySoundCallAsync(
+    request,
+    [prom](
+        const CccClient*,
+        const PlaySoundCallRequest&,
+        PlaySoundCallOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
