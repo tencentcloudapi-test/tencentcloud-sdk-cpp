@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>配置Id</p>
-                     * @return ResourceConfigId <p>配置Id</p>
+                     * 获取配置Id
+                     * @return ResourceConfigId 配置Id
                      * 
                      */
                     uint64_t GetResourceConfigId() const;
 
                     /**
-                     * 设置<p>配置Id</p>
-                     * @param _resourceConfigId <p>配置Id</p>
+                     * 设置配置Id
+                     * @param _resourceConfigId 配置Id
                      * 
                      */
                     void SetResourceConfigId(const uint64_t& _resourceConfigId);
@@ -69,18 +69,18 @@ namespace TencentCloud
                     bool ResourceConfigIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>Resource</p>
+                     * 获取Resource
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Resource <p>Resource</p>
+                     * @return Resource Resource
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     Resource GetResource() const;
 
                     /**
-                     * 设置<p>Resource</p>
+                     * 设置Resource
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _resource <p>Resource</p>
+                     * @param _resource Resource
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -94,15 +94,15 @@ namespace TencentCloud
                     bool ResourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间</p>
-                     * @return CreateTime <p>创建时间</p>
+                     * 获取创建时间
+                     * @return CreateTime 创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间</p>
-                     * @param _createTime <p>创建时间</p>
+                     * 设置创建时间
+                     * @param _createTime 创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -115,15 +115,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>更新时间</p>
-                     * @return UpdateTime <p>更新时间</p>
+                     * 获取更新时间
+                     * @return UpdateTime 更新时间
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>更新时间</p>
-                     * @param _updateTime <p>更新时间</p>
+                     * 设置更新时间
+                     * @param _updateTime 更新时间
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -136,15 +136,15 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否默认配置,DEFAULT,BACKUP</p>
-                     * @return IsDefault <p>是否默认配置,DEFAULT,BACKUP</p>
+                     * 获取是否默认配置,DEFAULT,BACKUP
+                     * @return IsDefault 是否默认配置,DEFAULT,BACKUP
                      * 
                      */
                     std::string GetIsDefault() const;
 
                     /**
-                     * 设置<p>是否默认配置,DEFAULT,BACKUP</p>
-                     * @param _isDefault <p>是否默认配置,DEFAULT,BACKUP</p>
+                     * 设置是否默认配置,DEFAULT,BACKUP
+                     * @param _isDefault 是否默认配置,DEFAULT,BACKUP
                      * 
                      */
                     void SetIsDefault(const std::string& _isDefault);
@@ -157,15 +157,15 @@ namespace TencentCloud
                     bool IsDefaultHasBeenSet() const;
 
                     /**
-                     * 获取<p>该类型剩余</p>
-                     * @return MaxResourceNum <p>该类型剩余</p>
+                     * 获取该类型剩余
+                     * @return MaxResourceNum 该类型剩余
                      * 
                      */
                     uint64_t GetMaxResourceNum() const;
 
                     /**
-                     * 设置<p>该类型剩余</p>
-                     * @param _maxResourceNum <p>该类型剩余</p>
+                     * 设置该类型剩余
+                     * @param _maxResourceNum 该类型剩余
                      * 
                      */
                     void SetMaxResourceNum(const uint64_t& _maxResourceNum);
@@ -178,18 +178,18 @@ namespace TencentCloud
                     bool MaxResourceNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>支持的包销时长</p>
+                     * 获取支持的包销时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PrepaidUnderwritePeriods <p>支持的包销时长</p>
+                     * @return PrepaidUnderwritePeriods 支持的包销时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<int64_t> GetPrepaidUnderwritePeriods() const;
 
                     /**
-                     * 设置<p>支持的包销时长</p>
+                     * 设置支持的包销时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _prepaidUnderwritePeriods <p>支持的包销时长</p>
+                     * @param _prepaidUnderwritePeriods 支持的包销时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -202,105 +202,51 @@ namespace TencentCloud
                      */
                     bool PrepaidUnderwritePeriodsHasBeenSet() const;
 
-                    /**
-                     * 获取<p>配额数量</p>
-                     * @return QuotaNum <p>配额数量</p>
-                     * 
-                     */
-                    int64_t GetQuotaNum() const;
-
-                    /**
-                     * 设置<p>配额数量</p>
-                     * @param _quotaNum <p>配额数量</p>
-                     * 
-                     */
-                    void SetQuotaNum(const int64_t& _quotaNum);
-
-                    /**
-                     * 判断参数 QuotaNum 是否已赋值
-                     * @return QuotaNum 是否已赋值
-                     * 
-                     */
-                    bool QuotaNumHasBeenSet() const;
-
-                    /**
-                     * 获取<p>配额单位</p>
-                     * @return QuotaUnit <p>配额单位</p>
-                     * 
-                     */
-                    std::string GetQuotaUnit() const;
-
-                    /**
-                     * 设置<p>配额单位</p>
-                     * @param _quotaUnit <p>配额单位</p>
-                     * 
-                     */
-                    void SetQuotaUnit(const std::string& _quotaUnit);
-
-                    /**
-                     * 判断参数 QuotaUnit 是否已赋值
-                     * @return QuotaUnit 是否已赋值
-                     * 
-                     */
-                    bool QuotaUnitHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>配置Id</p>
+                     * 配置Id
                      */
                     uint64_t m_resourceConfigId;
                     bool m_resourceConfigIdHasBeenSet;
 
                     /**
-                     * <p>Resource</p>
+                     * Resource
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     Resource m_resource;
                     bool m_resourceHasBeenSet;
 
                     /**
-                     * <p>创建时间</p>
+                     * 创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>更新时间</p>
+                     * 更新时间
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>是否默认配置,DEFAULT,BACKUP</p>
+                     * 是否默认配置,DEFAULT,BACKUP
                      */
                     std::string m_isDefault;
                     bool m_isDefaultHasBeenSet;
 
                     /**
-                     * <p>该类型剩余</p>
+                     * 该类型剩余
                      */
                     uint64_t m_maxResourceNum;
                     bool m_maxResourceNumHasBeenSet;
 
                     /**
-                     * <p>支持的包销时长</p>
+                     * 支持的包销时长
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<int64_t> m_prepaidUnderwritePeriods;
                     bool m_prepaidUnderwritePeriodsHasBeenSet;
-
-                    /**
-                     * <p>配额数量</p>
-                     */
-                    int64_t m_quotaNum;
-                    bool m_quotaNumHasBeenSet;
-
-                    /**
-                     * <p>配额单位</p>
-                     */
-                    std::string m_quotaUnit;
-                    bool m_quotaUnitHasBeenSet;
 
                 };
             }

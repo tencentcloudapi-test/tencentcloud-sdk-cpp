@@ -47,36 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>节省计划资源id</p>
-                     * @return SpId <p>节省计划资源id</p>
-                     * 
-                     */
-                    std::string GetSpId() const;
-
-                    /**
-                     * 设置<p>节省计划资源id</p>
-                     * @param _spId <p>节省计划资源id</p>
-                     * 
-                     */
-                    void SetSpId(const std::string& _spId);
-
-                    /**
-                     * 判断参数 SpId 是否已赋值
-                     * @return SpId 是否已赋值
-                     * 
-                     */
-                    bool SpIdHasBeenSet() const;
-
-                    /**
-                     * 获取<p>节省计划类型</p>
-                     * @return SpType <p>节省计划类型</p>
+                     * 获取节省计划类型
+                     * @return SpType 节省计划类型
                      * 
                      */
                     std::string GetSpType() const;
 
                     /**
-                     * 设置<p>节省计划类型</p>
-                     * @param _spType <p>节省计划类型</p>
+                     * 设置节省计划类型
+                     * @param _spType 节省计划类型
                      * 
                      */
                     void SetSpType(const std::string& _spType);
@@ -89,15 +68,15 @@ namespace TencentCloud
                     bool SpTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>节省计划状态</p>枚举值：<ul><li> 1：  生效</li><li> 2： 失效 </li><li> 3： 作废</li></ul>
-                     * @return Status <p>节省计划状态</p>枚举值：<ul><li> 1：  生效</li><li> 2： 失效 </li><li> 3： 作废</li></ul>
+                     * 获取节省计划状态
+                     * @return Status 节省计划状态
                      * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
-                     * 设置<p>节省计划状态</p>枚举值：<ul><li> 1：  生效</li><li> 2： 失效 </li><li> 3： 作废</li></ul>
-                     * @param _status <p>节省计划状态</p>枚举值：<ul><li> 1：  生效</li><li> 2： 失效 </li><li> 3： 作废</li></ul>
+                     * 设置节省计划状态
+                     * @param _status 节省计划状态
                      * 
                      */
                     void SetStatus(const uint64_t& _status);
@@ -110,15 +89,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>累计抵扣的金额（单位：元）</p>
-                     * @return DeductAmount <p>累计抵扣的金额（单位：元）</p>
+                     * 获取累计抵扣的金额（单位：元）
+                     * @return DeductAmount 累计抵扣的金额（单位：元）
                      * 
                      */
                     std::string GetDeductAmount() const;
 
                     /**
-                     * 设置<p>累计抵扣的金额（单位：元）</p>
-                     * @param _deductAmount <p>累计抵扣的金额（单位：元）</p>
+                     * 设置累计抵扣的金额（单位：元）
+                     * @param _deductAmount 累计抵扣的金额（单位：元）
                      * 
                      */
                     void SetDeductAmount(const std::string& _deductAmount);
@@ -131,15 +110,15 @@ namespace TencentCloud
                     bool DeductAmountHasBeenSet() const;
 
                     /**
-                     * 获取<p>累计承诺消费金额（单位：元）</p>
-                     * @return PromiseAmount <p>累计承诺消费金额（单位：元）</p>
+                     * 获取累计承诺消费金额（单位：元）
+                     * @return PromiseAmount 累计承诺消费金额（单位：元）
                      * 
                      */
                     std::string GetPromiseAmount() const;
 
                     /**
-                     * 设置<p>累计承诺消费金额（单位：元）</p>
-                     * @param _promiseAmount <p>累计承诺消费金额（单位：元）</p>
+                     * 设置累计承诺消费金额（单位：元）
+                     * @param _promiseAmount 累计承诺消费金额（单位：元）
                      * 
                      */
                     void SetPromiseAmount(const std::string& _promiseAmount);
@@ -152,15 +131,15 @@ namespace TencentCloud
                     bool PromiseAmountHasBeenSet() const;
 
                     /**
-                     * 获取<p>累计净节省金额（单位：元）</p>
-                     * @return NetSavings <p>累计净节省金额（单位：元）</p>
+                     * 获取累计净节省金额（单位：元）
+                     * @return NetSavings 累计净节省金额（单位：元）
                      * 
                      */
                     std::string GetNetSavings() const;
 
                     /**
-                     * 设置<p>累计净节省金额（单位：元）</p>
-                     * @param _netSavings <p>累计净节省金额（单位：元）</p>
+                     * 设置累计净节省金额（单位：元）
+                     * @param _netSavings 累计净节省金额（单位：元）
                      * 
                      */
                     void SetNetSavings(const std::string& _netSavings);
@@ -173,15 +152,15 @@ namespace TencentCloud
                     bool NetSavingsHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用率</p>
-                     * @return UtilizationRate <p>使用率</p>
+                     * 获取使用率
+                     * @return UtilizationRate 使用率
                      * 
                      */
                     double GetUtilizationRate() const;
 
                     /**
-                     * 设置<p>使用率</p>
-                     * @param _utilizationRate <p>使用率</p>
+                     * 设置使用率
+                     * @param _utilizationRate 使用率
                      * 
                      */
                     void SetUtilizationRate(const double& _utilizationRate);
@@ -194,15 +173,15 @@ namespace TencentCloud
                     bool UtilizationRateHasBeenSet() const;
 
                     /**
-                     * 获取<p>累计流失金额（单位：元）</p>
-                     * @return LossAmount <p>累计流失金额（单位：元）</p>
+                     * 获取累计流失金额（单位：元）
+                     * @return LossAmount 累计流失金额（单位：元）
                      * 
                      */
                     std::string GetLossAmount() const;
 
                     /**
-                     * 设置<p>累计流失金额（单位：元）</p>
-                     * @param _lossAmount <p>累计流失金额（单位：元）</p>
+                     * 设置累计流失金额（单位：元）
+                     * @param _lossAmount 累计流失金额（单位：元）
                      * 
                      */
                     void SetLossAmount(const std::string& _lossAmount);
@@ -215,15 +194,15 @@ namespace TencentCloud
                     bool LossAmountHasBeenSet() const;
 
                     /**
-                     * 获取<p>累计按量计费预期金额（单位：元）</p>
-                     * @return DosageAmount <p>累计按量计费预期金额（单位：元）</p>
+                     * 获取累计按量计费预期金额（单位：元）
+                     * @return DosageAmount 累计按量计费预期金额（单位：元）
                      * 
                      */
                     std::string GetDosageAmount() const;
 
                     /**
-                     * 设置<p>累计按量计费预期金额（单位：元）</p>
-                     * @param _dosageAmount <p>累计按量计费预期金额（单位：元）</p>
+                     * 设置累计按量计费预期金额（单位：元）
+                     * @param _dosageAmount 累计按量计费预期金额（单位：元）
                      * 
                      */
                     void SetDosageAmount(const std::string& _dosageAmount);
@@ -236,15 +215,15 @@ namespace TencentCloud
                     bool DosageAmountHasBeenSet() const;
 
                     /**
-                     * 获取<p>累计成本金额（单位：元）</p>
-                     * @return CostAmount <p>累计成本金额（单位：元）</p>
+                     * 获取累计成本金额（单位：元）
+                     * @return CostAmount 累计成本金额（单位：元）
                      * 
                      */
                     std::string GetCostAmount() const;
 
                     /**
-                     * 设置<p>累计成本金额（单位：元）</p>
-                     * @param _costAmount <p>累计成本金额（单位：元）</p>
+                     * 设置累计成本金额（单位：元）
+                     * @param _costAmount 累计成本金额（单位：元）
                      * 
                      */
                     void SetCostAmount(const std::string& _costAmount);
@@ -257,15 +236,15 @@ namespace TencentCloud
                     bool CostAmountHasBeenSet() const;
 
                     /**
-                     * 获取<p>地域</p>
-                     * @return Region <p>地域</p>
+                     * 获取地域
+                     * @return Region 地域
                      * 
                      */
                     std::vector<std::string> GetRegion() const;
 
                     /**
-                     * 设置<p>地域</p>
-                     * @param _region <p>地域</p>
+                     * 设置地域
+                     * @param _region 地域
                      * 
                      */
                     void SetRegion(const std::vector<std::string>& _region);
@@ -280,67 +259,61 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>节省计划资源id</p>
-                     */
-                    std::string m_spId;
-                    bool m_spIdHasBeenSet;
-
-                    /**
-                     * <p>节省计划类型</p>
+                     * 节省计划类型
                      */
                     std::string m_spType;
                     bool m_spTypeHasBeenSet;
 
                     /**
-                     * <p>节省计划状态</p>枚举值：<ul><li> 1：  生效</li><li> 2： 失效 </li><li> 3： 作废</li></ul>
+                     * 节省计划状态
                      */
                     uint64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>累计抵扣的金额（单位：元）</p>
+                     * 累计抵扣的金额（单位：元）
                      */
                     std::string m_deductAmount;
                     bool m_deductAmountHasBeenSet;
 
                     /**
-                     * <p>累计承诺消费金额（单位：元）</p>
+                     * 累计承诺消费金额（单位：元）
                      */
                     std::string m_promiseAmount;
                     bool m_promiseAmountHasBeenSet;
 
                     /**
-                     * <p>累计净节省金额（单位：元）</p>
+                     * 累计净节省金额（单位：元）
                      */
                     std::string m_netSavings;
                     bool m_netSavingsHasBeenSet;
 
                     /**
-                     * <p>使用率</p>
+                     * 使用率
                      */
                     double m_utilizationRate;
                     bool m_utilizationRateHasBeenSet;
 
                     /**
-                     * <p>累计流失金额（单位：元）</p>
+                     * 累计流失金额（单位：元）
                      */
                     std::string m_lossAmount;
                     bool m_lossAmountHasBeenSet;
 
                     /**
-                     * <p>累计按量计费预期金额（单位：元）</p>
+                     * 累计按量计费预期金额（单位：元）
                      */
                     std::string m_dosageAmount;
                     bool m_dosageAmountHasBeenSet;
 
                     /**
-                     * <p>累计成本金额（单位：元）</p>
+                     * 累计成本金额（单位：元）
                      */
                     std::string m_costAmount;
                     bool m_costAmountHasBeenSet;
 
                     /**
-                     * <p>地域</p>
+                     * 地域
                      */
                     std::vector<std::string> m_region;
                     bool m_regionHasBeenSet;

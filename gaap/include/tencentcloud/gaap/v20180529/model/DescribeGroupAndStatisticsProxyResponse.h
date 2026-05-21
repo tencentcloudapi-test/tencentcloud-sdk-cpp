@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>可以统计的通道组信息</p>
-                     * @return GroupSet <p>可以统计的通道组信息</p>
+                     * 获取可以统计的通道组信息
+                     * @return GroupSet 可以统计的通道组信息
                      * 
                      */
                     std::vector<GroupStatisticsInfo> GetGroupSet() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool GroupSetHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道组数量</p>
-                     * @return TotalCount <p>通道组数量</p>
+                     * 获取通道组数量
+                     * @return TotalCount 通道组数量
                      * 
                      */
                     uint64_t GetTotalCount() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>可以统计的通道组信息</p>
+                     * 可以统计的通道组信息
                      */
                     std::vector<GroupStatisticsInfo> m_groupSet;
                     bool m_groupSetHasBeenSet;
 
                     /**
-                     * <p>通道组数量</p>
+                     * 通道组数量
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

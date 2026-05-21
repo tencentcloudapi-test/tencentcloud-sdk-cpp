@@ -183,14 +183,12 @@ namespace TencentCloud
 2 已完成：任务中所有呼叫完成
 3结束中：任务到期，但仍有部分呼叫未结束
 4已结束：任务到期终止
-5已暂停：可恢复继续执行
                      * @return State 任务状态：
 0初始：任务创建，呼叫未开始
 1运行中
 2 已完成：任务中所有呼叫完成
 3结束中：任务到期，但仍有部分呼叫未结束
 4已结束：任务到期终止
-5已暂停：可恢复继续执行
                      * 
                      */
                     uint64_t GetState() const;
@@ -202,14 +200,12 @@ namespace TencentCloud
 2 已完成：任务中所有呼叫完成
 3结束中：任务到期，但仍有部分呼叫未结束
 4已结束：任务到期终止
-5已暂停：可恢复继续执行
                      * @param _state 任务状态：
 0初始：任务创建，呼叫未开始
 1运行中
 2 已完成：任务中所有呼叫完成
 3结束中：任务到期，但仍有部分呼叫未结束
 4已结束：任务到期终止
-5已暂停：可恢复继续执行
                      * 
                      */
                     void SetState(const uint64_t& _state);
@@ -241,27 +237,6 @@ namespace TencentCloud
                      * 
                      */
                     bool TaskIdHasBeenSet() const;
-
-                    /**
-                     * 获取最大振铃时长，达到时长阈值自动挂断。 仅自携号码支持当前参数
-                     * @return MaxRingTimeoutSecond 最大振铃时长，达到时长阈值自动挂断。 仅自携号码支持当前参数
-                     * 
-                     */
-                    int64_t GetMaxRingTimeoutSecond() const;
-
-                    /**
-                     * 设置最大振铃时长，达到时长阈值自动挂断。 仅自携号码支持当前参数
-                     * @param _maxRingTimeoutSecond 最大振铃时长，达到时长阈值自动挂断。 仅自携号码支持当前参数
-                     * 
-                     */
-                    void SetMaxRingTimeoutSecond(const int64_t& _maxRingTimeoutSecond);
-
-                    /**
-                     * 判断参数 MaxRingTimeoutSecond 是否已赋值
-                     * @return MaxRingTimeoutSecond 是否已赋值
-                     * 
-                     */
-                    bool MaxRingTimeoutSecondHasBeenSet() const;
 
                 private:
 
@@ -309,7 +284,6 @@ namespace TencentCloud
 2 已完成：任务中所有呼叫完成
 3结束中：任务到期，但仍有部分呼叫未结束
 4已结束：任务到期终止
-5已暂停：可恢复继续执行
                      */
                     uint64_t m_state;
                     bool m_stateHasBeenSet;
@@ -319,12 +293,6 @@ namespace TencentCloud
                      */
                     uint64_t m_taskId;
                     bool m_taskIdHasBeenSet;
-
-                    /**
-                     * 最大振铃时长，达到时长阈值自动挂断。 仅自携号码支持当前参数
-                     */
-                    int64_t m_maxRingTimeoutSecond;
-                    bool m_maxRingTimeoutSecondHasBeenSet;
 
                 };
             }

@@ -24,7 +24,6 @@ using namespace std;
 
 ReviewAudioVideoRequest::ReviewAudioVideoRequest() :
     m_fileIdHasBeenSet(false),
-    m_mediaStoragePathHasBeenSet(false),
     m_subAppIdHasBeenSet(false),
     m_reviewContentsHasBeenSet(false),
     m_definitionHasBeenSet(false),
@@ -48,14 +47,6 @@ string ReviewAudioVideoRequest::ToJsonString() const
         string key = "FileId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_fileId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_mediaStoragePathHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MediaStoragePath";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_mediaStoragePath.c_str(), allocator).Move(), allocator);
     }
 
     if (m_subAppIdHasBeenSet)
@@ -141,22 +132,6 @@ void ReviewAudioVideoRequest::SetFileId(const string& _fileId)
 bool ReviewAudioVideoRequest::FileIdHasBeenSet() const
 {
     return m_fileIdHasBeenSet;
-}
-
-string ReviewAudioVideoRequest::GetMediaStoragePath() const
-{
-    return m_mediaStoragePath;
-}
-
-void ReviewAudioVideoRequest::SetMediaStoragePath(const string& _mediaStoragePath)
-{
-    m_mediaStoragePath = _mediaStoragePath;
-    m_mediaStoragePathHasBeenSet = true;
-}
-
-bool ReviewAudioVideoRequest::MediaStoragePathHasBeenSet() const
-{
-    return m_mediaStoragePathHasBeenSet;
 }
 
 uint64_t ReviewAudioVideoRequest::GetSubAppId() const

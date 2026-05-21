@@ -26,8 +26,7 @@ ModifyRocketMQInstanceSpecRequest::ModifyRocketMQInstanceSpecRequest() :
     m_instanceIdHasBeenSet(false),
     m_specificationHasBeenSet(false),
     m_nodeCountHasBeenSet(false),
-    m_storageSizeHasBeenSet(false),
-    m_zoneIdsHasBeenSet(false)
+    m_storageSizeHasBeenSet(false)
 {
 }
 
@@ -68,19 +67,6 @@ string ModifyRocketMQInstanceSpecRequest::ToJsonString() const
         string key = "StorageSize";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_storageSize, allocator);
-    }
-
-    if (m_zoneIdsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ZoneIds";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_zoneIds.begin(); itr != m_zoneIds.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
     }
 
 
@@ -153,22 +139,6 @@ void ModifyRocketMQInstanceSpecRequest::SetStorageSize(const uint64_t& _storageS
 bool ModifyRocketMQInstanceSpecRequest::StorageSizeHasBeenSet() const
 {
     return m_storageSizeHasBeenSet;
-}
-
-vector<string> ModifyRocketMQInstanceSpecRequest::GetZoneIds() const
-{
-    return m_zoneIds;
-}
-
-void ModifyRocketMQInstanceSpecRequest::SetZoneIds(const vector<string>& _zoneIds)
-{
-    m_zoneIds = _zoneIds;
-    m_zoneIdsHasBeenSet = true;
-}
-
-bool ModifyRocketMQInstanceSpecRequest::ZoneIdsHasBeenSet() const
-{
-    return m_zoneIdsHasBeenSet;
 }
 
 

@@ -108,26 +108,30 @@ namespace TencentCloud
 
                     /**
                      * 获取回源协议，取值有：
-<li>FOLLOW：协议跟随；</li>
-<li>HTTP：HTTP 协议回源；</li>
-<li>HTTPS：HTTPS 协议回源。</li>不填默认为：FOLLOW。
+<li>FOLLOW: 协议跟随；</li>
+<li>HTTP: HTTP协议回源；</li>
+<li>HTTPS: HTTPS协议回源。</li>
+<li>不填默认为： FOLLOW。</li>
                      * @return OriginProtocol 回源协议，取值有：
-<li>FOLLOW：协议跟随；</li>
-<li>HTTP：HTTP 协议回源；</li>
-<li>HTTPS：HTTPS 协议回源。</li>不填默认为：FOLLOW。
+<li>FOLLOW: 协议跟随；</li>
+<li>HTTP: HTTP协议回源；</li>
+<li>HTTPS: HTTPS协议回源。</li>
+<li>不填默认为： FOLLOW。</li>
                      * 
                      */
                     std::string GetOriginProtocol() const;
 
                     /**
                      * 设置回源协议，取值有：
-<li>FOLLOW：协议跟随；</li>
-<li>HTTP：HTTP 协议回源；</li>
-<li>HTTPS：HTTPS 协议回源。</li>不填默认为：FOLLOW。
+<li>FOLLOW: 协议跟随；</li>
+<li>HTTP: HTTP协议回源；</li>
+<li>HTTPS: HTTPS协议回源。</li>
+<li>不填默认为： FOLLOW。</li>
                      * @param _originProtocol 回源协议，取值有：
-<li>FOLLOW：协议跟随；</li>
-<li>HTTP：HTTP 协议回源；</li>
-<li>HTTPS：HTTPS 协议回源。</li>不填默认为：FOLLOW。
+<li>FOLLOW: 协议跟随；</li>
+<li>HTTP: HTTP协议回源；</li>
+<li>HTTPS: HTTPS协议回源。</li>
+<li>不填默认为： FOLLOW。</li>
                      * 
                      */
                     void SetOriginProtocol(const std::string& _originProtocol);
@@ -140,19 +144,15 @@ namespace TencentCloud
                     bool OriginProtocolHasBeenSet() const;
 
                     /**
-                     * 获取HTTP 回源端口，默认值80，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTP 时生效。
-                     * @return HttpOriginPort HTTP 回源端口，默认值80，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTP 时生效。
+                     * 获取HTTP回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTP时生效, 不填默认为80。
+                     * @return HttpOriginPort HTTP回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTP时生效, 不填默认为80。
                      * 
                      */
                     uint64_t GetHttpOriginPort() const;
 
                     /**
-                     * 设置HTTP 回源端口，默认值80，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTP 时生效。
-                     * @param _httpOriginPort HTTP 回源端口，默认值80，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTP 时生效。
+                     * 设置HTTP回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTP时生效, 不填默认为80。
+                     * @param _httpOriginPort HTTP回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTP时生效, 不填默认为80。
                      * 
                      */
                     void SetHttpOriginPort(const uint64_t& _httpOriginPort);
@@ -165,19 +165,15 @@ namespace TencentCloud
                     bool HttpOriginPortHasBeenSet() const;
 
                     /**
-                     * 获取HTTPS 回源端口，默认值443，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTPS 时生效。
-                     * @return HttpsOriginPort HTTPS 回源端口，默认值443，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTPS 时生效。
+                     * 获取HTTPS回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTPS时生效，不填默认为443。
+                     * @return HttpsOriginPort HTTPS回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTPS时生效，不填默认为443。
                      * 
                      */
                     uint64_t GetHttpsOriginPort() const;
 
                     /**
-                     * 设置HTTPS 回源端口，默认值443，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTPS 时生效。
-                     * @param _httpsOriginPort HTTPS 回源端口，默认值443，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTPS 时生效。
+                     * 设置HTTPS回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTPS时生效，不填默认为443。
+                     * @param _httpsOriginPort HTTPS回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTPS时生效，不填默认为443。
                      * 
                      */
                     void SetHttpsOriginPort(const uint64_t& _httpsOriginPort);
@@ -190,27 +186,31 @@ namespace TencentCloud
                     bool HttpsOriginPortHasBeenSet() const;
 
                     /**
-                     * 获取IPv6 状态，取值有：
-<li>follow：遵循站点 IPv6 配置；</li>
+                     * 获取IPv6状态，取值有：
+<li>follow：遵循站点IPv6配置；</li>
 <li>on：开启状态；</li>
-<li>off：关闭状态。</li>不填默认为：follow。
-                     * @return IPv6Status IPv6 状态，取值有：
-<li>follow：遵循站点 IPv6 配置；</li>
+<li>off：关闭状态。</li>
+<li>不填默认为：follow。</li>
+                     * @return IPv6Status IPv6状态，取值有：
+<li>follow：遵循站点IPv6配置；</li>
 <li>on：开启状态；</li>
-<li>off：关闭状态。</li>不填默认为：follow。
+<li>off：关闭状态。</li>
+<li>不填默认为：follow。</li>
                      * 
                      */
                     std::string GetIPv6Status() const;
 
                     /**
-                     * 设置IPv6 状态，取值有：
-<li>follow：遵循站点 IPv6 配置；</li>
+                     * 设置IPv6状态，取值有：
+<li>follow：遵循站点IPv6配置；</li>
 <li>on：开启状态；</li>
-<li>off：关闭状态。</li>不填默认为：follow。
-                     * @param _iPv6Status IPv6 状态，取值有：
-<li>follow：遵循站点 IPv6 配置；</li>
+<li>off：关闭状态。</li>
+<li>不填默认为：follow。</li>
+                     * @param _iPv6Status IPv6状态，取值有：
+<li>follow：遵循站点IPv6配置；</li>
 <li>on：开启状态；</li>
-<li>off：关闭状态。</li>不填默认为：follow。
+<li>off：关闭状态。</li>
+<li>不填默认为：follow。</li>
                      * 
                      */
                     void SetIPv6Status(const std::string& _iPv6Status);
@@ -221,51 +221,6 @@ namespace TencentCloud
                      * 
                      */
                     bool IPv6StatusHasBeenSet() const;
-
-                    /**
-                     * 获取指定域名绑定的共享 CNAME 地址，不传时使用默认 CNAME。
-绑定共享 CNAME 要求所有域名的调度策略保持一致，以下配置将影响调度策略，在不一致时绑定共享 CNAME 将按照以下方式处理：
-- IPv6 访问：不允许创建域名，请修改 IPv6Status 已保持与共享 CNAME 绑定的其余域名配置一致；
-- DDoS 防护：如果选择的共享 CNAME 已启用 DDoS 防护，则创建域名时，将默认为该域名启用 DDoS 防护。
-- 中国大陆网络优化（国际加速）：不允许创建域名，请保持当前域名的中国大陆网络优化（国际加速）配置与共享 CNAME 绑定的其余域名一致后重试。
-
-注：共享 CNAME 当前仍在内测中，如需使用，请联系我们开通。
-                     * @return SharedCNAME 指定域名绑定的共享 CNAME 地址，不传时使用默认 CNAME。
-绑定共享 CNAME 要求所有域名的调度策略保持一致，以下配置将影响调度策略，在不一致时绑定共享 CNAME 将按照以下方式处理：
-- IPv6 访问：不允许创建域名，请修改 IPv6Status 已保持与共享 CNAME 绑定的其余域名配置一致；
-- DDoS 防护：如果选择的共享 CNAME 已启用 DDoS 防护，则创建域名时，将默认为该域名启用 DDoS 防护。
-- 中国大陆网络优化（国际加速）：不允许创建域名，请保持当前域名的中国大陆网络优化（国际加速）配置与共享 CNAME 绑定的其余域名一致后重试。
-
-注：共享 CNAME 当前仍在内测中，如需使用，请联系我们开通。
-                     * 
-                     */
-                    std::string GetSharedCNAME() const;
-
-                    /**
-                     * 设置指定域名绑定的共享 CNAME 地址，不传时使用默认 CNAME。
-绑定共享 CNAME 要求所有域名的调度策略保持一致，以下配置将影响调度策略，在不一致时绑定共享 CNAME 将按照以下方式处理：
-- IPv6 访问：不允许创建域名，请修改 IPv6Status 已保持与共享 CNAME 绑定的其余域名配置一致；
-- DDoS 防护：如果选择的共享 CNAME 已启用 DDoS 防护，则创建域名时，将默认为该域名启用 DDoS 防护。
-- 中国大陆网络优化（国际加速）：不允许创建域名，请保持当前域名的中国大陆网络优化（国际加速）配置与共享 CNAME 绑定的其余域名一致后重试。
-
-注：共享 CNAME 当前仍在内测中，如需使用，请联系我们开通。
-                     * @param _sharedCNAME 指定域名绑定的共享 CNAME 地址，不传时使用默认 CNAME。
-绑定共享 CNAME 要求所有域名的调度策略保持一致，以下配置将影响调度策略，在不一致时绑定共享 CNAME 将按照以下方式处理：
-- IPv6 访问：不允许创建域名，请修改 IPv6Status 已保持与共享 CNAME 绑定的其余域名配置一致；
-- DDoS 防护：如果选择的共享 CNAME 已启用 DDoS 防护，则创建域名时，将默认为该域名启用 DDoS 防护。
-- 中国大陆网络优化（国际加速）：不允许创建域名，请保持当前域名的中国大陆网络优化（国际加速）配置与共享 CNAME 绑定的其余域名一致后重试。
-
-注：共享 CNAME 当前仍在内测中，如需使用，请联系我们开通。
-                     * 
-                     */
-                    void SetSharedCNAME(const std::string& _sharedCNAME);
-
-                    /**
-                     * 判断参数 SharedCNAME 是否已赋值
-                     * @return SharedCNAME 是否已赋值
-                     * 
-                     */
-                    bool SharedCNAMEHasBeenSet() const;
 
                 private:
 
@@ -289,47 +244,35 @@ namespace TencentCloud
 
                     /**
                      * 回源协议，取值有：
-<li>FOLLOW：协议跟随；</li>
-<li>HTTP：HTTP 协议回源；</li>
-<li>HTTPS：HTTPS 协议回源。</li>不填默认为：FOLLOW。
+<li>FOLLOW: 协议跟随；</li>
+<li>HTTP: HTTP协议回源；</li>
+<li>HTTPS: HTTPS协议回源。</li>
+<li>不填默认为： FOLLOW。</li>
                      */
                     std::string m_originProtocol;
                     bool m_originProtocolHasBeenSet;
 
                     /**
-                     * HTTP 回源端口，默认值80，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTP 时生效。
+                     * HTTP回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTP时生效, 不填默认为80。
                      */
                     uint64_t m_httpOriginPort;
                     bool m_httpOriginPortHasBeenSet;
 
                     /**
-                     * HTTPS 回源端口，默认值443，取值：1～65535。
-当 OriginProtocol = FOLLOW 或 HTTPS 时生效。
+                     * HTTPS回源端口，取值为1-65535，当OriginProtocol=FOLLOW/HTTPS时生效，不填默认为443。
                      */
                     uint64_t m_httpsOriginPort;
                     bool m_httpsOriginPortHasBeenSet;
 
                     /**
-                     * IPv6 状态，取值有：
-<li>follow：遵循站点 IPv6 配置；</li>
+                     * IPv6状态，取值有：
+<li>follow：遵循站点IPv6配置；</li>
 <li>on：开启状态；</li>
-<li>off：关闭状态。</li>不填默认为：follow。
+<li>off：关闭状态。</li>
+<li>不填默认为：follow。</li>
                      */
                     std::string m_iPv6Status;
                     bool m_iPv6StatusHasBeenSet;
-
-                    /**
-                     * 指定域名绑定的共享 CNAME 地址，不传时使用默认 CNAME。
-绑定共享 CNAME 要求所有域名的调度策略保持一致，以下配置将影响调度策略，在不一致时绑定共享 CNAME 将按照以下方式处理：
-- IPv6 访问：不允许创建域名，请修改 IPv6Status 已保持与共享 CNAME 绑定的其余域名配置一致；
-- DDoS 防护：如果选择的共享 CNAME 已启用 DDoS 防护，则创建域名时，将默认为该域名启用 DDoS 防护。
-- 中国大陆网络优化（国际加速）：不允许创建域名，请保持当前域名的中国大陆网络优化（国际加速）配置与共享 CNAME 绑定的其余域名一致后重试。
-
-注：共享 CNAME 当前仍在内测中，如需使用，请联系我们开通。
-                     */
-                    std::string m_sharedCNAME;
-                    bool m_sharedCNAMEHasBeenSet;
 
                 };
             }

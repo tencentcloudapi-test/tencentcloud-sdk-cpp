@@ -21,8 +21,7 @@ using namespace TencentCloud::Mps::V20190612::Model;
 using namespace std;
 
 AiAnalysisTaskHorizontalToVerticalInput::AiAnalysisTaskHorizontalToVerticalInput() :
-    m_definitionHasBeenSet(false),
-    m_extendedParameterHasBeenSet(false)
+    m_definitionHasBeenSet(false)
 {
 }
 
@@ -41,16 +40,6 @@ CoreInternalOutcome AiAnalysisTaskHorizontalToVerticalInput::Deserialize(const r
         m_definitionHasBeenSet = true;
     }
 
-    if (value.HasMember("ExtendedParameter") && !value["ExtendedParameter"].IsNull())
-    {
-        if (!value["ExtendedParameter"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AiAnalysisTaskHorizontalToVerticalInput.ExtendedParameter` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_extendedParameter = string(value["ExtendedParameter"].GetString());
-        m_extendedParameterHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -64,14 +53,6 @@ void AiAnalysisTaskHorizontalToVerticalInput::ToJsonObject(rapidjson::Value &val
         string key = "Definition";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_definition, allocator);
-    }
-
-    if (m_extendedParameterHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExtendedParameter";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_extendedParameter.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -91,21 +72,5 @@ void AiAnalysisTaskHorizontalToVerticalInput::SetDefinition(const uint64_t& _def
 bool AiAnalysisTaskHorizontalToVerticalInput::DefinitionHasBeenSet() const
 {
     return m_definitionHasBeenSet;
-}
-
-string AiAnalysisTaskHorizontalToVerticalInput::GetExtendedParameter() const
-{
-    return m_extendedParameter;
-}
-
-void AiAnalysisTaskHorizontalToVerticalInput::SetExtendedParameter(const string& _extendedParameter)
-{
-    m_extendedParameter = _extendedParameter;
-    m_extendedParameterHasBeenSet = true;
-}
-
-bool AiAnalysisTaskHorizontalToVerticalInput::ExtendedParameterHasBeenSet() const
-{
-    return m_extendedParameterHasBeenSet;
 }
 

@@ -34,8 +34,7 @@ ChannelCreatePreparedPersonalEsignRequest::ChannelCreatePreparedPersonalEsignReq
     m_mobileHasBeenSet(false),
     m_enableAutoSignHasBeenSet(false),
     m_licenseTypeHasBeenSet(false),
-    m_sceneKeyHasBeenSet(false),
-    m_fileIdHasBeenSet(false)
+    m_sceneKeyHasBeenSet(false)
 {
 }
 
@@ -142,14 +141,6 @@ string ChannelCreatePreparedPersonalEsignRequest::ToJsonString() const
         string key = "SceneKey";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_sceneKey.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_fileIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FileId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_fileId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -350,22 +341,6 @@ void ChannelCreatePreparedPersonalEsignRequest::SetSceneKey(const string& _scene
 bool ChannelCreatePreparedPersonalEsignRequest::SceneKeyHasBeenSet() const
 {
     return m_sceneKeyHasBeenSet;
-}
-
-string ChannelCreatePreparedPersonalEsignRequest::GetFileId() const
-{
-    return m_fileId;
-}
-
-void ChannelCreatePreparedPersonalEsignRequest::SetFileId(const string& _fileId)
-{
-    m_fileId = _fileId;
-    m_fileIdHasBeenSet = true;
-}
-
-bool ChannelCreatePreparedPersonalEsignRequest::FileIdHasBeenSet() const
-{
-    return m_fileIdHasBeenSet;
 }
 
 

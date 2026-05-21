@@ -26,7 +26,6 @@ CreateApplicationAndBindLicenseRequest::CreateApplicationAndBindLicenseRequest()
     m_appNameHasBeenSet(false),
     m_bundleIdHasBeenSet(false),
     m_packageNameHasBeenSet(false),
-    m_bundleNameHasBeenSet(false),
     m_resourceIdsHasBeenSet(false),
     m_companyPermitHasBeenSet(false),
     m_companyTypeHasBeenSet(false),
@@ -68,14 +67,6 @@ string CreateApplicationAndBindLicenseRequest::ToJsonString() const
         string key = "PackageName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_packageName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_bundleNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BundleName";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_bundleName.c_str(), allocator).Move(), allocator);
     }
 
     if (m_resourceIdsHasBeenSet)
@@ -219,22 +210,6 @@ void CreateApplicationAndBindLicenseRequest::SetPackageName(const string& _packa
 bool CreateApplicationAndBindLicenseRequest::PackageNameHasBeenSet() const
 {
     return m_packageNameHasBeenSet;
-}
-
-string CreateApplicationAndBindLicenseRequest::GetBundleName() const
-{
-    return m_bundleName;
-}
-
-void CreateApplicationAndBindLicenseRequest::SetBundleName(const string& _bundleName)
-{
-    m_bundleName = _bundleName;
-    m_bundleNameHasBeenSet = true;
-}
-
-bool CreateApplicationAndBindLicenseRequest::BundleNameHasBeenSet() const
-{
-    return m_bundleNameHasBeenSet;
 }
 
 vector<string> CreateApplicationAndBindLicenseRequest::GetResourceIds() const

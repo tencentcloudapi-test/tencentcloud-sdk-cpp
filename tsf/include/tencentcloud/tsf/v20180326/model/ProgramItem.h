@@ -48,15 +48,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>数据项ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>接口查询已创建的数据集或登录控制台进行查看；也可以通过调用<a href="https://cloud.tencent.com/document/api/649/108544">CreateProgram</a>创建新的数据集。</p>
-                     * @return ProgramItemId <p>数据项ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>接口查询已创建的数据集或登录控制台进行查看；也可以通过调用<a href="https://cloud.tencent.com/document/api/649/108544">CreateProgram</a>创建新的数据集。</p>
+                     * 获取数据项ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)接口查询已创建的数据集或登陆控制台进行查看；也可以通过调用[CreateProgram](https://cloud.tencent.com/document/api/649/108544)创建新的数据集。
+
+                     * @return ProgramItemId 数据项ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)接口查询已创建的数据集或登陆控制台进行查看；也可以通过调用[CreateProgram](https://cloud.tencent.com/document/api/649/108544)创建新的数据集。
+
                      * 
                      */
                     std::string GetProgramItemId() const;
 
                     /**
-                     * 设置<p>数据项ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>接口查询已创建的数据集或登录控制台进行查看；也可以通过调用<a href="https://cloud.tencent.com/document/api/649/108544">CreateProgram</a>创建新的数据集。</p>
-                     * @param _programItemId <p>数据项ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>接口查询已创建的数据集或登录控制台进行查看；也可以通过调用<a href="https://cloud.tencent.com/document/api/649/108544">CreateProgram</a>创建新的数据集。</p>
+                     * 设置数据项ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)接口查询已创建的数据集或登陆控制台进行查看；也可以通过调用[CreateProgram](https://cloud.tencent.com/document/api/649/108544)创建新的数据集。
+
+                     * @param _programItemId 数据项ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)接口查询已创建的数据集或登陆控制台进行查看；也可以通过调用[CreateProgram](https://cloud.tencent.com/document/api/649/108544)创建新的数据集。
+
                      * 
                      */
                     void SetProgramItemId(const std::string& _programItemId);
@@ -69,15 +73,15 @@ namespace TencentCloud
                     bool ProgramItemIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>资源</p>
-                     * @return Resource <p>资源</p>
+                     * 获取资源
+                     * @return Resource 资源
                      * 
                      */
                     Resource GetResource() const;
 
                     /**
-                     * 设置<p>资源</p>
-                     * @param _resource <p>资源</p>
+                     * 设置资源
+                     * @param _resource 资源
                      * 
                      */
                     void SetResource(const Resource& _resource);
@@ -90,15 +94,15 @@ namespace TencentCloud
                     bool ResourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据值列表</p>
-                     * @return ValueList <p>数据值列表</p>
+                     * 获取数据值列表
+                     * @return ValueList 数据值列表
                      * 
                      */
                     std::vector<std::string> GetValueList() const;
 
                     /**
-                     * 设置<p>数据值列表</p>
-                     * @param _valueList <p>数据值列表</p>
+                     * 设置数据值列表
+                     * @param _valueList 数据值列表
                      * 
                      */
                     void SetValueList(const std::vector<std::string>& _valueList);
@@ -111,15 +115,15 @@ namespace TencentCloud
                     bool ValueListHasBeenSet() const;
 
                     /**
-                     * 获取<p>全选标识，true: 全选；false: 非全选</p>
-                     * @return IsAll <p>全选标识，true: 全选；false: 非全选</p>
+                     * 获取全选标识，true: 全选；false: 非全选
+                     * @return IsAll 全选标识，true: 全选；false: 非全选
                      * 
                      */
                     bool GetIsAll() const;
 
                     /**
-                     * 设置<p>全选标识，true: 全选；false: 非全选</p>
-                     * @param _isAll <p>全选标识，true: 全选；false: 非全选</p>
+                     * 设置全选标识，true: 全选；false: 非全选
+                     * @param _isAll 全选标识，true: 全选；false: 非全选
                      * 
                      */
                     void SetIsAll(const bool& _isAll);
@@ -132,15 +136,15 @@ namespace TencentCloud
                     bool IsAllHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间，时间戳格式【Long】</p>
-                     * @return CreationTime <p>创建时间，时间戳格式【Long】</p>
+                     * 获取创建时间，时间戳格式【Long】
+                     * @return CreationTime 创建时间，时间戳格式【Long】
                      * 
                      */
                     int64_t GetCreationTime() const;
 
                     /**
-                     * 设置<p>创建时间，时间戳格式【Long】</p>
-                     * @param _creationTime <p>创建时间，时间戳格式【Long】</p>
+                     * 设置创建时间，时间戳格式【Long】
+                     * @param _creationTime 创建时间，时间戳格式【Long】
                      * 
                      */
                     void SetCreationTime(const int64_t& _creationTime);
@@ -153,15 +157,15 @@ namespace TencentCloud
                     bool CreationTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>最后更新时间，时间戳格式【Long】，单位毫秒</p>
-                     * @return LastUpdateTime <p>最后更新时间，时间戳格式【Long】，单位毫秒</p>
+                     * 获取最后更新时间，时间戳格式【Long】，单位毫秒
+                     * @return LastUpdateTime 最后更新时间，时间戳格式【Long】，单位毫秒
                      * 
                      */
                     int64_t GetLastUpdateTime() const;
 
                     /**
-                     * 设置<p>最后更新时间，时间戳格式【Long】，单位毫秒</p>
-                     * @param _lastUpdateTime <p>最后更新时间，时间戳格式【Long】，单位毫秒</p>
+                     * 设置最后更新时间，时间戳格式【Long】，单位毫秒
+                     * @param _lastUpdateTime 最后更新时间，时间戳格式【Long】，单位毫秒
                      * 
                      */
                     void SetLastUpdateTime(const int64_t& _lastUpdateTime);
@@ -174,15 +178,15 @@ namespace TencentCloud
                     bool LastUpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>删除标识，true: 可删除；false: 不可删除</p>
-                     * @return DeleteFlag <p>删除标识，true: 可删除；false: 不可删除</p>
+                     * 获取删除标识，true: 可删除；false: 不可删除
+                     * @return DeleteFlag 删除标识，true: 可删除；false: 不可删除
                      * 
                      */
                     bool GetDeleteFlag() const;
 
                     /**
-                     * 设置<p>删除标识，true: 可删除；false: 不可删除</p>
-                     * @param _deleteFlag <p>删除标识，true: 可删除；false: 不可删除</p>
+                     * 设置删除标识，true: 可删除；false: 不可删除
+                     * @param _deleteFlag 删除标识，true: 可删除；false: 不可删除
                      * 
                      */
                     void SetDeleteFlag(const bool& _deleteFlag);
@@ -195,15 +199,15 @@ namespace TencentCloud
                     bool DeleteFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据集ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>查询接口获取</p>
-                     * @return ProgramId <p>数据集ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>查询接口获取</p>
+                     * 获取数据集ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)查询接口获取
+                     * @return ProgramId 数据集ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)查询接口获取
                      * 
                      */
                     std::string GetProgramId() const;
 
                     /**
-                     * 设置<p>数据集ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>查询接口获取</p>
-                     * @param _programId <p>数据集ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>查询接口获取</p>
+                     * 设置数据集ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)查询接口获取
+                     * @param _programId 数据集ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)查询接口获取
                      * 
                      */
                     void SetProgramId(const std::string& _programId);
@@ -218,49 +222,50 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>数据项ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>接口查询已创建的数据集或登录控制台进行查看；也可以通过调用<a href="https://cloud.tencent.com/document/api/649/108544">CreateProgram</a>创建新的数据集。</p>
+                     * 数据项ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)接口查询已创建的数据集或登陆控制台进行查看；也可以通过调用[CreateProgram](https://cloud.tencent.com/document/api/649/108544)创建新的数据集。
+
                      */
                     std::string m_programItemId;
                     bool m_programItemIdHasBeenSet;
 
                     /**
-                     * <p>资源</p>
+                     * 资源
                      */
                     Resource m_resource;
                     bool m_resourceHasBeenSet;
 
                     /**
-                     * <p>数据值列表</p>
+                     * 数据值列表
                      */
                     std::vector<std::string> m_valueList;
                     bool m_valueListHasBeenSet;
 
                     /**
-                     * <p>全选标识，true: 全选；false: 非全选</p>
+                     * 全选标识，true: 全选；false: 非全选
                      */
                     bool m_isAll;
                     bool m_isAllHasBeenSet;
 
                     /**
-                     * <p>创建时间，时间戳格式【Long】</p>
+                     * 创建时间，时间戳格式【Long】
                      */
                     int64_t m_creationTime;
                     bool m_creationTimeHasBeenSet;
 
                     /**
-                     * <p>最后更新时间，时间戳格式【Long】，单位毫秒</p>
+                     * 最后更新时间，时间戳格式【Long】，单位毫秒
                      */
                     int64_t m_lastUpdateTime;
                     bool m_lastUpdateTimeHasBeenSet;
 
                     /**
-                     * <p>删除标识，true: 可删除；false: 不可删除</p>
+                     * 删除标识，true: 可删除；false: 不可删除
                      */
                     bool m_deleteFlag;
                     bool m_deleteFlagHasBeenSet;
 
                     /**
-                     * <p>数据集ID，调用<a href="https://console.cloud.tencent.com/tsf/privilege?rid=1&amp;tab=program">DescribePrograms</a>查询接口获取</p>
+                     * 数据集ID，调用[DescribePrograms](https://console.cloud.tencent.com/tsf/privilege?rid=1&tab=program)查询接口获取
                      */
                     std::string m_programId;
                     bool m_programIdHasBeenSet;

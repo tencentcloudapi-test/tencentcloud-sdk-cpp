@@ -24,8 +24,7 @@ using namespace std;
 
 UpdateSandboxInstanceRequest::UpdateSandboxInstanceRequest() :
     m_instanceIdHasBeenSet(false),
-    m_timeoutHasBeenSet(false),
-    m_metadataHasBeenSet(false)
+    m_timeoutHasBeenSet(false)
 {
 }
 
@@ -50,21 +49,6 @@ string UpdateSandboxInstanceRequest::ToJsonString() const
         string key = "Timeout";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_timeout.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_metadataHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Metadata";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_metadata.begin(); itr != m_metadata.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
     }
 
 
@@ -105,22 +89,6 @@ void UpdateSandboxInstanceRequest::SetTimeout(const string& _timeout)
 bool UpdateSandboxInstanceRequest::TimeoutHasBeenSet() const
 {
     return m_timeoutHasBeenSet;
-}
-
-vector<MetadataVar> UpdateSandboxInstanceRequest::GetMetadata() const
-{
-    return m_metadata;
-}
-
-void UpdateSandboxInstanceRequest::SetMetadata(const vector<MetadataVar>& _metadata)
-{
-    m_metadata = _metadata;
-    m_metadataHasBeenSet = true;
-}
-
-bool UpdateSandboxInstanceRequest::MetadataHasBeenSet() const
-{
-    return m_metadataHasBeenSet;
 }
 
 

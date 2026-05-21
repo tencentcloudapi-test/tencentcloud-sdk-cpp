@@ -52,15 +52,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
-                     * @return Account <p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
+                     * 获取用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
+                     * @return Account 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
                      * 
                      */
                     AccountInfo GetAccount() const;
 
                     /**
-                     * 设置<p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
-                     * @param _account <p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
+                     * 设置用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
+                     * @param _account 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
                      * 
                      */
                     void SetAccount(const AccountInfo& _account);
@@ -73,15 +89,31 @@ namespace TencentCloud
                     bool AccountHasBeenSet() const;
 
                     /**
-                     * 获取<p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
-                     * @return SceneCode <p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
+                     * 获取场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
+                     * @return SceneCode 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
                      * 
                      */
                     std::string GetSceneCode() const;
 
                     /**
-                     * 设置<p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
-                     * @param _sceneCode <p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
+                     * 设置场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
+                     * @param _sceneCode 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
                      * 
                      */
                     void SetSceneCode(const std::string& _sceneCode);
@@ -94,15 +126,15 @@ namespace TencentCloud
                     bool SceneCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
-                     * @return UserIp <p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
+                     * 获取用户外网ip（传入用户非外网ip会影响判断结果）。
+                     * @return UserIp 用户外网ip（传入用户非外网ip会影响判断结果）。
                      * 
                      */
                     std::string GetUserIp() const;
 
                     /**
-                     * 设置<p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
-                     * @param _userIp <p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
+                     * 设置用户外网ip（传入用户非外网ip会影响判断结果）。
+                     * @param _userIp 用户外网ip（传入用户非外网ip会影响判断结果）。
                      * 
                      */
                     void SetUserIp(const std::string& _userIp);
@@ -115,15 +147,15 @@ namespace TencentCloud
                     bool UserIpHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户操作时间戳，精确到秒。</p>
-                     * @return PostTime <p>用户操作时间戳，精确到秒。</p>
+                     * 获取用户操作时间戳，精确到秒。
+                     * @return PostTime 用户操作时间戳，精确到秒。
                      * 
                      */
                     uint64_t GetPostTime() const;
 
                     /**
-                     * 设置<p>用户操作时间戳，精确到秒。</p>
-                     * @param _postTime <p>用户操作时间戳，精确到秒。</p>
+                     * 设置用户操作时间戳，精确到秒。
+                     * @param _postTime 用户操作时间戳，精确到秒。
                      * 
                      */
                     void SetPostTime(const uint64_t& _postTime);
@@ -136,15 +168,15 @@ namespace TencentCloud
                     bool PostTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>业务平台用户唯一标识，支持自定义。</p>
-                     * @return UserId <p>业务平台用户唯一标识，支持自定义。</p>
+                     * 获取业务平台用户唯一标识，支持自定义。
+                     * @return UserId 业务平台用户唯一标识，支持自定义。
                      * 
                      */
                     std::string GetUserId() const;
 
                     /**
-                     * 设置<p>业务平台用户唯一标识，支持自定义。</p>
-                     * @param _userId <p>业务平台用户唯一标识，支持自定义。</p>
+                     * 设置业务平台用户唯一标识，支持自定义。
+                     * @param _userId 业务平台用户唯一标识，支持自定义。
                      * 
                      */
                     void SetUserId(const std::string& _userId);
@@ -157,15 +189,15 @@ namespace TencentCloud
                     bool UserIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
-                     * @return DeviceToken <p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
+                     * 获取设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
+                     * @return DeviceToken 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
                      * 
                      */
                     std::string GetDeviceToken() const;
 
                     /**
-                     * 设置<p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
-                     * @param _deviceToken <p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
+                     * 设置设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
+                     * @param _deviceToken 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
                      * 
                      */
                     void SetDeviceToken(const std::string& _deviceToken);
@@ -178,15 +210,15 @@ namespace TencentCloud
                     bool DeviceTokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>设备指纹 BusinessId。</p>
-                     * @return DeviceBusinessId <p>设备指纹 BusinessId。</p>
+                     * 获取设备指纹 BusinessId。
+                     * @return DeviceBusinessId 设备指纹 BusinessId。
                      * 
                      */
                     int64_t GetDeviceBusinessId() const;
 
                     /**
-                     * 设置<p>设备指纹 BusinessId。</p>
-                     * @param _deviceBusinessId <p>设备指纹 BusinessId。</p>
+                     * 设置设备指纹 BusinessId。
+                     * @param _deviceBusinessId 设备指纹 BusinessId。
                      * 
                      */
                     void SetDeviceBusinessId(const int64_t& _deviceBusinessId);
@@ -199,15 +231,15 @@ namespace TencentCloud
                     bool DeviceBusinessIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
-                     * @return BusinessId <p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
+                     * 获取业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
+                     * @return BusinessId 业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
                      * 
                      */
                     uint64_t GetBusinessId() const;
 
                     /**
-                     * 设置<p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
-                     * @param _businessId <p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
+                     * 设置业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
+                     * @param _businessId 业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
                      * 
                      */
                     void SetBusinessId(const uint64_t& _businessId);
@@ -220,15 +252,15 @@ namespace TencentCloud
                     bool BusinessIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>昵称，UTF-8 编码。</p>
-                     * @return Nickname <p>昵称，UTF-8 编码。</p>
+                     * 获取昵称，UTF-8 编码。
+                     * @return Nickname 昵称，UTF-8 编码。
                      * 
                      */
                     std::string GetNickname() const;
 
                     /**
-                     * 设置<p>昵称，UTF-8 编码。</p>
-                     * @param _nickname <p>昵称，UTF-8 编码。</p>
+                     * 设置昵称，UTF-8 编码。
+                     * @param _nickname 昵称，UTF-8 编码。
                      * 
                      */
                     void SetNickname(const std::string& _nickname);
@@ -241,15 +273,15 @@ namespace TencentCloud
                     bool NicknameHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户邮箱地址。</p>
-                     * @return EmailAddress <p>用户邮箱地址。</p>
+                     * 获取用户邮箱地址。
+                     * @return EmailAddress 用户邮箱地址。
                      * 
                      */
                     std::string GetEmailAddress() const;
 
                     /**
-                     * 设置<p>用户邮箱地址。</p>
-                     * @param _emailAddress <p>用户邮箱地址。</p>
+                     * 设置用户邮箱地址。
+                     * @param _emailAddress 用户邮箱地址。
                      * 
                      */
                     void SetEmailAddress(const std::string& _emailAddress);
@@ -262,15 +294,23 @@ namespace TencentCloud
                     bool EmailAddressHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
-                     * @return CheckDevice <p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
+                     * 获取是否识别设备异常：
+0：不识别。
+1：识别。
+                     * @return CheckDevice 是否识别设备异常：
+0：不识别。
+1：识别。
                      * 
                      */
                     int64_t GetCheckDevice() const;
 
                     /**
-                     * 设置<p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
-                     * @param _checkDevice <p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
+                     * 设置是否识别设备异常：
+0：不识别。
+1：识别。
+                     * @param _checkDevice 是否识别设备异常：
+0：不识别。
+1：识别。
                      * 
                      */
                     void SetCheckDevice(const int64_t& _checkDevice);
@@ -283,15 +323,15 @@ namespace TencentCloud
                     bool CheckDeviceHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
-                     * @return CookieHash <p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
+                     * 获取用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
+                     * @return CookieHash 用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
                      * 
                      */
                     std::string GetCookieHash() const;
 
                     /**
-                     * 设置<p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
-                     * @param _cookieHash <p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
+                     * 设置用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
+                     * @param _cookieHash 用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
                      * 
                      */
                     void SetCookieHash(const std::string& _cookieHash);
@@ -304,15 +344,15 @@ namespace TencentCloud
                     bool CookieHashHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户HTTP请求的Referer值。</p>
-                     * @return Referer <p>用户HTTP请求的Referer值。</p>
+                     * 获取用户HTTP请求的Referer值。
+                     * @return Referer 用户HTTP请求的Referer值。
                      * 
                      */
                     std::string GetReferer() const;
 
                     /**
-                     * 设置<p>用户HTTP请求的Referer值。</p>
-                     * @param _referer <p>用户HTTP请求的Referer值。</p>
+                     * 设置用户HTTP请求的Referer值。
+                     * @param _referer 用户HTTP请求的Referer值。
                      * 
                      */
                     void SetReferer(const std::string& _referer);
@@ -325,15 +365,15 @@ namespace TencentCloud
                     bool RefererHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户HTTP请求的User-Agent值。</p>
-                     * @return UserAgent <p>用户HTTP请求的User-Agent值。</p>
+                     * 获取用户HTTP请求的User-Agent值。
+                     * @return UserAgent 用户HTTP请求的User-Agent值。
                      * 
                      */
                     std::string GetUserAgent() const;
 
                     /**
-                     * 设置<p>用户HTTP请求的User-Agent值。</p>
-                     * @param _userAgent <p>用户HTTP请求的User-Agent值。</p>
+                     * 设置用户HTTP请求的User-Agent值。
+                     * @param _userAgent 用户HTTP请求的User-Agent值。
                      * 
                      */
                     void SetUserAgent(const std::string& _userAgent);
@@ -346,15 +386,15 @@ namespace TencentCloud
                     bool UserAgentHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户HTTP请求的X-Forwarded-For值。</p>
-                     * @return XForwardedFor <p>用户HTTP请求的X-Forwarded-For值。</p>
+                     * 获取用户HTTP请求的X-Forwarded-For值。
+                     * @return XForwardedFor 用户HTTP请求的X-Forwarded-For值。
                      * 
                      */
                     std::string GetXForwardedFor() const;
 
                     /**
-                     * 设置<p>用户HTTP请求的X-Forwarded-For值。</p>
-                     * @param _xForwardedFor <p>用户HTTP请求的X-Forwarded-For值。</p>
+                     * 设置用户HTTP请求的X-Forwarded-For值。
+                     * @param _xForwardedFor 用户HTTP请求的X-Forwarded-For值。
                      * 
                      */
                     void SetXForwardedFor(const std::string& _xForwardedFor);
@@ -367,15 +407,15 @@ namespace TencentCloud
                     bool XForwardedForHasBeenSet() const;
 
                     /**
-                     * 获取<p>MAC地址或设备唯一标识。</p>
-                     * @return MacAddress <p>MAC地址或设备唯一标识。</p>
+                     * 获取MAC地址或设备唯一标识。
+                     * @return MacAddress MAC地址或设备唯一标识。
                      * 
                      */
                     std::string GetMacAddress() const;
 
                     /**
-                     * 设置<p>MAC地址或设备唯一标识。</p>
-                     * @param _macAddress <p>MAC地址或设备唯一标识。</p>
+                     * 设置MAC地址或设备唯一标识。
+                     * @param _macAddress MAC地址或设备唯一标识。
                      * 
                      */
                     void SetMacAddress(const std::string& _macAddress);
@@ -388,15 +428,15 @@ namespace TencentCloud
                     bool MacAddressHasBeenSet() const;
 
                     /**
-                     * 获取<p>手机制造商ID，如果手机注册，请带上此信息。</p>
-                     * @return VendorId <p>手机制造商ID，如果手机注册，请带上此信息。</p>
+                     * 获取手机制造商ID，如果手机注册，请带上此信息。
+                     * @return VendorId 手机制造商ID，如果手机注册，请带上此信息。
                      * 
                      */
                     std::string GetVendorId() const;
 
                     /**
-                     * 设置<p>手机制造商ID，如果手机注册，请带上此信息。</p>
-                     * @param _vendorId <p>手机制造商ID，如果手机注册，请带上此信息。</p>
+                     * 设置手机制造商ID，如果手机注册，请带上此信息。
+                     * @param _vendorId 手机制造商ID，如果手机注册，请带上此信息。
                      * 
                      */
                     void SetVendorId(const std::string& _vendorId);
@@ -409,15 +449,15 @@ namespace TencentCloud
                     bool VendorIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>设备类型(已不推荐使用)。</p>
-                     * @return DeviceType <p>设备类型(已不推荐使用)。</p>
+                     * 获取设备类型(已不推荐使用)。
+                     * @return DeviceType 设备类型(已不推荐使用)。
                      * 
                      */
                     int64_t GetDeviceType() const;
 
                     /**
-                     * 设置<p>设备类型(已不推荐使用)。</p>
-                     * @param _deviceType <p>设备类型(已不推荐使用)。</p>
+                     * 设置设备类型(已不推荐使用)。
+                     * @param _deviceType 设备类型(已不推荐使用)。
                      * 
                      */
                     void SetDeviceType(const int64_t& _deviceType);
@@ -430,15 +470,15 @@ namespace TencentCloud
                     bool DeviceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩展字段。</p>
-                     * @return Details <p>扩展字段。</p>
+                     * 获取扩展字段。
+                     * @return Details 扩展字段。
                      * 
                      */
                     std::vector<InputDetails> GetDetails() const;
 
                     /**
-                     * 设置<p>扩展字段。</p>
-                     * @param _details <p>扩展字段。</p>
+                     * 设置扩展字段。
+                     * @param _details 扩展字段。
                      * 
                      */
                     void SetDetails(const std::vector<InputDetails>& _details);
@@ -451,15 +491,15 @@ namespace TencentCloud
                     bool DetailsHasBeenSet() const;
 
                     /**
-                     * 获取<p>邀请助力场景相关信息。</p>
-                     * @return Sponsor <p>邀请助力场景相关信息。</p>
+                     * 获取邀请助力场景相关信息。
+                     * @return Sponsor 邀请助力场景相关信息。
                      * 
                      */
                     SponsorInfo GetSponsor() const;
 
                     /**
-                     * 设置<p>邀请助力场景相关信息。</p>
-                     * @param _sponsor <p>邀请助力场景相关信息。</p>
+                     * 设置邀请助力场景相关信息。
+                     * @param _sponsor 邀请助力场景相关信息。
                      * 
                      */
                     void SetSponsor(const SponsorInfo& _sponsor);
@@ -472,15 +512,15 @@ namespace TencentCloud
                     bool SponsorHasBeenSet() const;
 
                     /**
-                     * 获取<p>详情请跳转至OnlineScamInfo查看。</p>
-                     * @return OnlineScam <p>详情请跳转至OnlineScamInfo查看。</p>
+                     * 获取详情请跳转至OnlineScamInfo查看。
+                     * @return OnlineScam 详情请跳转至OnlineScamInfo查看。
                      * 
                      */
                     OnlineScamInfo GetOnlineScam() const;
 
                     /**
-                     * 设置<p>详情请跳转至OnlineScamInfo查看。</p>
-                     * @param _onlineScam <p>详情请跳转至OnlineScamInfo查看。</p>
+                     * 设置详情请跳转至OnlineScamInfo查看。
+                     * @param _onlineScam 详情请跳转至OnlineScamInfo查看。
                      * 
                      */
                     void SetOnlineScam(const OnlineScamInfo& _onlineScam);
@@ -493,15 +533,27 @@ namespace TencentCloud
                     bool OnlineScamHasBeenSet() const;
 
                     /**
-                     * 获取<p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
-                     * @return Platform <p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+                     * 获取1：Android
+2：iOS
+3：H5
+4：小程序
+                     * @return Platform 1：Android
+2：iOS
+3：H5
+4：小程序
                      * 
                      */
                     std::string GetPlatform() const;
 
                     /**
-                     * 设置<p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
-                     * @param _platform <p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+                     * 设置1：Android
+2：iOS
+3：H5
+4：小程序
+                     * @param _platform 1：Android
+2：iOS
+3：H5
+4：小程序
                      * 
                      */
                     void SetPlatform(const std::string& _platform);
@@ -514,15 +566,15 @@ namespace TencentCloud
                     bool PlatformHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
-                     * @return DataAuthorization <p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
+                     * 获取数据授权信息。
+                     * @return DataAuthorization 数据授权信息。
                      * 
                      */
                     DataAuthorizationInfo GetDataAuthorization() const;
 
                     /**
-                     * 设置<p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
-                     * @param _dataAuthorization <p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
+                     * 设置数据授权信息。
+                     * @param _dataAuthorization 数据授权信息。
                      * 
                      */
                     void SetDataAuthorization(const DataAuthorizationInfo& _dataAuthorization);
@@ -537,139 +589,152 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要&quot;提交工单&quot;或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。<br>1：QQ开放账号<br>2：微信开放账号<br>10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值<br>10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值</p>
+                     * 用户账号类型；默认开通QQOpenId、手机号MD5权限；如果需要使用微信OpenId入参，则需要"提交工单"或联系对接人进行资格审核，审核通过后方可正常使用微信开放账号。
+1：QQ开放账号
+2：微信开放账号
+10004：手机号MD5，中国大陆11位手机号进行MD5加密，取32位小写值
+10005：手机号SHA256，中国大陆11位手机号进行SHA256加密，取64位小写值
                      */
                     AccountInfo m_account;
                     bool m_accountHasBeenSet;
 
                     /**
-                     * <p>场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理<br>控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root<br>活动防刷默认场景码：e_activity_antirush<br>登录保护默认场景码：e_login_protection<br>注册保护默认场景码：e_register_protection</p>
+                     * 场景码，用于识别和区分不同的业务场景，可在控制台上新建和管理
+控制台链接：https://console.cloud.tencent.com/rce/risk/strategy/scene-root
+活动防刷默认场景码：e_activity_antirush 
+登录保护默认场景码：e_login_protection
+注册保护默认场景码：e_register_protection
                      */
                     std::string m_sceneCode;
                     bool m_sceneCodeHasBeenSet;
 
                     /**
-                     * <p>用户外网ip（传入用户非外网ip会影响判断结果）。</p>
+                     * 用户外网ip（传入用户非外网ip会影响判断结果）。
                      */
                     std::string m_userIp;
                     bool m_userIpHasBeenSet;
 
                     /**
-                     * <p>用户操作时间戳，精确到秒。</p>
+                     * 用户操作时间戳，精确到秒。
                      */
                     uint64_t m_postTime;
                     bool m_postTimeHasBeenSet;
 
                     /**
-                     * <p>业务平台用户唯一标识，支持自定义。</p>
+                     * 业务平台用户唯一标识，支持自定义。
                      */
                     std::string m_userId;
                     bool m_userIdHasBeenSet;
 
                     /**
-                     * <p>设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。</p>
+                     * 设备指纹DeviceToken值，集成设备指纹后获取；如果集成了相应的设备指纹，该字段必填。
                      */
                     std::string m_deviceToken;
                     bool m_deviceTokenHasBeenSet;
 
                     /**
-                     * <p>设备指纹 BusinessId。</p>
+                     * 设备指纹 BusinessId。
                      */
                     int64_t m_deviceBusinessId;
                     bool m_deviceBusinessIdHasBeenSet;
 
                     /**
-                     * <p>业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。</p>
+                     * 业务ID。网站或应用在多个业务中使用此服务，通过此ID区分统计数据。
                      */
                     uint64_t m_businessId;
                     bool m_businessIdHasBeenSet;
 
                     /**
-                     * <p>昵称，UTF-8 编码。</p>
+                     * 昵称，UTF-8 编码。
                      */
                     std::string m_nickname;
                     bool m_nicknameHasBeenSet;
 
                     /**
-                     * <p>用户邮箱地址。</p>
+                     * 用户邮箱地址。
                      */
                     std::string m_emailAddress;
                     bool m_emailAddressHasBeenSet;
 
                     /**
-                     * <p>是否识别设备异常：<br>0：不识别。<br>1：识别。</p>
+                     * 是否识别设备异常：
+0：不识别。
+1：识别。
                      */
                     int64_t m_checkDevice;
                     bool m_checkDeviceHasBeenSet;
 
                     /**
-                     * <p>用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。</p>
+                     * 用户HTTP请求中的Cookie进行2次hash的值，只要保证相同Cookie的hash值一致即可。
                      */
                     std::string m_cookieHash;
                     bool m_cookieHashHasBeenSet;
 
                     /**
-                     * <p>用户HTTP请求的Referer值。</p>
+                     * 用户HTTP请求的Referer值。
                      */
                     std::string m_referer;
                     bool m_refererHasBeenSet;
 
                     /**
-                     * <p>用户HTTP请求的User-Agent值。</p>
+                     * 用户HTTP请求的User-Agent值。
                      */
                     std::string m_userAgent;
                     bool m_userAgentHasBeenSet;
 
                     /**
-                     * <p>用户HTTP请求的X-Forwarded-For值。</p>
+                     * 用户HTTP请求的X-Forwarded-For值。
                      */
                     std::string m_xForwardedFor;
                     bool m_xForwardedForHasBeenSet;
 
                     /**
-                     * <p>MAC地址或设备唯一标识。</p>
+                     * MAC地址或设备唯一标识。
                      */
                     std::string m_macAddress;
                     bool m_macAddressHasBeenSet;
 
                     /**
-                     * <p>手机制造商ID，如果手机注册，请带上此信息。</p>
+                     * 手机制造商ID，如果手机注册，请带上此信息。
                      */
                     std::string m_vendorId;
                     bool m_vendorIdHasBeenSet;
 
                     /**
-                     * <p>设备类型(已不推荐使用)。</p>
+                     * 设备类型(已不推荐使用)。
                      */
                     int64_t m_deviceType;
                     bool m_deviceTypeHasBeenSet;
 
                     /**
-                     * <p>扩展字段。</p>
+                     * 扩展字段。
                      */
                     std::vector<InputDetails> m_details;
                     bool m_detailsHasBeenSet;
 
                     /**
-                     * <p>邀请助力场景相关信息。</p>
+                     * 邀请助力场景相关信息。
                      */
                     SponsorInfo m_sponsor;
                     bool m_sponsorHasBeenSet;
 
                     /**
-                     * <p>详情请跳转至OnlineScamInfo查看。</p>
+                     * 详情请跳转至OnlineScamInfo查看。
                      */
                     OnlineScamInfo m_onlineScam;
                     bool m_onlineScamHasBeenSet;
 
                     /**
-                     * <p>1：Android<br>2：iOS<br>3：H5<br>4：小程序<br>5：鸿蒙</p>
+                     * 1：Android
+2：iOS
+3：H5
+4：小程序
                      */
                     std::string m_platform;
                     bool m_platformHasBeenSet;
 
                     /**
-                     * <p>数据授权信息。<br>注意：新接入通用业务欺诈保护（RCE）服务的客户该字段【必传】。</p>
+                     * 数据授权信息。
                      */
                     DataAuthorizationInfo m_dataAuthorization;
                     bool m_dataAuthorizationHasBeenSet;

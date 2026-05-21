@@ -106,27 +106,6 @@ namespace TencentCloud
                      */
                     bool SingleClusterFlagHasBeenSet() const;
 
-                    /**
-                     * 获取客户端集群id
-                     * @return ClusterId 客户端集群id
-                     * 
-                     */
-                    std::string GetClusterId() const;
-
-                    /**
-                     * 设置客户端集群id
-                     * @param _clusterId 客户端集群id
-                     * 
-                     */
-                    void SetClusterId(const std::string& _clusterId);
-
-                    /**
-                     * 判断参数 ClusterId 是否已赋值
-                     * @return ClusterId 是否已赋值
-                     * 
-                     */
-                    bool ClusterIdHasBeenSet() const;
-
                 private:
 
                     /**
@@ -146,12 +125,6 @@ namespace TencentCloud
                      */
                     bool m_singleClusterFlag;
                     bool m_singleClusterFlagHasBeenSet;
-
-                    /**
-                     * 客户端集群id
-                     */
-                    std::string m_clusterId;
-                    bool m_clusterIdHasBeenSet;
 
                 };
             }

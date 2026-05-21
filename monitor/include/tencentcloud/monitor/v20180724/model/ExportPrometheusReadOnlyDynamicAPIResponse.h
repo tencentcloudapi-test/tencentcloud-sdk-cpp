@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/monitor/v20180724/model/PrometheusDynamicAPIResponseHTTP.h>
 
 
 namespace TencentCloud
@@ -44,27 +43,7 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
-                    /**
-                     * 获取<p>HTTP 响应数据</p>
-                     * @return HTTP <p>HTTP 响应数据</p>
-                     * 
-                     */
-                    PrometheusDynamicAPIResponseHTTP GetHTTP() const;
-
-                    /**
-                     * 判断参数 HTTP 是否已赋值
-                     * @return HTTP 是否已赋值
-                     * 
-                     */
-                    bool HTTPHasBeenSet() const;
-
                 private:
-
-                    /**
-                     * <p>HTTP 响应数据</p>
-                     */
-                    PrometheusDynamicAPIResponseHTTP m_hTTP;
-                    bool m_hTTPHasBeenSet;
 
                 };
             }

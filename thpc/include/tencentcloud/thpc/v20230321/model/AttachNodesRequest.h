@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群id</p>
-                     * @return ClusterId <p>集群id</p>
+                     * 获取集群id
+                     * @return ClusterId 集群id
                      * 
                      */
                     std::string GetClusterId() const;
 
                     /**
-                     * 设置<p>集群id</p>
-                     * @param _clusterId <p>集群id</p>
+                     * 设置集群id
+                     * @param _clusterId 集群id
                      * 
                      */
                     void SetClusterId(const std::string& _clusterId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点的实例id列表</p>
-                     * @return ResourceSet <p>节点的实例id列表</p>
+                     * 获取节点的实例id列表
+                     * @return ResourceSet 节点的实例id列表
                      * 
                      */
                     std::vector<std::string> GetResourceSet() const;
 
                     /**
-                     * 设置<p>节点的实例id列表</p>
-                     * @param _resourceSet <p>节点的实例id列表</p>
+                     * 设置节点的实例id列表
+                     * @param _resourceSet 节点的实例id列表
                      * 
                      */
                     void SetResourceSet(const std::vector<std::string>& _resourceSet);
@@ -85,15 +85,23 @@ namespace TencentCloud
                     bool ResourceSetHasBeenSet() const;
 
                     /**
-                     * 获取<p>队列名称。不指定则为默认队列：<br>SLURM默认队列为：compute。</p>
-                     * @return QueueName <p>队列名称。不指定则为默认队列：<br>SLURM默认队列为：compute。</p>
+                     * 获取队列名称。不指定则为默认队列：
+SLURM默认队列为：compute。 
+
+                     * @return QueueName 队列名称。不指定则为默认队列：
+SLURM默认队列为：compute。 
+
                      * 
                      */
                     std::string GetQueueName() const;
 
                     /**
-                     * 设置<p>队列名称。不指定则为默认队列：<br>SLURM默认队列为：compute。</p>
-                     * @param _queueName <p>队列名称。不指定则为默认队列：<br>SLURM默认队列为：compute。</p>
+                     * 设置队列名称。不指定则为默认队列：
+SLURM默认队列为：compute。 
+
+                     * @param _queueName 队列名称。不指定则为默认队列：
+SLURM默认队列为：compute。 
+
                      * 
                      */
                     void SetQueueName(const std::string& _queueName);
@@ -106,15 +114,15 @@ namespace TencentCloud
                     bool QueueNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。</p>
-                     * @return ImageId <p>指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。</p>
+                     * 获取指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。
+                     * @return ImageId 指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。
                      * 
                      */
                     std::string GetImageId() const;
 
                     /**
-                     * 设置<p>指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。</p>
-                     * @param _imageId <p>指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。</p>
+                     * 设置指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。
+                     * @param _imageId 指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。
                      * 
                      */
                     void SetImageId(const std::string& _imageId);
@@ -127,15 +135,15 @@ namespace TencentCloud
                     bool ImageIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。</p>
-                     * @return ResourceType <p>要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。</p>
+                     * 获取要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。
+                     * @return ResourceType 要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。
                      * 
                      */
                     std::string GetResourceType() const;
 
                     /**
-                     * 设置<p>要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。</p>
-                     * @param _resourceType <p>要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。</p>
+                     * 设置要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。
+                     * @param _resourceType 要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。
                      * 
                      */
                     void SetResourceType(const std::string& _resourceType);
@@ -147,91 +155,39 @@ namespace TencentCloud
                      */
                     bool ResourceTypeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。关于获取此参数的详细介绍，请参阅<a href="https://cloud.tencent.com/document/product/213/17526">Windows</a>和<a href="https://cloud.tencent.com/document/product/213/17525">Linux</a>启动时运行命令。</p>
-                     * @return UserData <p>提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。关于获取此参数的详细介绍，请参阅<a href="https://cloud.tencent.com/document/product/213/17526">Windows</a>和<a href="https://cloud.tencent.com/document/product/213/17525">Linux</a>启动时运行命令。</p>
-                     * 
-                     */
-                    std::string GetUserData() const;
-
-                    /**
-                     * 设置<p>提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。关于获取此参数的详细介绍，请参阅<a href="https://cloud.tencent.com/document/product/213/17526">Windows</a>和<a href="https://cloud.tencent.com/document/product/213/17525">Linux</a>启动时运行命令。</p>
-                     * @param _userData <p>提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。关于获取此参数的详细介绍，请参阅<a href="https://cloud.tencent.com/document/product/213/17526">Windows</a>和<a href="https://cloud.tencent.com/document/product/213/17525">Linux</a>启动时运行命令。</p>
-                     * 
-                     */
-                    void SetUserData(const std::string& _userData);
-
-                    /**
-                     * 判断参数 UserData 是否已赋值
-                     * @return UserData 是否已赋值
-                     * 
-                     */
-                    bool UserDataHasBeenSet() const;
-
-                    /**
-                     * 获取<p>控制实例加入集群是否跳过重装系统</p><p>默认值：False</p>
-                     * @return SkipResetInstance <p>控制实例加入集群是否跳过重装系统</p><p>默认值：False</p>
-                     * 
-                     */
-                    bool GetSkipResetInstance() const;
-
-                    /**
-                     * 设置<p>控制实例加入集群是否跳过重装系统</p><p>默认值：False</p>
-                     * @param _skipResetInstance <p>控制实例加入集群是否跳过重装系统</p><p>默认值：False</p>
-                     * 
-                     */
-                    void SetSkipResetInstance(const bool& _skipResetInstance);
-
-                    /**
-                     * 判断参数 SkipResetInstance 是否已赋值
-                     * @return SkipResetInstance 是否已赋值
-                     * 
-                     */
-                    bool SkipResetInstanceHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>集群id</p>
+                     * 集群id
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * <p>节点的实例id列表</p>
+                     * 节点的实例id列表
                      */
                     std::vector<std::string> m_resourceSet;
                     bool m_resourceSetHasBeenSet;
 
                     /**
-                     * <p>队列名称。不指定则为默认队列：<br>SLURM默认队列为：compute。</p>
+                     * 队列名称。不指定则为默认队列：
+SLURM默认队列为：compute。 
+
                      */
                     std::string m_queueName;
                     bool m_queueNameHasBeenSet;
 
                     /**
-                     * <p>指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。</p>
+                     * 指定有效的镜像ID，格式形如img-xxx。目前仅支持公有镜像和特定自定义镜像。如不指定，则该字段是默认镜像。
                      */
                     std::string m_imageId;
                     bool m_imageIdHasBeenSet;
 
                     /**
-                     * <p>要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。</p>
+                     * 要新增节点的资源类型。<li>CVM：CVM实例类型资源</li><li>WORKSPACE：工作空间类型实例资源</li>默认值：CVM。
                      */
                     std::string m_resourceType;
                     bool m_resourceTypeHasBeenSet;
-
-                    /**
-                     * <p>提供给实例使用的用户数据，需要以 base64 方式编码，支持的最大数据大小为 16KB。关于获取此参数的详细介绍，请参阅<a href="https://cloud.tencent.com/document/product/213/17526">Windows</a>和<a href="https://cloud.tencent.com/document/product/213/17525">Linux</a>启动时运行命令。</p>
-                     */
-                    std::string m_userData;
-                    bool m_userDataHasBeenSet;
-
-                    /**
-                     * <p>控制实例加入集群是否跳过重装系统</p><p>默认值：False</p>
-                     */
-                    bool m_skipResetInstance;
-                    bool m_skipResetInstanceHasBeenSet;
 
                 };
             }

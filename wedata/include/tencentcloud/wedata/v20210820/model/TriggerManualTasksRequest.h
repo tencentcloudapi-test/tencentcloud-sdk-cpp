@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool DataTimeListHasBeenSet() const;
 
                     /**
-                     * 获取手动工作流ID
-                     * @return WorkflowId 手动工作流ID
+                     * 获取工作流ID
+                     * @return WorkflowId 工作流ID
                      * 
                      */
                     std::string GetWorkflowId() const;
 
                     /**
-                     * 设置手动工作流ID
-                     * @param _workflowId 手动工作流ID
+                     * 设置工作流ID
+                     * @param _workflowId 工作流ID
                      * 
                      */
                     void SetWorkflowId(const std::string& _workflowId);
@@ -170,15 +170,19 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取需要运行的手动工作流任务列表TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
-                     * @return TaskIds 需要运行的手动工作流任务列表TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
+                     * 获取需要运行的任务列表
+TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
+                     * @return TaskIds 需要运行的任务列表
+TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
                      * 
                      */
                     std::vector<std::string> GetTaskIds() const;
 
                     /**
-                     * 设置需要运行的手动工作流任务列表TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
-                     * @param _taskIds 需要运行的手动工作流任务列表TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
+                     * 设置需要运行的任务列表
+TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
+                     * @param _taskIds 需要运行的任务列表
+TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
                      * 
                      */
                     void SetTaskIds(const std::vector<std::string>& _taskIds);
@@ -364,7 +368,7 @@ namespace TencentCloud
                     bool m_dataTimeListHasBeenSet;
 
                     /**
-                     * 手动工作流ID
+                     * 工作流ID
                      */
                     std::string m_workflowId;
                     bool m_workflowIdHasBeenSet;
@@ -376,7 +380,8 @@ namespace TencentCloud
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * 需要运行的手动工作流任务列表TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
+                     * 需要运行的任务列表
+TriggerScope=ENTIRE_WORKFLOW 时无需传此参数，TriggerScope=SPECIFIED_TASK此参数必传
                      */
                     std::vector<std::string> m_taskIds;
                     bool m_taskIdsHasBeenSet;

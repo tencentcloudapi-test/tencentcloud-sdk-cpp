@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>所修改分账单元ID</p>
-                     * @return Id <p>所修改分账单元ID</p>
+                     * 获取所修改分账单元ID
+                     * @return Id 所修改分账单元ID
                      * 
                      */
                     uint64_t GetId() const;
 
                     /**
-                     * 设置<p>所修改分账单元ID</p>
-                     * @param _id <p>所修改分账单元ID</p>
+                     * 设置所修改分账单元ID
+                     * @param _id 所修改分账单元ID
                      * 
                      */
                     void SetId(const uint64_t& _id);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>修改后分账单元名称</p>
-                     * @return Name <p>修改后分账单元名称</p>
+                     * 获取修改后分账单元名称
+                     * @return Name 修改后分账单元名称
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>修改后分账单元名称</p>
-                     * @param _name <p>修改后分账单元名称</p>
+                     * 设置修改后分账单元名称
+                     * @param _name 修改后分账单元名称
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>修改后分账单元源组织名称</p>
-                     * @return SourceName <p>修改后分账单元源组织名称</p>
+                     * 获取修改后分账单元源组织名称
+                     * @return SourceName 修改后分账单元源组织名称
                      * 
                      */
                     std::string GetSourceName() const;
 
                     /**
-                     * 设置<p>修改后分账单元源组织名称</p>
-                     * @param _sourceName <p>修改后分账单元源组织名称</p>
+                     * 设置修改后分账单元源组织名称
+                     * @param _sourceName 修改后分账单元源组织名称
                      * 
                      */
                     void SetSourceName(const std::string& _sourceName);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool SourceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>修改后分账单元源组织ID</p>
-                     * @return SourceId <p>修改后分账单元源组织ID</p>
+                     * 获取修改后分账单元源组织ID
+                     * @return SourceId 修改后分账单元源组织ID
                      * 
                      */
                     std::string GetSourceId() const;
 
                     /**
-                     * 设置<p>修改后分账单元源组织ID</p>
-                     * @param _sourceId <p>修改后分账单元源组织ID</p>
+                     * 设置修改后分账单元源组织ID
+                     * @param _sourceId 修改后分账单元源组织ID
                      * 
                      */
                     void SetSourceId(const std::string& _sourceId);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool SourceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>分账单元备注说明</p>
-                     * @return Remark <p>分账单元备注说明</p>
+                     * 获取分账单元备注说明
+                     * @return Remark 分账单元备注说明
                      * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置<p>分账单元备注说明</p>
-                     * @param _remark <p>分账单元备注说明</p>
+                     * 设置分账单元备注说明
+                     * @param _remark 分账单元备注说明
                      * 
                      */
                     void SetRemark(const std::string& _remark);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>月份，不传默认当前月</p>
-                     * @return Month <p>月份，不传默认当前月</p>
+                     * 获取月份，不传默认当前月
+                     * @return Month 月份，不传默认当前月
                      * 
                      */
                     std::string GetMonth() const;
 
                     /**
-                     * 设置<p>月份，不传默认当前月</p>
-                     * @param _month <p>月份，不传默认当前月</p>
+                     * 设置月份，不传默认当前月
+                     * @param _month 月份，不传默认当前月
                      * 
                      */
                     void SetMonth(const std::string& _month);
@@ -171,37 +171,37 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>所修改分账单元ID</p>
+                     * 所修改分账单元ID
                      */
                     uint64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>修改后分账单元名称</p>
+                     * 修改后分账单元名称
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>修改后分账单元源组织名称</p>
+                     * 修改后分账单元源组织名称
                      */
                     std::string m_sourceName;
                     bool m_sourceNameHasBeenSet;
 
                     /**
-                     * <p>修改后分账单元源组织ID</p>
+                     * 修改后分账单元源组织ID
                      */
                     std::string m_sourceId;
                     bool m_sourceIdHasBeenSet;
 
                     /**
-                     * <p>分账单元备注说明</p>
+                     * 分账单元备注说明
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>月份，不传默认当前月</p>
+                     * 月份，不传默认当前月
                      */
                     std::string m_month;
                     bool m_monthHasBeenSet;

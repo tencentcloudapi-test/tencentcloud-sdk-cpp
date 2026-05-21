@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>计费项标签</p>
-                     * @return SpecId <p>计费项标签</p>
+                     * 获取计费项标签
+                     * @return SpecId 计费项标签
                      * 
                      */
                     std::string GetSpecId() const;
 
                     /**
-                     * 设置<p>计费项标签</p>
-                     * @param _specId <p>计费项标签</p>
+                     * 设置计费项标签
+                     * @param _specId 计费项标签
                      * 
                      */
                     void SetSpecId(const std::string& _specId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool SpecIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项名称</p>
-                     * @return SpecName <p>计费项名称</p>
+                     * 获取计费项名称
+                     * @return SpecName 计费项名称
                      * 
                      */
                     std::string GetSpecName() const;
 
                     /**
-                     * 设置<p>计费项名称</p>
-                     * @param _specName <p>计费项名称</p>
+                     * 设置计费项名称
+                     * @param _specName 计费项名称
                      * 
                      */
                     void SetSpecName(const std::string& _specName);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool SpecNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项显示名称</p>
-                     * @return SpecAlias <p>计费项显示名称</p>
+                     * 获取计费项显示名称
+                     * @return SpecAlias 计费项显示名称
                      * 
                      */
                     std::string GetSpecAlias() const;
 
                     /**
-                     * 设置<p>计费项显示名称</p>
-                     * @param _specAlias <p>计费项显示名称</p>
+                     * 设置计费项显示名称
+                     * @param _specAlias 计费项显示名称
                      * 
                      */
                     void SetSpecAlias(const std::string& _specAlias);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool SpecAliasHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否售罄</p>
-                     * @return Available <p>是否售罄</p>
+                     * 获取是否售罄
+                     * @return Available 是否售罄
                      * 
                      */
                     bool GetAvailable() const;
 
                     /**
-                     * 设置<p>是否售罄</p>
-                     * @param _available <p>是否售罄</p>
+                     * 设置是否售罄
+                     * @param _available 是否售罄
                      * 
                      */
                     void SetAvailable(const bool& _available);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool AvailableHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前资源售罄时，可用的区域有哪些</p>
-                     * @return AvailableRegion <p>当前资源售罄时，可用的区域有哪些</p>
+                     * 获取当前资源售罄时，可用的区域有哪些
+                     * @return AvailableRegion 当前资源售罄时，可用的区域有哪些
                      * 
                      */
                     std::vector<std::string> GetAvailableRegion() const;
 
                     /**
-                     * 设置<p>当前资源售罄时，可用的区域有哪些</p>
-                     * @param _availableRegion <p>当前资源售罄时，可用的区域有哪些</p>
+                     * 设置当前资源售罄时，可用的区域有哪些
+                     * @param _availableRegion 当前资源售罄时，可用的区域有哪些
                      * 
                      */
                     void SetAvailableRegion(const std::vector<std::string>& _availableRegion);
@@ -152,18 +152,18 @@ namespace TencentCloud
                     bool AvailableRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前计费项支持的特性</p>
+                     * 获取当前计费项支持的特性
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SpecFeatures <p>当前计费项支持的特性</p>
+                     * @return SpecFeatures 当前计费项支持的特性
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<std::string> GetSpecFeatures() const;
 
                     /**
-                     * 设置<p>当前计费项支持的特性</p>
+                     * 设置当前计费项支持的特性
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _specFeatures <p>当前计费项支持的特性</p>
+                     * @param _specFeatures 当前计费项支持的特性
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -177,18 +177,18 @@ namespace TencentCloud
                     bool SpecFeaturesHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项类型</p>
+                     * 获取计费项类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SpecType <p>计费项类型</p>
+                     * @return SpecType 计费项类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetSpecType() const;
 
                     /**
-                     * 设置<p>计费项类型</p>
+                     * 设置计费项类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _specType <p>计费项类型</p>
+                     * @param _specType 计费项类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -202,18 +202,18 @@ namespace TencentCloud
                     bool SpecTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>GPU类型</p>
+                     * 获取GPU类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GpuType <p>GPU类型</p>
+                     * @return GpuType GPU类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetGpuType() const;
 
                     /**
-                     * 设置<p>GPU类型</p>
+                     * 设置GPU类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _gpuType <p>GPU类型</p>
+                     * @param _gpuType GPU类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -227,18 +227,18 @@ namespace TencentCloud
                     bool GpuTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项CategoryId</p>
+                     * 获取计费项CategoryId
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CategoryId <p>计费项CategoryId</p>
+                     * @return CategoryId 计费项CategoryId
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCategoryId() const;
 
                     /**
-                     * 设置<p>计费项CategoryId</p>
+                     * 设置计费项CategoryId
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _categoryId <p>计费项CategoryId</p>
+                     * @param _categoryId 计费项CategoryId
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -254,58 +254,58 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>计费项标签</p>
+                     * 计费项标签
                      */
                     std::string m_specId;
                     bool m_specIdHasBeenSet;
 
                     /**
-                     * <p>计费项名称</p>
+                     * 计费项名称
                      */
                     std::string m_specName;
                     bool m_specNameHasBeenSet;
 
                     /**
-                     * <p>计费项显示名称</p>
+                     * 计费项显示名称
                      */
                     std::string m_specAlias;
                     bool m_specAliasHasBeenSet;
 
                     /**
-                     * <p>是否售罄</p>
+                     * 是否售罄
                      */
                     bool m_available;
                     bool m_availableHasBeenSet;
 
                     /**
-                     * <p>当前资源售罄时，可用的区域有哪些</p>
+                     * 当前资源售罄时，可用的区域有哪些
                      */
                     std::vector<std::string> m_availableRegion;
                     bool m_availableRegionHasBeenSet;
 
                     /**
-                     * <p>当前计费项支持的特性</p>
+                     * 当前计费项支持的特性
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_specFeatures;
                     bool m_specFeaturesHasBeenSet;
 
                     /**
-                     * <p>计费项类型</p>
+                     * 计费项类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_specType;
                     bool m_specTypeHasBeenSet;
 
                     /**
-                     * <p>GPU类型</p>
+                     * GPU类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_gpuType;
                     bool m_gpuTypeHasBeenSet;
 
                     /**
-                     * <p>计费项CategoryId</p>
+                     * 计费项CategoryId
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_categoryId;

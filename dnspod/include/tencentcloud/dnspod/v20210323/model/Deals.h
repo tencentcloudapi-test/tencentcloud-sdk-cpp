@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>子订单ID</p>
-                     * @return DealId <p>子订单ID</p>
+                     * 获取子订单ID
+                     * @return DealId 子订单ID
                      * 
                      */
                     std::string GetDealId() const;
 
                     /**
-                     * 设置<p>子订单ID</p>
-                     * @param _dealId <p>子订单ID</p>
+                     * 设置子订单ID
+                     * @param _dealId 子订单ID
                      * 
                      */
                     void SetDealId(const std::string& _dealId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool DealIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子订单号</p>
-                     * @return DealName <p>子订单号</p>
+                     * 获取子订单号
+                     * @return DealName 子订单号
                      * 
                      */
                     std::string GetDealName() const;
 
                     /**
-                     * 设置<p>子订单号</p>
-                     * @param _dealName <p>子订单号</p>
+                     * 设置子订单号
+                     * @param _dealName 子订单号
                      * 
                      */
                     void SetDealName(const std::string& _dealName);
@@ -88,46 +88,19 @@ namespace TencentCloud
                      */
                     bool DealNameHasBeenSet() const;
 
-                    /**
-                     * 获取<p>资源ID</p>
-                     * @return ResourceId <p>资源ID</p>
-                     * 
-                     */
-                    std::string GetResourceId() const;
-
-                    /**
-                     * 设置<p>资源ID</p>
-                     * @param _resourceId <p>资源ID</p>
-                     * 
-                     */
-                    void SetResourceId(const std::string& _resourceId);
-
-                    /**
-                     * 判断参数 ResourceId 是否已赋值
-                     * @return ResourceId 是否已赋值
-                     * 
-                     */
-                    bool ResourceIdHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>子订单ID</p>
+                     * 子订单ID
                      */
                     std::string m_dealId;
                     bool m_dealIdHasBeenSet;
 
                     /**
-                     * <p>子订单号</p>
+                     * 子订单号
                      */
                     std::string m_dealName;
                     bool m_dealNameHasBeenSet;
-
-                    /**
-                     * <p>资源ID</p>
-                     */
-                    std::string m_resourceId;
-                    bool m_resourceIdHasBeenSet;
 
                 };
             }

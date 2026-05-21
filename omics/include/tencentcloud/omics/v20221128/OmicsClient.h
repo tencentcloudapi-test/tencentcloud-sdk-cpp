@@ -33,22 +33,8 @@
 #include <tencentcloud/omics/v20221128/model/DeleteVolumeResponse.h>
 #include <tencentcloud/omics/v20221128/model/DeleteVolumeDataRequest.h>
 #include <tencentcloud/omics/v20221128/model/DeleteVolumeDataResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribeApplicationVersionsRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribeApplicationVersionsResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribeApplicationsRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribeApplicationsResponse.h>
 #include <tencentcloud/omics/v20221128/model/DescribeEnvironmentsRequest.h>
 #include <tencentcloud/omics/v20221128/model/DescribeEnvironmentsResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribeHPCClustersRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribeHPCClustersResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribeHPCNodesRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribeHPCNodesResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribeInputTemplatesRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribeInputTemplatesResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribeProjectsRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribeProjectsResponse.h>
-#include <tencentcloud/omics/v20221128/model/DescribePublicApplicationsRequest.h>
-#include <tencentcloud/omics/v20221128/model/DescribePublicApplicationsResponse.h>
 #include <tencentcloud/omics/v20221128/model/DescribeRunGroupsRequest.h>
 #include <tencentcloud/omics/v20221128/model/DescribeRunGroupsResponse.h>
 #include <tencentcloud/omics/v20221128/model/DescribeRunsRequest.h>
@@ -59,22 +45,16 @@
 #include <tencentcloud/omics/v20221128/model/DescribeTablesRowsResponse.h>
 #include <tencentcloud/omics/v20221128/model/DescribeVolumesRequest.h>
 #include <tencentcloud/omics/v20221128/model/DescribeVolumesResponse.h>
-#include <tencentcloud/omics/v20221128/model/GetInputTemplateFileRequest.h>
-#include <tencentcloud/omics/v20221128/model/GetInputTemplateFileResponse.h>
 #include <tencentcloud/omics/v20221128/model/GetRunCallsRequest.h>
 #include <tencentcloud/omics/v20221128/model/GetRunCallsResponse.h>
 #include <tencentcloud/omics/v20221128/model/GetRunMetadataFileRequest.h>
 #include <tencentcloud/omics/v20221128/model/GetRunMetadataFileResponse.h>
 #include <tencentcloud/omics/v20221128/model/GetRunStatusRequest.h>
 #include <tencentcloud/omics/v20221128/model/GetRunStatusResponse.h>
-#include <tencentcloud/omics/v20221128/model/ImportCommonApplicationRequest.h>
-#include <tencentcloud/omics/v20221128/model/ImportCommonApplicationResponse.h>
 #include <tencentcloud/omics/v20221128/model/ImportTableFileRequest.h>
 #include <tencentcloud/omics/v20221128/model/ImportTableFileResponse.h>
 #include <tencentcloud/omics/v20221128/model/ModifyVolumeRequest.h>
 #include <tencentcloud/omics/v20221128/model/ModifyVolumeResponse.h>
-#include <tencentcloud/omics/v20221128/model/RebootHPCNodesRequest.h>
-#include <tencentcloud/omics/v20221128/model/RebootHPCNodesResponse.h>
 #include <tencentcloud/omics/v20221128/model/RetryRunsRequest.h>
 #include <tencentcloud/omics/v20221128/model/RetryRunsResponse.h>
 #include <tencentcloud/omics/v20221128/model/RunApplicationRequest.h>
@@ -112,30 +92,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteVolumeDataResponse> DeleteVolumeDataOutcome;
                 typedef std::future<DeleteVolumeDataOutcome> DeleteVolumeDataOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::DeleteVolumeDataRequest&, DeleteVolumeDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteVolumeDataAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeApplicationVersionsResponse> DescribeApplicationVersionsOutcome;
-                typedef std::future<DescribeApplicationVersionsOutcome> DescribeApplicationVersionsOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribeApplicationVersionsRequest&, DescribeApplicationVersionsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationVersionsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeApplicationsResponse> DescribeApplicationsOutcome;
-                typedef std::future<DescribeApplicationsOutcome> DescribeApplicationsOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribeApplicationsRequest&, DescribeApplicationsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeEnvironmentsResponse> DescribeEnvironmentsOutcome;
                 typedef std::future<DescribeEnvironmentsOutcome> DescribeEnvironmentsOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::DescribeEnvironmentsRequest&, DescribeEnvironmentsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeEnvironmentsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeHPCClustersResponse> DescribeHPCClustersOutcome;
-                typedef std::future<DescribeHPCClustersOutcome> DescribeHPCClustersOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribeHPCClustersRequest&, DescribeHPCClustersOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeHPCClustersAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeHPCNodesResponse> DescribeHPCNodesOutcome;
-                typedef std::future<DescribeHPCNodesOutcome> DescribeHPCNodesOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribeHPCNodesRequest&, DescribeHPCNodesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeHPCNodesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeInputTemplatesResponse> DescribeInputTemplatesOutcome;
-                typedef std::future<DescribeInputTemplatesOutcome> DescribeInputTemplatesOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribeInputTemplatesRequest&, DescribeInputTemplatesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeInputTemplatesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeProjectsResponse> DescribeProjectsOutcome;
-                typedef std::future<DescribeProjectsOutcome> DescribeProjectsOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribeProjectsRequest&, DescribeProjectsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProjectsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribePublicApplicationsResponse> DescribePublicApplicationsOutcome;
-                typedef std::future<DescribePublicApplicationsOutcome> DescribePublicApplicationsOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::DescribePublicApplicationsRequest&, DescribePublicApplicationsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePublicApplicationsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRunGroupsResponse> DescribeRunGroupsOutcome;
                 typedef std::future<DescribeRunGroupsOutcome> DescribeRunGroupsOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::DescribeRunGroupsRequest&, DescribeRunGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRunGroupsAsyncHandler;
@@ -151,9 +110,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeVolumesResponse> DescribeVolumesOutcome;
                 typedef std::future<DescribeVolumesOutcome> DescribeVolumesOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::DescribeVolumesRequest&, DescribeVolumesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeVolumesAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetInputTemplateFileResponse> GetInputTemplateFileOutcome;
-                typedef std::future<GetInputTemplateFileOutcome> GetInputTemplateFileOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::GetInputTemplateFileRequest&, GetInputTemplateFileOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetInputTemplateFileAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetRunCallsResponse> GetRunCallsOutcome;
                 typedef std::future<GetRunCallsOutcome> GetRunCallsOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::GetRunCallsRequest&, GetRunCallsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetRunCallsAsyncHandler;
@@ -163,18 +119,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::GetRunStatusResponse> GetRunStatusOutcome;
                 typedef std::future<GetRunStatusOutcome> GetRunStatusOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::GetRunStatusRequest&, GetRunStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetRunStatusAsyncHandler;
-                typedef Outcome<Core::Error, Model::ImportCommonApplicationResponse> ImportCommonApplicationOutcome;
-                typedef std::future<ImportCommonApplicationOutcome> ImportCommonApplicationOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::ImportCommonApplicationRequest&, ImportCommonApplicationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ImportCommonApplicationAsyncHandler;
                 typedef Outcome<Core::Error, Model::ImportTableFileResponse> ImportTableFileOutcome;
                 typedef std::future<ImportTableFileOutcome> ImportTableFileOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::ImportTableFileRequest&, ImportTableFileOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ImportTableFileAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyVolumeResponse> ModifyVolumeOutcome;
                 typedef std::future<ModifyVolumeOutcome> ModifyVolumeOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::ModifyVolumeRequest&, ModifyVolumeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyVolumeAsyncHandler;
-                typedef Outcome<Core::Error, Model::RebootHPCNodesResponse> RebootHPCNodesOutcome;
-                typedef std::future<RebootHPCNodesOutcome> RebootHPCNodesOutcomeCallable;
-                typedef std::function<void(const OmicsClient*, const Model::RebootHPCNodesRequest&, RebootHPCNodesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RebootHPCNodesAsyncHandler;
                 typedef Outcome<Core::Error, Model::RetryRunsResponse> RetryRunsOutcome;
                 typedef std::future<RetryRunsOutcome> RetryRunsOutcomeCallable;
                 typedef std::function<void(const OmicsClient*, const Model::RetryRunsRequest&, RetryRunsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RetryRunsAsyncHandler;
@@ -236,24 +186,6 @@ namespace TencentCloud
                 DeleteVolumeDataOutcomeCallable DeleteVolumeDataCallable(const Model::DeleteVolumeDataRequest& request);
 
                 /**
-                 *查询应用版本列表
-                 * @param req DescribeApplicationVersionsRequest
-                 * @return DescribeApplicationVersionsOutcome
-                 */
-                DescribeApplicationVersionsOutcome DescribeApplicationVersions(const Model::DescribeApplicationVersionsRequest &request);
-                void DescribeApplicationVersionsAsync(const Model::DescribeApplicationVersionsRequest& request, const DescribeApplicationVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeApplicationVersionsOutcomeCallable DescribeApplicationVersionsCallable(const Model::DescribeApplicationVersionsRequest& request);
-
-                /**
-                 *查询项目应用列表
-                 * @param req DescribeApplicationsRequest
-                 * @return DescribeApplicationsOutcome
-                 */
-                DescribeApplicationsOutcome DescribeApplications(const Model::DescribeApplicationsRequest &request);
-                void DescribeApplicationsAsync(const Model::DescribeApplicationsRequest& request, const DescribeApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeApplicationsOutcomeCallable DescribeApplicationsCallable(const Model::DescribeApplicationsRequest& request);
-
-                /**
                  *查询环境列表。
                  * @param req DescribeEnvironmentsRequest
                  * @return DescribeEnvironmentsOutcome
@@ -261,51 +193,6 @@ namespace TencentCloud
                 DescribeEnvironmentsOutcome DescribeEnvironments(const Model::DescribeEnvironmentsRequest &request);
                 void DescribeEnvironmentsAsync(const Model::DescribeEnvironmentsRequest& request, const DescribeEnvironmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeEnvironmentsOutcomeCallable DescribeEnvironmentsCallable(const Model::DescribeEnvironmentsRequest& request);
-
-                /**
-                 *查询HPC集群列表。
-                 * @param req DescribeHPCClustersRequest
-                 * @return DescribeHPCClustersOutcome
-                 */
-                DescribeHPCClustersOutcome DescribeHPCClusters(const Model::DescribeHPCClustersRequest &request);
-                void DescribeHPCClustersAsync(const Model::DescribeHPCClustersRequest& request, const DescribeHPCClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeHPCClustersOutcomeCallable DescribeHPCClustersCallable(const Model::DescribeHPCClustersRequest& request);
-
-                /**
-                 *查询HPC节点列表。
-                 * @param req DescribeHPCNodesRequest
-                 * @return DescribeHPCNodesOutcome
-                 */
-                DescribeHPCNodesOutcome DescribeHPCNodes(const Model::DescribeHPCNodesRequest &request);
-                void DescribeHPCNodesAsync(const Model::DescribeHPCNodesRequest& request, const DescribeHPCNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeHPCNodesOutcomeCallable DescribeHPCNodesCallable(const Model::DescribeHPCNodesRequest& request);
-
-                /**
-                 *查询运行参数模板列表
-                 * @param req DescribeInputTemplatesRequest
-                 * @return DescribeInputTemplatesOutcome
-                 */
-                DescribeInputTemplatesOutcome DescribeInputTemplates(const Model::DescribeInputTemplatesRequest &request);
-                void DescribeInputTemplatesAsync(const Model::DescribeInputTemplatesRequest& request, const DescribeInputTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeInputTemplatesOutcomeCallable DescribeInputTemplatesCallable(const Model::DescribeInputTemplatesRequest& request);
-
-                /**
-                 *查询项目列表
-                 * @param req DescribeProjectsRequest
-                 * @return DescribeProjectsOutcome
-                 */
-                DescribeProjectsOutcome DescribeProjects(const Model::DescribeProjectsRequest &request);
-                void DescribeProjectsAsync(const Model::DescribeProjectsRequest& request, const DescribeProjectsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeProjectsOutcomeCallable DescribeProjectsCallable(const Model::DescribeProjectsRequest& request);
-
-                /**
-                 *查询公共应用列表。
-                 * @param req DescribePublicApplicationsRequest
-                 * @return DescribePublicApplicationsOutcome
-                 */
-                DescribePublicApplicationsOutcome DescribePublicApplications(const Model::DescribePublicApplicationsRequest &request);
-                void DescribePublicApplicationsAsync(const Model::DescribePublicApplicationsRequest& request, const DescribePublicApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribePublicApplicationsOutcomeCallable DescribePublicApplicationsCallable(const Model::DescribePublicApplicationsRequest& request);
 
                 /**
                  *查询任务批次列表。
@@ -353,15 +240,6 @@ namespace TencentCloud
                 DescribeVolumesOutcomeCallable DescribeVolumesCallable(const Model::DescribeVolumesRequest& request);
 
                 /**
-                 *查询运行参数模板内容
-                 * @param req GetInputTemplateFileRequest
-                 * @return GetInputTemplateFileOutcome
-                 */
-                GetInputTemplateFileOutcome GetInputTemplateFile(const Model::GetInputTemplateFileRequest &request);
-                void GetInputTemplateFileAsync(const Model::GetInputTemplateFileRequest& request, const GetInputTemplateFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetInputTemplateFileOutcomeCallable GetInputTemplateFileCallable(const Model::GetInputTemplateFileRequest& request);
-
-                /**
                  *查询作业详情。
                  * @param req GetRunCallsRequest
                  * @return GetRunCallsOutcome
@@ -389,15 +267,6 @@ namespace TencentCloud
                 GetRunStatusOutcomeCallable GetRunStatusCallable(const Model::GetRunStatusRequest& request);
 
                 /**
-                 *导入公共应用到项目
-                 * @param req ImportCommonApplicationRequest
-                 * @return ImportCommonApplicationOutcome
-                 */
-                ImportCommonApplicationOutcome ImportCommonApplication(const Model::ImportCommonApplicationRequest &request);
-                void ImportCommonApplicationAsync(const Model::ImportCommonApplicationRequest& request, const ImportCommonApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ImportCommonApplicationOutcomeCallable ImportCommonApplicationCallable(const Model::ImportCommonApplicationRequest& request);
-
-                /**
                  *导入表格文件。
                  * @param req ImportTableFileRequest
                  * @return ImportTableFileOutcome
@@ -414,15 +283,6 @@ namespace TencentCloud
                 ModifyVolumeOutcome ModifyVolume(const Model::ModifyVolumeRequest &request);
                 void ModifyVolumeAsync(const Model::ModifyVolumeRequest& request, const ModifyVolumeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyVolumeOutcomeCallable ModifyVolumeCallable(const Model::ModifyVolumeRequest& request);
-
-                /**
-                 *重启HPC节点
-                 * @param req RebootHPCNodesRequest
-                 * @return RebootHPCNodesOutcome
-                 */
-                RebootHPCNodesOutcome RebootHPCNodes(const Model::RebootHPCNodesRequest &request);
-                void RebootHPCNodesAsync(const Model::RebootHPCNodesRequest& request, const RebootHPCNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                RebootHPCNodesOutcomeCallable RebootHPCNodesCallable(const Model::RebootHPCNodesRequest& request);
 
                 /**
                  *重试任务。

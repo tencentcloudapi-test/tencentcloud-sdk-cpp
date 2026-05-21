@@ -30,8 +30,7 @@ QueueConfig::QueueConfig() :
     m_systemDiskHasBeenSet(false),
     m_dataDisksHasBeenSet(false),
     m_internetAccessibleHasBeenSet(false),
-    m_expansionNodeConfigsHasBeenSet(false),
-    m_launchTemplateIdsHasBeenSet(false)
+    m_expansionNodeConfigsHasBeenSet(false)
 {
 }
 
@@ -174,19 +173,6 @@ CoreInternalOutcome QueueConfig::Deserialize(const rapidjson::Value &value)
         m_expansionNodeConfigsHasBeenSet = true;
     }
 
-    if (value.HasMember("LaunchTemplateIds") && !value["LaunchTemplateIds"].IsNull())
-    {
-        if (!value["LaunchTemplateIds"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `QueueConfig.LaunchTemplateIds` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["LaunchTemplateIds"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_launchTemplateIds.push_back((*itr).GetString());
-        }
-        m_launchTemplateIdsHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -287,19 +273,6 @@ void QueueConfig::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         {
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_launchTemplateIdsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LaunchTemplateIds";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_launchTemplateIds.begin(); itr != m_launchTemplateIds.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
     }
 
@@ -464,21 +437,5 @@ void QueueConfig::SetExpansionNodeConfigs(const vector<ExpansionNodeConfig>& _ex
 bool QueueConfig::ExpansionNodeConfigsHasBeenSet() const
 {
     return m_expansionNodeConfigsHasBeenSet;
-}
-
-vector<string> QueueConfig::GetLaunchTemplateIds() const
-{
-    return m_launchTemplateIds;
-}
-
-void QueueConfig::SetLaunchTemplateIds(const vector<string>& _launchTemplateIds)
-{
-    m_launchTemplateIds = _launchTemplateIds;
-    m_launchTemplateIdsHasBeenSet = true;
-}
-
-bool QueueConfig::LaunchTemplateIdsHasBeenSet() const
-{
-    return m_launchTemplateIdsHasBeenSet;
 }
 

@@ -30,8 +30,7 @@ ImageResult::ImageResult() :
     m_extraHasBeenSet(false),
     m_subLabelHasBeenSet(false),
     m_recognitionResultsHasBeenSet(false),
-    m_hitTypeHasBeenSet(false),
-    m_requestIdHasBeenSet(false)
+    m_hitTypeHasBeenSet(false)
 {
 }
 
@@ -160,16 +159,6 @@ CoreInternalOutcome ImageResult::Deserialize(const rapidjson::Value &value)
         m_hitTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("RequestId") && !value["RequestId"].IsNull())
-    {
-        if (!value["RequestId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ImageResult.RequestId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_requestId = string(value["RequestId"].GetString());
-        m_requestIdHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -269,14 +258,6 @@ void ImageResult::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "HitType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_hitType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_requestIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RequestId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_requestId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -440,21 +421,5 @@ void ImageResult::SetHitType(const string& _hitType)
 bool ImageResult::HitTypeHasBeenSet() const
 {
     return m_hitTypeHasBeenSet;
-}
-
-string ImageResult::GetRequestId() const
-{
-    return m_requestId;
-}
-
-void ImageResult::SetRequestId(const string& _requestId)
-{
-    m_requestId = _requestId;
-    m_requestIdHasBeenSet = true;
-}
-
-bool ImageResult::RequestIdHasBeenSet() const
-{
-    return m_requestIdHasBeenSet;
 }
 

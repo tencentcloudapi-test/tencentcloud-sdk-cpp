@@ -44,15 +44,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。<br>ALL：全部<br>MINE：我的域名<br>SHARE：共享给我的域名<br>RECENT：最近操作过的域名</p>
-                     * @return Type <p>根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。<br>ALL：全部<br>MINE：我的域名<br>SHARE：共享给我的域名<br>RECENT：最近操作过的域名</p>
+                     * 获取根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。
+ALL：全部
+MINE：我的域名
+SHARE：共享给我的域名
+RECENT：最近操作过的域名
+                     * @return Type 根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。
+ALL：全部
+MINE：我的域名
+SHARE：共享给我的域名
+RECENT：最近操作过的域名
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。<br>ALL：全部<br>MINE：我的域名<br>SHARE：共享给我的域名<br>RECENT：最近操作过的域名</p>
-                     * @param _type <p>根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。<br>ALL：全部<br>MINE：我的域名<br>SHARE：共享给我的域名<br>RECENT：最近操作过的域名</p>
+                     * 设置根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。
+ALL：全部
+MINE：我的域名
+SHARE：共享给我的域名
+RECENT：最近操作过的域名
+                     * @param _type 根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。
+ALL：全部
+MINE：我的域名
+SHARE：共享给我的域名
+RECENT：最近操作过的域名
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -65,15 +81,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。</p>
-                     * @return Offset <p>记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。</p>
+                     * 获取记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。
+                     * @return Offset 记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。</p>
-                     * @param _offset <p>记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。</p>
+                     * 设置记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。
+                     * @param _offset 记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -86,15 +102,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。</p>
-                     * @return Limit <p>要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。</p>
+                     * 获取要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。
+                     * @return Limit 要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置<p>要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。</p>
-                     * @param _limit <p>要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。</p>
+                     * 设置要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。
+                     * @param _limit 要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -107,15 +123,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>根据域名分组 id 获取域名</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56172">DescribeDomainList</a></p>
-                     * @return GroupId <p>根据域名分组 id 获取域名</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56172">DescribeDomainList</a></p>
+                     * 获取根据域名分组 id 获取域名
+                     * @return GroupId 根据域名分组 id 获取域名
                      * 
                      */
                     std::vector<int64_t> GetGroupId() const;
 
                     /**
-                     * 设置<p>根据域名分组 id 获取域名</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56172">DescribeDomainList</a></p>
-                     * @param _groupId <p>根据域名分组 id 获取域名</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56172">DescribeDomainList</a></p>
+                     * 设置根据域名分组 id 获取域名
+                     * @param _groupId 根据域名分组 id 获取域名
                      * 
                      */
                     void SetGroupId(const std::vector<int64_t>& _groupId);
@@ -128,15 +144,15 @@ namespace TencentCloud
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>根据关键字获取域名。</p>
-                     * @return Keyword <p>根据关键字获取域名。</p>
+                     * 获取根据关键字获取域名。
+                     * @return Keyword 根据关键字获取域名。
                      * 
                      */
                     std::string GetKeyword() const;
 
                     /**
-                     * 设置<p>根据关键字获取域名。</p>
-                     * @param _keyword <p>根据关键字获取域名。</p>
+                     * 设置根据关键字获取域名。
+                     * @param _keyword 根据关键字获取域名。
                      * 
                      */
                     void SetKeyword(const std::string& _keyword);
@@ -149,15 +165,35 @@ namespace TencentCloud
                     bool KeywordHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。<br>NAME：域名名称<br>STATUS：域名状态<br>RECORDS：记录数量<br>GRADE：套餐等级<br>UPDATED_ON：更新时间</p>
-                     * @return SortField <p>排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。<br>NAME：域名名称<br>STATUS：域名状态<br>RECORDS：记录数量<br>GRADE：套餐等级<br>UPDATED_ON：更新时间</p>
+                     * 获取排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。
+NAME：域名名称
+STATUS：域名状态
+RECORDS：记录数量
+GRADE：套餐等级
+UPDATED_ON：更新时间
+                     * @return SortField 排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。
+NAME：域名名称
+STATUS：域名状态
+RECORDS：记录数量
+GRADE：套餐等级
+UPDATED_ON：更新时间
                      * 
                      */
                     std::string GetSortField() const;
 
                     /**
-                     * 设置<p>排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。<br>NAME：域名名称<br>STATUS：域名状态<br>RECORDS：记录数量<br>GRADE：套餐等级<br>UPDATED_ON：更新时间</p>
-                     * @param _sortField <p>排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。<br>NAME：域名名称<br>STATUS：域名状态<br>RECORDS：记录数量<br>GRADE：套餐等级<br>UPDATED_ON：更新时间</p>
+                     * 设置排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。
+NAME：域名名称
+STATUS：域名状态
+RECORDS：记录数量
+GRADE：套餐等级
+UPDATED_ON：更新时间
+                     * @param _sortField 排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。
+NAME：域名名称
+STATUS：域名状态
+RECORDS：记录数量
+GRADE：套餐等级
+UPDATED_ON：更新时间
                      * 
                      */
                     void SetSortField(const std::string& _sortField);
@@ -170,15 +206,15 @@ namespace TencentCloud
                     bool SortFieldHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序类型，升序：ASC，降序：DESC。</p>
-                     * @return SortType <p>排序类型，升序：ASC，降序：DESC。</p>
+                     * 获取排序类型，升序：ASC，降序：DESC。
+                     * @return SortType 排序类型，升序：ASC，降序：DESC。
                      * 
                      */
                     std::string GetSortType() const;
 
                     /**
-                     * 设置<p>排序类型，升序：ASC，降序：DESC。</p>
-                     * @param _sortType <p>排序类型，升序：ASC，降序：DESC。</p>
+                     * 设置排序类型，升序：ASC，降序：DESC。
+                     * @param _sortType 排序类型，升序：ASC，降序：DESC。
                      * 
                      */
                     void SetSortType(const std::string& _sortType);
@@ -191,15 +227,31 @@ namespace TencentCloud
                     bool SortTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。<br>ENABLE：正常<br>LOCK：锁定<br>PAUSE：暂停<br>SPAM：封禁</p>
-                     * @return Status <p>根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。<br>ENABLE：正常<br>LOCK：锁定<br>PAUSE：暂停<br>SPAM：封禁</p>
+                     * 获取根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。
+ENABLE：正常
+LOCK：锁定
+PAUSE：暂停
+SPAM：封禁
+                     * @return Status 根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。
+ENABLE：正常
+LOCK：锁定
+PAUSE：暂停
+SPAM：封禁
                      * 
                      */
                     std::vector<std::string> GetStatus() const;
 
                     /**
-                     * 设置<p>根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。<br>ENABLE：正常<br>LOCK：锁定<br>PAUSE：暂停<br>SPAM：封禁</p>
-                     * @param _status <p>根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。<br>ENABLE：正常<br>LOCK：锁定<br>PAUSE：暂停<br>SPAM：封禁</p>
+                     * 设置根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。
+ENABLE：正常
+LOCK：锁定
+PAUSE：暂停
+SPAM：封禁
+                     * @param _status 根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。
+ENABLE：正常
+LOCK：锁定
+PAUSE：暂停
+SPAM：封禁
                      * 
                      */
                     void SetStatus(const std::vector<std::string>& _status);
@@ -212,15 +264,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。</p>
-                     * @return Package <p>根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。</p>
+                     * 获取根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。
+                     * @return Package 根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。
                      * 
                      */
                     std::vector<std::string> GetPackage() const;
 
                     /**
-                     * 设置<p>根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。</p>
-                     * @param _package <p>根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。</p>
+                     * 设置根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。
+                     * @param _package 根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。
                      * 
                      */
                     void SetPackage(const std::vector<std::string>& _package);
@@ -233,15 +285,15 @@ namespace TencentCloud
                     bool PackageHasBeenSet() const;
 
                     /**
-                     * 获取<p>根据备注信息获取域名。</p>
-                     * @return Remark <p>根据备注信息获取域名。</p>
+                     * 获取根据备注信息获取域名。
+                     * @return Remark 根据备注信息获取域名。
                      * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置<p>根据备注信息获取域名。</p>
-                     * @param _remark <p>根据备注信息获取域名。</p>
+                     * 设置根据备注信息获取域名。
+                     * @param _remark 根据备注信息获取域名。
                      * 
                      */
                     void SetRemark(const std::string& _remark);
@@ -254,15 +306,15 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>要获取域名的更新时间起始时间点，如 &#39;2021-05-01 03:00:00&#39;。</p>
-                     * @return UpdatedAtBegin <p>要获取域名的更新时间起始时间点，如 &#39;2021-05-01 03:00:00&#39;。</p>
+                     * 获取要获取域名的更新时间起始时间点，如 '2021-05-01 03:00:00'。
+                     * @return UpdatedAtBegin 要获取域名的更新时间起始时间点，如 '2021-05-01 03:00:00'。
                      * 
                      */
                     std::string GetUpdatedAtBegin() const;
 
                     /**
-                     * 设置<p>要获取域名的更新时间起始时间点，如 &#39;2021-05-01 03:00:00&#39;。</p>
-                     * @param _updatedAtBegin <p>要获取域名的更新时间起始时间点，如 &#39;2021-05-01 03:00:00&#39;。</p>
+                     * 设置要获取域名的更新时间起始时间点，如 '2021-05-01 03:00:00'。
+                     * @param _updatedAtBegin 要获取域名的更新时间起始时间点，如 '2021-05-01 03:00:00'。
                      * 
                      */
                     void SetUpdatedAtBegin(const std::string& _updatedAtBegin);
@@ -275,15 +327,15 @@ namespace TencentCloud
                     bool UpdatedAtBeginHasBeenSet() const;
 
                     /**
-                     * 获取<p>要获取域名的更新时间终止时间点，如 &#39;2021-05-10 20:00:00&#39;。</p>
-                     * @return UpdatedAtEnd <p>要获取域名的更新时间终止时间点，如 &#39;2021-05-10 20:00:00&#39;。</p>
+                     * 获取要获取域名的更新时间终止时间点，如 '2021-05-10 20:00:00'。
+                     * @return UpdatedAtEnd 要获取域名的更新时间终止时间点，如 '2021-05-10 20:00:00'。
                      * 
                      */
                     std::string GetUpdatedAtEnd() const;
 
                     /**
-                     * 设置<p>要获取域名的更新时间终止时间点，如 &#39;2021-05-10 20:00:00&#39;。</p>
-                     * @param _updatedAtEnd <p>要获取域名的更新时间终止时间点，如 &#39;2021-05-10 20:00:00&#39;。</p>
+                     * 设置要获取域名的更新时间终止时间点，如 '2021-05-10 20:00:00'。
+                     * @param _updatedAtEnd 要获取域名的更新时间终止时间点，如 '2021-05-10 20:00:00'。
                      * 
                      */
                     void SetUpdatedAtEnd(const std::string& _updatedAtEnd);
@@ -296,15 +348,15 @@ namespace TencentCloud
                     bool UpdatedAtEndHasBeenSet() const;
 
                     /**
-                     * 获取<p>要获取域名的记录数查询区间起点。</p>
-                     * @return RecordCountBegin <p>要获取域名的记录数查询区间起点。</p>
+                     * 获取要获取域名的记录数查询区间起点。
+                     * @return RecordCountBegin 要获取域名的记录数查询区间起点。
                      * 
                      */
                     uint64_t GetRecordCountBegin() const;
 
                     /**
-                     * 设置<p>要获取域名的记录数查询区间起点。</p>
-                     * @param _recordCountBegin <p>要获取域名的记录数查询区间起点。</p>
+                     * 设置要获取域名的记录数查询区间起点。
+                     * @param _recordCountBegin 要获取域名的记录数查询区间起点。
                      * 
                      */
                     void SetRecordCountBegin(const uint64_t& _recordCountBegin);
@@ -317,15 +369,15 @@ namespace TencentCloud
                     bool RecordCountBeginHasBeenSet() const;
 
                     /**
-                     * 获取<p>要获取域名的记录数查询区间终点。</p>
-                     * @return RecordCountEnd <p>要获取域名的记录数查询区间终点。</p>
+                     * 获取要获取域名的记录数查询区间终点。
+                     * @return RecordCountEnd 要获取域名的记录数查询区间终点。
                      * 
                      */
                     uint64_t GetRecordCountEnd() const;
 
                     /**
-                     * 设置<p>要获取域名的记录数查询区间终点。</p>
-                     * @param _recordCountEnd <p>要获取域名的记录数查询区间终点。</p>
+                     * 设置要获取域名的记录数查询区间终点。
+                     * @param _recordCountEnd 要获取域名的记录数查询区间终点。
                      * 
                      */
                     void SetRecordCountEnd(const uint64_t& _recordCountEnd);
@@ -338,15 +390,15 @@ namespace TencentCloud
                     bool RecordCountEndHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目ID，&quot;账号中心-项目管理&quot;拿到项目ID</p>
-                     * @return ProjectId <p>项目ID，&quot;账号中心-项目管理&quot;拿到项目ID</p>
+                     * 获取项目ID
+                     * @return ProjectId 项目ID
                      * 
                      */
                     int64_t GetProjectId() const;
 
                     /**
-                     * 设置<p>项目ID，&quot;账号中心-项目管理&quot;拿到项目ID</p>
-                     * @param _projectId <p>项目ID，&quot;账号中心-项目管理&quot;拿到项目ID</p>
+                     * 设置项目ID
+                     * @param _projectId 项目ID
                      * 
                      */
                     void SetProjectId(const int64_t& _projectId);
@@ -359,15 +411,15 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签过滤</p>
-                     * @return Tags <p>标签过滤</p>
+                     * 获取标签过滤
+                     * @return Tags 标签过滤
                      * 
                      */
                     std::vector<TagItemFilter> GetTags() const;
 
                     /**
-                     * 设置<p>标签过滤</p>
-                     * @param _tags <p>标签过滤</p>
+                     * 设置标签过滤
+                     * @param _tags 标签过滤
                      * 
                      */
                     void SetTags(const std::vector<TagItemFilter>& _tags);
@@ -382,97 +434,110 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。<br>ALL：全部<br>MINE：我的域名<br>SHARE：共享给我的域名<br>RECENT：最近操作过的域名</p>
+                     * 根据域名分组类型获取域名。可取值为 ALL，MINE，SHARE，RECENT。
+ALL：全部
+MINE：我的域名
+SHARE：共享给我的域名
+RECENT：最近操作过的域名
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。</p>
+                     * 记录开始的偏移, 第一条记录为 0, 依次类推。默认值为 0。
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。</p>
+                     * 要获取的域名数量, 比如获取 20 个, 则为 20。默认值为 5000。如果账户中的域名数量超过了 5000, 将会强制分页并且只返回前 5000 条, 这时需要通过 Offset 和 Limit 参数去获取其它域名。
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>根据域名分组 id 获取域名</p><p>取值参考：<a href="https://cloud.tencent.com/document/api/1427/56172">DescribeDomainList</a></p>
+                     * 根据域名分组 id 获取域名
                      */
                     std::vector<int64_t> m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * <p>根据关键字获取域名。</p>
+                     * 根据关键字获取域名。
                      */
                     std::string m_keyword;
                     bool m_keywordHasBeenSet;
 
                     /**
-                     * <p>排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。<br>NAME：域名名称<br>STATUS：域名状态<br>RECORDS：记录数量<br>GRADE：套餐等级<br>UPDATED_ON：更新时间</p>
+                     * 排序字段。可取值为 NAME，STATUS，RECORDS，GRADE，UPDATED_ON。
+NAME：域名名称
+STATUS：域名状态
+RECORDS：记录数量
+GRADE：套餐等级
+UPDATED_ON：更新时间
                      */
                     std::string m_sortField;
                     bool m_sortFieldHasBeenSet;
 
                     /**
-                     * <p>排序类型，升序：ASC，降序：DESC。</p>
+                     * 排序类型，升序：ASC，降序：DESC。
                      */
                     std::string m_sortType;
                     bool m_sortTypeHasBeenSet;
 
                     /**
-                     * <p>根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。<br>ENABLE：正常<br>LOCK：锁定<br>PAUSE：暂停<br>SPAM：封禁</p>
+                     * 根据域名状态获取域名。可取值为 ENABLE，LOCK，PAUSE，SPAM。
+ENABLE：正常
+LOCK：锁定
+PAUSE：暂停
+SPAM：封禁
                      */
                     std::vector<std::string> m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。</p>
+                     * 根据套餐获取域名，可通过 DescribeDomain 或 DescribeDomainList 接口 Grade 字段获取。
                      */
                     std::vector<std::string> m_package;
                     bool m_packageHasBeenSet;
 
                     /**
-                     * <p>根据备注信息获取域名。</p>
+                     * 根据备注信息获取域名。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>要获取域名的更新时间起始时间点，如 &#39;2021-05-01 03:00:00&#39;。</p>
+                     * 要获取域名的更新时间起始时间点，如 '2021-05-01 03:00:00'。
                      */
                     std::string m_updatedAtBegin;
                     bool m_updatedAtBeginHasBeenSet;
 
                     /**
-                     * <p>要获取域名的更新时间终止时间点，如 &#39;2021-05-10 20:00:00&#39;。</p>
+                     * 要获取域名的更新时间终止时间点，如 '2021-05-10 20:00:00'。
                      */
                     std::string m_updatedAtEnd;
                     bool m_updatedAtEndHasBeenSet;
 
                     /**
-                     * <p>要获取域名的记录数查询区间起点。</p>
+                     * 要获取域名的记录数查询区间起点。
                      */
                     uint64_t m_recordCountBegin;
                     bool m_recordCountBeginHasBeenSet;
 
                     /**
-                     * <p>要获取域名的记录数查询区间终点。</p>
+                     * 要获取域名的记录数查询区间终点。
                      */
                     uint64_t m_recordCountEnd;
                     bool m_recordCountEndHasBeenSet;
 
                     /**
-                     * <p>项目ID，&quot;账号中心-项目管理&quot;拿到项目ID</p>
+                     * 项目ID
                      */
                     int64_t m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>标签过滤</p>
+                     * 标签过滤
                      */
                     std::vector<TagItemFilter> m_tags;
                     bool m_tagsHasBeenSet;

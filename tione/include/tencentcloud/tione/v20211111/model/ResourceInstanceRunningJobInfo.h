@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>pod名称</p>
+                     * 获取pod名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PodName <p>pod名称</p>
+                     * @return PodName pod名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetPodName() const;
 
                     /**
-                     * 设置<p>pod名称</p>
+                     * 设置pod名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _podName <p>pod名称</p>
+                     * @param _podName pod名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool PodNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务类型</p>
+                     * 获取任务类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskType <p>任务类型</p>
+                     * @return TaskType 任务类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskType() const;
 
                     /**
-                     * 设置<p>任务类型</p>
+                     * 设置任务类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskType <p>任务类型</p>
+                     * @param _taskType 任务类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool TaskTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务id</p>
+                     * 获取任务id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskId <p>任务id</p>
+                     * @return TaskId 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskId() const;
 
                     /**
-                     * 设置<p>任务id</p>
+                     * 设置任务id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskId <p>任务id</p>
+                     * @param _taskId 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool TaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务自定义名称</p>
+                     * 获取任务自定义名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskName <p>任务自定义名称</p>
+                     * @return TaskName 任务自定义名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskName() const;
 
                     /**
-                     * 设置<p>任务自定义名称</p>
+                     * 设置任务自定义名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskName <p>任务自定义名称</p>
+                     * @param _taskName 任务自定义名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -149,28 +149,28 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>pod名称</p>
+                     * pod名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_podName;
                     bool m_podNameHasBeenSet;
 
                     /**
-                     * <p>任务类型</p>
+                     * 任务类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskType;
                     bool m_taskTypeHasBeenSet;
 
                     /**
-                     * <p>任务id</p>
+                     * 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;
 
                     /**
-                     * <p>任务自定义名称</p>
+                     * 任务自定义名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskName;

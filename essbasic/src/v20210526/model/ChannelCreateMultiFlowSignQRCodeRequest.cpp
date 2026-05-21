@@ -28,7 +28,6 @@ ChannelCreateMultiFlowSignQRCodeRequest::ChannelCreateMultiFlowSignQRCodeRequest
     m_flowNameHasBeenSet(false),
     m_maxFlowNumHasBeenSet(false),
     m_flowEffectiveDayHasBeenSet(false),
-    m_flowDisplayTypeHasBeenSet(false),
     m_qrEffectiveDayHasBeenSet(false),
     m_restrictionsHasBeenSet(false),
     m_approverComponentLimitTypesHasBeenSet(false),
@@ -88,14 +87,6 @@ string ChannelCreateMultiFlowSignQRCodeRequest::ToJsonString() const
         string key = "FlowEffectiveDay";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_flowEffectiveDay, allocator);
-    }
-
-    if (m_flowDisplayTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FlowDisplayType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_flowDisplayType, allocator);
     }
 
     if (m_qrEffectiveDayHasBeenSet)
@@ -280,22 +271,6 @@ void ChannelCreateMultiFlowSignQRCodeRequest::SetFlowEffectiveDay(const int64_t&
 bool ChannelCreateMultiFlowSignQRCodeRequest::FlowEffectiveDayHasBeenSet() const
 {
     return m_flowEffectiveDayHasBeenSet;
-}
-
-int64_t ChannelCreateMultiFlowSignQRCodeRequest::GetFlowDisplayType() const
-{
-    return m_flowDisplayType;
-}
-
-void ChannelCreateMultiFlowSignQRCodeRequest::SetFlowDisplayType(const int64_t& _flowDisplayType)
-{
-    m_flowDisplayType = _flowDisplayType;
-    m_flowDisplayTypeHasBeenSet = true;
-}
-
-bool ChannelCreateMultiFlowSignQRCodeRequest::FlowDisplayTypeHasBeenSet() const
-{
-    return m_flowDisplayTypeHasBeenSet;
 }
 
 int64_t ChannelCreateMultiFlowSignQRCodeRequest::GetQrEffectiveDay() const

@@ -44,18 +44,14 @@ namespace TencentCloud
 
                     /**
                      * 获取每页显示记录数，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：10
                      * @return PageSize 每页显示记录数，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：10
                      * 
                      */
                     int64_t GetPageSize() const;
 
                     /**
                      * 设置每页显示记录数，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：10
                      * @param _pageSize 每页显示记录数，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：10
                      * 
                      */
                     void SetPageSize(const int64_t& _pageSize);
@@ -69,18 +65,14 @@ namespace TencentCloud
 
                     /**
                      * 获取当前查看页码，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：1
                      * @return PageNumber 当前查看页码，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：1
                      * 
                      */
                     int64_t GetPageNumber() const;
 
                     /**
                      * 设置当前查看页码，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：1
                      * @param _pageNumber 当前查看页码，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：1
                      * 
                      */
                     void SetPageNumber(const int64_t& _pageNumber);
@@ -117,14 +109,12 @@ namespace TencentCloud
 
                     /**
                      * 每页显示记录数，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：10
                      */
                     int64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
 
                     /**
                      * 当前查看页码，PageSize、PageNumber值均为-1 时，按照1页无限制条数匹配所有设备
-示例值：1
                      */
                     int64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;

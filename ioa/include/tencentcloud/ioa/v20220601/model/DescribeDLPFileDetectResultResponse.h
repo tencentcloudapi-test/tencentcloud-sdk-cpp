@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>文件鉴定任务结果数据。详情查看具体数据结构</p>
-                     * @return Data <p>文件鉴定任务结果数据。详情查看具体数据结构</p>
+                     * 获取文件鉴定任务结果数据。详情查看具体数据结构
+                     * @return Data 文件鉴定任务结果数据。详情查看具体数据结构
                      * 
                      */
                     DescribeDLPFileDetectResultData GetData() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>文件鉴定任务结果数据。详情查看具体数据结构</p>
+                     * 文件鉴定任务结果数据。详情查看具体数据结构
                      */
                     DescribeDLPFileDetectResultData m_data;
                     bool m_dataHasBeenSet;

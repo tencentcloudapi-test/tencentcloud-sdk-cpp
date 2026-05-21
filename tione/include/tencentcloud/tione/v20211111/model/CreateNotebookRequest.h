@@ -51,15 +51,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>名称。不超过60个字符，仅支持中英文、数字、下划线&quot;_&quot;、短横&quot;-&quot;，只能以中英文、数字开头</p>
-                     * @return Name <p>名称。不超过60个字符，仅支持中英文、数字、下划线&quot;_&quot;、短横&quot;-&quot;，只能以中英文、数字开头</p>
+                     * 获取名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
+                     * @return Name 名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>名称。不超过60个字符，仅支持中英文、数字、下划线&quot;_&quot;、短横&quot;-&quot;，只能以中英文、数字开头</p>
-                     * @param _name <p>名称。不超过60个字符，仅支持中英文、数字、下划线&quot;_&quot;、短横&quot;-&quot;，只能以中英文、数字开头</p>
+                     * 设置名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
+                     * @param _name 名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -72,15 +72,23 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>计算资源付费模式 ，可选值为：<br>PREPAID：预付费，即包年包月<br>POSTPAID_BY_HOUR：按小时后付费</p>
-                     * @return ChargeType <p>计算资源付费模式 ，可选值为：<br>PREPAID：预付费，即包年包月<br>POSTPAID_BY_HOUR：按小时后付费</p>
+                     * 获取计算资源付费模式 ，可选值为：
+PREPAID：预付费，即包年包月
+POSTPAID_BY_HOUR：按小时后付费
+                     * @return ChargeType 计算资源付费模式 ，可选值为：
+PREPAID：预付费，即包年包月
+POSTPAID_BY_HOUR：按小时后付费
                      * 
                      */
                     std::string GetChargeType() const;
 
                     /**
-                     * 设置<p>计算资源付费模式 ，可选值为：<br>PREPAID：预付费，即包年包月<br>POSTPAID_BY_HOUR：按小时后付费</p>
-                     * @param _chargeType <p>计算资源付费模式 ，可选值为：<br>PREPAID：预付费，即包年包月<br>POSTPAID_BY_HOUR：按小时后付费</p>
+                     * 设置计算资源付费模式 ，可选值为：
+PREPAID：预付费，即包年包月
+POSTPAID_BY_HOUR：按小时后付费
+                     * @param _chargeType 计算资源付费模式 ，可选值为：
+PREPAID：预付费，即包年包月
+POSTPAID_BY_HOUR：按小时后付费
                      * 
                      */
                     void SetChargeType(const std::string& _chargeType);
@@ -93,15 +101,15 @@ namespace TencentCloud
                     bool ChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>计算资源配置</p>
-                     * @return ResourceConf <p>计算资源配置</p>
+                     * 获取计算资源配置
+                     * @return ResourceConf 计算资源配置
                      * 
                      */
                     ResourceConf GetResourceConf() const;
 
                     /**
-                     * 设置<p>计算资源配置</p>
-                     * @param _resourceConf <p>计算资源配置</p>
+                     * 设置计算资源配置
+                     * @param _resourceConf 计算资源配置
                      * 
                      */
                     void SetResourceConf(const ResourceConf& _resourceConf);
@@ -114,15 +122,15 @@ namespace TencentCloud
                     bool ResourceConfHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否上报日志</p>
-                     * @return LogEnable <p>是否上报日志</p>
+                     * 获取是否上报日志
+                     * @return LogEnable 是否上报日志
                      * 
                      */
                     bool GetLogEnable() const;
 
                     /**
-                     * 设置<p>是否上报日志</p>
-                     * @param _logEnable <p>是否上报日志</p>
+                     * 设置是否上报日志
+                     * @param _logEnable 是否上报日志
                      * 
                      */
                     void SetLogEnable(const bool& _logEnable);
@@ -135,15 +143,15 @@ namespace TencentCloud
                     bool LogEnableHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否ROOT权限</p>
-                     * @return RootAccess <p>是否ROOT权限</p>
+                     * 获取是否ROOT权限
+                     * @return RootAccess 是否ROOT权限
                      * 
                      */
                     bool GetRootAccess() const;
 
                     /**
-                     * 设置<p>是否ROOT权限</p>
-                     * @param _rootAccess <p>是否ROOT权限</p>
+                     * 设置是否ROOT权限
+                     * @param _rootAccess 是否ROOT权限
                      * 
                      */
                     void SetRootAccess(const bool& _rootAccess);
@@ -156,15 +164,15 @@ namespace TencentCloud
                     bool RootAccessHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否自动停止</p>
-                     * @return AutoStopping <p>是否自动停止</p>
+                     * 获取是否自动停止
+                     * @return AutoStopping 是否自动停止
                      * 
                      */
                     bool GetAutoStopping() const;
 
                     /**
-                     * 设置<p>是否自动停止</p>
-                     * @param _autoStopping <p>是否自动停止</p>
+                     * 设置是否自动停止
+                     * @param _autoStopping 是否自动停止
                      * 
                      */
                     void SetAutoStopping(const bool& _autoStopping);
@@ -177,15 +185,15 @@ namespace TencentCloud
                     bool AutoStoppingHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否访问公网</p>
-                     * @return DirectInternetAccess <p>是否访问公网</p>
+                     * 获取是否访问公网
+                     * @return DirectInternetAccess 是否访问公网
                      * 
                      */
                     bool GetDirectInternetAccess() const;
 
                     /**
-                     * 设置<p>是否访问公网</p>
-                     * @param _directInternetAccess <p>是否访问公网</p>
+                     * 设置是否访问公网
+                     * @param _directInternetAccess 是否访问公网
                      * 
                      */
                     void SetDirectInternetAccess(const bool& _directInternetAccess);
@@ -198,15 +206,15 @@ namespace TencentCloud
                     bool DirectInternetAccessHasBeenSet() const;
 
                     /**
-                     * 获取<p>资源组ID(for预付费)</p>
-                     * @return ResourceGroupId <p>资源组ID(for预付费)</p>
+                     * 获取资源组ID(for预付费)
+                     * @return ResourceGroupId 资源组ID(for预付费)
                      * 
                      */
                     std::string GetResourceGroupId() const;
 
                     /**
-                     * 设置<p>资源组ID(for预付费)</p>
-                     * @param _resourceGroupId <p>资源组ID(for预付费)</p>
+                     * 设置资源组ID(for预付费)
+                     * @param _resourceGroupId 资源组ID(for预付费)
                      * 
                      */
                     void SetResourceGroupId(const std::string& _resourceGroupId);
@@ -219,15 +227,15 @@ namespace TencentCloud
                     bool ResourceGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>Vpc-Id</p>
-                     * @return VpcId <p>Vpc-Id</p>
+                     * 获取Vpc-Id
+                     * @return VpcId Vpc-Id
                      * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置<p>Vpc-Id</p>
-                     * @param _vpcId <p>Vpc-Id</p>
+                     * 设置Vpc-Id
+                     * @param _vpcId Vpc-Id
                      * 
                      */
                     void SetVpcId(const std::string& _vpcId);
@@ -240,15 +248,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网Id</p>
-                     * @return SubnetId <p>子网Id</p>
+                     * 获取子网Id
+                     * @return SubnetId 子网Id
                      * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
-                     * 设置<p>子网Id</p>
-                     * @param _subnetId <p>子网Id</p>
+                     * 设置子网Id
+                     * @param _subnetId 子网Id
                      * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
@@ -261,15 +269,39 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储的类型。取值包含：<br>FREE：预付费的免费存储<br>CLOUD_PREMIUM：高性能云硬盘<br>CLOUD_SSD：SSD云硬盘<br>CFS：CFS存储<br>CFS_TURBO：CFS Turbo存储<br>GooseFSx：GooseFSx存储</p>
-                     * @return VolumeSourceType <p>存储的类型。取值包含：<br>FREE：预付费的免费存储<br>CLOUD_PREMIUM：高性能云硬盘<br>CLOUD_SSD：SSD云硬盘<br>CFS：CFS存储<br>CFS_TURBO：CFS Turbo存储<br>GooseFSx：GooseFSx存储</p>
+                     * 获取存储的类型。取值包含： 
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
+                     * @return VolumeSourceType 存储的类型。取值包含： 
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
                      * 
                      */
                     std::string GetVolumeSourceType() const;
 
                     /**
-                     * 设置<p>存储的类型。取值包含：<br>FREE：预付费的免费存储<br>CLOUD_PREMIUM：高性能云硬盘<br>CLOUD_SSD：SSD云硬盘<br>CFS：CFS存储<br>CFS_TURBO：CFS Turbo存储<br>GooseFSx：GooseFSx存储</p>
-                     * @param _volumeSourceType <p>存储的类型。取值包含：<br>FREE：预付费的免费存储<br>CLOUD_PREMIUM：高性能云硬盘<br>CLOUD_SSD：SSD云硬盘<br>CFS：CFS存储<br>CFS_TURBO：CFS Turbo存储<br>GooseFSx：GooseFSx存储</p>
+                     * 设置存储的类型。取值包含： 
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
+                     * @param _volumeSourceType 存储的类型。取值包含： 
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
                      * 
                      */
                     void SetVolumeSourceType(const std::string& _volumeSourceType);
@@ -282,15 +314,15 @@ namespace TencentCloud
                     bool VolumeSourceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>云硬盘存储卷大小，单位GB</p>
-                     * @return VolumeSizeInGB <p>云硬盘存储卷大小，单位GB</p>
+                     * 获取云硬盘存储卷大小，单位GB
+                     * @return VolumeSizeInGB 云硬盘存储卷大小，单位GB
                      * 
                      */
                     uint64_t GetVolumeSizeInGB() const;
 
                     /**
-                     * 设置<p>云硬盘存储卷大小，单位GB</p>
-                     * @param _volumeSizeInGB <p>云硬盘存储卷大小，单位GB</p>
+                     * 设置云硬盘存储卷大小，单位GB
+                     * @param _volumeSizeInGB 云硬盘存储卷大小，单位GB
                      * 
                      */
                     void SetVolumeSizeInGB(const uint64_t& _volumeSizeInGB);
@@ -303,15 +335,15 @@ namespace TencentCloud
                     bool VolumeSizeInGBHasBeenSet() const;
 
                     /**
-                     * 获取<p>CFS存储的配置</p>
-                     * @return VolumeSourceCFS <p>CFS存储的配置</p>
+                     * 获取CFS存储的配置
+                     * @return VolumeSourceCFS CFS存储的配置
                      * 
                      */
                     CFSConfig GetVolumeSourceCFS() const;
 
                     /**
-                     * 设置<p>CFS存储的配置</p>
-                     * @param _volumeSourceCFS <p>CFS存储的配置</p>
+                     * 设置CFS存储的配置
+                     * @param _volumeSourceCFS CFS存储的配置
                      * 
                      */
                     void SetVolumeSourceCFS(const CFSConfig& _volumeSourceCFS);
@@ -324,15 +356,15 @@ namespace TencentCloud
                     bool VolumeSourceCFSHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志配置</p>
-                     * @return LogConfig <p>日志配置</p>
+                     * 获取日志配置
+                     * @return LogConfig 日志配置
                      * 
                      */
                     LogConfig GetLogConfig() const;
 
                     /**
-                     * 设置<p>日志配置</p>
-                     * @param _logConfig <p>日志配置</p>
+                     * 设置日志配置
+                     * @param _logConfig 日志配置
                      * 
                      */
                     void SetLogConfig(const LogConfig& _logConfig);
@@ -345,15 +377,15 @@ namespace TencentCloud
                     bool LogConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>生命周期脚本的ID</p>
-                     * @return LifecycleScriptId <p>生命周期脚本的ID</p>
+                     * 获取生命周期脚本的ID
+                     * @return LifecycleScriptId 生命周期脚本的ID
                      * 
                      */
                     std::string GetLifecycleScriptId() const;
 
                     /**
-                     * 设置<p>生命周期脚本的ID</p>
-                     * @param _lifecycleScriptId <p>生命周期脚本的ID</p>
+                     * 设置生命周期脚本的ID
+                     * @param _lifecycleScriptId 生命周期脚本的ID
                      * 
                      */
                     void SetLifecycleScriptId(const std::string& _lifecycleScriptId);
@@ -366,15 +398,15 @@ namespace TencentCloud
                     bool LifecycleScriptIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>默认GIT存储库的ID</p>
-                     * @return DefaultCodeRepoId <p>默认GIT存储库的ID</p>
+                     * 获取默认GIT存储库的ID
+                     * @return DefaultCodeRepoId 默认GIT存储库的ID
                      * 
                      */
                     std::string GetDefaultCodeRepoId() const;
 
                     /**
-                     * 设置<p>默认GIT存储库的ID</p>
-                     * @param _defaultCodeRepoId <p>默认GIT存储库的ID</p>
+                     * 设置默认GIT存储库的ID
+                     * @param _defaultCodeRepoId 默认GIT存储库的ID
                      * 
                      */
                     void SetDefaultCodeRepoId(const std::string& _defaultCodeRepoId);
@@ -387,15 +419,15 @@ namespace TencentCloud
                     bool DefaultCodeRepoIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>其他GIT存储库的ID，最多3个</p>
-                     * @return AdditionalCodeRepoIds <p>其他GIT存储库的ID，最多3个</p>
+                     * 获取其他GIT存储库的ID，最多3个
+                     * @return AdditionalCodeRepoIds 其他GIT存储库的ID，最多3个
                      * 
                      */
                     std::vector<std::string> GetAdditionalCodeRepoIds() const;
 
                     /**
-                     * 设置<p>其他GIT存储库的ID，最多3个</p>
-                     * @param _additionalCodeRepoIds <p>其他GIT存储库的ID，最多3个</p>
+                     * 设置其他GIT存储库的ID，最多3个
+                     * @param _additionalCodeRepoIds 其他GIT存储库的ID，最多3个
                      * 
                      */
                     void SetAdditionalCodeRepoIds(const std::vector<std::string>& _additionalCodeRepoIds);
@@ -408,15 +440,15 @@ namespace TencentCloud
                     bool AdditionalCodeRepoIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动停止时间，单位小时</p>
-                     * @return AutomaticStopTime <p>自动停止时间，单位小时</p>
+                     * 获取自动停止时间，单位小时
+                     * @return AutomaticStopTime 自动停止时间，单位小时
                      * 
                      */
                     uint64_t GetAutomaticStopTime() const;
 
                     /**
-                     * 设置<p>自动停止时间，单位小时</p>
-                     * @param _automaticStopTime <p>自动停止时间，单位小时</p>
+                     * 设置自动停止时间，单位小时
+                     * @param _automaticStopTime 自动停止时间，单位小时
                      * 
                      */
                     void SetAutomaticStopTime(const uint64_t& _automaticStopTime);
@@ -429,15 +461,15 @@ namespace TencentCloud
                     bool AutomaticStopTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签配置</p>
-                     * @return Tags <p>标签配置</p>
+                     * 获取标签配置
+                     * @return Tags 标签配置
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>标签配置</p>
-                     * @param _tags <p>标签配置</p>
+                     * 设置标签配置
+                     * @param _tags 标签配置
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -450,15 +482,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据存储挂载配置</p>
-                     * @return DataConfigs <p>数据存储挂载配置</p>
+                     * 获取数据存储挂载配置
+                     * @return DataConfigs 数据存储挂载配置
                      * 
                      */
                     std::vector<DataConfig> GetDataConfigs() const;
 
                     /**
-                     * 设置<p>数据存储挂载配置</p>
-                     * @param _dataConfigs <p>数据存储挂载配置</p>
+                     * 设置数据存储挂载配置
+                     * @param _dataConfigs 数据存储挂载配置
                      * 
                      */
                     void SetDataConfigs(const std::vector<DataConfig>& _dataConfigs);
@@ -471,15 +503,15 @@ namespace TencentCloud
                     bool DataConfigsHasBeenSet() const;
 
                     /**
-                     * 获取<p>镜像信息</p>
-                     * @return ImageInfo <p>镜像信息</p>
+                     * 获取镜像信息
+                     * @return ImageInfo 镜像信息
                      * 
                      */
                     ImageInfo GetImageInfo() const;
 
                     /**
-                     * 设置<p>镜像信息</p>
-                     * @param _imageInfo <p>镜像信息</p>
+                     * 设置镜像信息
+                     * @param _imageInfo 镜像信息
                      * 
                      */
                     void SetImageInfo(const ImageInfo& _imageInfo);
@@ -492,15 +524,15 @@ namespace TencentCloud
                     bool ImageInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>镜像类型，包括SYSTEM、TCR、CCR</p>
-                     * @return ImageType <p>镜像类型，包括SYSTEM、TCR、CCR</p>
+                     * 获取镜像类型，包括SYSTEM、TCR、CCR
+                     * @return ImageType 镜像类型，包括SYSTEM、TCR、CCR
                      * 
                      */
                     std::string GetImageType() const;
 
                     /**
-                     * 设置<p>镜像类型，包括SYSTEM、TCR、CCR</p>
-                     * @param _imageType <p>镜像类型，包括SYSTEM、TCR、CCR</p>
+                     * 设置镜像类型，包括SYSTEM、TCR、CCR
+                     * @param _imageType 镜像类型，包括SYSTEM、TCR、CCR
                      * 
                      */
                     void SetImageType(const std::string& _imageType);
@@ -513,15 +545,15 @@ namespace TencentCloud
                     bool ImageTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>SSH配置信息</p>
-                     * @return SSHConfig <p>SSH配置信息</p>
+                     * 获取SSH配置信息
+                     * @return SSHConfig SSH配置信息
                      * 
                      */
                     SSHConfig GetSSHConfig() const;
 
                     /**
-                     * 设置<p>SSH配置信息</p>
-                     * @param _sSHConfig <p>SSH配置信息</p>
+                     * 设置SSH配置信息
+                     * @param _sSHConfig SSH配置信息
                      * 
                      */
                     void SetSSHConfig(const SSHConfig& _sSHConfig);
@@ -534,15 +566,15 @@ namespace TencentCloud
                     bool SSHConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>GooseFS存储配置</p>
-                     * @return VolumeSourceGooseFS <p>GooseFS存储配置</p>
+                     * 获取GooseFS存储配置
+                     * @return VolumeSourceGooseFS GooseFS存储配置
                      * 
                      */
                     GooseFS GetVolumeSourceGooseFS() const;
 
                     /**
-                     * 设置<p>GooseFS存储配置</p>
-                     * @param _volumeSourceGooseFS <p>GooseFS存储配置</p>
+                     * 设置GooseFS存储配置
+                     * @param _volumeSourceGooseFS GooseFS存储配置
                      * 
                      */
                     void SetVolumeSourceGooseFS(const GooseFS& _volumeSourceGooseFS);
@@ -554,178 +586,159 @@ namespace TencentCloud
                      */
                     bool VolumeSourceGooseFSHasBeenSet() const;
 
-                    /**
-                     * 获取<p>描述</p>
-                     * @return Description <p>描述</p>
-                     * 
-                     */
-                    std::string GetDescription() const;
-
-                    /**
-                     * 设置<p>描述</p>
-                     * @param _description <p>描述</p>
-                     * 
-                     */
-                    void SetDescription(const std::string& _description);
-
-                    /**
-                     * 判断参数 Description 是否已赋值
-                     * @return Description 是否已赋值
-                     * 
-                     */
-                    bool DescriptionHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>名称。不超过60个字符，仅支持中英文、数字、下划线&quot;_&quot;、短横&quot;-&quot;，只能以中英文、数字开头</p>
+                     * 名称。不超过60个字符，仅支持中英文、数字、下划线"_"、短横"-"，只能以中英文、数字开头
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>计算资源付费模式 ，可选值为：<br>PREPAID：预付费，即包年包月<br>POSTPAID_BY_HOUR：按小时后付费</p>
+                     * 计算资源付费模式 ，可选值为：
+PREPAID：预付费，即包年包月
+POSTPAID_BY_HOUR：按小时后付费
                      */
                     std::string m_chargeType;
                     bool m_chargeTypeHasBeenSet;
 
                     /**
-                     * <p>计算资源配置</p>
+                     * 计算资源配置
                      */
                     ResourceConf m_resourceConf;
                     bool m_resourceConfHasBeenSet;
 
                     /**
-                     * <p>是否上报日志</p>
+                     * 是否上报日志
                      */
                     bool m_logEnable;
                     bool m_logEnableHasBeenSet;
 
                     /**
-                     * <p>是否ROOT权限</p>
+                     * 是否ROOT权限
                      */
                     bool m_rootAccess;
                     bool m_rootAccessHasBeenSet;
 
                     /**
-                     * <p>是否自动停止</p>
+                     * 是否自动停止
                      */
                     bool m_autoStopping;
                     bool m_autoStoppingHasBeenSet;
 
                     /**
-                     * <p>是否访问公网</p>
+                     * 是否访问公网
                      */
                     bool m_directInternetAccess;
                     bool m_directInternetAccessHasBeenSet;
 
                     /**
-                     * <p>资源组ID(for预付费)</p>
+                     * 资源组ID(for预付费)
                      */
                     std::string m_resourceGroupId;
                     bool m_resourceGroupIdHasBeenSet;
 
                     /**
-                     * <p>Vpc-Id</p>
+                     * Vpc-Id
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>子网Id</p>
+                     * 子网Id
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>存储的类型。取值包含：<br>FREE：预付费的免费存储<br>CLOUD_PREMIUM：高性能云硬盘<br>CLOUD_SSD：SSD云硬盘<br>CFS：CFS存储<br>CFS_TURBO：CFS Turbo存储<br>GooseFSx：GooseFSx存储</p>
+                     * 存储的类型。取值包含： 
+FREE：预付费的免费存储
+CLOUD_PREMIUM：高性能云硬盘
+CLOUD_SSD：SSD云硬盘
+CFS：CFS存储
+CFS_TURBO：CFS Turbo存储
+GooseFSx：GooseFSx存储
                      */
                     std::string m_volumeSourceType;
                     bool m_volumeSourceTypeHasBeenSet;
 
                     /**
-                     * <p>云硬盘存储卷大小，单位GB</p>
+                     * 云硬盘存储卷大小，单位GB
                      */
                     uint64_t m_volumeSizeInGB;
                     bool m_volumeSizeInGBHasBeenSet;
 
                     /**
-                     * <p>CFS存储的配置</p>
+                     * CFS存储的配置
                      */
                     CFSConfig m_volumeSourceCFS;
                     bool m_volumeSourceCFSHasBeenSet;
 
                     /**
-                     * <p>日志配置</p>
+                     * 日志配置
                      */
                     LogConfig m_logConfig;
                     bool m_logConfigHasBeenSet;
 
                     /**
-                     * <p>生命周期脚本的ID</p>
+                     * 生命周期脚本的ID
                      */
                     std::string m_lifecycleScriptId;
                     bool m_lifecycleScriptIdHasBeenSet;
 
                     /**
-                     * <p>默认GIT存储库的ID</p>
+                     * 默认GIT存储库的ID
                      */
                     std::string m_defaultCodeRepoId;
                     bool m_defaultCodeRepoIdHasBeenSet;
 
                     /**
-                     * <p>其他GIT存储库的ID，最多3个</p>
+                     * 其他GIT存储库的ID，最多3个
                      */
                     std::vector<std::string> m_additionalCodeRepoIds;
                     bool m_additionalCodeRepoIdsHasBeenSet;
 
                     /**
-                     * <p>自动停止时间，单位小时</p>
+                     * 自动停止时间，单位小时
                      */
                     uint64_t m_automaticStopTime;
                     bool m_automaticStopTimeHasBeenSet;
 
                     /**
-                     * <p>标签配置</p>
+                     * 标签配置
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>数据存储挂载配置</p>
+                     * 数据存储挂载配置
                      */
                     std::vector<DataConfig> m_dataConfigs;
                     bool m_dataConfigsHasBeenSet;
 
                     /**
-                     * <p>镜像信息</p>
+                     * 镜像信息
                      */
                     ImageInfo m_imageInfo;
                     bool m_imageInfoHasBeenSet;
 
                     /**
-                     * <p>镜像类型，包括SYSTEM、TCR、CCR</p>
+                     * 镜像类型，包括SYSTEM、TCR、CCR
                      */
                     std::string m_imageType;
                     bool m_imageTypeHasBeenSet;
 
                     /**
-                     * <p>SSH配置信息</p>
+                     * SSH配置信息
                      */
                     SSHConfig m_sSHConfig;
                     bool m_sSHConfigHasBeenSet;
 
                     /**
-                     * <p>GooseFS存储配置</p>
+                     * GooseFS存储配置
                      */
                     GooseFS m_volumeSourceGooseFS;
                     bool m_volumeSourceGooseFSHasBeenSet;
-
-                    /**
-                     * <p>描述</p>
-                     */
-                    std::string m_description;
-                    bool m_descriptionHasBeenSet;
 
                 };
             }

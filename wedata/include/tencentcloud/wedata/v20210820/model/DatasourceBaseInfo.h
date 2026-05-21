@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>若数据源列表为绑定数据库，则为db名称</p>
+                     * 获取若数据源列表为绑定数据库，则为db名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DatabaseNames <p>若数据源列表为绑定数据库，则为db名称</p>
+                     * @return DatabaseNames 若数据源列表为绑定数据库，则为db名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<std::string> GetDatabaseNames() const;
 
                     /**
-                     * 设置<p>若数据源列表为绑定数据库，则为db名称</p>
+                     * 设置若数据源列表为绑定数据库，则为db名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _databaseNames <p>若数据源列表为绑定数据库，则为db名称</p>
+                     * @param _databaseNames 若数据源列表为绑定数据库，则为db名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool DatabaseNamesHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源描述信息</p>
+                     * 获取数据源描述信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Description <p>数据源描述信息</p>
+                     * @return Description 数据源描述信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置<p>数据源描述信息</p>
+                     * 设置数据源描述信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _description <p>数据源描述信息</p>
+                     * @param _description 数据源描述信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,15 +97,15 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源ID</p>
-                     * @return ID <p>数据源ID</p>
+                     * 获取数据源ID
+                     * @return ID 数据源ID
                      * 
                      */
                     uint64_t GetID() const;
 
                     /**
-                     * 设置<p>数据源ID</p>
-                     * @param _iD <p>数据源ID</p>
+                     * 设置数据源ID
+                     * @param _iD 数据源ID
                      * 
                      */
                     void SetID(const uint64_t& _iD);
@@ -118,18 +118,18 @@ namespace TencentCloud
                     bool IDHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源引擎的实例ID，如CDB实例ID</p>
+                     * 获取数据源引擎的实例ID，如CDB实例ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Instance <p>数据源引擎的实例ID，如CDB实例ID</p>
+                     * @return Instance 数据源引擎的实例ID，如CDB实例ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetInstance() const;
 
                     /**
-                     * 设置<p>数据源引擎的实例ID，如CDB实例ID</p>
+                     * 设置数据源引擎的实例ID，如CDB实例ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _instance <p>数据源引擎的实例ID，如CDB实例ID</p>
+                     * @param _instance 数据源引擎的实例ID，如CDB实例ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -143,15 +143,15 @@ namespace TencentCloud
                     bool InstanceHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源名称，在相同SpaceName下，数据源名称不能为空</p>
-                     * @return Name <p>数据源名称，在相同SpaceName下，数据源名称不能为空</p>
+                     * 获取数据源名称，在相同SpaceName下，数据源名称不能为空
+                     * @return Name 数据源名称，在相同SpaceName下，数据源名称不能为空
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>数据源名称，在相同SpaceName下，数据源名称不能为空</p>
-                     * @param _name <p>数据源名称，在相同SpaceName下，数据源名称不能为空</p>
+                     * 设置数据源名称，在相同SpaceName下，数据源名称不能为空
+                     * @param _name 数据源名称，在相同SpaceName下，数据源名称不能为空
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -164,18 +164,18 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源引擎所属区域</p>
+                     * 获取数据源引擎所属区域
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Region <p>数据源引擎所属区域</p>
+                     * @return Region 数据源引擎所属区域
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRegion() const;
 
                     /**
-                     * 设置<p>数据源引擎所属区域</p>
+                     * 设置数据源引擎所属区域
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _region <p>数据源引擎所属区域</p>
+                     * @param _region 数据源引擎所属区域
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -189,18 +189,18 @@ namespace TencentCloud
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源类型:枚举值</p>
+                     * 获取数据源类型:枚举值
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Type <p>数据源类型:枚举值</p>
+                     * @return Type 数据源类型:枚举值
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>数据源类型:枚举值</p>
+                     * 设置数据源类型:枚举值
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _type <p>数据源类型:枚举值</p>
+                     * @param _type 数据源类型:枚举值
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -214,18 +214,18 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源所属的集群id</p>
+                     * 获取数据源所属的集群id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ClusterId <p>数据源所属的集群id</p>
+                     * @return ClusterId 数据源所属的集群id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetClusterId() const;
 
                     /**
-                     * 设置<p>数据源所属的集群id</p>
+                     * 设置数据源所属的集群id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _clusterId <p>数据源所属的集群id</p>
+                     * @param _clusterId 数据源所属的集群id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -239,18 +239,18 @@ namespace TencentCloud
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源版本信息</p>
+                     * 获取数据源版本信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Version <p>数据源版本信息</p>
+                     * @return Version 数据源版本信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetVersion() const;
 
                     /**
-                     * 设置<p>数据源版本信息</p>
+                     * 设置数据源版本信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _version <p>数据源版本信息</p>
+                     * @param _version 数据源版本信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -264,18 +264,18 @@ namespace TencentCloud
                     bool VersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源附带参数信息Params json字符串</p>
+                     * 获取数据源附带参数信息Params json字符串
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ParamsString <p>数据源附带参数信息Params json字符串</p>
+                     * @return ParamsString 数据源附带参数信息Params json字符串
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetParamsString() const;
 
                     /**
-                     * 设置<p>数据源附带参数信息Params json字符串</p>
+                     * 设置数据源附带参数信息Params json字符串
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paramsString <p>数据源附带参数信息Params json字符串</p>
+                     * @param _paramsString 数据源附带参数信息Params json字符串
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -289,18 +289,18 @@ namespace TencentCloud
                     bool ParamsStringHasBeenSet() const;
 
                     /**
-                     * 获取<p>区分数据源类型自定义源还是系统源</p>
+                     * 获取区分数据源类型自定义源还是系统源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Category <p>区分数据源类型自定义源还是系统源</p>
+                     * @return Category 区分数据源类型自定义源还是系统源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCategory() const;
 
                     /**
-                     * 设置<p>区分数据源类型自定义源还是系统源</p>
+                     * 设置区分数据源类型自定义源还是系统源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _category <p>区分数据源类型自定义源还是系统源</p>
+                     * @param _category 区分数据源类型自定义源还是系统源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -313,146 +313,82 @@ namespace TencentCloud
                      */
                     bool CategoryHasBeenSet() const;
 
-                    /**
-                     * 获取<p>数据实例ip</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Ip <p>数据实例ip</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetIp() const;
-
-                    /**
-                     * 设置<p>数据实例ip</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _ip <p>数据实例ip</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetIp(const std::string& _ip);
-
-                    /**
-                     * 判断参数 Ip 是否已赋值
-                     * @return Ip 是否已赋值
-                     * 
-                     */
-                    bool IpHasBeenSet() const;
-
-                    /**
-                     * 获取<p>数据实例port</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Port <p>数据实例port</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetPort() const;
-
-                    /**
-                     * 设置<p>数据实例port</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _port <p>数据实例port</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetPort(const std::string& _port);
-
-                    /**
-                     * 判断参数 Port 是否已赋值
-                     * @return Port 是否已赋值
-                     * 
-                     */
-                    bool PortHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>若数据源列表为绑定数据库，则为db名称</p>
+                     * 若数据源列表为绑定数据库，则为db名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_databaseNames;
                     bool m_databaseNamesHasBeenSet;
 
                     /**
-                     * <p>数据源描述信息</p>
+                     * 数据源描述信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>数据源ID</p>
+                     * 数据源ID
                      */
                     uint64_t m_iD;
                     bool m_iDHasBeenSet;
 
                     /**
-                     * <p>数据源引擎的实例ID，如CDB实例ID</p>
+                     * 数据源引擎的实例ID，如CDB实例ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instance;
                     bool m_instanceHasBeenSet;
 
                     /**
-                     * <p>数据源名称，在相同SpaceName下，数据源名称不能为空</p>
+                     * 数据源名称，在相同SpaceName下，数据源名称不能为空
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>数据源引擎所属区域</p>
+                     * 数据源引擎所属区域
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * <p>数据源类型:枚举值</p>
+                     * 数据源类型:枚举值
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>数据源所属的集群id</p>
+                     * 数据源所属的集群id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * <p>数据源版本信息</p>
+                     * 数据源版本信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_version;
                     bool m_versionHasBeenSet;
 
                     /**
-                     * <p>数据源附带参数信息Params json字符串</p>
+                     * 数据源附带参数信息Params json字符串
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramsString;
                     bool m_paramsStringHasBeenSet;
 
                     /**
-                     * <p>区分数据源类型自定义源还是系统源</p>
+                     * 区分数据源类型自定义源还是系统源
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_category;
                     bool m_categoryHasBeenSet;
-
-                    /**
-                     * <p>数据实例ip</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_ip;
-                    bool m_ipHasBeenSet;
-
-                    /**
-                     * <p>数据实例port</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_port;
-                    bool m_portHasBeenSet;
 
                 };
             }

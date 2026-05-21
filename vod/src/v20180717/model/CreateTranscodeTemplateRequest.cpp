@@ -32,9 +32,7 @@ CreateTranscodeTemplateRequest::CreateTranscodeTemplateRequest() :
     m_videoTemplateHasBeenSet(false),
     m_audioTemplateHasBeenSet(false),
     m_tEHDConfigHasBeenSet(false),
-    m_enhanceConfigHasBeenSet(false),
-    m_segmentTypeHasBeenSet(false),
-    m_stdExtInfoHasBeenSet(false)
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -120,29 +118,12 @@ string CreateTranscodeTemplateRequest::ToJsonString() const
         m_tEHDConfig.ToJsonObject(d[key.c_str()], allocator);
     }
 
-    if (m_enhanceConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnhanceConfig";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_enhanceConfig.ToJsonObject(d[key.c_str()], allocator);
-    }
-
     if (m_segmentTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "SegmentType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_stdExtInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StdExtInfo";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_stdExtInfo.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -297,22 +278,6 @@ bool CreateTranscodeTemplateRequest::TEHDConfigHasBeenSet() const
     return m_tEHDConfigHasBeenSet;
 }
 
-EnhanceConfig CreateTranscodeTemplateRequest::GetEnhanceConfig() const
-{
-    return m_enhanceConfig;
-}
-
-void CreateTranscodeTemplateRequest::SetEnhanceConfig(const EnhanceConfig& _enhanceConfig)
-{
-    m_enhanceConfig = _enhanceConfig;
-    m_enhanceConfigHasBeenSet = true;
-}
-
-bool CreateTranscodeTemplateRequest::EnhanceConfigHasBeenSet() const
-{
-    return m_enhanceConfigHasBeenSet;
-}
-
 string CreateTranscodeTemplateRequest::GetSegmentType() const
 {
     return m_segmentType;
@@ -327,22 +292,6 @@ void CreateTranscodeTemplateRequest::SetSegmentType(const string& _segmentType)
 bool CreateTranscodeTemplateRequest::SegmentTypeHasBeenSet() const
 {
     return m_segmentTypeHasBeenSet;
-}
-
-string CreateTranscodeTemplateRequest::GetStdExtInfo() const
-{
-    return m_stdExtInfo;
-}
-
-void CreateTranscodeTemplateRequest::SetStdExtInfo(const string& _stdExtInfo)
-{
-    m_stdExtInfo = _stdExtInfo;
-    m_stdExtInfoHasBeenSet = true;
-}
-
-bool CreateTranscodeTemplateRequest::StdExtInfoHasBeenSet() const
-{
-    return m_stdExtInfoHasBeenSet;
 }
 
 

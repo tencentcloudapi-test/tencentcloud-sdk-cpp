@@ -25,11 +25,11 @@ using namespace std;
 
 GetFinancialLLMTaskResultResponse::GetFinancialLLMTaskResultResponse() :
     m_statusHasBeenSet(false),
-    m_detailsHasBeenSet(false),
-    m_reviewedLabelsHasBeenSet(false),
-    m_startTimeHasBeenSet(false),
+    m_moderationResultHasBeenSet(false),
     m_failureReasonHasBeenSet(false),
-    m_moderationResultHasBeenSet(false)
+    m_startTimeHasBeenSet(false),
+    m_reviewedLabelsHasBeenSet(false),
+    m_detailsHasBeenSet(false)
 {
 }
 
@@ -77,6 +77,49 @@ CoreInternalOutcome GetFinancialLLMTaskResultResponse::Deserialize(const string 
         m_statusHasBeenSet = true;
     }
 
+    if (rsp.HasMember("ModerationResult") && !rsp["ModerationResult"].IsNull())
+    {
+        if (!rsp["ModerationResult"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `ModerationResult` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_moderationResult = string(rsp["ModerationResult"].GetString());
+        m_moderationResultHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("FailureReason") && !rsp["FailureReason"].IsNull())
+    {
+        if (!rsp["FailureReason"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `FailureReason` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_failureReason = string(rsp["FailureReason"].GetString());
+        m_failureReasonHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("StartTime") && !rsp["StartTime"].IsNull())
+    {
+        if (!rsp["StartTime"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `StartTime` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_startTime = string(rsp["StartTime"].GetString());
+        m_startTimeHasBeenSet = true;
+    }
+
+    if (rsp.HasMember("ReviewedLabels") && !rsp["ReviewedLabels"].IsNull())
+    {
+        if (!rsp["ReviewedLabels"].IsArray())
+            return CoreInternalOutcome(Core::Error("response `ReviewedLabels` is not array type"));
+
+        const rapidjson::Value &tmpValue = rsp["ReviewedLabels"];
+        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        {
+            m_reviewedLabels.push_back((*itr).GetString());
+        }
+        m_reviewedLabelsHasBeenSet = true;
+    }
+
     if (rsp.HasMember("Details") && !rsp["Details"].IsNull())
     {
         if (!rsp["Details"].IsArray())
@@ -97,49 +140,6 @@ CoreInternalOutcome GetFinancialLLMTaskResultResponse::Deserialize(const string 
         m_detailsHasBeenSet = true;
     }
 
-    if (rsp.HasMember("ReviewedLabels") && !rsp["ReviewedLabels"].IsNull())
-    {
-        if (!rsp["ReviewedLabels"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `ReviewedLabels` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["ReviewedLabels"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_reviewedLabels.push_back((*itr).GetString());
-        }
-        m_reviewedLabelsHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("StartTime") && !rsp["StartTime"].IsNull())
-    {
-        if (!rsp["StartTime"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `StartTime` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_startTime = string(rsp["StartTime"].GetString());
-        m_startTimeHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("FailureReason") && !rsp["FailureReason"].IsNull())
-    {
-        if (!rsp["FailureReason"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `FailureReason` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_failureReason = string(rsp["FailureReason"].GetString());
-        m_failureReasonHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("ModerationResult") && !rsp["ModerationResult"].IsNull())
-    {
-        if (!rsp["ModerationResult"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ModerationResult` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_moderationResult = string(rsp["ModerationResult"].GetString());
-        m_moderationResultHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -158,19 +158,28 @@ string GetFinancialLLMTaskResultResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_detailsHasBeenSet)
+    if (m_moderationResultHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Details";
+        string key = "ModerationResult";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_moderationResult.c_str(), allocator).Move(), allocator);
+    }
 
-        int i=0;
-        for (auto itr = m_details.begin(); itr != m_details.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
+    if (m_failureReasonHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "FailureReason";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_failureReason.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_startTimeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StartTime";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_startTime.c_str(), allocator).Move(), allocator);
     }
 
     if (m_reviewedLabelsHasBeenSet)
@@ -186,28 +195,19 @@ string GetFinancialLLMTaskResultResponse::ToJsonString() const
         }
     }
 
-    if (m_startTimeHasBeenSet)
+    if (m_detailsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StartTime";
+        string key = "Details";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_startTime.c_str(), allocator).Move(), allocator);
-    }
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
 
-    if (m_failureReasonHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FailureReason";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_failureReason.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_moderationResultHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ModerationResult";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_moderationResult.c_str(), allocator).Move(), allocator);
+        int i=0;
+        for (auto itr = m_details.begin(); itr != m_details.end(); ++itr, ++i)
+        {
+            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
+        }
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -232,34 +232,14 @@ bool GetFinancialLLMTaskResultResponse::StatusHasBeenSet() const
     return m_statusHasBeenSet;
 }
 
-vector<FinancialLLMViolationDetail> GetFinancialLLMTaskResultResponse::GetDetails() const
+string GetFinancialLLMTaskResultResponse::GetModerationResult() const
 {
-    return m_details;
+    return m_moderationResult;
 }
 
-bool GetFinancialLLMTaskResultResponse::DetailsHasBeenSet() const
+bool GetFinancialLLMTaskResultResponse::ModerationResultHasBeenSet() const
 {
-    return m_detailsHasBeenSet;
-}
-
-vector<string> GetFinancialLLMTaskResultResponse::GetReviewedLabels() const
-{
-    return m_reviewedLabels;
-}
-
-bool GetFinancialLLMTaskResultResponse::ReviewedLabelsHasBeenSet() const
-{
-    return m_reviewedLabelsHasBeenSet;
-}
-
-string GetFinancialLLMTaskResultResponse::GetStartTime() const
-{
-    return m_startTime;
-}
-
-bool GetFinancialLLMTaskResultResponse::StartTimeHasBeenSet() const
-{
-    return m_startTimeHasBeenSet;
+    return m_moderationResultHasBeenSet;
 }
 
 string GetFinancialLLMTaskResultResponse::GetFailureReason() const
@@ -272,14 +252,34 @@ bool GetFinancialLLMTaskResultResponse::FailureReasonHasBeenSet() const
     return m_failureReasonHasBeenSet;
 }
 
-string GetFinancialLLMTaskResultResponse::GetModerationResult() const
+string GetFinancialLLMTaskResultResponse::GetStartTime() const
 {
-    return m_moderationResult;
+    return m_startTime;
 }
 
-bool GetFinancialLLMTaskResultResponse::ModerationResultHasBeenSet() const
+bool GetFinancialLLMTaskResultResponse::StartTimeHasBeenSet() const
 {
-    return m_moderationResultHasBeenSet;
+    return m_startTimeHasBeenSet;
+}
+
+vector<string> GetFinancialLLMTaskResultResponse::GetReviewedLabels() const
+{
+    return m_reviewedLabels;
+}
+
+bool GetFinancialLLMTaskResultResponse::ReviewedLabelsHasBeenSet() const
+{
+    return m_reviewedLabelsHasBeenSet;
+}
+
+vector<FinancialLLMViolationDetail> GetFinancialLLMTaskResultResponse::GetDetails() const
+{
+    return m_details;
+}
+
+bool GetFinancialLLMTaskResultResponse::DetailsHasBeenSet() const
+{
+    return m_detailsHasBeenSet;
 }
 
 

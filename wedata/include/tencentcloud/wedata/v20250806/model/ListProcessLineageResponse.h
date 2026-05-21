@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>分页数据</p>
-                     * @return Data <p>分页数据</p>
+                     * 获取分页数据
+                     * @return Data 分页数据
                      * 
                      */
                     ListProcessLineagePage GetData() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>分页数据</p>
+                     * 分页数据
                      */
                     ListProcessLineagePage m_data;
                     bool m_dataHasBeenSet;

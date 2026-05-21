@@ -77,10 +77,7 @@ Cluster::Cluster() :
     m_yarnsHasBeenSet(false),
     m_deploymentModeHasBeenSet(false),
     m_slaveZonesHasBeenSet(false),
-    m_logCOSBucketHasBeenSet(false),
-    m_cdcIdHasBeenSet(false),
-    m_clusterProcessMsgHasBeenSet(false),
-    m_maxCuPerJobHasBeenSet(false)
+    m_logCOSBucketHasBeenSet(false)
 {
 }
 
@@ -760,36 +757,6 @@ CoreInternalOutcome Cluster::Deserialize(const rapidjson::Value &value)
         m_logCOSBucketHasBeenSet = true;
     }
 
-    if (value.HasMember("CdcId") && !value["CdcId"].IsNull())
-    {
-        if (!value["CdcId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Cluster.CdcId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_cdcId = string(value["CdcId"].GetString());
-        m_cdcIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("ClusterProcessMsg") && !value["ClusterProcessMsg"].IsNull())
-    {
-        if (!value["ClusterProcessMsg"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Cluster.ClusterProcessMsg` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_clusterProcessMsg = string(value["ClusterProcessMsg"].GetString());
-        m_clusterProcessMsgHasBeenSet = true;
-    }
-
-    if (value.HasMember("MaxCuPerJob") && !value["MaxCuPerJob"].IsNull())
-    {
-        if (!value["MaxCuPerJob"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Cluster.MaxCuPerJob` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_maxCuPerJob = value["MaxCuPerJob"].GetInt64();
-        m_maxCuPerJobHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -1310,30 +1277,6 @@ void Cluster::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "LogCOSBucket";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_logCOSBucket.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_cdcIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CdcId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_cdcId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_clusterProcessMsgHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterProcessMsg";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_clusterProcessMsg.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_maxCuPerJobHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MaxCuPerJob";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_maxCuPerJob, allocator);
     }
 
 }
@@ -2249,53 +2192,5 @@ void Cluster::SetLogCOSBucket(const string& _logCOSBucket)
 bool Cluster::LogCOSBucketHasBeenSet() const
 {
     return m_logCOSBucketHasBeenSet;
-}
-
-string Cluster::GetCdcId() const
-{
-    return m_cdcId;
-}
-
-void Cluster::SetCdcId(const string& _cdcId)
-{
-    m_cdcId = _cdcId;
-    m_cdcIdHasBeenSet = true;
-}
-
-bool Cluster::CdcIdHasBeenSet() const
-{
-    return m_cdcIdHasBeenSet;
-}
-
-string Cluster::GetClusterProcessMsg() const
-{
-    return m_clusterProcessMsg;
-}
-
-void Cluster::SetClusterProcessMsg(const string& _clusterProcessMsg)
-{
-    m_clusterProcessMsg = _clusterProcessMsg;
-    m_clusterProcessMsgHasBeenSet = true;
-}
-
-bool Cluster::ClusterProcessMsgHasBeenSet() const
-{
-    return m_clusterProcessMsgHasBeenSet;
-}
-
-int64_t Cluster::GetMaxCuPerJob() const
-{
-    return m_maxCuPerJob;
-}
-
-void Cluster::SetMaxCuPerJob(const int64_t& _maxCuPerJob)
-{
-    m_maxCuPerJob = _maxCuPerJob;
-    m_maxCuPerJobHasBeenSet = true;
-}
-
-bool Cluster::MaxCuPerJobHasBeenSet() const
-{
-    return m_maxCuPerJobHasBeenSet;
 }
 

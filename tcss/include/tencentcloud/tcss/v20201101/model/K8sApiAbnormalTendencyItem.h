@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/tcss/v20201101/model/K8SAPIRuleTypeCountItem.h>
 
 
 namespace TencentCloud
@@ -48,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>日期</p>
-                     * @return Date <p>日期</p>
+                     * 获取日期
+                     * @return Date 日期
                      * 
                      */
                     std::string GetDate() const;
 
                     /**
-                     * 设置<p>日期</p>
-                     * @param _date <p>日期</p>
+                     * 设置日期
+                     * @param _date 日期
                      * 
                      */
                     void SetDate(const std::string& _date);
@@ -69,15 +68,15 @@ namespace TencentCloud
                     bool DateHasBeenSet() const;
 
                     /**
-                     * 获取<p>异常UA请求事件数</p>
-                     * @return ExceptionUARequestCount <p>异常UA请求事件数</p>
+                     * 获取异常UA请求事件数
+                     * @return ExceptionUARequestCount 异常UA请求事件数
                      * 
                      */
                     uint64_t GetExceptionUARequestCount() const;
 
                     /**
-                     * 设置<p>异常UA请求事件数</p>
-                     * @param _exceptionUARequestCount <p>异常UA请求事件数</p>
+                     * 设置异常UA请求事件数
+                     * @param _exceptionUARequestCount 异常UA请求事件数
                      * 
                      */
                     void SetExceptionUARequestCount(const uint64_t& _exceptionUARequestCount);
@@ -90,15 +89,15 @@ namespace TencentCloud
                     bool ExceptionUARequestCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>匿名用户权限事件数</p>
-                     * @return AnonymousUserRightCount <p>匿名用户权限事件数</p>
+                     * 获取匿名用户权限事件数
+                     * @return AnonymousUserRightCount 匿名用户权限事件数
                      * 
                      */
                     uint64_t GetAnonymousUserRightCount() const;
 
                     /**
-                     * 设置<p>匿名用户权限事件数</p>
-                     * @param _anonymousUserRightCount <p>匿名用户权限事件数</p>
+                     * 设置匿名用户权限事件数
+                     * @param _anonymousUserRightCount 匿名用户权限事件数
                      * 
                      */
                     void SetAnonymousUserRightCount(const uint64_t& _anonymousUserRightCount);
@@ -111,15 +110,15 @@ namespace TencentCloud
                     bool AnonymousUserRightCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>凭据信息获取事件数</p>
-                     * @return CredentialInformationObtainCount <p>凭据信息获取事件数</p>
+                     * 获取凭据信息获取事件数
+                     * @return CredentialInformationObtainCount 凭据信息获取事件数
                      * 
                      */
                     uint64_t GetCredentialInformationObtainCount() const;
 
                     /**
-                     * 设置<p>凭据信息获取事件数</p>
-                     * @param _credentialInformationObtainCount <p>凭据信息获取事件数</p>
+                     * 设置凭据信息获取事件数
+                     * @param _credentialInformationObtainCount 凭据信息获取事件数
                      * 
                      */
                     void SetCredentialInformationObtainCount(const uint64_t& _credentialInformationObtainCount);
@@ -132,15 +131,15 @@ namespace TencentCloud
                     bool CredentialInformationObtainCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>敏感数据挂载事件数</p>
-                     * @return SensitiveDataMountCount <p>敏感数据挂载事件数</p>
+                     * 获取敏感数据挂载事件数
+                     * @return SensitiveDataMountCount 敏感数据挂载事件数
                      * 
                      */
                     uint64_t GetSensitiveDataMountCount() const;
 
                     /**
-                     * 设置<p>敏感数据挂载事件数</p>
-                     * @param _sensitiveDataMountCount <p>敏感数据挂载事件数</p>
+                     * 设置敏感数据挂载事件数
+                     * @param _sensitiveDataMountCount 敏感数据挂载事件数
                      * 
                      */
                     void SetSensitiveDataMountCount(const uint64_t& _sensitiveDataMountCount);
@@ -153,15 +152,15 @@ namespace TencentCloud
                     bool SensitiveDataMountCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>命令执行事件数</p>
-                     * @return CmdExecCount <p>命令执行事件数</p>
+                     * 获取命令执行事件数
+                     * @return CmdExecCount 命令执行事件数
                      * 
                      */
                     uint64_t GetCmdExecCount() const;
 
                     /**
-                     * 设置<p>命令执行事件数</p>
-                     * @param _cmdExecCount <p>命令执行事件数</p>
+                     * 设置命令执行事件数
+                     * @param _cmdExecCount 命令执行事件数
                      * 
                      */
                     void SetCmdExecCount(const uint64_t& _cmdExecCount);
@@ -174,15 +173,15 @@ namespace TencentCloud
                     bool CmdExecCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>异常定时任务事件数</p>
-                     * @return AbnormalScheduledTaskCount <p>异常定时任务事件数</p>
+                     * 获取异常定时任务事件数
+                     * @return AbnormalScheduledTaskCount 异常定时任务事件数
                      * 
                      */
                     uint64_t GetAbnormalScheduledTaskCount() const;
 
                     /**
-                     * 设置<p>异常定时任务事件数</p>
-                     * @param _abnormalScheduledTaskCount <p>异常定时任务事件数</p>
+                     * 设置异常定时任务事件数
+                     * @param _abnormalScheduledTaskCount 异常定时任务事件数
                      * 
                      */
                     void SetAbnormalScheduledTaskCount(const uint64_t& _abnormalScheduledTaskCount);
@@ -195,15 +194,15 @@ namespace TencentCloud
                     bool AbnormalScheduledTaskCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>静态Pod创建数</p>
-                     * @return StaticsPodCreateCount <p>静态Pod创建数</p>
+                     * 获取静态Pod创建数
+                     * @return StaticsPodCreateCount 静态Pod创建数
                      * 
                      */
                     uint64_t GetStaticsPodCreateCount() const;
 
                     /**
-                     * 设置<p>静态Pod创建数</p>
-                     * @param _staticsPodCreateCount <p>静态Pod创建数</p>
+                     * 设置静态Pod创建数
+                     * @param _staticsPodCreateCount 静态Pod创建数
                      * 
                      */
                     void SetStaticsPodCreateCount(const uint64_t& _staticsPodCreateCount);
@@ -216,15 +215,15 @@ namespace TencentCloud
                     bool StaticsPodCreateCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>可疑容器创建数</p>
-                     * @return DoubtfulContainerCreateCount <p>可疑容器创建数</p>
+                     * 获取可疑容器创建数
+                     * @return DoubtfulContainerCreateCount 可疑容器创建数
                      * 
                      */
                     uint64_t GetDoubtfulContainerCreateCount() const;
 
                     /**
-                     * 设置<p>可疑容器创建数</p>
-                     * @param _doubtfulContainerCreateCount <p>可疑容器创建数</p>
+                     * 设置可疑容器创建数
+                     * @param _doubtfulContainerCreateCount 可疑容器创建数
                      * 
                      */
                     void SetDoubtfulContainerCreateCount(const uint64_t& _doubtfulContainerCreateCount);
@@ -237,15 +236,15 @@ namespace TencentCloud
                     bool DoubtfulContainerCreateCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>自定义规则事件数</p>
-                     * @return UserDefinedRuleCount <p>自定义规则事件数</p>
+                     * 获取自定义规则事件数
+                     * @return UserDefinedRuleCount 自定义规则事件数
                      * 
                      */
                     uint64_t GetUserDefinedRuleCount() const;
 
                     /**
-                     * 设置<p>自定义规则事件数</p>
-                     * @param _userDefinedRuleCount <p>自定义规则事件数</p>
+                     * 设置自定义规则事件数
+                     * @param _userDefinedRuleCount 自定义规则事件数
                      * 
                      */
                     void SetUserDefinedRuleCount(const uint64_t& _userDefinedRuleCount);
@@ -258,15 +257,15 @@ namespace TencentCloud
                     bool UserDefinedRuleCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>匿名访问事件数</p>
-                     * @return AnonymousAccessCount <p>匿名访问事件数</p>
+                     * 获取匿名访问事件数
+                     * @return AnonymousAccessCount 匿名访问事件数
                      * 
                      */
                     uint64_t GetAnonymousAccessCount() const;
 
                     /**
-                     * 设置<p>匿名访问事件数</p>
-                     * @param _anonymousAccessCount <p>匿名访问事件数</p>
+                     * 设置匿名访问事件数
+                     * @param _anonymousAccessCount 匿名访问事件数
                      * 
                      */
                     void SetAnonymousAccessCount(const uint64_t& _anonymousAccessCount);
@@ -279,15 +278,15 @@ namespace TencentCloud
                     bool AnonymousAccessCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>特权容器事件数</p>
-                     * @return PrivilegeContainerCount <p>特权容器事件数</p>
+                     * 获取特权容器事件数
+                     * @return PrivilegeContainerCount 特权容器事件数
                      * 
                      */
                     uint64_t GetPrivilegeContainerCount() const;
 
                     /**
-                     * 设置<p>特权容器事件数</p>
-                     * @param _privilegeContainerCount <p>特权容器事件数</p>
+                     * 设置特权容器事件数
+                     * @param _privilegeContainerCount 特权容器事件数
                      * 
                      */
                     void SetPrivilegeContainerCount(const uint64_t& _privilegeContainerCount);
@@ -299,106 +298,79 @@ namespace TencentCloud
                      */
                     bool PrivilegeContainerCountHasBeenSet() const;
 
-                    /**
-                     * 获取<p>规则类型对应告警数量</p>
-                     * @return RuleTypeCountSet <p>规则类型对应告警数量</p>
-                     * 
-                     */
-                    std::vector<K8SAPIRuleTypeCountItem> GetRuleTypeCountSet() const;
-
-                    /**
-                     * 设置<p>规则类型对应告警数量</p>
-                     * @param _ruleTypeCountSet <p>规则类型对应告警数量</p>
-                     * 
-                     */
-                    void SetRuleTypeCountSet(const std::vector<K8SAPIRuleTypeCountItem>& _ruleTypeCountSet);
-
-                    /**
-                     * 判断参数 RuleTypeCountSet 是否已赋值
-                     * @return RuleTypeCountSet 是否已赋值
-                     * 
-                     */
-                    bool RuleTypeCountSetHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>日期</p>
+                     * 日期
                      */
                     std::string m_date;
                     bool m_dateHasBeenSet;
 
                     /**
-                     * <p>异常UA请求事件数</p>
+                     * 异常UA请求事件数
                      */
                     uint64_t m_exceptionUARequestCount;
                     bool m_exceptionUARequestCountHasBeenSet;
 
                     /**
-                     * <p>匿名用户权限事件数</p>
+                     * 匿名用户权限事件数
                      */
                     uint64_t m_anonymousUserRightCount;
                     bool m_anonymousUserRightCountHasBeenSet;
 
                     /**
-                     * <p>凭据信息获取事件数</p>
+                     * 凭据信息获取事件数
                      */
                     uint64_t m_credentialInformationObtainCount;
                     bool m_credentialInformationObtainCountHasBeenSet;
 
                     /**
-                     * <p>敏感数据挂载事件数</p>
+                     * 敏感数据挂载事件数
                      */
                     uint64_t m_sensitiveDataMountCount;
                     bool m_sensitiveDataMountCountHasBeenSet;
 
                     /**
-                     * <p>命令执行事件数</p>
+                     * 命令执行事件数
                      */
                     uint64_t m_cmdExecCount;
                     bool m_cmdExecCountHasBeenSet;
 
                     /**
-                     * <p>异常定时任务事件数</p>
+                     * 异常定时任务事件数
                      */
                     uint64_t m_abnormalScheduledTaskCount;
                     bool m_abnormalScheduledTaskCountHasBeenSet;
 
                     /**
-                     * <p>静态Pod创建数</p>
+                     * 静态Pod创建数
                      */
                     uint64_t m_staticsPodCreateCount;
                     bool m_staticsPodCreateCountHasBeenSet;
 
                     /**
-                     * <p>可疑容器创建数</p>
+                     * 可疑容器创建数
                      */
                     uint64_t m_doubtfulContainerCreateCount;
                     bool m_doubtfulContainerCreateCountHasBeenSet;
 
                     /**
-                     * <p>自定义规则事件数</p>
+                     * 自定义规则事件数
                      */
                     uint64_t m_userDefinedRuleCount;
                     bool m_userDefinedRuleCountHasBeenSet;
 
                     /**
-                     * <p>匿名访问事件数</p>
+                     * 匿名访问事件数
                      */
                     uint64_t m_anonymousAccessCount;
                     bool m_anonymousAccessCountHasBeenSet;
 
                     /**
-                     * <p>特权容器事件数</p>
+                     * 特权容器事件数
                      */
                     uint64_t m_privilegeContainerCount;
                     bool m_privilegeContainerCountHasBeenSet;
-
-                    /**
-                     * <p>规则类型对应告警数量</p>
-                     */
-                    std::vector<K8SAPIRuleTypeCountItem> m_ruleTypeCountSet;
-                    bool m_ruleTypeCountSetHasBeenSet;
 
                 };
             }

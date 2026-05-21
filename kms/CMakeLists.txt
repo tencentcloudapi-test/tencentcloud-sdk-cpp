@@ -36,7 +36,6 @@ set(kms_public_header_model
   include/tencentcloud/kms/v20190118/model/DescribeDataKeysRequest.h
   include/tencentcloud/kms/v20190118/model/ListAlgorithmsResponse.h
   include/tencentcloud/kms/v20190118/model/DisableKeysResponse.h
-  include/tencentcloud/kms/v20190118/model/RegionQps.h
   include/tencentcloud/kms/v20190118/model/EnableDataKeyResponse.h
   include/tencentcloud/kms/v20190118/model/DescribeWhiteBoxKeyResponse.h
   include/tencentcloud/kms/v20190118/model/UpdateKeyDescriptionResponse.h
@@ -46,7 +45,7 @@ set(kms_public_header_model
   include/tencentcloud/kms/v20190118/model/EnableKeyRequest.h
   include/tencentcloud/kms/v20190118/model/GetKeyRotationStatusRequest.h
   include/tencentcloud/kms/v20190118/model/ListAlgorithmsRequest.h
-  include/tencentcloud/kms/v20190118/model/MemberAccount.h
+  include/tencentcloud/kms/v20190118/model/Tag.h
   include/tencentcloud/kms/v20190118/model/ListKeyDetailResponse.h
   include/tencentcloud/kms/v20190118/model/GenerateDataKeyRequest.h
   include/tencentcloud/kms/v20190118/model/UpdateAliasResponse.h
@@ -166,7 +165,6 @@ set(kms_public_header_model
   include/tencentcloud/kms/v20190118/model/UnbindCloudResourceResponse.h
   include/tencentcloud/kms/v20190118/model/DescribeKeyResponse.h
   include/tencentcloud/kms/v20190118/model/CancelKeyArchiveRequest.h
-  include/tencentcloud/kms/v20190118/model/Tag.h
   include/tencentcloud/kms/v20190118/model/DisableKeyRotationRequest.h
   )
 
@@ -189,7 +187,6 @@ set(kms_src
   src/v20190118/model/DescribeDataKeysRequest.cpp
   src/v20190118/model/ListAlgorithmsResponse.cpp
   src/v20190118/model/DisableKeysResponse.cpp
-  src/v20190118/model/RegionQps.cpp
   src/v20190118/model/EnableDataKeyResponse.cpp
   src/v20190118/model/DescribeWhiteBoxKeyResponse.cpp
   src/v20190118/model/UpdateKeyDescriptionResponse.cpp
@@ -199,7 +196,7 @@ set(kms_src
   src/v20190118/model/EnableKeyRequest.cpp
   src/v20190118/model/GetKeyRotationStatusRequest.cpp
   src/v20190118/model/ListAlgorithmsRequest.cpp
-  src/v20190118/model/MemberAccount.cpp
+  src/v20190118/model/Tag.cpp
   src/v20190118/model/ListKeyDetailResponse.cpp
   src/v20190118/model/GenerateDataKeyRequest.cpp
   src/v20190118/model/UpdateAliasResponse.cpp
@@ -319,7 +316,6 @@ set(kms_src
   src/v20190118/model/UnbindCloudResourceResponse.cpp
   src/v20190118/model/DescribeKeyResponse.cpp
   src/v20190118/model/CancelKeyArchiveRequest.cpp
-  src/v20190118/model/Tag.cpp
   src/v20190118/model/DisableKeyRotationRequest.cpp
   )
 

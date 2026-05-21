@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>验证码AppId</p>
-                     * @return CaptchaAppId <p>验证码AppId</p>
+                     * 获取验证码AppId
+                     * @return CaptchaAppId 验证码AppId
                      * 
                      */
                     std::string GetCaptchaAppId() const;
 
                     /**
-                     * 设置<p>验证码AppId</p>
-                     * @param _captchaAppId <p>验证码AppId</p>
+                     * 设置验证码AppId
+                     * @param _captchaAppId 验证码AppId
                      * 
                      */
                     void SetCaptchaAppId(const std::string& _captchaAppId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool CaptchaAppIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>开始时间字符串</p>
-                     * @return StartTimeStr <p>开始时间字符串</p>
+                     * 获取开始时间字符串
+                     * @return StartTimeStr 开始时间字符串
                      * 
                      */
                     std::string GetStartTimeStr() const;
 
                     /**
-                     * 设置<p>开始时间字符串</p>
-                     * @param _startTimeStr <p>开始时间字符串</p>
+                     * 设置开始时间字符串
+                     * @param _startTimeStr 开始时间字符串
                      * 
                      */
                     void SetStartTimeStr(const std::string& _startTimeStr);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool StartTimeStrHasBeenSet() const;
 
                     /**
-                     * 获取<p>结束时间字符串</p>
-                     * @return EndTimeStr <p>结束时间字符串</p>
+                     * 获取结束时间字符串
+                     * @return EndTimeStr 结束时间字符串
                      * 
                      */
                     std::string GetEndTimeStr() const;
 
                     /**
-                     * 设置<p>结束时间字符串</p>
-                     * @param _endTimeStr <p>结束时间字符串</p>
+                     * 设置结束时间字符串
+                     * @param _endTimeStr 结束时间字符串
                      * 
                      */
                     void SetEndTimeStr(const std::string& _endTimeStr);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool EndTimeStrHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询粒度</p>
-                     * @return Dimension <p>查询粒度</p>
+                     * 获取查询粒度
+                     * @return Dimension 查询粒度
                      * 
                      */
                     std::string GetDimension() const;
 
                     /**
-                     * 设置<p>查询粒度</p>
-                     * @param _dimension <p>查询粒度</p>
+                     * 设置查询粒度
+                     * @param _dimension 查询粒度
                      * 
                      */
                     void SetDimension(const std::string& _dimension);
@@ -129,25 +129,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>验证码AppId</p>
+                     * 验证码AppId
                      */
                     std::string m_captchaAppId;
                     bool m_captchaAppIdHasBeenSet;
 
                     /**
-                     * <p>开始时间字符串</p>
+                     * 开始时间字符串
                      */
                     std::string m_startTimeStr;
                     bool m_startTimeStrHasBeenSet;
 
                     /**
-                     * <p>结束时间字符串</p>
+                     * 结束时间字符串
                      */
                     std::string m_endTimeStr;
                     bool m_endTimeStrHasBeenSet;
 
                     /**
-                     * <p>查询粒度</p>
+                     * 查询粒度
                      */
                     std::string m_dimension;
                     bool m_dimensionHasBeenSet;

@@ -614,7 +614,7 @@ namespace TencentCloud
                  *该接口用于发起合同后，生成个人/企业用户的批量待办链接。
 **注意：**
 1. 该接口可生成签署人的批量、合同组签署/查看链接 。
-2. 该签署链接**默认有效期为30分钟**，过期后将失效，如需签署可重新创建批量签署链接 。
+2. 该签署链接**有效期为30分钟**，过期后将失效，如需签署可重新创建批量签署链接 。
 4. 该接口返回的签署链接适用于APP集成的场景，支持APP打开或浏览器直接打开，**不支持微信小程序嵌入**。
 跳转到小程序的实现，参考微信官方文档(分为<a href="https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html">全屏</a>、<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/openEmbeddedMiniProgram.html">半屏</a>两种方式)，如何配置也可以请参考: <a href="https://qian.tencent.com/developers/company/openwxminiprogram">跳转电子签小程序配置</a>。
 6. 因h5涉及人脸身份认证能力基于慧眼人脸核身，对Android和iOS系统均有一定要求， 因此<font color='red'>App嵌入H5签署合同需要按照慧眼提供的<a href="https://cloud.tencent.com/document/product/1007/61076">慧眼人脸核身兼容性文档</a>做兼容性适配</font>。
@@ -637,6 +637,7 @@ namespace TencentCloud
 - saas企业员工用户批量签署，在传递了姓名等基本信息参数的情况下，还需要传OrganizationName（参与方所在企业名称）参数生成签署链接，<font color="red">请确保此企业已完成腾讯电子签企业认证</font>。
 - 子客企业员工用户批量签署，需要传递员工OpenId和子客企业的OrganizationOpenId，以及该员工的Name，Mobile等信息。如果此子客企业未认证，则除了上述参数之外，需要传递OrganizationName（子客企业名称）。
 - 生成批量签署链接时，合同目标参与方状态需为<font color="red">待签署</font>状态。
+- 个人批量签署进行的合同的签名区， 全部变成<font color="red">手写签名</font>（不管合同里边设置的签名限制）来进行。
 - 不支持签署方含有签批控件，或设置了签署方在签署时自行添加签署控件功能的合同进行批量签署。
 - 进行小程序批量签署必须指定待签署的流程id，<font color="red">接口中FlowIds参数必传。</font>
                  * @param req ChannelCreateBatchSignUrlRequest
@@ -985,13 +986,12 @@ namespace TencentCloud
                 /**
                  *该接口用于发起合同后，生成用户的签署链接 <br/>
 
-
-⚠️ **注意**
-1. 该签署链接**默认有效期为30分钟**，过期后将失效，如需签署可重新创建签署链接 。
-2. 该接口返回的签署链接适用于APP集成的场景，支持在支付宝、APP打开、浏览器直接打开，**不支持微信小程序嵌入**。配置方式请参考：<a href="https://qian.tencent.com/developers/company/openqianh5/">跳转电子签H5</a>。
-   如需跳转到小程序的实现，参考微信官方文档（分为<a href="https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html">全屏</a>、<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/openEmbeddedMiniProgram.html">半屏</a>两种方式），如何配置也可以请参考: <a href="https://qian.tencent.com/developers/company/openwxminiprogram">跳转电子签小程序配置</a>。
+**注意**
+1. 该签署**链接有效期为30分钟**，过期后将失效，如需签署可重新创建签署链接 。
+2. 该接口返回的签署链接适用于APP集成的场景，支持APP打开或浏览器直接打开，**不支持微信小程序嵌入**。配置方式请参考：<a href="https://qian.tencent.com/developers/company/openqianh5/">跳转电子签H5</a>。
+如需跳转到小程序的实现，参考微信官方文档（分为<a href="https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html">全屏</a>、<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/openEmbeddedMiniProgram.html">半屏</a>两种方式），如何配置也可以请参考: <a href="https://qian.tencent.com/developers/company/openwxminiprogram">跳转电子签小程序配置</a>。
 3. 因h5涉及人脸身份认证能力基于慧眼人脸核身，对Android和iOS系统均有一定要求， 因此<font color='red'>App嵌入H5签署合同需要按照慧眼提供的<a href="https://cloud.tencent.com/document/product/1007/61076">慧眼人脸核身兼容性文档</a>做兼容性适配</font>。
-4. H5签署现在**仅支持中国大陆身份证、中国港澳台居民居住证**。
+4. H5签署现在仅支持中国大陆身份证和中国港澳台居民居住证。
                  * @param req ChannelCreateFlowSignUrlRequest
                  * @return ChannelCreateFlowSignUrlOutcome
                  */
@@ -1359,7 +1359,7 @@ namespace TencentCloud
 
 1. 该接口**仅适用于在H5端签署**的合同，**在通过视频认证后**获取认证的视频内容。
 2. 该接口**不支持小程序端**的签署认证的视频获取。
-3. 请在**签署完成后的24小时内**获取视频，**过期后将无法获取**。
+3. 请在**签署完成后的三天内**获取视频，**过期后将无法获取**。
 
 **注意：该接口需要开通白名单，请联系客户经理开通后使用。**
                  * @param req ChannelDescribeSignFaceVideoRequest
@@ -1518,7 +1518,7 @@ namespace TencentCloud
                 /**
                  *提交申请出证报告任务并返回报告ID。
 
-出证报告的示例样式可以参考 [出证报告.PDF](https://qcloudimg.tencent-cloud.cn/raw/a55214fcddaebbd1582cc9c57cc6cf1b.pdf)
+出证报告的示例样式可以参考 [出征报告.PDF](https://qcloudimg.tencent-cloud.cn/raw/a55214fcddaebbd1582cc9c57cc6cf1b.pdf)
 
 注意：
 - 使用此功能**需搭配出证套餐**  ，使用前请联系对接的客户经理沟通。
@@ -2167,7 +2167,7 @@ Agent参数中的OpenId 必须为审批者的openId，且链接必须由审批�
                 /**
                  *此接口（DescribeUsage）用于获取此应用下子客企业的合同消耗数量。
 
-<font color="red">此接口于 2026 年 2 月 3 日下线</font>， 请使用新接口:<a   href="https://qian.tencent.com/developers/partnerApis/fee/ChannelDescribeBillUsageDetail">查询渠道计费消耗情况 </a>
+<font color="red">此接口即将下线， 请使用新接口</font>  [查询渠道计费消耗情况](https://qian.tencent.com/developers/partnerApis/fee/ChannelDescribeBillUsageDetail)
 
 注: 此接口**每日限频50次**，若要扩大限制次数,请提前与客服经理或邮件至e-contract@tencent.com进行联系。
                  * @param req DescribeUsageRequest

@@ -25,9 +25,7 @@ AdaptiveStreamTemplate::AdaptiveStreamTemplate() :
     m_audioHasBeenSet(false),
     m_removeAudioHasBeenSet(false),
     m_removeVideoHasBeenSet(false),
-    m_tEHDConfigHasBeenSet(false),
-    m_enhanceConfigHasBeenSet(false),
-    m_stdExtInfoHasBeenSet(false)
+    m_tEHDConfigHasBeenSet(false)
 {
 }
 
@@ -107,33 +105,6 @@ CoreInternalOutcome AdaptiveStreamTemplate::Deserialize(const rapidjson::Value &
         m_tEHDConfigHasBeenSet = true;
     }
 
-    if (value.HasMember("EnhanceConfig") && !value["EnhanceConfig"].IsNull())
-    {
-        if (!value["EnhanceConfig"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveStreamTemplate.EnhanceConfig` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_enhanceConfig.Deserialize(value["EnhanceConfig"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_enhanceConfigHasBeenSet = true;
-    }
-
-    if (value.HasMember("StdExtInfo") && !value["StdExtInfo"].IsNull())
-    {
-        if (!value["StdExtInfo"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveStreamTemplate.StdExtInfo` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_stdExtInfo = string(value["StdExtInfo"].GetString());
-        m_stdExtInfoHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -182,23 +153,6 @@ void AdaptiveStreamTemplate::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_tEHDConfig.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_enhanceConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnhanceConfig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_enhanceConfig.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_stdExtInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StdExtInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_stdExtInfo.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -282,37 +236,5 @@ void AdaptiveStreamTemplate::SetTEHDConfig(const TEHDConfig& _tEHDConfig)
 bool AdaptiveStreamTemplate::TEHDConfigHasBeenSet() const
 {
     return m_tEHDConfigHasBeenSet;
-}
-
-EnhanceConfig AdaptiveStreamTemplate::GetEnhanceConfig() const
-{
-    return m_enhanceConfig;
-}
-
-void AdaptiveStreamTemplate::SetEnhanceConfig(const EnhanceConfig& _enhanceConfig)
-{
-    m_enhanceConfig = _enhanceConfig;
-    m_enhanceConfigHasBeenSet = true;
-}
-
-bool AdaptiveStreamTemplate::EnhanceConfigHasBeenSet() const
-{
-    return m_enhanceConfigHasBeenSet;
-}
-
-string AdaptiveStreamTemplate::GetStdExtInfo() const
-{
-    return m_stdExtInfo;
-}
-
-void AdaptiveStreamTemplate::SetStdExtInfo(const string& _stdExtInfo)
-{
-    m_stdExtInfo = _stdExtInfo;
-    m_stdExtInfoHasBeenSet = true;
-}
-
-bool AdaptiveStreamTemplate::StdExtInfoHasBeenSet() const
-{
-    return m_stdExtInfoHasBeenSet;
 }
 

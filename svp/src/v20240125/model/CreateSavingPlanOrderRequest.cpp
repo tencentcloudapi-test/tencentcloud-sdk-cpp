@@ -31,8 +31,7 @@ CreateSavingPlanOrderRequest::CreateSavingPlanOrderRequest() :
     m_commodityCodeHasBeenSet(false),
     m_promiseUseAmountHasBeenSet(false),
     m_specifyEffectTimeHasBeenSet(false),
-    m_clientTokenHasBeenSet(false),
-    m_commitmentPeriodHasBeenSet(false)
+    m_clientTokenHasBeenSet(false)
 {
 }
 
@@ -113,14 +112,6 @@ string CreateSavingPlanOrderRequest::ToJsonString() const
         string key = "ClientToken";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_clientToken.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_commitmentPeriodHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CommitmentPeriod";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_commitmentPeriod, allocator);
     }
 
 
@@ -273,22 +264,6 @@ void CreateSavingPlanOrderRequest::SetClientToken(const string& _clientToken)
 bool CreateSavingPlanOrderRequest::ClientTokenHasBeenSet() const
 {
     return m_clientTokenHasBeenSet;
-}
-
-int64_t CreateSavingPlanOrderRequest::GetCommitmentPeriod() const
-{
-    return m_commitmentPeriod;
-}
-
-void CreateSavingPlanOrderRequest::SetCommitmentPeriod(const int64_t& _commitmentPeriod)
-{
-    m_commitmentPeriod = _commitmentPeriod;
-    m_commitmentPeriodHasBeenSet = true;
-}
-
-bool CreateSavingPlanOrderRequest::CommitmentPeriodHasBeenSet() const
-{
-    return m_commitmentPeriodHasBeenSet;
 }
 
 

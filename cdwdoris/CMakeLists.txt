@@ -36,7 +36,6 @@ set(cdwdoris_public_header_model
   include/tencentcloud/cdwdoris/v20211228/model/DescribeSlowQueryRecordsDownloadResponse.h
   include/tencentcloud/cdwdoris/v20211228/model/DeleteWorkloadGroupRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/WorkloadGroupConfig.h
-  include/tencentcloud/cdwdoris/v20211228/model/BackupScheduleInfo.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeInstancesResponse.h
   include/tencentcloud/cdwdoris/v20211228/model/CosSourceInfo.h
   include/tencentcloud/cdwdoris/v20211228/model/ReduceInstanceResponse.h
@@ -70,7 +69,6 @@ set(cdwdoris_public_header_model
   include/tencentcloud/cdwdoris/v20211228/model/DescribeAreaRegionRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/SlowQueryRecord.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeInstanceNodesRequest.h
-  include/tencentcloud/cdwdoris/v20211228/model/BucketEncryptionInfo.h
   include/tencentcloud/cdwdoris/v20211228/model/ChargeProperties.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeWorkloadGroupRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeCoolDownBackendsRequest.h
@@ -93,7 +91,7 @@ set(cdwdoris_public_header_model
   include/tencentcloud/cdwdoris/v20211228/model/InstanceConfigItem.h
   include/tencentcloud/cdwdoris/v20211228/model/CreateBackUpScheduleRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/ActionAlterUserResponse.h
-  include/tencentcloud/cdwdoris/v20211228/model/BackupCosInfo.h
+  include/tencentcloud/cdwdoris/v20211228/model/DescribeSpecRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeClusterConfigsHistoryRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/CreateWorkloadGroupRequest.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeInstanceNodesInfoRequest.h
@@ -145,7 +143,7 @@ set(cdwdoris_public_header_model
   include/tencentcloud/cdwdoris/v20211228/model/DescribeWorkloadGroupResponse.h
   include/tencentcloud/cdwdoris/v20211228/model/CoolDownTableDataInfo.h
   include/tencentcloud/cdwdoris/v20211228/model/ModifySecurityGroupsResponse.h
-  include/tencentcloud/cdwdoris/v20211228/model/DescribeSpecRequest.h
+  include/tencentcloud/cdwdoris/v20211228/model/BackupCosInfo.h
   include/tencentcloud/cdwdoris/v20211228/model/CoolDownBackend.h
   include/tencentcloud/cdwdoris/v20211228/model/DescribeBackUpTaskDetailResponse.h
   include/tencentcloud/cdwdoris/v20211228/model/OpenCoolDownPolicyResponse.h
@@ -205,7 +203,6 @@ set(cdwdoris_src
   src/v20211228/model/DescribeSlowQueryRecordsDownloadResponse.cpp
   src/v20211228/model/DeleteWorkloadGroupRequest.cpp
   src/v20211228/model/WorkloadGroupConfig.cpp
-  src/v20211228/model/BackupScheduleInfo.cpp
   src/v20211228/model/DescribeInstancesResponse.cpp
   src/v20211228/model/CosSourceInfo.cpp
   src/v20211228/model/ReduceInstanceResponse.cpp
@@ -239,7 +236,6 @@ set(cdwdoris_src
   src/v20211228/model/DescribeAreaRegionRequest.cpp
   src/v20211228/model/SlowQueryRecord.cpp
   src/v20211228/model/DescribeInstanceNodesRequest.cpp
-  src/v20211228/model/BucketEncryptionInfo.cpp
   src/v20211228/model/ChargeProperties.cpp
   src/v20211228/model/DescribeWorkloadGroupRequest.cpp
   src/v20211228/model/DescribeCoolDownBackendsRequest.cpp
@@ -262,7 +258,7 @@ set(cdwdoris_src
   src/v20211228/model/InstanceConfigItem.cpp
   src/v20211228/model/CreateBackUpScheduleRequest.cpp
   src/v20211228/model/ActionAlterUserResponse.cpp
-  src/v20211228/model/BackupCosInfo.cpp
+  src/v20211228/model/DescribeSpecRequest.cpp
   src/v20211228/model/DescribeClusterConfigsHistoryRequest.cpp
   src/v20211228/model/CreateWorkloadGroupRequest.cpp
   src/v20211228/model/DescribeInstanceNodesInfoRequest.cpp
@@ -314,7 +310,7 @@ set(cdwdoris_src
   src/v20211228/model/DescribeWorkloadGroupResponse.cpp
   src/v20211228/model/CoolDownTableDataInfo.cpp
   src/v20211228/model/ModifySecurityGroupsResponse.cpp
-  src/v20211228/model/DescribeSpecRequest.cpp
+  src/v20211228/model/BackupCosInfo.cpp
   src/v20211228/model/CoolDownBackend.cpp
   src/v20211228/model/DescribeBackUpTaskDetailResponse.cpp
   src/v20211228/model/OpenCoolDownPolicyResponse.cpp

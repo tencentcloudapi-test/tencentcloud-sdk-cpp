@@ -46,8 +46,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>姓名（人像面）</p>
-                     * @return Name <p>姓名（人像面）</p>
+                     * 获取姓名（人像面）
+                     * @return Name 姓名（人像面）
                      * 
                      */
                     std::string GetName() const;
@@ -60,8 +60,8 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>性别（人像面）</p>
-                     * @return Sex <p>性别（人像面）</p>
+                     * 获取性别（人像面）
+                     * @return Sex 性别（人像面）
                      * 
                      */
                     std::string GetSex() const;
@@ -74,8 +74,8 @@ namespace TencentCloud
                     bool SexHasBeenSet() const;
 
                     /**
-                     * 获取<p>民族（人像面）</p>
-                     * @return Nation <p>民族（人像面）</p>
+                     * 获取民族（人像面）
+                     * @return Nation 民族（人像面）
                      * 
                      */
                     std::string GetNation() const;
@@ -88,8 +88,8 @@ namespace TencentCloud
                     bool NationHasBeenSet() const;
 
                     /**
-                     * 获取<p>出生日期（人像面）</p>
-                     * @return Birth <p>出生日期（人像面）</p>
+                     * 获取出生日期（人像面）
+                     * @return Birth 出生日期（人像面）
                      * 
                      */
                     std::string GetBirth() const;
@@ -102,8 +102,8 @@ namespace TencentCloud
                     bool BirthHasBeenSet() const;
 
                     /**
-                     * 获取<p>地址（人像面）</p>
-                     * @return Address <p>地址（人像面）</p>
+                     * 获取地址（人像面）
+                     * @return Address 地址（人像面）
                      * 
                      */
                     std::string GetAddress() const;
@@ -116,8 +116,8 @@ namespace TencentCloud
                     bool AddressHasBeenSet() const;
 
                     /**
-                     * 获取<p>身份证号（人像面）</p>
-                     * @return IdNum <p>身份证号（人像面）</p>
+                     * 获取身份证号（人像面）
+                     * @return IdNum 身份证号（人像面）
                      * 
                      */
                     std::string GetIdNum() const;
@@ -130,8 +130,8 @@ namespace TencentCloud
                     bool IdNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>发证机关（国徽面）</p>
-                     * @return Authority <p>发证机关（国徽面）</p>
+                     * 获取发证机关（国徽面）
+                     * @return Authority 发证机关（国徽面）
                      * 
                      */
                     std::string GetAuthority() const;
@@ -144,8 +144,8 @@ namespace TencentCloud
                     bool AuthorityHasBeenSet() const;
 
                     /**
-                     * 获取<p>证件有效期（国徽面）</p>
-                     * @return ValidDate <p>证件有效期（国徽面）</p>
+                     * 获取证件有效期（国徽面）
+                     * @return ValidDate 证件有效期（国徽面）
                      * 
                      */
                     std::string GetValidDate() const;
@@ -158,8 +158,44 @@ namespace TencentCloud
                     bool ValidDateHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩展信息，不请求则不返回，具体输入参考示例3和示例4。<br>IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；<br>Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；<br>Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;<br>BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;<br>WarnInfos，告警信息，Code 告警码列表和释义：<br>-9100 身份证有效日期不合法告警，<br>-9101 身份证边框不完整告警，<br>-9102 身份证复印件告警（黑白及彩色复印件）,<br>-9108 身份证复印件告警（仅黑白复印件），<br>-9103 身份证翻拍告警，<br>-9105 身份证框内遮挡告警，<br>-9104 临时身份证告警，<br>-9106 身份证疑似存在PS痕迹告警，<br>-9107 身份证反光告警，<br>-9110 电子身份证告警，<br>-9111 水印告警（仅CardWarnType参数为Advanced时），</p>
-                     * @return AdvancedInfo <p>扩展信息，不请求则不返回，具体输入参考示例3和示例4。<br>IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；<br>Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；<br>Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;<br>BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;<br>WarnInfos，告警信息，Code 告警码列表和释义：<br>-9100 身份证有效日期不合法告警，<br>-9101 身份证边框不完整告警，<br>-9102 身份证复印件告警（黑白及彩色复印件）,<br>-9108 身份证复印件告警（仅黑白复印件），<br>-9103 身份证翻拍告警，<br>-9105 身份证框内遮挡告警，<br>-9104 临时身份证告警，<br>-9106 身份证疑似存在PS痕迹告警，<br>-9107 身份证反光告警，<br>-9110 电子身份证告警，<br>-9111 水印告警（仅CardWarnType参数为Advanced时），</p>
+                     * 获取扩展信息，不请求则不返回，具体输入参考示例3和示例4。
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
+
+WarnInfos，告警信息，Code 告警码列表和释义：
+-9100 身份证有效日期不合法告警，
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
+                     * @return AdvancedInfo 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
+
+WarnInfos，告警信息，Code 告警码列表和释义：
+-9100 身份证有效日期不合法告警，
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
                      * 
                      */
                     std::string GetAdvancedInfo() const;
@@ -172,8 +208,8 @@ namespace TencentCloud
                     bool AdvancedInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>反光点覆盖区域详情结果，具体内容请点击左侧链接</p>
-                     * @return ReflectDetailInfos <p>反光点覆盖区域详情结果，具体内容请点击左侧链接</p>
+                     * 获取反光点覆盖区域详情结果，具体内容请点击左侧链接
+                     * @return ReflectDetailInfos 反光点覆盖区域详情结果，具体内容请点击左侧链接
                      * 
                      */
                     std::vector<ReflectDetailInfo> GetReflectDetailInfos() const;
@@ -186,8 +222,8 @@ namespace TencentCloud
                     bool ReflectDetailInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>加密后的数据（Base64编码）</p>
-                     * @return EncryptedBody <p>加密后的数据（Base64编码）</p>
+                     * 获取加密后的数据（Base64编码）
+                     * @return EncryptedBody 加密后的数据（Base64编码）
                      * 
                      */
                     std::string GetEncryptedBody() const;
@@ -200,8 +236,8 @@ namespace TencentCloud
                     bool EncryptedBodyHasBeenSet() const;
 
                     /**
-                     * 获取<p>敏感数据加密信息</p>
-                     * @return Encryption <p>敏感数据加密信息</p>
+                     * 获取敏感数据加密信息
+                     * @return Encryption 敏感数据加密信息
                      * 
                      */
                     Encryption GetEncryption() const;
@@ -216,73 +252,91 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>姓名（人像面）</p>
+                     * 姓名（人像面）
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>性别（人像面）</p>
+                     * 性别（人像面）
                      */
                     std::string m_sex;
                     bool m_sexHasBeenSet;
 
                     /**
-                     * <p>民族（人像面）</p>
+                     * 民族（人像面）
                      */
                     std::string m_nation;
                     bool m_nationHasBeenSet;
 
                     /**
-                     * <p>出生日期（人像面）</p>
+                     * 出生日期（人像面）
                      */
                     std::string m_birth;
                     bool m_birthHasBeenSet;
 
                     /**
-                     * <p>地址（人像面）</p>
+                     * 地址（人像面）
                      */
                     std::string m_address;
                     bool m_addressHasBeenSet;
 
                     /**
-                     * <p>身份证号（人像面）</p>
+                     * 身份证号（人像面）
                      */
                     std::string m_idNum;
                     bool m_idNumHasBeenSet;
 
                     /**
-                     * <p>发证机关（国徽面）</p>
+                     * 发证机关（国徽面）
                      */
                     std::string m_authority;
                     bool m_authorityHasBeenSet;
 
                     /**
-                     * <p>证件有效期（国徽面）</p>
+                     * 证件有效期（国徽面）
                      */
                     std::string m_validDate;
                     bool m_validDateHasBeenSet;
 
                     /**
-                     * <p>扩展信息，不请求则不返回，具体输入参考示例3和示例4。<br>IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；<br>Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；<br>Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;<br>BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;<br>WarnInfos，告警信息，Code 告警码列表和释义：<br>-9100 身份证有效日期不合法告警，<br>-9101 身份证边框不完整告警，<br>-9102 身份证复印件告警（黑白及彩色复印件）,<br>-9108 身份证复印件告警（仅黑白复印件），<br>-9103 身份证翻拍告警，<br>-9105 身份证框内遮挡告警，<br>-9104 临时身份证告警，<br>-9106 身份证疑似存在PS痕迹告警，<br>-9107 身份证反光告警，<br>-9110 电子身份证告警，<br>-9111 水印告警（仅CardWarnType参数为Advanced时），</p>
+                     * 扩展信息，不请求则不返回，具体输入参考示例3和示例4。
+IdCard，裁剪后身份证照片的base64编码，请求 Config.CropIdCard 时返回；
+Portrait，身份证头像照片的base64编码，请求 Config.CropPortrait 时返回；
+
+Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;
+BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≤50）;
+
+WarnInfos，告警信息，Code 告警码列表和释义：
+-9100 身份证有效日期不合法告警，
+-9101 身份证边框不完整告警，
+
+-9102 身份证复印件告警（黑白及彩色复印件）,
+-9108 身份证复印件告警（仅黑白复印件），
+
+-9103 身份证翻拍告警，
+-9105 身份证框内遮挡告警，
+-9104 临时身份证告警，
+-9106 身份证疑似存在PS痕迹告警，
+-9107 身份证反光告警。
                      */
                     std::string m_advancedInfo;
                     bool m_advancedInfoHasBeenSet;
 
                     /**
-                     * <p>反光点覆盖区域详情结果，具体内容请点击左侧链接</p>
+                     * 反光点覆盖区域详情结果，具体内容请点击左侧链接
                      */
                     std::vector<ReflectDetailInfo> m_reflectDetailInfos;
                     bool m_reflectDetailInfosHasBeenSet;
 
                     /**
-                     * <p>加密后的数据（Base64编码）</p>
+                     * 加密后的数据（Base64编码）
                      */
                     std::string m_encryptedBody;
                     bool m_encryptedBodyHasBeenSet;
 
                     /**
-                     * <p>敏感数据加密信息</p>
+                     * 敏感数据加密信息
                      */
                     Encryption m_encryption;
                     bool m_encryptionHasBeenSet;

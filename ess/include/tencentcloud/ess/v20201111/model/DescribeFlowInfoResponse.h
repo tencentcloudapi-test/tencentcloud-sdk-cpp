@@ -45,8 +45,10 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>合同流程的详细信息。<br>如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。</p>
-                     * @return FlowDetailInfos <p>合同流程的详细信息。<br>如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。</p>
+                     * 获取合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
+                     * @return FlowDetailInfos 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
                      * 
                      */
                     std::vector<FlowDetailInfo> GetFlowDetailInfos() const;
@@ -59,8 +61,8 @@ namespace TencentCloud
                     bool FlowDetailInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>合同组ID，只有在查询合同组信息时才会返回。</p>
-                     * @return FlowGroupId <p>合同组ID，只有在查询合同组信息时才会返回。</p>
+                     * 获取合同组ID，只有在查询合同组信息时才会返回。
+                     * @return FlowGroupId 合同组ID，只有在查询合同组信息时才会返回。
                      * 
                      */
                     std::string GetFlowGroupId() const;
@@ -73,8 +75,8 @@ namespace TencentCloud
                     bool FlowGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>合同组名称，只有在查询合同组信息时才会返回。</p>
-                     * @return FlowGroupName <p>合同组名称，只有在查询合同组信息时才会返回。</p>
+                     * 获取合同组名称，只有在查询合同组信息时才会返回。
+                     * @return FlowGroupName 合同组名称，只有在查询合同组信息时才会返回。
                      * 
                      */
                     std::string GetFlowGroupName() const;
@@ -86,45 +88,26 @@ namespace TencentCloud
                      */
                     bool FlowGroupNameHasBeenSet() const;
 
-                    /**
-                     * 获取<p>合同组合同备注列表</p>
-                     * @return FlowGroupRemarks <p>合同组合同备注列表</p>
-                     * 
-                     */
-                    std::vector<std::string> GetFlowGroupRemarks() const;
-
-                    /**
-                     * 判断参数 FlowGroupRemarks 是否已赋值
-                     * @return FlowGroupRemarks 是否已赋值
-                     * 
-                     */
-                    bool FlowGroupRemarksHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>合同流程的详细信息。<br>如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。</p>
+                     * 合同流程的详细信息。
+如果查询的是合同组信息，则返回的是组内所有子合同流程的详细信息。
                      */
                     std::vector<FlowDetailInfo> m_flowDetailInfos;
                     bool m_flowDetailInfosHasBeenSet;
 
                     /**
-                     * <p>合同组ID，只有在查询合同组信息时才会返回。</p>
+                     * 合同组ID，只有在查询合同组信息时才会返回。
                      */
                     std::string m_flowGroupId;
                     bool m_flowGroupIdHasBeenSet;
 
                     /**
-                     * <p>合同组名称，只有在查询合同组信息时才会返回。</p>
+                     * 合同组名称，只有在查询合同组信息时才会返回。
                      */
                     std::string m_flowGroupName;
                     bool m_flowGroupNameHasBeenSet;
-
-                    /**
-                     * <p>合同组合同备注列表</p>
-                     */
-                    std::vector<std::string> m_flowGroupRemarks;
-                    bool m_flowGroupRemarksHasBeenSet;
 
                 };
             }

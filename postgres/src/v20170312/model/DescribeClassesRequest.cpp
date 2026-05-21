@@ -25,8 +25,7 @@ using namespace std;
 DescribeClassesRequest::DescribeClassesRequest() :
     m_zoneHasBeenSet(false),
     m_dBEngineHasBeenSet(false),
-    m_dBMajorVersionHasBeenSet(false),
-    m_storageTypeHasBeenSet(false)
+    m_dBMajorVersionHasBeenSet(false)
 {
 }
 
@@ -59,14 +58,6 @@ string DescribeClassesRequest::ToJsonString() const
         string key = "DBMajorVersion";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_dBMajorVersion.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_storageTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StorageType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_storageType.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -123,22 +114,6 @@ void DescribeClassesRequest::SetDBMajorVersion(const string& _dBMajorVersion)
 bool DescribeClassesRequest::DBMajorVersionHasBeenSet() const
 {
     return m_dBMajorVersionHasBeenSet;
-}
-
-string DescribeClassesRequest::GetStorageType() const
-{
-    return m_storageType;
-}
-
-void DescribeClassesRequest::SetStorageType(const string& _storageType)
-{
-    m_storageType = _storageType;
-    m_storageTypeHasBeenSet = true;
-}
-
-bool DescribeClassesRequest::StorageTypeHasBeenSet() const
-{
-    return m_storageTypeHasBeenSet;
 }
 
 

@@ -26,8 +26,7 @@ SecurityGroupSimplifyRule::SecurityGroupSimplifyRule() :
     m_protocolHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_ruleUuidHasBeenSet(false),
-    m_sequenceHasBeenSet(false),
-    m_scopeHasBeenSet(false)
+    m_sequenceHasBeenSet(false)
 {
 }
 
@@ -96,16 +95,6 @@ CoreInternalOutcome SecurityGroupSimplifyRule::Deserialize(const rapidjson::Valu
         m_sequenceHasBeenSet = true;
     }
 
-    if (value.HasMember("Scope") && !value["Scope"].IsNull())
-    {
-        if (!value["Scope"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SecurityGroupSimplifyRule.Scope` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_scope = string(value["Scope"].GetString());
-        m_scopeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -159,14 +148,6 @@ void SecurityGroupSimplifyRule::ToJsonObject(rapidjson::Value &value, rapidjson:
         string key = "Sequence";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_sequence, allocator);
-    }
-
-    if (m_scopeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Scope";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_scope.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -266,21 +247,5 @@ void SecurityGroupSimplifyRule::SetSequence(const int64_t& _sequence)
 bool SecurityGroupSimplifyRule::SequenceHasBeenSet() const
 {
     return m_sequenceHasBeenSet;
-}
-
-string SecurityGroupSimplifyRule::GetScope() const
-{
-    return m_scope;
-}
-
-void SecurityGroupSimplifyRule::SetScope(const string& _scope)
-{
-    m_scope = _scope;
-    m_scopeHasBeenSet = true;
-}
-
-bool SecurityGroupSimplifyRule::ScopeHasBeenSet() const
-{
-    return m_scopeHasBeenSet;
 }
 

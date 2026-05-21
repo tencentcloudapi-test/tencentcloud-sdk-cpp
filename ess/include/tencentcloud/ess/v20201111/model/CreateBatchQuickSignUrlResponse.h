@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>签署人签署链接信息</p>
-                     * @return FlowApproverUrlInfo <p>签署人签署链接信息</p>
+                     * 获取签署人签署链接信息
+                     * @return FlowApproverUrlInfo 签署人签署链接信息
                      * 
                      */
                     FlowApproverUrlInfo GetFlowApproverUrlInfo() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>签署人签署链接信息</p>
+                     * 签署人签署链接信息
                      */
                     FlowApproverUrlInfo m_flowApproverUrlInfo;
                     bool m_flowApproverUrlInfoHasBeenSet;

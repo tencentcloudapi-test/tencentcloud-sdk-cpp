@@ -39,10 +39,7 @@ AudioResult::AudioResult() :
     m_travelResultsHasBeenSet(false),
     m_subTagHasBeenSet(false),
     m_subTagCodeHasBeenSet(false),
-    m_hitTypeHasBeenSet(false),
-    m_sentencesHasBeenSet(false),
-    m_requestIdHasBeenSet(false),
-    m_aIGCRecognitionResultsHasBeenSet(false)
+    m_hitTypeHasBeenSet(false)
 {
 }
 
@@ -311,56 +308,6 @@ CoreInternalOutcome AudioResult::Deserialize(const rapidjson::Value &value)
         m_hitTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("Sentences") && !value["Sentences"].IsNull())
-    {
-        if (!value["Sentences"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `AudioResult.Sentences` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["Sentences"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            Sentence item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_sentences.push_back(item);
-        }
-        m_sentencesHasBeenSet = true;
-    }
-
-    if (value.HasMember("RequestId") && !value["RequestId"].IsNull())
-    {
-        if (!value["RequestId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AudioResult.RequestId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_requestId = string(value["RequestId"].GetString());
-        m_requestIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("AIGCRecognitionResults") && !value["AIGCRecognitionResults"].IsNull())
-    {
-        if (!value["AIGCRecognitionResults"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `AudioResult.AIGCRecognitionResults` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["AIGCRecognitionResults"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            AIGCRecognitionResult item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_aIGCRecognitionResults.push_back(item);
-        }
-        m_aIGCRecognitionResultsHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -567,44 +514,6 @@ void AudioResult::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "HitType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_hitType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_sentencesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Sentences";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_sentences.begin(); itr != m_sentences.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_requestIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RequestId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_requestId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_aIGCRecognitionResultsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AIGCRecognitionResults";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_aIGCRecognitionResults.begin(); itr != m_aIGCRecognitionResults.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
     }
 
 }
@@ -912,53 +821,5 @@ void AudioResult::SetHitType(const string& _hitType)
 bool AudioResult::HitTypeHasBeenSet() const
 {
     return m_hitTypeHasBeenSet;
-}
-
-vector<Sentence> AudioResult::GetSentences() const
-{
-    return m_sentences;
-}
-
-void AudioResult::SetSentences(const vector<Sentence>& _sentences)
-{
-    m_sentences = _sentences;
-    m_sentencesHasBeenSet = true;
-}
-
-bool AudioResult::SentencesHasBeenSet() const
-{
-    return m_sentencesHasBeenSet;
-}
-
-string AudioResult::GetRequestId() const
-{
-    return m_requestId;
-}
-
-void AudioResult::SetRequestId(const string& _requestId)
-{
-    m_requestId = _requestId;
-    m_requestIdHasBeenSet = true;
-}
-
-bool AudioResult::RequestIdHasBeenSet() const
-{
-    return m_requestIdHasBeenSet;
-}
-
-vector<AIGCRecognitionResult> AudioResult::GetAIGCRecognitionResults() const
-{
-    return m_aIGCRecognitionResults;
-}
-
-void AudioResult::SetAIGCRecognitionResults(const vector<AIGCRecognitionResult>& _aIGCRecognitionResults)
-{
-    m_aIGCRecognitionResults = _aIGCRecognitionResults;
-    m_aIGCRecognitionResultsHasBeenSet = true;
-}
-
-bool AudioResult::AIGCRecognitionResultsHasBeenSet() const
-{
-    return m_aIGCRecognitionResultsHasBeenSet;
 }
 

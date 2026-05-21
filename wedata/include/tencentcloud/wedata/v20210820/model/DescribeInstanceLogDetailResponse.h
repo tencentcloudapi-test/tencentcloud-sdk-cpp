@@ -45,9 +45,9 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>日志结果</p>
+                     * 获取日志结果
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Data <p>日志结果</p>
+                     * @return Data 日志结果
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -63,7 +63,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>日志结果</p>
+                     * 日志结果
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     InstanceLogInfoOpsDto m_data;

@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>生成的签署参与者的签署链接信息数组。</p>
-                     * @return SignUrlInfos <p>生成的签署参与者的签署链接信息数组。</p>
+                     * 获取生成的签署参与者的签署链接信息数组。
+                     * @return SignUrlInfos 生成的签署参与者的签署链接信息数组。
                      * 
                      */
                     std::vector<SignUrlInfo> GetSignUrlInfos() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool SignUrlInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致</p>
-                     * @return ErrorMessages <p>生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致</p>
+                     * 获取生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致
+                     * @return ErrorMessages 生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致
                      * 
                      */
                     std::vector<std::string> GetErrorMessages() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>生成的签署参与者的签署链接信息数组。</p>
+                     * 生成的签署参与者的签署链接信息数组。
                      */
                     std::vector<SignUrlInfo> m_signUrlInfos;
                     bool m_signUrlInfosHasBeenSet;
 
                     /**
-                     * <p>生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致</p>
+                     * 生成失败时的错误信息，成功返回”“，顺序和出参SignUrlInfos保持一致
                      */
                     std::vector<std::string> m_errorMessages;
                     bool m_errorMessagesHasBeenSet;

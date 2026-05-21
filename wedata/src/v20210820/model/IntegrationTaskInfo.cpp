@@ -74,12 +74,7 @@ IntegrationTaskInfo::IntegrationTaskInfo() :
     m_businessLatencyHasBeenSet(false),
     m_currentSyncPositionHasBeenSet(false),
     m_tagListHasBeenSet(false),
-    m_errorMessageHasBeenSet(false),
-    m_taskSubTypeHasBeenSet(false),
-    m_notExistsCheckPointHasBeenSet(false),
-    m_savePointIdHasBeenSet(false),
-    m_savePointPathHasBeenSet(false),
-    m_lastOperateInfoHasBeenSet(false)
+    m_errorMessageHasBeenSet(false)
 {
 }
 
@@ -708,63 +703,6 @@ CoreInternalOutcome IntegrationTaskInfo::Deserialize(const rapidjson::Value &val
         m_errorMessageHasBeenSet = true;
     }
 
-    if (value.HasMember("TaskSubType") && !value["TaskSubType"].IsNull())
-    {
-        if (!value["TaskSubType"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `IntegrationTaskInfo.TaskSubType` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_taskSubType = value["TaskSubType"].GetInt64();
-        m_taskSubTypeHasBeenSet = true;
-    }
-
-    if (value.HasMember("NotExistsCheckPoint") && !value["NotExistsCheckPoint"].IsNull())
-    {
-        if (!value["NotExistsCheckPoint"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `IntegrationTaskInfo.NotExistsCheckPoint` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_notExistsCheckPoint = value["NotExistsCheckPoint"].GetInt64();
-        m_notExistsCheckPointHasBeenSet = true;
-    }
-
-    if (value.HasMember("SavePointId") && !value["SavePointId"].IsNull())
-    {
-        if (!value["SavePointId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `IntegrationTaskInfo.SavePointId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_savePointId = string(value["SavePointId"].GetString());
-        m_savePointIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("SavePointPath") && !value["SavePointPath"].IsNull())
-    {
-        if (!value["SavePointPath"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `IntegrationTaskInfo.SavePointPath` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_savePointPath = string(value["SavePointPath"].GetString());
-        m_savePointPathHasBeenSet = true;
-    }
-
-    if (value.HasMember("LastOperateInfo") && !value["LastOperateInfo"].IsNull())
-    {
-        if (!value["LastOperateInfo"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `IntegrationTaskInfo.LastOperateInfo` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_lastOperateInfo.Deserialize(value["LastOperateInfo"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_lastOperateInfoHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -1256,47 +1194,6 @@ void IntegrationTaskInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "ErrorMessage";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_errorMessage.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_taskSubTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TaskSubType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_taskSubType, allocator);
-    }
-
-    if (m_notExistsCheckPointHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NotExistsCheckPoint";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_notExistsCheckPoint, allocator);
-    }
-
-    if (m_savePointIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SavePointId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_savePointId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_savePointPathHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SavePointPath";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_savePointPath.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_lastOperateInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LastOperateInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_lastOperateInfo.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -2164,85 +2061,5 @@ void IntegrationTaskInfo::SetErrorMessage(const string& _errorMessage)
 bool IntegrationTaskInfo::ErrorMessageHasBeenSet() const
 {
     return m_errorMessageHasBeenSet;
-}
-
-int64_t IntegrationTaskInfo::GetTaskSubType() const
-{
-    return m_taskSubType;
-}
-
-void IntegrationTaskInfo::SetTaskSubType(const int64_t& _taskSubType)
-{
-    m_taskSubType = _taskSubType;
-    m_taskSubTypeHasBeenSet = true;
-}
-
-bool IntegrationTaskInfo::TaskSubTypeHasBeenSet() const
-{
-    return m_taskSubTypeHasBeenSet;
-}
-
-int64_t IntegrationTaskInfo::GetNotExistsCheckPoint() const
-{
-    return m_notExistsCheckPoint;
-}
-
-void IntegrationTaskInfo::SetNotExistsCheckPoint(const int64_t& _notExistsCheckPoint)
-{
-    m_notExistsCheckPoint = _notExistsCheckPoint;
-    m_notExistsCheckPointHasBeenSet = true;
-}
-
-bool IntegrationTaskInfo::NotExistsCheckPointHasBeenSet() const
-{
-    return m_notExistsCheckPointHasBeenSet;
-}
-
-string IntegrationTaskInfo::GetSavePointId() const
-{
-    return m_savePointId;
-}
-
-void IntegrationTaskInfo::SetSavePointId(const string& _savePointId)
-{
-    m_savePointId = _savePointId;
-    m_savePointIdHasBeenSet = true;
-}
-
-bool IntegrationTaskInfo::SavePointIdHasBeenSet() const
-{
-    return m_savePointIdHasBeenSet;
-}
-
-string IntegrationTaskInfo::GetSavePointPath() const
-{
-    return m_savePointPath;
-}
-
-void IntegrationTaskInfo::SetSavePointPath(const string& _savePointPath)
-{
-    m_savePointPath = _savePointPath;
-    m_savePointPathHasBeenSet = true;
-}
-
-bool IntegrationTaskInfo::SavePointPathHasBeenSet() const
-{
-    return m_savePointPathHasBeenSet;
-}
-
-LastOperateInfo IntegrationTaskInfo::GetLastOperateInfo() const
-{
-    return m_lastOperateInfo;
-}
-
-void IntegrationTaskInfo::SetLastOperateInfo(const LastOperateInfo& _lastOperateInfo)
-{
-    m_lastOperateInfo = _lastOperateInfo;
-    m_lastOperateInfoHasBeenSet = true;
-}
-
-bool IntegrationTaskInfo::LastOperateInfoHasBeenSet() const
-{
-    return m_lastOperateInfoHasBeenSet;
 }
 

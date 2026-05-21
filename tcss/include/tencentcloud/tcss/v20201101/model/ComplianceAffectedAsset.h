@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>为客户分配的唯一的资产项的ID。</p>
-                     * @return CustomerAssetId <p>为客户分配的唯一的资产项的ID。</p>
+                     * 获取为客户分配的唯一的资产项的ID。
+                     * @return CustomerAssetId 为客户分配的唯一的资产项的ID。
                      * 
                      */
                     uint64_t GetCustomerAssetId() const;
 
                     /**
-                     * 设置<p>为客户分配的唯一的资产项的ID。</p>
-                     * @param _customerAssetId <p>为客户分配的唯一的资产项的ID。</p>
+                     * 设置为客户分配的唯一的资产项的ID。
+                     * @param _customerAssetId 为客户分配的唯一的资产项的ID。
                      * 
                      */
                     void SetCustomerAssetId(const uint64_t& _customerAssetId);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool CustomerAssetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>资产项的名称。</p>
-                     * @return AssetName <p>资产项的名称。</p>
+                     * 获取资产项的名称。
+                     * @return AssetName 资产项的名称。
                      * 
                      */
                     std::string GetAssetName() const;
 
                     /**
-                     * 设置<p>资产项的名称。</p>
-                     * @param _assetName <p>资产项的名称。</p>
+                     * 设置资产项的名称。
+                     * @param _assetName 资产项的名称。
                      * 
                      */
                     void SetAssetName(const std::string& _assetName);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool AssetNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>资产项的类型</p>
-                     * @return AssetType <p>资产项的类型</p>
+                     * 获取资产项的类型
+                     * @return AssetType 资产项的类型
                      * 
                      */
                     std::string GetAssetType() const;
 
                     /**
-                     * 设置<p>资产项的类型</p>
-                     * @param _assetType <p>资产项的类型</p>
+                     * 设置资产项的类型
+                     * @param _assetType 资产项的类型
                      * 
                      */
                     void SetAssetType(const std::string& _assetType);
@@ -111,15 +111,47 @@ namespace TencentCloud
                     bool AssetTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>检测状态</p><p>CHECK_INIT, 待检测</p><p>CHECK_RUNNING, 检测中</p><p>CHECK_FINISHED, 检测完成</p><p>CHECK_FAILED, 检测失败</p>
-                     * @return CheckStatus <p>检测状态</p><p>CHECK_INIT, 待检测</p><p>CHECK_RUNNING, 检测中</p><p>CHECK_FINISHED, 检测完成</p><p>CHECK_FAILED, 检测失败</p>
+                     * 获取检测状态
+
+CHECK_INIT, 待检测
+
+CHECK_RUNNING, 检测中
+
+CHECK_FINISHED, 检测完成
+
+CHECK_FAILED, 检测失败
+                     * @return CheckStatus 检测状态
+
+CHECK_INIT, 待检测
+
+CHECK_RUNNING, 检测中
+
+CHECK_FINISHED, 检测完成
+
+CHECK_FAILED, 检测失败
                      * 
                      */
                     std::string GetCheckStatus() const;
 
                     /**
-                     * 设置<p>检测状态</p><p>CHECK_INIT, 待检测</p><p>CHECK_RUNNING, 检测中</p><p>CHECK_FINISHED, 检测完成</p><p>CHECK_FAILED, 检测失败</p>
-                     * @param _checkStatus <p>检测状态</p><p>CHECK_INIT, 待检测</p><p>CHECK_RUNNING, 检测中</p><p>CHECK_FINISHED, 检测完成</p><p>CHECK_FAILED, 检测失败</p>
+                     * 设置检测状态
+
+CHECK_INIT, 待检测
+
+CHECK_RUNNING, 检测中
+
+CHECK_FINISHED, 检测完成
+
+CHECK_FAILED, 检测失败
+                     * @param _checkStatus 检测状态
+
+CHECK_INIT, 待检测
+
+CHECK_RUNNING, 检测中
+
+CHECK_FINISHED, 检测完成
+
+CHECK_FAILED, 检测失败
                      * 
                      */
                     void SetCheckStatus(const std::string& _checkStatus);
@@ -132,15 +164,15 @@ namespace TencentCloud
                     bool CheckStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点名称。</p>
-                     * @return NodeName <p>节点名称。</p>
+                     * 获取节点名称。
+                     * @return NodeName 节点名称。
                      * 
                      */
                     std::string GetNodeName() const;
 
                     /**
-                     * 设置<p>节点名称。</p>
-                     * @param _nodeName <p>节点名称。</p>
+                     * 设置节点名称。
+                     * @param _nodeName 节点名称。
                      * 
                      */
                     void SetNodeName(const std::string& _nodeName);
@@ -153,15 +185,23 @@ namespace TencentCloud
                     bool NodeNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。</p><p>如果没有检测过，此处为”0000-00-00 00:00:00“。</p>
-                     * @return LastCheckTime <p>上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。</p><p>如果没有检测过，此处为”0000-00-00 00:00:00“。</p>
+                     * 获取上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。
+
+如果没有检测过，此处为”0000-00-00 00:00:00“。
+                     * @return LastCheckTime 上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。
+
+如果没有检测过，此处为”0000-00-00 00:00:00“。
                      * 
                      */
                     std::string GetLastCheckTime() const;
 
                     /**
-                     * 设置<p>上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。</p><p>如果没有检测过，此处为”0000-00-00 00:00:00“。</p>
-                     * @param _lastCheckTime <p>上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。</p><p>如果没有检测过，此处为”0000-00-00 00:00:00“。</p>
+                     * 设置上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。
+
+如果没有检测过，此处为”0000-00-00 00:00:00“。
+                     * @param _lastCheckTime 上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。
+
+如果没有检测过，此处为”0000-00-00 00:00:00“。
                      * 
                      */
                     void SetLastCheckTime(const std::string& _lastCheckTime);
@@ -174,15 +214,31 @@ namespace TencentCloud
                     bool LastCheckTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>检测结果。取值为：</p><p>RESULT_FAILED: 未通过</p><p>RESULT_PASSED: 通过</p>
-                     * @return CheckResult <p>检测结果。取值为：</p><p>RESULT_FAILED: 未通过</p><p>RESULT_PASSED: 通过</p>
+                     * 获取检测结果。取值为：
+
+RESULT_FAILED: 未通过
+
+RESULT_PASSED: 通过
+                     * @return CheckResult 检测结果。取值为：
+
+RESULT_FAILED: 未通过
+
+RESULT_PASSED: 通过
                      * 
                      */
                     std::string GetCheckResult() const;
 
                     /**
-                     * 设置<p>检测结果。取值为：</p><p>RESULT_FAILED: 未通过</p><p>RESULT_PASSED: 通过</p>
-                     * @param _checkResult <p>检测结果。取值为：</p><p>RESULT_FAILED: 未通过</p><p>RESULT_PASSED: 通过</p>
+                     * 设置检测结果。取值为：
+
+RESULT_FAILED: 未通过
+
+RESULT_PASSED: 通过
+                     * @param _checkResult 检测结果。取值为：
+
+RESULT_FAILED: 未通过
+
+RESULT_PASSED: 通过
                      * 
                      */
                     void SetCheckResult(const std::string& _checkResult);
@@ -195,15 +251,15 @@ namespace TencentCloud
                     bool CheckResultHasBeenSet() const;
 
                     /**
-                     * 获取<p>主机IP</p>
-                     * @return HostIP <p>主机IP</p>
+                     * 获取主机IP
+                     * @return HostIP 主机IP
                      * 
                      */
                     std::string GetHostIP() const;
 
                     /**
-                     * 设置<p>主机IP</p>
-                     * @param _hostIP <p>主机IP</p>
+                     * 设置主机IP
+                     * @param _hostIP 主机IP
                      * 
                      */
                     void SetHostIP(const std::string& _hostIP);
@@ -216,15 +272,15 @@ namespace TencentCloud
                     bool HostIPHasBeenSet() const;
 
                     /**
-                     * 获取<p>镜像的tag</p>
-                     * @return ImageTag <p>镜像的tag</p>
+                     * 获取镜像的tag
+                     * @return ImageTag 镜像的tag
                      * 
                      */
                     std::string GetImageTag() const;
 
                     /**
-                     * 设置<p>镜像的tag</p>
-                     * @param _imageTag <p>镜像的tag</p>
+                     * 设置镜像的tag
+                     * @param _imageTag 镜像的tag
                      * 
                      */
                     void SetImageTag(const std::string& _imageTag);
@@ -237,15 +293,15 @@ namespace TencentCloud
                     bool ImageTagHasBeenSet() const;
 
                     /**
-                     * 获取<p>检查项验证信息</p>
-                     * @return VerifyInfo <p>检查项验证信息</p>
+                     * 获取检查项验证信息
+                     * @return VerifyInfo 检查项验证信息
                      * 
                      */
                     std::string GetVerifyInfo() const;
 
                     /**
-                     * 设置<p>检查项验证信息</p>
-                     * @param _verifyInfo <p>检查项验证信息</p>
+                     * 设置检查项验证信息
+                     * @param _verifyInfo 检查项验证信息
                      * 
                      */
                     void SetVerifyInfo(const std::string& _verifyInfo);
@@ -258,15 +314,15 @@ namespace TencentCloud
                     bool VerifyInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>主机实例id</p>
-                     * @return InstanceId <p>主机实例id</p>
+                     * 获取主机实例id
+                     * @return InstanceId 主机实例id
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>主机实例id</p>
-                     * @param _instanceId <p>主机实例id</p>
+                     * 设置主机实例id
+                     * @param _instanceId 主机实例id
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -279,15 +335,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>镜像仓库信息</p>
-                     * @return ImageRegistryInfo <p>镜像仓库信息</p>
+                     * 获取镜像仓库信息
+                     * @return ImageRegistryInfo 镜像仓库信息
                      * 
                      */
                     ImageRegistryInfo GetImageRegistryInfo() const;
 
                     /**
-                     * 设置<p>镜像仓库信息</p>
-                     * @param _imageRegistryInfo <p>镜像仓库信息</p>
+                     * 设置镜像仓库信息
+                     * @param _imageRegistryInfo 镜像仓库信息
                      * 
                      */
                     void SetImageRegistryInfo(const ImageRegistryInfo& _imageRegistryInfo);
@@ -300,15 +356,15 @@ namespace TencentCloud
                     bool ImageRegistryInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群id</p>
-                     * @return ClusterID <p>集群id</p>
+                     * 获取集群id
+                     * @return ClusterID 集群id
                      * 
                      */
                     std::string GetClusterID() const;
 
                     /**
-                     * 设置<p>集群id</p>
-                     * @param _clusterID <p>集群id</p>
+                     * 设置集群id
+                     * @param _clusterID 集群id
                      * 
                      */
                     void SetClusterID(const std::string& _clusterID);
@@ -321,15 +377,15 @@ namespace TencentCloud
                     bool ClusterIDHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群名称</p>
-                     * @return ClusterName <p>集群名称</p>
+                     * 获取集群名称
+                     * @return ClusterName 集群名称
                      * 
                      */
                     std::string GetClusterName() const;
 
                     /**
-                     * 设置<p>集群名称</p>
-                     * @param _clusterName <p>集群名称</p>
+                     * 设置集群名称
+                     * @param _clusterName 集群名称
                      * 
                      */
                     void SetClusterName(const std::string& _clusterName);
@@ -341,118 +397,105 @@ namespace TencentCloud
                      */
                     bool ClusterNameHasBeenSet() const;
 
-                    /**
-                     * 获取<p>资产唯一ID</p><p>默认值：-</p>
-                     * @return AssetUniqueID <p>资产唯一ID</p><p>默认值：-</p>
-                     * 
-                     */
-                    std::string GetAssetUniqueID() const;
-
-                    /**
-                     * 设置<p>资产唯一ID</p><p>默认值：-</p>
-                     * @param _assetUniqueID <p>资产唯一ID</p><p>默认值：-</p>
-                     * 
-                     */
-                    void SetAssetUniqueID(const std::string& _assetUniqueID);
-
-                    /**
-                     * 判断参数 AssetUniqueID 是否已赋值
-                     * @return AssetUniqueID 是否已赋值
-                     * 
-                     */
-                    bool AssetUniqueIDHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>为客户分配的唯一的资产项的ID。</p>
+                     * 为客户分配的唯一的资产项的ID。
                      */
                     uint64_t m_customerAssetId;
                     bool m_customerAssetIdHasBeenSet;
 
                     /**
-                     * <p>资产项的名称。</p>
+                     * 资产项的名称。
                      */
                     std::string m_assetName;
                     bool m_assetNameHasBeenSet;
 
                     /**
-                     * <p>资产项的类型</p>
+                     * 资产项的类型
                      */
                     std::string m_assetType;
                     bool m_assetTypeHasBeenSet;
 
                     /**
-                     * <p>检测状态</p><p>CHECK_INIT, 待检测</p><p>CHECK_RUNNING, 检测中</p><p>CHECK_FINISHED, 检测完成</p><p>CHECK_FAILED, 检测失败</p>
+                     * 检测状态
+
+CHECK_INIT, 待检测
+
+CHECK_RUNNING, 检测中
+
+CHECK_FINISHED, 检测完成
+
+CHECK_FAILED, 检测失败
                      */
                     std::string m_checkStatus;
                     bool m_checkStatusHasBeenSet;
 
                     /**
-                     * <p>节点名称。</p>
+                     * 节点名称。
                      */
                     std::string m_nodeName;
                     bool m_nodeNameHasBeenSet;
 
                     /**
-                     * <p>上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。</p><p>如果没有检测过，此处为”0000-00-00 00:00:00“。</p>
+                     * 上次检测的时间，格式为”YYYY-MM-DD HH:m::SS“。
+
+如果没有检测过，此处为”0000-00-00 00:00:00“。
                      */
                     std::string m_lastCheckTime;
                     bool m_lastCheckTimeHasBeenSet;
 
                     /**
-                     * <p>检测结果。取值为：</p><p>RESULT_FAILED: 未通过</p><p>RESULT_PASSED: 通过</p>
+                     * 检测结果。取值为：
+
+RESULT_FAILED: 未通过
+
+RESULT_PASSED: 通过
                      */
                     std::string m_checkResult;
                     bool m_checkResultHasBeenSet;
 
                     /**
-                     * <p>主机IP</p>
+                     * 主机IP
                      */
                     std::string m_hostIP;
                     bool m_hostIPHasBeenSet;
 
                     /**
-                     * <p>镜像的tag</p>
+                     * 镜像的tag
                      */
                     std::string m_imageTag;
                     bool m_imageTagHasBeenSet;
 
                     /**
-                     * <p>检查项验证信息</p>
+                     * 检查项验证信息
                      */
                     std::string m_verifyInfo;
                     bool m_verifyInfoHasBeenSet;
 
                     /**
-                     * <p>主机实例id</p>
+                     * 主机实例id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>镜像仓库信息</p>
+                     * 镜像仓库信息
                      */
                     ImageRegistryInfo m_imageRegistryInfo;
                     bool m_imageRegistryInfoHasBeenSet;
 
                     /**
-                     * <p>集群id</p>
+                     * 集群id
                      */
                     std::string m_clusterID;
                     bool m_clusterIDHasBeenSet;
 
                     /**
-                     * <p>集群名称</p>
+                     * 集群名称
                      */
                     std::string m_clusterName;
                     bool m_clusterNameHasBeenSet;
-
-                    /**
-                     * <p>资产唯一ID</p><p>默认值：-</p>
-                     */
-                    std::string m_assetUniqueID;
-                    bool m_assetUniqueIDHasBeenSet;
 
                 };
             }

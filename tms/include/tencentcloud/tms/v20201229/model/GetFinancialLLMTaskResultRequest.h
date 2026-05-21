@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取该值对应创建任务接口里返回的TaskId字段值，创建任务接口见[创建金融大模型审校任务](https://cloud.tencent.com/document/product/1124/124463)。
-                     * @return TaskId 该值对应创建任务接口里返回的TaskId字段值，创建任务接口见[创建金融大模型审校任务](https://cloud.tencent.com/document/product/1124/124463)。
+                     * 获取金融大模型审校任务ID
+                     * @return TaskId 金融大模型审校任务ID
                      * 
                      */
                     std::string GetTaskId() const;
 
                     /**
-                     * 设置该值对应创建任务接口里返回的TaskId字段值，创建任务接口见[创建金融大模型审校任务](https://cloud.tencent.com/document/product/1124/124463)。
-                     * @param _taskId 该值对应创建任务接口里返回的TaskId字段值，创建任务接口见[创建金融大模型审校任务](https://cloud.tencent.com/document/product/1124/124463)。
+                     * 设置金融大模型审校任务ID
+                     * @param _taskId 金融大模型审校任务ID
                      * 
                      */
                     void SetTaskId(const std::string& _taskId);
@@ -66,7 +66,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 该值对应创建任务接口里返回的TaskId字段值，创建任务接口见[创建金融大模型审校任务](https://cloud.tencent.com/document/product/1124/124463)。
+                     * 金融大模型审校任务ID
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;

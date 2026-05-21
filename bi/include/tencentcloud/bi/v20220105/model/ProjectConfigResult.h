@@ -72,54 +72,18 @@ namespace TencentCloud
                     bool ModuleIdHasBeenSet() const;
 
                     /**
-                     * 获取配置方式。
-取值范围：
-
-- usable：可用
-- visible：可见
-- disabled：不可用
-- hidden：隐藏
-
-默认值：disabled
-示例值：disabled
+                     * 获取配置方式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IncludeType 配置方式。
-取值范围：
-
-- usable：可用
-- visible：可见
-- disabled：不可用
-- hidden：隐藏
-
-默认值：disabled
-示例值：disabled
+                     * @return IncludeType 配置方式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIncludeType() const;
 
                     /**
-                     * 设置配置方式。
-取值范围：
-
-- usable：可用
-- visible：可见
-- disabled：不可用
-- hidden：隐藏
-
-默认值：disabled
-示例值：disabled
+                     * 设置配置方式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _includeType 配置方式。
-取值范围：
-
-- usable：可用
-- visible：可见
-- disabled：不可用
-- hidden：隐藏
-
-默认值：disabled
-示例值：disabled
+                     * @param _includeType 配置方式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -167,16 +131,7 @@ namespace TencentCloud
                     bool m_moduleIdHasBeenSet;
 
                     /**
-                     * 配置方式。
-取值范围：
-
-- usable：可用
-- visible：可见
-- disabled：不可用
-- hidden：隐藏
-
-默认值：disabled
-示例值：disabled
+                     * 配置方式
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_includeType;

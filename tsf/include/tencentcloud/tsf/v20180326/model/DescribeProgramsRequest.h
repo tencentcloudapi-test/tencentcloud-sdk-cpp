@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/tsf/v20180326/model/SearchFiltersProgram.h>
 
 
 namespace TencentCloud
@@ -44,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>模糊查询数据集ID，数据集名称，不传入时查询全量</p>
-                     * @return SearchWord <p>模糊查询数据集ID，数据集名称，不传入时查询全量</p>
+                     * 获取模糊查询数据集ID，数据集名称，不传入时查询全量
+                     * @return SearchWord 模糊查询数据集ID，数据集名称，不传入时查询全量
                      * 
                      */
                     std::string GetSearchWord() const;
 
                     /**
-                     * 设置<p>模糊查询数据集ID，数据集名称，不传入时查询全量</p>
-                     * @param _searchWord <p>模糊查询数据集ID，数据集名称，不传入时查询全量</p>
+                     * 设置模糊查询数据集ID，数据集名称，不传入时查询全量
+                     * @param _searchWord 模糊查询数据集ID，数据集名称，不传入时查询全量
                      * 
                      */
                     void SetSearchWord(const std::string& _searchWord);
@@ -65,15 +64,15 @@ namespace TencentCloud
                     bool SearchWordHasBeenSet() const;
 
                     /**
-                     * 获取<p>每页数量，默认值20</p>
-                     * @return Limit <p>每页数量，默认值20</p>
+                     * 获取每页数量，默认值20
+                     * @return Limit 每页数量，默认值20
                      * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置<p>每页数量，默认值20</p>
-                     * @param _limit <p>每页数量，默认值20</p>
+                     * 设置每页数量，默认值20
+                     * @param _limit 每页数量，默认值20
                      * 
                      */
                     void SetLimit(const int64_t& _limit);
@@ -86,15 +85,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>起始偏移量，默认值0</p>
-                     * @return Offset <p>起始偏移量，默认值0</p>
+                     * 获取起始偏移量，默认值0
+                     * @return Offset 起始偏移量，默认值0
                      * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置<p>起始偏移量，默认值0</p>
-                     * @param _offset <p>起始偏移量，默认值0</p>
+                     * 设置起始偏移量，默认值0
+                     * @param _offset 起始偏移量，默认值0
                      * 
                      */
                     void SetOffset(const int64_t& _offset);
@@ -106,52 +105,25 @@ namespace TencentCloud
                      */
                     bool OffsetHasBeenSet() const;
 
-                    /**
-                     * 获取<p>模糊查询，传递模糊查询字段和对应的值</p>
-                     * @return SearchFilters <p>模糊查询，传递模糊查询字段和对应的值</p>
-                     * 
-                     */
-                    SearchFiltersProgram GetSearchFilters() const;
-
-                    /**
-                     * 设置<p>模糊查询，传递模糊查询字段和对应的值</p>
-                     * @param _searchFilters <p>模糊查询，传递模糊查询字段和对应的值</p>
-                     * 
-                     */
-                    void SetSearchFilters(const SearchFiltersProgram& _searchFilters);
-
-                    /**
-                     * 判断参数 SearchFilters 是否已赋值
-                     * @return SearchFilters 是否已赋值
-                     * 
-                     */
-                    bool SearchFiltersHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>模糊查询数据集ID，数据集名称，不传入时查询全量</p>
+                     * 模糊查询数据集ID，数据集名称，不传入时查询全量
                      */
                     std::string m_searchWord;
                     bool m_searchWordHasBeenSet;
 
                     /**
-                     * <p>每页数量，默认值20</p>
+                     * 每页数量，默认值20
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>起始偏移量，默认值0</p>
+                     * 起始偏移量，默认值0
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
-
-                    /**
-                     * <p>模糊查询，传递模糊查询字段和对应的值</p>
-                     */
-                    SearchFiltersProgram m_searchFilters;
-                    bool m_searchFiltersHasBeenSet;
 
                 };
             }

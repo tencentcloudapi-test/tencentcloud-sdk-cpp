@@ -22,8 +22,7 @@
 using namespace TencentCloud::Chdfs::V20201112::Model;
 using namespace std;
 
-DescribeFileSystemsRequest::DescribeFileSystemsRequest() :
-    m_fileSystemIdMarkerHasBeenSet(false)
+DescribeFileSystemsRequest::DescribeFileSystemsRequest()
 {
 }
 
@@ -34,14 +33,6 @@ string DescribeFileSystemsRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_fileSystemIdMarkerHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FileSystemIdMarker";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_fileSystemIdMarker.c_str(), allocator).Move(), allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -49,21 +40,5 @@ string DescribeFileSystemsRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-string DescribeFileSystemsRequest::GetFileSystemIdMarker() const
-{
-    return m_fileSystemIdMarker;
-}
-
-void DescribeFileSystemsRequest::SetFileSystemIdMarker(const string& _fileSystemIdMarker)
-{
-    m_fileSystemIdMarker = _fileSystemIdMarker;
-    m_fileSystemIdMarkerHasBeenSet = true;
-}
-
-bool DescribeFileSystemsRequest::FileSystemIdMarkerHasBeenSet() const
-{
-    return m_fileSystemIdMarkerHasBeenSet;
-}
 
 

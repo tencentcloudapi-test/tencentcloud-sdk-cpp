@@ -47,15 +47,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>组织机构名称。<br>请确认该名称与企业营业执照中注册的名称一致。<br>如果名称中包含英文括号()，请使用中文括号（）代替。</p>
-                     * @return OrganizationName <p>组织机构名称。<br>请确认该名称与企业营业执照中注册的名称一致。<br>如果名称中包含英文括号()，请使用中文括号（）代替。</p>
+                     * 获取组织机构名称。
+请确认该名称与企业营业执照中注册的名称一致。
+如果名称中包含英文括号()，请使用中文括号（）代替。
+                     * @return OrganizationName 组织机构名称。
+请确认该名称与企业营业执照中注册的名称一致。
+如果名称中包含英文括号()，请使用中文括号（）代替。
                      * 
                      */
                     std::string GetOrganizationName() const;
 
                     /**
-                     * 设置<p>组织机构名称。<br>请确认该名称与企业营业执照中注册的名称一致。<br>如果名称中包含英文括号()，请使用中文括号（）代替。</p>
-                     * @param _organizationName <p>组织机构名称。<br>请确认该名称与企业营业执照中注册的名称一致。<br>如果名称中包含英文括号()，请使用中文括号（）代替。</p>
+                     * 设置组织机构名称。
+请确认该名称与企业营业执照中注册的名称一致。
+如果名称中包含英文括号()，请使用中文括号（）代替。
+                     * @param _organizationName 组织机构名称。
+请确认该名称与企业营业执照中注册的名称一致。
+如果名称中包含英文括号()，请使用中文括号（）代替。
                      * 
                      */
                     void SetOrganizationName(const std::string& _organizationName);
@@ -68,15 +76,19 @@ namespace TencentCloud
                     bool OrganizationNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构企业统一社会信用代码。<br>请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。</p>
-                     * @return UniformSocialCreditCode <p>组织机构企业统一社会信用代码。<br>请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。</p>
+                     * 获取组织机构企业统一社会信用代码。
+请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。
+                     * @return UniformSocialCreditCode 组织机构企业统一社会信用代码。
+请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。
                      * 
                      */
                     std::string GetUniformSocialCreditCode() const;
 
                     /**
-                     * 设置<p>组织机构企业统一社会信用代码。<br>请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。</p>
-                     * @param _uniformSocialCreditCode <p>组织机构企业统一社会信用代码。<br>请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。</p>
+                     * 设置组织机构企业统一社会信用代码。
+请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。
+                     * @param _uniformSocialCreditCode 组织机构企业统一社会信用代码。
+请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。
                      * 
                      */
                     void SetUniformSocialCreditCode(const std::string& _uniformSocialCreditCode);
@@ -89,15 +101,19 @@ namespace TencentCloud
                     bool UniformSocialCreditCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构法人的姓名。<br>请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。</p>
-                     * @return LegalName <p>组织机构法人的姓名。<br>请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。</p>
+                     * 获取组织机构法人的姓名。
+请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。
+                     * @return LegalName 组织机构法人的姓名。
+请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。
                      * 
                      */
                     std::string GetLegalName() const;
 
                     /**
-                     * 设置<p>组织机构法人的姓名。<br>请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。</p>
-                     * @param _legalName <p>组织机构法人的姓名。<br>请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。</p>
+                     * 设置组织机构法人的姓名。
+请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。
+                     * @param _legalName 组织机构法人的姓名。
+请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。
                      * 
                      */
                     void SetLegalName(const std::string& _legalName);
@@ -110,15 +126,15 @@ namespace TencentCloud
                     bool LegalNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构法人的证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
-                     * @return LegalIdCardType <p>组织机构法人的证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 获取组织机构法人的证件类型
+                     * @return LegalIdCardType 组织机构法人的证件类型
                      * 
                      */
                     std::string GetLegalIdCardType() const;
 
                     /**
-                     * 设置<p>组织机构法人的证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
-                     * @param _legalIdCardType <p>组织机构法人的证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 设置组织机构法人的证件类型
+                     * @param _legalIdCardType 组织机构法人的证件类型
                      * 
                      */
                     void SetLegalIdCardType(const std::string& _legalIdCardType);
@@ -131,15 +147,15 @@ namespace TencentCloud
                     bool LegalIdCardTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构法人的证件号码</p>
-                     * @return LegalIdCardNumber <p>组织机构法人的证件号码</p>
+                     * 获取组织机构法人的证件号码
+                     * @return LegalIdCardNumber 组织机构法人的证件号码
                      * 
                      */
                     std::string GetLegalIdCardNumber() const;
 
                     /**
-                     * 设置<p>组织机构法人的证件号码</p>
-                     * @param _legalIdCardNumber <p>组织机构法人的证件号码</p>
+                     * 设置组织机构法人的证件号码
+                     * @param _legalIdCardNumber 组织机构法人的证件号码
                      * 
                      */
                     void SetLegalIdCardNumber(const std::string& _legalIdCardNumber);
@@ -152,15 +168,19 @@ namespace TencentCloud
                     bool LegalIdCardNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构超管姓名。</p>
-                     * @return AdminName <p>组织机构超管姓名。</p>
+                     * 获取组织机构超管姓名。
+
+                     * @return AdminName 组织机构超管姓名。
+
                      * 
                      */
                     std::string GetAdminName() const;
 
                     /**
-                     * 设置<p>组织机构超管姓名。</p>
-                     * @param _adminName <p>组织机构超管姓名。</p>
+                     * 设置组织机构超管姓名。
+
+                     * @param _adminName 组织机构超管姓名。
+
                      * 
                      */
                     void SetAdminName(const std::string& _adminName);
@@ -173,15 +193,19 @@ namespace TencentCloud
                     bool AdminNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构超管手机号。</p>
-                     * @return AdminMobile <p>组织机构超管手机号。</p>
+                     * 获取组织机构超管手机号。
+
+                     * @return AdminMobile 组织机构超管手机号。
+
                      * 
                      */
                     std::string GetAdminMobile() const;
 
                     /**
-                     * 设置<p>组织机构超管手机号。</p>
-                     * @param _adminMobile <p>组织机构超管手机号。</p>
+                     * 设置组织机构超管手机号。
+
+                     * @param _adminMobile 组织机构超管手机号。
+
                      * 
                      */
                     void SetAdminMobile(const std::string& _adminMobile);
@@ -194,15 +218,19 @@ namespace TencentCloud
                     bool AdminMobileHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
-                     * @return AdminIdCardType <p>组织机构超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 获取组织机构超管证件类型
+
+                     * @return AdminIdCardType 组织机构超管证件类型
+
                      * 
                      */
                     std::string GetAdminIdCardType() const;
 
                     /**
-                     * 设置<p>组织机构超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
-                     * @param _adminIdCardType <p>组织机构超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 设置组织机构超管证件类型
+
+                     * @param _adminIdCardType 组织机构超管证件类型
+
                      * 
                      */
                     void SetAdminIdCardType(const std::string& _adminIdCardType);
@@ -215,15 +243,19 @@ namespace TencentCloud
                     bool AdminIdCardTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>组织机构超管证件号码</p>
-                     * @return AdminIdCardNumber <p>组织机构超管证件号码</p>
+                     * 获取组织机构超管证件号码
+
+                     * @return AdminIdCardNumber 组织机构超管证件号码
+
                      * 
                      */
                     std::string GetAdminIdCardNumber() const;
 
                     /**
-                     * 设置<p>组织机构超管证件号码</p>
-                     * @param _adminIdCardNumber <p>组织机构超管证件号码</p>
+                     * 设置组织机构超管证件号码
+
+                     * @param _adminIdCardNumber 组织机构超管证件号码
+
                      * 
                      */
                     void SetAdminIdCardNumber(const std::string& _adminIdCardNumber);
@@ -236,15 +268,15 @@ namespace TencentCloud
                     bool AdminIdCardNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>原超管姓名</p>
-                     * @return OldAdminName <p>原超管姓名</p>
+                     * 获取原超管姓名
+                     * @return OldAdminName 原超管姓名
                      * 
                      */
                     std::string GetOldAdminName() const;
 
                     /**
-                     * 设置<p>原超管姓名</p>
-                     * @param _oldAdminName <p>原超管姓名</p>
+                     * 设置原超管姓名
+                     * @param _oldAdminName 原超管姓名
                      * 
                      */
                     void SetOldAdminName(const std::string& _oldAdminName);
@@ -257,15 +289,15 @@ namespace TencentCloud
                     bool OldAdminNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>原超管手机号</p>
-                     * @return OldAdminMobile <p>原超管手机号</p>
+                     * 获取原超管手机号
+                     * @return OldAdminMobile 原超管手机号
                      * 
                      */
                     std::string GetOldAdminMobile() const;
 
                     /**
-                     * 设置<p>原超管手机号</p>
-                     * @param _oldAdminMobile <p>原超管手机号</p>
+                     * 设置原超管手机号
+                     * @param _oldAdminMobile 原超管手机号
                      * 
                      */
                     void SetOldAdminMobile(const std::string& _oldAdminMobile);
@@ -278,15 +310,15 @@ namespace TencentCloud
                     bool OldAdminMobileHasBeenSet() const;
 
                     /**
-                     * 获取<p>原超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
-                     * @return OldAdminIdCardType <p>原超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 获取原超管证件类型
+                     * @return OldAdminIdCardType 原超管证件类型
                      * 
                      */
                     std::string GetOldAdminIdCardType() const;
 
                     /**
-                     * 设置<p>原超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
-                     * @param _oldAdminIdCardType <p>原超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 设置原超管证件类型
+                     * @param _oldAdminIdCardType 原超管证件类型
                      * 
                      */
                     void SetOldAdminIdCardType(const std::string& _oldAdminIdCardType);
@@ -299,15 +331,15 @@ namespace TencentCloud
                     bool OldAdminIdCardTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>原超管证件号码</p>
-                     * @return OldAdminIdCardNumber <p>原超管证件号码</p>
+                     * 获取原超管证件号码
+                     * @return OldAdminIdCardNumber 原超管证件号码
                      * 
                      */
                     std::string GetOldAdminIdCardNumber() const;
 
                     /**
-                     * 设置<p>原超管证件号码</p>
-                     * @param _oldAdminIdCardNumber <p>原超管证件号码</p>
+                     * 设置原超管证件号码
+                     * @param _oldAdminIdCardNumber 原超管证件号码
                      * 
                      */
                     void SetOldAdminIdCardNumber(const std::string& _oldAdminIdCardNumber);
@@ -322,79 +354,87 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>组织机构名称。<br>请确认该名称与企业营业执照中注册的名称一致。<br>如果名称中包含英文括号()，请使用中文括号（）代替。</p>
+                     * 组织机构名称。
+请确认该名称与企业营业执照中注册的名称一致。
+如果名称中包含英文括号()，请使用中文括号（）代替。
                      */
                     std::string m_organizationName;
                     bool m_organizationNameHasBeenSet;
 
                     /**
-                     * <p>组织机构企业统一社会信用代码。<br>请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。</p>
+                     * 组织机构企业统一社会信用代码。
+请确认该企业统一社会信用代码与企业营业执照中注册的统一社会信用代码一致。
                      */
                     std::string m_uniformSocialCreditCode;
                     bool m_uniformSocialCreditCodeHasBeenSet;
 
                     /**
-                     * <p>组织机构法人的姓名。<br>请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。</p>
+                     * 组织机构法人的姓名。
+请确认该企业统一社会信用代码与企业营业执照中注册的法人姓名一致。
                      */
                     std::string m_legalName;
                     bool m_legalNameHasBeenSet;
 
                     /**
-                     * <p>组织机构法人的证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 组织机构法人的证件类型
                      */
                     std::string m_legalIdCardType;
                     bool m_legalIdCardTypeHasBeenSet;
 
                     /**
-                     * <p>组织机构法人的证件号码</p>
+                     * 组织机构法人的证件号码
                      */
                     std::string m_legalIdCardNumber;
                     bool m_legalIdCardNumberHasBeenSet;
 
                     /**
-                     * <p>组织机构超管姓名。</p>
+                     * 组织机构超管姓名。
+
                      */
                     std::string m_adminName;
                     bool m_adminNameHasBeenSet;
 
                     /**
-                     * <p>组织机构超管手机号。</p>
+                     * 组织机构超管手机号。
+
                      */
                     std::string m_adminMobile;
                     bool m_adminMobileHasBeenSet;
 
                     /**
-                     * <p>组织机构超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 组织机构超管证件类型
+
                      */
                     std::string m_adminIdCardType;
                     bool m_adminIdCardTypeHasBeenSet;
 
                     /**
-                     * <p>组织机构超管证件号码</p>
+                     * 组织机构超管证件号码
+
                      */
                     std::string m_adminIdCardNumber;
                     bool m_adminIdCardNumberHasBeenSet;
 
                     /**
-                     * <p>原超管姓名</p>
+                     * 原超管姓名
                      */
                     std::string m_oldAdminName;
                     bool m_oldAdminNameHasBeenSet;
 
                     /**
-                     * <p>原超管手机号</p>
+                     * 原超管手机号
                      */
                     std::string m_oldAdminMobile;
                     bool m_oldAdminMobileHasBeenSet;
 
                     /**
-                     * <p>原超管证件类型</p><p>枚举值：</p><ul><li>居民身份证： 中国大陆居民身份证</li></ul>
+                     * 原超管证件类型
                      */
                     std::string m_oldAdminIdCardType;
                     bool m_oldAdminIdCardTypeHasBeenSet;
 
                     /**
-                     * <p>原超管证件号码</p>
+                     * 原超管证件号码
                      */
                     std::string m_oldAdminIdCardNumber;
                     bool m_oldAdminIdCardNumberHasBeenSet;

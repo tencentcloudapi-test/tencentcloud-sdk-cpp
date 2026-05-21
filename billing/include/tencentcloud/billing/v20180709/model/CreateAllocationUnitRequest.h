@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>新增分账单元父节点ID</p>
-                     * @return ParentId <p>新增分账单元父节点ID</p>
+                     * 获取新增分账单元父节点ID
+                     * @return ParentId 新增分账单元父节点ID
                      * 
                      */
                     uint64_t GetParentId() const;
 
                     /**
-                     * 设置<p>新增分账单元父节点ID</p>
-                     * @param _parentId <p>新增分账单元父节点ID</p>
+                     * 设置新增分账单元父节点ID
+                     * @param _parentId 新增分账单元父节点ID
                      * 
                      */
                     void SetParentId(const uint64_t& _parentId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ParentIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>新增分账单元名称</p>
-                     * @return Name <p>新增分账单元名称</p>
+                     * 获取新增分账单元名称
+                     * @return Name 新增分账单元名称
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>新增分账单元名称</p>
-                     * @param _name <p>新增分账单元名称</p>
+                     * 设置新增分账单元名称
+                     * @param _name 新增分账单元名称
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>月份，不传默认当前月</p>
-                     * @return Month <p>月份，不传默认当前月</p>
+                     * 获取月份，不传默认当前月
+                     * @return Month 月份，不传默认当前月
                      * 
                      */
                     std::string GetMonth() const;
 
                     /**
-                     * 设置<p>月份，不传默认当前月</p>
-                     * @param _month <p>月份，不传默认当前月</p>
+                     * 设置月份，不传默认当前月
+                     * @param _month 月份，不传默认当前月
                      * 
                      */
                     void SetMonth(const std::string& _month);
@@ -108,19 +108,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>新增分账单元父节点ID</p>
+                     * 新增分账单元父节点ID
                      */
                     uint64_t m_parentId;
                     bool m_parentIdHasBeenSet;
 
                     /**
-                     * <p>新增分账单元名称</p>
+                     * 新增分账单元名称
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>月份，不传默认当前月</p>
+                     * 月份，不传默认当前月
                      */
                     std::string m_month;
                     bool m_monthHasBeenSet;

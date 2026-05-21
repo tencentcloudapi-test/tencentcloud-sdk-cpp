@@ -28,8 +28,7 @@ AutoCalloutTaskInfo::AutoCalloutTaskInfo() :
     m_notAfterHasBeenSet(false),
     m_ivrIdHasBeenSet(false),
     m_stateHasBeenSet(false),
-    m_taskIdHasBeenSet(false),
-    m_maxRingTimeoutSecondHasBeenSet(false)
+    m_taskIdHasBeenSet(false)
 {
 }
 
@@ -121,16 +120,6 @@ CoreInternalOutcome AutoCalloutTaskInfo::Deserialize(const rapidjson::Value &val
         m_taskIdHasBeenSet = true;
     }
 
-    if (value.HasMember("MaxRingTimeoutSecond") && !value["MaxRingTimeoutSecond"].IsNull())
-    {
-        if (!value["MaxRingTimeoutSecond"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `AutoCalloutTaskInfo.MaxRingTimeoutSecond` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_maxRingTimeoutSecond = value["MaxRingTimeoutSecond"].GetInt64();
-        m_maxRingTimeoutSecondHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -205,14 +194,6 @@ void AutoCalloutTaskInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "TaskId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_taskId, allocator);
-    }
-
-    if (m_maxRingTimeoutSecondHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MaxRingTimeoutSecond";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_maxRingTimeoutSecond, allocator);
     }
 
 }
@@ -344,21 +325,5 @@ void AutoCalloutTaskInfo::SetTaskId(const uint64_t& _taskId)
 bool AutoCalloutTaskInfo::TaskIdHasBeenSet() const
 {
     return m_taskIdHasBeenSet;
-}
-
-int64_t AutoCalloutTaskInfo::GetMaxRingTimeoutSecond() const
-{
-    return m_maxRingTimeoutSecond;
-}
-
-void AutoCalloutTaskInfo::SetMaxRingTimeoutSecond(const int64_t& _maxRingTimeoutSecond)
-{
-    m_maxRingTimeoutSecond = _maxRingTimeoutSecond;
-    m_maxRingTimeoutSecondHasBeenSet = true;
-}
-
-bool AutoCalloutTaskInfo::MaxRingTimeoutSecondHasBeenSet() const
-{
-    return m_maxRingTimeoutSecondHasBeenSet;
 }
 

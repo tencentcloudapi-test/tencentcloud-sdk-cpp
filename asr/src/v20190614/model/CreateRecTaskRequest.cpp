@@ -46,8 +46,7 @@ CreateRecTaskRequest::CreateRecTaskRequest() :
     m_extraHasBeenSet(false),
     m_hotwordListHasBeenSet(false),
     m_keyWordLibIdListHasBeenSet(false),
-    m_replaceTextIdHasBeenSet(false),
-    m_speakerRolesHasBeenSet(false)
+    m_replaceTextIdHasBeenSet(false)
 {
 }
 
@@ -253,21 +252,6 @@ string CreateRecTaskRequest::ToJsonString() const
         string key = "ReplaceTextId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_replaceTextId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_speakerRolesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SpeakerRoles";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_speakerRoles.begin(); itr != m_speakerRoles.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
     }
 
 
@@ -660,22 +644,6 @@ void CreateRecTaskRequest::SetReplaceTextId(const string& _replaceTextId)
 bool CreateRecTaskRequest::ReplaceTextIdHasBeenSet() const
 {
     return m_replaceTextIdHasBeenSet;
-}
-
-vector<SpeakerRoleInfo> CreateRecTaskRequest::GetSpeakerRoles() const
-{
-    return m_speakerRoles;
-}
-
-void CreateRecTaskRequest::SetSpeakerRoles(const vector<SpeakerRoleInfo>& _speakerRoles)
-{
-    m_speakerRoles = _speakerRoles;
-    m_speakerRolesHasBeenSet = true;
-}
-
-bool CreateRecTaskRequest::SpeakerRolesHasBeenSet() const
-{
-    return m_speakerRolesHasBeenSet;
 }
 
 

@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>统计数据列表。</p>
-                     * @return DataInfoList <p>统计数据列表。</p>
+                     * 获取统计数据列表。
+                     * @return DataInfoList 统计数据列表。
                      * 
                      */
                     std::vector<TranscodeDetailInfo> GetDataInfoList() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool DataInfoListHasBeenSet() const;
 
                     /**
-                     * 获取<p>页码。</p>
-                     * @return PageNum <p>页码。</p>
+                     * 获取页码。
+                     * @return PageNum 页码。
                      * 
                      */
                     uint64_t GetPageNum() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool PageNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>每页个数。</p>
-                     * @return PageSize <p>每页个数。</p>
+                     * 获取每页个数。
+                     * @return PageSize 每页个数。
                      * 
                      */
                     uint64_t GetPageSize() const;
@@ -87,8 +87,8 @@ namespace TencentCloud
                     bool PageSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>总个数。</p>
-                     * @return TotalNum <p>总个数。</p>
+                     * 获取总个数。
+                     * @return TotalNum 总个数。
                      * 
                      */
                     uint64_t GetTotalNum() const;
@@ -101,8 +101,8 @@ namespace TencentCloud
                     bool TotalNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>总页数。</p>
-                     * @return TotalPage <p>总页数。</p>
+                     * 获取总页数。
+                     * @return TotalPage 总页数。
                      * 
                      */
                     uint64_t GetTotalPage() const;
@@ -117,31 +117,31 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>统计数据列表。</p>
+                     * 统计数据列表。
                      */
                     std::vector<TranscodeDetailInfo> m_dataInfoList;
                     bool m_dataInfoListHasBeenSet;
 
                     /**
-                     * <p>页码。</p>
+                     * 页码。
                      */
                     uint64_t m_pageNum;
                     bool m_pageNumHasBeenSet;
 
                     /**
-                     * <p>每页个数。</p>
+                     * 每页个数。
                      */
                     uint64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
 
                     /**
-                     * <p>总个数。</p>
+                     * 总个数。
                      */
                     uint64_t m_totalNum;
                     bool m_totalNumHasBeenSet;
 
                     /**
-                     * <p>总页数。</p>
+                     * 总页数。
                      */
                     uint64_t m_totalPage;
                     bool m_totalPageHasBeenSet;

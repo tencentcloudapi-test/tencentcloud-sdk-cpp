@@ -51,15 +51,27 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>节点计费模式。取值范围：</p><li>PREPAID：预付费，即包年包月。</li><li>POSTPAID_BY_HOUR：按小时后付费。</li><li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
-                     * @return InstanceChargeType <p>节点计费模式。取值范围：</p><li>PREPAID：预付费，即包年包月。</li><li>POSTPAID_BY_HOUR：按小时后付费。</li><li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
+                     * 获取节点计费模式。取值范围：
+<li>PREPAID：预付费，即包年包月。</li>
+<li>POSTPAID_BY_HOUR：按小时后付费。</li>
+<li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
+                     * @return InstanceChargeType 节点计费模式。取值范围：
+<li>PREPAID：预付费，即包年包月。</li>
+<li>POSTPAID_BY_HOUR：按小时后付费。</li>
+<li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
                      * 
                      */
                     std::string GetInstanceChargeType() const;
 
                     /**
-                     * 设置<p>节点计费模式。取值范围：</p><li>PREPAID：预付费，即包年包月。</li><li>POSTPAID_BY_HOUR：按小时后付费。</li><li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
-                     * @param _instanceChargeType <p>节点计费模式。取值范围：</p><li>PREPAID：预付费，即包年包月。</li><li>POSTPAID_BY_HOUR：按小时后付费。</li><li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
+                     * 设置节点计费模式。取值范围：
+<li>PREPAID：预付费，即包年包月。</li>
+<li>POSTPAID_BY_HOUR：按小时后付费。</li>
+<li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
+                     * @param _instanceChargeType 节点计费模式。取值范围：
+<li>PREPAID：预付费，即包年包月。</li>
+<li>POSTPAID_BY_HOUR：按小时后付费。</li>
+<li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
                      * 
                      */
                     void SetInstanceChargeType(const std::string& _instanceChargeType);
@@ -72,15 +84,15 @@ namespace TencentCloud
                     bool InstanceChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群实例ID。</p>
-                     * @return InstanceId <p>集群实例ID。</p>
+                     * 获取集群实例ID。
+                     * @return InstanceId 集群实例ID。
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>集群实例ID。</p>
-                     * @param _instanceId <p>集群实例ID。</p>
+                     * 设置集群实例ID。
+                     * @param _instanceId 集群实例ID。
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -93,15 +105,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容节点类型以及数量</p>
-                     * @return ScaleOutNodeConfig <p>扩容节点类型以及数量</p>
+                     * 获取扩容节点类型以及数量
+                     * @return ScaleOutNodeConfig 扩容节点类型以及数量
                      * 
                      */
                     ScaleOutNodeConfig GetScaleOutNodeConfig() const;
 
                     /**
-                     * 设置<p>扩容节点类型以及数量</p>
-                     * @param _scaleOutNodeConfig <p>扩容节点类型以及数量</p>
+                     * 设置扩容节点类型以及数量
+                     * @param _scaleOutNodeConfig 扩容节点类型以及数量
                      * 
                      */
                     void SetScaleOutNodeConfig(const ScaleOutNodeConfig& _scaleOutNodeConfig);
@@ -114,15 +126,15 @@ namespace TencentCloud
                     bool ScaleOutNodeConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-<strong><strong>-</strong></strong>-****-fae36063280</p>
-                     * @return ClientToken <p>唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-<strong><strong>-</strong></strong>-****-fae36063280</p>
+                     * 获取唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
+                     * @return ClientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
                      * 
                      */
                     std::string GetClientToken() const;
 
                     /**
-                     * 设置<p>唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-<strong><strong>-</strong></strong>-****-fae36063280</p>
-                     * @param _clientToken <p>唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-<strong><strong>-</strong></strong>-****-fae36063280</p>
+                     * 设置唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
+                     * @param _clientToken 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
                      * 
                      */
                     void SetClientToken(const std::string& _clientToken);
@@ -135,15 +147,15 @@ namespace TencentCloud
                     bool ClientTokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。</p>
-                     * @return InstanceChargePrepaid <p>即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。</p>
+                     * 获取即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
+                     * @return InstanceChargePrepaid 即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
                      * 
                      */
                     InstanceChargePrepaid GetInstanceChargePrepaid() const;
 
                     /**
-                     * 设置<p>即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。</p>
-                     * @param _instanceChargePrepaid <p>即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。</p>
+                     * 设置即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
+                     * @param _instanceChargePrepaid 即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
                      * 
                      */
                     void SetInstanceChargePrepaid(const InstanceChargePrepaid& _instanceChargePrepaid);
@@ -156,15 +168,15 @@ namespace TencentCloud
                     bool InstanceChargePrepaidHasBeenSet() const;
 
                     /**
-                     * 获取<p><a href="https://cloud.tencent.com/document/product/589/35656">引导操作</a>脚本设置。</p>
-                     * @return ScriptBootstrapActionConfig <p><a href="https://cloud.tencent.com/document/product/589/35656">引导操作</a>脚本设置。</p>
+                     * 获取[引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
+                     * @return ScriptBootstrapActionConfig [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
                      * 
                      */
                     std::vector<ScriptBootstrapActionConfig> GetScriptBootstrapActionConfig() const;
 
                     /**
-                     * 设置<p><a href="https://cloud.tencent.com/document/product/589/35656">引导操作</a>脚本设置。</p>
-                     * @param _scriptBootstrapActionConfig <p><a href="https://cloud.tencent.com/document/product/589/35656">引导操作</a>脚本设置。</p>
+                     * 设置[引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
+                     * @param _scriptBootstrapActionConfig [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
                      * 
                      */
                     void SetScriptBootstrapActionConfig(const std::vector<ScriptBootstrapActionConfig>& _scriptBootstrapActionConfig);
@@ -177,15 +189,15 @@ namespace TencentCloud
                     bool ScriptBootstrapActionConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。<a href="https://cloud.tencent.com/document/product/589/98760">组件名对应的映射关系表</a>。</p>
-                     * @return SoftDeployInfo <p>扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。<a href="https://cloud.tencent.com/document/product/589/98760">组件名对应的映射关系表</a>。</p>
+                     * 获取扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
+                     * @return SoftDeployInfo 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
                      * 
                      */
                     std::vector<int64_t> GetSoftDeployInfo() const;
 
                     /**
-                     * 设置<p>扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。<a href="https://cloud.tencent.com/document/product/589/98760">组件名对应的映射关系表</a>。</p>
-                     * @param _softDeployInfo <p>扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。<a href="https://cloud.tencent.com/document/product/589/98760">组件名对应的映射关系表</a>。</p>
+                     * 设置扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
+                     * @param _softDeployInfo 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
                      * 
                      */
                     void SetSoftDeployInfo(const std::vector<int64_t>& _softDeployInfo);
@@ -198,15 +210,15 @@ namespace TencentCloud
                     bool SoftDeployInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：    DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。<a href="https://cloud.tencent.com/document/product/589/98760">进程名对应的映射关系表</a>。</p>
-                     * @return ServiceNodeInfo <p>部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：    DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。<a href="https://cloud.tencent.com/document/product/589/98760">进程名对应的映射关系表</a>。</p>
+                     * 获取部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
+                     * @return ServiceNodeInfo 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
                      * 
                      */
                     std::vector<int64_t> GetServiceNodeInfo() const;
 
                     /**
-                     * 设置<p>部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：    DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。<a href="https://cloud.tencent.com/document/product/589/98760">进程名对应的映射关系表</a>。</p>
-                     * @param _serviceNodeInfo <p>部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：    DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。<a href="https://cloud.tencent.com/document/product/589/98760">进程名对应的映射关系表</a>。</p>
+                     * 设置部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
+                     * @param _serviceNodeInfo 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
                      * 
                      */
                     void SetServiceNodeInfo(const std::vector<int64_t>& _serviceNodeInfo);
@@ -219,15 +231,19 @@ namespace TencentCloud
                     bool ServiceNodeInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>分散置放群组ID列表，当前只支持指定一个。<br>该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/213/17810">DescribeDisasterRecoverGroups</a>的返回值中的DisasterRecoverGroupId字段来获取。</p>
-                     * @return DisasterRecoverGroupIds <p>分散置放群组ID列表，当前只支持指定一个。<br>该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/213/17810">DescribeDisasterRecoverGroups</a>的返回值中的DisasterRecoverGroupId字段来获取。</p>
+                     * 获取分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeDisasterRecoverGroups](https://cloud.tencent.com/document/product/213/17810)的返回值中的DisasterRecoverGroupId字段来获取。
+                     * @return DisasterRecoverGroupIds 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeDisasterRecoverGroups](https://cloud.tencent.com/document/product/213/17810)的返回值中的DisasterRecoverGroupId字段来获取。
                      * 
                      */
                     std::vector<std::string> GetDisasterRecoverGroupIds() const;
 
                     /**
-                     * 设置<p>分散置放群组ID列表，当前只支持指定一个。<br>该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/213/17810">DescribeDisasterRecoverGroups</a>的返回值中的DisasterRecoverGroupId字段来获取。</p>
-                     * @param _disasterRecoverGroupIds <p>分散置放群组ID列表，当前只支持指定一个。<br>该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/213/17810">DescribeDisasterRecoverGroups</a>的返回值中的DisasterRecoverGroupId字段来获取。</p>
+                     * 设置分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeDisasterRecoverGroups](https://cloud.tencent.com/document/product/213/17810)的返回值中的DisasterRecoverGroupId字段来获取。
+                     * @param _disasterRecoverGroupIds 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeDisasterRecoverGroups](https://cloud.tencent.com/document/product/213/17810)的返回值中的DisasterRecoverGroupId字段来获取。
                      * 
                      */
                     void SetDisasterRecoverGroupIds(const std::vector<std::string>& _disasterRecoverGroupIds);
@@ -240,15 +256,15 @@ namespace TencentCloud
                     bool DisasterRecoverGroupIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容节点绑定标签列表。</p>
-                     * @return Tags <p>扩容节点绑定标签列表。</p>
+                     * 获取扩容节点绑定标签列表。
+                     * @return Tags 扩容节点绑定标签列表。
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>扩容节点绑定标签列表。</p>
-                     * @param _tags <p>扩容节点绑定标签列表。</p>
+                     * 设置扩容节点绑定标签列表。
+                     * @param _tags 扩容节点绑定标签列表。
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -261,15 +277,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容所选资源类型，可选范围为&quot;HOST&quot;,&quot;POD&quot;,&quot;MNode&quot;，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型</p>
-                     * @return HardwareSourceType <p>扩容所选资源类型，可选范围为&quot;HOST&quot;,&quot;POD&quot;,&quot;MNode&quot;，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型</p>
+                     * 获取扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
+                     * @return HardwareSourceType 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
                      * 
                      */
                     std::string GetHardwareSourceType() const;
 
                     /**
-                     * 设置<p>扩容所选资源类型，可选范围为&quot;HOST&quot;,&quot;POD&quot;,&quot;MNode&quot;，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型</p>
-                     * @param _hardwareSourceType <p>扩容所选资源类型，可选范围为&quot;HOST&quot;,&quot;POD&quot;,&quot;MNode&quot;，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型</p>
+                     * 设置扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
+                     * @param _hardwareSourceType 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
                      * 
                      */
                     void SetHardwareSourceType(const std::string& _hardwareSourceType);
@@ -282,15 +298,15 @@ namespace TencentCloud
                     bool HardwareSourceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>Pod相关资源信息</p>
-                     * @return PodSpecInfo <p>Pod相关资源信息</p>
+                     * 获取Pod相关资源信息
+                     * @return PodSpecInfo Pod相关资源信息
                      * 
                      */
                     PodSpecInfo GetPodSpecInfo() const;
 
                     /**
-                     * 设置<p>Pod相关资源信息</p>
-                     * @param _podSpecInfo <p>Pod相关资源信息</p>
+                     * 设置Pod相关资源信息
+                     * @param _podSpecInfo Pod相关资源信息
                      * 
                      */
                     void SetPodSpecInfo(const PodSpecInfo& _podSpecInfo);
@@ -303,15 +319,15 @@ namespace TencentCloud
                     bool PodSpecInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用clickhouse集群扩容时，选择的机器分组名称</p>
-                     * @return ClickHouseClusterName <p>使用clickhouse集群扩容时，选择的机器分组名称</p>
+                     * 获取使用clickhouse集群扩容时，选择的机器分组名称
+                     * @return ClickHouseClusterName 使用clickhouse集群扩容时，选择的机器分组名称
                      * 
                      */
                     std::string GetClickHouseClusterName() const;
 
                     /**
-                     * 设置<p>使用clickhouse集群扩容时，选择的机器分组名称</p>
-                     * @param _clickHouseClusterName <p>使用clickhouse集群扩容时，选择的机器分组名称</p>
+                     * 设置使用clickhouse集群扩容时，选择的机器分组名称
+                     * @param _clickHouseClusterName 使用clickhouse集群扩容时，选择的机器分组名称
                      * 
                      */
                     void SetClickHouseClusterName(const std::string& _clickHouseClusterName);
@@ -324,15 +340,15 @@ namespace TencentCloud
                     bool ClickHouseClusterNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组</p>
-                     * @return ClickHouseClusterType <p>使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组</p>
+                     * 获取使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组
+                     * @return ClickHouseClusterType 使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组
                      * 
                      */
                     std::string GetClickHouseClusterType() const;
 
                     /**
-                     * 设置<p>使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组</p>
-                     * @param _clickHouseClusterType <p>使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组</p>
+                     * 设置使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组
+                     * @param _clickHouseClusterType 使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组
                      * 
                      */
                     void SetClickHouseClusterType(const std::string& _clickHouseClusterType);
@@ -345,15 +361,15 @@ namespace TencentCloud
                     bool ClickHouseClusterTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容指定 Yarn Node Label</p>
-                     * @return YarnNodeLabel <p>扩容指定 Yarn Node Label</p>
+                     * 获取扩容指定 Yarn Node Label
+                     * @return YarnNodeLabel 扩容指定 Yarn Node Label
                      * 
                      */
                     std::string GetYarnNodeLabel() const;
 
                     /**
-                     * 设置<p>扩容指定 Yarn Node Label</p>
-                     * @param _yarnNodeLabel <p>扩容指定 Yarn Node Label</p>
+                     * 设置扩容指定 Yarn Node Label
+                     * @param _yarnNodeLabel 扩容指定 Yarn Node Label
                      * 
                      */
                     void SetYarnNodeLabel(const std::string& _yarnNodeLabel);
@@ -366,15 +382,23 @@ namespace TencentCloud
                     bool YarnNodeLabelHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容后是否启动服务，默认取值否</p><li>true：是</li><li>false：否</li>
-                     * @return EnableStartServiceFlag <p>扩容后是否启动服务，默认取值否</p><li>true：是</li><li>false：否</li>
+                     * 获取扩容后是否启动服务，默认取值否
+<li>true：是</li>
+<li>false：否</li>
+                     * @return EnableStartServiceFlag 扩容后是否启动服务，默认取值否
+<li>true：是</li>
+<li>false：否</li>
                      * 
                      */
                     bool GetEnableStartServiceFlag() const;
 
                     /**
-                     * 设置<p>扩容后是否启动服务，默认取值否</p><li>true：是</li><li>false：否</li>
-                     * @param _enableStartServiceFlag <p>扩容后是否启动服务，默认取值否</p><li>true：是</li><li>false：否</li>
+                     * 设置扩容后是否启动服务，默认取值否
+<li>true：是</li>
+<li>false：否</li>
+                     * @param _enableStartServiceFlag 扩容后是否启动服务，默认取值否
+<li>true：是</li>
+<li>false：否</li>
                      * 
                      */
                     void SetEnableStartServiceFlag(const bool& _enableStartServiceFlag);
@@ -387,15 +411,15 @@ namespace TencentCloud
                     bool EnableStartServiceFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>规格设置</p>
-                     * @return ResourceSpec <p>规格设置</p>
+                     * 获取规格设置
+                     * @return ResourceSpec 规格设置
                      * 
                      */
                     NodeResourceSpec GetResourceSpec() const;
 
                     /**
-                     * 设置<p>规格设置</p>
-                     * @param _resourceSpec <p>规格设置</p>
+                     * 设置规格设置
+                     * @param _resourceSpec 规格设置
                      * 
                      */
                     void SetResourceSpec(const NodeResourceSpec& _resourceSpec);
@@ -408,15 +432,15 @@ namespace TencentCloud
                     bool ResourceSpecHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用<a href="https://cloud.tencent.com/document/product/213/15707">DescribeZones</a> 的返回值中的Zone字段来获取。</p>
-                     * @return Zone <p>实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用<a href="https://cloud.tencent.com/document/product/213/15707">DescribeZones</a> 的返回值中的Zone字段来获取。</p>
+                     * 获取实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用[DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+                     * @return Zone 实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用[DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用<a href="https://cloud.tencent.com/document/product/213/15707">DescribeZones</a> 的返回值中的Zone字段来获取。</p>
-                     * @param _zone <p>实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用<a href="https://cloud.tencent.com/document/product/213/15707">DescribeZones</a> 的返回值中的Zone字段来获取。</p>
+                     * 设置实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用[DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
+                     * @param _zone 实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用[DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -429,15 +453,15 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网，默认是集群创建时的子网</p>
-                     * @return SubnetId <p>子网，默认是集群创建时的子网</p>
+                     * 获取子网，默认是集群创建时的子网
+                     * @return SubnetId 子网，默认是集群创建时的子网
                      * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
-                     * 设置<p>子网，默认是集群创建时的子网</p>
-                     * @param _subnetId <p>子网，默认是集群创建时的子网</p>
+                     * 设置子网，默认是集群创建时的子网
+                     * @param _subnetId 子网，默认是集群创建时的子网
                      * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
@@ -450,15 +474,15 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容指定配置组</p>
-                     * @return ScaleOutServiceConfGroupsInfo <p>扩容指定配置组</p>
+                     * 获取扩容指定配置组
+                     * @return ScaleOutServiceConfGroupsInfo 扩容指定配置组
                      * 
                      */
                     std::vector<ScaleOutServiceConfGroupsInfo> GetScaleOutServiceConfGroupsInfo() const;
 
                     /**
-                     * 设置<p>扩容指定配置组</p>
-                     * @param _scaleOutServiceConfGroupsInfo <p>扩容指定配置组</p>
+                     * 设置扩容指定配置组
+                     * @param _scaleOutServiceConfGroupsInfo 扩容指定配置组
                      * 
                      */
                     void SetScaleOutServiceConfGroupsInfo(const std::vector<ScaleOutServiceConfGroupsInfo>& _scaleOutServiceConfGroupsInfo);
@@ -471,15 +495,15 @@ namespace TencentCloud
                     bool ScaleOutServiceConfGroupsInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点标记信息，当前只提供给tf平台使用</p>
-                     * @return NodeMarks <p>节点标记信息，当前只提供给tf平台使用</p>
+                     * 获取节点标记信息，当前只提供给tf平台使用
+                     * @return NodeMarks 节点标记信息，当前只提供给tf平台使用
                      * 
                      */
                     NodeMark GetNodeMarks() const;
 
                     /**
-                     * 设置<p>节点标记信息，当前只提供给tf平台使用</p>
-                     * @param _nodeMarks <p>节点标记信息，当前只提供给tf平台使用</p>
+                     * 设置节点标记信息，当前只提供给tf平台使用
+                     * @param _nodeMarks 节点标记信息，当前只提供给tf平台使用
                      * 
                      */
                     void SetNodeMarks(const NodeMark& _nodeMarks);
@@ -492,15 +516,15 @@ namespace TencentCloud
                     bool NodeMarksHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容指定计算组名称</p>
-                     * @return WarehouseName <p>扩容指定计算组名称</p>
+                     * 获取扩容指定计算组名称
+                     * @return WarehouseName 扩容指定计算组名称
                      * 
                      */
                     std::string GetWarehouseName() const;
 
                     /**
-                     * 设置<p>扩容指定计算组名称</p>
-                     * @param _warehouseName <p>扩容指定计算组名称</p>
+                     * 设置扩容指定计算组名称
+                     * @param _warehouseName 扩容指定计算组名称
                      * 
                      */
                     void SetWarehouseName(const std::string& _warehouseName);
@@ -512,166 +536,145 @@ namespace TencentCloud
                      */
                     bool WarehouseNameHasBeenSet() const;
 
-                    /**
-                     * 获取<p>分区置放群组分区</p>
-                     * @return PartitionNumber <p>分区置放群组分区</p>
-                     * 
-                     */
-                    int64_t GetPartitionNumber() const;
-
-                    /**
-                     * 设置<p>分区置放群组分区</p>
-                     * @param _partitionNumber <p>分区置放群组分区</p>
-                     * 
-                     */
-                    void SetPartitionNumber(const int64_t& _partitionNumber);
-
-                    /**
-                     * 判断参数 PartitionNumber 是否已赋值
-                     * @return PartitionNumber 是否已赋值
-                     * 
-                     */
-                    bool PartitionNumberHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>节点计费模式。取值范围：</p><li>PREPAID：预付费，即包年包月。</li><li>POSTPAID_BY_HOUR：按小时后付费。</li><li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
+                     * 节点计费模式。取值范围：
+<li>PREPAID：预付费，即包年包月。</li>
+<li>POSTPAID_BY_HOUR：按小时后付费。</li>
+<li>SPOTPAID：竞价付费（仅支持TASK节点）。</li>
                      */
                     std::string m_instanceChargeType;
                     bool m_instanceChargeTypeHasBeenSet;
 
                     /**
-                     * <p>集群实例ID。</p>
+                     * 集群实例ID。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>扩容节点类型以及数量</p>
+                     * 扩容节点类型以及数量
                      */
                     ScaleOutNodeConfig m_scaleOutNodeConfig;
                     bool m_scaleOutNodeConfigHasBeenSet;
 
                     /**
-                     * <p>唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-<strong><strong>-</strong></strong>-****-fae36063280</p>
+                     * 唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，例如 a9a90aa6-****-****-****-fae36063280
                      */
                     std::string m_clientToken;
                     bool m_clientTokenHasBeenSet;
 
                     /**
-                     * <p>即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。</p>
+                     * 即包年包月相关参数设置。通过该参数可以指定包年包月实例的购买时长、是否设置自动续费等属性。若指定实例的付费模式为预付费则该参数必传。
                      */
                     InstanceChargePrepaid m_instanceChargePrepaid;
                     bool m_instanceChargePrepaidHasBeenSet;
 
                     /**
-                     * <p><a href="https://cloud.tencent.com/document/product/589/35656">引导操作</a>脚本设置。</p>
+                     * [引导操作](https://cloud.tencent.com/document/product/589/35656)脚本设置。
                      */
                     std::vector<ScriptBootstrapActionConfig> m_scriptBootstrapActionConfig;
                     bool m_scriptBootstrapActionConfigHasBeenSet;
 
                     /**
-                     * <p>扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。<a href="https://cloud.tencent.com/document/product/589/98760">组件名对应的映射关系表</a>。</p>
+                     * 扩容部署服务，新增节点将默认继承当前节点类型中所部署服务，部署服务含默认可选服务，该参数仅支持可选服务填写，如：存量task节点已部署HDFS、YARN、impala；使用api扩容task节不部署impala时，部署服务仅填写HDFS、YARN。[组件名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
                      */
                     std::vector<int64_t> m_softDeployInfo;
                     bool m_softDeployInfoHasBeenSet;
 
                     /**
-                     * <p>部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：    DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。<a href="https://cloud.tencent.com/document/product/589/98760">进程名对应的映射关系表</a>。</p>
+                     * 部署进程，默认部署扩容服务的全部进程，支持修改部署进程，如：当前task节点部署服务为：HDFS、YARN、impala，默认部署服务为：DataNode,NodeManager,ImpalaServer，若用户需修改部署进程信息，部署进程：	DataNode,NodeManager,ImpalaServerCoordinator或DataNode,NodeManager,ImpalaServerExecutor。[进程名对应的映射关系表](https://cloud.tencent.com/document/product/589/98760)。
                      */
                     std::vector<int64_t> m_serviceNodeInfo;
                     bool m_serviceNodeInfoHasBeenSet;
 
                     /**
-                     * <p>分散置放群组ID列表，当前只支持指定一个。<br>该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/213/17810">DescribeDisasterRecoverGroups</a>的返回值中的DisasterRecoverGroupId字段来获取。</p>
+                     * 分散置放群组ID列表，当前只支持指定一个。
+该参数可以通过调用 [DescribeDisasterRecoverGroups](https://cloud.tencent.com/document/product/213/17810)的返回值中的DisasterRecoverGroupId字段来获取。
                      */
                     std::vector<std::string> m_disasterRecoverGroupIds;
                     bool m_disasterRecoverGroupIdsHasBeenSet;
 
                     /**
-                     * <p>扩容节点绑定标签列表。</p>
+                     * 扩容节点绑定标签列表。
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>扩容所选资源类型，可选范围为&quot;HOST&quot;,&quot;POD&quot;,&quot;MNode&quot;，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型</p>
+                     * 扩容所选资源类型，可选范围为"HOST","POD","MNode"，HOST为普通的CVM资源，POD为TKE集群或EKS集群提供的资源,MNode为全托管资源类型
                      */
                     std::string m_hardwareSourceType;
                     bool m_hardwareSourceTypeHasBeenSet;
 
                     /**
-                     * <p>Pod相关资源信息</p>
+                     * Pod相关资源信息
                      */
                     PodSpecInfo m_podSpecInfo;
                     bool m_podSpecInfoHasBeenSet;
 
                     /**
-                     * <p>使用clickhouse集群扩容时，选择的机器分组名称</p>
+                     * 使用clickhouse集群扩容时，选择的机器分组名称
                      */
                     std::string m_clickHouseClusterName;
                     bool m_clickHouseClusterNameHasBeenSet;
 
                     /**
-                     * <p>使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组</p>
+                     * 使用clickhouse集群扩容时，选择的机器分组类型。new为新增，old为选择旧分组
                      */
                     std::string m_clickHouseClusterType;
                     bool m_clickHouseClusterTypeHasBeenSet;
 
                     /**
-                     * <p>扩容指定 Yarn Node Label</p>
+                     * 扩容指定 Yarn Node Label
                      */
                     std::string m_yarnNodeLabel;
                     bool m_yarnNodeLabelHasBeenSet;
 
                     /**
-                     * <p>扩容后是否启动服务，默认取值否</p><li>true：是</li><li>false：否</li>
+                     * 扩容后是否启动服务，默认取值否
+<li>true：是</li>
+<li>false：否</li>
                      */
                     bool m_enableStartServiceFlag;
                     bool m_enableStartServiceFlagHasBeenSet;
 
                     /**
-                     * <p>规格设置</p>
+                     * 规格设置
                      */
                     NodeResourceSpec m_resourceSpec;
                     bool m_resourceSpecHasBeenSet;
 
                     /**
-                     * <p>实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用<a href="https://cloud.tencent.com/document/product/213/15707">DescribeZones</a> 的返回值中的Zone字段来获取。</p>
+                     * 实例所属的可用区，例如ap-guangzhou-1。该参数也可以通过调用[DescribeZones](https://cloud.tencent.com/document/product/213/15707) 的返回值中的Zone字段来获取。
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>子网，默认是集群创建时的子网</p>
+                     * 子网，默认是集群创建时的子网
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>扩容指定配置组</p>
+                     * 扩容指定配置组
                      */
                     std::vector<ScaleOutServiceConfGroupsInfo> m_scaleOutServiceConfGroupsInfo;
                     bool m_scaleOutServiceConfGroupsInfoHasBeenSet;
 
                     /**
-                     * <p>节点标记信息，当前只提供给tf平台使用</p>
+                     * 节点标记信息，当前只提供给tf平台使用
                      */
                     NodeMark m_nodeMarks;
                     bool m_nodeMarksHasBeenSet;
 
                     /**
-                     * <p>扩容指定计算组名称</p>
+                     * 扩容指定计算组名称
                      */
                     std::string m_warehouseName;
                     bool m_warehouseNameHasBeenSet;
-
-                    /**
-                     * <p>分区置放群组分区</p>
-                     */
-                    int64_t m_partitionNumber;
-                    bool m_partitionNumberHasBeenSet;
 
                 };
             }

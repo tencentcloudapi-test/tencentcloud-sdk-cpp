@@ -30,8 +30,6 @@
 #include <tencentcloud/teo/v20220901/model/RateLimitingRules.h>
 #include <tencentcloud/teo/v20220901/model/ExceptionRules.h>
 #include <tencentcloud/teo/v20220901/model/BotManagement.h>
-#include <tencentcloud/teo/v20220901/model/BotManagementLite.h>
-#include <tencentcloud/teo/v20220901/model/DefaultDenySecurityActionParameters.h>
 
 
 namespace TencentCloud
@@ -180,48 +178,6 @@ namespace TencentCloud
                      */
                     bool BotManagementHasBeenSet() const;
 
-                    /**
-                     * 获取基础 Bot 管理配置。
-                     * @return BotManagementLite 基础 Bot 管理配置。
-                     * 
-                     */
-                    BotManagementLite GetBotManagementLite() const;
-
-                    /**
-                     * 设置基础 Bot 管理配置。
-                     * @param _botManagementLite 基础 Bot 管理配置。
-                     * 
-                     */
-                    void SetBotManagementLite(const BotManagementLite& _botManagementLite);
-
-                    /**
-                     * 判断参数 BotManagementLite 是否已赋值
-                     * @return BotManagementLite 是否已赋值
-                     * 
-                     */
-                    bool BotManagementLiteHasBeenSet() const;
-
-                    /**
-                     * 获取默认拦截动作配置。
-                     * @return DefaultDenySecurityActionParameters 默认拦截动作配置。
-                     * 
-                     */
-                    DefaultDenySecurityActionParameters GetDefaultDenySecurityActionParameters() const;
-
-                    /**
-                     * 设置默认拦截动作配置。
-                     * @param _defaultDenySecurityActionParameters 默认拦截动作配置。
-                     * 
-                     */
-                    void SetDefaultDenySecurityActionParameters(const DefaultDenySecurityActionParameters& _defaultDenySecurityActionParameters);
-
-                    /**
-                     * 判断参数 DefaultDenySecurityActionParameters 是否已赋值
-                     * @return DefaultDenySecurityActionParameters 是否已赋值
-                     * 
-                     */
-                    bool DefaultDenySecurityActionParametersHasBeenSet() const;
-
                 private:
 
                     /**
@@ -259,18 +215,6 @@ namespace TencentCloud
                      */
                     BotManagement m_botManagement;
                     bool m_botManagementHasBeenSet;
-
-                    /**
-                     * 基础 Bot 管理配置。
-                     */
-                    BotManagementLite m_botManagementLite;
-                    bool m_botManagementLiteHasBeenSet;
-
-                    /**
-                     * 默认拦截动作配置。
-                     */
-                    DefaultDenySecurityActionParameters m_defaultDenySecurityActionParameters;
-                    bool m_defaultDenySecurityActionParametersHasBeenSet;
 
                 };
             }

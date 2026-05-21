@@ -45,15 +45,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>企业版实例名称</p>
-                     * @return RegistryName <p>企业版实例名称</p>
+                     * 获取企业版实例名称
+                     * @return RegistryName 企业版实例名称
                      * 
                      */
                     std::string GetRegistryName() const;
 
                     /**
-                     * 设置<p>企业版实例名称</p>
-                     * @param _registryName <p>企业版实例名称</p>
+                     * 设置企业版实例名称
+                     * @param _registryName 企业版实例名称
                      * 
                      */
                     void SetRegistryName(const std::string& _registryName);
@@ -66,15 +66,15 @@ namespace TencentCloud
                     bool RegistryNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>企业版实例类型（basic 基础版；standard 标准版；premium 高级版）</p>
-                     * @return RegistryType <p>企业版实例类型（basic 基础版；standard 标准版；premium 高级版）</p>
+                     * 获取企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
+                     * @return RegistryType 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
                      * 
                      */
                     std::string GetRegistryType() const;
 
                     /**
-                     * 设置<p>企业版实例类型（basic 基础版；standard 标准版；premium 高级版）</p>
-                     * @param _registryType <p>企业版实例类型（basic 基础版；standard 标准版；premium 高级版）</p>
+                     * 设置企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
+                     * @param _registryType 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
                      * 
                      */
                     void SetRegistryType(const std::string& _registryType);
@@ -87,15 +87,15 @@ namespace TencentCloud
                     bool RegistryTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>云标签描述</p>
-                     * @return TagSpecification <p>云标签描述</p>
+                     * 获取云标签描述
+                     * @return TagSpecification 云标签描述
                      * 
                      */
                     TagSpecification GetTagSpecification() const;
 
                     /**
-                     * 设置<p>云标签描述</p>
-                     * @param _tagSpecification <p>云标签描述</p>
+                     * 设置云标签描述
+                     * @param _tagSpecification 云标签描述
                      * 
                      */
                     void SetTagSpecification(const TagSpecification& _tagSpecification);
@@ -108,15 +108,15 @@ namespace TencentCloud
                     bool TagSpecificationHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例计费类型，0表示按量计费，1表示预付费，默认为按量计费</p>
-                     * @return RegistryChargeType <p>实例计费类型，0表示按量计费，1表示预付费，默认为按量计费</p>
+                     * 获取实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
+                     * @return RegistryChargeType 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
                      * 
                      */
                     int64_t GetRegistryChargeType() const;
 
                     /**
-                     * 设置<p>实例计费类型，0表示按量计费，1表示预付费，默认为按量计费</p>
-                     * @param _registryChargeType <p>实例计费类型，0表示按量计费，1表示预付费，默认为按量计费</p>
+                     * 设置实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
+                     * @param _registryChargeType 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
                      * 
                      */
                     void SetRegistryChargeType(const int64_t& _registryChargeType);
@@ -129,15 +129,15 @@ namespace TencentCloud
                     bool RegistryChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>预付费自动续费标识和购买时长</p>
-                     * @return RegistryChargePrepaid <p>预付费自动续费标识和购买时长</p>
+                     * 获取预付费自动续费标识和购买时长
+                     * @return RegistryChargePrepaid 预付费自动续费标识和购买时长
                      * 
                      */
                     RegistryChargePrepaid GetRegistryChargePrepaid() const;
 
                     /**
-                     * 设置<p>预付费自动续费标识和购买时长</p>
-                     * @param _registryChargePrepaid <p>预付费自动续费标识和购买时长</p>
+                     * 设置预付费自动续费标识和购买时长
+                     * @param _registryChargePrepaid 预付费自动续费标识和购买时长
                      * 
                      */
                     void SetRegistryChargePrepaid(const RegistryChargePrepaid& _registryChargePrepaid);
@@ -150,15 +150,15 @@ namespace TencentCloud
                     bool RegistryChargePrepaidHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否同步TCR云标签至生成的COS Bucket</p>
-                     * @return SyncTag <p>是否同步TCR云标签至生成的COS Bucket</p>
+                     * 获取是否同步TCR云标签至生成的COS Bucket
+                     * @return SyncTag 是否同步TCR云标签至生成的COS Bucket
                      * 
                      */
                     bool GetSyncTag() const;
 
                     /**
-                     * 设置<p>是否同步TCR云标签至生成的COS Bucket</p>
-                     * @param _syncTag <p>是否同步TCR云标签至生成的COS Bucket</p>
+                     * 设置是否同步TCR云标签至生成的COS Bucket
+                     * @param _syncTag 是否同步TCR云标签至生成的COS Bucket
                      * 
                      */
                     void SetSyncTag(const bool& _syncTag);
@@ -171,15 +171,15 @@ namespace TencentCloud
                     bool SyncTagHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启Cos桶多AZ特性</p>
-                     * @return EnableCosMAZ <p>是否开启Cos桶多AZ特性</p>
+                     * 获取是否开启Cos桶多AZ特性
+                     * @return EnableCosMAZ 是否开启Cos桶多AZ特性
                      * 
                      */
                     bool GetEnableCosMAZ() const;
 
                     /**
-                     * 设置<p>是否开启Cos桶多AZ特性</p>
-                     * @param _enableCosMAZ <p>是否开启Cos桶多AZ特性</p>
+                     * 设置是否开启Cos桶多AZ特性
+                     * @param _enableCosMAZ 是否开启Cos桶多AZ特性
                      * 
                      */
                     void SetEnableCosMAZ(const bool& _enableCosMAZ);
@@ -192,15 +192,15 @@ namespace TencentCloud
                     bool EnableCosMAZHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启实例删除保护</p>
-                     * @return DeletionProtection <p>是否开启实例删除保护</p>
+                     * 获取是否开启实例删除保护
+                     * @return DeletionProtection 是否开启实例删除保护
                      * 
                      */
                     bool GetDeletionProtection() const;
 
                     /**
-                     * 设置<p>是否开启实例删除保护</p>
-                     * @param _deletionProtection <p>是否开启实例删除保护</p>
+                     * 设置是否开启实例删除保护
+                     * @param _deletionProtection 是否开启实例删除保护
                      * 
                      */
                     void SetDeletionProtection(const bool& _deletionProtection);
@@ -212,82 +212,55 @@ namespace TencentCloud
                      */
                     bool DeletionProtectionHasBeenSet() const;
 
-                    /**
-                     * 获取<p>是否开启cos桶多版本控制</p>
-                     * @return EnableCosVersioning <p>是否开启cos桶多版本控制</p>
-                     * 
-                     */
-                    bool GetEnableCosVersioning() const;
-
-                    /**
-                     * 设置<p>是否开启cos桶多版本控制</p>
-                     * @param _enableCosVersioning <p>是否开启cos桶多版本控制</p>
-                     * 
-                     */
-                    void SetEnableCosVersioning(const bool& _enableCosVersioning);
-
-                    /**
-                     * 判断参数 EnableCosVersioning 是否已赋值
-                     * @return EnableCosVersioning 是否已赋值
-                     * 
-                     */
-                    bool EnableCosVersioningHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>企业版实例名称</p>
+                     * 企业版实例名称
                      */
                     std::string m_registryName;
                     bool m_registryNameHasBeenSet;
 
                     /**
-                     * <p>企业版实例类型（basic 基础版；standard 标准版；premium 高级版）</p>
+                     * 企业版实例类型（basic 基础版；standard 标准版；premium 高级版）
                      */
                     std::string m_registryType;
                     bool m_registryTypeHasBeenSet;
 
                     /**
-                     * <p>云标签描述</p>
+                     * 云标签描述
                      */
                     TagSpecification m_tagSpecification;
                     bool m_tagSpecificationHasBeenSet;
 
                     /**
-                     * <p>实例计费类型，0表示按量计费，1表示预付费，默认为按量计费</p>
+                     * 实例计费类型，0表示按量计费，1表示预付费，默认为按量计费
                      */
                     int64_t m_registryChargeType;
                     bool m_registryChargeTypeHasBeenSet;
 
                     /**
-                     * <p>预付费自动续费标识和购买时长</p>
+                     * 预付费自动续费标识和购买时长
                      */
                     RegistryChargePrepaid m_registryChargePrepaid;
                     bool m_registryChargePrepaidHasBeenSet;
 
                     /**
-                     * <p>是否同步TCR云标签至生成的COS Bucket</p>
+                     * 是否同步TCR云标签至生成的COS Bucket
                      */
                     bool m_syncTag;
                     bool m_syncTagHasBeenSet;
 
                     /**
-                     * <p>是否开启Cos桶多AZ特性</p>
+                     * 是否开启Cos桶多AZ特性
                      */
                     bool m_enableCosMAZ;
                     bool m_enableCosMAZHasBeenSet;
 
                     /**
-                     * <p>是否开启实例删除保护</p>
+                     * 是否开启实例删除保护
                      */
                     bool m_deletionProtection;
                     bool m_deletionProtectionHasBeenSet;
-
-                    /**
-                     * <p>是否开启cos桶多版本控制</p>
-                     */
-                    bool m_enableCosVersioning;
-                    bool m_enableCosVersioningHasBeenSet;
 
                 };
             }

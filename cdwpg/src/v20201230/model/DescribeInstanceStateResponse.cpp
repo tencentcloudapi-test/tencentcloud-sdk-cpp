@@ -31,8 +31,7 @@ DescribeInstanceStateResponse::DescribeInstanceStateResponse() :
     m_instanceStateDescHasBeenSet(false),
     m_flowMsgHasBeenSet(false),
     m_processNameHasBeenSet(false),
-    m_backupStatusHasBeenSet(false),
-    m_backupOpenStatusHasBeenSet(false)
+    m_backupStatusHasBeenSet(false)
 {
 }
 
@@ -150,16 +149,6 @@ CoreInternalOutcome DescribeInstanceStateResponse::Deserialize(const string &pay
         m_backupStatusHasBeenSet = true;
     }
 
-    if (rsp.HasMember("BackupOpenStatus") && !rsp["BackupOpenStatus"].IsNull())
-    {
-        if (!rsp["BackupOpenStatus"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `BackupOpenStatus` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_backupOpenStatus = rsp["BackupOpenStatus"].GetInt64();
-        m_backupOpenStatusHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -232,14 +221,6 @@ string DescribeInstanceStateResponse::ToJsonString() const
         string key = "BackupStatus";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_backupStatus, allocator);
-    }
-
-    if (m_backupOpenStatusHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BackupOpenStatus";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_backupOpenStatus, allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -332,16 +313,6 @@ int64_t DescribeInstanceStateResponse::GetBackupStatus() const
 bool DescribeInstanceStateResponse::BackupStatusHasBeenSet() const
 {
     return m_backupStatusHasBeenSet;
-}
-
-int64_t DescribeInstanceStateResponse::GetBackupOpenStatus() const
-{
-    return m_backupOpenStatus;
-}
-
-bool DescribeInstanceStateResponse::BackupOpenStatusHasBeenSet() const
-{
-    return m_backupOpenStatusHasBeenSet;
 }
 
 

@@ -51,15 +51,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>Serverless索引空间ID</p>
-                     * @return SpaceId <p>Serverless索引空间ID</p>
+                     * 获取Serverless索引空间ID
+                     * @return SpaceId Serverless索引空间ID
                      * 
                      */
                     std::string GetSpaceId() const;
 
                     /**
-                     * 设置<p>Serverless索引空间ID</p>
-                     * @param _spaceId <p>Serverless索引空间ID</p>
+                     * 设置Serverless索引空间ID
+                     * @param _spaceId Serverless索引空间ID
                      * 
                      */
                     void SetSpaceId(const std::string& _spaceId);
@@ -72,15 +72,15 @@ namespace TencentCloud
                     bool SpaceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>Serverless索引空间名</p>
-                     * @return SpaceName <p>Serverless索引空间名</p>
+                     * 获取Serverless索引空间名
+                     * @return SpaceName Serverless索引空间名
                      * 
                      */
                     std::string GetSpaceName() const;
 
                     /**
-                     * 设置<p>Serverless索引空间名</p>
-                     * @param _spaceName <p>Serverless索引空间名</p>
+                     * 设置Serverless索引空间名
+                     * @param _spaceName Serverless索引空间名
                      * 
                      */
                     void SetSpaceName(const std::string& _spaceName);
@@ -93,15 +93,15 @@ namespace TencentCloud
                     bool SpaceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>Serverless索引空间状态</p><p>枚举值：</p><ul><li>0： 创建中</li><li>1： 正常</li><li>2： 流程中</li><li>-3： 已删除</li><li>-4： 隔离中</li></ul>
-                     * @return Status <p>Serverless索引空间状态</p><p>枚举值：</p><ul><li>0： 创建中</li><li>1： 正常</li><li>2： 流程中</li><li>-3： 已删除</li><li>-4： 隔离中</li></ul>
+                     * 获取Serverless索引空间状态，0正常，-1已删除
+                     * @return Status Serverless索引空间状态，0正常，-1已删除
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>Serverless索引空间状态</p><p>枚举值：</p><ul><li>0： 创建中</li><li>1： 正常</li><li>2： 流程中</li><li>-3： 已删除</li><li>-4： 隔离中</li></ul>
-                     * @param _status <p>Serverless索引空间状态</p><p>枚举值：</p><ul><li>0： 创建中</li><li>1： 正常</li><li>2： 流程中</li><li>-3： 已删除</li><li>-4： 隔离中</li></ul>
+                     * 设置Serverless索引空间状态，0正常，-1已删除
+                     * @param _status Serverless索引空间状态，0正常，-1已删除
                      * 
                      */
                     void SetStatus(const int64_t& _status);
@@ -114,15 +114,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建日期</p>
-                     * @return CreateTime <p>创建日期</p>
+                     * 获取创建日期
+                     * @return CreateTime 创建日期
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建日期</p>
-                     * @param _createTime <p>创建日期</p>
+                     * 设置创建日期
+                     * @param _createTime 创建日期
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -135,15 +135,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间内索引数量</p>
-                     * @return IndexCount <p>空间内索引数量</p>
+                     * 获取空间内索引数量
+                     * @return IndexCount 空间内索引数量
                      * 
                      */
                     int64_t GetIndexCount() const;
 
                     /**
-                     * 设置<p>空间内索引数量</p>
-                     * @param _indexCount <p>空间内索引数量</p>
+                     * 设置空间内索引数量
+                     * @param _indexCount 空间内索引数量
                      * 
                      */
                     void SetIndexCount(const int64_t& _indexCount);
@@ -156,18 +156,18 @@ namespace TencentCloud
                     bool IndexCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>kibana公网uri</p>
+                     * 获取kibana公网uri
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return KibanaUrl <p>kibana公网uri</p>
+                     * @return KibanaUrl kibana公网uri
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetKibanaUrl() const;
 
                     /**
-                     * 设置<p>kibana公网uri</p>
+                     * 设置kibana公网uri
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _kibanaUrl <p>kibana公网uri</p>
+                     * @param _kibanaUrl kibana公网uri
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -181,18 +181,18 @@ namespace TencentCloud
                     bool KibanaUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>kibana内网url</p>
+                     * 获取kibana内网url
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return KibanaPrivateUrl <p>kibana内网url</p>
+                     * @return KibanaPrivateUrl kibana内网url
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetKibanaPrivateUrl() const;
 
                     /**
-                     * 设置<p>kibana内网url</p>
+                     * 设置kibana内网url
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _kibanaPrivateUrl <p>kibana内网url</p>
+                     * @param _kibanaPrivateUrl kibana内网url
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -206,18 +206,18 @@ namespace TencentCloud
                     bool KibanaPrivateUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间内网访问地址</p>
+                     * 获取空间内网访问地址
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexAccessUrl <p>空间内网访问地址</p>
+                     * @return IndexAccessUrl 空间内网访问地址
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIndexAccessUrl() const;
 
                     /**
-                     * 设置<p>空间内网访问地址</p>
+                     * 设置空间内网访问地址
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexAccessUrl <p>空间内网访问地址</p>
+                     * @param _indexAccessUrl 空间内网访问地址
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -231,18 +231,18 @@ namespace TencentCloud
                     bool IndexAccessUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间白名单</p>
+                     * 获取空间白名单
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return KibanaPublicAcl <p>空间白名单</p>
+                     * @return KibanaPublicAcl 空间白名单
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     EsAcl GetKibanaPublicAcl() const;
 
                     /**
-                     * 设置<p>空间白名单</p>
+                     * 设置空间白名单
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _kibanaPublicAcl <p>空间白名单</p>
+                     * @param _kibanaPublicAcl 空间白名单
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -256,18 +256,18 @@ namespace TencentCloud
                     bool KibanaPublicAclHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间检索分析域名</p>
+                     * 获取空间检索分析域名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return KibanaEmbedUrl <p>空间检索分析域名</p>
+                     * @return KibanaEmbedUrl 空间检索分析域名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetKibanaEmbedUrl() const;
 
                     /**
-                     * 设置<p>空间检索分析域名</p>
+                     * 设置空间检索分析域名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _kibanaEmbedUrl <p>空间检索分析域名</p>
+                     * @param _kibanaEmbedUrl 空间检索分析域名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -281,18 +281,18 @@ namespace TencentCloud
                     bool KibanaEmbedUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据联路</p>
+                     * 获取数据联路
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DiDataList <p>数据联路</p>
+                     * @return DiDataList 数据联路
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     DiData GetDiDataList() const;
 
                     /**
-                     * 设置<p>数据联路</p>
+                     * 设置数据联路
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _diDataList <p>数据联路</p>
+                     * @param _diDataList 数据联路
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -306,18 +306,18 @@ namespace TencentCloud
                     bool DiDataListHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间vpc信息</p>
+                     * 获取空间vpc信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return VpcInfo <p>空间vpc信息</p>
+                     * @return VpcInfo 空间vpc信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<VpcInfo> GetVpcInfo() const;
 
                     /**
-                     * 设置<p>空间vpc信息</p>
+                     * 设置空间vpc信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _vpcInfo <p>空间vpc信息</p>
+                     * @param _vpcInfo 空间vpc信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -331,18 +331,18 @@ namespace TencentCloud
                     bool VpcInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>地域</p>
+                     * 获取地域
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Region <p>地域</p>
+                     * @return Region 地域
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRegion() const;
 
                     /**
-                     * 设置<p>地域</p>
+                     * 设置地域
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _region <p>地域</p>
+                     * @param _region 地域
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -356,18 +356,18 @@ namespace TencentCloud
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区</p>
+                     * 获取可用区
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Zone <p>可用区</p>
+                     * @return Zone 可用区
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>可用区</p>
+                     * 设置可用区
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _zone <p>可用区</p>
+                     * @param _zone 可用区
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -381,18 +381,18 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>kibana公网开关，0关闭，1开启</p>
+                     * 获取kibana公网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EnableKibanaPublicAccess <p>kibana公网开关，0关闭，1开启</p>
+                     * @return EnableKibanaPublicAccess kibana公网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetEnableKibanaPublicAccess() const;
 
                     /**
-                     * 设置<p>kibana公网开关，0关闭，1开启</p>
+                     * 设置kibana公网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _enableKibanaPublicAccess <p>kibana公网开关，0关闭，1开启</p>
+                     * @param _enableKibanaPublicAccess kibana公网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -406,18 +406,18 @@ namespace TencentCloud
                     bool EnableKibanaPublicAccessHasBeenSet() const;
 
                     /**
-                     * 获取<p>kibana内网开关，0关闭，1开启</p>
+                     * 获取kibana内网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EnableKibanaPrivateAccess <p>kibana内网开关，0关闭，1开启</p>
+                     * @return EnableKibanaPrivateAccess kibana内网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetEnableKibanaPrivateAccess() const;
 
                     /**
-                     * 设置<p>kibana内网开关，0关闭，1开启</p>
+                     * 设置kibana内网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _enableKibanaPrivateAccess <p>kibana内网开关，0关闭，1开启</p>
+                     * @param _enableKibanaPrivateAccess kibana内网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -431,18 +431,18 @@ namespace TencentCloud
                     bool EnableKibanaPrivateAccessHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间所属appid</p>
+                     * 获取空间所属appid
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AppId <p>空间所属appid</p>
+                     * @return AppId 空间所属appid
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetAppId() const;
 
                     /**
-                     * 设置<p>空间所属appid</p>
+                     * 设置空间所属appid
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _appId <p>空间所属appid</p>
+                     * @param _appId 空间所属appid
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -456,18 +456,18 @@ namespace TencentCloud
                     bool AppIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>//默认en， 可选zh-CN</p>
+                     * 获取//默认en， 可选zh-CN
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return KibanaLanguage <p>//默认en， 可选zh-CN</p>
+                     * @return KibanaLanguage //默认en， 可选zh-CN
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetKibanaLanguage() const;
 
                     /**
-                     * 设置<p>//默认en， 可选zh-CN</p>
+                     * 设置//默认en， 可选zh-CN
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _kibanaLanguage <p>//默认en， 可选zh-CN</p>
+                     * @param _kibanaLanguage //默认en， 可选zh-CN
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -481,18 +481,18 @@ namespace TencentCloud
                     bool KibanaLanguageHasBeenSet() const;
 
                     /**
-                     * 获取<p>0</p>
+                     * 获取0
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ClusterType <p>0</p>
+                     * @return ClusterType 0
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetClusterType() const;
 
                     /**
-                     * 设置<p>0</p>
+                     * 设置0
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _clusterType <p>0</p>
+                     * @param _clusterType 0
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -506,18 +506,18 @@ namespace TencentCloud
                     bool ClusterTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>空间标签信息</p>
+                     * 获取空间标签信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TagList <p>空间标签信息</p>
+                     * @return TagList 空间标签信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<TagInfo> GetTagList() const;
 
                     /**
-                     * 设置<p>空间标签信息</p>
+                     * 设置空间标签信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _tagList <p>空间标签信息</p>
+                     * @param _tagList 空间标签信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -531,15 +531,15 @@ namespace TencentCloud
                     bool TagListHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启mcp服务</p>
-                     * @return EnableMcpAccess <p>是否开启mcp服务</p>
+                     * 获取是否开启mcp服务
+                     * @return EnableMcpAccess 是否开启mcp服务
                      * 
                      */
                     int64_t GetEnableMcpAccess() const;
 
                     /**
-                     * 设置<p>是否开启mcp服务</p>
-                     * @param _enableMcpAccess <p>是否开启mcp服务</p>
+                     * 设置是否开启mcp服务
+                     * @param _enableMcpAccess 是否开启mcp服务
                      * 
                      */
                     void SetEnableMcpAccess(const int64_t& _enableMcpAccess);
@@ -552,15 +552,15 @@ namespace TencentCloud
                     bool EnableMcpAccessHasBeenSet() const;
 
                     /**
-                     * 获取<p>mcp的访问地址</p>
-                     * @return McpAccess <p>mcp的访问地址</p>
+                     * 获取mcp的访问地址
+                     * @return McpAccess mcp的访问地址
                      * 
                      */
                     std::string GetMcpAccess() const;
 
                     /**
-                     * 设置<p>mcp的访问地址</p>
-                     * @param _mcpAccess <p>mcp的访问地址</p>
+                     * 设置mcp的访问地址
+                     * @param _mcpAccess mcp的访问地址
                      * 
                      */
                     void SetMcpAccess(const std::string& _mcpAccess);
@@ -575,148 +575,148 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>Serverless索引空间ID</p>
+                     * Serverless索引空间ID
                      */
                     std::string m_spaceId;
                     bool m_spaceIdHasBeenSet;
 
                     /**
-                     * <p>Serverless索引空间名</p>
+                     * Serverless索引空间名
                      */
                     std::string m_spaceName;
                     bool m_spaceNameHasBeenSet;
 
                     /**
-                     * <p>Serverless索引空间状态</p><p>枚举值：</p><ul><li>0： 创建中</li><li>1： 正常</li><li>2： 流程中</li><li>-3： 已删除</li><li>-4： 隔离中</li></ul>
+                     * Serverless索引空间状态，0正常，-1已删除
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>创建日期</p>
+                     * 创建日期
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>空间内索引数量</p>
+                     * 空间内索引数量
                      */
                     int64_t m_indexCount;
                     bool m_indexCountHasBeenSet;
 
                     /**
-                     * <p>kibana公网uri</p>
+                     * kibana公网uri
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_kibanaUrl;
                     bool m_kibanaUrlHasBeenSet;
 
                     /**
-                     * <p>kibana内网url</p>
+                     * kibana内网url
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_kibanaPrivateUrl;
                     bool m_kibanaPrivateUrlHasBeenSet;
 
                     /**
-                     * <p>空间内网访问地址</p>
+                     * 空间内网访问地址
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_indexAccessUrl;
                     bool m_indexAccessUrlHasBeenSet;
 
                     /**
-                     * <p>空间白名单</p>
+                     * 空间白名单
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     EsAcl m_kibanaPublicAcl;
                     bool m_kibanaPublicAclHasBeenSet;
 
                     /**
-                     * <p>空间检索分析域名</p>
+                     * 空间检索分析域名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_kibanaEmbedUrl;
                     bool m_kibanaEmbedUrlHasBeenSet;
 
                     /**
-                     * <p>数据联路</p>
+                     * 数据联路
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     DiData m_diDataList;
                     bool m_diDataListHasBeenSet;
 
                     /**
-                     * <p>空间vpc信息</p>
+                     * 空间vpc信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<VpcInfo> m_vpcInfo;
                     bool m_vpcInfoHasBeenSet;
 
                     /**
-                     * <p>地域</p>
+                     * 地域
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * <p>可用区</p>
+                     * 可用区
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>kibana公网开关，0关闭，1开启</p>
+                     * kibana公网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_enableKibanaPublicAccess;
                     bool m_enableKibanaPublicAccessHasBeenSet;
 
                     /**
-                     * <p>kibana内网开关，0关闭，1开启</p>
+                     * kibana内网开关，0关闭，1开启
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_enableKibanaPrivateAccess;
                     bool m_enableKibanaPrivateAccessHasBeenSet;
 
                     /**
-                     * <p>空间所属appid</p>
+                     * 空间所属appid
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_appId;
                     bool m_appIdHasBeenSet;
 
                     /**
-                     * <p>//默认en， 可选zh-CN</p>
+                     * //默认en， 可选zh-CN
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_kibanaLanguage;
                     bool m_kibanaLanguageHasBeenSet;
 
                     /**
-                     * <p>0</p>
+                     * 0
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_clusterType;
                     bool m_clusterTypeHasBeenSet;
 
                     /**
-                     * <p>空间标签信息</p>
+                     * 空间标签信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TagInfo> m_tagList;
                     bool m_tagListHasBeenSet;
 
                     /**
-                     * <p>是否开启mcp服务</p>
+                     * 是否开启mcp服务
                      */
                     int64_t m_enableMcpAccess;
                     bool m_enableMcpAccessHasBeenSet;
 
                     /**
-                     * <p>mcp的访问地址</p>
+                     * mcp的访问地址
                      */
                     std::string m_mcpAccess;
                     bool m_mcpAccessHasBeenSet;

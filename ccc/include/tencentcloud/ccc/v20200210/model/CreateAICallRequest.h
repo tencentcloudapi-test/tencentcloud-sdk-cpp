@@ -913,7 +913,7 @@ HoaiMy
         &quot;APIUrl&quot;: &quot;https://api.minimax.chat/v1/t2a_v2&quot;,
         &quot;APIKey&quot;: &quot;eyxxxx&quot;,
         &quot;GroupId&quot;: &quot;181000000000000&quot;,
-        &quot;VoiceType&quot;:&quot;female-tianmei&quot;,
+        &quot;VoiceType&quot;:&quot;female-tianmei-jingpin&quot;,
         &quot;Speed&quot;: 1.2
 }
 </code></pre>
@@ -987,7 +987,7 @@ HoaiMy
         &quot;APIUrl&quot;: &quot;https://api.minimax.chat/v1/t2a_v2&quot;,
         &quot;APIKey&quot;: &quot;eyxxxx&quot;,
         &quot;GroupId&quot;: &quot;181000000000000&quot;,
-        &quot;VoiceType&quot;:&quot;female-tianmei&quot;,
+        &quot;VoiceType&quot;:&quot;female-tianmei-jingpin&quot;,
         &quot;Speed&quot;: 1.2
 }
 </code></pre>
@@ -1066,7 +1066,7 @@ HoaiMy
         &quot;APIUrl&quot;: &quot;https://api.minimax.chat/v1/t2a_v2&quot;,
         &quot;APIKey&quot;: &quot;eyxxxx&quot;,
         &quot;GroupId&quot;: &quot;181000000000000&quot;,
-        &quot;VoiceType&quot;:&quot;female-tianmei&quot;,
+        &quot;VoiceType&quot;:&quot;female-tianmei-jingpin&quot;,
         &quot;Speed&quot;: 1.2
 }
 </code></pre>
@@ -1140,7 +1140,7 @@ HoaiMy
         &quot;APIUrl&quot;: &quot;https://api.minimax.chat/v1/t2a_v2&quot;,
         &quot;APIKey&quot;: &quot;eyxxxx&quot;,
         &quot;GroupId&quot;: &quot;181000000000000&quot;,
-        &quot;VoiceType&quot;:&quot;female-tianmei&quot;,
+        &quot;VoiceType&quot;:&quot;female-tianmei-jingpin&quot;,
         &quot;Speed&quot;: 1.2
 }
 </code></pre>
@@ -1482,98 +1482,6 @@ HoaiMy
                      */
                     bool LLMExtraBodyHasBeenSet() const;
 
-                    /**
-                     * 获取最大通话时长， 默认不限制。单位毫秒(ms)
-                     * @return MaxCallDurationMs 最大通话时长， 默认不限制。单位毫秒(ms)
-                     * 
-                     */
-                    uint64_t GetMaxCallDurationMs() const;
-
-                    /**
-                     * 设置最大通话时长， 默认不限制。单位毫秒(ms)
-                     * @param _maxCallDurationMs 最大通话时长， 默认不限制。单位毫秒(ms)
-                     * 
-                     */
-                    void SetMaxCallDurationMs(const uint64_t& _maxCallDurationMs);
-
-                    /**
-                     * 判断参数 MaxCallDurationMs 是否已赋值
-                     * @return MaxCallDurationMs 是否已赋值
-                     * 
-                     */
-                    bool MaxCallDurationMsHasBeenSet() const;
-
-                    /**
-                     * 获取最大振铃时长，达到时长阈值自动挂断。 **仅自携号码支持当前参数**
-                     * @return MaxRingTimeoutSecond 最大振铃时长，达到时长阈值自动挂断。 **仅自携号码支持当前参数**
-                     * 
-                     */
-                    int64_t GetMaxRingTimeoutSecond() const;
-
-                    /**
-                     * 设置最大振铃时长，达到时长阈值自动挂断。 **仅自携号码支持当前参数**
-                     * @param _maxRingTimeoutSecond 最大振铃时长，达到时长阈值自动挂断。 **仅自携号码支持当前参数**
-                     * 
-                     */
-                    void SetMaxRingTimeoutSecond(const int64_t& _maxRingTimeoutSecond);
-
-                    /**
-                     * 判断参数 MaxRingTimeoutSecond 是否已赋值
-                     * @return MaxRingTimeoutSecond 是否已赋值
-                     * 
-                     */
-                    bool MaxRingTimeoutSecondHasBeenSet() const;
-
-                    /**
-                     * 获取环境音场景，没有的话不填。
-coffee_shops：咖啡店氛围，背景中有人聊天
-busy_office：客服中心
-                     * @return AmbientSoundType 环境音场景，没有的话不填。
-coffee_shops：咖啡店氛围，背景中有人聊天
-busy_office：客服中心
-                     * 
-                     */
-                    std::string GetAmbientSoundType() const;
-
-                    /**
-                     * 设置环境音场景，没有的话不填。
-coffee_shops：咖啡店氛围，背景中有人聊天
-busy_office：客服中心
-                     * @param _ambientSoundType 环境音场景，没有的话不填。
-coffee_shops：咖啡店氛围，背景中有人聊天
-busy_office：客服中心
-                     * 
-                     */
-                    void SetAmbientSoundType(const std::string& _ambientSoundType);
-
-                    /**
-                     * 判断参数 AmbientSoundType 是否已赋值
-                     * @return AmbientSoundType 是否已赋值
-                     * 
-                     */
-                    bool AmbientSoundTypeHasBeenSet() const;
-
-                    /**
-                     * 获取环境音音量。如果AmbientSoundType 为空，该字段不填。取值的范围是 [0,2]。值越低，环境音越小；值越高，环境音越响亮。如果未设置，则使用默认值 1。
-                     * @return AmbientSoundVolume 环境音音量。如果AmbientSoundType 为空，该字段不填。取值的范围是 [0,2]。值越低，环境音越小；值越高，环境音越响亮。如果未设置，则使用默认值 1。
-                     * 
-                     */
-                    double GetAmbientSoundVolume() const;
-
-                    /**
-                     * 设置环境音音量。如果AmbientSoundType 为空，该字段不填。取值的范围是 [0,2]。值越低，环境音越小；值越高，环境音越响亮。如果未设置，则使用默认值 1。
-                     * @param _ambientSoundVolume 环境音音量。如果AmbientSoundType 为空，该字段不填。取值的范围是 [0,2]。值越低，环境音越小；值越高，环境音越响亮。如果未设置，则使用默认值 1。
-                     * 
-                     */
-                    void SetAmbientSoundVolume(const double& _ambientSoundVolume);
-
-                    /**
-                     * 判断参数 AmbientSoundVolume 是否已赋值
-                     * @return AmbientSoundVolume 是否已赋值
-                     * 
-                     */
-                    bool AmbientSoundVolumeHasBeenSet() const;
-
                 private:
 
                     /**
@@ -1831,7 +1739,7 @@ HoaiMy
         &quot;APIUrl&quot;: &quot;https://api.minimax.chat/v1/t2a_v2&quot;,
         &quot;APIKey&quot;: &quot;eyxxxx&quot;,
         &quot;GroupId&quot;: &quot;181000000000000&quot;,
-        &quot;VoiceType&quot;:&quot;female-tianmei&quot;,
+        &quot;VoiceType&quot;:&quot;female-tianmei-jingpin&quot;,
         &quot;Speed&quot;: 1.2
 }
 </code></pre>
@@ -1961,32 +1869,6 @@ HoaiMy
                      */
                     std::string m_lLMExtraBody;
                     bool m_lLMExtraBodyHasBeenSet;
-
-                    /**
-                     * 最大通话时长， 默认不限制。单位毫秒(ms)
-                     */
-                    uint64_t m_maxCallDurationMs;
-                    bool m_maxCallDurationMsHasBeenSet;
-
-                    /**
-                     * 最大振铃时长，达到时长阈值自动挂断。 **仅自携号码支持当前参数**
-                     */
-                    int64_t m_maxRingTimeoutSecond;
-                    bool m_maxRingTimeoutSecondHasBeenSet;
-
-                    /**
-                     * 环境音场景，没有的话不填。
-coffee_shops：咖啡店氛围，背景中有人聊天
-busy_office：客服中心
-                     */
-                    std::string m_ambientSoundType;
-                    bool m_ambientSoundTypeHasBeenSet;
-
-                    /**
-                     * 环境音音量。如果AmbientSoundType 为空，该字段不填。取值的范围是 [0,2]。值越低，环境音越小；值越高，环境音越响亮。如果未设置，则使用默认值 1。
-                     */
-                    double m_ambientSoundVolume;
-                    bool m_ambientSoundVolumeHasBeenSet;
 
                 };
             }

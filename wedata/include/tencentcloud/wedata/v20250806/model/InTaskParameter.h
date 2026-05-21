@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>参数名</p>
+                     * 获取参数名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ParamKey <p>参数名</p>
+                     * @return ParamKey 参数名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetParamKey() const;
 
                     /**
-                     * 设置<p>参数名</p>
+                     * 设置参数名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paramKey <p>参数名</p>
+                     * @param _paramKey 参数名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool ParamKeyHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out</p>
+                     * 获取参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ParamDesc <p>参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out</p>
+                     * @return ParamDesc 参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetParamDesc() const;
 
                     /**
-                     * 设置<p>参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out</p>
+                     * 设置参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paramDesc <p>参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out</p>
+                     * @param _paramDesc 参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool ParamDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>父任务ID</p>
+                     * 获取父任务ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FromTaskId <p>父任务ID</p>
+                     * @return FromTaskId 父任务ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFromTaskId() const;
 
                     /**
-                     * 设置<p>父任务ID</p>
+                     * 设置父任务ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _fromTaskId <p>父任务ID</p>
+                     * @param _fromTaskId 父任务ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool FromTaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>父任务参数key</p>
+                     * 获取父任务参数key
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FromParamKey <p>父任务参数key</p>
+                     * @return FromParamKey 父任务参数key
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFromParamKey() const;
 
                     /**
-                     * 设置<p>父任务参数key</p>
+                     * 设置父任务参数key
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _fromParamKey <p>父任务参数key</p>
+                     * @param _fromParamKey 父任务参数key
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -146,67 +146,35 @@ namespace TencentCloud
                      */
                     bool FromParamKeyHasBeenSet() const;
 
-                    /**
-                     * 获取<p>任务输入类型，默认使用TASK</p><p>枚举值：</p><ul><li>TASK： 来源为父任务</li><li>CONSTANT： 常量值，目前仅for-each节点支持</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Type <p>任务输入类型，默认使用TASK</p><p>枚举值：</p><ul><li>TASK： 来源为父任务</li><li>CONSTANT： 常量值，目前仅for-each节点支持</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetType() const;
-
-                    /**
-                     * 设置<p>任务输入类型，默认使用TASK</p><p>枚举值：</p><ul><li>TASK： 来源为父任务</li><li>CONSTANT： 常量值，目前仅for-each节点支持</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _type <p>任务输入类型，默认使用TASK</p><p>枚举值：</p><ul><li>TASK： 来源为父任务</li><li>CONSTANT： 常量值，目前仅for-each节点支持</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetType(const std::string& _type);
-
-                    /**
-                     * 判断参数 Type 是否已赋值
-                     * @return Type 是否已赋值
-                     * 
-                     */
-                    bool TypeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>参数名</p>
+                     * 参数名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramKey;
                     bool m_paramKeyHasBeenSet;
 
                     /**
-                     * <p>参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out</p>
+                     * 参数描述：格式为 项目标识.任务名称.参数名；例：project_wedata_1.sh_250820_104107.pp_out
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramDesc;
                     bool m_paramDescHasBeenSet;
 
                     /**
-                     * <p>父任务ID</p>
+                     * 父任务ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_fromTaskId;
                     bool m_fromTaskIdHasBeenSet;
 
                     /**
-                     * <p>父任务参数key</p>
+                     * 父任务参数key
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_fromParamKey;
                     bool m_fromParamKeyHasBeenSet;
-
-                    /**
-                     * <p>任务输入类型，默认使用TASK</p><p>枚举值：</p><ul><li>TASK： 来源为父任务</li><li>CONSTANT： 常量值，目前仅for-each节点支持</li></ul>
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_type;
-                    bool m_typeHasBeenSet;
 
                 };
             }

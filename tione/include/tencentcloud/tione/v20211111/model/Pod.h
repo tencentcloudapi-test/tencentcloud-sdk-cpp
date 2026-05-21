@@ -50,18 +50,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>pod名</p>
+                     * 获取pod名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Name <p>pod名</p>
+                     * @return Name pod名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>pod名</p>
+                     * 设置pod名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _name <p>pod名</p>
+                     * @param _name pod名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -75,18 +75,18 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>pod的唯一id</p>
+                     * 获取pod的唯一id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Uid <p>pod的唯一id</p>
+                     * @return Uid pod的唯一id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetUid() const;
 
                     /**
-                     * 设置<p>pod的唯一id</p>
+                     * 设置pod的唯一id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _uid <p>pod的唯一id</p>
+                     * @param _uid pod的唯一id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -100,18 +100,18 @@ namespace TencentCloud
                     bool UidHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务付费模式</p>
+                     * 获取服务付费模式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ChargeType <p>服务付费模式</p>
+                     * @return ChargeType 服务付费模式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetChargeType() const;
 
                     /**
-                     * 设置<p>服务付费模式</p>
+                     * 设置服务付费模式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _chargeType <p>服务付费模式</p>
+                     * @param _chargeType 服务付费模式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -125,18 +125,18 @@ namespace TencentCloud
                     bool ChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>pod的状态</p>
+                     * 获取pod的状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Phase <p>pod的状态</p>
+                     * @return Phase pod的状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetPhase() const;
 
                     /**
-                     * 设置<p>pod的状态</p>
+                     * 设置pod的状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _phase <p>pod的状态</p>
+                     * @param _phase pod的状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -150,18 +150,18 @@ namespace TencentCloud
                     bool PhaseHasBeenSet() const;
 
                     /**
-                     * 获取<p>pod的IP</p>
+                     * 获取pod的IP
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IP <p>pod的IP</p>
+                     * @return IP pod的IP
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIP() const;
 
                     /**
-                     * 设置<p>pod的IP</p>
+                     * 设置pod的IP
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _iP <p>pod的IP</p>
+                     * @param _iP pod的IP
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -175,18 +175,18 @@ namespace TencentCloud
                     bool IPHasBeenSet() const;
 
                     /**
-                     * 获取<p>pod的创建时间</p>
+                     * 获取pod的创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CreateTime <p>pod的创建时间</p>
+                     * @return CreateTime pod的创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>pod的创建时间</p>
+                     * 设置pod的创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _createTime <p>pod的创建时间</p>
+                     * @param _createTime pod的创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -200,18 +200,18 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>容器列表</p>
+                     * 获取容器列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Containers <p>容器列表</p>
+                     * @return Containers 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
                     Container GetContainers() const;
 
                     /**
-                     * 设置<p>容器列表</p>
+                     * 设置容器列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _containers <p>容器列表</p>
+                     * @param _containers 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
@@ -225,18 +225,18 @@ namespace TencentCloud
                     bool ContainersHasBeenSet() const;
 
                     /**
-                     * 获取<p>容器列表</p>
+                     * 获取容器列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ContainerInfos <p>容器列表</p>
+                     * @return ContainerInfos 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<Container> GetContainerInfos() const;
 
                     /**
-                     * 设置<p>容器列表</p>
+                     * 设置容器列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _containerInfos <p>容器列表</p>
+                     * @param _containerInfos 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -250,18 +250,18 @@ namespace TencentCloud
                     bool ContainerInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>容器调用信息</p>
+                     * 获取容器调用信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CrossTenantENIInfo <p>容器调用信息</p>
+                     * @return CrossTenantENIInfo 容器调用信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     CrossTenantENIInfo GetCrossTenantENIInfo() const;
 
                     /**
-                     * 设置<p>容器调用信息</p>
+                     * 设置容器调用信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _crossTenantENIInfo <p>容器调用信息</p>
+                     * @param _crossTenantENIInfo 容器调用信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -275,15 +275,15 @@ namespace TencentCloud
                     bool CrossTenantENIInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例的状态信息</p>
-                     * @return Status <p>实例的状态信息</p>
+                     * 获取实例的状态信息
+                     * @return Status 实例的状态信息
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>实例的状态信息</p>
-                     * @param _status <p>实例的状态信息</p>
+                     * 设置实例的状态信息
+                     * @param _status 实例的状态信息
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -296,15 +296,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例的开始调度时间</p>
-                     * @return StartScheduleTime <p>实例的开始调度时间</p>
+                     * 获取实例的开始调度时间
+                     * @return StartScheduleTime 实例的开始调度时间
                      * 
                      */
                     std::string GetStartScheduleTime() const;
 
                     /**
-                     * 设置<p>实例的开始调度时间</p>
-                     * @param _startScheduleTime <p>实例的开始调度时间</p>
+                     * 设置实例的开始调度时间
+                     * @param _startScheduleTime 实例的开始调度时间
                      * 
                      */
                     void SetStartScheduleTime(const std::string& _startScheduleTime);
@@ -317,15 +317,15 @@ namespace TencentCloud
                     bool StartScheduleTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例状态的补充信息</p>
-                     * @return Message <p>实例状态的补充信息</p>
+                     * 获取实例状态的补充信息
+                     * @return Message 实例状态的补充信息
                      * 
                      */
                     std::string GetMessage() const;
 
                     /**
-                     * 设置<p>实例状态的补充信息</p>
-                     * @param _message <p>实例状态的补充信息</p>
+                     * 设置实例状态的补充信息
+                     * @param _message 实例状态的补充信息
                      * 
                      */
                     void SetMessage(const std::string& _message);
@@ -338,15 +338,15 @@ namespace TencentCloud
                     bool MessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前实例所在的节点 IP</p>
-                     * @return NodeIP <p>当前实例所在的节点 IP</p>
+                     * 获取当前实例所在的节点 IP
+                     * @return NodeIP 当前实例所在的节点 IP
                      * 
                      */
                     std::string GetNodeIP() const;
 
                     /**
-                     * 设置<p>当前实例所在的节点 IP</p>
-                     * @param _nodeIP <p>当前实例所在的节点 IP</p>
+                     * 设置当前实例所在的节点 IP
+                     * @param _nodeIP 当前实例所在的节点 IP
                      * 
                      */
                     void SetNodeIP(const std::string& _nodeIP);
@@ -359,15 +359,15 @@ namespace TencentCloud
                     bool NodeIPHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前实例所在节点id</p>
-                     * @return NodeId <p>当前实例所在节点id</p>
+                     * 获取当前实例所在节点id
+                     * @return NodeId 当前实例所在节点id
                      * 
                      */
                     std::string GetNodeId() const;
 
                     /**
-                     * 设置<p>当前实例所在节点id</p>
-                     * @param _nodeId <p>当前实例所在节点id</p>
+                     * 设置当前实例所在节点id
+                     * @param _nodeId 当前实例所在节点id
                      * 
                      */
                     void SetNodeId(const std::string& _nodeId);
@@ -380,15 +380,15 @@ namespace TencentCloud
                     bool NodeIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>当时实例所属资源组 id</p>
-                     * @return ResourceGroupId <p>当时实例所属资源组 id</p>
+                     * 获取当时实例所属资源组 id
+                     * @return ResourceGroupId 当时实例所属资源组 id
                      * 
                      */
                     std::string GetResourceGroupId() const;
 
                     /**
-                     * 设置<p>当时实例所属资源组 id</p>
-                     * @param _resourceGroupId <p>当时实例所属资源组 id</p>
+                     * 设置当时实例所属资源组 id
+                     * @param _resourceGroupId 当时实例所属资源组 id
                      * 
                      */
                     void SetResourceGroupId(const std::string& _resourceGroupId);
@@ -401,15 +401,15 @@ namespace TencentCloud
                     bool ResourceGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>资源组名称</p>
-                     * @return ResourceGroupName <p>资源组名称</p>
+                     * 获取资源组名称
+                     * @return ResourceGroupName 资源组名称
                      * 
                      */
                     std::string GetResourceGroupName() const;
 
                     /**
-                     * 设置<p>资源组名称</p>
-                     * @param _resourceGroupName <p>资源组名称</p>
+                     * 设置资源组名称
+                     * @param _resourceGroupName 资源组名称
                      * 
                      */
                     void SetResourceGroupName(const std::string& _resourceGroupName);
@@ -422,15 +422,15 @@ namespace TencentCloud
                     bool ResourceGroupNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例的资源占用信息</p>
-                     * @return ResourceInfo <p>实例的资源占用信息</p>
+                     * 获取实例的资源占用信息
+                     * @return ResourceInfo 实例的资源占用信息
                      * 
                      */
                     ResourceInfo GetResourceInfo() const;
 
                     /**
-                     * 设置<p>实例的资源占用信息</p>
-                     * @param _resourceInfo <p>实例的资源占用信息</p>
+                     * 设置实例的资源占用信息
+                     * @param _resourceInfo 实例的资源占用信息
                      * 
                      */
                     void SetResourceInfo(const ResourceInfo& _resourceInfo);
@@ -445,112 +445,112 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>pod名</p>
+                     * pod名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>pod的唯一id</p>
+                     * pod的唯一id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_uid;
                     bool m_uidHasBeenSet;
 
                     /**
-                     * <p>服务付费模式</p>
+                     * 服务付费模式
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_chargeType;
                     bool m_chargeTypeHasBeenSet;
 
                     /**
-                     * <p>pod的状态</p>
+                     * pod的状态
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_phase;
                     bool m_phaseHasBeenSet;
 
                     /**
-                     * <p>pod的IP</p>
+                     * pod的IP
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_iP;
                     bool m_iPHasBeenSet;
 
                     /**
-                     * <p>pod的创建时间</p>
+                     * pod的创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>容器列表</p>
+                     * 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     Container m_containers;
                     bool m_containersHasBeenSet;
 
                     /**
-                     * <p>容器列表</p>
+                     * 容器列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Container> m_containerInfos;
                     bool m_containerInfosHasBeenSet;
 
                     /**
-                     * <p>容器调用信息</p>
+                     * 容器调用信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     CrossTenantENIInfo m_crossTenantENIInfo;
                     bool m_crossTenantENIInfoHasBeenSet;
 
                     /**
-                     * <p>实例的状态信息</p>
+                     * 实例的状态信息
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>实例的开始调度时间</p>
+                     * 实例的开始调度时间
                      */
                     std::string m_startScheduleTime;
                     bool m_startScheduleTimeHasBeenSet;
 
                     /**
-                     * <p>实例状态的补充信息</p>
+                     * 实例状态的补充信息
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;
 
                     /**
-                     * <p>当前实例所在的节点 IP</p>
+                     * 当前实例所在的节点 IP
                      */
                     std::string m_nodeIP;
                     bool m_nodeIPHasBeenSet;
 
                     /**
-                     * <p>当前实例所在节点id</p>
+                     * 当前实例所在节点id
                      */
                     std::string m_nodeId;
                     bool m_nodeIdHasBeenSet;
 
                     /**
-                     * <p>当时实例所属资源组 id</p>
+                     * 当时实例所属资源组 id
                      */
                     std::string m_resourceGroupId;
                     bool m_resourceGroupIdHasBeenSet;
 
                     /**
-                     * <p>资源组名称</p>
+                     * 资源组名称
                      */
                     std::string m_resourceGroupName;
                     bool m_resourceGroupNameHasBeenSet;
 
                     /**
-                     * <p>实例的资源占用信息</p>
+                     * 实例的资源占用信息
                      */
                     ResourceInfo m_resourceInfo;
                     bool m_resourceInfoHasBeenSet;

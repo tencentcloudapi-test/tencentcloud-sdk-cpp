@@ -162,15 +162,15 @@ namespace TencentCloud
                     bool UserSigHasBeenSet() const;
 
                     /**
-                     * 获取源流URL【必填】。如果是视频流，分辨率请保持不变，视频流的最大分辨率限制1080p，最大帧率限制30fps。
-                     * @return StreamUrl 源流URL【必填】。如果是视频流，分辨率请保持不变，视频流的最大分辨率限制1080p，最大帧率限制30fps。
+                     * 获取源流URL【必填】。如果是视频流，分辨率请保持不变。
+                     * @return StreamUrl 源流URL【必填】。如果是视频流，分辨率请保持不变。
                      * 
                      */
                     std::string GetStreamUrl() const;
 
                     /**
-                     * 设置源流URL【必填】。如果是视频流，分辨率请保持不变，视频流的最大分辨率限制1080p，最大帧率限制30fps。
-                     * @param _streamUrl 源流URL【必填】。如果是视频流，分辨率请保持不变，视频流的最大分辨率限制1080p，最大帧率限制30fps。
+                     * 设置源流URL【必填】。如果是视频流，分辨率请保持不变。
+                     * @param _streamUrl 源流URL【必填】。如果是视频流，分辨率请保持不变。
                      * 
                      */
                     void SetStreamUrl(const std::string& _streamUrl);
@@ -363,15 +363,15 @@ namespace TencentCloud
                     bool MaxDurationHasBeenSet() const;
 
                     /**
-                     * 获取音量，取值范围[0, 200]，默认100，表示原音量。
-                     * @return Volume 音量，取值范围[0, 200]，默认100，表示原音量。
+                     * 获取音量，取值范围[0, 100]，默认100，表示原音量。
+                     * @return Volume 音量，取值范围[0, 100]，默认100，表示原音量。
                      * 
                      */
                     uint64_t GetVolume() const;
 
                     /**
-                     * 设置音量，取值范围[0, 200]，默认100，表示原音量。
-                     * @param _volume 音量，取值范围[0, 200]，默认100，表示原音量。
+                     * 设置音量，取值范围[0, 100]，默认100，表示原音量。
+                     * @param _volume 音量，取值范围[0, 100]，默认100，表示原音量。
                      * 
                      */
                     void SetVolume(const uint64_t& _volume);
@@ -382,69 +382,6 @@ namespace TencentCloud
                      * 
                      */
                     bool VolumeHasBeenSet() const;
-
-                    /**
-                     * 获取开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * @return EnableProgress 开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * 
-                     */
-                    bool GetEnableProgress() const;
-
-                    /**
-                     * 设置开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * @param _enableProgress 开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * 
-                     */
-                    void SetEnableProgress(const bool& _enableProgress);
-
-                    /**
-                     * 判断参数 EnableProgress 是否已赋值
-                     * @return EnableProgress 是否已赋值
-                     * 
-                     */
-                    bool EnableProgressHasBeenSet() const;
-
-                    /**
-                     * 获取播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * @return Tempo 播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * 
-                     */
-                    double GetTempo() const;
-
-                    /**
-                     * 设置播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * @param _tempo 播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * 
-                     */
-                    void SetTempo(const double& _tempo);
-
-                    /**
-                     * 判断参数 Tempo 是否已赋值
-                     * @return Tempo 是否已赋值
-                     * 
-                     */
-                    bool TempoHasBeenSet() const;
-
-                    /**
-                     * 获取播放任务处于空闲状态的最大时长（秒）, 不填时任务会自适应销毁，可取[0, 600]，空闲状态超过设置的 IdleTimeout 后，该播放任务会自动销毁
-                     * @return IdleTimeout 播放任务处于空闲状态的最大时长（秒）, 不填时任务会自适应销毁，可取[0, 600]，空闲状态超过设置的 IdleTimeout 后，该播放任务会自动销毁
-                     * 
-                     */
-                    int64_t GetIdleTimeout() const;
-
-                    /**
-                     * 设置播放任务处于空闲状态的最大时长（秒）, 不填时任务会自适应销毁，可取[0, 600]，空闲状态超过设置的 IdleTimeout 后，该播放任务会自动销毁
-                     * @param _idleTimeout 播放任务处于空闲状态的最大时长（秒）, 不填时任务会自适应销毁，可取[0, 600]，空闲状态超过设置的 IdleTimeout 后，该播放任务会自动销毁
-                     * 
-                     */
-                    void SetIdleTimeout(const int64_t& _idleTimeout);
-
-                    /**
-                     * 判断参数 IdleTimeout 是否已赋值
-                     * @return IdleTimeout 是否已赋值
-                     * 
-                     */
-                    bool IdleTimeoutHasBeenSet() const;
 
                 private:
 
@@ -482,7 +419,7 @@ namespace TencentCloud
                     bool m_userSigHasBeenSet;
 
                     /**
-                     * 源流URL【必填】。如果是视频流，分辨率请保持不变，视频流的最大分辨率限制1080p，最大帧率限制30fps。
+                     * 源流URL【必填】。如果是视频流，分辨率请保持不变。
                      */
                     std::string m_streamUrl;
                     bool m_streamUrlHasBeenSet;
@@ -539,28 +476,10 @@ namespace TencentCloud
                     bool m_maxDurationHasBeenSet;
 
                     /**
-                     * 音量，取值范围[0, 200]，默认100，表示原音量。
+                     * 音量，取值范围[0, 100]，默认100，表示原音量。
                      */
                     uint64_t m_volume;
                     bool m_volumeHasBeenSet;
-
-                    /**
-                     * 开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     */
-                    bool m_enableProgress;
-                    bool m_enableProgressHasBeenSet;
-
-                    /**
-                     * 播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     */
-                    double m_tempo;
-                    bool m_tempoHasBeenSet;
-
-                    /**
-                     * 播放任务处于空闲状态的最大时长（秒）, 不填时任务会自适应销毁，可取[0, 600]，空闲状态超过设置的 IdleTimeout 后，该播放任务会自动销毁
-                     */
-                    int64_t m_idleTimeout;
-                    bool m_idleTimeoutHasBeenSet;
 
                 };
             }

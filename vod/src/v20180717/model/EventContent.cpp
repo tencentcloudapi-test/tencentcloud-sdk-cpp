@@ -50,12 +50,7 @@ EventContent::EventContent() :
     m_mediaCastStatusChangedEventHasBeenSet(false),
     m_persistenceCompleteEventHasBeenSet(false),
     m_complexAdaptiveDynamicStreamingCompleteEventHasBeenSet(false),
-    m_processMediaByMPSCompleteEventHasBeenSet(false),
-    m_aigcImageCompleteEventHasBeenSet(false),
-    m_aigcVideoCompleteEventHasBeenSet(false),
-    m_extractBlindWatermarkCompleteHasBeenSet(false),
-    m_sceneAigcImageCompleteEventHasBeenSet(false),
-    m_processImageAsyncCompleteEventHasBeenSet(false)
+    m_processMediaByMPSCompleteEventHasBeenSet(false)
 {
 }
 
@@ -560,91 +555,6 @@ CoreInternalOutcome EventContent::Deserialize(const rapidjson::Value &value)
         m_processMediaByMPSCompleteEventHasBeenSet = true;
     }
 
-    if (value.HasMember("AigcImageCompleteEvent") && !value["AigcImageCompleteEvent"].IsNull())
-    {
-        if (!value["AigcImageCompleteEvent"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `EventContent.AigcImageCompleteEvent` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_aigcImageCompleteEvent.Deserialize(value["AigcImageCompleteEvent"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_aigcImageCompleteEventHasBeenSet = true;
-    }
-
-    if (value.HasMember("AigcVideoCompleteEvent") && !value["AigcVideoCompleteEvent"].IsNull())
-    {
-        if (!value["AigcVideoCompleteEvent"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `EventContent.AigcVideoCompleteEvent` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_aigcVideoCompleteEvent.Deserialize(value["AigcVideoCompleteEvent"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_aigcVideoCompleteEventHasBeenSet = true;
-    }
-
-    if (value.HasMember("ExtractBlindWatermarkComplete") && !value["ExtractBlindWatermarkComplete"].IsNull())
-    {
-        if (!value["ExtractBlindWatermarkComplete"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `EventContent.ExtractBlindWatermarkComplete` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_extractBlindWatermarkComplete.Deserialize(value["ExtractBlindWatermarkComplete"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_extractBlindWatermarkCompleteHasBeenSet = true;
-    }
-
-    if (value.HasMember("SceneAigcImageCompleteEvent") && !value["SceneAigcImageCompleteEvent"].IsNull())
-    {
-        if (!value["SceneAigcImageCompleteEvent"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `EventContent.SceneAigcImageCompleteEvent` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_sceneAigcImageCompleteEvent.Deserialize(value["SceneAigcImageCompleteEvent"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_sceneAigcImageCompleteEventHasBeenSet = true;
-    }
-
-    if (value.HasMember("ProcessImageAsyncCompleteEvent") && !value["ProcessImageAsyncCompleteEvent"].IsNull())
-    {
-        if (!value["ProcessImageAsyncCompleteEvent"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `EventContent.ProcessImageAsyncCompleteEvent` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_processImageAsyncCompleteEvent.Deserialize(value["ProcessImageAsyncCompleteEvent"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_processImageAsyncCompleteEventHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -918,51 +828,6 @@ void EventContent::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_processMediaByMPSCompleteEvent.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_aigcImageCompleteEventHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AigcImageCompleteEvent";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_aigcImageCompleteEvent.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_aigcVideoCompleteEventHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AigcVideoCompleteEvent";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_aigcVideoCompleteEvent.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_extractBlindWatermarkCompleteHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExtractBlindWatermarkComplete";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_extractBlindWatermarkComplete.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_sceneAigcImageCompleteEventHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SceneAigcImageCompleteEvent";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_sceneAigcImageCompleteEvent.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_processImageAsyncCompleteEventHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ProcessImageAsyncCompleteEvent";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_processImageAsyncCompleteEvent.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -1446,85 +1311,5 @@ void EventContent::SetProcessMediaByMPSCompleteEvent(const ProcessMediaByMPS& _p
 bool EventContent::ProcessMediaByMPSCompleteEventHasBeenSet() const
 {
     return m_processMediaByMPSCompleteEventHasBeenSet;
-}
-
-AigcImageTask EventContent::GetAigcImageCompleteEvent() const
-{
-    return m_aigcImageCompleteEvent;
-}
-
-void EventContent::SetAigcImageCompleteEvent(const AigcImageTask& _aigcImageCompleteEvent)
-{
-    m_aigcImageCompleteEvent = _aigcImageCompleteEvent;
-    m_aigcImageCompleteEventHasBeenSet = true;
-}
-
-bool EventContent::AigcImageCompleteEventHasBeenSet() const
-{
-    return m_aigcImageCompleteEventHasBeenSet;
-}
-
-AigcVideoTask EventContent::GetAigcVideoCompleteEvent() const
-{
-    return m_aigcVideoCompleteEvent;
-}
-
-void EventContent::SetAigcVideoCompleteEvent(const AigcVideoTask& _aigcVideoCompleteEvent)
-{
-    m_aigcVideoCompleteEvent = _aigcVideoCompleteEvent;
-    m_aigcVideoCompleteEventHasBeenSet = true;
-}
-
-bool EventContent::AigcVideoCompleteEventHasBeenSet() const
-{
-    return m_aigcVideoCompleteEventHasBeenSet;
-}
-
-ExtractBlindWatermarkTask EventContent::GetExtractBlindWatermarkComplete() const
-{
-    return m_extractBlindWatermarkComplete;
-}
-
-void EventContent::SetExtractBlindWatermarkComplete(const ExtractBlindWatermarkTask& _extractBlindWatermarkComplete)
-{
-    m_extractBlindWatermarkComplete = _extractBlindWatermarkComplete;
-    m_extractBlindWatermarkCompleteHasBeenSet = true;
-}
-
-bool EventContent::ExtractBlindWatermarkCompleteHasBeenSet() const
-{
-    return m_extractBlindWatermarkCompleteHasBeenSet;
-}
-
-SceneAigcImageTask EventContent::GetSceneAigcImageCompleteEvent() const
-{
-    return m_sceneAigcImageCompleteEvent;
-}
-
-void EventContent::SetSceneAigcImageCompleteEvent(const SceneAigcImageTask& _sceneAigcImageCompleteEvent)
-{
-    m_sceneAigcImageCompleteEvent = _sceneAigcImageCompleteEvent;
-    m_sceneAigcImageCompleteEventHasBeenSet = true;
-}
-
-bool EventContent::SceneAigcImageCompleteEventHasBeenSet() const
-{
-    return m_sceneAigcImageCompleteEventHasBeenSet;
-}
-
-ProcessImageAsyncTask EventContent::GetProcessImageAsyncCompleteEvent() const
-{
-    return m_processImageAsyncCompleteEvent;
-}
-
-void EventContent::SetProcessImageAsyncCompleteEvent(const ProcessImageAsyncTask& _processImageAsyncCompleteEvent)
-{
-    m_processImageAsyncCompleteEvent = _processImageAsyncCompleteEvent;
-    m_processImageAsyncCompleteEventHasBeenSet = true;
-}
-
-bool EventContent::ProcessImageAsyncCompleteEventHasBeenSet() const
-{
-    return m_processImageAsyncCompleteEventHasBeenSet;
 }
 

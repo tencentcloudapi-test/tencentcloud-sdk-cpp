@@ -66,14 +66,8 @@ namespace TencentCloud
                     /**
                      * 获取需要删除的 MPS 模板的类型。取值：
 <li>Transcode: 删除转码模板。</li>
-<li>AIAnalysis: 创建智能分析模板。</li>
-<li>SmartSubtitle: 创建智能字幕模板。</li>
-<li>SmartErase: 创建智能擦除模板。</li>
                      * @return TemplateType 需要删除的 MPS 模板的类型。取值：
 <li>Transcode: 删除转码模板。</li>
-<li>AIAnalysis: 创建智能分析模板。</li>
-<li>SmartSubtitle: 创建智能字幕模板。</li>
-<li>SmartErase: 创建智能擦除模板。</li>
                      * 
                      */
                     std::string GetTemplateType() const;
@@ -81,14 +75,8 @@ namespace TencentCloud
                     /**
                      * 设置需要删除的 MPS 模板的类型。取值：
 <li>Transcode: 删除转码模板。</li>
-<li>AIAnalysis: 创建智能分析模板。</li>
-<li>SmartSubtitle: 创建智能字幕模板。</li>
-<li>SmartErase: 创建智能擦除模板。</li>
                      * @param _templateType 需要删除的 MPS 模板的类型。取值：
 <li>Transcode: 删除转码模板。</li>
-<li>AIAnalysis: 创建智能分析模板。</li>
-<li>SmartSubtitle: 创建智能字幕模板。</li>
-<li>SmartErase: 创建智能擦除模板。</li>
                      * 
                      */
                     void SetTemplateType(const std::string& _templateType);
@@ -132,9 +120,6 @@ namespace TencentCloud
                     /**
                      * 需要删除的 MPS 模板的类型。取值：
 <li>Transcode: 删除转码模板。</li>
-<li>AIAnalysis: 创建智能分析模板。</li>
-<li>SmartSubtitle: 创建智能字幕模板。</li>
-<li>SmartErase: 创建智能擦除模板。</li>
                      */
                     std::string m_templateType;
                     bool m_templateTypeHasBeenSet;

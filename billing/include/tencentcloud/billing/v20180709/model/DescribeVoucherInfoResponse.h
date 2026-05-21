@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>券总数</p>
-                     * @return TotalCount <p>券总数</p>
+                     * 获取券总数
+                     * @return TotalCount 券总数
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>总余额（微分）</p>
-                     * @return TotalBalance <p>总余额（微分）</p>
+                     * 获取总余额（微分）
+                     * @return TotalBalance 总余额（微分）
                      * 
                      */
                     int64_t GetTotalBalance() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool TotalBalanceHasBeenSet() const;
 
                     /**
-                     * 获取<p>代金券相关信息</p>
-                     * @return VoucherInfos <p>代金券相关信息</p>
+                     * 获取代金券相关信息
+                     * @return VoucherInfos 代金券相关信息
                      * 
                      */
                     std::vector<VoucherInfos> GetVoucherInfos() const;
@@ -86,45 +86,25 @@ namespace TencentCloud
                      */
                     bool VoucherInfosHasBeenSet() const;
 
-                    /**
-                     * 获取<p>接口返回的金额字段单位</p><p>默认值：micro</p><p>金额单位：micro（微分）<br>代金券发放和使用按8位高精度处理，所以金额单位默认为micro（微分），如需CNY或USD请按以下公式换算<br>CNY：1 micro = 10⁻⁸ 元<br>USD：1 micro = 10⁻⁸ 美元</p>
-                     * @return Unit <p>接口返回的金额字段单位</p><p>默认值：micro</p><p>金额单位：micro（微分）<br>代金券发放和使用按8位高精度处理，所以金额单位默认为micro（微分），如需CNY或USD请按以下公式换算<br>CNY：1 micro = 10⁻⁸ 元<br>USD：1 micro = 10⁻⁸ 美元</p>
-                     * 
-                     */
-                    std::string GetUnit() const;
-
-                    /**
-                     * 判断参数 Unit 是否已赋值
-                     * @return Unit 是否已赋值
-                     * 
-                     */
-                    bool UnitHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>券总数</p>
+                     * 券总数
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>总余额（微分）</p>
+                     * 总余额（微分）
                      */
                     int64_t m_totalBalance;
                     bool m_totalBalanceHasBeenSet;
 
                     /**
-                     * <p>代金券相关信息</p>
+                     * 代金券相关信息
                      */
                     std::vector<VoucherInfos> m_voucherInfos;
                     bool m_voucherInfosHasBeenSet;
-
-                    /**
-                     * <p>接口返回的金额字段单位</p><p>默认值：micro</p><p>金额单位：micro（微分）<br>代金券发放和使用按8位高精度处理，所以金额单位默认为micro（微分），如需CNY或USD请按以下公式换算<br>CNY：1 micro = 10⁻⁸ 元<br>USD：1 micro = 10⁻⁸ 美元</p>
-                     */
-                    std::string m_unit;
-                    bool m_unitHasBeenSet;
 
                 };
             }

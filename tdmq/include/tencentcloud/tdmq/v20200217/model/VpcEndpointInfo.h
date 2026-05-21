@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>vpc的id</p>
-                     * @return VpcId <p>vpc的id</p>
+                     * 获取vpc的id
+                     * @return VpcId vpc的id
                      * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置<p>vpc的id</p>
-                     * @param _vpcId <p>vpc的id</p>
+                     * 设置vpc的id
+                     * @param _vpcId vpc的id
                      * 
                      */
                     void SetVpcId(const std::string& _vpcId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网id</p>
-                     * @return SubnetId <p>子网id</p>
+                     * 获取子网id
+                     * @return SubnetId 子网id
                      * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
-                     * 设置<p>子网id</p>
-                     * @param _subnetId <p>子网id</p>
+                     * 设置子网id
+                     * @param _subnetId 子网id
                      * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>vpc接入点信息</p>
-                     * @return VpcEndpoint <p>vpc接入点信息</p>
+                     * 获取vpc接入点信息
+                     * @return VpcEndpoint vpc接入点信息
                      * 
                      */
                     std::string GetVpcEndpoint() const;
 
                     /**
-                     * 设置<p>vpc接入点信息</p>
-                     * @param _vpcEndpoint <p>vpc接入点信息</p>
+                     * 设置vpc接入点信息
+                     * @param _vpcEndpoint vpc接入点信息
                      * 
                      */
                     void SetVpcEndpoint(const std::string& _vpcEndpoint);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool VpcEndpointHasBeenSet() const;
 
                     /**
-                     * 获取<p>vpc接入点状态 OFF/ON/CREATING/DELETING</p>
-                     * @return VpcDataStreamEndpointStatus <p>vpc接入点状态 OFF/ON/CREATING/DELETING</p>
+                     * 获取vpc接入点状态 OFF/ON/CREATING/DELETING
+                     * @return VpcDataStreamEndpointStatus vpc接入点状态 OFF/ON/CREATING/DELETING
                      * 
                      */
                     std::string GetVpcDataStreamEndpointStatus() const;
 
                     /**
-                     * 设置<p>vpc接入点状态 OFF/ON/CREATING/DELETING</p>
-                     * @param _vpcDataStreamEndpointStatus <p>vpc接入点状态 OFF/ON/CREATING/DELETING</p>
+                     * 设置vpc接入点状态 OFF/ON/CREATING/DELETING
+                     * @param _vpcDataStreamEndpointStatus vpc接入点状态 OFF/ON/CREATING/DELETING
                      * 
                      */
                     void SetVpcDataStreamEndpointStatus(const std::string& _vpcDataStreamEndpointStatus);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool VpcDataStreamEndpointStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>TLS加密的数据流接入点</p>
-                     * @return VpcTlsEndpoint <p>TLS加密的数据流接入点</p>
+                     * 获取TLS加密的数据流接入点
+                     * @return VpcTlsEndpoint TLS加密的数据流接入点
                      * 
                      */
                     std::string GetVpcTlsEndpoint() const;
 
                     /**
-                     * 设置<p>TLS加密的数据流接入点</p>
-                     * @param _vpcTlsEndpoint <p>TLS加密的数据流接入点</p>
+                     * 设置TLS加密的数据流接入点
+                     * @param _vpcTlsEndpoint TLS加密的数据流接入点
                      * 
                      */
                     void SetVpcTlsEndpoint(const std::string& _vpcTlsEndpoint);
@@ -151,118 +151,37 @@ namespace TencentCloud
                      */
                     bool VpcTlsEndpointHasBeenSet() const;
 
-                    /**
-                     * 获取<p>VPC 接入点操作失败的错误信息</p>
-                     * @return VpcErrorMessage <p>VPC 接入点操作失败的错误信息</p>
-                     * 
-                     */
-                    std::string GetVpcErrorMessage() const;
-
-                    /**
-                     * 设置<p>VPC 接入点操作失败的错误信息</p>
-                     * @param _vpcErrorMessage <p>VPC 接入点操作失败的错误信息</p>
-                     * 
-                     */
-                    void SetVpcErrorMessage(const std::string& _vpcErrorMessage);
-
-                    /**
-                     * 判断参数 VpcErrorMessage 是否已赋值
-                     * @return VpcErrorMessage 是否已赋值
-                     * 
-                     */
-                    bool VpcErrorMessageHasBeenSet() const;
-
-                    /**
-                     * 获取<p>接入点ID</p>
-                     * @return Id <p>接入点ID</p>
-                     * 
-                     */
-                    std::string GetId() const;
-
-                    /**
-                     * 设置<p>接入点ID</p>
-                     * @param _id <p>接入点ID</p>
-                     * 
-                     */
-                    void SetId(const std::string& _id);
-
-                    /**
-                     * 判断参数 Id 是否已赋值
-                     * @return Id 是否已赋值
-                     * 
-                     */
-                    bool IdHasBeenSet() const;
-
-                    /**
-                     * 获取<p>vpc Stream接入点</p>
-                     * @return VpcStreamEndpoint <p>vpc Stream接入点</p>
-                     * 
-                     */
-                    std::string GetVpcStreamEndpoint() const;
-
-                    /**
-                     * 设置<p>vpc Stream接入点</p>
-                     * @param _vpcStreamEndpoint <p>vpc Stream接入点</p>
-                     * 
-                     */
-                    void SetVpcStreamEndpoint(const std::string& _vpcStreamEndpoint);
-
-                    /**
-                     * 判断参数 VpcStreamEndpoint 是否已赋值
-                     * @return VpcStreamEndpoint 是否已赋值
-                     * 
-                     */
-                    bool VpcStreamEndpointHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>vpc的id</p>
+                     * vpc的id
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>子网id</p>
+                     * 子网id
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>vpc接入点信息</p>
+                     * vpc接入点信息
                      */
                     std::string m_vpcEndpoint;
                     bool m_vpcEndpointHasBeenSet;
 
                     /**
-                     * <p>vpc接入点状态 OFF/ON/CREATING/DELETING</p>
+                     * vpc接入点状态 OFF/ON/CREATING/DELETING
                      */
                     std::string m_vpcDataStreamEndpointStatus;
                     bool m_vpcDataStreamEndpointStatusHasBeenSet;
 
                     /**
-                     * <p>TLS加密的数据流接入点</p>
+                     * TLS加密的数据流接入点
                      */
                     std::string m_vpcTlsEndpoint;
                     bool m_vpcTlsEndpointHasBeenSet;
-
-                    /**
-                     * <p>VPC 接入点操作失败的错误信息</p>
-                     */
-                    std::string m_vpcErrorMessage;
-                    bool m_vpcErrorMessageHasBeenSet;
-
-                    /**
-                     * <p>接入点ID</p>
-                     */
-                    std::string m_id;
-                    bool m_idHasBeenSet;
-
-                    /**
-                     * <p>vpc Stream接入点</p>
-                     */
-                    std::string m_vpcStreamEndpoint;
-                    bool m_vpcStreamEndpointHasBeenSet;
 
                 };
             }

@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到</p>
-                     * @return AccessRegion <p>通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到</p>
+                     * 获取通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到
+                     * @return AccessRegion 通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到
                      * 
                      */
                     std::string GetAccessRegion() const;
 
                     /**
-                     * 设置<p>通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到</p>
-                     * @param _accessRegion <p>通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到</p>
+                     * 设置通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到
+                     * @param _accessRegion 通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到
                      * 
                      */
                     void SetAccessRegion(const std::string& _accessRegion);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool AccessRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道的源站区域。取值可通过接口DescribeDestRegions获取到</p>
-                     * @return RealServerRegion <p>通道的源站区域。取值可通过接口DescribeDestRegions获取到</p>
+                     * 获取通道的源站区域。取值可通过接口DescribeDestRegions获取到
+                     * @return RealServerRegion 通道的源站区域。取值可通过接口DescribeDestRegions获取到
                      * 
                      */
                     std::string GetRealServerRegion() const;
 
                     /**
-                     * 设置<p>通道的源站区域。取值可通过接口DescribeDestRegions获取到</p>
-                     * @param _realServerRegion <p>通道的源站区域。取值可通过接口DescribeDestRegions获取到</p>
+                     * 设置通道的源站区域。取值可通过接口DescribeDestRegions获取到
+                     * @param _realServerRegion 通道的源站区域。取值可通过接口DescribeDestRegions获取到
                      * 
                      */
                     void SetRealServerRegion(const std::string& _realServerRegion);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool RealServerRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道带宽上限，单位：Mbps。</p>
-                     * @return Bandwidth <p>通道带宽上限，单位：Mbps。</p>
+                     * 获取通道带宽上限，单位：Mbps。
+                     * @return Bandwidth 通道带宽上限，单位：Mbps。
                      * 
                      */
                     uint64_t GetBandwidth() const;
 
                     /**
-                     * 设置<p>通道带宽上限，单位：Mbps。</p>
-                     * @param _bandwidth <p>通道带宽上限，单位：Mbps。</p>
+                     * 设置通道带宽上限，单位：Mbps。
+                     * @param _bandwidth 通道带宽上限，单位：Mbps。
                      * 
                      */
                     void SetBandwidth(const uint64_t& _bandwidth);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool BandwidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道并发量上限，表示同时在线的连接数，单位：万。</p>
-                     * @return Concurrent <p>通道并发量上限，表示同时在线的连接数，单位：万。</p>
+                     * 获取通道并发量上限，表示同时在线的连接数，单位：万。
+                     * @return Concurrent 通道并发量上限，表示同时在线的连接数，单位：万。
                      * 
                      */
                     uint64_t GetConcurrent() const;
 
                     /**
-                     * 设置<p>通道并发量上限，表示同时在线的连接数，单位：万。</p>
-                     * @param _concurrent <p>通道并发量上限，表示同时在线的连接数，单位：万。</p>
+                     * 设置通道并发量上限，表示同时在线的连接数，单位：万。
+                     * @param _concurrent 通道并发量上限，表示同时在线的连接数，单位：万。
                      * 
                      */
                     void SetConcurrent(const uint64_t& _concurrent);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool ConcurrentHasBeenSet() const;
 
                     /**
-                     * 获取<p>如果在通道组下创建通道，需要填写通道组的ID</p>
-                     * @return GroupId <p>如果在通道组下创建通道，需要填写通道组的ID</p>
+                     * 获取如果在通道组下创建通道，需要填写通道组的ID
+                     * @return GroupId 如果在通道组下创建通道，需要填写通道组的ID
                      * 
                      */
                     std::string GetGroupId() const;
 
                     /**
-                     * 设置<p>如果在通道组下创建通道，需要填写通道组的ID</p>
-                     * @param _groupId <p>如果在通道组下创建通道，需要填写通道组的ID</p>
+                     * 设置如果在通道组下创建通道，需要填写通道组的ID
+                     * @param _groupId 如果在通道组下创建通道，需要填写通道组的ID
                      * 
                      */
                     void SetGroupId(const std::string& _groupId);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>IP版本，可取值：IPv4、IPv6，默认值IPv4</p>
-                     * @return IPAddressVersion <p>IP版本，可取值：IPv4、IPv6，默认值IPv4</p>
+                     * 获取IP版本，可取值：IPv4、IPv6，默认值IPv4
+                     * @return IPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
                      * 
                      */
                     std::string GetIPAddressVersion() const;
 
                     /**
-                     * 设置<p>IP版本，可取值：IPv4、IPv6，默认值IPv4</p>
-                     * @param _iPAddressVersion <p>IP版本，可取值：IPv4、IPv6，默认值IPv4</p>
+                     * 设置IP版本，可取值：IPv4、IPv6，默认值IPv4
+                     * @param _iPAddressVersion IP版本，可取值：IPv4、IPv6，默认值IPv4
                      * 
                      */
                     void SetIPAddressVersion(const std::string& _iPAddressVersion);
@@ -169,15 +169,15 @@ namespace TencentCloud
                     bool IPAddressVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>网络类型，可取值：normal、cn2，默认值normal</p>
-                     * @return NetworkType <p>网络类型，可取值：normal、cn2，默认值normal</p>
+                     * 获取网络类型，可取值：normal、cn2，默认值normal
+                     * @return NetworkType 网络类型，可取值：normal、cn2，默认值normal
                      * 
                      */
                     std::string GetNetworkType() const;
 
                     /**
-                     * 设置<p>网络类型，可取值：normal、cn2，默认值normal</p>
-                     * @param _networkType <p>网络类型，可取值：normal、cn2，默认值normal</p>
+                     * 设置网络类型，可取值：normal、cn2，默认值normal
+                     * @param _networkType 网络类型，可取值：normal、cn2，默认值normal
                      * 
                      */
                     void SetNetworkType(const std::string& _networkType);
@@ -190,15 +190,15 @@ namespace TencentCloud
                     bool NetworkTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。</p>
-                     * @return PackageType <p>通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。</p>
+                     * 获取通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
+                     * @return PackageType 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
                      * 
                      */
                     std::string GetPackageType() const;
 
                     /**
-                     * 设置<p>通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。</p>
-                     * @param _packageType <p>通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。</p>
+                     * 设置通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
+                     * @param _packageType 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
                      * 
                      */
                     void SetPackageType(const std::string& _packageType);
@@ -211,15 +211,15 @@ namespace TencentCloud
                     bool PackageTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。</p>
-                     * @return Http3Supported <p>该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。</p>
+                     * 获取该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。
+                     * @return Http3Supported 该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。
                      * 
                      */
                     int64_t GetHttp3Supported() const;
 
                     /**
-                     * 设置<p>该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。</p>
-                     * @param _http3Supported <p>该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。</p>
+                     * 设置该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。
+                     * @param _http3Supported 该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。
                      * 
                      */
                     void SetHttp3Supported(const int64_t& _http3Supported);
@@ -234,55 +234,55 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到</p>
+                     * 通道的接入(加速)区域。取值可通过接口DescribeAccessRegionsByDestRegion获取到
                      */
                     std::string m_accessRegion;
                     bool m_accessRegionHasBeenSet;
 
                     /**
-                     * <p>通道的源站区域。取值可通过接口DescribeDestRegions获取到</p>
+                     * 通道的源站区域。取值可通过接口DescribeDestRegions获取到
                      */
                     std::string m_realServerRegion;
                     bool m_realServerRegionHasBeenSet;
 
                     /**
-                     * <p>通道带宽上限，单位：Mbps。</p>
+                     * 通道带宽上限，单位：Mbps。
                      */
                     uint64_t m_bandwidth;
                     bool m_bandwidthHasBeenSet;
 
                     /**
-                     * <p>通道并发量上限，表示同时在线的连接数，单位：万。</p>
+                     * 通道并发量上限，表示同时在线的连接数，单位：万。
                      */
                     uint64_t m_concurrent;
                     bool m_concurrentHasBeenSet;
 
                     /**
-                     * <p>如果在通道组下创建通道，需要填写通道组的ID</p>
+                     * 如果在通道组下创建通道，需要填写通道组的ID
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * <p>IP版本，可取值：IPv4、IPv6，默认值IPv4</p>
+                     * IP版本，可取值：IPv4、IPv6，默认值IPv4
                      */
                     std::string m_iPAddressVersion;
                     bool m_iPAddressVersionHasBeenSet;
 
                     /**
-                     * <p>网络类型，可取值：normal、cn2，默认值normal</p>
+                     * 网络类型，可取值：normal、cn2，默认值normal
                      */
                     std::string m_networkType;
                     bool m_networkTypeHasBeenSet;
 
                     /**
-                     * <p>通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。</p>
+                     * 通道套餐类型。Thunder表示标准通道组，Accelerator表示游戏加速器通道，CrossBorder表示跨境通道。
                      */
                     std::string m_packageType;
                     bool m_packageTypeHasBeenSet;
 
                     /**
-                     * <p>该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。</p>
+                     * 该字段已废弃，当IPAddressVersion为IPv4时，所创建的通道默认支持Http3.0；当为IPv6，默认不支持Http3.0。
                      */
                     int64_t m_http3Supported;
                     bool m_http3SupportedHasBeenSet;

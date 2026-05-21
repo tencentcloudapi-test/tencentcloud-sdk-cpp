@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 描述了实例的抽象位置，包括其所在的可用区，所属的项目，宿主机（仅专用宿主机产品可用），母机IP，专有预扣资源等
+                * 描述了实例的抽象位置，包括其所在的可用区，所属的项目，宿主机（仅专用宿主机产品可用），母机IP等
                 */
                 class Placement : public AbstractModel
                 {
@@ -130,69 +130,6 @@ namespace TencentCloud
                      */
                     bool HostIdHasBeenSet() const;
 
-                    /**
-                     * 获取专有资源预扣策略。取值范围：<li>ResourcePool：使用实例资源池进行资源预扣</li>
-                     * @return DedicatedResourcePackTenancy 专有资源预扣策略。取值范围：<li>ResourcePool：使用实例资源池进行资源预扣</li>
-                     * 
-                     */
-                    std::string GetDedicatedResourcePackTenancy() const;
-
-                    /**
-                     * 设置专有资源预扣策略。取值范围：<li>ResourcePool：使用实例资源池进行资源预扣</li>
-                     * @param _dedicatedResourcePackTenancy 专有资源预扣策略。取值范围：<li>ResourcePool：使用实例资源池进行资源预扣</li>
-                     * 
-                     */
-                    void SetDedicatedResourcePackTenancy(const std::string& _dedicatedResourcePackTenancy);
-
-                    /**
-                     * 判断参数 DedicatedResourcePackTenancy 是否已赋值
-                     * @return DedicatedResourcePackTenancy 是否已赋值
-                     * 
-                     */
-                    bool DedicatedResourcePackTenancyHasBeenSet() const;
-
-                    /**
-                     * 获取专有预扣资源ID列表。形如：rpp-7eumgm3l。通过指定专有预扣资源创建实例时，必须同时指定匹配的DedicatedResourcePackTenancy。
-                     * @return DedicatedResourcePackIds 专有预扣资源ID列表。形如：rpp-7eumgm3l。通过指定专有预扣资源创建实例时，必须同时指定匹配的DedicatedResourcePackTenancy。
-                     * 
-                     */
-                    std::vector<std::string> GetDedicatedResourcePackIds() const;
-
-                    /**
-                     * 设置专有预扣资源ID列表。形如：rpp-7eumgm3l。通过指定专有预扣资源创建实例时，必须同时指定匹配的DedicatedResourcePackTenancy。
-                     * @param _dedicatedResourcePackIds 专有预扣资源ID列表。形如：rpp-7eumgm3l。通过指定专有预扣资源创建实例时，必须同时指定匹配的DedicatedResourcePackTenancy。
-                     * 
-                     */
-                    void SetDedicatedResourcePackIds(const std::vector<std::string>& _dedicatedResourcePackIds);
-
-                    /**
-                     * 判断参数 DedicatedResourcePackIds 是否已赋值
-                     * @return DedicatedResourcePackIds 是否已赋值
-                     * 
-                     */
-                    bool DedicatedResourcePackIdsHasBeenSet() const;
-
-                    /**
-                     * 获取实例所属的实例资源池机架ID，仅用于出参。
-                     * @return RackId 实例所属的实例资源池机架ID，仅用于出参。
-                     * 
-                     */
-                    std::string GetRackId() const;
-
-                    /**
-                     * 设置实例所属的实例资源池机架ID，仅用于出参。
-                     * @param _rackId 实例所属的实例资源池机架ID，仅用于出参。
-                     * 
-                     */
-                    void SetRackId(const std::string& _rackId);
-
-                    /**
-                     * 判断参数 RackId 是否已赋值
-                     * @return RackId 是否已赋值
-                     * 
-                     */
-                    bool RackIdHasBeenSet() const;
-
                 private:
 
                     /**
@@ -218,24 +155,6 @@ namespace TencentCloud
                      */
                     std::string m_hostId;
                     bool m_hostIdHasBeenSet;
-
-                    /**
-                     * 专有资源预扣策略。取值范围：<li>ResourcePool：使用实例资源池进行资源预扣</li>
-                     */
-                    std::string m_dedicatedResourcePackTenancy;
-                    bool m_dedicatedResourcePackTenancyHasBeenSet;
-
-                    /**
-                     * 专有预扣资源ID列表。形如：rpp-7eumgm3l。通过指定专有预扣资源创建实例时，必须同时指定匹配的DedicatedResourcePackTenancy。
-                     */
-                    std::vector<std::string> m_dedicatedResourcePackIds;
-                    bool m_dedicatedResourcePackIdsHasBeenSet;
-
-                    /**
-                     * 实例所属的实例资源池机架ID，仅用于出参。
-                     */
-                    std::string m_rackId;
-                    bool m_rackIdHasBeenSet;
 
                 };
             }

@@ -55,8 +55,6 @@
 #include <tencentcloud/ses/v20201002/model/DeleteEmailTemplateResponse.h>
 #include <tencentcloud/ses/v20201002/model/DeleteReceiverRequest.h>
 #include <tencentcloud/ses/v20201002/model/DeleteReceiverResponse.h>
-#include <tencentcloud/ses/v20201002/model/GetAbuseReportRequest.h>
-#include <tencentcloud/ses/v20201002/model/GetAbuseReportResponse.h>
 #include <tencentcloud/ses/v20201002/model/GetEmailIdentityRequest.h>
 #include <tencentcloud/ses/v20201002/model/GetEmailIdentityResponse.h>
 #include <tencentcloud/ses/v20201002/model/GetEmailTemplateRequest.h>
@@ -157,9 +155,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteReceiverResponse> DeleteReceiverOutcome;
                 typedef std::future<DeleteReceiverOutcome> DeleteReceiverOutcomeCallable;
                 typedef std::function<void(const SesClient*, const Model::DeleteReceiverRequest&, DeleteReceiverOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteReceiverAsyncHandler;
-                typedef Outcome<Core::Error, Model::GetAbuseReportResponse> GetAbuseReportOutcome;
-                typedef std::future<GetAbuseReportOutcome> GetAbuseReportOutcomeCallable;
-                typedef std::function<void(const SesClient*, const Model::GetAbuseReportRequest&, GetAbuseReportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetAbuseReportAsyncHandler;
                 typedef Outcome<Core::Error, Model::GetEmailIdentityResponse> GetEmailIdentityOutcome;
                 typedef std::future<GetEmailIdentityOutcome> GetEmailIdentityOutcomeCallable;
                 typedef std::function<void(const SesClient*, const Model::GetEmailIdentityRequest&, GetEmailIdentityOutcome, const std::shared_ptr<const AsyncCallerContext>&)> GetEmailIdentityAsyncHandler;
@@ -339,8 +334,7 @@ namespace TencentCloud
                 DeleteEmailAddressOutcomeCallable DeleteEmailAddressCallable(const Model::DeleteEmailAddressRequest& request);
 
                 /**
-                 ***发信域名删除接口仅限于企业用户使用**
-删除发信域名，删除后，将不可再使用该域名进行发信
+                 *删除发信域名，删除后，将不可再使用该域名进行发信
                  * @param req DeleteEmailIdentityRequest
                  * @return DeleteEmailIdentityOutcome
                  */
@@ -365,15 +359,6 @@ namespace TencentCloud
                 DeleteReceiverOutcome DeleteReceiver(const Model::DeleteReceiverRequest &request);
                 void DeleteReceiverAsync(const Model::DeleteReceiverRequest& request, const DeleteReceiverAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteReceiverOutcomeCallable DeleteReceiverCallable(const Model::DeleteReceiverRequest& request);
-
-                /**
-                 *获取垃圾投诉数据
-                 * @param req GetAbuseReportRequest
-                 * @return GetAbuseReportOutcome
-                 */
-                GetAbuseReportOutcome GetAbuseReport(const Model::GetAbuseReportRequest &request);
-                void GetAbuseReportAsync(const Model::GetAbuseReportRequest& request, const GetAbuseReportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                GetAbuseReportOutcomeCallable GetAbuseReportCallable(const Model::GetAbuseReportRequest& request);
 
                 /**
                  *获取某个发信域名的配置详情

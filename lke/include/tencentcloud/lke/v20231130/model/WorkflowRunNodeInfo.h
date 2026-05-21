@@ -48,18 +48,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>节点ID</p>
+                     * 获取节点ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return NodeId <p>节点ID</p>
+                     * @return NodeId 节点ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetNodeId() const;
 
                     /**
-                     * 设置<p>节点ID</p>
+                     * 设置节点ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _nodeId <p>节点ID</p>
+                     * @param _nodeId 节点ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -73,18 +73,18 @@ namespace TencentCloud
                     bool NodeIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点类型</p><p>枚举值：</p><ul><li>0： 未指定</li><li>1： 开始节点</li><li>2： 参数提取节点</li><li>3： 大模型节点</li><li>4： 知识问答节点</li><li>5： 知识检索节点</li><li>6： 标签提取节点</li><li>7： 代码执行节点</li><li>8： 工具节点</li><li>9： 逻辑判断节点</li><li>10： 消息节点</li><li>11： 选项卡节点</li><li>12： 循环节点</li><li>13： 意图识别节点</li><li>14： 工作流节点</li><li>15： 插件节点</li><li>16： 结束节点</li><li>17： 变量聚合节点</li><li>18： 批处理节点</li><li>19： 消息队列节点</li><li>20： 数据库节点</li><li>21： 变量赋值节点</li><li>22： 变量转换节点</li><li>23： Agent节点</li><li>24： 注释节点</li><li>25： 文件收集节点</li><li>26： 文本收集节点</li><li>27： Widget 节点</li></ul>
+                     * 获取节点类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return NodeType <p>节点类型</p><p>枚举值：</p><ul><li>0： 未指定</li><li>1： 开始节点</li><li>2： 参数提取节点</li><li>3： 大模型节点</li><li>4： 知识问答节点</li><li>5： 知识检索节点</li><li>6： 标签提取节点</li><li>7： 代码执行节点</li><li>8： 工具节点</li><li>9： 逻辑判断节点</li><li>10： 消息节点</li><li>11： 选项卡节点</li><li>12： 循环节点</li><li>13： 意图识别节点</li><li>14： 工作流节点</li><li>15： 插件节点</li><li>16： 结束节点</li><li>17： 变量聚合节点</li><li>18： 批处理节点</li><li>19： 消息队列节点</li><li>20： 数据库节点</li><li>21： 变量赋值节点</li><li>22： 变量转换节点</li><li>23： Agent节点</li><li>24： 注释节点</li><li>25： 文件收集节点</li><li>26： 文本收集节点</li><li>27： Widget 节点</li></ul>
+                     * @return NodeType 节点类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetNodeType() const;
 
                     /**
-                     * 设置<p>节点类型</p><p>枚举值：</p><ul><li>0： 未指定</li><li>1： 开始节点</li><li>2： 参数提取节点</li><li>3： 大模型节点</li><li>4： 知识问答节点</li><li>5： 知识检索节点</li><li>6： 标签提取节点</li><li>7： 代码执行节点</li><li>8： 工具节点</li><li>9： 逻辑判断节点</li><li>10： 消息节点</li><li>11： 选项卡节点</li><li>12： 循环节点</li><li>13： 意图识别节点</li><li>14： 工作流节点</li><li>15： 插件节点</li><li>16： 结束节点</li><li>17： 变量聚合节点</li><li>18： 批处理节点</li><li>19： 消息队列节点</li><li>20： 数据库节点</li><li>21： 变量赋值节点</li><li>22： 变量转换节点</li><li>23： Agent节点</li><li>24： 注释节点</li><li>25： 文件收集节点</li><li>26： 文本收集节点</li><li>27： Widget 节点</li></ul>
+                     * 设置节点类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _nodeType <p>节点类型</p><p>枚举值：</p><ul><li>0： 未指定</li><li>1： 开始节点</li><li>2： 参数提取节点</li><li>3： 大模型节点</li><li>4： 知识问答节点</li><li>5： 知识检索节点</li><li>6： 标签提取节点</li><li>7： 代码执行节点</li><li>8： 工具节点</li><li>9： 逻辑判断节点</li><li>10： 消息节点</li><li>11： 选项卡节点</li><li>12： 循环节点</li><li>13： 意图识别节点</li><li>14： 工作流节点</li><li>15： 插件节点</li><li>16： 结束节点</li><li>17： 变量聚合节点</li><li>18： 批处理节点</li><li>19： 消息队列节点</li><li>20： 数据库节点</li><li>21： 变量赋值节点</li><li>22： 变量转换节点</li><li>23： Agent节点</li><li>24： 注释节点</li><li>25： 文件收集节点</li><li>26： 文本收集节点</li><li>27： Widget 节点</li></ul>
+                     * @param _nodeType 节点类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -98,18 +98,18 @@ namespace TencentCloud
                     bool NodeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点名称</p>
+                     * 获取节点名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return NodeName <p>节点名称</p>
+                     * @return NodeName 节点名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetNodeName() const;
 
                     /**
-                     * 设置<p>节点名称</p>
+                     * 设置节点名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _nodeName <p>节点名称</p>
+                     * @param _nodeName 节点名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -123,18 +123,18 @@ namespace TencentCloud
                     bool NodeNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态</p><p>枚举值：</p><ul><li>0： 初始状态</li><li>1： 运行中</li><li>2： 运行成功</li><li>3： 运行失败</li></ul>
+                     * 获取状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Status <p>状态</p><p>枚举值：</p><ul><li>0： 初始状态</li><li>1： 运行中</li><li>2： 运行成功</li><li>3： 运行失败</li></ul>
+                     * @return Status 状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetStatus() const;
 
                     /**
-                     * 设置<p>状态</p><p>枚举值：</p><ul><li>0： 初始状态</li><li>1： 运行中</li><li>2： 运行成功</li><li>3： 运行失败</li></ul>
+                     * 设置状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _status <p>状态</p><p>枚举值：</p><ul><li>0： 初始状态</li><li>1： 运行中</li><li>2： 运行成功</li><li>3： 运行失败</li></ul>
+                     * @param _status 状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -148,18 +148,18 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>输入</p>
+                     * 获取输入
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Input <p>输入</p>
+                     * @return Input 输入
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetInput() const;
 
                     /**
-                     * 设置<p>输入</p>
+                     * 设置输入
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _input <p>输入</p>
+                     * @param _input 输入
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -173,18 +173,18 @@ namespace TencentCloud
                     bool InputHasBeenSet() const;
 
                     /**
-                     * 获取<p>输出</p>
+                     * 获取输出
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Output <p>输出</p>
+                     * @return Output 输出
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetOutput() const;
 
                     /**
-                     * 设置<p>输出</p>
+                     * 设置输出
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _output <p>输出</p>
+                     * @param _output 输出
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -198,18 +198,18 @@ namespace TencentCloud
                     bool OutputHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务输出</p>
+                     * 获取任务输出
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskOutput <p>任务输出</p>
+                     * @return TaskOutput 任务输出
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskOutput() const;
 
                     /**
-                     * 设置<p>任务输出</p>
+                     * 设置任务输出
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskOutput <p>任务输出</p>
+                     * @param _taskOutput 任务输出
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -223,18 +223,18 @@ namespace TencentCloud
                     bool TaskOutputHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误信息</p>
+                     * 获取错误信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FailMessage <p>错误信息</p>
+                     * @return FailMessage 错误信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFailMessage() const;
 
                     /**
-                     * 设置<p>错误信息</p>
+                     * 设置错误信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _failMessage <p>错误信息</p>
+                     * @param _failMessage 错误信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -248,18 +248,18 @@ namespace TencentCloud
                     bool FailMessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>花费时长，单位为毫秒</p>
+                     * 获取花费时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CostMilliSeconds <p>花费时长，单位为毫秒</p>
+                     * @return CostMilliSeconds 花费时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetCostMilliSeconds() const;
 
                     /**
-                     * 设置<p>花费时长，单位为毫秒</p>
+                     * 设置花费时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _costMilliSeconds <p>花费时长，单位为毫秒</p>
+                     * @param _costMilliSeconds 花费时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -273,18 +273,18 @@ namespace TencentCloud
                     bool CostMilliSecondsHasBeenSet() const;
 
                     /**
-                     * 获取<p>大模型输出信息</p>
+                     * 获取大模型输出信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return StatisticInfos <p>大模型输出信息</p>
+                     * @return StatisticInfos 大模型输出信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<StatisticInfo> GetStatisticInfos() const;
 
                     /**
-                     * 设置<p>大模型输出信息</p>
+                     * 设置大模型输出信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _statisticInfos <p>大模型输出信息</p>
+                     * @param _statisticInfos 大模型输出信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -298,18 +298,18 @@ namespace TencentCloud
                     bool StatisticInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误代码</p>
+                     * 获取错误代码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FailCode <p>错误代码</p>
+                     * @return FailCode 错误代码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFailCode() const;
 
                     /**
-                     * 设置<p>错误代码</p>
+                     * 设置错误代码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _failCode <p>错误代码</p>
+                     * @param _failCode 错误代码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -325,77 +325,77 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>节点ID</p>
+                     * 节点ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_nodeId;
                     bool m_nodeIdHasBeenSet;
 
                     /**
-                     * <p>节点类型</p><p>枚举值：</p><ul><li>0： 未指定</li><li>1： 开始节点</li><li>2： 参数提取节点</li><li>3： 大模型节点</li><li>4： 知识问答节点</li><li>5： 知识检索节点</li><li>6： 标签提取节点</li><li>7： 代码执行节点</li><li>8： 工具节点</li><li>9： 逻辑判断节点</li><li>10： 消息节点</li><li>11： 选项卡节点</li><li>12： 循环节点</li><li>13： 意图识别节点</li><li>14： 工作流节点</li><li>15： 插件节点</li><li>16： 结束节点</li><li>17： 变量聚合节点</li><li>18： 批处理节点</li><li>19： 消息队列节点</li><li>20： 数据库节点</li><li>21： 变量赋值节点</li><li>22： 变量转换节点</li><li>23： Agent节点</li><li>24： 注释节点</li><li>25： 文件收集节点</li><li>26： 文本收集节点</li><li>27： Widget 节点</li></ul>
+                     * 节点类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_nodeType;
                     bool m_nodeTypeHasBeenSet;
 
                     /**
-                     * <p>节点名称</p>
+                     * 节点名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_nodeName;
                     bool m_nodeNameHasBeenSet;
 
                     /**
-                     * <p>状态</p><p>枚举值：</p><ul><li>0： 初始状态</li><li>1： 运行中</li><li>2： 运行成功</li><li>3： 运行失败</li></ul>
+                     * 状态
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>输入</p>
+                     * 输入
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_input;
                     bool m_inputHasBeenSet;
 
                     /**
-                     * <p>输出</p>
+                     * 输出
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_output;
                     bool m_outputHasBeenSet;
 
                     /**
-                     * <p>任务输出</p>
+                     * 任务输出
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskOutput;
                     bool m_taskOutputHasBeenSet;
 
                     /**
-                     * <p>错误信息</p>
+                     * 错误信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_failMessage;
                     bool m_failMessageHasBeenSet;
 
                     /**
-                     * <p>花费时长，单位为毫秒</p>
+                     * 花费时长
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_costMilliSeconds;
                     bool m_costMilliSecondsHasBeenSet;
 
                     /**
-                     * <p>大模型输出信息</p>
+                     * 大模型输出信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<StatisticInfo> m_statisticInfos;
                     bool m_statisticInfosHasBeenSet;
 
                     /**
-                     * <p>错误代码</p>
+                     * 错误代码
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_failCode;

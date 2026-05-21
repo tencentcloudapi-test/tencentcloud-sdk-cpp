@@ -33,8 +33,7 @@ SecurityGroupRule::SecurityGroupRule() :
     m_serviceTemplateIdHasBeenSet(false),
     m_idHasBeenSet(false),
     m_enableHasBeenSet(false),
-    m_uidHasBeenSet(false),
-    m_scopeHasBeenSet(false)
+    m_uidHasBeenSet(false)
 {
 }
 
@@ -173,16 +172,6 @@ CoreInternalOutcome SecurityGroupRule::Deserialize(const rapidjson::Value &value
         m_uidHasBeenSet = true;
     }
 
-    if (value.HasMember("Scope") && !value["Scope"].IsNull())
-    {
-        if (!value["Scope"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SecurityGroupRule.Scope` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_scope = string(value["Scope"].GetString());
-        m_scopeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -292,14 +281,6 @@ void SecurityGroupRule::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "Uid";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_uid.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_scopeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Scope";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_scope.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -511,21 +492,5 @@ void SecurityGroupRule::SetUid(const string& _uid)
 bool SecurityGroupRule::UidHasBeenSet() const
 {
     return m_uidHasBeenSet;
-}
-
-string SecurityGroupRule::GetScope() const
-{
-    return m_scope;
-}
-
-void SecurityGroupRule::SetScope(const string& _scope)
-{
-    m_scope = _scope;
-    m_scopeHasBeenSet = true;
-}
-
-bool SecurityGroupRule::ScopeHasBeenSet() const
-{
-    return m_scopeHasBeenSet;
 }
 

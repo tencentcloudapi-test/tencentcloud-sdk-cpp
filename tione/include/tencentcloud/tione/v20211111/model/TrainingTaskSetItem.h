@@ -28,8 +28,6 @@
 #include <tencentcloud/tione/v20211111/model/CosPathInfo.h>
 #include <tencentcloud/tione/v20211111/model/ImageInfo.h>
 #include <tencentcloud/tione/v20211111/model/Tag.h>
-#include <tencentcloud/tione/v20211111/model/EnvVar.h>
-#include <tencentcloud/tione/v20211111/model/OperatorInfo.h>
 
 
 namespace TencentCloud
@@ -53,15 +51,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>训练任务ID</p>
-                     * @return Id <p>训练任务ID</p>
+                     * 获取训练任务ID
+                     * @return Id 训练任务ID
                      * 
                      */
                     std::string GetId() const;
 
                     /**
-                     * 设置<p>训练任务ID</p>
-                     * @param _id <p>训练任务ID</p>
+                     * 设置训练任务ID
+                     * @param _id 训练任务ID
                      * 
                      */
                     void SetId(const std::string& _id);
@@ -74,15 +72,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>训练任务名称</p>
-                     * @return Name <p>训练任务名称</p>
+                     * 获取训练任务名称
+                     * @return Name 训练任务名称
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>训练任务名称</p>
-                     * @param _name <p>训练任务名称</p>
+                     * 设置训练任务名称
+                     * @param _name 训练任务名称
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -95,18 +93,18 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>框架名称</p>
+                     * 获取框架名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FrameworkName <p>框架名称</p>
+                     * @return FrameworkName 框架名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFrameworkName() const;
 
                     /**
-                     * 设置<p>框架名称</p>
+                     * 设置框架名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _frameworkName <p>框架名称</p>
+                     * @param _frameworkName 框架名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -120,18 +118,18 @@ namespace TencentCloud
                     bool FrameworkNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>训练框架版本</p>
+                     * 获取训练框架版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FrameworkVersion <p>训练框架版本</p>
+                     * @return FrameworkVersion 训练框架版本
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFrameworkVersion() const;
 
                     /**
-                     * 设置<p>训练框架版本</p>
+                     * 设置训练框架版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _frameworkVersion <p>训练框架版本</p>
+                     * @param _frameworkVersion 训练框架版本
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -145,18 +143,18 @@ namespace TencentCloud
                     bool FrameworkVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>框架运行环境</p>
+                     * 获取框架运行环境
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FrameworkEnvironment <p>框架运行环境</p>
+                     * @return FrameworkEnvironment 框架运行环境
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFrameworkEnvironment() const;
 
                     /**
-                     * 设置<p>框架运行环境</p>
+                     * 设置框架运行环境
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _frameworkEnvironment <p>框架运行环境</p>
+                     * @param _frameworkEnvironment 框架运行环境
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -170,15 +168,15 @@ namespace TencentCloud
                     bool FrameworkEnvironmentHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费模式</p>
-                     * @return ChargeType <p>计费模式</p>
+                     * 获取计费模式
+                     * @return ChargeType 计费模式
                      * 
                      */
                     std::string GetChargeType() const;
 
                     /**
-                     * 设置<p>计费模式</p>
-                     * @param _chargeType <p>计费模式</p>
+                     * 设置计费模式
+                     * @param _chargeType 计费模式
                      * 
                      */
                     void SetChargeType(const std::string& _chargeType);
@@ -191,15 +189,15 @@ namespace TencentCloud
                     bool ChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中</p>
-                     * @return ChargeStatus <p>计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中</p>
+                     * 获取计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中
+                     * @return ChargeStatus 计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中
                      * 
                      */
                     std::string GetChargeStatus() const;
 
                     /**
-                     * 设置<p>计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中</p>
-                     * @param _chargeStatus <p>计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中</p>
+                     * 设置计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中
+                     * @param _chargeStatus 计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中
                      * 
                      */
                     void SetChargeStatus(const std::string& _chargeStatus);
@@ -212,18 +210,18 @@ namespace TencentCloud
                     bool ChargeStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>预付费专用资源组</p>
+                     * 获取预付费专用资源组
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ResourceGroupId <p>预付费专用资源组</p>
+                     * @return ResourceGroupId 预付费专用资源组
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetResourceGroupId() const;
 
                     /**
-                     * 设置<p>预付费专用资源组</p>
+                     * 设置预付费专用资源组
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _resourceGroupId <p>预付费专用资源组</p>
+                     * @param _resourceGroupId 预付费专用资源组
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -237,15 +235,15 @@ namespace TencentCloud
                     bool ResourceGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>资源配置</p>
-                     * @return ResourceConfigInfos <p>资源配置</p>
+                     * 获取资源配置
+                     * @return ResourceConfigInfos 资源配置
                      * 
                      */
                     std::vector<ResourceConfigInfo> GetResourceConfigInfos() const;
 
                     /**
-                     * 设置<p>资源配置</p>
-                     * @param _resourceConfigInfos <p>资源配置</p>
+                     * 设置资源配置
+                     * @param _resourceConfigInfos 资源配置
                      * 
                      */
                     void SetResourceConfigInfos(const std::vector<ResourceConfigInfo>& _resourceConfigInfos);
@@ -258,18 +256,18 @@ namespace TencentCloud
                     bool ResourceConfigInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>训练模式eg：PS_WORKER、DDP、MPI、HOROVOD</p>
+                     * 获取训练模式eg：PS_WORKER、DDP、MPI、HOROVOD
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TrainingMode <p>训练模式eg：PS_WORKER、DDP、MPI、HOROVOD</p>
+                     * @return TrainingMode 训练模式eg：PS_WORKER、DDP、MPI、HOROVOD
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTrainingMode() const;
 
                     /**
-                     * 设置<p>训练模式eg：PS_WORKER、DDP、MPI、HOROVOD</p>
+                     * 设置训练模式eg：PS_WORKER、DDP、MPI、HOROVOD
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _trainingMode <p>训练模式eg：PS_WORKER、DDP、MPI、HOROVOD</p>
+                     * @param _trainingMode 训练模式eg：PS_WORKER、DDP、MPI、HOROVOD
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -283,15 +281,19 @@ namespace TencentCloud
                     bool TrainingModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务状态，eg：SUBMITTING提交中、PENDING排队中、<br>STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成</p>
-                     * @return Status <p>任务状态，eg：SUBMITTING提交中、PENDING排队中、<br>STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成</p>
+                     * 获取任务状态，eg：SUBMITTING提交中、PENDING排队中、
+STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成
+                     * @return Status 任务状态，eg：SUBMITTING提交中、PENDING排队中、
+STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>任务状态，eg：SUBMITTING提交中、PENDING排队中、<br>STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成</p>
-                     * @param _status <p>任务状态，eg：SUBMITTING提交中、PENDING排队中、<br>STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成</p>
+                     * 设置任务状态，eg：SUBMITTING提交中、PENDING排队中、
+STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成
+                     * @param _status 任务状态，eg：SUBMITTING提交中、PENDING排队中、
+STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -304,18 +306,18 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>运行时长</p>
+                     * 获取运行时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RuntimeInSeconds <p>运行时长</p>
+                     * @return RuntimeInSeconds 运行时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetRuntimeInSeconds() const;
 
                     /**
-                     * 设置<p>运行时长</p>
+                     * 设置运行时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _runtimeInSeconds <p>运行时长</p>
+                     * @param _runtimeInSeconds 运行时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -329,15 +331,15 @@ namespace TencentCloud
                     bool RuntimeInSecondsHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间</p>
-                     * @return CreateTime <p>创建时间</p>
+                     * 获取创建时间
+                     * @return CreateTime 创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间</p>
-                     * @param _createTime <p>创建时间</p>
+                     * 设置创建时间
+                     * @param _createTime 创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -350,18 +352,18 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>训练开始时间</p>
+                     * 获取训练开始时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return StartTime <p>训练开始时间</p>
+                     * @return StartTime 训练开始时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置<p>训练开始时间</p>
+                     * 设置训练开始时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _startTime <p>训练开始时间</p>
+                     * @param _startTime 训练开始时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -375,18 +377,18 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>训练结束时间</p>
+                     * 获取训练结束时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EndTime <p>训练结束时间</p>
+                     * @return EndTime 训练结束时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置<p>训练结束时间</p>
+                     * 设置训练结束时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _endTime <p>训练结束时间</p>
+                     * @param _endTime 训练结束时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -400,15 +402,15 @@ namespace TencentCloud
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>训练输出</p>
-                     * @return Output <p>训练输出</p>
+                     * 获取训练输出
+                     * @return Output 训练输出
                      * 
                      */
                     CosPathInfo GetOutput() const;
 
                     /**
-                     * 设置<p>训练输出</p>
-                     * @param _output <p>训练输出</p>
+                     * 设置训练输出
+                     * @param _output 训练输出
                      * 
                      */
                     void SetOutput(const CosPathInfo& _output);
@@ -421,18 +423,18 @@ namespace TencentCloud
                     bool OutputHasBeenSet() const;
 
                     /**
-                     * 获取<p>失败原因</p>
+                     * 获取失败原因
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FailureReason <p>失败原因</p>
+                     * @return FailureReason 失败原因
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFailureReason() const;
 
                     /**
-                     * 设置<p>失败原因</p>
+                     * 设置失败原因
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _failureReason <p>失败原因</p>
+                     * @param _failureReason 失败原因
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -446,15 +448,15 @@ namespace TencentCloud
                     bool FailureReasonHasBeenSet() const;
 
                     /**
-                     * 获取<p>更新时间</p>
-                     * @return UpdateTime <p>更新时间</p>
+                     * 获取更新时间
+                     * @return UpdateTime 更新时间
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>更新时间</p>
-                     * @param _updateTime <p>更新时间</p>
+                     * 设置更新时间
+                     * @param _updateTime 更新时间
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -467,15 +469,15 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费金额信息，eg：2.00元/小时 (按量计费)</p>
-                     * @return BillingInfo <p>计费金额信息，eg：2.00元/小时 (按量计费)</p>
+                     * 获取计费金额信息，eg：2.00元/小时 (按量计费)
+                     * @return BillingInfo 计费金额信息，eg：2.00元/小时 (按量计费)
                      * 
                      */
                     std::string GetBillingInfo() const;
 
                     /**
-                     * 设置<p>计费金额信息，eg：2.00元/小时 (按量计费)</p>
-                     * @param _billingInfo <p>计费金额信息，eg：2.00元/小时 (按量计费)</p>
+                     * 设置计费金额信息，eg：2.00元/小时 (按量计费)
+                     * @param _billingInfo 计费金额信息，eg：2.00元/小时 (按量计费)
                      * 
                      */
                     void SetBillingInfo(const std::string& _billingInfo);
@@ -488,15 +490,15 @@ namespace TencentCloud
                     bool BillingInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>预付费专用资源组名称</p>
-                     * @return ResourceGroupName <p>预付费专用资源组名称</p>
+                     * 获取预付费专用资源组名称
+                     * @return ResourceGroupName 预付费专用资源组名称
                      * 
                      */
                     std::string GetResourceGroupName() const;
 
                     /**
-                     * 设置<p>预付费专用资源组名称</p>
-                     * @param _resourceGroupName <p>预付费专用资源组名称</p>
+                     * 设置预付费专用资源组名称
+                     * @param _resourceGroupName 预付费专用资源组名称
                      * 
                      */
                     void SetResourceGroupName(const std::string& _resourceGroupName);
@@ -509,18 +511,18 @@ namespace TencentCloud
                     bool ResourceGroupNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>自定义镜像信息</p>
+                     * 获取自定义镜像信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ImageInfo <p>自定义镜像信息</p>
+                     * @return ImageInfo 自定义镜像信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     ImageInfo GetImageInfo() const;
 
                     /**
-                     * 设置<p>自定义镜像信息</p>
+                     * 设置自定义镜像信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _imageInfo <p>自定义镜像信息</p>
+                     * @param _imageInfo 自定义镜像信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -534,18 +536,18 @@ namespace TencentCloud
                     bool ImageInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务信息</p>
+                     * 获取任务信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Message <p>任务信息</p>
+                     * @return Message 任务信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMessage() const;
 
                     /**
-                     * 设置<p>任务信息</p>
+                     * 设置任务信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _message <p>任务信息</p>
+                     * @param _message 任务信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -559,18 +561,18 @@ namespace TencentCloud
                     bool MessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签配置</p>
+                     * 获取标签配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Tags <p>标签配置</p>
+                     * @return Tags 标签配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>标签配置</p>
+                     * 设置标签配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _tags <p>标签配置</p>
+                     * @param _tags 标签配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -584,18 +586,18 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>回调地址</p>
+                     * 获取回调地址
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CallbackUrl <p>回调地址</p>
+                     * @return CallbackUrl 回调地址
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCallbackUrl() const;
 
                     /**
-                     * 设置<p>回调地址</p>
+                     * 设置回调地址
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _callbackUrl <p>回调地址</p>
+                     * @param _callbackUrl 回调地址
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -609,18 +611,18 @@ namespace TencentCloud
                     bool CallbackUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务subUin信息</p>
+                     * 获取任务subUin信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SubUin <p>任务subUin信息</p>
+                     * @return SubUin 任务subUin信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetSubUin() const;
 
                     /**
-                     * 设置<p>任务subUin信息</p>
+                     * 设置任务subUin信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _subUin <p>任务subUin信息</p>
+                     * @param _subUin 任务subUin信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -634,18 +636,18 @@ namespace TencentCloud
                     bool SubUinHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务创建者名称</p>
+                     * 获取任务创建者名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SubUinName <p>任务创建者名称</p>
+                     * @return SubUinName 任务创建者名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetSubUinName() const;
 
                     /**
-                     * 设置<p>任务创建者名称</p>
+                     * 设置任务创建者名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _subUinName <p>任务创建者名称</p>
+                     * @param _subUinName 任务创建者名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -659,15 +661,15 @@ namespace TencentCloud
                     bool SubUinNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务AppId</p>
-                     * @return AppId <p>任务AppId</p>
+                     * 获取任务AppId
+                     * @return AppId 任务AppId
                      * 
                      */
                     std::string GetAppId() const;
 
                     /**
-                     * 设置<p>任务AppId</p>
-                     * @param _appId <p>任务AppId</p>
+                     * 设置任务AppId
+                     * @param _appId 任务AppId
                      * 
                      */
                     void SetAppId(const std::string& _appId);
@@ -679,238 +681,185 @@ namespace TencentCloud
                      */
                     bool AppIdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>环境变量</p>
-                     * @return Envs <p>环境变量</p>
-                     * 
-                     */
-                    std::vector<EnvVar> GetEnvs() const;
-
-                    /**
-                     * 设置<p>环境变量</p>
-                     * @param _envs <p>环境变量</p>
-                     * 
-                     */
-                    void SetEnvs(const std::vector<EnvVar>& _envs);
-
-                    /**
-                     * 判断参数 Envs 是否已赋值
-                     * @return Envs 是否已赋值
-                     * 
-                     */
-                    bool EnvsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>操作者信息</p>
-                     * @return LatestOperatorInfo <p>操作者信息</p>
-                     * 
-                     */
-                    OperatorInfo GetLatestOperatorInfo() const;
-
-                    /**
-                     * 设置<p>操作者信息</p>
-                     * @param _latestOperatorInfo <p>操作者信息</p>
-                     * 
-                     */
-                    void SetLatestOperatorInfo(const OperatorInfo& _latestOperatorInfo);
-
-                    /**
-                     * 判断参数 LatestOperatorInfo 是否已赋值
-                     * @return LatestOperatorInfo 是否已赋值
-                     * 
-                     */
-                    bool LatestOperatorInfoHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>训练任务ID</p>
+                     * 训练任务ID
                      */
                     std::string m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>训练任务名称</p>
+                     * 训练任务名称
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>框架名称</p>
+                     * 框架名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_frameworkName;
                     bool m_frameworkNameHasBeenSet;
 
                     /**
-                     * <p>训练框架版本</p>
+                     * 训练框架版本
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_frameworkVersion;
                     bool m_frameworkVersionHasBeenSet;
 
                     /**
-                     * <p>框架运行环境</p>
+                     * 框架运行环境
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_frameworkEnvironment;
                     bool m_frameworkEnvironmentHasBeenSet;
 
                     /**
-                     * <p>计费模式</p>
+                     * 计费模式
                      */
                     std::string m_chargeType;
                     bool m_chargeTypeHasBeenSet;
 
                     /**
-                     * <p>计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中</p>
+                     * 计费状态，eg：BILLING计费中，ARREARS_STOP欠费停止，NOT_BILLING不在计费中
                      */
                     std::string m_chargeStatus;
                     bool m_chargeStatusHasBeenSet;
 
                     /**
-                     * <p>预付费专用资源组</p>
+                     * 预付费专用资源组
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceGroupId;
                     bool m_resourceGroupIdHasBeenSet;
 
                     /**
-                     * <p>资源配置</p>
+                     * 资源配置
                      */
                     std::vector<ResourceConfigInfo> m_resourceConfigInfos;
                     bool m_resourceConfigInfosHasBeenSet;
 
                     /**
-                     * <p>训练模式eg：PS_WORKER、DDP、MPI、HOROVOD</p>
+                     * 训练模式eg：PS_WORKER、DDP、MPI、HOROVOD
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_trainingMode;
                     bool m_trainingModeHasBeenSet;
 
                     /**
-                     * <p>任务状态，eg：SUBMITTING提交中、PENDING排队中、<br>STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成</p>
+                     * 任务状态，eg：SUBMITTING提交中、PENDING排队中、
+STARTING启动中、RUNNING运行中、STOPPING停止中、STOPPED已停止、FAILED异常、SUCCEED已完成
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>运行时长</p>
+                     * 运行时长
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_runtimeInSeconds;
                     bool m_runtimeInSecondsHasBeenSet;
 
                     /**
-                     * <p>创建时间</p>
+                     * 创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>训练开始时间</p>
+                     * 训练开始时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>训练结束时间</p>
+                     * 训练结束时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * <p>训练输出</p>
+                     * 训练输出
                      */
                     CosPathInfo m_output;
                     bool m_outputHasBeenSet;
 
                     /**
-                     * <p>失败原因</p>
+                     * 失败原因
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_failureReason;
                     bool m_failureReasonHasBeenSet;
 
                     /**
-                     * <p>更新时间</p>
+                     * 更新时间
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>计费金额信息，eg：2.00元/小时 (按量计费)</p>
+                     * 计费金额信息，eg：2.00元/小时 (按量计费)
                      */
                     std::string m_billingInfo;
                     bool m_billingInfoHasBeenSet;
 
                     /**
-                     * <p>预付费专用资源组名称</p>
+                     * 预付费专用资源组名称
                      */
                     std::string m_resourceGroupName;
                     bool m_resourceGroupNameHasBeenSet;
 
                     /**
-                     * <p>自定义镜像信息</p>
+                     * 自定义镜像信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ImageInfo m_imageInfo;
                     bool m_imageInfoHasBeenSet;
 
                     /**
-                     * <p>任务信息</p>
+                     * 任务信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;
 
                     /**
-                     * <p>标签配置</p>
+                     * 标签配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>回调地址</p>
+                     * 回调地址
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_callbackUrl;
                     bool m_callbackUrlHasBeenSet;
 
                     /**
-                     * <p>任务subUin信息</p>
+                     * 任务subUin信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_subUin;
                     bool m_subUinHasBeenSet;
 
                     /**
-                     * <p>任务创建者名称</p>
+                     * 任务创建者名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_subUinName;
                     bool m_subUinNameHasBeenSet;
 
                     /**
-                     * <p>任务AppId</p>
+                     * 任务AppId
                      */
                     std::string m_appId;
                     bool m_appIdHasBeenSet;
-
-                    /**
-                     * <p>环境变量</p>
-                     */
-                    std::vector<EnvVar> m_envs;
-                    bool m_envsHasBeenSet;
-
-                    /**
-                     * <p>操作者信息</p>
-                     */
-                    OperatorInfo m_latestOperatorInfo;
-                    bool m_latestOperatorInfoHasBeenSet;
 
                 };
             }

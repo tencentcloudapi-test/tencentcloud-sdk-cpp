@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例ID</p>
-                     * @return InstanceId <p>实例ID</p>
+                     * 获取实例ID
+                     * @return InstanceId 实例ID
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>实例ID</p>
-                     * @param _instanceId <p>实例ID</p>
+                     * 设置实例ID
+                     * @param _instanceId 实例ID
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>事务开始最早时间</p>
-                     * @return StartTime <p>事务开始最早时间</p>
+                     * 获取事务开始最早时间
+                     * @return StartTime 事务开始最早时间
                      * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置<p>事务开始最早时间</p>
-                     * @param _startTime <p>事务开始最早时间</p>
+                     * 设置事务开始最早时间
+                     * @param _startTime 事务开始最早时间
                      * 
                      */
                     void SetStartTime(const std::string& _startTime);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>事务开始最晚时间</p>
-                     * @return EndTime <p>事务开始最晚时间</p>
+                     * 获取事务开始最晚时间
+                     * @return EndTime 事务开始最晚时间
                      * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置<p>事务开始最晚时间</p>
-                     * @param _endTime <p>事务开始最晚时间</p>
+                     * 设置事务开始最晚时间
+                     * @param _endTime 事务开始最晚时间
                      * 
                      */
                     void SetEndTime(const std::string& _endTime);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>限制条数</p><p>建议控制 limit 大小，当 limit 过大时，由于平台返回结果大小限制，可能会造成截断</p>
-                     * @return Limit <p>限制条数</p><p>建议控制 limit 大小，当 limit 过大时，由于平台返回结果大小限制，可能会造成截断</p>
+                     * 获取限制条数
+                     * @return Limit 限制条数
                      * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置<p>限制条数</p><p>建议控制 limit 大小，当 limit 过大时，由于平台返回结果大小限制，可能会造成截断</p>
-                     * @param _limit <p>限制条数</p><p>建议控制 limit 大小，当 limit 过大时，由于平台返回结果大小限制，可能会造成截断</p>
+                     * 设置限制条数
+                     * @param _limit 限制条数
                      * 
                      */
                     void SetLimit(const int64_t& _limit);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>偏移量</p>
-                     * @return Offset <p>偏移量</p>
+                     * 获取偏移量
+                     * @return Offset 偏移量
                      * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量</p>
-                     * @param _offset <p>偏移量</p>
+                     * 设置偏移量
+                     * @param _offset 偏移量
                      * 
                      */
                     void SetOffset(const int64_t& _offset);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户名</p>
-                     * @return Username <p>用户名</p>
+                     * 获取用户名
+                     * @return Username 用户名
                      * 
                      */
                     std::string GetUsername() const;
 
                     /**
-                     * 设置<p>用户名</p>
-                     * @param _username <p>用户名</p>
+                     * 设置用户名
+                     * @param _username 用户名
                      * 
                      */
                     void SetUsername(const std::string& _username);
@@ -169,15 +169,15 @@ namespace TencentCloud
                     bool UsernameHasBeenSet() const;
 
                     /**
-                     * 获取<p>客户端host</p>
-                     * @return Host <p>客户端host</p>
+                     * 获取客户端host
+                     * @return Host 客户端host
                      * 
                      */
                     std::string GetHost() const;
 
                     /**
-                     * 设置<p>客户端host</p>
-                     * @param _host <p>客户端host</p>
+                     * 设置客户端host
+                     * @param _host 客户端host
                      * 
                      */
                     void SetHost(const std::string& _host);
@@ -190,15 +190,15 @@ namespace TencentCloud
                     bool HostHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库名</p>
-                     * @return Database <p>数据库名</p>
+                     * 获取数据库名
+                     * @return Database 数据库名
                      * 
                      */
                     std::string GetDatabase() const;
 
                     /**
-                     * 设置<p>数据库名</p>
-                     * @param _database <p>数据库名</p>
+                     * 设置数据库名
+                     * @param _database 数据库名
                      * 
                      */
                     void SetDatabase(const std::string& _database);
@@ -211,15 +211,15 @@ namespace TencentCloud
                     bool DatabaseHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序字段</p><p>枚举值：</p><ul><li>QueryTime： 按照 SQL 语句的总执行时长排序</li><li>LockTime： 按照 SQL 语句在等待锁（如表锁、行锁）上消耗的时间排序</li><li>RowsExamined： 按照 SQL 语句在执行过程中扫描的行数排序</li><li>RowsSent： 按照 SQL 语句最终返回给客户端的结果行数排序</li><li>Timestamp： 按照慢查询语句发生的时间戳排序</li></ul>
-                     * @return OrderBy <p>排序字段</p><p>枚举值：</p><ul><li>QueryTime： 按照 SQL 语句的总执行时长排序</li><li>LockTime： 按照 SQL 语句在等待锁（如表锁、行锁）上消耗的时间排序</li><li>RowsExamined： 按照 SQL 语句在执行过程中扫描的行数排序</li><li>RowsSent： 按照 SQL 语句最终返回给客户端的结果行数排序</li><li>Timestamp： 按照慢查询语句发生的时间戳排序</li></ul>
+                     * 获取排序字段，可选值：QueryTime,LockTime,RowsExamined,RowsSent
+                     * @return OrderBy 排序字段，可选值：QueryTime,LockTime,RowsExamined,RowsSent
                      * 
                      */
                     std::string GetOrderBy() const;
 
                     /**
-                     * 设置<p>排序字段</p><p>枚举值：</p><ul><li>QueryTime： 按照 SQL 语句的总执行时长排序</li><li>LockTime： 按照 SQL 语句在等待锁（如表锁、行锁）上消耗的时间排序</li><li>RowsExamined： 按照 SQL 语句在执行过程中扫描的行数排序</li><li>RowsSent： 按照 SQL 语句最终返回给客户端的结果行数排序</li><li>Timestamp： 按照慢查询语句发生的时间戳排序</li></ul>
-                     * @param _orderBy <p>排序字段</p><p>枚举值：</p><ul><li>QueryTime： 按照 SQL 语句的总执行时长排序</li><li>LockTime： 按照 SQL 语句在等待锁（如表锁、行锁）上消耗的时间排序</li><li>RowsExamined： 按照 SQL 语句在执行过程中扫描的行数排序</li><li>RowsSent： 按照 SQL 语句最终返回给客户端的结果行数排序</li><li>Timestamp： 按照慢查询语句发生的时间戳排序</li></ul>
+                     * 设置排序字段，可选值：QueryTime,LockTime,RowsExamined,RowsSent
+                     * @param _orderBy 排序字段，可选值：QueryTime,LockTime,RowsExamined,RowsSent
                      * 
                      */
                     void SetOrderBy(const std::string& _orderBy);
@@ -232,15 +232,15 @@ namespace TencentCloud
                     bool OrderByHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序类型，可选值：asc,desc</p>
-                     * @return OrderByType <p>排序类型，可选值：asc,desc</p>
+                     * 获取排序类型，可选值：asc,desc
+                     * @return OrderByType 排序类型，可选值：asc,desc
                      * 
                      */
                     std::string GetOrderByType() const;
 
                     /**
-                     * 设置<p>排序类型，可选值：asc,desc</p>
-                     * @param _orderByType <p>排序类型，可选值：asc,desc</p>
+                     * 设置排序类型，可选值：asc,desc
+                     * @param _orderByType 排序类型，可选值：asc,desc
                      * 
                      */
                     void SetOrderByType(const std::string& _orderByType);
@@ -253,15 +253,15 @@ namespace TencentCloud
                     bool OrderByTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>sql语句</p>
-                     * @return SqlText <p>sql语句</p>
+                     * 获取sql语句
+                     * @return SqlText sql语句
                      * 
                      */
                     std::string GetSqlText() const;
 
                     /**
-                     * 设置<p>sql语句</p>
-                     * @param _sqlText <p>sql语句</p>
+                     * 设置sql语句
+                     * @param _sqlText sql语句
                      * 
                      */
                     void SetSqlText(const std::string& _sqlText);
@@ -276,67 +276,67 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>实例ID</p>
+                     * 实例ID
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>事务开始最早时间</p>
+                     * 事务开始最早时间
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>事务开始最晚时间</p>
+                     * 事务开始最晚时间
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * <p>限制条数</p><p>建议控制 limit 大小，当 limit 过大时，由于平台返回结果大小限制，可能会造成截断</p>
+                     * 限制条数
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>偏移量</p>
+                     * 偏移量
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>用户名</p>
+                     * 用户名
                      */
                     std::string m_username;
                     bool m_usernameHasBeenSet;
 
                     /**
-                     * <p>客户端host</p>
+                     * 客户端host
                      */
                     std::string m_host;
                     bool m_hostHasBeenSet;
 
                     /**
-                     * <p>数据库名</p>
+                     * 数据库名
                      */
                     std::string m_database;
                     bool m_databaseHasBeenSet;
 
                     /**
-                     * <p>排序字段</p><p>枚举值：</p><ul><li>QueryTime： 按照 SQL 语句的总执行时长排序</li><li>LockTime： 按照 SQL 语句在等待锁（如表锁、行锁）上消耗的时间排序</li><li>RowsExamined： 按照 SQL 语句在执行过程中扫描的行数排序</li><li>RowsSent： 按照 SQL 语句最终返回给客户端的结果行数排序</li><li>Timestamp： 按照慢查询语句发生的时间戳排序</li></ul>
+                     * 排序字段，可选值：QueryTime,LockTime,RowsExamined,RowsSent
                      */
                     std::string m_orderBy;
                     bool m_orderByHasBeenSet;
 
                     /**
-                     * <p>排序类型，可选值：asc,desc</p>
+                     * 排序类型，可选值：asc,desc
                      */
                     std::string m_orderByType;
                     bool m_orderByTypeHasBeenSet;
 
                     /**
-                     * <p>sql语句</p>
+                     * sql语句
                      */
                     std::string m_sqlText;
                     bool m_sqlTextHasBeenSet;

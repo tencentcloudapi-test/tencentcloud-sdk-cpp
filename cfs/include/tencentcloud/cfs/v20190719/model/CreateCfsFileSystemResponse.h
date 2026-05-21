@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>文件系统创建时间</p>
-                     * @return CreationTime <p>文件系统创建时间</p>
+                     * 获取文件系统创建时间
+                     * @return CreationTime 文件系统创建时间
                      * 
                      */
                     std::string GetCreationTime() const;
@@ -58,8 +58,8 @@ namespace TencentCloud
                     bool CreationTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户自定义文件系统名称</p>
-                     * @return CreationToken <p>用户自定义文件系统名称</p>
+                     * 获取用户自定义文件系统名称
+                     * @return CreationToken 用户自定义文件系统名称
                      * 
                      */
                     std::string GetCreationToken() const;
@@ -72,8 +72,8 @@ namespace TencentCloud
                     bool CreationTokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件系统 ID</p>
-                     * @return FileSystemId <p>文件系统 ID</p>
+                     * 获取文件系统 ID
+                     * @return FileSystemId 文件系统 ID
                      * 
                      */
                     std::string GetFileSystemId() const;
@@ -86,8 +86,8 @@ namespace TencentCloud
                     bool FileSystemIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。</p>
-                     * @return LifeCycleState <p>文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。</p>
+                     * 获取文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
+                     * @return LifeCycleState 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
                      * 
                      */
                     std::string GetLifeCycleState() const;
@@ -100,8 +100,8 @@ namespace TencentCloud
                     bool LifeCycleStateHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件系统已使用容量大小，单位为 Byte</p>
-                     * @return SizeByte <p>文件系统已使用容量大小，单位为 Byte</p>
+                     * 获取文件系统已使用容量大小，单位为 Byte
+                     * @return SizeByte 文件系统已使用容量大小，单位为 Byte
                      * 
                      */
                     uint64_t GetSizeByte() const;
@@ -114,8 +114,8 @@ namespace TencentCloud
                     bool SizeByteHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区 ID</p>
-                     * @return ZoneId <p>可用区 ID</p>
+                     * 获取可用区 ID
+                     * @return ZoneId 可用区 ID
                      * 
                      */
                     uint64_t GetZoneId() const;
@@ -128,8 +128,8 @@ namespace TencentCloud
                     bool ZoneIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户自定义文件系统名称</p>
-                     * @return FsName <p>用户自定义文件系统名称</p>
+                     * 获取用户自定义文件系统名称
+                     * @return FsName 用户自定义文件系统名称
                      * 
                      */
                     std::string GetFsName() const;
@@ -142,8 +142,8 @@ namespace TencentCloud
                     bool FsNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件系统是否加密</p>
-                     * @return Encrypted <p>文件系统是否加密</p>
+                     * 获取文件系统是否加密
+                     * @return Encrypted 文件系统是否加密
                      * 
                      */
                     bool GetEncrypted() const;
@@ -158,49 +158,49 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>文件系统创建时间</p>
+                     * 文件系统创建时间
                      */
                     std::string m_creationTime;
                     bool m_creationTimeHasBeenSet;
 
                     /**
-                     * <p>用户自定义文件系统名称</p>
+                     * 用户自定义文件系统名称
                      */
                     std::string m_creationToken;
                     bool m_creationTokenHasBeenSet;
 
                     /**
-                     * <p>文件系统 ID</p>
+                     * 文件系统 ID
                      */
                     std::string m_fileSystemId;
                     bool m_fileSystemIdHasBeenSet;
 
                     /**
-                     * <p>文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。</p>
+                     * 文件系统状态，可能出现状态包括：“creating”  创建中, “create_failed” 创建失败, “available” 可用, “unserviced” 不可用, “upgrading” 升级中， “deleting” 删除中。
                      */
                     std::string m_lifeCycleState;
                     bool m_lifeCycleStateHasBeenSet;
 
                     /**
-                     * <p>文件系统已使用容量大小，单位为 Byte</p>
+                     * 文件系统已使用容量大小，单位为 Byte
                      */
                     uint64_t m_sizeByte;
                     bool m_sizeByteHasBeenSet;
 
                     /**
-                     * <p>可用区 ID</p>
+                     * 可用区 ID
                      */
                     uint64_t m_zoneId;
                     bool m_zoneIdHasBeenSet;
 
                     /**
-                     * <p>用户自定义文件系统名称</p>
+                     * 用户自定义文件系统名称
                      */
                     std::string m_fsName;
                     bool m_fsNameHasBeenSet;
 
                     /**
-                     * <p>文件系统是否加密</p>
+                     * 文件系统是否加密
                      */
                     bool m_encrypted;
                     bool m_encryptedHasBeenSet;

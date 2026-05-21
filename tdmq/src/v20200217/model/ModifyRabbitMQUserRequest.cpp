@@ -29,8 +29,7 @@ ModifyRabbitMQUserRequest::ModifyRabbitMQUserRequest() :
     m_descriptionHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_maxConnectionsHasBeenSet(false),
-    m_maxChannelsHasBeenSet(false),
-    m_enableCamAuthHasBeenSet(false)
+    m_maxChannelsHasBeenSet(false)
 {
 }
 
@@ -100,14 +99,6 @@ string ModifyRabbitMQUserRequest::ToJsonString() const
         string key = "MaxChannels";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_maxChannels, allocator);
-    }
-
-    if (m_enableCamAuthHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableCamAuth";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableCamAuth, allocator);
     }
 
 
@@ -228,22 +219,6 @@ void ModifyRabbitMQUserRequest::SetMaxChannels(const int64_t& _maxChannels)
 bool ModifyRabbitMQUserRequest::MaxChannelsHasBeenSet() const
 {
     return m_maxChannelsHasBeenSet;
-}
-
-bool ModifyRabbitMQUserRequest::GetEnableCamAuth() const
-{
-    return m_enableCamAuth;
-}
-
-void ModifyRabbitMQUserRequest::SetEnableCamAuth(const bool& _enableCamAuth)
-{
-    m_enableCamAuth = _enableCamAuth;
-    m_enableCamAuthHasBeenSet = true;
-}
-
-bool ModifyRabbitMQUserRequest::EnableCamAuthHasBeenSet() const
-{
-    return m_enableCamAuthHasBeenSet;
 }
 
 

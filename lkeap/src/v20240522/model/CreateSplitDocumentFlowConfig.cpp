@@ -27,9 +27,7 @@ CreateSplitDocumentFlowConfig::CreateSplitDocumentFlowConfig() :
     m_maxChunkSizeHasBeenSet(false),
     m_ignoreFailedPageHasBeenSet(false),
     m_splitResultTypeHasBeenSet(false),
-    m_splitTableResultTypeHasBeenSet(false),
-    m_returnPageFormatHasBeenSet(false),
-    m_pageFormatHasBeenSet(false)
+    m_splitTableResultTypeHasBeenSet(false)
 {
 }
 
@@ -108,26 +106,6 @@ CoreInternalOutcome CreateSplitDocumentFlowConfig::Deserialize(const rapidjson::
         m_splitTableResultTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("ReturnPageFormat") && !value["ReturnPageFormat"].IsNull())
-    {
-        if (!value["ReturnPageFormat"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `CreateSplitDocumentFlowConfig.ReturnPageFormat` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_returnPageFormat = value["ReturnPageFormat"].GetBool();
-        m_returnPageFormatHasBeenSet = true;
-    }
-
-    if (value.HasMember("PageFormat") && !value["PageFormat"].IsNull())
-    {
-        if (!value["PageFormat"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CreateSplitDocumentFlowConfig.PageFormat` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_pageFormat = string(value["PageFormat"].GetString());
-        m_pageFormatHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -189,22 +167,6 @@ void CreateSplitDocumentFlowConfig::ToJsonObject(rapidjson::Value &value, rapidj
         string key = "SplitTableResultType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_splitTableResultType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_returnPageFormatHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ReturnPageFormat";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_returnPageFormat, allocator);
-    }
-
-    if (m_pageFormatHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PageFormat";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_pageFormat.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -320,37 +282,5 @@ void CreateSplitDocumentFlowConfig::SetSplitTableResultType(const string& _split
 bool CreateSplitDocumentFlowConfig::SplitTableResultTypeHasBeenSet() const
 {
     return m_splitTableResultTypeHasBeenSet;
-}
-
-bool CreateSplitDocumentFlowConfig::GetReturnPageFormat() const
-{
-    return m_returnPageFormat;
-}
-
-void CreateSplitDocumentFlowConfig::SetReturnPageFormat(const bool& _returnPageFormat)
-{
-    m_returnPageFormat = _returnPageFormat;
-    m_returnPageFormatHasBeenSet = true;
-}
-
-bool CreateSplitDocumentFlowConfig::ReturnPageFormatHasBeenSet() const
-{
-    return m_returnPageFormatHasBeenSet;
-}
-
-string CreateSplitDocumentFlowConfig::GetPageFormat() const
-{
-    return m_pageFormat;
-}
-
-void CreateSplitDocumentFlowConfig::SetPageFormat(const string& _pageFormat)
-{
-    m_pageFormat = _pageFormat;
-    m_pageFormatHasBeenSet = true;
-}
-
-bool CreateSplitDocumentFlowConfig::PageFormatHasBeenSet() const
-{
-    return m_pageFormatHasBeenSet;
 }
 

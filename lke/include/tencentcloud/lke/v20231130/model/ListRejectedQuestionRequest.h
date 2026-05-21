@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/lke/v20231130/model/FilterItem.h>
 
 
 namespace TencentCloud
@@ -44,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>应用ID, 获取方法参看如何获取   <a href="https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa">BotBizId</a>。</p>
-                     * @return BotBizId <p>应用ID, 获取方法参看如何获取   <a href="https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa">BotBizId</a>。</p>
+                     * 获取应用ID
+                     * @return BotBizId 应用ID
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置<p>应用ID, 获取方法参看如何获取   <a href="https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa">BotBizId</a>。</p>
-                     * @param _botBizId <p>应用ID, 获取方法参看如何获取   <a href="https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa">BotBizId</a>。</p>
+                     * 设置应用ID
+                     * @param _botBizId 应用ID
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -65,15 +64,19 @@ namespace TencentCloud
                     bool BotBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>页码（必须大于0）</p><p>默认值：1</p>
-                     * @return PageNumber <p>页码（必须大于0）</p><p>默认值：1</p>
+                     * 获取页码
+
+                     * @return PageNumber 页码
+
                      * 
                      */
                     uint64_t GetPageNumber() const;
 
                     /**
-                     * 设置<p>页码（必须大于0）</p><p>默认值：1</p>
-                     * @param _pageNumber <p>页码（必须大于0）</p><p>默认值：1</p>
+                     * 设置页码
+
+                     * @param _pageNumber 页码
+
                      * 
                      */
                     void SetPageNumber(const uint64_t& _pageNumber);
@@ -86,15 +89,19 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>每页数量（取值范围1-200）</p><p>默认值：15</p>
-                     * @return PageSize <p>每页数量（取值范围1-200）</p><p>默认值：15</p>
+                     * 获取每页数量
+
+                     * @return PageSize 每页数量
+
                      * 
                      */
                     uint64_t GetPageSize() const;
 
                     /**
-                     * 设置<p>每页数量（取值范围1-200）</p><p>默认值：15</p>
-                     * @param _pageSize <p>每页数量（取值范围1-200）</p><p>默认值：15</p>
+                     * 设置每页数量
+
+                     * @param _pageSize 每页数量
+
                      * 
                      */
                     void SetPageSize(const uint64_t& _pageSize);
@@ -107,15 +114,19 @@ namespace TencentCloud
                     bool PageSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询内容</p>
-                     * @return Query <p>查询内容</p>
+                     * 获取查询内容
+
+                     * @return Query 查询内容
+
                      * 
                      */
                     std::string GetQuery() const;
 
                     /**
-                     * 设置<p>查询内容</p>
-                     * @param _query <p>查询内容</p>
+                     * 设置查询内容
+
+                     * @param _query 查询内容
+
                      * 
                      */
                     void SetQuery(const std::string& _query);
@@ -127,58 +138,34 @@ namespace TencentCloud
                      */
                     bool QueryHasBeenSet() const;
 
-                    /**
-                     * 获取<p>过滤条件：<br>生效： EnableScope: 1,2,3,4</p>
-                     * @return Filters <p>过滤条件：<br>生效： EnableScope: 1,2,3,4</p>
-                     * 
-                     */
-                    std::vector<FilterItem> GetFilters() const;
-
-                    /**
-                     * 设置<p>过滤条件：<br>生效： EnableScope: 1,2,3,4</p>
-                     * @param _filters <p>过滤条件：<br>生效： EnableScope: 1,2,3,4</p>
-                     * 
-                     */
-                    void SetFilters(const std::vector<FilterItem>& _filters);
-
-                    /**
-                     * 判断参数 Filters 是否已赋值
-                     * @return Filters 是否已赋值
-                     * 
-                     */
-                    bool FiltersHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>应用ID, 获取方法参看如何获取   <a href="https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa">BotBizId</a>。</p>
+                     * 应用ID
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
 
                     /**
-                     * <p>页码（必须大于0）</p><p>默认值：1</p>
+                     * 页码
+
                      */
                     uint64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * <p>每页数量（取值范围1-200）</p><p>默认值：15</p>
+                     * 每页数量
+
                      */
                     uint64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
 
                     /**
-                     * <p>查询内容</p>
+                     * 查询内容
+
                      */
                     std::string m_query;
                     bool m_queryHasBeenSet;
-
-                    /**
-                     * <p>过滤条件：<br>生效： EnableScope: 1,2,3,4</p>
-                     */
-                    std::vector<FilterItem> m_filters;
-                    bool m_filtersHasBeenSet;
 
                 };
             }

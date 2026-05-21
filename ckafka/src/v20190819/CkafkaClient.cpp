@@ -1440,56 +1440,6 @@ CkafkaClient::DeleteGroupOutcomeCallable CkafkaClient::DeleteGroupCallable(const
     return prom->get_future();
 }
 
-CkafkaClient::DeleteGroupSubscribeTopicOutcome CkafkaClient::DeleteGroupSubscribeTopic(const DeleteGroupSubscribeTopicRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteGroupSubscribeTopic");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteGroupSubscribeTopicResponse rsp = DeleteGroupSubscribeTopicResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteGroupSubscribeTopicOutcome(rsp);
-        else
-            return DeleteGroupSubscribeTopicOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteGroupSubscribeTopicOutcome(outcome.GetError());
-    }
-}
-
-void CkafkaClient::DeleteGroupSubscribeTopicAsync(const DeleteGroupSubscribeTopicRequest& request, const DeleteGroupSubscribeTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteGroupSubscribeTopicRequest&;
-    using Resp = DeleteGroupSubscribeTopicResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteGroupSubscribeTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-CkafkaClient::DeleteGroupSubscribeTopicOutcomeCallable CkafkaClient::DeleteGroupSubscribeTopicCallable(const DeleteGroupSubscribeTopicRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteGroupSubscribeTopicOutcome>>();
-    DeleteGroupSubscribeTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteGroupSubscribeTopicRequest&,
-        DeleteGroupSubscribeTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 CkafkaClient::DeleteInstancePostOutcome CkafkaClient::DeleteInstancePost(const DeleteInstancePostRequest &request)
 {
     auto outcome = MakeRequest(request, "DeleteInstancePost");
@@ -1882,56 +1832,6 @@ CkafkaClient::DescribeACLOutcomeCallable CkafkaClient::DescribeACLCallable(const
         const CkafkaClient*,
         const DescribeACLRequest&,
         DescribeACLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-CkafkaClient::DescribeAccessPolicyOutcome CkafkaClient::DescribeAccessPolicy(const DescribeAccessPolicyRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAccessPolicy");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAccessPolicyResponse rsp = DescribeAccessPolicyResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAccessPolicyOutcome(rsp);
-        else
-            return DescribeAccessPolicyOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAccessPolicyOutcome(outcome.GetError());
-    }
-}
-
-void CkafkaClient::DescribeAccessPolicyAsync(const DescribeAccessPolicyRequest& request, const DescribeAccessPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeAccessPolicyRequest&;
-    using Resp = DescribeAccessPolicyResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-CkafkaClient::DescribeAccessPolicyOutcomeCallable CkafkaClient::DescribeAccessPolicyCallable(const DescribeAccessPolicyRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeAccessPolicyOutcome>>();
-    DescribeAccessPolicyAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeAccessPolicyRequest&,
-        DescribeAccessPolicyOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3932,56 +3832,6 @@ CkafkaClient::InstanceScalingDownOutcomeCallable CkafkaClient::InstanceScalingDo
         const CkafkaClient*,
         const InstanceScalingDownRequest&,
         InstanceScalingDownOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-CkafkaClient::ModifyAccessPolicyOutcome CkafkaClient::ModifyAccessPolicy(const ModifyAccessPolicyRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyAccessPolicy");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyAccessPolicyResponse rsp = ModifyAccessPolicyResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyAccessPolicyOutcome(rsp);
-        else
-            return ModifyAccessPolicyOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyAccessPolicyOutcome(outcome.GetError());
-    }
-}
-
-void CkafkaClient::ModifyAccessPolicyAsync(const ModifyAccessPolicyRequest& request, const ModifyAccessPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyAccessPolicyRequest&;
-    using Resp = ModifyAccessPolicyResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyAccessPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-CkafkaClient::ModifyAccessPolicyOutcomeCallable CkafkaClient::ModifyAccessPolicyCallable(const ModifyAccessPolicyRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyAccessPolicyOutcome>>();
-    ModifyAccessPolicyAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyAccessPolicyRequest&,
-        ModifyAccessPolicyOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

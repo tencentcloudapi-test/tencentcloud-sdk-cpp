@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>所删除分账单元ID</p>
-                     * @return Id <p>所删除分账单元ID</p>
+                     * 获取所删除分账单元ID
+                     * @return Id 所删除分账单元ID
                      * 
                      */
                     uint64_t GetId() const;
 
                     /**
-                     * 设置<p>所删除分账单元ID</p>
-                     * @param _id <p>所删除分账单元ID</p>
+                     * 设置所删除分账单元ID
+                     * @param _id 所删除分账单元ID
                      * 
                      */
                     void SetId(const uint64_t& _id);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>月份，不传默认当前月</p>
-                     * @return Month <p>月份，不传默认当前月</p>
+                     * 获取月份，不传默认当前月
+                     * @return Month 月份，不传默认当前月
                      * 
                      */
                     std::string GetMonth() const;
 
                     /**
-                     * 设置<p>月份，不传默认当前月</p>
-                     * @param _month <p>月份，不传默认当前月</p>
+                     * 设置月份，不传默认当前月
+                     * @param _month 月份，不传默认当前月
                      * 
                      */
                     void SetMonth(const std::string& _month);
@@ -87,13 +87,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>所删除分账单元ID</p>
+                     * 所删除分账单元ID
                      */
                     uint64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>月份，不传默认当前月</p>
+                     * 月份，不传默认当前月
                      */
                     std::string m_month;
                     bool m_monthHasBeenSet;

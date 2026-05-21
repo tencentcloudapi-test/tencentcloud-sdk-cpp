@@ -24,9 +24,7 @@ using namespace TencentCloud::Trtc::V20190722::Model;
 using namespace std;
 
 TextToSpeechResponse::TextToSpeechResponse() :
-    m_audioHasBeenSet(false),
-    m_alignmentsHasBeenSet(false),
-    m_totalDurationMsHasBeenSet(false)
+    m_audioHasBeenSet(false)
 {
 }
 
@@ -74,36 +72,6 @@ CoreInternalOutcome TextToSpeechResponse::Deserialize(const string &payload)
         m_audioHasBeenSet = true;
     }
 
-    if (rsp.HasMember("Alignments") && !rsp["Alignments"].IsNull())
-    {
-        if (!rsp["Alignments"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `Alignments` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["Alignments"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            AlignmentItem item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_alignments.push_back(item);
-        }
-        m_alignmentsHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("TotalDurationMs") && !rsp["TotalDurationMs"].IsNull())
-    {
-        if (!rsp["TotalDurationMs"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TotalDurationMs` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_totalDurationMs = rsp["TotalDurationMs"].GetUint64();
-        m_totalDurationMsHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -120,29 +88,6 @@ string TextToSpeechResponse::ToJsonString() const
         string key = "Audio";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_audio.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_alignmentsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Alignments";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_alignments.begin(); itr != m_alignments.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_totalDurationMsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TotalDurationMs";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_totalDurationMs, allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -165,26 +110,6 @@ string TextToSpeechResponse::GetAudio() const
 bool TextToSpeechResponse::AudioHasBeenSet() const
 {
     return m_audioHasBeenSet;
-}
-
-vector<AlignmentItem> TextToSpeechResponse::GetAlignments() const
-{
-    return m_alignments;
-}
-
-bool TextToSpeechResponse::AlignmentsHasBeenSet() const
-{
-    return m_alignmentsHasBeenSet;
-}
-
-uint64_t TextToSpeechResponse::GetTotalDurationMs() const
-{
-    return m_totalDurationMs;
-}
-
-bool TextToSpeechResponse::TotalDurationMsHasBeenSet() const
-{
-    return m_totalDurationMsHasBeenSet;
 }
 
 

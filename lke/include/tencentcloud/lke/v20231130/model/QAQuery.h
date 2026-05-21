@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/lke/v20231130/model/TimeRange.h>
 
 
 namespace TencentCloud
@@ -48,15 +47,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>页码 从1开始</p>
-                     * @return PageNumber <p>页码 从1开始</p>
+                     * 获取页码
+
+
+                     * @return PageNumber 页码
+
+
                      * 
                      */
                     uint64_t GetPageNumber() const;
 
                     /**
-                     * 设置<p>页码 从1开始</p>
-                     * @param _pageNumber <p>页码 从1开始</p>
+                     * 设置页码
+
+
+                     * @param _pageNumber 页码
+
+
                      * 
                      */
                     void SetPageNumber(const uint64_t& _pageNumber);
@@ -69,15 +76,19 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>页大小 默认15 最大100</p>
-                     * @return PageSize <p>页大小 默认15 最大100</p>
+                     * 获取每页数量
+
+                     * @return PageSize 每页数量
+
                      * 
                      */
                     uint64_t GetPageSize() const;
 
                     /**
-                     * 设置<p>页大小 默认15 最大100</p>
-                     * @param _pageSize <p>页大小 默认15 最大100</p>
+                     * 设置每页数量
+
+                     * @param _pageSize 每页数量
+
                      * 
                      */
                     void SetPageSize(const uint64_t& _pageSize);
@@ -90,15 +101,15 @@ namespace TencentCloud
                     bool PageSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>应用ID</p>
-                     * @return BotBizId <p>应用ID</p>
+                     * 获取应用ID
+                     * @return BotBizId 应用ID
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置<p>应用ID</p>
-                     * @param _botBizId <p>应用ID</p>
+                     * 设置应用ID
+                     * @param _botBizId 应用ID
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -111,15 +122,19 @@ namespace TencentCloud
                     bool BotBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询内容</p>
-                     * @return Query <p>查询内容</p>
+                     * 获取查询内容
+
+                     * @return Query 查询内容
+
                      * 
                      */
                     std::string GetQuery() const;
 
                     /**
-                     * 设置<p>查询内容</p>
-                     * @param _query <p>查询内容</p>
+                     * 设置查询内容
+
+                     * @param _query 查询内容
+
                      * 
                      */
                     void SetQuery(const std::string& _query);
@@ -132,15 +147,19 @@ namespace TencentCloud
                     bool QueryHasBeenSet() const;
 
                     /**
-                     * 获取<p>分类ID</p>
-                     * @return CateBizId <p>分类ID</p>
+                     * 获取分类ID
+
+                     * @return CateBizId 分类ID
+
                      * 
                      */
                     std::string GetCateBizId() const;
 
                     /**
-                     * 设置<p>分类ID</p>
-                     * @param _cateBizId <p>分类ID</p>
+                     * 设置分类ID
+
+                     * @param _cateBizId 分类ID
+
                      * 
                      */
                     void SetCateBizId(const std::string& _cateBizId);
@@ -153,15 +172,19 @@ namespace TencentCloud
                     bool CateBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>校验状态的枚举值</p>
-                     * @return AcceptStatus <p>校验状态的枚举值</p>
+                     * 获取校验状态
+
+                     * @return AcceptStatus 校验状态
+
                      * 
                      */
                     std::vector<uint64_t> GetAcceptStatus() const;
 
                     /**
-                     * 设置<p>校验状态的枚举值</p>
-                     * @param _acceptStatus <p>校验状态的枚举值</p>
+                     * 设置校验状态
+
+                     * @param _acceptStatus 校验状态
+
                      * 
                      */
                     void SetAcceptStatus(const std::vector<uint64_t>& _acceptStatus);
@@ -174,15 +197,19 @@ namespace TencentCloud
                     bool AcceptStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>发布状态的枚举值</p>
-                     * @return ReleaseStatus <p>发布状态的枚举值</p>
+                     * 获取发布状态
+
+                     * @return ReleaseStatus 发布状态
+
                      * 
                      */
                     std::vector<uint64_t> GetReleaseStatus() const;
 
                     /**
-                     * 设置<p>发布状态的枚举值</p>
-                     * @param _releaseStatus <p>发布状态的枚举值</p>
+                     * 设置发布状态
+
+                     * @param _releaseStatus 发布状态
+
                      * 
                      */
                     void SetReleaseStatus(const std::vector<uint64_t>& _releaseStatus);
@@ -195,15 +222,19 @@ namespace TencentCloud
                     bool ReleaseStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>文档ID</p>
-                     * @return DocBizId <p>文档ID</p>
+                     * 获取文档ID
+
+                     * @return DocBizId 文档ID
+
                      * 
                      */
                     std::string GetDocBizId() const;
 
                     /**
-                     * 设置<p>文档ID</p>
-                     * @param _docBizId <p>文档ID</p>
+                     * 设置文档ID
+
+                     * @param _docBizId 文档ID
+
                      * 
                      */
                     void SetDocBizId(const std::string& _docBizId);
@@ -216,15 +247,19 @@ namespace TencentCloud
                     bool DocBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>QAID</p>
-                     * @return QaBizId <p>QAID</p>
+                     * 获取QAID
+
+                     * @return QaBizId QAID
+
                      * 
                      */
                     std::string GetQaBizId() const;
 
                     /**
-                     * 设置<p>QAID</p>
-                     * @param _qaBizId <p>QAID</p>
+                     * 设置QAID
+
+                     * @param _qaBizId QAID
+
                      * 
                      */
                     void SetQaBizId(const std::string& _qaBizId);
@@ -237,15 +272,19 @@ namespace TencentCloud
                     bool QaBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>来源</p>
-                     * @return Source <p>来源</p>
+                     * 获取来源
+
+                     * @return Source 来源
+
                      * 
                      */
                     uint64_t GetSource() const;
 
                     /**
-                     * 设置<p>来源</p>
-                     * @param _source <p>来源</p>
+                     * 设置来源
+
+                     * @param _source 来源
+
                      * 
                      */
                     void SetSource(const uint64_t& _source);
@@ -258,15 +297,19 @@ namespace TencentCloud
                     bool SourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询答案</p>
-                     * @return QueryAnswer <p>查询答案</p>
+                     * 获取查询答案
+
+                     * @return QueryAnswer 查询答案
+
                      * 
                      */
                     std::string GetQueryAnswer() const;
 
                     /**
-                     * 设置<p>查询答案</p>
-                     * @param _queryAnswer <p>查询答案</p>
+                     * 设置查询答案
+
+                     * @param _queryAnswer 查询答案
+
                      * 
                      */
                     void SetQueryAnswer(const std::string& _queryAnswer);
@@ -279,15 +322,15 @@ namespace TencentCloud
                     bool QueryAnswerHasBeenSet() const;
 
                     /**
-                     * 获取<p>查询类型 filename 名称、 attribute 标签</p>
-                     * @return QueryType <p>查询类型 filename 名称、 attribute 标签</p>
+                     * 获取查询类型 filename 名称、 attribute 标签
+                     * @return QueryType 查询类型 filename 名称、 attribute 标签
                      * 
                      */
                     std::string GetQueryType() const;
 
                     /**
-                     * 设置<p>查询类型 filename 名称、 attribute 标签</p>
-                     * @param _queryType <p>查询类型 filename 名称、 attribute 标签</p>
+                     * 设置查询类型 filename 名称、 attribute 标签
+                     * @param _queryType 查询类型 filename 名称、 attribute 标签
                      * 
                      */
                     void SetQueryType(const std::string& _queryType);
@@ -299,160 +342,90 @@ namespace TencentCloud
                      */
                     bool QueryTypeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>问答生效域检索，不检索不传。枚举值如下：<br>1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。</p>
-                     * @return EnableScope <p>问答生效域检索，不检索不传。枚举值如下：<br>1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。</p>
-                     * 
-                     */
-                    int64_t GetEnableScope() const;
-
-                    /**
-                     * 设置<p>问答生效域检索，不检索不传。枚举值如下：<br>1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。</p>
-                     * @param _enableScope <p>问答生效域检索，不检索不传。枚举值如下：<br>1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。</p>
-                     * 
-                     */
-                    void SetEnableScope(const int64_t& _enableScope);
-
-                    /**
-                     * 判断参数 EnableScope 是否已赋值
-                     * @return EnableScope 是否已赋值
-                     * 
-                     */
-                    bool EnableScopeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>创建时间范围</p>
-                     * @return CreateTime <p>创建时间范围</p>
-                     * 
-                     */
-                    TimeRange GetCreateTime() const;
-
-                    /**
-                     * 设置<p>创建时间范围</p>
-                     * @param _createTime <p>创建时间范围</p>
-                     * 
-                     */
-                    void SetCreateTime(const TimeRange& _createTime);
-
-                    /**
-                     * 判断参数 CreateTime 是否已赋值
-                     * @return CreateTime 是否已赋值
-                     * 
-                     */
-                    bool CreateTimeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>更新时间范围</p>
-                     * @return UpdateTime <p>更新时间范围</p>
-                     * 
-                     */
-                    TimeRange GetUpdateTime() const;
-
-                    /**
-                     * 设置<p>更新时间范围</p>
-                     * @param _updateTime <p>更新时间范围</p>
-                     * 
-                     */
-                    void SetUpdateTime(const TimeRange& _updateTime);
-
-                    /**
-                     * 判断参数 UpdateTime 是否已赋值
-                     * @return UpdateTime 是否已赋值
-                     * 
-                     */
-                    bool UpdateTimeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>页码 从1开始</p>
+                     * 页码
+
+
                      */
                     uint64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * <p>页大小 默认15 最大100</p>
+                     * 每页数量
+
                      */
                     uint64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
 
                     /**
-                     * <p>应用ID</p>
+                     * 应用ID
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
 
                     /**
-                     * <p>查询内容</p>
+                     * 查询内容
+
                      */
                     std::string m_query;
                     bool m_queryHasBeenSet;
 
                     /**
-                     * <p>分类ID</p>
+                     * 分类ID
+
                      */
                     std::string m_cateBizId;
                     bool m_cateBizIdHasBeenSet;
 
                     /**
-                     * <p>校验状态的枚举值</p>
+                     * 校验状态
+
                      */
                     std::vector<uint64_t> m_acceptStatus;
                     bool m_acceptStatusHasBeenSet;
 
                     /**
-                     * <p>发布状态的枚举值</p>
+                     * 发布状态
+
                      */
                     std::vector<uint64_t> m_releaseStatus;
                     bool m_releaseStatusHasBeenSet;
 
                     /**
-                     * <p>文档ID</p>
+                     * 文档ID
+
                      */
                     std::string m_docBizId;
                     bool m_docBizIdHasBeenSet;
 
                     /**
-                     * <p>QAID</p>
+                     * QAID
+
                      */
                     std::string m_qaBizId;
                     bool m_qaBizIdHasBeenSet;
 
                     /**
-                     * <p>来源</p>
+                     * 来源
+
                      */
                     uint64_t m_source;
                     bool m_sourceHasBeenSet;
 
                     /**
-                     * <p>查询答案</p>
+                     * 查询答案
+
                      */
                     std::string m_queryAnswer;
                     bool m_queryAnswerHasBeenSet;
 
                     /**
-                     * <p>查询类型 filename 名称、 attribute 标签</p>
+                     * 查询类型 filename 名称、 attribute 标签
                      */
                     std::string m_queryType;
                     bool m_queryTypeHasBeenSet;
-
-                    /**
-                     * <p>问答生效域检索，不检索不传。枚举值如下：<br>1-不生效；2-仅开发域生效；3-仅发布域生效；4-开发域和发布域均生效。</p>
-                     */
-                    int64_t m_enableScope;
-                    bool m_enableScopeHasBeenSet;
-
-                    /**
-                     * <p>创建时间范围</p>
-                     */
-                    TimeRange m_createTime;
-                    bool m_createTimeHasBeenSet;
-
-                    /**
-                     * <p>更新时间范围</p>
-                     */
-                    TimeRange m_updateTime;
-                    bool m_updateTimeHasBeenSet;
 
                 };
             }

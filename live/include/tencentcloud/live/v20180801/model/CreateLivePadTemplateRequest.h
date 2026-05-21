@@ -43,15 +43,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>模板名称。<br>长度上限：255字节。<br>仅支持中文、英文、数字、_、-。</p>
-                     * @return TemplateName <p>模板名称。<br>长度上限：255字节。<br>仅支持中文、英文、数字、_、-。</p>
+                     * 获取模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
+                     * @return TemplateName 模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
                      * 
                      */
                     std::string GetTemplateName() const;
 
                     /**
-                     * 设置<p>模板名称。<br>长度上限：255字节。<br>仅支持中文、英文、数字、_、-。</p>
-                     * @param _templateName <p>模板名称。<br>长度上限：255字节。<br>仅支持中文、英文、数字、_、-。</p>
+                     * 设置模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
+                     * @param _templateName 模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
                      * 
                      */
                     void SetTemplateName(const std::string& _templateName);
@@ -64,15 +72,15 @@ namespace TencentCloud
                     bool TemplateNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>垫片内容。</p>
-                     * @return Url <p>垫片内容。</p>
+                     * 获取垫片内容。
+                     * @return Url 垫片内容。
                      * 
                      */
                     std::string GetUrl() const;
 
                     /**
-                     * 设置<p>垫片内容。</p>
-                     * @param _url <p>垫片内容。</p>
+                     * 设置垫片内容。
+                     * @param _url 垫片内容。
                      * 
                      */
                     void SetUrl(const std::string& _url);
@@ -85,15 +93,23 @@ namespace TencentCloud
                     bool UrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>描述信息。<br>长度上限：1024字节。<br>仅支持中文、英文、数字、_、-。</p>
-                     * @return Description <p>描述信息。<br>长度上限：1024字节。<br>仅支持中文、英文、数字、_、-。</p>
+                     * 获取描述信息。
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
+                     * @return Description 描述信息。
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
                      * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置<p>描述信息。<br>长度上限：1024字节。<br>仅支持中文、英文、数字、_、-。</p>
-                     * @param _description <p>描述信息。<br>长度上限：1024字节。<br>仅支持中文、英文、数字、_、-。</p>
+                     * 设置描述信息。
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
+                     * @param _description 描述信息。
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
                      * 
                      */
                     void SetDescription(const std::string& _description);
@@ -106,15 +122,23 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>断流等待时间。<br>取值范围：0-30000。<br>单位：ms。</p>
-                     * @return WaitDuration <p>断流等待时间。<br>取值范围：0-30000。<br>单位：ms。</p>
+                     * 获取断流等待时间。
+取值范围：0-30000。
+单位：ms。
+                     * @return WaitDuration 断流等待时间。
+取值范围：0-30000。
+单位：ms。
                      * 
                      */
                     uint64_t GetWaitDuration() const;
 
                     /**
-                     * 设置<p>断流等待时间。<br>取值范围：0-30000。<br>单位：ms。</p>
-                     * @param _waitDuration <p>断流等待时间。<br>取值范围：0-30000。<br>单位：ms。</p>
+                     * 设置断流等待时间。
+取值范围：0-30000。
+单位：ms。
+                     * @param _waitDuration 断流等待时间。
+取值范围：0-30000。
+单位：ms。
                      * 
                      */
                     void SetWaitDuration(const uint64_t& _waitDuration);
@@ -127,15 +151,23 @@ namespace TencentCloud
                     bool WaitDurationHasBeenSet() const;
 
                     /**
-                     * 获取<p>最大垫片时长。<br>取值范围：0 - 正无穷。<br>单位：ms。</p>
-                     * @return MaxDuration <p>最大垫片时长。<br>取值范围：0 - 正无穷。<br>单位：ms。</p>
+                     * 获取最大垫片时长。
+取值范围：0 - 正无穷。
+单位：ms。
+                     * @return MaxDuration 最大垫片时长。
+取值范围：0 - 正无穷。
+单位：ms。
                      * 
                      */
                     uint64_t GetMaxDuration() const;
 
                     /**
-                     * 设置<p>最大垫片时长。<br>取值范围：0 - 正无穷。<br>单位：ms。</p>
-                     * @param _maxDuration <p>最大垫片时长。<br>取值范围：0 - 正无穷。<br>单位：ms。</p>
+                     * 设置最大垫片时长。
+取值范围：0 - 正无穷。
+单位：ms。
+                     * @param _maxDuration 最大垫片时长。
+取值范围：0 - 正无穷。
+单位：ms。
                      * 
                      */
                     void SetMaxDuration(const uint64_t& _maxDuration);
@@ -148,15 +180,23 @@ namespace TencentCloud
                     bool MaxDurationHasBeenSet() const;
 
                     /**
-                     * 获取<p>垫片内容类型：<br>1：图片，2：视频。<br>默认值：1。</p>
-                     * @return Type <p>垫片内容类型：<br>1：图片，2：视频。<br>默认值：1。</p>
+                     * 获取垫片内容类型：
+1：图片，2：视频。
+默认值：1。
+                     * @return Type 垫片内容类型：
+1：图片，2：视频。
+默认值：1。
                      * 
                      */
                     uint64_t GetType() const;
 
                     /**
-                     * 设置<p>垫片内容类型：<br>1：图片，2：视频。<br>默认值：1。</p>
-                     * @param _type <p>垫片内容类型：<br>1：图片，2：视频。<br>默认值：1。</p>
+                     * 设置垫片内容类型：
+1：图片，2：视频。
+默认值：1。
+                     * @param _type 垫片内容类型：
+1：图片，2：视频。
+默认值：1。
                      * 
                      */
                     void SetType(const uint64_t& _type);
@@ -168,70 +208,53 @@ namespace TencentCloud
                      */
                     bool TypeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>断流垫片触发条件</p><p>枚举值：</p><ul><li>0： 主动及异常断流</li><li>1： 异常断流</li></ul><p>默认值：0</p>
-                     * @return TriggerCondition <p>断流垫片触发条件</p><p>枚举值：</p><ul><li>0： 主动及异常断流</li><li>1： 异常断流</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    uint64_t GetTriggerCondition() const;
-
-                    /**
-                     * 设置<p>断流垫片触发条件</p><p>枚举值：</p><ul><li>0： 主动及异常断流</li><li>1： 异常断流</li></ul><p>默认值：0</p>
-                     * @param _triggerCondition <p>断流垫片触发条件</p><p>枚举值：</p><ul><li>0： 主动及异常断流</li><li>1： 异常断流</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    void SetTriggerCondition(const uint64_t& _triggerCondition);
-
-                    /**
-                     * 判断参数 TriggerCondition 是否已赋值
-                     * @return TriggerCondition 是否已赋值
-                     * 
-                     */
-                    bool TriggerConditionHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>模板名称。<br>长度上限：255字节。<br>仅支持中文、英文、数字、_、-。</p>
+                     * 模板名称。
+长度上限：255字节。
+仅支持中文、英文、数字、_、-。
                      */
                     std::string m_templateName;
                     bool m_templateNameHasBeenSet;
 
                     /**
-                     * <p>垫片内容。</p>
+                     * 垫片内容。
                      */
                     std::string m_url;
                     bool m_urlHasBeenSet;
 
                     /**
-                     * <p>描述信息。<br>长度上限：1024字节。<br>仅支持中文、英文、数字、_、-。</p>
+                     * 描述信息。
+长度上限：1024字节。
+仅支持中文、英文、数字、_、-。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>断流等待时间。<br>取值范围：0-30000。<br>单位：ms。</p>
+                     * 断流等待时间。
+取值范围：0-30000。
+单位：ms。
                      */
                     uint64_t m_waitDuration;
                     bool m_waitDurationHasBeenSet;
 
                     /**
-                     * <p>最大垫片时长。<br>取值范围：0 - 正无穷。<br>单位：ms。</p>
+                     * 最大垫片时长。
+取值范围：0 - 正无穷。
+单位：ms。
                      */
                     uint64_t m_maxDuration;
                     bool m_maxDurationHasBeenSet;
 
                     /**
-                     * <p>垫片内容类型：<br>1：图片，2：视频。<br>默认值：1。</p>
+                     * 垫片内容类型：
+1：图片，2：视频。
+默认值：1。
                      */
                     uint64_t m_type;
                     bool m_typeHasBeenSet;
-
-                    /**
-                     * <p>断流垫片触发条件</p><p>枚举值：</p><ul><li>0： 主动及异常断流</li><li>1： 异常断流</li></ul><p>默认值：0</p>
-                     */
-                    uint64_t m_triggerCondition;
-                    bool m_triggerConditionHasBeenSet;
 
                 };
             }

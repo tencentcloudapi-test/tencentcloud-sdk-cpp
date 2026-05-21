@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>作业配置版本号</p>
-                     * @return Version <p>作业配置版本号</p>
+                     * 获取作业配置版本号
+                     * @return Version 作业配置版本号
                      * 
                      */
                     uint64_t GetVersion() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>作业配置版本号</p>
+                     * 作业配置版本号
                      */
                     uint64_t m_version;
                     bool m_versionHasBeenSet;

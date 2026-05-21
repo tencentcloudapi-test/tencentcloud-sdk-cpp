@@ -23,7 +23,7 @@ using namespace TencentCloud::Tione::V20211111::Model;
 using namespace std;
 
 DescribeBillingResourceGroupsRequest::DescribeBillingResourceGroupsRequest() :
-    m_tiProjectIdHasBeenSet(false),
+    m_typeHasBeenSet(false),
     m_filtersHasBeenSet(false),
     m_tagFiltersHasBeenSet(false),
     m_offsetHasBeenSet(false),
@@ -40,12 +40,12 @@ string DescribeBillingResourceGroupsRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_tiProjectIdHasBeenSet)
+    if (m_typeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TiProjectId";
+        string key = "Type";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_tiProjectId.c_str(), allocator).Move(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
     }
 
     if (m_filtersHasBeenSet)
@@ -118,20 +118,20 @@ string DescribeBillingResourceGroupsRequest::ToJsonString() const
 }
 
 
-string DescribeBillingResourceGroupsRequest::GetTiProjectId() const
+string DescribeBillingResourceGroupsRequest::GetType() const
 {
-    return m_tiProjectId;
+    return m_type;
 }
 
-void DescribeBillingResourceGroupsRequest::SetTiProjectId(const string& _tiProjectId)
+void DescribeBillingResourceGroupsRequest::SetType(const string& _type)
 {
-    m_tiProjectId = _tiProjectId;
-    m_tiProjectIdHasBeenSet = true;
+    m_type = _type;
+    m_typeHasBeenSet = true;
 }
 
-bool DescribeBillingResourceGroupsRequest::TiProjectIdHasBeenSet() const
+bool DescribeBillingResourceGroupsRequest::TypeHasBeenSet() const
 {
-    return m_tiProjectIdHasBeenSet;
+    return m_typeHasBeenSet;
 }
 
 vector<Filter> DescribeBillingResourceGroupsRequest::GetFilters() const

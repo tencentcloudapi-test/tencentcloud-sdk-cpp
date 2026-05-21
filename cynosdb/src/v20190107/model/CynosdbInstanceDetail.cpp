@@ -55,8 +55,7 @@ CynosdbInstanceDetail::CynosdbInstanceDetail() :
     m_renewFlagHasBeenSet(false),
     m_minCpuHasBeenSet(false),
     m_maxCpuHasBeenSet(false),
-    m_dbModeHasBeenSet(false),
-    m_masterZoneHasBeenSet(false)
+    m_dbModeHasBeenSet(false)
 {
 }
 
@@ -415,16 +414,6 @@ CoreInternalOutcome CynosdbInstanceDetail::Deserialize(const rapidjson::Value &v
         m_dbModeHasBeenSet = true;
     }
 
-    if (value.HasMember("MasterZone") && !value["MasterZone"].IsNull())
-    {
-        if (!value["MasterZone"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CynosdbInstanceDetail.MasterZone` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_masterZone = string(value["MasterZone"].GetString());
-        m_masterZoneHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -710,14 +699,6 @@ void CynosdbInstanceDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Doc
         string key = "DbMode";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_dbMode.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_masterZoneHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MasterZone";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_masterZone.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1281,21 +1262,5 @@ void CynosdbInstanceDetail::SetDbMode(const string& _dbMode)
 bool CynosdbInstanceDetail::DbModeHasBeenSet() const
 {
     return m_dbModeHasBeenSet;
-}
-
-string CynosdbInstanceDetail::GetMasterZone() const
-{
-    return m_masterZone;
-}
-
-void CynosdbInstanceDetail::SetMasterZone(const string& _masterZone)
-{
-    m_masterZone = _masterZone;
-    m_masterZoneHasBeenSet = true;
-}
-
-bool CynosdbInstanceDetail::MasterZoneHasBeenSet() const
-{
-    return m_masterZoneHasBeenSet;
 }
 

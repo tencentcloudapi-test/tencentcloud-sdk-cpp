@@ -22,12 +22,11 @@ using namespace std;
 
 Account::Account() :
     m_accountNameHasBeenSet(false),
-    m_hostHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_createTimeHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
-    m_maxUserConnectionsHasBeenSet(false),
-    m_passwordRotationHasBeenSet(false)
+    m_hostHasBeenSet(false),
+    m_maxUserConnectionsHasBeenSet(false)
 {
 }
 
@@ -44,16 +43,6 @@ CoreInternalOutcome Account::Deserialize(const rapidjson::Value &value)
         }
         m_accountName = string(value["AccountName"].GetString());
         m_accountNameHasBeenSet = true;
-    }
-
-    if (value.HasMember("Host") && !value["Host"].IsNull())
-    {
-        if (!value["Host"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Account.Host` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_host = string(value["Host"].GetString());
-        m_hostHasBeenSet = true;
     }
 
     if (value.HasMember("Description") && !value["Description"].IsNull())
@@ -86,6 +75,16 @@ CoreInternalOutcome Account::Deserialize(const rapidjson::Value &value)
         m_updateTimeHasBeenSet = true;
     }
 
+    if (value.HasMember("Host") && !value["Host"].IsNull())
+    {
+        if (!value["Host"].IsString())
+        {
+            return CoreInternalOutcome(Core::Error("response `Account.Host` IsString=false incorrectly").SetRequestId(requestId));
+        }
+        m_host = string(value["Host"].GetString());
+        m_hostHasBeenSet = true;
+    }
+
     if (value.HasMember("MaxUserConnections") && !value["MaxUserConnections"].IsNull())
     {
         if (!value["MaxUserConnections"].IsInt64())
@@ -94,16 +93,6 @@ CoreInternalOutcome Account::Deserialize(const rapidjson::Value &value)
         }
         m_maxUserConnections = value["MaxUserConnections"].GetInt64();
         m_maxUserConnectionsHasBeenSet = true;
-    }
-
-    if (value.HasMember("PasswordRotation") && !value["PasswordRotation"].IsNull())
-    {
-        if (!value["PasswordRotation"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Account.PasswordRotation` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_passwordRotation = value["PasswordRotation"].GetInt64();
-        m_passwordRotationHasBeenSet = true;
     }
 
 
@@ -119,14 +108,6 @@ void Account::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "AccountName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_accountName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_hostHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Host";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_host.c_str(), allocator).Move(), allocator);
     }
 
     if (m_descriptionHasBeenSet)
@@ -153,20 +134,20 @@ void Account::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_hostHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Host";
+        iKey.SetString(key.c_str(), allocator);
+        value.AddMember(iKey, rapidjson::Value(m_host.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_maxUserConnectionsHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "MaxUserConnections";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_maxUserConnections, allocator);
-    }
-
-    if (m_passwordRotationHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PasswordRotation";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_passwordRotation, allocator);
     }
 
 }
@@ -186,22 +167,6 @@ void Account::SetAccountName(const string& _accountName)
 bool Account::AccountNameHasBeenSet() const
 {
     return m_accountNameHasBeenSet;
-}
-
-string Account::GetHost() const
-{
-    return m_host;
-}
-
-void Account::SetHost(const string& _host)
-{
-    m_host = _host;
-    m_hostHasBeenSet = true;
-}
-
-bool Account::HostHasBeenSet() const
-{
-    return m_hostHasBeenSet;
 }
 
 string Account::GetDescription() const
@@ -252,6 +217,22 @@ bool Account::UpdateTimeHasBeenSet() const
     return m_updateTimeHasBeenSet;
 }
 
+string Account::GetHost() const
+{
+    return m_host;
+}
+
+void Account::SetHost(const string& _host)
+{
+    m_host = _host;
+    m_hostHasBeenSet = true;
+}
+
+bool Account::HostHasBeenSet() const
+{
+    return m_hostHasBeenSet;
+}
+
 int64_t Account::GetMaxUserConnections() const
 {
     return m_maxUserConnections;
@@ -266,21 +247,5 @@ void Account::SetMaxUserConnections(const int64_t& _maxUserConnections)
 bool Account::MaxUserConnectionsHasBeenSet() const
 {
     return m_maxUserConnectionsHasBeenSet;
-}
-
-int64_t Account::GetPasswordRotation() const
-{
-    return m_passwordRotation;
-}
-
-void Account::SetPasswordRotation(const int64_t& _passwordRotation)
-{
-    m_passwordRotation = _passwordRotation;
-    m_passwordRotationHasBeenSet = true;
-}
-
-bool Account::PasswordRotationHasBeenSet() const
-{
-    return m_passwordRotationHasBeenSet;
 }
 

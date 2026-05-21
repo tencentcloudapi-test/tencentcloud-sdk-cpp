@@ -46,8 +46,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>当月费用信息</p>
-                     * @return Current <p>当月费用信息</p>
+                     * 获取当月费用信息
+                     * @return Current 当月费用信息
                      * 
                      */
                     AllocationBillTrendDetail GetCurrent() const;
@@ -60,8 +60,8 @@ namespace TencentCloud
                     bool CurrentHasBeenSet() const;
 
                     /**
-                     * 获取<p>之前月份费用信息</p>
-                     * @return Previous <p>之前月份费用信息</p>
+                     * 获取之前月份费用信息
+                     * @return Previous 之前月份费用信息
                      * 
                      */
                     std::vector<AllocationBillTrendDetail> GetPrevious() const;
@@ -74,8 +74,8 @@ namespace TencentCloud
                     bool PreviousHasBeenSet() const;
 
                     /**
-                     * 获取<p>费用统计信息</p>
-                     * @return Stat <p>费用统计信息</p>
+                     * 获取费用统计信息
+                     * @return Stat 费用统计信息
                      * 
                      */
                     AllocationStat GetStat() const;
@@ -90,19 +90,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>当月费用信息</p>
+                     * 当月费用信息
                      */
                     AllocationBillTrendDetail m_current;
                     bool m_currentHasBeenSet;
 
                     /**
-                     * <p>之前月份费用信息</p>
+                     * 之前月份费用信息
                      */
                     std::vector<AllocationBillTrendDetail> m_previous;
                     bool m_previousHasBeenSet;
 
                     /**
-                     * <p>费用统计信息</p>
+                     * 费用统计信息
                      */
                     AllocationStat m_stat;
                     bool m_statHasBeenSet;

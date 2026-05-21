@@ -28,8 +28,7 @@ RejectedQuestion::RejectedQuestion() :
     m_updateTimeHasBeenSet(false),
     m_isAllowEditHasBeenSet(false),
     m_isAllowDeleteHasBeenSet(false),
-    m_operatorHasBeenSet(false),
-    m_enableScopeHasBeenSet(false)
+    m_operatorHasBeenSet(false)
 {
 }
 
@@ -118,16 +117,6 @@ CoreInternalOutcome RejectedQuestion::Deserialize(const rapidjson::Value &value)
         m_operatorHasBeenSet = true;
     }
 
-    if (value.HasMember("EnableScope") && !value["EnableScope"].IsNull())
-    {
-        if (!value["EnableScope"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `RejectedQuestion.EnableScope` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_enableScope = value["EnableScope"].GetInt64();
-        m_enableScopeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -197,14 +186,6 @@ void RejectedQuestion::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "Operator";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_operator.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_enableScopeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableScope";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_enableScope, allocator);
     }
 
 }
@@ -336,21 +317,5 @@ void RejectedQuestion::SetOperator(const string& _operator)
 bool RejectedQuestion::OperatorHasBeenSet() const
 {
     return m_operatorHasBeenSet;
-}
-
-int64_t RejectedQuestion::GetEnableScope() const
-{
-    return m_enableScope;
-}
-
-void RejectedQuestion::SetEnableScope(const int64_t& _enableScope)
-{
-    m_enableScope = _enableScope;
-    m_enableScopeHasBeenSet = true;
-}
-
-bool RejectedQuestion::EnableScopeHasBeenSet() const
-{
-    return m_enableScopeHasBeenSet;
 }
 

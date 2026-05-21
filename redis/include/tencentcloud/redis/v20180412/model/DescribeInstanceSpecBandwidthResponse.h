@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>基础带宽。</p>
-                     * @return Bandwidth <p>基础带宽。</p>
+                     * 获取基础带宽。
+                     * @return Bandwidth 基础带宽。
                      * 
                      */
                     int64_t GetBandwidth() const;
@@ -58,8 +58,8 @@ namespace TencentCloud
                     bool BandwidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>链接限制。</p>
-                     * @return ClientLimit <p>链接限制。</p>
+                     * 获取链接限制。
+                     * @return ClientLimit 链接限制。
                      * 
                      */
                     int64_t GetClientLimit() const;
@@ -74,13 +74,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>基础带宽。</p>
+                     * 基础带宽。
                      */
                     int64_t m_bandwidth;
                     bool m_bandwidthHasBeenSet;
 
                     /**
-                     * <p>链接限制。</p>
+                     * 链接限制。
                      */
                     int64_t m_clientLimit;
                     bool m_clientLimitHasBeenSet;

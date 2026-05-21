@@ -57,8 +57,7 @@ AbnormalProcessEventInfo::AbnormalProcessEventInfo() :
     m_nodeIDHasBeenSet(false),
     m_hostIDHasBeenSet(false),
     m_hostIPHasBeenSet(false),
-    m_clusterNameHasBeenSet(false),
-    m_cmdLineHasBeenSet(false)
+    m_clusterNameHasBeenSet(false)
 {
 }
 
@@ -437,16 +436,6 @@ CoreInternalOutcome AbnormalProcessEventInfo::Deserialize(const rapidjson::Value
         m_clusterNameHasBeenSet = true;
     }
 
-    if (value.HasMember("CmdLine") && !value["CmdLine"].IsNull())
-    {
-        if (!value["CmdLine"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AbnormalProcessEventInfo.CmdLine` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_cmdLine = string(value["CmdLine"].GetString());
-        m_cmdLineHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -748,14 +737,6 @@ void AbnormalProcessEventInfo::ToJsonObject(rapidjson::Value &value, rapidjson::
         string key = "ClusterName";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_clusterName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_cmdLineHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CmdLine";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_cmdLine.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1351,21 +1332,5 @@ void AbnormalProcessEventInfo::SetClusterName(const string& _clusterName)
 bool AbnormalProcessEventInfo::ClusterNameHasBeenSet() const
 {
     return m_clusterNameHasBeenSet;
-}
-
-string AbnormalProcessEventInfo::GetCmdLine() const
-{
-    return m_cmdLine;
-}
-
-void AbnormalProcessEventInfo::SetCmdLine(const string& _cmdLine)
-{
-    m_cmdLine = _cmdLine;
-    m_cmdLineHasBeenSet = true;
-}
-
-bool AbnormalProcessEventInfo::CmdLineHasBeenSet() const
-{
-    return m_cmdLineHasBeenSet;
 }
 

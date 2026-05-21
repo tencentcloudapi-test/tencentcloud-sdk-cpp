@@ -47,212 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>深度思考值<br>disabled<br>enabled</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DeepThinking <p>深度思考值<br>disabled<br>enabled</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetDeepThinking() const;
-
-                    /**
-                     * 设置<p>深度思考值<br>disabled<br>enabled</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _deepThinking <p>深度思考值<br>disabled<br>enabled</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetDeepThinking(const std::string& _deepThinking);
-
-                    /**
-                     * 判断参数 DeepThinking 是否已赋值
-                     * @return DeepThinking 是否已赋值
-                     * 
-                     */
-                    bool DeepThinkingHasBeenSet() const;
-
-                    /**
-                     * 获取<p>频率惩罚</p>
-                     * @return FrequencyPenalty <p>频率惩罚</p>
-                     * 
-                     */
-                    double GetFrequencyPenalty() const;
-
-                    /**
-                     * 设置<p>频率惩罚</p>
-                     * @param _frequencyPenalty <p>频率惩罚</p>
-                     * 
-                     */
-                    void SetFrequencyPenalty(const double& _frequencyPenalty);
-
-                    /**
-                     * 判断参数 FrequencyPenalty 是否已赋值
-                     * @return FrequencyPenalty 是否已赋值
-                     * 
-                     */
-                    bool FrequencyPenaltyHasBeenSet() const;
-
-                    /**
-                     * 获取<p>最大输出长度</p>
-                     * @return MaxTokens <p>最大输出长度</p>
-                     * 
-                     */
-                    int64_t GetMaxTokens() const;
-
-                    /**
-                     * 设置<p>最大输出长度</p>
-                     * @param _maxTokens <p>最大输出长度</p>
-                     * 
-                     */
-                    void SetMaxTokens(const int64_t& _maxTokens);
-
-                    /**
-                     * 判断参数 MaxTokens 是否已赋值
-                     * @return MaxTokens 是否已赋值
-                     * 
-                     */
-                    bool MaxTokensHasBeenSet() const;
-
-                    /**
-                     * 获取<p>存在惩罚</p>
-                     * @return PresencePenalty <p>存在惩罚</p>
-                     * 
-                     */
-                    double GetPresencePenalty() const;
-
-                    /**
-                     * 设置<p>存在惩罚</p>
-                     * @param _presencePenalty <p>存在惩罚</p>
-                     * 
-                     */
-                    void SetPresencePenalty(const double& _presencePenalty);
-
-                    /**
-                     * 判断参数 PresencePenalty 是否已赋值
-                     * @return PresencePenalty 是否已赋值
-                     * 
-                     */
-                    bool PresencePenaltyHasBeenSet() const;
-
-                    /**
-                     * 获取<p>效果 disabled low medium high</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ReasoningEffort <p>效果 disabled low medium high</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::string GetReasoningEffort() const;
-
-                    /**
-                     * 设置<p>效果 disabled low medium high</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _reasoningEffort <p>效果 disabled low medium high</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetReasoningEffort(const std::string& _reasoningEffort);
-
-                    /**
-                     * 判断参数 ReasoningEffort 是否已赋值
-                     * @return ReasoningEffort 是否已赋值
-                     * 
-                     */
-                    bool ReasoningEffortHasBeenSet() const;
-
-                    /**
-                     * 获取<p>重复惩罚</p>
-                     * @return RepetitionPenalty <p>重复惩罚</p>
-                     * 
-                     */
-                    double GetRepetitionPenalty() const;
-
-                    /**
-                     * 设置<p>重复惩罚</p>
-                     * @param _repetitionPenalty <p>重复惩罚</p>
-                     * 
-                     */
-                    void SetRepetitionPenalty(const double& _repetitionPenalty);
-
-                    /**
-                     * 判断参数 RepetitionPenalty 是否已赋值
-                     * @return RepetitionPenalty 是否已赋值
-                     * 
-                     */
-                    bool RepetitionPenaltyHasBeenSet() const;
-
-                    /**
-                     * 获取<p>输出格式</p>
-                     * @return ReplyFormat <p>输出格式</p>
-                     * 
-                     */
-                    std::string GetReplyFormat() const;
-
-                    /**
-                     * 设置<p>输出格式</p>
-                     * @param _replyFormat <p>输出格式</p>
-                     * 
-                     */
-                    void SetReplyFormat(const std::string& _replyFormat);
-
-                    /**
-                     * 判断参数 ReplyFormat 是否已赋值
-                     * @return ReplyFormat 是否已赋值
-                     * 
-                     */
-                    bool ReplyFormatHasBeenSet() const;
-
-                    /**
-                     * 获取<p>随机种子</p>
-                     * @return Seed <p>随机种子</p>
-                     * 
-                     */
-                    int64_t GetSeed() const;
-
-                    /**
-                     * 设置<p>随机种子</p>
-                     * @param _seed <p>随机种子</p>
-                     * 
-                     */
-                    void SetSeed(const int64_t& _seed);
-
-                    /**
-                     * 判断参数 Seed 是否已赋值
-                     * @return Seed 是否已赋值
-                     * 
-                     */
-                    bool SeedHasBeenSet() const;
-
-                    /**
-                     * 获取<p>停止序列</p>
-                     * @return StopSequences <p>停止序列</p>
-                     * 
-                     */
-                    std::vector<std::string> GetStopSequences() const;
-
-                    /**
-                     * 设置<p>停止序列</p>
-                     * @param _stopSequences <p>停止序列</p>
-                     * 
-                     */
-                    void SetStopSequences(const std::vector<std::string>& _stopSequences);
-
-                    /**
-                     * 判断参数 StopSequences 是否已赋值
-                     * @return StopSequences 是否已赋值
-                     * 
-                     */
-                    bool StopSequencesHasBeenSet() const;
-
-                    /**
-                     * 获取<p>温度</p>
-                     * @return Temperature <p>温度</p>
+                     * 获取温度
+                     * @return Temperature 温度
                      * 
                      */
                     double GetTemperature() const;
 
                     /**
-                     * 设置<p>温度</p>
-                     * @param _temperature <p>温度</p>
+                     * 设置温度
+                     * @param _temperature 温度
                      * 
                      */
                     void SetTemperature(const double& _temperature);
@@ -265,15 +68,15 @@ namespace TencentCloud
                     bool TemperatureHasBeenSet() const;
 
                     /**
-                     * 获取<p>Top_P</p>
-                     * @return TopP <p>Top_P</p>
+                     * 获取Top_P
+                     * @return TopP Top_P
                      * 
                      */
                     double GetTopP() const;
 
                     /**
-                     * 设置<p>Top_P</p>
-                     * @param _topP <p>Top_P</p>
+                     * 设置Top_P
+                     * @param _topP Top_P
                      * 
                      */
                     void SetTopP(const double& _topP);
@@ -285,75 +88,208 @@ namespace TencentCloud
                      */
                     bool TopPHasBeenSet() const;
 
+                    /**
+                     * 获取随机种子
+                     * @return Seed 随机种子
+                     * 
+                     */
+                    int64_t GetSeed() const;
+
+                    /**
+                     * 设置随机种子
+                     * @param _seed 随机种子
+                     * 
+                     */
+                    void SetSeed(const int64_t& _seed);
+
+                    /**
+                     * 判断参数 Seed 是否已赋值
+                     * @return Seed 是否已赋值
+                     * 
+                     */
+                    bool SeedHasBeenSet() const;
+
+                    /**
+                     * 获取存在惩罚
+                     * @return PresencePenalty 存在惩罚
+                     * 
+                     */
+                    double GetPresencePenalty() const;
+
+                    /**
+                     * 设置存在惩罚
+                     * @param _presencePenalty 存在惩罚
+                     * 
+                     */
+                    void SetPresencePenalty(const double& _presencePenalty);
+
+                    /**
+                     * 判断参数 PresencePenalty 是否已赋值
+                     * @return PresencePenalty 是否已赋值
+                     * 
+                     */
+                    bool PresencePenaltyHasBeenSet() const;
+
+                    /**
+                     * 获取频率惩罚
+                     * @return FrequencyPenalty 频率惩罚
+                     * 
+                     */
+                    double GetFrequencyPenalty() const;
+
+                    /**
+                     * 设置频率惩罚
+                     * @param _frequencyPenalty 频率惩罚
+                     * 
+                     */
+                    void SetFrequencyPenalty(const double& _frequencyPenalty);
+
+                    /**
+                     * 判断参数 FrequencyPenalty 是否已赋值
+                     * @return FrequencyPenalty 是否已赋值
+                     * 
+                     */
+                    bool FrequencyPenaltyHasBeenSet() const;
+
+                    /**
+                     * 获取重复惩罚
+                     * @return RepetitionPenalty 重复惩罚
+                     * 
+                     */
+                    double GetRepetitionPenalty() const;
+
+                    /**
+                     * 设置重复惩罚
+                     * @param _repetitionPenalty 重复惩罚
+                     * 
+                     */
+                    void SetRepetitionPenalty(const double& _repetitionPenalty);
+
+                    /**
+                     * 判断参数 RepetitionPenalty 是否已赋值
+                     * @return RepetitionPenalty 是否已赋值
+                     * 
+                     */
+                    bool RepetitionPenaltyHasBeenSet() const;
+
+                    /**
+                     * 获取最大输出长度
+                     * @return MaxTokens 最大输出长度
+                     * 
+                     */
+                    int64_t GetMaxTokens() const;
+
+                    /**
+                     * 设置最大输出长度
+                     * @param _maxTokens 最大输出长度
+                     * 
+                     */
+                    void SetMaxTokens(const int64_t& _maxTokens);
+
+                    /**
+                     * 判断参数 MaxTokens 是否已赋值
+                     * @return MaxTokens 是否已赋值
+                     * 
+                     */
+                    bool MaxTokensHasBeenSet() const;
+
+                    /**
+                     * 获取停止序列
+                     * @return StopSequences 停止序列
+                     * 
+                     */
+                    std::vector<std::string> GetStopSequences() const;
+
+                    /**
+                     * 设置停止序列
+                     * @param _stopSequences 停止序列
+                     * 
+                     */
+                    void SetStopSequences(const std::vector<std::string>& _stopSequences);
+
+                    /**
+                     * 判断参数 StopSequences 是否已赋值
+                     * @return StopSequences 是否已赋值
+                     * 
+                     */
+                    bool StopSequencesHasBeenSet() const;
+
+                    /**
+                     * 获取输出格式
+                     * @return ReplyFormat 输出格式
+                     * 
+                     */
+                    std::string GetReplyFormat() const;
+
+                    /**
+                     * 设置输出格式
+                     * @param _replyFormat 输出格式
+                     * 
+                     */
+                    void SetReplyFormat(const std::string& _replyFormat);
+
+                    /**
+                     * 判断参数 ReplyFormat 是否已赋值
+                     * @return ReplyFormat 是否已赋值
+                     * 
+                     */
+                    bool ReplyFormatHasBeenSet() const;
+
                 private:
 
                     /**
-                     * <p>深度思考值<br>disabled<br>enabled</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_deepThinking;
-                    bool m_deepThinkingHasBeenSet;
-
-                    /**
-                     * <p>频率惩罚</p>
-                     */
-                    double m_frequencyPenalty;
-                    bool m_frequencyPenaltyHasBeenSet;
-
-                    /**
-                     * <p>最大输出长度</p>
-                     */
-                    int64_t m_maxTokens;
-                    bool m_maxTokensHasBeenSet;
-
-                    /**
-                     * <p>存在惩罚</p>
-                     */
-                    double m_presencePenalty;
-                    bool m_presencePenaltyHasBeenSet;
-
-                    /**
-                     * <p>效果 disabled low medium high</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::string m_reasoningEffort;
-                    bool m_reasoningEffortHasBeenSet;
-
-                    /**
-                     * <p>重复惩罚</p>
-                     */
-                    double m_repetitionPenalty;
-                    bool m_repetitionPenaltyHasBeenSet;
-
-                    /**
-                     * <p>输出格式</p>
-                     */
-                    std::string m_replyFormat;
-                    bool m_replyFormatHasBeenSet;
-
-                    /**
-                     * <p>随机种子</p>
-                     */
-                    int64_t m_seed;
-                    bool m_seedHasBeenSet;
-
-                    /**
-                     * <p>停止序列</p>
-                     */
-                    std::vector<std::string> m_stopSequences;
-                    bool m_stopSequencesHasBeenSet;
-
-                    /**
-                     * <p>温度</p>
+                     * 温度
                      */
                     double m_temperature;
                     bool m_temperatureHasBeenSet;
 
                     /**
-                     * <p>Top_P</p>
+                     * Top_P
                      */
                     double m_topP;
                     bool m_topPHasBeenSet;
+
+                    /**
+                     * 随机种子
+                     */
+                    int64_t m_seed;
+                    bool m_seedHasBeenSet;
+
+                    /**
+                     * 存在惩罚
+                     */
+                    double m_presencePenalty;
+                    bool m_presencePenaltyHasBeenSet;
+
+                    /**
+                     * 频率惩罚
+                     */
+                    double m_frequencyPenalty;
+                    bool m_frequencyPenaltyHasBeenSet;
+
+                    /**
+                     * 重复惩罚
+                     */
+                    double m_repetitionPenalty;
+                    bool m_repetitionPenaltyHasBeenSet;
+
+                    /**
+                     * 最大输出长度
+                     */
+                    int64_t m_maxTokens;
+                    bool m_maxTokensHasBeenSet;
+
+                    /**
+                     * 停止序列
+                     */
+                    std::vector<std::string> m_stopSequences;
+                    bool m_stopSequencesHasBeenSet;
+
+                    /**
+                     * 输出格式
+                     */
+                    std::string m_replyFormat;
+                    bool m_replyFormatHasBeenSet;
 
                 };
             }

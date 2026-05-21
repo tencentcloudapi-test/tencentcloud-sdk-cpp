@@ -21,7 +21,6 @@ using namespace TencentCloud::Svp::V20240125::Model;
 using namespace std;
 
 SavingPlanUsageDetail::SavingPlanUsageDetail() :
-    m_spIdHasBeenSet(false),
     m_spTypeHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_deductAmountHasBeenSet(false),
@@ -39,16 +38,6 @@ CoreInternalOutcome SavingPlanUsageDetail::Deserialize(const rapidjson::Value &v
 {
     string requestId = "";
 
-
-    if (value.HasMember("SpId") && !value["SpId"].IsNull())
-    {
-        if (!value["SpId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SavingPlanUsageDetail.SpId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_spId = string(value["SpId"].GetString());
-        m_spIdHasBeenSet = true;
-    }
 
     if (value.HasMember("SpType") && !value["SpType"].IsNull())
     {
@@ -160,14 +149,6 @@ CoreInternalOutcome SavingPlanUsageDetail::Deserialize(const rapidjson::Value &v
 void SavingPlanUsageDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const
 {
 
-    if (m_spIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SpId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_spId.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_spTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -255,22 +236,6 @@ void SavingPlanUsageDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Doc
 
 }
 
-
-string SavingPlanUsageDetail::GetSpId() const
-{
-    return m_spId;
-}
-
-void SavingPlanUsageDetail::SetSpId(const string& _spId)
-{
-    m_spId = _spId;
-    m_spIdHasBeenSet = true;
-}
-
-bool SavingPlanUsageDetail::SpIdHasBeenSet() const
-{
-    return m_spIdHasBeenSet;
-}
 
 string SavingPlanUsageDetail::GetSpType() const
 {

@@ -29,8 +29,7 @@ CreatePrometheusMultiTenantInstancePostPayModeRequest::CreatePrometheusMultiTena
     m_dataRetentionTimeHasBeenSet(false),
     m_zoneHasBeenSet(false),
     m_tagSpecificationHasBeenSet(false),
-    m_grafanaInstanceIdHasBeenSet(false),
-    m_instanceAttributesHasBeenSet(false)
+    m_grafanaInstanceIdHasBeenSet(false)
 {
 }
 
@@ -102,21 +101,6 @@ string CreatePrometheusMultiTenantInstancePostPayModeRequest::ToJsonString() con
         string key = "GrafanaInstanceId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_grafanaInstanceId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_instanceAttributesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "InstanceAttributes";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_instanceAttributes.begin(); itr != m_instanceAttributes.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
     }
 
 
@@ -237,22 +221,6 @@ void CreatePrometheusMultiTenantInstancePostPayModeRequest::SetGrafanaInstanceId
 bool CreatePrometheusMultiTenantInstancePostPayModeRequest::GrafanaInstanceIdHasBeenSet() const
 {
     return m_grafanaInstanceIdHasBeenSet;
-}
-
-vector<PrometheusRuleKV> CreatePrometheusMultiTenantInstancePostPayModeRequest::GetInstanceAttributes() const
-{
-    return m_instanceAttributes;
-}
-
-void CreatePrometheusMultiTenantInstancePostPayModeRequest::SetInstanceAttributes(const vector<PrometheusRuleKV>& _instanceAttributes)
-{
-    m_instanceAttributes = _instanceAttributes;
-    m_instanceAttributesHasBeenSet = true;
-}
-
-bool CreatePrometheusMultiTenantInstancePostPayModeRequest::InstanceAttributesHasBeenSet() const
-{
-    return m_instanceAttributesHasBeenSet;
 }
 
 

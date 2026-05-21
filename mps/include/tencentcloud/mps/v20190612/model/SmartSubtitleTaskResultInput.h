@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>智能字幕模板 ID。</p>
-                     * @return Definition <p>智能字幕模板 ID。</p>
+                     * 获取智能字幕模板 ID。
+                     * @return Definition 智能字幕模板 ID。
                      * 
                      */
                     int64_t GetDefinition() const;
 
                     /**
-                     * 设置<p>智能字幕模板 ID。</p>
-                     * @param _definition <p>智能字幕模板 ID。</p>
+                     * 设置智能字幕模板 ID。
+                     * @param _definition 智能字幕模板 ID。
                      * 
                      */
                     void SetDefinition(const int64_t& _definition);
@@ -69,18 +69,22 @@ namespace TencentCloud
                     bool DefinitionHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能字幕自定义参数，当 Definition 填 0 时有效。<br>该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。</p>
+                     * 获取智能字幕自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RawParameter <p>智能字幕自定义参数，当 Definition 填 0 时有效。<br>该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。</p>
+                     * @return RawParameter 智能字幕自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     RawSmartSubtitleParameter GetRawParameter() const;
 
                     /**
-                     * 设置<p>智能字幕自定义参数，当 Definition 填 0 时有效。<br>该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。</p>
+                     * 设置智能字幕自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _rawParameter <p>智能字幕自定义参数，当 Definition 填 0 时有效。<br>该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。</p>
+                     * @param _rawParameter 智能字幕自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -93,47 +97,21 @@ namespace TencentCloud
                      */
                     bool RawParameterHasBeenSet() const;
 
-                    /**
-                     * 获取<p>扩展参数。</p>
-                     * @return UserExtPara <p>扩展参数。</p>
-                     * 
-                     */
-                    std::string GetUserExtPara() const;
-
-                    /**
-                     * 设置<p>扩展参数。</p>
-                     * @param _userExtPara <p>扩展参数。</p>
-                     * 
-                     */
-                    void SetUserExtPara(const std::string& _userExtPara);
-
-                    /**
-                     * 判断参数 UserExtPara 是否已赋值
-                     * @return UserExtPara 是否已赋值
-                     * 
-                     */
-                    bool UserExtParaHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>智能字幕模板 ID。</p>
+                     * 智能字幕模板 ID。
                      */
                     int64_t m_definition;
                     bool m_definitionHasBeenSet;
 
                     /**
-                     * <p>智能字幕自定义参数，当 Definition 填 0 时有效。<br>该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。</p>
+                     * 智能字幕自定义参数，当 Definition 填 0 时有效。
+该参数用于高度定制场景，建议您优先使用 Definition 指定智能字幕参数。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     RawSmartSubtitleParameter m_rawParameter;
                     bool m_rawParameterHasBeenSet;
-
-                    /**
-                     * <p>扩展参数。</p>
-                     */
-                    std::string m_userExtPara;
-                    bool m_userExtParaHasBeenSet;
 
                 };
             }

@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>密钥信息</p>
-                     * @return Credentials <p>密钥信息</p>
+                     * 获取密钥信息
+                     * @return Credentials 密钥信息
                      * 
                      */
                     Credentials GetCredentials() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool CredentialsHasBeenSet() const;
 
                     /**
-                     * 获取<p>失效时间，为 Unix 时间戳</p><p>单位：秒</p>
-                     * @return ExpiredTime <p>失效时间，为 Unix 时间戳</p><p>单位：秒</p>
+                     * 获取失效时间
+                     * @return ExpiredTime 失效时间
                      * 
                      */
                     int64_t GetExpiredTime() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool ExpiredTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>开始时间，为 Unix 时间戳</p><p>单位：秒</p>
-                     * @return StartTime <p>开始时间，为 Unix 时间戳</p><p>单位：秒</p>
+                     * 获取开始时间
+                     * @return StartTime 开始时间
                      * 
                      */
                     int64_t GetStartTime() const;
@@ -87,8 +87,8 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>对象存储桶</p>
-                     * @return Bucket <p>对象存储桶</p>
+                     * 获取对象存储桶
+                     * @return Bucket 对象存储桶
                      * 
                      */
                     std::string GetBucket() const;
@@ -101,8 +101,8 @@ namespace TencentCloud
                     bool BucketHasBeenSet() const;
 
                     /**
-                     * 获取<p>对象存储可用区</p>
-                     * @return Region <p>对象存储可用区</p>
+                     * 获取对象存储可用区
+                     * @return Region 对象存储可用区
                      * 
                      */
                     std::string GetRegion() const;
@@ -115,8 +115,8 @@ namespace TencentCloud
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件存储目录</p>
-                     * @return FilePath <p>文件存储目录</p>
+                     * 获取文件存储目录
+                     * @return FilePath 文件存储目录
                      * 
                      */
                     std::string GetFilePath() const;
@@ -129,8 +129,8 @@ namespace TencentCloud
                     bool FilePathHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储类型</p>
-                     * @return Type <p>存储类型</p>
+                     * 获取存储类型
+                     * @return Type 存储类型
                      * 
                      */
                     std::string GetType() const;
@@ -143,8 +143,8 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>企业主账号</p>
-                     * @return CorpUin <p>企业主账号</p>
+                     * 获取主号
+                     * @return CorpUin 主号
                      * 
                      */
                     std::string GetCorpUin() const;
@@ -157,8 +157,8 @@ namespace TencentCloud
                     bool CorpUinHasBeenSet() const;
 
                     /**
-                     * 获取<p>图片存储目录</p>
-                     * @return ImagePath <p>图片存储目录</p>
+                     * 获取图片存储目录
+                     * @return ImagePath 图片存储目录
                      * 
                      */
                     std::string GetImagePath() const;
@@ -171,8 +171,8 @@ namespace TencentCloud
                     bool ImagePathHasBeenSet() const;
 
                     /**
-                     * 获取<p>上传存储路径，到具体文件</p>
-                     * @return UploadPath <p>上传存储路径，到具体文件</p>
+                     * 获取上传存储路径，到具体文件
+                     * @return UploadPath 上传存储路径，到具体文件
                      * 
                      */
                     std::string GetUploadPath() const;
@@ -184,107 +184,67 @@ namespace TencentCloud
                      */
                     bool UploadPathHasBeenSet() const;
 
-                    /**
-                     * 获取<p>文件上传地址，使用put请求上传文件到该地址</p>
-                     * @return UploadUrl <p>文件上传地址，使用put请求上传文件到该地址</p>
-                     * 
-                     */
-                    std::string GetUploadUrl() const;
-
-                    /**
-                     * 判断参数 UploadUrl 是否已赋值
-                     * @return UploadUrl 是否已赋值
-                     * 
-                     */
-                    bool UploadUrlHasBeenSet() const;
-
-                    /**
-                     * 获取<p>文件的预签名地址，支持下载</p>
-                     * @return FileUrl <p>文件的预签名地址，支持下载</p>
-                     * 
-                     */
-                    std::string GetFileUrl() const;
-
-                    /**
-                     * 判断参数 FileUrl 是否已赋值
-                     * @return FileUrl 是否已赋值
-                     * 
-                     */
-                    bool FileUrlHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>密钥信息</p>
+                     * 密钥信息
                      */
                     Credentials m_credentials;
                     bool m_credentialsHasBeenSet;
 
                     /**
-                     * <p>失效时间，为 Unix 时间戳</p><p>单位：秒</p>
+                     * 失效时间
                      */
                     int64_t m_expiredTime;
                     bool m_expiredTimeHasBeenSet;
 
                     /**
-                     * <p>开始时间，为 Unix 时间戳</p><p>单位：秒</p>
+                     * 开始时间
                      */
                     int64_t m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>对象存储桶</p>
+                     * 对象存储桶
                      */
                     std::string m_bucket;
                     bool m_bucketHasBeenSet;
 
                     /**
-                     * <p>对象存储可用区</p>
+                     * 对象存储可用区
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * <p>文件存储目录</p>
+                     * 文件存储目录
                      */
                     std::string m_filePath;
                     bool m_filePathHasBeenSet;
 
                     /**
-                     * <p>存储类型</p>
+                     * 存储类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>企业主账号</p>
+                     * 主号
                      */
                     std::string m_corpUin;
                     bool m_corpUinHasBeenSet;
 
                     /**
-                     * <p>图片存储目录</p>
+                     * 图片存储目录
                      */
                     std::string m_imagePath;
                     bool m_imagePathHasBeenSet;
 
                     /**
-                     * <p>上传存储路径，到具体文件</p>
+                     * 上传存储路径，到具体文件
                      */
                     std::string m_uploadPath;
                     bool m_uploadPathHasBeenSet;
-
-                    /**
-                     * <p>文件上传地址，使用put请求上传文件到该地址</p>
-                     */
-                    std::string m_uploadUrl;
-                    bool m_uploadUrlHasBeenSet;
-
-                    /**
-                     * <p>文件的预签名地址，支持下载</p>
-                     */
-                    std::string m_fileUrl;
-                    bool m_fileUrlHasBeenSet;
 
                 };
             }

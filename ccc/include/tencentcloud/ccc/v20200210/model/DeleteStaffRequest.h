@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
-                     * @return SdkAppId <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+                     * 获取应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @return SdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      * 
                      */
                     int64_t GetSdkAppId() const;
 
                     /**
-                     * 设置<p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
-                     * @param _sdkAppId <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+                     * 设置应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
+                     * @param _sdkAppId 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      * 
                      */
                     void SetSdkAppId(const int64_t& _sdkAppId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool SdkAppIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>待删除客服邮箱列表，一次最大支持200个。</p>
-                     * @return StaffList <p>待删除客服邮箱列表，一次最大支持200个。</p>
+                     * 获取待删除客服邮箱列表，一次最大支持200个。
+                     * @return StaffList 待删除客服邮箱列表，一次最大支持200个。
                      * 
                      */
                     std::vector<std::string> GetStaffList() const;
 
                     /**
-                     * 设置<p>待删除客服邮箱列表，一次最大支持200个。</p>
-                     * @param _staffList <p>待删除客服邮箱列表，一次最大支持200个。</p>
+                     * 设置待删除客服邮箱列表，一次最大支持200个。
+                     * @param _staffList 待删除客服邮箱列表，一次最大支持200个。
                      * 
                      */
                     void SetStaffList(const std::vector<std::string>& _staffList);
@@ -87,13 +87,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc</p>
+                     * 应用 ID（必填），可以查看 https://console.cloud.tencent.com/ccc
                      */
                     int64_t m_sdkAppId;
                     bool m_sdkAppIdHasBeenSet;
 
                     /**
-                     * <p>待删除客服邮箱列表，一次最大支持200个。</p>
+                     * 待删除客服邮箱列表，一次最大支持200个。
                      */
                     std::vector<std::string> m_staffList;
                     bool m_staffListHasBeenSet;

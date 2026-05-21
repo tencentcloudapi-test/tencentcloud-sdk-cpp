@@ -164,46 +164,18 @@ namespace TencentCloud
                     bool LastLoginHasBeenSet() const;
 
                     /**
-                     * 获取用户状态。
-取值范围：
-
-- 1：启用
-- 0：停用
-
-默认值：1
-示例值：1
+                     * 获取停启用状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Status 用户状态。
-取值范围：
-
-- 1：启用
-- 0：停用
-
-默认值：1
-示例值：1
+                     * @return Status 停启用状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置用户状态。
-取值范围：
-
-- 1：启用
-- 0：停用
-
-默认值：1
-示例值：1
+                     * 设置停启用状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _status 用户状态。
-取值范围：
-
-- 1：启用
-- 0：停用
-
-默认值：1
-示例值：1
+                     * @param _status 停启用状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -217,18 +189,18 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取首次登录是否修改密码
+                     * 获取首次登陆是否修改密码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FirstModify 首次登录是否修改密码
+                     * @return FirstModify 首次登陆是否修改密码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetFirstModify() const;
 
                     /**
-                     * 设置首次登录是否修改密码
+                     * 设置首次登陆是否修改密码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _firstModify 首次登录是否修改密码
+                     * @param _firstModify 首次登陆是否修改密码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -342,18 +314,18 @@ namespace TencentCloud
                     bool CreatedAtHasBeenSet() const;
 
                     /**
-                     * 获取修改人
+                     * 获取更改人
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UpdatedUser 修改人
+                     * @return UpdatedUser 更改人
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetUpdatedUser() const;
 
                     /**
-                     * 设置修改人
+                     * 设置更改人
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _updatedUser 修改人
+                     * @param _updatedUser 更改人
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -392,18 +364,18 @@ namespace TencentCloud
                     bool UpdatedAtHasBeenSet() const;
 
                     /**
-                     * 获取系统全局角色
+                     * 获取全局角色
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GlobalUserName 系统全局角色
+                     * @return GlobalUserName 全局角色
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetGlobalUserName() const;
 
                     /**
-                     * 设置系统全局角色
+                     * 设置全局角色
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _globalUserName 系统全局角色
+                     * @param _globalUserName 全局角色
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -417,18 +389,18 @@ namespace TencentCloud
                     bool GlobalUserNameHasBeenSet() const;
 
                     /**
-                     * 获取系统全局角色编码
+                     * 获取全局角色编码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GlobalUserCode 系统全局角色编码
+                     * @return GlobalUserCode 全局角色编码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetGlobalUserCode() const;
 
                     /**
-                     * 设置系统全局角色编码
+                     * 设置全局角色编码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _globalUserCode 系统全局角色编码
+                     * @param _globalUserCode 全局角色编码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -677,21 +649,14 @@ namespace TencentCloud
                     bool m_lastLoginHasBeenSet;
 
                     /**
-                     * 用户状态。
-取值范围：
-
-- 1：启用
-- 0：停用
-
-默认值：1
-示例值：1
+                     * 停启用状态
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * 首次登录是否修改密码
+                     * 首次登陆是否修改密码
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_firstModify;
@@ -726,7 +691,7 @@ namespace TencentCloud
                     bool m_createdAtHasBeenSet;
 
                     /**
-                     * 修改人
+                     * 更改人
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_updatedUser;
@@ -740,14 +705,14 @@ namespace TencentCloud
                     bool m_updatedAtHasBeenSet;
 
                     /**
-                     * 系统全局角色
+                     * 全局角色
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_globalUserName;
                     bool m_globalUserNameHasBeenSet;
 
                     /**
-                     * 系统全局角色编码
+                     * 全局角色编码
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_globalUserCode;

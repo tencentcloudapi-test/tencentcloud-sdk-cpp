@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>用户目录ID</p>
-                     * @return UserStoreId <p>用户目录ID</p>
+                     * 获取用户目录ID
+                     * @return UserStoreId 用户目录ID
                      * 
                      */
                     std::string GetUserStoreId() const;
 
                     /**
-                     * 设置<p>用户目录ID</p>
-                     * @param _userStoreId <p>用户目录ID</p>
+                     * 设置用户目录ID
+                     * @param _userStoreId 用户目录ID
                      * 
                      */
                     void SetUserStoreId(const std::string& _userStoreId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool UserStoreIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>手机号码</p>
-                     * @return PhoneNumber <p>手机号码</p>
+                     * 获取手机号码
+                     * @return PhoneNumber 手机号码
                      * 
                      */
                     std::string GetPhoneNumber() const;
 
                     /**
-                     * 设置<p>手机号码</p>
-                     * @param _phoneNumber <p>手机号码</p>
+                     * 设置手机号码
+                     * @param _phoneNumber 手机号码
                      * 
                      */
                     void SetPhoneNumber(const std::string& _phoneNumber);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool PhoneNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>邮箱</p>
-                     * @return Email <p>邮箱</p>
+                     * 获取邮箱
+                     * @return Email 邮箱
                      * 
                      */
                     std::string GetEmail() const;
 
                     /**
-                     * 设置<p>邮箱</p>
-                     * @param _email <p>邮箱</p>
+                     * 设置邮箱
+                     * @param _email 邮箱
                      * 
                      */
                     void SetEmail(const std::string& _email);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool EmailHasBeenSet() const;
 
                     /**
-                     * 获取<p>密码</p>
-                     * @return Password <p>密码</p>
+                     * 获取密码
+                     * @return Password 密码
                      * 
                      */
                     std::string GetPassword() const;
 
                     /**
-                     * 设置<p>密码</p>
-                     * @param _password <p>密码</p>
+                     * 设置密码
+                     * @param _password 密码
                      * 
                      */
                     void SetPassword(const std::string& _password);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool PasswordHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户名</p>
-                     * @return UserName <p>用户名</p>
+                     * 获取用户名
+                     * @return UserName 用户名
                      * 
                      */
                     std::string GetUserName() const;
 
                     /**
-                     * 设置<p>用户名</p>
-                     * @param _userName <p>用户名</p>
+                     * 设置用户名
+                     * @param _userName 用户名
                      * 
                      */
                     void SetUserName(const std::string& _userName);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool UserNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>昵称</p>
-                     * @return Nickname <p>昵称</p>
+                     * 获取昵称
+                     * @return Nickname 昵称
                      * 
                      */
                     std::string GetNickname() const;
 
                     /**
-                     * 设置<p>昵称</p>
-                     * @param _nickname <p>昵称</p>
+                     * 设置昵称
+                     * @param _nickname 昵称
                      * 
                      */
                     void SetNickname(const std::string& _nickname);
@@ -170,15 +170,15 @@ namespace TencentCloud
                     bool NicknameHasBeenSet() const;
 
                     /**
-                     * 获取<p>地址</p>
-                     * @return Address <p>地址</p>
+                     * 获取地址
+                     * @return Address 地址
                      * 
                      */
                     std::string GetAddress() const;
 
                     /**
-                     * 设置<p>地址</p>
-                     * @param _address <p>地址</p>
+                     * 设置地址
+                     * @param _address 地址
                      * 
                      */
                     void SetAddress(const std::string& _address);
@@ -191,15 +191,15 @@ namespace TencentCloud
                     bool AddressHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户组ID</p>
-                     * @return UserGroup <p>用户组ID</p>
+                     * 获取用户组ID
+                     * @return UserGroup 用户组ID
                      * 
                      */
                     std::vector<std::string> GetUserGroup() const;
 
                     /**
-                     * 设置<p>用户组ID</p>
-                     * @param _userGroup <p>用户组ID</p>
+                     * 设置用户组ID
+                     * @param _userGroup 用户组ID
                      * 
                      */
                     void SetUserGroup(const std::vector<std::string>& _userGroup);
@@ -212,15 +212,15 @@ namespace TencentCloud
                     bool UserGroupHasBeenSet() const;
 
                     /**
-                     * 获取<p>生日</p>
-                     * @return Birthdate <p>生日</p>
+                     * 获取生日
+                     * @return Birthdate 生日
                      * 
                      */
                     int64_t GetBirthdate() const;
 
                     /**
-                     * 设置<p>生日</p>
-                     * @param _birthdate <p>生日</p>
+                     * 设置生日
+                     * @param _birthdate 生日
                      * 
                      */
                     void SetBirthdate(const int64_t& _birthdate);
@@ -233,15 +233,15 @@ namespace TencentCloud
                     bool BirthdateHasBeenSet() const;
 
                     /**
-                     * 获取<p>自定义属性</p>
-                     * @return CustomizationAttributes <p>自定义属性</p>
+                     * 获取自定义属性
+                     * @return CustomizationAttributes 自定义属性
                      * 
                      */
                     std::vector<MemberMap> GetCustomizationAttributes() const;
 
                     /**
-                     * 设置<p>自定义属性</p>
-                     * @param _customizationAttributes <p>自定义属性</p>
+                     * 设置自定义属性
+                     * @param _customizationAttributes 自定义属性
                      * 
                      */
                     void SetCustomizationAttributes(const std::vector<MemberMap>& _customizationAttributes);
@@ -254,15 +254,15 @@ namespace TencentCloud
                     bool CustomizationAttributesHasBeenSet() const;
 
                     /**
-                     * 获取<p>索引字段1</p>
-                     * @return IndexedAttribute1 <p>索引字段1</p>
+                     * 获取索引字段1
+                     * @return IndexedAttribute1 索引字段1
                      * 
                      */
                     std::string GetIndexedAttribute1() const;
 
                     /**
-                     * 设置<p>索引字段1</p>
-                     * @param _indexedAttribute1 <p>索引字段1</p>
+                     * 设置索引字段1
+                     * @param _indexedAttribute1 索引字段1
                      * 
                      */
                     void SetIndexedAttribute1(const std::string& _indexedAttribute1);
@@ -275,15 +275,15 @@ namespace TencentCloud
                     bool IndexedAttribute1HasBeenSet() const;
 
                     /**
-                     * 获取<p>索引字段2</p>
-                     * @return IndexedAttribute2 <p>索引字段2</p>
+                     * 获取索引字段2
+                     * @return IndexedAttribute2 索引字段2
                      * 
                      */
                     std::string GetIndexedAttribute2() const;
 
                     /**
-                     * 设置<p>索引字段2</p>
-                     * @param _indexedAttribute2 <p>索引字段2</p>
+                     * 设置索引字段2
+                     * @param _indexedAttribute2 索引字段2
                      * 
                      */
                     void SetIndexedAttribute2(const std::string& _indexedAttribute2);
@@ -296,15 +296,15 @@ namespace TencentCloud
                     bool IndexedAttribute2HasBeenSet() const;
 
                     /**
-                     * 获取<p>索引字段3</p>
-                     * @return IndexedAttribute3 <p>索引字段3</p>
+                     * 获取索引字段3
+                     * @return IndexedAttribute3 索引字段3
                      * 
                      */
                     std::string GetIndexedAttribute3() const;
 
                     /**
-                     * 设置<p>索引字段3</p>
-                     * @param _indexedAttribute3 <p>索引字段3</p>
+                     * 设置索引字段3
+                     * @param _indexedAttribute3 索引字段3
                      * 
                      */
                     void SetIndexedAttribute3(const std::string& _indexedAttribute3);
@@ -317,15 +317,15 @@ namespace TencentCloud
                     bool IndexedAttribute3HasBeenSet() const;
 
                     /**
-                     * 获取<p>索引字段4</p>
-                     * @return IndexedAttribute4 <p>索引字段4</p>
+                     * 获取索引字段4
+                     * @return IndexedAttribute4 索引字段4
                      * 
                      */
                     std::string GetIndexedAttribute4() const;
 
                     /**
-                     * 设置<p>索引字段4</p>
-                     * @param _indexedAttribute4 <p>索引字段4</p>
+                     * 设置索引字段4
+                     * @param _indexedAttribute4 索引字段4
                      * 
                      */
                     void SetIndexedAttribute4(const std::string& _indexedAttribute4);
@@ -338,15 +338,15 @@ namespace TencentCloud
                     bool IndexedAttribute4HasBeenSet() const;
 
                     /**
-                     * 获取<p>索引字段5</p>
-                     * @return IndexedAttribute5 <p>索引字段5</p>
+                     * 获取索引字段5
+                     * @return IndexedAttribute5 索引字段5
                      * 
                      */
                     std::string GetIndexedAttribute5() const;
 
                     /**
-                     * 设置<p>索引字段5</p>
-                     * @param _indexedAttribute5 <p>索引字段5</p>
+                     * 设置索引字段5
+                     * @param _indexedAttribute5 索引字段5
                      * 
                      */
                     void SetIndexedAttribute5(const std::string& _indexedAttribute5);
@@ -358,124 +358,97 @@ namespace TencentCloud
                      */
                     bool IndexedAttribute5HasBeenSet() const;
 
-                    /**
-                     * 获取<p>用户所属组织机构ID</p>
-                     * @return UserOrg <p>用户所属组织机构ID</p>
-                     * 
-                     */
-                    std::vector<std::string> GetUserOrg() const;
-
-                    /**
-                     * 设置<p>用户所属组织机构ID</p>
-                     * @param _userOrg <p>用户所属组织机构ID</p>
-                     * 
-                     */
-                    void SetUserOrg(const std::vector<std::string>& _userOrg);
-
-                    /**
-                     * 判断参数 UserOrg 是否已赋值
-                     * @return UserOrg 是否已赋值
-                     * 
-                     */
-                    bool UserOrgHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>用户目录ID</p>
+                     * 用户目录ID
                      */
                     std::string m_userStoreId;
                     bool m_userStoreIdHasBeenSet;
 
                     /**
-                     * <p>手机号码</p>
+                     * 手机号码
                      */
                     std::string m_phoneNumber;
                     bool m_phoneNumberHasBeenSet;
 
                     /**
-                     * <p>邮箱</p>
+                     * 邮箱
                      */
                     std::string m_email;
                     bool m_emailHasBeenSet;
 
                     /**
-                     * <p>密码</p>
+                     * 密码
                      */
                     std::string m_password;
                     bool m_passwordHasBeenSet;
 
                     /**
-                     * <p>用户名</p>
+                     * 用户名
                      */
                     std::string m_userName;
                     bool m_userNameHasBeenSet;
 
                     /**
-                     * <p>昵称</p>
+                     * 昵称
                      */
                     std::string m_nickname;
                     bool m_nicknameHasBeenSet;
 
                     /**
-                     * <p>地址</p>
+                     * 地址
                      */
                     std::string m_address;
                     bool m_addressHasBeenSet;
 
                     /**
-                     * <p>用户组ID</p>
+                     * 用户组ID
                      */
                     std::vector<std::string> m_userGroup;
                     bool m_userGroupHasBeenSet;
 
                     /**
-                     * <p>生日</p>
+                     * 生日
                      */
                     int64_t m_birthdate;
                     bool m_birthdateHasBeenSet;
 
                     /**
-                     * <p>自定义属性</p>
+                     * 自定义属性
                      */
                     std::vector<MemberMap> m_customizationAttributes;
                     bool m_customizationAttributesHasBeenSet;
 
                     /**
-                     * <p>索引字段1</p>
+                     * 索引字段1
                      */
                     std::string m_indexedAttribute1;
                     bool m_indexedAttribute1HasBeenSet;
 
                     /**
-                     * <p>索引字段2</p>
+                     * 索引字段2
                      */
                     std::string m_indexedAttribute2;
                     bool m_indexedAttribute2HasBeenSet;
 
                     /**
-                     * <p>索引字段3</p>
+                     * 索引字段3
                      */
                     std::string m_indexedAttribute3;
                     bool m_indexedAttribute3HasBeenSet;
 
                     /**
-                     * <p>索引字段4</p>
+                     * 索引字段4
                      */
                     std::string m_indexedAttribute4;
                     bool m_indexedAttribute4HasBeenSet;
 
                     /**
-                     * <p>索引字段5</p>
+                     * 索引字段5
                      */
                     std::string m_indexedAttribute5;
                     bool m_indexedAttribute5HasBeenSet;
-
-                    /**
-                     * <p>用户所属组织机构ID</p>
-                     */
-                    std::vector<std::string> m_userOrg;
-                    bool m_userOrgHasBeenSet;
 
                 };
             }

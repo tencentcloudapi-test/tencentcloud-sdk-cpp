@@ -315,27 +315,6 @@ namespace TencentCloud
                      */
                     bool MemHasBeenSet() const;
 
-                    /**
-                     * 获取jdk版本
-                     * @return JdkVersion jdk版本
-                     * 
-                     */
-                    std::string GetJdkVersion() const;
-
-                    /**
-                     * 设置jdk版本
-                     * @param _jdkVersion jdk版本
-                     * 
-                     */
-                    void SetJdkVersion(const std::string& _jdkVersion);
-
-                    /**
-                     * 判断参数 JdkVersion 是否已赋值
-                     * @return JdkVersion 是否已赋值
-                     * 
-                     */
-                    bool JdkVersionHasBeenSet() const;
-
                 private:
 
                     /**
@@ -412,12 +391,6 @@ namespace TencentCloud
                      */
                     double m_mem;
                     bool m_memHasBeenSet;
-
-                    /**
-                     * jdk版本
-                     */
-                    std::string m_jdkVersion;
-                    bool m_jdkVersionHasBeenSet;
 
                 };
             }

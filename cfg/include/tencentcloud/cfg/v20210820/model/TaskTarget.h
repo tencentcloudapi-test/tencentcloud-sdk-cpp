@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>目标标签ID</p>
-                     * @return TargetId <p>目标标签ID</p>
+                     * 获取目标标签ID
+                     * @return TargetId 目标标签ID
                      * 
                      */
                     int64_t GetTargetId() const;
 
                     /**
-                     * 设置<p>目标标签ID</p>
-                     * @param _targetId <p>目标标签ID</p>
+                     * 设置目标标签ID
+                     * @param _targetId 目标标签ID
                      * 
                      */
                     void SetTargetId(const int64_t& _targetId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TargetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标描述</p>
-                     * @return TargetDesc <p>目标描述</p>
+                     * 获取目标描述
+                     * @return TargetDesc 目标描述
                      * 
                      */
                     std::string GetTargetDesc() const;
 
                     /**
-                     * 设置<p>目标描述</p>
-                     * @param _targetDesc <p>目标描述</p>
+                     * 设置目标描述
+                     * @param _targetDesc 目标描述
                      * 
                      */
                     void SetTargetDesc(const std::string& _targetDesc);
@@ -89,15 +89,19 @@ namespace TencentCloud
                     bool TargetDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>1:演练场景<br>2:演练目标</p>
-                     * @return Type <p>1:演练场景<br>2:演练目标</p>
+                     * 获取1:演练场景
+2:演练目标
+                     * @return Type 1:演练场景
+2:演练目标
                      * 
                      */
                     int64_t GetType() const;
 
                     /**
-                     * 设置<p>1:演练场景<br>2:演练目标</p>
-                     * @param _type <p>1:演练场景<br>2:演练目标</p>
+                     * 设置1:演练场景
+2:演练目标
+                     * @param _type 1:演练场景
+2:演练目标
                      * 
                      */
                     void SetType(const int64_t& _type);
@@ -110,15 +114,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>1:平台 2:用户个人</p>
-                     * @return Source <p>1:平台 2:用户个人</p>
+                     * 获取1:平台 2:用户个人
+                     * @return Source 1:平台 2:用户个人
                      * 
                      */
                     int64_t GetSource() const;
 
                     /**
-                     * 设置<p>1:平台 2:用户个人</p>
-                     * @param _source <p>1:平台 2:用户个人</p>
+                     * 设置1:平台 2:用户个人
+                     * @param _source 1:平台 2:用户个人
                      * 
                      */
                     void SetSource(const int64_t& _source);
@@ -131,15 +135,15 @@ namespace TencentCloud
                     bool SourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标标签是否已被删除</p><p>枚举值：</p><ul><li>0： 未删除</li><li>1： 已删除</li></ul>
-                     * @return TargetStatus <p>目标标签是否已被删除</p><p>枚举值：</p><ul><li>0： 未删除</li><li>1： 已删除</li></ul>
+                     * 获取目标标签是否已被删除
+                     * @return TargetStatus 目标标签是否已被删除
                      * 
                      */
                     int64_t GetTargetStatus() const;
 
                     /**
-                     * 设置<p>目标标签是否已被删除</p><p>枚举值：</p><ul><li>0： 未删除</li><li>1： 已删除</li></ul>
-                     * @param _targetStatus <p>目标标签是否已被删除</p><p>枚举值：</p><ul><li>0： 未删除</li><li>1： 已删除</li></ul>
+                     * 设置目标标签是否已被删除
+                     * @param _targetStatus 目标标签是否已被删除
                      * 
                      */
                     void SetTargetStatus(const int64_t& _targetStatus);
@@ -154,31 +158,32 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>目标标签ID</p>
+                     * 目标标签ID
                      */
                     int64_t m_targetId;
                     bool m_targetIdHasBeenSet;
 
                     /**
-                     * <p>目标描述</p>
+                     * 目标描述
                      */
                     std::string m_targetDesc;
                     bool m_targetDescHasBeenSet;
 
                     /**
-                     * <p>1:演练场景<br>2:演练目标</p>
+                     * 1:演练场景
+2:演练目标
                      */
                     int64_t m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>1:平台 2:用户个人</p>
+                     * 1:平台 2:用户个人
                      */
                     int64_t m_source;
                     bool m_sourceHasBeenSet;
 
                     /**
-                     * <p>目标标签是否已被删除</p><p>枚举值：</p><ul><li>0： 未删除</li><li>1： 已删除</li></ul>
+                     * 目标标签是否已被删除
                      */
                     int64_t m_targetStatus;
                     bool m_targetStatusHasBeenSet;

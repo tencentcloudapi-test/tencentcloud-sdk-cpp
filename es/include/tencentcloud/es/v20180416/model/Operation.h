@@ -49,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>操作唯一id</p>
-                     * @return Id <p>操作唯一id</p>
+                     * 获取操作唯一id
+                     * @return Id 操作唯一id
                      * 
                      */
                     uint64_t GetId() const;
 
                     /**
-                     * 设置<p>操作唯一id</p>
-                     * @param _id <p>操作唯一id</p>
+                     * 设置操作唯一id
+                     * @param _id 操作唯一id
                      * 
                      */
                     void SetId(const uint64_t& _id);
@@ -70,15 +70,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作开始时间</p>
-                     * @return StartTime <p>操作开始时间</p>
+                     * 获取操作开始时间
+                     * @return StartTime 操作开始时间
                      * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置<p>操作开始时间</p>
-                     * @param _startTime <p>操作开始时间</p>
+                     * 设置操作开始时间
+                     * @param _startTime 操作开始时间
                      * 
                      */
                     void SetStartTime(const std::string& _startTime);
@@ -91,15 +91,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作类型</p>
-                     * @return Type <p>操作类型</p>
+                     * 获取操作类型
+                     * @return Type 操作类型
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>操作类型</p>
-                     * @param _type <p>操作类型</p>
+                     * 设置操作类型
+                     * @param _type 操作类型
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -112,15 +112,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作详情</p>
-                     * @return Detail <p>操作详情</p>
+                     * 获取操作详情
+                     * @return Detail 操作详情
                      * 
                      */
                     OperationDetail GetDetail() const;
 
                     /**
-                     * 设置<p>操作详情</p>
-                     * @param _detail <p>操作详情</p>
+                     * 设置操作详情
+                     * @param _detail 操作详情
                      * 
                      */
                     void SetDetail(const OperationDetail& _detail);
@@ -133,15 +133,15 @@ namespace TencentCloud
                     bool DetailHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作结果</p>
-                     * @return Result <p>操作结果</p>
+                     * 获取操作结果
+                     * @return Result 操作结果
                      * 
                      */
                     std::string GetResult() const;
 
                     /**
-                     * 设置<p>操作结果</p>
-                     * @param _result <p>操作结果</p>
+                     * 设置操作结果
+                     * @param _result 操作结果
                      * 
                      */
                     void SetResult(const std::string& _result);
@@ -154,15 +154,15 @@ namespace TencentCloud
                     bool ResultHasBeenSet() const;
 
                     /**
-                     * 获取<p>流程任务信息</p>
-                     * @return Tasks <p>流程任务信息</p>
+                     * 获取流程任务信息
+                     * @return Tasks 流程任务信息
                      * 
                      */
                     std::vector<TaskDetail> GetTasks() const;
 
                     /**
-                     * 设置<p>流程任务信息</p>
-                     * @param _tasks <p>流程任务信息</p>
+                     * 设置流程任务信息
+                     * @param _tasks 流程任务信息
                      * 
                      */
                     void SetTasks(const std::vector<TaskDetail>& _tasks);
@@ -175,15 +175,15 @@ namespace TencentCloud
                     bool TasksHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作进度</p>
-                     * @return Progress <p>操作进度</p>
+                     * 获取操作进度
+                     * @return Progress 操作进度
                      * 
                      */
                     double GetProgress() const;
 
                     /**
-                     * 设置<p>操作进度</p>
-                     * @param _progress <p>操作进度</p>
+                     * 设置操作进度
+                     * @param _progress 操作进度
                      * 
                      */
                     void SetProgress(const double& _progress);
@@ -196,15 +196,15 @@ namespace TencentCloud
                     bool ProgressHasBeenSet() const;
 
                     /**
-                     * 获取<p>回滚标记， 0未回滚 ，1回滚中，2已回滚</p>
-                     * @return RollbackTag <p>回滚标记， 0未回滚 ，1回滚中，2已回滚</p>
+                     * 获取回滚标记， 0未回滚 ，1回滚中，2已回滚
+                     * @return RollbackTag 回滚标记， 0未回滚 ，1回滚中，2已回滚
                      * 
                      */
                     int64_t GetRollbackTag() const;
 
                     /**
-                     * 设置<p>回滚标记， 0未回滚 ，1回滚中，2已回滚</p>
-                     * @param _rollbackTag <p>回滚标记， 0未回滚 ，1回滚中，2已回滚</p>
+                     * 设置回滚标记， 0未回滚 ，1回滚中，2已回滚
+                     * @param _rollbackTag 回滚标记， 0未回滚 ，1回滚中，2已回滚
                      * 
                      */
                     void SetRollbackTag(const int64_t& _rollbackTag);
@@ -217,18 +217,18 @@ namespace TencentCloud
                     bool RollbackTagHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作者Uin</p>
+                     * 获取操作者Uin
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SubAccountUin <p>操作者Uin</p>
+                     * @return SubAccountUin 操作者Uin
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetSubAccountUin() const;
 
                     /**
-                     * 设置<p>操作者Uin</p>
+                     * 设置操作者Uin
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _subAccountUin <p>操作者Uin</p>
+                     * @param _subAccountUin 操作者Uin
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -242,15 +242,15 @@ namespace TencentCloud
                     bool SubAccountUinHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动扩容标识：0-非自动，1-自动</p>
-                     * @return AutoScaleTag <p>自动扩容标识：0-非自动，1-自动</p>
+                     * 获取自动扩容标识：0-非自动，1-自动
+                     * @return AutoScaleTag 自动扩容标识：0-非自动，1-自动
                      * 
                      */
                     uint64_t GetAutoScaleTag() const;
 
                     /**
-                     * 设置<p>自动扩容标识：0-非自动，1-自动</p>
-                     * @param _autoScaleTag <p>自动扩容标识：0-非自动，1-自动</p>
+                     * 设置自动扩容标识：0-非自动，1-自动
+                     * @param _autoScaleTag 自动扩容标识：0-非自动，1-自动
                      * 
                      */
                     void SetAutoScaleTag(const uint64_t& _autoScaleTag);
@@ -262,95 +262,68 @@ namespace TencentCloud
                      */
                     bool AutoScaleTagHasBeenSet() const;
 
-                    /**
-                     * 获取<p>流程异常原因</p>
-                     * @return SuspendedReason <p>流程异常原因</p>
-                     * 
-                     */
-                    std::string GetSuspendedReason() const;
-
-                    /**
-                     * 设置<p>流程异常原因</p>
-                     * @param _suspendedReason <p>流程异常原因</p>
-                     * 
-                     */
-                    void SetSuspendedReason(const std::string& _suspendedReason);
-
-                    /**
-                     * 判断参数 SuspendedReason 是否已赋值
-                     * @return SuspendedReason 是否已赋值
-                     * 
-                     */
-                    bool SuspendedReasonHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>操作唯一id</p>
+                     * 操作唯一id
                      */
                     uint64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>操作开始时间</p>
+                     * 操作开始时间
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>操作类型</p>
+                     * 操作类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>操作详情</p>
+                     * 操作详情
                      */
                     OperationDetail m_detail;
                     bool m_detailHasBeenSet;
 
                     /**
-                     * <p>操作结果</p>
+                     * 操作结果
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
 
                     /**
-                     * <p>流程任务信息</p>
+                     * 流程任务信息
                      */
                     std::vector<TaskDetail> m_tasks;
                     bool m_tasksHasBeenSet;
 
                     /**
-                     * <p>操作进度</p>
+                     * 操作进度
                      */
                     double m_progress;
                     bool m_progressHasBeenSet;
 
                     /**
-                     * <p>回滚标记， 0未回滚 ，1回滚中，2已回滚</p>
+                     * 回滚标记， 0未回滚 ，1回滚中，2已回滚
                      */
                     int64_t m_rollbackTag;
                     bool m_rollbackTagHasBeenSet;
 
                     /**
-                     * <p>操作者Uin</p>
+                     * 操作者Uin
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_subAccountUin;
                     bool m_subAccountUinHasBeenSet;
 
                     /**
-                     * <p>自动扩容标识：0-非自动，1-自动</p>
+                     * 自动扩容标识：0-非自动，1-自动
                      */
                     uint64_t m_autoScaleTag;
                     bool m_autoScaleTagHasBeenSet;
-
-                    /**
-                     * <p>流程异常原因</p>
-                     */
-                    std::string m_suspendedReason;
-                    bool m_suspendedReasonHasBeenSet;
 
                 };
             }

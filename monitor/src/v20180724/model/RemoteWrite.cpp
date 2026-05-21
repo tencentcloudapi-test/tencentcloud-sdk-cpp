@@ -26,8 +26,7 @@ RemoteWrite::RemoteWrite() :
     m_basicAuthHasBeenSet(false),
     m_maxBlockSizeHasBeenSet(false),
     m_labelHasBeenSet(false),
-    m_headersHasBeenSet(false),
-    m_remoteWriteTypeHasBeenSet(false)
+    m_headersHasBeenSet(false)
 {
 }
 
@@ -113,16 +112,6 @@ CoreInternalOutcome RemoteWrite::Deserialize(const rapidjson::Value &value)
         m_headersHasBeenSet = true;
     }
 
-    if (value.HasMember("RemoteWriteType") && !value["RemoteWriteType"].IsNull())
-    {
-        if (!value["RemoteWriteType"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `RemoteWrite.RemoteWriteType` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_remoteWriteType = value["RemoteWriteType"].GetInt64();
-        m_remoteWriteTypeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -184,14 +173,6 @@ void RemoteWrite::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_remoteWriteTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RemoteWriteType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_remoteWriteType, allocator);
     }
 
 }
@@ -291,21 +272,5 @@ void RemoteWrite::SetHeaders(const vector<RemoteWriteHeader>& _headers)
 bool RemoteWrite::HeadersHasBeenSet() const
 {
     return m_headersHasBeenSet;
-}
-
-int64_t RemoteWrite::GetRemoteWriteType() const
-{
-    return m_remoteWriteType;
-}
-
-void RemoteWrite::SetRemoteWriteType(const int64_t& _remoteWriteType)
-{
-    m_remoteWriteType = _remoteWriteType;
-    m_remoteWriteTypeHasBeenSet = true;
-}
-
-bool RemoteWrite::RemoteWriteTypeHasBeenSet() const
-{
-    return m_remoteWriteTypeHasBeenSet;
 }
 

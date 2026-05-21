@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>资源组节点id</p>
-                     * @return InstanceId <p>资源组节点id</p>
+                     * 获取资源组节点id
+                     * @return InstanceId 资源组节点id
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>资源组节点id</p>
-                     * @param _instanceId <p>资源组节点id</p>
+                     * 设置资源组节点id
+                     * @param _instanceId 资源组节点id
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -69,18 +69,18 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点已用资源</p>
+                     * 获取节点已用资源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UsedResource <p>节点已用资源</p>
+                     * @return UsedResource 节点已用资源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     ResourceInfo GetUsedResource() const;
 
                     /**
-                     * 设置<p>节点已用资源</p>
+                     * 设置节点已用资源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _usedResource <p>节点已用资源</p>
+                     * @param _usedResource 节点已用资源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -94,18 +94,18 @@ namespace TencentCloud
                     bool UsedResourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点总资源</p>
+                     * 获取节点总资源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TotalResource <p>节点总资源</p>
+                     * @return TotalResource 节点总资源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     ResourceInfo GetTotalResource() const;
 
                     /**
-                     * 设置<p>节点总资源</p>
+                     * 设置节点总资源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _totalResource <p>节点总资源</p>
+                     * @param _totalResource 节点总资源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -119,18 +119,54 @@ namespace TencentCloud
                     bool TotalResourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点状态<br>注意：此字段为枚举值<br>说明:<br>DEPLOYING: 部署中<br>RUNNING: 运行中<br>DEPLOY_FAILED: 部署失败<br>RELEASING 释放中<br>RELEASED：已释放<br>EXCEPTION：异常<br>DEBT_OR_EXPIRED: 欠费过期</p>
+                     * 获取节点状态 
+注意：此字段为枚举值
+说明: 
+DEPLOYING: 部署中
+RUNNING: 运行中 
+DEPLOY_FAILED: 部署失败
+RELEASING 释放中 
+RELEASED：已释放 
+EXCEPTION：异常
+DEBT_OR_EXPIRED: 欠费过期
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return InstanceStatus <p>节点状态<br>注意：此字段为枚举值<br>说明:<br>DEPLOYING: 部署中<br>RUNNING: 运行中<br>DEPLOY_FAILED: 部署失败<br>RELEASING 释放中<br>RELEASED：已释放<br>EXCEPTION：异常<br>DEBT_OR_EXPIRED: 欠费过期</p>
+                     * @return InstanceStatus 节点状态 
+注意：此字段为枚举值
+说明: 
+DEPLOYING: 部署中
+RUNNING: 运行中 
+DEPLOY_FAILED: 部署失败
+RELEASING 释放中 
+RELEASED：已释放 
+EXCEPTION：异常
+DEBT_OR_EXPIRED: 欠费过期
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetInstanceStatus() const;
 
                     /**
-                     * 设置<p>节点状态<br>注意：此字段为枚举值<br>说明:<br>DEPLOYING: 部署中<br>RUNNING: 运行中<br>DEPLOY_FAILED: 部署失败<br>RELEASING 释放中<br>RELEASED：已释放<br>EXCEPTION：异常<br>DEBT_OR_EXPIRED: 欠费过期</p>
+                     * 设置节点状态 
+注意：此字段为枚举值
+说明: 
+DEPLOYING: 部署中
+RUNNING: 运行中 
+DEPLOY_FAILED: 部署失败
+RELEASING 释放中 
+RELEASED：已释放 
+EXCEPTION：异常
+DEBT_OR_EXPIRED: 欠费过期
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _instanceStatus <p>节点状态<br>注意：此字段为枚举值<br>说明:<br>DEPLOYING: 部署中<br>RUNNING: 运行中<br>DEPLOY_FAILED: 部署失败<br>RELEASING 释放中<br>RELEASED：已释放<br>EXCEPTION：异常<br>DEBT_OR_EXPIRED: 欠费过期</p>
+                     * @param _instanceStatus 节点状态 
+注意：此字段为枚举值
+说明: 
+DEPLOYING: 部署中
+RUNNING: 运行中 
+DEPLOY_FAILED: 部署失败
+RELEASING 释放中 
+RELEASED：已释放 
+EXCEPTION：异常
+DEBT_OR_EXPIRED: 欠费过期
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -144,15 +180,15 @@ namespace TencentCloud
                     bool InstanceStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建人</p>
-                     * @return SubUin <p>创建人</p>
+                     * 获取创建人
+                     * @return SubUin 创建人
                      * 
                      */
                     std::string GetSubUin() const;
 
                     /**
-                     * 设置<p>创建人</p>
-                     * @param _subUin <p>创建人</p>
+                     * 设置创建人
+                     * @param _subUin 创建人
                      * 
                      */
                     void SetSubUin(const std::string& _subUin);
@@ -165,18 +201,22 @@ namespace TencentCloud
                     bool SubUinHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间:<br>注意：北京时间，比如: 2021-12-01 12:00:00</p>
+                     * 获取创建时间: 
+注意：北京时间，比如: 2021-12-01 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CreateTime <p>创建时间:<br>注意：北京时间，比如: 2021-12-01 12:00:00</p>
+                     * @return CreateTime 创建时间: 
+注意：北京时间，比如: 2021-12-01 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间:<br>注意：北京时间，比如: 2021-12-01 12:00:00</p>
+                     * 设置创建时间: 
+注意：北京时间，比如: 2021-12-01 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _createTime <p>创建时间:<br>注意：北京时间，比如: 2021-12-01 12:00:00</p>
+                     * @param _createTime 创建时间: 
+注意：北京时间，比如: 2021-12-01 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -190,18 +230,22 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>到期时间<br>注意：北京时间，比如：2021-12-11 12:00:00</p>
+                     * 获取到期时间
+注意：北京时间，比如：2021-12-11 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ExpireTime <p>到期时间<br>注意：北京时间，比如：2021-12-11 12:00:00</p>
+                     * @return ExpireTime 到期时间
+注意：北京时间，比如：2021-12-11 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetExpireTime() const;
 
                     /**
-                     * 设置<p>到期时间<br>注意：北京时间，比如：2021-12-11 12:00:00</p>
+                     * 设置到期时间
+注意：北京时间，比如：2021-12-11 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _expireTime <p>到期时间<br>注意：北京时间，比如：2021-12-11 12:00:00</p>
+                     * @param _expireTime 到期时间
+注意：北京时间，比如：2021-12-11 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -215,18 +259,38 @@ namespace TencentCloud
                     bool ExpireTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动续费标识<br>注意：此字段为枚举值<br>说明：<br>NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知<br>NOTIFY_AND_AUTO_RENEW：自动续费且到期通知<br>DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知</p>
+                     * 获取自动续费标识
+注意：此字段为枚举值
+说明：
+NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知
+NOTIFY_AND_AUTO_RENEW：自动续费且到期通知
+DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AutoRenewFlag <p>自动续费标识<br>注意：此字段为枚举值<br>说明：<br>NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知<br>NOTIFY_AND_AUTO_RENEW：自动续费且到期通知<br>DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知</p>
+                     * @return AutoRenewFlag 自动续费标识
+注意：此字段为枚举值
+说明：
+NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知
+NOTIFY_AND_AUTO_RENEW：自动续费且到期通知
+DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetAutoRenewFlag() const;
 
                     /**
-                     * 设置<p>自动续费标识<br>注意：此字段为枚举值<br>说明：<br>NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知<br>NOTIFY_AND_AUTO_RENEW：自动续费且到期通知<br>DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知</p>
+                     * 设置自动续费标识
+注意：此字段为枚举值
+说明：
+NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知
+NOTIFY_AND_AUTO_RENEW：自动续费且到期通知
+DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _autoRenewFlag <p>自动续费标识<br>注意：此字段为枚举值<br>说明：<br>NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知<br>NOTIFY_AND_AUTO_RENEW：自动续费且到期通知<br>DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知</p>
+                     * @param _autoRenewFlag 自动续费标识
+注意：此字段为枚举值
+说明：
+NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知
+NOTIFY_AND_AUTO_RENEW：自动续费且到期通知
+DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -240,15 +304,15 @@ namespace TencentCloud
                     bool AutoRenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项ID</p>
-                     * @return SpecId <p>计费项ID</p>
+                     * 获取计费项ID
+                     * @return SpecId 计费项ID
                      * 
                      */
                     std::string GetSpecId() const;
 
                     /**
-                     * 设置<p>计费项ID</p>
-                     * @param _specId <p>计费项ID</p>
+                     * 设置计费项ID
+                     * @param _specId 计费项ID
                      * 
                      */
                     void SetSpecId(const std::string& _specId);
@@ -261,15 +325,15 @@ namespace TencentCloud
                     bool SpecIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项别名</p>
-                     * @return SpecAlias <p>计费项别名</p>
+                     * 获取计费项别名
+                     * @return SpecAlias 计费项别名
                      * 
                      */
                     std::string GetSpecAlias() const;
 
                     /**
-                     * 设置<p>计费项别名</p>
-                     * @param _specAlias <p>计费项别名</p>
+                     * 设置计费项别名
+                     * @param _specAlias 计费项别名
                      * 
                      */
                     void SetSpecAlias(const std::string& _specAlias);
@@ -282,18 +346,18 @@ namespace TencentCloud
                     bool SpecAliasHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费项特性列表</p>
+                     * 获取计费项特性列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SpecFeatures <p>计费项特性列表</p>
+                     * @return SpecFeatures 计费项特性列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<std::string> GetSpecFeatures() const;
 
                     /**
-                     * 设置<p>计费项特性列表</p>
+                     * 设置计费项特性列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _specFeatures <p>计费项特性列表</p>
+                     * @param _specFeatures 计费项特性列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -307,15 +371,15 @@ namespace TencentCloud
                     bool SpecFeaturesHasBeenSet() const;
 
                     /**
-                     * 获取<p>纳管cvmid</p>
-                     * @return CvmInstanceId <p>纳管cvmid</p>
+                     * 获取纳管cvmid
+                     * @return CvmInstanceId 纳管cvmid
                      * 
                      */
                     std::string GetCvmInstanceId() const;
 
                     /**
-                     * 设置<p>纳管cvmid</p>
-                     * @param _cvmInstanceId <p>纳管cvmid</p>
+                     * 设置纳管cvmid
+                     * @param _cvmInstanceId 纳管cvmid
                      * 
                      */
                     void SetCvmInstanceId(const std::string& _cvmInstanceId);
@@ -328,18 +392,18 @@ namespace TencentCloud
                     bool CvmInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署失败错误码</p>
+                     * 获取部署失败错误码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ErrCode <p>部署失败错误码</p>
+                     * @return ErrCode 部署失败错误码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetErrCode() const;
 
                     /**
-                     * 设置<p>部署失败错误码</p>
+                     * 设置部署失败错误码
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _errCode <p>部署失败错误码</p>
+                     * @param _errCode 部署失败错误码
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -353,18 +417,18 @@ namespace TencentCloud
                     bool ErrCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署失败错误信息</p>
+                     * 获取部署失败错误信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ErrMsg <p>部署失败错误信息</p>
+                     * @return ErrMsg 部署失败错误信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetErrMsg() const;
 
                     /**
-                     * 设置<p>部署失败错误信息</p>
+                     * 设置部署失败错误信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _errMsg <p>部署失败错误信息</p>
+                     * @param _errMsg 部署失败错误信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -380,93 +444,109 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>资源组节点id</p>
+                     * 资源组节点id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>节点已用资源</p>
+                     * 节点已用资源
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ResourceInfo m_usedResource;
                     bool m_usedResourceHasBeenSet;
 
                     /**
-                     * <p>节点总资源</p>
+                     * 节点总资源
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ResourceInfo m_totalResource;
                     bool m_totalResourceHasBeenSet;
 
                     /**
-                     * <p>节点状态<br>注意：此字段为枚举值<br>说明:<br>DEPLOYING: 部署中<br>RUNNING: 运行中<br>DEPLOY_FAILED: 部署失败<br>RELEASING 释放中<br>RELEASED：已释放<br>EXCEPTION：异常<br>DEBT_OR_EXPIRED: 欠费过期</p>
+                     * 节点状态 
+注意：此字段为枚举值
+说明: 
+DEPLOYING: 部署中
+RUNNING: 运行中 
+DEPLOY_FAILED: 部署失败
+RELEASING 释放中 
+RELEASED：已释放 
+EXCEPTION：异常
+DEBT_OR_EXPIRED: 欠费过期
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instanceStatus;
                     bool m_instanceStatusHasBeenSet;
 
                     /**
-                     * <p>创建人</p>
+                     * 创建人
                      */
                     std::string m_subUin;
                     bool m_subUinHasBeenSet;
 
                     /**
-                     * <p>创建时间:<br>注意：北京时间，比如: 2021-12-01 12:00:00</p>
+                     * 创建时间: 
+注意：北京时间，比如: 2021-12-01 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>到期时间<br>注意：北京时间，比如：2021-12-11 12:00:00</p>
+                     * 到期时间
+注意：北京时间，比如：2021-12-11 12:00:00
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_expireTime;
                     bool m_expireTimeHasBeenSet;
 
                     /**
-                     * <p>自动续费标识<br>注意：此字段为枚举值<br>说明：<br>NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知<br>NOTIFY_AND_AUTO_RENEW：自动续费且到期通知<br>DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知</p>
+                     * 自动续费标识
+注意：此字段为枚举值
+说明：
+NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期通知
+NOTIFY_AND_AUTO_RENEW：自动续费且到期通知
+DISABLE_NOTIFY_AND_MANUAL_RENEW：手动续费(取消自动续费)且到期不通知
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_autoRenewFlag;
                     bool m_autoRenewFlagHasBeenSet;
 
                     /**
-                     * <p>计费项ID</p>
+                     * 计费项ID
                      */
                     std::string m_specId;
                     bool m_specIdHasBeenSet;
 
                     /**
-                     * <p>计费项别名</p>
+                     * 计费项别名
                      */
                     std::string m_specAlias;
                     bool m_specAliasHasBeenSet;
 
                     /**
-                     * <p>计费项特性列表</p>
+                     * 计费项特性列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_specFeatures;
                     bool m_specFeaturesHasBeenSet;
 
                     /**
-                     * <p>纳管cvmid</p>
+                     * 纳管cvmid
                      */
                     std::string m_cvmInstanceId;
                     bool m_cvmInstanceIdHasBeenSet;
 
                     /**
-                     * <p>部署失败错误码</p>
+                     * 部署失败错误码
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_errCode;
                     bool m_errCodeHasBeenSet;
 
                     /**
-                     * <p>部署失败错误信息</p>
+                     * 部署失败错误信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_errMsg;

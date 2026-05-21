@@ -45,9 +45,7 @@ ApproverInfo::ApproverInfo() :
     m_deadlineHasBeenSet(false),
     m_componentsHasBeenSet(false),
     m_signEndpointsHasBeenSet(false),
-    m_registerInfoHasBeenSet(false),
-    m_notSaveContactHasBeenSet(false),
-    m_approverEmailHasBeenSet(false)
+    m_registerInfoHasBeenSet(false)
 {
 }
 
@@ -362,26 +360,6 @@ CoreInternalOutcome ApproverInfo::Deserialize(const rapidjson::Value &value)
         m_registerInfoHasBeenSet = true;
     }
 
-    if (value.HasMember("NotSaveContact") && !value["NotSaveContact"].IsNull())
-    {
-        if (!value["NotSaveContact"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `ApproverInfo.NotSaveContact` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_notSaveContact = value["NotSaveContact"].GetBool();
-        m_notSaveContactHasBeenSet = true;
-    }
-
-    if (value.HasMember("ApproverEmail") && !value["ApproverEmail"].IsNull())
-    {
-        if (!value["ApproverEmail"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ApproverInfo.ApproverEmail` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_approverEmail = string(value["ApproverEmail"].GetString());
-        m_approverEmailHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -630,22 +608,6 @@ void ApproverInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_registerInfo.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_notSaveContactHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NotSaveContact";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_notSaveContact, allocator);
-    }
-
-    if (m_approverEmailHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ApproverEmail";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_approverEmail.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1049,37 +1011,5 @@ void ApproverInfo::SetRegisterInfo(const RegisterInfo& _registerInfo)
 bool ApproverInfo::RegisterInfoHasBeenSet() const
 {
     return m_registerInfoHasBeenSet;
-}
-
-bool ApproverInfo::GetNotSaveContact() const
-{
-    return m_notSaveContact;
-}
-
-void ApproverInfo::SetNotSaveContact(const bool& _notSaveContact)
-{
-    m_notSaveContact = _notSaveContact;
-    m_notSaveContactHasBeenSet = true;
-}
-
-bool ApproverInfo::NotSaveContactHasBeenSet() const
-{
-    return m_notSaveContactHasBeenSet;
-}
-
-string ApproverInfo::GetApproverEmail() const
-{
-    return m_approverEmail;
-}
-
-void ApproverInfo::SetApproverEmail(const string& _approverEmail)
-{
-    m_approverEmail = _approverEmail;
-    m_approverEmailHasBeenSet = true;
-}
-
-bool ApproverInfo::ApproverEmailHasBeenSet() const
-{
-    return m_approverEmailHasBeenSet;
 }
 

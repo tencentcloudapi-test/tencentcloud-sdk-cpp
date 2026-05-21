@@ -21,8 +21,7 @@ using namespace TencentCloud::Wedata::V20210820::Model;
 using namespace std;
 
 CommonIdOpsDto::CommonIdOpsDto() :
-    m_idHasBeenSet(false),
-    m_makeIdHasBeenSet(false)
+    m_idHasBeenSet(false)
 {
 }
 
@@ -41,16 +40,6 @@ CoreInternalOutcome CommonIdOpsDto::Deserialize(const rapidjson::Value &value)
         m_idHasBeenSet = true;
     }
 
-    if (value.HasMember("MakeId") && !value["MakeId"].IsNull())
-    {
-        if (!value["MakeId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CommonIdOpsDto.MakeId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_makeId = string(value["MakeId"].GetString());
-        m_makeIdHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -64,14 +53,6 @@ void CommonIdOpsDto::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "Id";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_id.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_makeIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MakeId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_makeId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -91,21 +72,5 @@ void CommonIdOpsDto::SetId(const string& _id)
 bool CommonIdOpsDto::IdHasBeenSet() const
 {
     return m_idHasBeenSet;
-}
-
-string CommonIdOpsDto::GetMakeId() const
-{
-    return m_makeId;
-}
-
-void CommonIdOpsDto::SetMakeId(const string& _makeId)
-{
-    m_makeId = _makeId;
-    m_makeIdHasBeenSet = true;
-}
-
-bool CommonIdOpsDto::MakeIdHasBeenSet() const
-{
-    return m_makeIdHasBeenSet;
 }
 

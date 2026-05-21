@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 过滤条件。同一 Name 下多个 Values 为或关系；不同 Name 之间为且关系
+                * filter过滤条件
                 */
                 class Filters : public AbstractModel
                 {
@@ -47,15 +47,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取过滤条件名称
-                     * @return Name 过滤条件名称
+                     * 获取实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Name 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置过滤条件名称
-                     * @param _name 过滤条件名称
+                     * 设置实例ID
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _name 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -68,15 +72,19 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取过滤条件值列表
-                     * @return Values 过滤条件值列表
+                     * 获取实例ID内容
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Values 实例ID内容
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<std::string> GetValues() const;
 
                     /**
-                     * 设置过滤条件值列表
-                     * @param _values 过滤条件值列表
+                     * 设置实例ID内容
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _values 实例ID内容
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetValues(const std::vector<std::string>& _values);
@@ -89,15 +97,19 @@ namespace TencentCloud
                     bool ValuesHasBeenSet() const;
 
                     /**
-                     * 获取是否精确匹配：1 精确匹配；默认模糊匹配
-                     * @return ExactMatch 是否精确匹配：1 精确匹配；默认模糊匹配
+                     * 获取模糊匹配
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ExactMatch 模糊匹配
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetExactMatch() const;
 
                     /**
-                     * 设置是否精确匹配：1 精确匹配；默认模糊匹配
-                     * @param _exactMatch 是否精确匹配：1 精确匹配；默认模糊匹配
+                     * 设置模糊匹配
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _exactMatch 模糊匹配
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetExactMatch(const std::string& _exactMatch);
@@ -112,19 +124,22 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 过滤条件名称
+                     * 实例ID
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 过滤条件值列表
+                     * 实例ID内容
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_values;
                     bool m_valuesHasBeenSet;
 
                     /**
-                     * 是否精确匹配：1 精确匹配；默认模糊匹配
+                     * 模糊匹配
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_exactMatch;
                     bool m_exactMatchHasBeenSet;

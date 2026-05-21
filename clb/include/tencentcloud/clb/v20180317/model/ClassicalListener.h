@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>负载均衡监听器ID</p>
-                     * @return ListenerId <p>负载均衡监听器ID</p>
+                     * 获取负载均衡监听器ID
+                     * @return ListenerId 负载均衡监听器ID
                      * 
                      */
                     std::string GetListenerId() const;
 
                     /**
-                     * 设置<p>负载均衡监听器ID</p>
-                     * @param _listenerId <p>负载均衡监听器ID</p>
+                     * 设置负载均衡监听器ID
+                     * @param _listenerId 负载均衡监听器ID
                      * 
                      */
                     void SetListenerId(const std::string& _listenerId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool ListenerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>负载均衡监听器端口</p>
-                     * @return ListenerPort <p>负载均衡监听器端口</p>
+                     * 获取负载均衡监听器端口
+                     * @return ListenerPort 负载均衡监听器端口
                      * 
                      */
                     int64_t GetListenerPort() const;
 
                     /**
-                     * 设置<p>负载均衡监听器端口</p>
-                     * @param _listenerPort <p>负载均衡监听器端口</p>
+                     * 设置负载均衡监听器端口
+                     * @param _listenerPort 负载均衡监听器端口
                      * 
                      */
                     void SetListenerPort(const int64_t& _listenerPort);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool ListenerPortHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器后端转发端口</p>
-                     * @return InstancePort <p>监听器后端转发端口</p>
+                     * 获取监听器后端转发端口
+                     * @return InstancePort 监听器后端转发端口
                      * 
                      */
                     int64_t GetInstancePort() const;
 
                     /**
-                     * 设置<p>监听器后端转发端口</p>
-                     * @param _instancePort <p>监听器后端转发端口</p>
+                     * 设置监听器后端转发端口
+                     * @param _instancePort 监听器后端转发端口
                      * 
                      */
                     void SetInstancePort(const int64_t& _instancePort);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool InstancePortHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器名称</p>
-                     * @return ListenerName <p>监听器名称</p>
+                     * 获取监听器名称
+                     * @return ListenerName 监听器名称
                      * 
                      */
                     std::string GetListenerName() const;
 
                     /**
-                     * 设置<p>监听器名称</p>
-                     * @param _listenerName <p>监听器名称</p>
+                     * 设置监听器名称
+                     * @param _listenerName 监听器名称
                      * 
                      */
                     void SetListenerName(const std::string& _listenerName);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool ListenerNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器协议类型</p>
-                     * @return Protocol <p>监听器协议类型</p>
+                     * 获取监听器协议类型
+                     * @return Protocol 监听器协议类型
                      * 
                      */
                     std::string GetProtocol() const;
 
                     /**
-                     * 设置<p>监听器协议类型</p>
-                     * @param _protocol <p>监听器协议类型</p>
+                     * 设置监听器协议类型
+                     * @param _protocol 监听器协议类型
                      * 
                      */
                     void SetProtocol(const std::string& _protocol);
@@ -152,15 +152,15 @@ namespace TencentCloud
                     bool ProtocolHasBeenSet() const;
 
                     /**
-                     * 获取<p>会话保持时间</p>
-                     * @return SessionExpire <p>会话保持时间</p>
+                     * 获取会话保持时间
+                     * @return SessionExpire 会话保持时间
                      * 
                      */
                     int64_t GetSessionExpire() const;
 
                     /**
-                     * 设置<p>会话保持时间</p>
-                     * @param _sessionExpire <p>会话保持时间</p>
+                     * 设置会话保持时间
+                     * @param _sessionExpire 会话保持时间
                      * 
                      */
                     void SetSessionExpire(const int64_t& _sessionExpire);
@@ -173,15 +173,15 @@ namespace TencentCloud
                     bool SessionExpireHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启了健康检查：1（开启）、0（关闭）</p>
-                     * @return HealthSwitch <p>是否开启了健康检查：1（开启）、0（关闭）</p>
+                     * 获取是否开启了健康检查：1（开启）、0（关闭）
+                     * @return HealthSwitch 是否开启了健康检查：1（开启）、0（关闭）
                      * 
                      */
                     int64_t GetHealthSwitch() const;
 
                     /**
-                     * 设置<p>是否开启了健康检查：1（开启）、0（关闭）</p>
-                     * @param _healthSwitch <p>是否开启了健康检查：1（开启）、0（关闭）</p>
+                     * 设置是否开启了健康检查：1（开启）、0（关闭）
+                     * @param _healthSwitch 是否开启了健康检查：1（开启）、0（关闭）
                      * 
                      */
                     void SetHealthSwitch(const int64_t& _healthSwitch);
@@ -194,15 +194,15 @@ namespace TencentCloud
                     bool HealthSwitchHasBeenSet() const;
 
                     /**
-                     * 获取<p>响应超时时间</p><p>单位：秒</p>
-                     * @return TimeOut <p>响应超时时间</p><p>单位：秒</p>
+                     * 获取响应超时时间
+                     * @return TimeOut 响应超时时间
                      * 
                      */
                     int64_t GetTimeOut() const;
 
                     /**
-                     * 设置<p>响应超时时间</p><p>单位：秒</p>
-                     * @param _timeOut <p>响应超时时间</p><p>单位：秒</p>
+                     * 设置响应超时时间
+                     * @param _timeOut 响应超时时间
                      * 
                      */
                     void SetTimeOut(const int64_t& _timeOut);
@@ -215,15 +215,15 @@ namespace TencentCloud
                     bool TimeOutHasBeenSet() const;
 
                     /**
-                     * 获取<p>检查间隔</p><p>单位：秒</p>
-                     * @return IntervalTime <p>检查间隔</p><p>单位：秒</p>
+                     * 获取检查间隔
+                     * @return IntervalTime 检查间隔
                      * 
                      */
                     int64_t GetIntervalTime() const;
 
                     /**
-                     * 设置<p>检查间隔</p><p>单位：秒</p>
-                     * @param _intervalTime <p>检查间隔</p><p>单位：秒</p>
+                     * 设置检查间隔
+                     * @param _intervalTime 检查间隔
                      * 
                      */
                     void SetIntervalTime(const int64_t& _intervalTime);
@@ -236,15 +236,15 @@ namespace TencentCloud
                     bool IntervalTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>健康阈值</p>
-                     * @return HealthNum <p>健康阈值</p>
+                     * 获取健康阈值
+                     * @return HealthNum 健康阈值
                      * 
                      */
                     int64_t GetHealthNum() const;
 
                     /**
-                     * 设置<p>健康阈值</p>
-                     * @param _healthNum <p>健康阈值</p>
+                     * 设置健康阈值
+                     * @param _healthNum 健康阈值
                      * 
                      */
                     void SetHealthNum(const int64_t& _healthNum);
@@ -257,15 +257,15 @@ namespace TencentCloud
                     bool HealthNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>不健康阈值</p>
-                     * @return UnhealthNum <p>不健康阈值</p>
+                     * 获取不健康阈值
+                     * @return UnhealthNum 不健康阈值
                      * 
                      */
                     int64_t GetUnhealthNum() const;
 
                     /**
-                     * 设置<p>不健康阈值</p>
-                     * @param _unhealthNum <p>不健康阈值</p>
+                     * 设置不健康阈值
+                     * @param _unhealthNum 不健康阈值
                      * 
                      */
                     void SetUnhealthNum(const int64_t& _unhealthNum);
@@ -278,15 +278,15 @@ namespace TencentCloud
                     bool UnhealthNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。</p>
-                     * @return HttpHash <p>传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。</p>
+                     * 获取传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。
+                     * @return HttpHash 传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。
                      * 
                      */
                     std::string GetHttpHash() const;
 
                     /**
-                     * 设置<p>传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。</p>
-                     * @param _httpHash <p>传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。</p>
+                     * 设置传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。
+                     * @param _httpHash 传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。
                      * 
                      */
                     void SetHttpHash(const std::string& _httpHash);
@@ -299,15 +299,15 @@ namespace TencentCloud
                     bool HttpHashHasBeenSet() const;
 
                     /**
-                     * 获取<p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释</p>
-                     * @return HttpCode <p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释</p>
+                     * 获取传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释
+                     * @return HttpCode 传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释
                      * 
                      */
                     int64_t GetHttpCode() const;
 
                     /**
-                     * 设置<p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释</p>
-                     * @param _httpCode <p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释</p>
+                     * 设置传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释
+                     * @param _httpCode 传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释
                      * 
                      */
                     void SetHttpCode(const int64_t& _httpCode);
@@ -320,15 +320,15 @@ namespace TencentCloud
                     bool HttpCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径</p>
-                     * @return HttpCheckPath <p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径</p>
+                     * 获取传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径
+                     * @return HttpCheckPath 传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径
                      * 
                      */
                     std::string GetHttpCheckPath() const;
 
                     /**
-                     * 设置<p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径</p>
-                     * @param _httpCheckPath <p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径</p>
+                     * 设置传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径
+                     * @param _httpCheckPath 传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径
                      * 
                      */
                     void SetHttpCheckPath(const std::string& _httpCheckPath);
@@ -341,15 +341,15 @@ namespace TencentCloud
                     bool HttpCheckPathHasBeenSet() const;
 
                     /**
-                     * 获取<p>传统型公网负载均衡的 HTTPS 监听器的认证方式</p>
-                     * @return SSLMode <p>传统型公网负载均衡的 HTTPS 监听器的认证方式</p>
+                     * 获取传统型公网负载均衡的 HTTPS 监听器的认证方式
+                     * @return SSLMode 传统型公网负载均衡的 HTTPS 监听器的认证方式
                      * 
                      */
                     std::string GetSSLMode() const;
 
                     /**
-                     * 设置<p>传统型公网负载均衡的 HTTPS 监听器的认证方式</p>
-                     * @param _sSLMode <p>传统型公网负载均衡的 HTTPS 监听器的认证方式</p>
+                     * 设置传统型公网负载均衡的 HTTPS 监听器的认证方式
+                     * @param _sSLMode 传统型公网负载均衡的 HTTPS 监听器的认证方式
                      * 
                      */
                     void SetSSLMode(const std::string& _sSLMode);
@@ -362,15 +362,15 @@ namespace TencentCloud
                     bool SSLModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID</p>
-                     * @return CertId <p>传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID</p>
+                     * 获取传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID
+                     * @return CertId 传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID
                      * 
                      */
                     std::string GetCertId() const;
 
                     /**
-                     * 设置<p>传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID</p>
-                     * @param _certId <p>传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID</p>
+                     * 设置传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID
+                     * @param _certId 传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID
                      * 
                      */
                     void SetCertId(const std::string& _certId);
@@ -383,15 +383,15 @@ namespace TencentCloud
                     bool CertIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID</p>
-                     * @return CertCaId <p>传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID</p>
+                     * 获取传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID
+                     * @return CertCaId 传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID
                      * 
                      */
                     std::string GetCertCaId() const;
 
                     /**
-                     * 设置<p>传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID</p>
-                     * @param _certCaId <p>传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID</p>
+                     * 设置传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID
+                     * @param _certCaId 传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID
                      * 
                      */
                     void SetCertCaId(const std::string& _certCaId);
@@ -404,15 +404,15 @@ namespace TencentCloud
                     bool CertCaIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>监听器的状态，0 表示创建中，1 表示运行中</p>
-                     * @return Status <p>监听器的状态，0 表示创建中，1 表示运行中</p>
+                     * 获取监听器的状态，0 表示创建中，1 表示运行中
+                     * @return Status 监听器的状态，0 表示创建中，1 表示运行中
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>监听器的状态，0 表示创建中，1 表示运行中</p>
-                     * @param _status <p>监听器的状态，0 表示创建中，1 表示运行中</p>
+                     * 设置监听器的状态，0 表示创建中，1 表示运行中
+                     * @param _status 监听器的状态，0 表示创建中，1 表示运行中
                      * 
                      */
                     void SetStatus(const int64_t& _status);
@@ -427,109 +427,109 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>负载均衡监听器ID</p>
+                     * 负载均衡监听器ID
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
-                     * <p>负载均衡监听器端口</p>
+                     * 负载均衡监听器端口
                      */
                     int64_t m_listenerPort;
                     bool m_listenerPortHasBeenSet;
 
                     /**
-                     * <p>监听器后端转发端口</p>
+                     * 监听器后端转发端口
                      */
                     int64_t m_instancePort;
                     bool m_instancePortHasBeenSet;
 
                     /**
-                     * <p>监听器名称</p>
+                     * 监听器名称
                      */
                     std::string m_listenerName;
                     bool m_listenerNameHasBeenSet;
 
                     /**
-                     * <p>监听器协议类型</p>
+                     * 监听器协议类型
                      */
                     std::string m_protocol;
                     bool m_protocolHasBeenSet;
 
                     /**
-                     * <p>会话保持时间</p>
+                     * 会话保持时间
                      */
                     int64_t m_sessionExpire;
                     bool m_sessionExpireHasBeenSet;
 
                     /**
-                     * <p>是否开启了健康检查：1（开启）、0（关闭）</p>
+                     * 是否开启了健康检查：1（开启）、0（关闭）
                      */
                     int64_t m_healthSwitch;
                     bool m_healthSwitchHasBeenSet;
 
                     /**
-                     * <p>响应超时时间</p><p>单位：秒</p>
+                     * 响应超时时间
                      */
                     int64_t m_timeOut;
                     bool m_timeOutHasBeenSet;
 
                     /**
-                     * <p>检查间隔</p><p>单位：秒</p>
+                     * 检查间隔
                      */
                     int64_t m_intervalTime;
                     bool m_intervalTimeHasBeenSet;
 
                     /**
-                     * <p>健康阈值</p>
+                     * 健康阈值
                      */
                     int64_t m_healthNum;
                     bool m_healthNumHasBeenSet;
 
                     /**
-                     * <p>不健康阈值</p>
+                     * 不健康阈值
                      */
                     int64_t m_unhealthNum;
                     bool m_unhealthNumHasBeenSet;
 
                     /**
-                     * <p>传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。</p>
+                     * 传统型公网负载均衡 监听器的请求均衡方法。空字符串或wrr 表示按权重轮询，ip_hash 表示根据访问的源 IP 进行一致性哈希方式来分发，least_conn表示按最小连接数。
                      */
                     std::string m_httpHash;
                     bool m_httpHashHasBeenSet;
 
                     /**
-                     * <p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释</p>
+                     * 传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查返回码。具体可参考创建监听器中对该字段的解释
                      */
                     int64_t m_httpCode;
                     bool m_httpCodeHasBeenSet;
 
                     /**
-                     * <p>传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径</p>
+                     * 传统型公网负载均衡的 HTTP、HTTPS 监听器的健康检查路径
                      */
                     std::string m_httpCheckPath;
                     bool m_httpCheckPathHasBeenSet;
 
                     /**
-                     * <p>传统型公网负载均衡的 HTTPS 监听器的认证方式</p>
+                     * 传统型公网负载均衡的 HTTPS 监听器的认证方式
                      */
                     std::string m_sSLMode;
                     bool m_sSLModeHasBeenSet;
 
                     /**
-                     * <p>传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID</p>
+                     * 传统型公网负载均衡的 HTTPS 监听器的服务端证书 ID
                      */
                     std::string m_certId;
                     bool m_certIdHasBeenSet;
 
                     /**
-                     * <p>传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID</p>
+                     * 传统型公网负载均衡的 HTTPS 监听器的客户端证书 ID
                      */
                     std::string m_certCaId;
                     bool m_certCaIdHasBeenSet;
 
                     /**
-                     * <p>监听器的状态，0 表示创建中，1 表示运行中</p>
+                     * 监听器的状态，0 表示创建中，1 表示运行中
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;

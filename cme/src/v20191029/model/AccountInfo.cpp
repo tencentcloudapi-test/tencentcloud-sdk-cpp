@@ -24,8 +24,7 @@ AccountInfo::AccountInfo() :
     m_userIdHasBeenSet(false),
     m_phoneHasBeenSet(false),
     m_nickHasBeenSet(false),
-    m_statusHasBeenSet(false),
-    m_createTimeHasBeenSet(false)
+    m_statusHasBeenSet(false)
 {
 }
 
@@ -74,16 +73,6 @@ CoreInternalOutcome AccountInfo::Deserialize(const rapidjson::Value &value)
         m_statusHasBeenSet = true;
     }
 
-    if (value.HasMember("CreateTime") && !value["CreateTime"].IsNull())
-    {
-        if (!value["CreateTime"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AccountInfo.CreateTime` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_createTime = string(value["CreateTime"].GetString());
-        m_createTimeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -121,14 +110,6 @@ void AccountInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::All
         string key = "Status";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_createTimeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CreateTime";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_createTime.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -196,21 +177,5 @@ void AccountInfo::SetStatus(const string& _status)
 bool AccountInfo::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
-}
-
-string AccountInfo::GetCreateTime() const
-{
-    return m_createTime;
-}
-
-void AccountInfo::SetCreateTime(const string& _createTime)
-{
-    m_createTime = _createTime;
-    m_createTimeHasBeenSet = true;
-}
-
-bool AccountInfo::CreateTimeHasBeenSet() const
-{
-    return m_createTimeHasBeenSet;
 }
 

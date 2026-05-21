@@ -36,8 +36,7 @@ BackupStatus::BackupStatus() :
     m_statusHasBeenSet(false),
     m_timeoutHasBeenSet(false),
     m_backupJobIdHasBeenSet(false),
-    m_taskIdHasBeenSet(false),
-    m_uploadBytesHasBeenSet(false)
+    m_taskIdHasBeenSet(false)
 {
 }
 
@@ -206,16 +205,6 @@ CoreInternalOutcome BackupStatus::Deserialize(const rapidjson::Value &value)
         m_taskIdHasBeenSet = true;
     }
 
-    if (value.HasMember("UploadBytes") && !value["UploadBytes"].IsNull())
-    {
-        if (!value["UploadBytes"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `BackupStatus.UploadBytes` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_uploadBytes = value["UploadBytes"].GetInt64();
-        m_uploadBytesHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -349,14 +338,6 @@ void BackupStatus::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Al
         string key = "TaskId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_taskId, allocator);
-    }
-
-    if (m_uploadBytesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UploadBytes";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_uploadBytes, allocator);
     }
 
 }
@@ -616,21 +597,5 @@ void BackupStatus::SetTaskId(const int64_t& _taskId)
 bool BackupStatus::TaskIdHasBeenSet() const
 {
     return m_taskIdHasBeenSet;
-}
-
-int64_t BackupStatus::GetUploadBytes() const
-{
-    return m_uploadBytes;
-}
-
-void BackupStatus::SetUploadBytes(const int64_t& _uploadBytes)
-{
-    m_uploadBytes = _uploadBytes;
-    m_uploadBytesHasBeenSet = true;
-}
-
-bool BackupStatus::UploadBytesHasBeenSet() const
-{
-    return m_uploadBytesHasBeenSet;
 }
 

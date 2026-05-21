@@ -65,30 +65,14 @@ namespace TencentCloud
 
                     /**
                      * 获取授权类型
-- 0 按量付费-专业版
-- 1 包年包月-专业版
-- 2 包年包月-旗舰版
-- 3 包年包月-轻量版
                      * @return LicenseType 授权类型
-- 0 按量付费-专业版
-- 1 包年包月-专业版
-- 2 包年包月-旗舰版
-- 3 包年包月-轻量版
                      * 
                      */
                     uint64_t GetLicenseType() const;
 
                     /**
                      * 设置授权类型
-- 0 按量付费-专业版
-- 1 包年包月-专业版
-- 2 包年包月-旗舰版
-- 3 包年包月-轻量版
                      * @param _licenseType 授权类型
-- 0 按量付费-专业版
-- 1 包年包月-专业版
-- 2 包年包月-旗舰版
-- 3 包年包月-轻量版
                      * 
                      */
                     void SetLicenseType(const uint64_t& _licenseType);
@@ -156,10 +140,6 @@ namespace TencentCloud
 
                     /**
                      * 授权类型
-- 0 按量付费-专业版
-- 1 包年包月-专业版
-- 2 包年包月-旗舰版
-- 3 包年包月-轻量版
                      */
                     uint64_t m_licenseType;
                     bool m_licenseTypeHasBeenSet;

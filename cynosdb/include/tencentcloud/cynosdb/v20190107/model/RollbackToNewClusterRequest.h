@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>可用区</p>
-                     * @return Zone <p>可用区</p>
+                     * 获取可用区
+                     * @return Zone 可用区
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>可用区</p>
-                     * @param _zone <p>可用区</p>
+                     * 设置可用区
+                     * @param _zone 可用区
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>回档时，传入源集群ID，用于查找源poolId</p>
-                     * @return OriginalClusterId <p>回档时，传入源集群ID，用于查找源poolId</p>
+                     * 获取回档时，传入源集群ID，用于查找源poolId
+                     * @return OriginalClusterId 回档时，传入源集群ID，用于查找源poolId
                      * 
                      */
                     std::string GetOriginalClusterId() const;
 
                     /**
-                     * 设置<p>回档时，传入源集群ID，用于查找源poolId</p>
-                     * @param _originalClusterId <p>回档时，传入源集群ID，用于查找源poolId</p>
+                     * 设置回档时，传入源集群ID，用于查找源poolId
+                     * @param _originalClusterId 回档时，传入源集群ID，用于查找源poolId
                      * 
                      */
                     void SetOriginalClusterId(const std::string& _originalClusterId);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool OriginalClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>所属VPC网络ID</p>
-                     * @return UniqVpcId <p>所属VPC网络ID</p>
+                     * 获取所属VPC网络ID
+                     * @return UniqVpcId 所属VPC网络ID
                      * 
                      */
                     std::string GetUniqVpcId() const;
 
                     /**
-                     * 设置<p>所属VPC网络ID</p>
-                     * @param _uniqVpcId <p>所属VPC网络ID</p>
+                     * 设置所属VPC网络ID
+                     * @param _uniqVpcId 所属VPC网络ID
                      * 
                      */
                     void SetUniqVpcId(const std::string& _uniqVpcId);
@@ -111,15 +111,15 @@ namespace TencentCloud
                     bool UniqVpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>所属子网ID</p>
-                     * @return UniqSubnetId <p>所属子网ID</p>
+                     * 获取所属子网ID
+                     * @return UniqSubnetId 所属子网ID
                      * 
                      */
                     std::string GetUniqSubnetId() const;
 
                     /**
-                     * 设置<p>所属子网ID</p>
-                     * @param _uniqSubnetId <p>所属子网ID</p>
+                     * 设置所属子网ID
+                     * @param _uniqSubnetId 所属子网ID
                      * 
                      */
                     void SetUniqSubnetId(const std::string& _uniqSubnetId);
@@ -132,15 +132,15 @@ namespace TencentCloud
                     bool UniqSubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（&#39;-&#39;,&#39;_&#39;,&#39;.&#39;）</p>
-                     * @return ClusterName <p>集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（&#39;-&#39;,&#39;_&#39;,&#39;.&#39;）</p>
+                     * 获取集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
+                     * @return ClusterName 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
                      * 
                      */
                     std::string GetClusterName() const;
 
                     /**
-                     * 设置<p>集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（&#39;-&#39;,&#39;_&#39;,&#39;.&#39;）</p>
-                     * @param _clusterName <p>集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（&#39;-&#39;,&#39;_&#39;,&#39;.&#39;）</p>
+                     * 设置集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
+                     * @param _clusterName 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
                      * 
                      */
                     void SetClusterName(const std::string& _clusterName);
@@ -153,15 +153,15 @@ namespace TencentCloud
                     bool ClusterNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效</p>
-                     * @return RollbackId <p>快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效</p>
+                     * 获取快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效
+                     * @return RollbackId 快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效
                      * 
                      */
                     uint64_t GetRollbackId() const;
 
                     /**
-                     * 设置<p>快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效</p>
-                     * @param _rollbackId <p>快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效</p>
+                     * 设置快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效
+                     * @param _rollbackId 快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效
                      * 
                      */
                     void SetRollbackId(const uint64_t& _rollbackId);
@@ -174,15 +174,15 @@ namespace TencentCloud
                     bool RollbackIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>时间点回档，指定时间；快照回档，快照时间</p>
-                     * @return ExpectTime <p>时间点回档，指定时间；快照回档，快照时间</p>
+                     * 获取时间点回档，指定时间；快照回档，快照时间
+                     * @return ExpectTime 时间点回档，指定时间；快照回档，快照时间
                      * 
                      */
                     std::string GetExpectTime() const;
 
                     /**
-                     * 设置<p>时间点回档，指定时间；快照回档，快照时间</p>
-                     * @param _expectTime <p>时间点回档，指定时间；快照回档，快照时间</p>
+                     * 设置时间点回档，指定时间；快照回档，快照时间
+                     * @param _expectTime 时间点回档，指定时间；快照回档，快照时间
                      * 
                      */
                     void SetExpectTime(const std::string& _expectTime);
@@ -195,15 +195,15 @@ namespace TencentCloud
                     bool ExpectTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否自动选择代金券 1是 0否 默认为0</p>
-                     * @return AutoVoucher <p>是否自动选择代金券 1是 0否 默认为0</p>
+                     * 获取是否自动选择代金券 1是 0否 默认为0
+                     * @return AutoVoucher 是否自动选择代金券 1是 0否 默认为0
                      * 
                      */
                     int64_t GetAutoVoucher() const;
 
                     /**
-                     * 设置<p>是否自动选择代金券 1是 0否 默认为0</p>
-                     * @param _autoVoucher <p>是否自动选择代金券 1是 0否 默认为0</p>
+                     * 设置是否自动选择代金券 1是 0否 默认为0
+                     * @param _autoVoucher 是否自动选择代金券 1是 0否 默认为0
                      * 
                      */
                     void SetAutoVoucher(const int64_t& _autoVoucher);
@@ -216,15 +216,15 @@ namespace TencentCloud
                     bool AutoVoucherHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群创建需要绑定的tag数组信息</p>
-                     * @return ResourceTags <p>集群创建需要绑定的tag数组信息</p>
+                     * 获取集群创建需要绑定的tag数组信息
+                     * @return ResourceTags 集群创建需要绑定的tag数组信息
                      * 
                      */
                     std::vector<Tag> GetResourceTags() const;
 
                     /**
-                     * 设置<p>集群创建需要绑定的tag数组信息</p>
-                     * @param _resourceTags <p>集群创建需要绑定的tag数组信息</p>
+                     * 设置集群创建需要绑定的tag数组信息
+                     * @param _resourceTags 集群创建需要绑定的tag数组信息
                      * 
                      */
                     void SetResourceTags(const std::vector<Tag>& _resourceTags);
@@ -237,15 +237,27 @@ namespace TencentCloud
                     bool ResourceTagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>Db类型<br>当DbType为MYSQL时可选(默认NORMAL)：</p><li>NORMAL</li><li>SERVERLESS</li>
-                     * @return DbMode <p>Db类型<br>当DbType为MYSQL时可选(默认NORMAL)：</p><li>NORMAL</li><li>SERVERLESS</li>
+                     * 获取Db类型
+当DbType为MYSQL时可选(默认NORMAL)：
+<li>NORMAL</li>
+<li>SERVERLESS</li>
+                     * @return DbMode Db类型
+当DbType为MYSQL时可选(默认NORMAL)：
+<li>NORMAL</li>
+<li>SERVERLESS</li>
                      * 
                      */
                     std::string GetDbMode() const;
 
                     /**
-                     * 设置<p>Db类型<br>当DbType为MYSQL时可选(默认NORMAL)：</p><li>NORMAL</li><li>SERVERLESS</li>
-                     * @param _dbMode <p>Db类型<br>当DbType为MYSQL时可选(默认NORMAL)：</p><li>NORMAL</li><li>SERVERLESS</li>
+                     * 设置Db类型
+当DbType为MYSQL时可选(默认NORMAL)：
+<li>NORMAL</li>
+<li>SERVERLESS</li>
+                     * @param _dbMode Db类型
+当DbType为MYSQL时可选(默认NORMAL)：
+<li>NORMAL</li>
+<li>SERVERLESS</li>
                      * 
                      */
                     void SetDbMode(const std::string& _dbMode);
@@ -258,15 +270,19 @@ namespace TencentCloud
                     bool DbModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>当DbMode为SEVERLESS时必填<br>cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
-                     * @return MinCpu <p>当DbMode为SEVERLESS时必填<br>cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
+                     * 获取当DbMode为SEVERLESS时必填
+cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
+                     * @return MinCpu 当DbMode为SEVERLESS时必填
+cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
                      * 
                      */
                     double GetMinCpu() const;
 
                     /**
-                     * 设置<p>当DbMode为SEVERLESS时必填<br>cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
-                     * @param _minCpu <p>当DbMode为SEVERLESS时必填<br>cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
+                     * 设置当DbMode为SEVERLESS时必填
+cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
+                     * @param _minCpu 当DbMode为SEVERLESS时必填
+cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
                      * 
                      */
                     void SetMinCpu(const double& _minCpu);
@@ -279,15 +295,19 @@ namespace TencentCloud
                     bool MinCpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>当DbMode为SEVERLESS时必填：<br>cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
-                     * @return MaxCpu <p>当DbMode为SEVERLESS时必填：<br>cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
+                     * 获取当DbMode为SEVERLESS时必填：
+cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
+                     * @return MaxCpu 当DbMode为SEVERLESS时必填：
+cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
                      * 
                      */
                     double GetMaxCpu() const;
 
                     /**
-                     * 设置<p>当DbMode为SEVERLESS时必填：<br>cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
-                     * @param _maxCpu <p>当DbMode为SEVERLESS时必填：<br>cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
+                     * 设置当DbMode为SEVERLESS时必填：
+cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
+                     * @param _maxCpu 当DbMode为SEVERLESS时必填：
+cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
                      * 
                      */
                     void SetMaxCpu(const double& _maxCpu);
@@ -300,15 +320,27 @@ namespace TencentCloud
                     bool MaxCpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围</p><li>yes</li><li>no</li>默认值:yes
-                     * @return AutoPause <p>当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围</p><li>yes</li><li>no</li>默认值:yes
+                     * 获取当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+<li>yes</li>
+<li>no</li>
+默认值:yes
+                     * @return AutoPause 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+<li>yes</li>
+<li>no</li>
+默认值:yes
                      * 
                      */
                     std::string GetAutoPause() const;
 
                     /**
-                     * 设置<p>当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围</p><li>yes</li><li>no</li>默认值:yes
-                     * @param _autoPause <p>当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围</p><li>yes</li><li>no</li>默认值:yes
+                     * 设置当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+<li>yes</li>
+<li>no</li>
+默认值:yes
+                     * @param _autoPause 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+<li>yes</li>
+<li>no</li>
+默认值:yes
                      * 
                      */
                     void SetAutoPause(const std::string& _autoPause);
@@ -321,15 +353,19 @@ namespace TencentCloud
                     bool AutoPauseHasBeenSet() const;
 
                     /**
-                     * 获取<p>当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]<br>默认值:600</p>
-                     * @return AutoPauseDelay <p>当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]<br>默认值:600</p>
+                     * 获取当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+默认值:600
+                     * @return AutoPauseDelay 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+默认值:600
                      * 
                      */
                     int64_t GetAutoPauseDelay() const;
 
                     /**
-                     * 设置<p>当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]<br>默认值:600</p>
-                     * @param _autoPauseDelay <p>当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]<br>默认值:600</p>
+                     * 设置当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+默认值:600
+                     * @param _autoPauseDelay 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+默认值:600
                      * 
                      */
                     void SetAutoPauseDelay(const int64_t& _autoPauseDelay);
@@ -342,15 +378,15 @@ namespace TencentCloud
                     bool AutoPauseDelayHasBeenSet() const;
 
                     /**
-                     * 获取<p>安全组id数组</p>
-                     * @return SecurityGroupIds <p>安全组id数组</p>
+                     * 获取安全组id数组
+                     * @return SecurityGroupIds 安全组id数组
                      * 
                      */
                     std::vector<std::string> GetSecurityGroupIds() const;
 
                     /**
-                     * 设置<p>安全组id数组</p>
-                     * @param _securityGroupIds <p>安全组id数组</p>
+                     * 设置安全组id数组
+                     * @param _securityGroupIds 安全组id数组
                      * 
                      */
                     void SetSecurityGroupIds(const std::vector<std::string>& _securityGroupIds);
@@ -363,15 +399,15 @@ namespace TencentCloud
                     bool SecurityGroupIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警策略Id数组</p>
-                     * @return AlarmPolicyIds <p>告警策略Id数组</p>
+                     * 获取告警策略Id数组
+                     * @return AlarmPolicyIds 告警策略Id数组
                      * 
                      */
                     std::vector<std::string> GetAlarmPolicyIds() const;
 
                     /**
-                     * 设置<p>告警策略Id数组</p>
-                     * @param _alarmPolicyIds <p>告警策略Id数组</p>
+                     * 设置告警策略Id数组
+                     * @param _alarmPolicyIds 告警策略Id数组
                      * 
                      */
                     void SetAlarmPolicyIds(const std::vector<std::string>& _alarmPolicyIds);
@@ -384,15 +420,15 @@ namespace TencentCloud
                     bool AlarmPolicyIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感</p>
-                     * @return ClusterParams <p>参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感</p>
+                     * 获取参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
+                     * @return ClusterParams 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
                      * 
                      */
                     std::vector<ParamItem> GetClusterParams() const;
 
                     /**
-                     * 设置<p>参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感</p>
-                     * @param _clusterParams <p>参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感</p>
+                     * 设置参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
+                     * @param _clusterParams 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
                      * 
                      */
                     void SetClusterParams(const std::vector<ParamItem>& _clusterParams);
@@ -405,15 +441,15 @@ namespace TencentCloud
                     bool ClusterParamsHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID</p>
-                     * @return ParamTemplateId <p>参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID</p>
+                     * 获取参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
+                     * @return ParamTemplateId 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
                      * 
                      */
                     int64_t GetParamTemplateId() const;
 
                     /**
-                     * 设置<p>参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID</p>
-                     * @param _paramTemplateId <p>参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID</p>
+                     * 设置参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
+                     * @param _paramTemplateId 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
                      * 
                      */
                     void SetParamTemplateId(const int64_t& _paramTemplateId);
@@ -426,15 +462,15 @@ namespace TencentCloud
                     bool ParamTemplateIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例初始化配置信息，主要用于购买集群时选不同规格实例</p>
-                     * @return InstanceInitInfos <p>实例初始化配置信息，主要用于购买集群时选不同规格实例</p>
+                     * 获取实例初始化配置信息，主要用于购买集群时选不同规格实例
+                     * @return InstanceInitInfos 实例初始化配置信息，主要用于购买集群时选不同规格实例
                      * 
                      */
                     std::vector<InstanceInitInfo> GetInstanceInitInfos() const;
 
                     /**
-                     * 设置<p>实例初始化配置信息，主要用于购买集群时选不同规格实例</p>
-                     * @param _instanceInitInfos <p>实例初始化配置信息，主要用于购买集群时选不同规格实例</p>
+                     * 设置实例初始化配置信息，主要用于购买集群时选不同规格实例
+                     * @param _instanceInitInfos 实例初始化配置信息，主要用于购买集群时选不同规格实例
                      * 
                      */
                     void SetInstanceInitInfos(const std::vector<InstanceInitInfo>& _instanceInitInfos);
@@ -447,15 +483,15 @@ namespace TencentCloud
                     bool InstanceInitInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>0-下单并支付 1-下单</p>
-                     * @return DealMode <p>0-下单并支付 1-下单</p>
+                     * 获取0-下单并支付 1-下单
+                     * @return DealMode 0-下单并支付 1-下单
                      * 
                      */
                     int64_t GetDealMode() const;
 
                     /**
-                     * 设置<p>0-下单并支付 1-下单</p>
-                     * @param _dealMode <p>0-下单并支付 1-下单</p>
+                     * 设置0-下单并支付 1-下单
+                     * @param _dealMode 0-下单并支付 1-下单
                      * 
                      */
                     void SetDealMode(const int64_t& _dealMode);
@@ -468,15 +504,15 @@ namespace TencentCloud
                     bool DealModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>计算节点付费模式：0-按量计费，1-预付费</p>
-                     * @return PayMode <p>计算节点付费模式：0-按量计费，1-预付费</p>
+                     * 获取计算节点付费模式：0-按量计费，1-预付费
+                     * @return PayMode 计算节点付费模式：0-按量计费，1-预付费
                      * 
                      */
                     int64_t GetPayMode() const;
 
                     /**
-                     * 设置<p>计算节点付费模式：0-按量计费，1-预付费</p>
-                     * @param _payMode <p>计算节点付费模式：0-按量计费，1-预付费</p>
+                     * 设置计算节点付费模式：0-按量计费，1-预付费
+                     * @param _payMode 计算节点付费模式：0-按量计费，1-预付费
                      * 
                      */
                     void SetPayMode(const int64_t& _payMode);
@@ -489,15 +525,15 @@ namespace TencentCloud
                     bool PayModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>时间</p>
-                     * @return TimeSpan <p>时间</p>
+                     * 获取时间
+                     * @return TimeSpan 时间
                      * 
                      */
                     int64_t GetTimeSpan() const;
 
                     /**
-                     * 设置<p>时间</p>
-                     * @param _timeSpan <p>时间</p>
+                     * 设置时间
+                     * @param _timeSpan 时间
                      * 
                      */
                     void SetTimeSpan(const int64_t& _timeSpan);
@@ -510,15 +546,15 @@ namespace TencentCloud
                     bool TimeSpanHasBeenSet() const;
 
                     /**
-                     * 获取<p>单位</p>
-                     * @return TimeUnit <p>单位</p>
+                     * 获取单位
+                     * @return TimeUnit 单位
                      * 
                      */
                     std::string GetTimeUnit() const;
 
                     /**
-                     * 设置<p>单位</p>
-                     * @param _timeUnit <p>单位</p>
+                     * 设置单位
+                     * @param _timeUnit 单位
                      * 
                      */
                     void SetTimeUnit(const std::string& _timeUnit);
@@ -531,15 +567,15 @@ namespace TencentCloud
                     bool TimeUnitHasBeenSet() const;
 
                     /**
-                     * 获取<p>回档库信息</p>
-                     * @return RollbackDatabases <p>回档库信息</p>
+                     * 获取回档库信息
+                     * @return RollbackDatabases 回档库信息
                      * 
                      */
                     std::vector<RollbackDatabase> GetRollbackDatabases() const;
 
                     /**
-                     * 设置<p>回档库信息</p>
-                     * @param _rollbackDatabases <p>回档库信息</p>
+                     * 设置回档库信息
+                     * @param _rollbackDatabases 回档库信息
                      * 
                      */
                     void SetRollbackDatabases(const std::vector<RollbackDatabase>& _rollbackDatabases);
@@ -552,15 +588,15 @@ namespace TencentCloud
                     bool RollbackDatabasesHasBeenSet() const;
 
                     /**
-                     * 获取<p>回档表信息</p>
-                     * @return RollbackTables <p>回档表信息</p>
+                     * 获取回档表信息
+                     * @return RollbackTables 回档表信息
                      * 
                      */
                     std::vector<RollbackTable> GetRollbackTables() const;
 
                     /**
-                     * 设置<p>回档表信息</p>
-                     * @param _rollbackTables <p>回档表信息</p>
+                     * 设置回档表信息
+                     * @param _rollbackTables 回档表信息
                      * 
                      */
                     void SetRollbackTables(const std::vector<RollbackTable>& _rollbackTables);
@@ -573,15 +609,15 @@ namespace TencentCloud
                     bool RollbackTablesHasBeenSet() const;
 
                     /**
-                     * 获取<p>原ro实例信息</p>
-                     * @return OriginalROInstanceList <p>原ro实例信息</p>
+                     * 获取原ro实例信息
+                     * @return OriginalROInstanceList 原ro实例信息
                      * 
                      */
                     std::vector<std::string> GetOriginalROInstanceList() const;
 
                     /**
-                     * 设置<p>原ro实例信息</p>
-                     * @param _originalROInstanceList <p>原ro实例信息</p>
+                     * 设置原ro实例信息
+                     * @param _originalROInstanceList 原ro实例信息
                      * 
                      */
                     void SetOriginalROInstanceList(const std::vector<std::string>& _originalROInstanceList);
@@ -594,15 +630,15 @@ namespace TencentCloud
                     bool OriginalROInstanceListHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目id</p>
-                     * @return ProjectId <p>项目id</p>
+                     * 获取项目id
+                     * @return ProjectId 项目id
                      * 
                      */
                     int64_t GetProjectId() const;
 
                     /**
-                     * 设置<p>项目id</p>
-                     * @param _projectId <p>项目id</p>
+                     * 设置项目id
+                     * @param _projectId 项目id
                      * 
                      */
                     void SetProjectId(const int64_t& _projectId);
@@ -615,15 +651,15 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes</p>
-                     * @return AutoArchive <p>是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes</p>
+                     * 获取是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes
+                     * @return AutoArchive 是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes
                      * 
                      */
                     std::string GetAutoArchive() const;
 
                     /**
-                     * 设置<p>是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes</p>
-                     * @param _autoArchive <p>是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes</p>
+                     * 设置是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes
+                     * @param _autoArchive 是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes
                      * 
                      */
                     void SetAutoArchive(const std::string& _autoArchive);
@@ -635,202 +671,184 @@ namespace TencentCloud
                      */
                     bool AutoArchiveHasBeenSet() const;
 
-                    /**
-                     * 获取<p>是否从保存备份中恢复</p>
-                     * @return FromSaveBackup <p>是否从保存备份中恢复</p>
-                     * 
-                     */
-                    bool GetFromSaveBackup() const;
-
-                    /**
-                     * 设置<p>是否从保存备份中恢复</p>
-                     * @param _fromSaveBackup <p>是否从保存备份中恢复</p>
-                     * 
-                     */
-                    void SetFromSaveBackup(const bool& _fromSaveBackup);
-
-                    /**
-                     * 判断参数 FromSaveBackup 是否已赋值
-                     * @return FromSaveBackup 是否已赋值
-                     * 
-                     */
-                    bool FromSaveBackupHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>可用区</p>
+                     * 可用区
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>回档时，传入源集群ID，用于查找源poolId</p>
+                     * 回档时，传入源集群ID，用于查找源poolId
                      */
                     std::string m_originalClusterId;
                     bool m_originalClusterIdHasBeenSet;
 
                     /**
-                     * <p>所属VPC网络ID</p>
+                     * 所属VPC网络ID
                      */
                     std::string m_uniqVpcId;
                     bool m_uniqVpcIdHasBeenSet;
 
                     /**
-                     * <p>所属子网ID</p>
+                     * 所属子网ID
                      */
                     std::string m_uniqSubnetId;
                     bool m_uniqSubnetIdHasBeenSet;
 
                     /**
-                     * <p>集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（&#39;-&#39;,&#39;_&#39;,&#39;.&#39;）</p>
+                     * 集群名称，长度小于64个字符，每个字符取值范围：大/小写字母，数字，特殊符号（'-','_','.'）
                      */
                     std::string m_clusterName;
                     bool m_clusterNameHasBeenSet;
 
                     /**
-                     * <p>快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效</p>
+                     * 快照回档，表示snapshotId；时间点回档，表示queryId，为0，表示需要判断时间点是否有效
                      */
                     uint64_t m_rollbackId;
                     bool m_rollbackIdHasBeenSet;
 
                     /**
-                     * <p>时间点回档，指定时间；快照回档，快照时间</p>
+                     * 时间点回档，指定时间；快照回档，快照时间
                      */
                     std::string m_expectTime;
                     bool m_expectTimeHasBeenSet;
 
                     /**
-                     * <p>是否自动选择代金券 1是 0否 默认为0</p>
+                     * 是否自动选择代金券 1是 0否 默认为0
                      */
                     int64_t m_autoVoucher;
                     bool m_autoVoucherHasBeenSet;
 
                     /**
-                     * <p>集群创建需要绑定的tag数组信息</p>
+                     * 集群创建需要绑定的tag数组信息
                      */
                     std::vector<Tag> m_resourceTags;
                     bool m_resourceTagsHasBeenSet;
 
                     /**
-                     * <p>Db类型<br>当DbType为MYSQL时可选(默认NORMAL)：</p><li>NORMAL</li><li>SERVERLESS</li>
+                     * Db类型
+当DbType为MYSQL时可选(默认NORMAL)：
+<li>NORMAL</li>
+<li>SERVERLESS</li>
                      */
                     std::string m_dbMode;
                     bool m_dbModeHasBeenSet;
 
                     /**
-                     * <p>当DbMode为SEVERLESS时必填<br>cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
+                     * 当DbMode为SEVERLESS时必填
+cpu最小值，可选范围参考DescribeServerlessInstanceSpecs接口返回
                      */
                     double m_minCpu;
                     bool m_minCpuHasBeenSet;
 
                     /**
-                     * <p>当DbMode为SEVERLESS时必填：<br>cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回</p>
+                     * 当DbMode为SEVERLESS时必填：
+cpu最大值，可选范围参考DescribeServerlessInstanceSpecs接口返回
                      */
                     double m_maxCpu;
                     bool m_maxCpuHasBeenSet;
 
                     /**
-                     * <p>当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围</p><li>yes</li><li>no</li>默认值:yes
+                     * 当DbMode为SEVERLESS时，指定集群是否自动暂停，可选范围
+<li>yes</li>
+<li>no</li>
+默认值:yes
                      */
                     std::string m_autoPause;
                     bool m_autoPauseHasBeenSet;
 
                     /**
-                     * <p>当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]<br>默认值:600</p>
+                     * 当DbMode为SEVERLESS时，指定集群自动暂停的延迟，单位秒，可选范围[600,691200]
+默认值:600
                      */
                     int64_t m_autoPauseDelay;
                     bool m_autoPauseDelayHasBeenSet;
 
                     /**
-                     * <p>安全组id数组</p>
+                     * 安全组id数组
                      */
                     std::vector<std::string> m_securityGroupIds;
                     bool m_securityGroupIdsHasBeenSet;
 
                     /**
-                     * <p>告警策略Id数组</p>
+                     * 告警策略Id数组
                      */
                     std::vector<std::string> m_alarmPolicyIds;
                     bool m_alarmPolicyIdsHasBeenSet;
 
                     /**
-                     * <p>参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感</p>
+                     * 参数数组，暂时支持character_set_server （utf8｜latin1｜gbk｜utf8mb4） ，lower_case_table_names，1-大小写不敏感，0-大小写敏感
                      */
                     std::vector<ParamItem> m_clusterParams;
                     bool m_clusterParamsHasBeenSet;
 
                     /**
-                     * <p>参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID</p>
+                     * 参数模板ID，可以通过查询参数模板信息DescribeParamTemplates获得参数模板ID
                      */
                     int64_t m_paramTemplateId;
                     bool m_paramTemplateIdHasBeenSet;
 
                     /**
-                     * <p>实例初始化配置信息，主要用于购买集群时选不同规格实例</p>
+                     * 实例初始化配置信息，主要用于购买集群时选不同规格实例
                      */
                     std::vector<InstanceInitInfo> m_instanceInitInfos;
                     bool m_instanceInitInfosHasBeenSet;
 
                     /**
-                     * <p>0-下单并支付 1-下单</p>
+                     * 0-下单并支付 1-下单
                      */
                     int64_t m_dealMode;
                     bool m_dealModeHasBeenSet;
 
                     /**
-                     * <p>计算节点付费模式：0-按量计费，1-预付费</p>
+                     * 计算节点付费模式：0-按量计费，1-预付费
                      */
                     int64_t m_payMode;
                     bool m_payModeHasBeenSet;
 
                     /**
-                     * <p>时间</p>
+                     * 时间
                      */
                     int64_t m_timeSpan;
                     bool m_timeSpanHasBeenSet;
 
                     /**
-                     * <p>单位</p>
+                     * 单位
                      */
                     std::string m_timeUnit;
                     bool m_timeUnitHasBeenSet;
 
                     /**
-                     * <p>回档库信息</p>
+                     * 回档库信息
                      */
                     std::vector<RollbackDatabase> m_rollbackDatabases;
                     bool m_rollbackDatabasesHasBeenSet;
 
                     /**
-                     * <p>回档表信息</p>
+                     * 回档表信息
                      */
                     std::vector<RollbackTable> m_rollbackTables;
                     bool m_rollbackTablesHasBeenSet;
 
                     /**
-                     * <p>原ro实例信息</p>
+                     * 原ro实例信息
                      */
                     std::vector<std::string> m_originalROInstanceList;
                     bool m_originalROInstanceListHasBeenSet;
 
                     /**
-                     * <p>项目id</p>
+                     * 项目id
                      */
                     int64_t m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes</p>
+                     * 是否开启归档，可选范围<li>yes</li><li>no</li>默认值:yes
                      */
                     std::string m_autoArchive;
                     bool m_autoArchiveHasBeenSet;
-
-                    /**
-                     * <p>是否从保存备份中恢复</p>
-                     */
-                    bool m_fromSaveBackup;
-                    bool m_fromSaveBackupHasBeenSet;
 
                 };
             }

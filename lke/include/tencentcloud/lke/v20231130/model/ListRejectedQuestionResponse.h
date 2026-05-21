@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>总数</p>
-                     * @return Total <p>总数</p>
+                     * 获取总数
+                     * @return Total 总数
                      * 
                      */
                     std::string GetTotal() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>拒答问题列表</p>
-                     * @return List <p>拒答问题列表</p>
+                     * 获取拒答问题列表
+                     * @return List 拒答问题列表
                      * 
                      */
                     std::vector<RejectedQuestion> GetList() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>总数</p>
+                     * 总数
                      */
                     std::string m_total;
                     bool m_totalHasBeenSet;
 
                     /**
-                     * <p>拒答问题列表</p>
+                     * 拒答问题列表
                      */
                     std::vector<RejectedQuestion> m_list;
                     bool m_listHasBeenSet;

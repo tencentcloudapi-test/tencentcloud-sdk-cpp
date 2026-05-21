@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>灰度发布规则ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44505">DescribeLaneRules</a> 的返回值中的 RuleId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lanerule">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44507">CreateLaneRule</a>创建新的灰度发布规则。</p>
-                     * @return RuleId <p>灰度发布规则ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44505">DescribeLaneRules</a> 的返回值中的 RuleId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lanerule">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44507">CreateLaneRule</a>创建新的灰度发布规则。</p>
+                     * 获取灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+                     * @return RuleId 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
                      * 
                      */
                     std::string GetRuleId() const;
 
                     /**
-                     * 设置<p>灰度发布规则ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44505">DescribeLaneRules</a> 的返回值中的 RuleId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lanerule">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44507">CreateLaneRule</a>创建新的灰度发布规则。</p>
-                     * @param _ruleId <p>灰度发布规则ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44505">DescribeLaneRules</a> 的返回值中的 RuleId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lanerule">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44507">CreateLaneRule</a>创建新的灰度发布规则。</p>
+                     * 设置灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
+                     * @param _ruleId 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
                      * 
                      */
                     void SetRuleId(const std::string& _ruleId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool RuleIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>灰度发布规则名称，最多支持60个字符，支持中英文字符。</p>
-                     * @return RuleName <p>灰度发布规则名称，最多支持60个字符，支持中英文字符。</p>
+                     * 获取灰度发布规则名称，最多支持60个字符，支持中英文字符。
+                     * @return RuleName 灰度发布规则名称，最多支持60个字符，支持中英文字符。
                      * 
                      */
                     std::string GetRuleName() const;
 
                     /**
-                     * 设置<p>灰度发布规则名称，最多支持60个字符，支持中英文字符。</p>
-                     * @param _ruleName <p>灰度发布规则名称，最多支持60个字符，支持中英文字符。</p>
+                     * 设置灰度发布规则名称，最多支持60个字符，支持中英文字符。
+                     * @param _ruleName 灰度发布规则名称，最多支持60个字符，支持中英文字符。
                      * 
                      */
                     void SetRuleName(const std::string& _ruleName);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool RuleNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>灰度发布规则备注，最多支持200个字符。</p>
-                     * @return Remark <p>灰度发布规则备注，最多支持200个字符。</p>
+                     * 获取灰度发布规则备注，最多支持200个字符。
+                     * @return Remark 灰度发布规则备注，最多支持200个字符。
                      * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置<p>灰度发布规则备注，最多支持200个字符。</p>
-                     * @param _remark <p>灰度发布规则备注，最多支持200个字符。</p>
+                     * 设置灰度发布规则备注，最多支持200个字符。
+                     * @param _remark 灰度发布规则备注，最多支持200个字符。
                      * 
                      */
                     void SetRemark(const std::string& _remark);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>灰度发布规则标签列表。</p>
-                     * @return RuleTagList <p>灰度发布规则标签列表。</p>
+                     * 获取灰度发布规则标签列表。
+                     * @return RuleTagList 灰度发布规则标签列表。
                      * 
                      */
                     std::vector<LaneRuleTag> GetRuleTagList() const;
 
                     /**
-                     * 设置<p>灰度发布规则标签列表。</p>
-                     * @param _ruleTagList <p>灰度发布规则标签列表。</p>
+                     * 设置灰度发布规则标签列表。
+                     * @param _ruleTagList 灰度发布规则标签列表。
                      * 
                      */
                     void SetRuleTagList(const std::vector<LaneRuleTag>& _ruleTagList);
@@ -128,15 +128,36 @@ namespace TencentCloud
                     bool RuleTagListHasBeenSet() const;
 
                     /**
-                     * 获取<p>泳道配置ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44504">DescribeLanes</a> 的返回值中的 LaneId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lane">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44508">CreateLane</a>创建新的泳道配置。</p>
-                     * @return LaneId <p>泳道配置ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44504">DescribeLanes</a> 的返回值中的 LaneId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lane">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44508">CreateLane</a>创建新的泳道配置。</p>
+                     * 获取灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或
+                     * @return RuleTagRelationship 灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或
+                     * 
+                     */
+                    std::string GetRuleTagRelationship() const;
+
+                    /**
+                     * 设置灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或
+                     * @param _ruleTagRelationship 灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或
+                     * 
+                     */
+                    void SetRuleTagRelationship(const std::string& _ruleTagRelationship);
+
+                    /**
+                     * 判断参数 RuleTagRelationship 是否已赋值
+                     * @return RuleTagRelationship 是否已赋值
+                     * 
+                     */
+                    bool RuleTagRelationshipHasBeenSet() const;
+
+                    /**
+                     * 获取泳道配置ID。该参数可以通过调用 [DescribeLanes](https://cloud.tencent.com/document/product/649/44504) 的返回值中的 LaneId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lane)查看；也可以调用[CreateLane](https://cloud.tencent.com/document/product/649/44508)创建新的泳道配置。
+                     * @return LaneId 泳道配置ID。该参数可以通过调用 [DescribeLanes](https://cloud.tencent.com/document/product/649/44504) 的返回值中的 LaneId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lane)查看；也可以调用[CreateLane](https://cloud.tencent.com/document/product/649/44508)创建新的泳道配置。
                      * 
                      */
                     std::string GetLaneId() const;
 
                     /**
-                     * 设置<p>泳道配置ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44504">DescribeLanes</a> 的返回值中的 LaneId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lane">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44508">CreateLane</a>创建新的泳道配置。</p>
-                     * @param _laneId <p>泳道配置ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44504">DescribeLanes</a> 的返回值中的 LaneId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lane">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44508">CreateLane</a>创建新的泳道配置。</p>
+                     * 设置泳道配置ID。该参数可以通过调用 [DescribeLanes](https://cloud.tencent.com/document/product/649/44504) 的返回值中的 LaneId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lane)查看；也可以调用[CreateLane](https://cloud.tencent.com/document/product/649/44508)创建新的泳道配置。
+                     * @param _laneId 泳道配置ID。该参数可以通过调用 [DescribeLanes](https://cloud.tencent.com/document/product/649/44504) 的返回值中的 LaneId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lane)查看；也可以调用[CreateLane](https://cloud.tencent.com/document/product/649/44508)创建新的泳道配置。
                      * 
                      */
                     void SetLaneId(const std::string& _laneId);
@@ -149,15 +170,23 @@ namespace TencentCloud
                     bool LaneIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>开启状态。</p><ul><li>true：开启</li><li>false：关闭</li></ul>
-                     * @return Enable <p>开启状态。</p><ul><li>true：开启</li><li>false：关闭</li></ul>
+                     * 获取开启状态。
+- true：开启
+- false：关闭
+                     * @return Enable 开启状态。
+- true：开启
+- false：关闭
                      * 
                      */
                     bool GetEnable() const;
 
                     /**
-                     * 设置<p>开启状态。</p><ul><li>true：开启</li><li>false：关闭</li></ul>
-                     * @param _enable <p>开启状态。</p><ul><li>true：开启</li><li>false：关闭</li></ul>
+                     * 设置开启状态。
+- true：开启
+- false：关闭
+                     * @param _enable 开启状态。
+- true：开启
+- false：关闭
                      * 
                      */
                     void SetEnable(const bool& _enable);
@@ -169,70 +198,51 @@ namespace TencentCloud
                      */
                     bool EnableHasBeenSet() const;
 
-                    /**
-                     * 获取<p>灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或</p>
-                     * @return RuleTagRelationship <p>灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或</p>
-                     * 
-                     */
-                    std::string GetRuleTagRelationship() const;
-
-                    /**
-                     * 设置<p>灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或</p>
-                     * @param _ruleTagRelationship <p>灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或</p>
-                     * 
-                     */
-                    void SetRuleTagRelationship(const std::string& _ruleTagRelationship);
-
-                    /**
-                     * 判断参数 RuleTagRelationship 是否已赋值
-                     * @return RuleTagRelationship 是否已赋值
-                     * 
-                     */
-                    bool RuleTagRelationshipHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>灰度发布规则ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44505">DescribeLaneRules</a> 的返回值中的 RuleId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lanerule">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44507">CreateLaneRule</a>创建新的灰度发布规则。</p>
+                     * 灰度发布规则ID。该参数可以通过调用 [DescribeLaneRules](https://cloud.tencent.com/document/product/649/44505) 的返回值中的 RuleId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lanerule)查看；也可以调用[CreateLaneRule](https://cloud.tencent.com/document/product/649/44507)创建新的灰度发布规则。
                      */
                     std::string m_ruleId;
                     bool m_ruleIdHasBeenSet;
 
                     /**
-                     * <p>灰度发布规则名称，最多支持60个字符，支持中英文字符。</p>
+                     * 灰度发布规则名称，最多支持60个字符，支持中英文字符。
                      */
                     std::string m_ruleName;
                     bool m_ruleNameHasBeenSet;
 
                     /**
-                     * <p>灰度发布规则备注，最多支持200个字符。</p>
+                     * 灰度发布规则备注，最多支持200个字符。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>灰度发布规则标签列表。</p>
+                     * 灰度发布规则标签列表。
                      */
                     std::vector<LaneRuleTag> m_ruleTagList;
                     bool m_ruleTagListHasBeenSet;
 
                     /**
-                     * <p>泳道配置ID。该参数可以通过调用 <a href="https://cloud.tencent.com/document/product/649/44504">DescribeLanes</a> 的返回值中的 LaneId 字段来获取或通过登录<a href="https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&amp;subTab=lane">控制台</a>查看；也可以调用<a href="https://cloud.tencent.com/document/product/649/44508">CreateLane</a>创建新的泳道配置。</p>
+                     * 灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或
+                     */
+                    std::string m_ruleTagRelationship;
+                    bool m_ruleTagRelationshipHasBeenSet;
+
+                    /**
+                     * 泳道配置ID。该参数可以通过调用 [DescribeLanes](https://cloud.tencent.com/document/product/649/44504) 的返回值中的 LaneId 字段来获取或通过登录[控制台](https://console.cloud.tencent.com/tse/tsf-consul?tab=grayscale&subTab=lane)查看；也可以调用[CreateLane](https://cloud.tencent.com/document/product/649/44508)创建新的泳道配置。
                      */
                     std::string m_laneId;
                     bool m_laneIdHasBeenSet;
 
                     /**
-                     * <p>开启状态。</p><ul><li>true：开启</li><li>false：关闭</li></ul>
+                     * 开启状态。
+- true：开启
+- false：关闭
                      */
                     bool m_enable;
                     bool m_enableHasBeenSet;
-
-                    /**
-                     * <p>灰度发布规则标签关系。- RELEATION_AND：与- RELEATION_OR：或</p>
-                     */
-                    std::string m_ruleTagRelationship;
-                    bool m_ruleTagRelationshipHasBeenSet;
 
                 };
             }

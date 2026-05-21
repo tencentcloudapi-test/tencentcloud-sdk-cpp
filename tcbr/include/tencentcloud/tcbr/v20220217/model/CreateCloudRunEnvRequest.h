@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>Trial,Standard,Professional,Enterprise</p>
-                     * @return PackageType <p>Trial,Standard,Professional,Enterprise</p>
+                     * 获取Trial,Standard,Professional,Enterprise
+                     * @return PackageType Trial,Standard,Professional,Enterprise
                      * 
                      */
                     std::string GetPackageType() const;
 
                     /**
-                     * 设置<p>Trial,Standard,Professional,Enterprise</p>
-                     * @param _packageType <p>Trial,Standard,Professional,Enterprise</p>
+                     * 设置Trial,Standard,Professional,Enterprise
+                     * @param _packageType Trial,Standard,Professional,Enterprise
                      * 
                      */
                     void SetPackageType(const std::string& _packageType);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool PackageTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符</p>
-                     * @return Alias <p>环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符</p>
+                     * 获取环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符
+                     * @return Alias 环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符
                      * 
                      */
                     std::string GetAlias() const;
 
                     /**
-                     * 设置<p>环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符</p>
-                     * @param _alias <p>环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符</p>
+                     * 设置环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符
+                     * @param _alias 环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符
                      * 
                      */
                     void SetAlias(const std::string& _alias);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool AliasHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。</p>
-                     * @return FreeQuota <p>用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。</p>
+                     * 获取用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
+                     * @return FreeQuota 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
                      * 
                      */
                     std::string GetFreeQuota() const;
 
                     /**
-                     * 设置<p>用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。</p>
-                     * @param _freeQuota <p>用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。</p>
+                     * 设置用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
+                     * @param _freeQuota 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
                      * 
                      */
                     void SetFreeQuota(const std::string& _freeQuota);
@@ -106,15 +106,23 @@ namespace TencentCloud
                     bool FreeQuotaHasBeenSet() const;
 
                     /**
-                     * 获取<p>订单标记。建议使用方统一转大小写之后再判断。QuickStart：快速启动来源Activity：活动来源</p>
-                     * @return Flag <p>订单标记。建议使用方统一转大小写之后再判断。QuickStart：快速启动来源Activity：活动来源</p>
+                     * 获取订单标记。建议使用方统一转大小写之后再判断。
+QuickStart：快速启动来源
+Activity：活动来源
+                     * @return Flag 订单标记。建议使用方统一转大小写之后再判断。
+QuickStart：快速启动来源
+Activity：活动来源
                      * 
                      */
                     std::string GetFlag() const;
 
                     /**
-                     * 设置<p>订单标记。建议使用方统一转大小写之后再判断。QuickStart：快速启动来源Activity：活动来源</p>
-                     * @param _flag <p>订单标记。建议使用方统一转大小写之后再判断。QuickStart：快速启动来源Activity：活动来源</p>
+                     * 设置订单标记。建议使用方统一转大小写之后再判断。
+QuickStart：快速启动来源
+Activity：活动来源
+                     * @param _flag 订单标记。建议使用方统一转大小写之后再判断。
+QuickStart：快速启动来源
+Activity：活动来源
                      * 
                      */
                     void SetFlag(const std::string& _flag);
@@ -127,15 +135,15 @@ namespace TencentCloud
                     bool FlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络Id</p>
-                     * @return VpcId <p>私有网络Id</p>
+                     * 获取私有网络Id
+                     * @return VpcId 私有网络Id
                      * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置<p>私有网络Id</p>
-                     * @param _vpcId <p>私有网络Id</p>
+                     * 设置私有网络Id
+                     * @param _vpcId 私有网络Id
                      * 
                      */
                     void SetVpcId(const std::string& _vpcId);
@@ -148,15 +156,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网列表</p>
-                     * @return SubNetIds <p>子网列表</p>
+                     * 获取子网列表
+                     * @return SubNetIds 子网列表
                      * 
                      */
                     std::vector<std::string> GetSubNetIds() const;
 
                     /**
-                     * 设置<p>子网列表</p>
-                     * @param _subNetIds <p>子网列表</p>
+                     * 设置子网列表
+                     * @param _subNetIds 子网列表
                      * 
                      */
                     void SetSubNetIds(const std::vector<std::string>& _subNetIds);
@@ -169,15 +177,15 @@ namespace TencentCloud
                     bool SubNetIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>请求key 用于防重</p>
-                     * @return ReqKey <p>请求key 用于防重</p>
+                     * 获取请求key 用于防重
+                     * @return ReqKey 请求key 用于防重
                      * 
                      */
                     std::string GetReqKey() const;
 
                     /**
-                     * 设置<p>请求key 用于防重</p>
-                     * @param _reqKey <p>请求key 用于防重</p>
+                     * 设置请求key 用于防重
+                     * @param _reqKey 请求key 用于防重
                      * 
                      */
                     void SetReqKey(const std::string& _reqKey);
@@ -190,15 +198,15 @@ namespace TencentCloud
                     bool ReqKeyHasBeenSet() const;
 
                     /**
-                     * 获取<p>来源：wechat | cloud | weda</p>
-                     * @return Source <p>来源：wechat | cloud | weda</p>
+                     * 获取来源：wechat | cloud | weda
+                     * @return Source 来源：wechat | cloud | weda
                      * 
                      */
                     std::string GetSource() const;
 
                     /**
-                     * 设置<p>来源：wechat | cloud | weda</p>
-                     * @param _source <p>来源：wechat | cloud | weda</p>
+                     * 设置来源：wechat | cloud | weda
+                     * @param _source 来源：wechat | cloud | weda
                      * 
                      */
                     void SetSource(const std::string& _source);
@@ -211,15 +219,15 @@ namespace TencentCloud
                     bool SourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>渠道：wechat | cloud | weda</p>
-                     * @return Channel <p>渠道：wechat | cloud | weda</p>
+                     * 获取渠道：wechat | cloud | weda
+                     * @return Channel 渠道：wechat | cloud | weda
                      * 
                      */
                     std::string GetChannel() const;
 
                     /**
-                     * 设置<p>渠道：wechat | cloud | weda</p>
-                     * @param _channel <p>渠道：wechat | cloud | weda</p>
+                     * 设置渠道：wechat | cloud | weda
+                     * @param _channel 渠道：wechat | cloud | weda
                      * 
                      */
                     void SetChannel(const std::string& _channel);
@@ -232,15 +240,15 @@ namespace TencentCloud
                     bool ChannelHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境ID 云开发平台必填</p>
-                     * @return EnvId <p>环境ID 云开发平台必填</p>
+                     * 获取环境ID 云开发平台必填
+                     * @return EnvId 环境ID 云开发平台必填
                      * 
                      */
                     std::string GetEnvId() const;
 
                     /**
-                     * 设置<p>环境ID 云开发平台必填</p>
-                     * @param _envId <p>环境ID 云开发平台必填</p>
+                     * 设置环境ID 云开发平台必填
+                     * @param _envId 环境ID 云开发平台必填
                      * 
                      */
                     void SetEnvId(const std::string& _envId);
@@ -255,61 +263,63 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>Trial,Standard,Professional,Enterprise</p>
+                     * Trial,Standard,Professional,Enterprise
                      */
                     std::string m_packageType;
                     bool m_packageTypeHasBeenSet;
 
                     /**
-                     * <p>环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符</p>
+                     * 环境别名，要以a-z开头，不能包含 a-z,0-9,- 以外的字符
                      */
                     std::string m_alias;
                     bool m_aliasHasBeenSet;
 
                     /**
-                     * <p>用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。</p>
+                     * 用户享有的免费额度级别，目前只能为“basic”，不传该字段或该字段为空，标识不享受免费额度。
                      */
                     std::string m_freeQuota;
                     bool m_freeQuotaHasBeenSet;
 
                     /**
-                     * <p>订单标记。建议使用方统一转大小写之后再判断。QuickStart：快速启动来源Activity：活动来源</p>
+                     * 订单标记。建议使用方统一转大小写之后再判断。
+QuickStart：快速启动来源
+Activity：活动来源
                      */
                     std::string m_flag;
                     bool m_flagHasBeenSet;
 
                     /**
-                     * <p>私有网络Id</p>
+                     * 私有网络Id
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>子网列表</p>
+                     * 子网列表
                      */
                     std::vector<std::string> m_subNetIds;
                     bool m_subNetIdsHasBeenSet;
 
                     /**
-                     * <p>请求key 用于防重</p>
+                     * 请求key 用于防重
                      */
                     std::string m_reqKey;
                     bool m_reqKeyHasBeenSet;
 
                     /**
-                     * <p>来源：wechat | cloud | weda</p>
+                     * 来源：wechat | cloud | weda
                      */
                     std::string m_source;
                     bool m_sourceHasBeenSet;
 
                     /**
-                     * <p>渠道：wechat | cloud | weda</p>
+                     * 渠道：wechat | cloud | weda
                      */
                     std::string m_channel;
                     bool m_channelHasBeenSet;
 
                     /**
-                     * <p>环境ID 云开发平台必填</p>
+                     * 环境ID 云开发平台必填
                      */
                     std::string m_envId;
                     bool m_envIdHasBeenSet;

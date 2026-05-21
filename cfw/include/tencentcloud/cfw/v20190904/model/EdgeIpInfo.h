@@ -289,11 +289,9 @@ namespace TencentCloud
                      * 获取0: 该地域暂未支持串行
 1: 该用户未在该地域配置串行带宽
 2: 该用户已在该地域配置串行带宽，可以开启串行开关
-3. 该地域可以支持串行，但是未部署公共集群
                      * @return IsSerialRegion 0: 该地域暂未支持串行
 1: 该用户未在该地域配置串行带宽
 2: 该用户已在该地域配置串行带宽，可以开启串行开关
-3. 该地域可以支持串行，但是未部署公共集群
                      * 
                      */
                     int64_t GetIsSerialRegion() const;
@@ -302,11 +300,9 @@ namespace TencentCloud
                      * 设置0: 该地域暂未支持串行
 1: 该用户未在该地域配置串行带宽
 2: 该用户已在该地域配置串行带宽，可以开启串行开关
-3. 该地域可以支持串行，但是未部署公共集群
                      * @param _isSerialRegion 0: 该地域暂未支持串行
 1: 该用户未在该地域配置串行带宽
 2: 该用户已在该地域配置串行带宽，可以开启串行开关
-3. 该地域可以支持串行，但是未部署公共集群
                      * 
                      */
                     void SetIsSerialRegion(const int64_t& _isSerialRegion);
@@ -349,10 +345,10 @@ namespace TencentCloud
 
                     /**
                      * 获取0: 开启开关时提示要创建私有连接。
-1: 关闭该开关时提示删除私有连接。
+1: 关闭该开关是提示删除私有连接。
 如果大于 1: 关闭开关 、开启开关不需提示创建删除私有连接。
                      * @return EndpointBindEipNum 0: 开启开关时提示要创建私有连接。
-1: 关闭该开关时提示删除私有连接。
+1: 关闭该开关是提示删除私有连接。
 如果大于 1: 关闭开关 、开启开关不需提示创建删除私有连接。
                      * 
                      */
@@ -360,10 +356,10 @@ namespace TencentCloud
 
                     /**
                      * 设置0: 开启开关时提示要创建私有连接。
-1: 关闭该开关时提示删除私有连接。
+1: 关闭该开关是提示删除私有连接。
 如果大于 1: 关闭开关 、开启开关不需提示创建删除私有连接。
                      * @param _endpointBindEipNum 0: 开启开关时提示要创建私有连接。
-1: 关闭该开关时提示删除私有连接。
+1: 关闭该开关是提示删除私有连接。
 如果大于 1: 关闭开关 、开启开关不需提示创建删除私有连接。
                      * 
                      */
@@ -593,39 +589,6 @@ namespace TencentCloud
                      */
                     bool OverUsedStatusHasBeenSet() const;
 
-                    /**
-                     * 获取0 都不支持
-1 支持旁路
-2 支持串行
-3 旁路串行都支持
-                     * @return SwitchSupportType 0 都不支持
-1 支持旁路
-2 支持串行
-3 旁路串行都支持
-                     * 
-                     */
-                    int64_t GetSwitchSupportType() const;
-
-                    /**
-                     * 设置0 都不支持
-1 支持旁路
-2 支持串行
-3 旁路串行都支持
-                     * @param _switchSupportType 0 都不支持
-1 支持旁路
-2 支持串行
-3 旁路串行都支持
-                     * 
-                     */
-                    void SetSwitchSupportType(const int64_t& _switchSupportType);
-
-                    /**
-                     * 判断参数 SwitchSupportType 是否已赋值
-                     * @return SwitchSupportType 是否已赋值
-                     * 
-                     */
-                    bool SwitchSupportTypeHasBeenSet() const;
-
                 private:
 
                     /**
@@ -700,7 +663,6 @@ namespace TencentCloud
                      * 0: 该地域暂未支持串行
 1: 该用户未在该地域配置串行带宽
 2: 该用户已在该地域配置串行带宽，可以开启串行开关
-3. 该地域可以支持串行，但是未部署公共集群
                      */
                     int64_t m_isSerialRegion;
                     bool m_isSerialRegionHasBeenSet;
@@ -715,7 +677,7 @@ namespace TencentCloud
 
                     /**
                      * 0: 开启开关时提示要创建私有连接。
-1: 关闭该开关时提示删除私有连接。
+1: 关闭该开关是提示删除私有连接。
 如果大于 1: 关闭开关 、开启开关不需提示创建删除私有连接。
                      */
                     int64_t m_endpointBindEipNum;
@@ -781,15 +743,6 @@ namespace TencentCloud
                      */
                     int64_t m_overUsedStatus;
                     bool m_overUsedStatusHasBeenSet;
-
-                    /**
-                     * 0 都不支持
-1 支持旁路
-2 支持串行
-3 旁路串行都支持
-                     */
-                    int64_t m_switchSupportType;
-                    bool m_switchSupportTypeHasBeenSet;
 
                 };
             }

@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群ID。</p>
-                     * @return ClusterId <p>集群ID。</p>
+                     * 获取集群ID。
+                     * @return ClusterId 集群ID。
                      * 
                      */
                     std::string GetClusterId() const;
 
                     /**
-                     * 设置<p>集群ID。</p>
-                     * @param _clusterId <p>集群ID。</p>
+                     * 设置集群ID。
+                     * @param _clusterId 集群ID。
                      * 
                      */
                     void SetClusterId(const std::string& _clusterId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。</p>
-                     * @return ExpansionBusyTime <p>任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。</p>
+                     * 获取任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。
+                     * @return ExpansionBusyTime 任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。
                      * 
                      */
                     int64_t GetExpansionBusyTime() const;
 
                     /**
-                     * 设置<p>任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。</p>
-                     * @param _expansionBusyTime <p>任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。</p>
+                     * 设置任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。
+                     * @param _expansionBusyTime 任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。
                      * 
                      */
                     void SetExpansionBusyTime(const int64_t& _expansionBusyTime);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool ExpansionBusyTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。</p>
-                     * @return ShrinkIdleTime <p>节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。</p>
+                     * 获取节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。
+                     * @return ShrinkIdleTime 节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。
                      * 
                      */
                     int64_t GetShrinkIdleTime() const;
 
                     /**
-                     * 设置<p>节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。</p>
-                     * @param _shrinkIdleTime <p>节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。</p>
+                     * 设置节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。
+                     * @param _shrinkIdleTime 节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。
                      * 
                      */
                     void SetShrinkIdleTime(const int64_t& _shrinkIdleTime);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool ShrinkIdleTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>扩容队列配置列表。</p>
-                     * @return QueueConfigs <p>扩容队列配置列表。</p>
+                     * 获取扩容队列配置列表。
+                     * @return QueueConfigs 扩容队列配置列表。
                      * 
                      */
                     std::vector<QueueConfig> GetQueueConfigs() const;
 
                     /**
-                     * 设置<p>扩容队列配置列表。</p>
-                     * @param _queueConfigs <p>扩容队列配置列表。</p>
+                     * 设置扩容队列配置列表。
+                     * @param _queueConfigs 扩容队列配置列表。
                      * 
                      */
                     void SetQueueConfigs(const std::vector<QueueConfig>& _queueConfigs);
@@ -128,15 +128,31 @@ namespace TencentCloud
                     bool QueueConfigsHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否只预检此次请求。<br>true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。<br>如果检查不通过，则返回对应错误码；<br>如果检查通过，则返回RequestId。<br>false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。</p>
-                     * @return DryRun <p>是否只预检此次请求。<br>true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。<br>如果检查不通过，则返回对应错误码；<br>如果检查通过，则返回RequestId。<br>false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。</p>
+                     * 获取是否只预检此次请求。
+true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。
+如果检查不通过，则返回对应错误码；
+如果检查通过，则返回RequestId。
+false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。
+                     * @return DryRun 是否只预检此次请求。
+true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。
+如果检查不通过，则返回对应错误码；
+如果检查通过，则返回RequestId。
+false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。
                      * 
                      */
                     bool GetDryRun() const;
 
                     /**
-                     * 设置<p>是否只预检此次请求。<br>true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。<br>如果检查不通过，则返回对应错误码；<br>如果检查通过，则返回RequestId。<br>false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。</p>
-                     * @param _dryRun <p>是否只预检此次请求。<br>true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。<br>如果检查不通过，则返回对应错误码；<br>如果检查通过，则返回RequestId。<br>false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。</p>
+                     * 设置是否只预检此次请求。
+true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。
+如果检查不通过，则返回对应错误码；
+如果检查通过，则返回RequestId。
+false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。
+                     * @param _dryRun 是否只预检此次请求。
+true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。
+如果检查不通过，则返回对应错误码；
+如果检查通过，则返回RequestId。
+false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。
                      * 
                      */
                     void SetDryRun(const bool& _dryRun);
@@ -151,31 +167,35 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>集群ID。</p>
+                     * 集群ID。
                      */
                     std::string m_clusterId;
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * <p>任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。</p>
+                     * 任务连续等待时间，队列的任务处于连续等待的时间。单位秒。默认值120。
                      */
                     int64_t m_expansionBusyTime;
                     bool m_expansionBusyTimeHasBeenSet;
 
                     /**
-                     * <p>节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。</p>
+                     * 节点连续空闲（未运行作业）时间，一个节点连续处于空闲状态时间。单位秒。默认值300。
                      */
                     int64_t m_shrinkIdleTime;
                     bool m_shrinkIdleTimeHasBeenSet;
 
                     /**
-                     * <p>扩容队列配置列表。</p>
+                     * 扩容队列配置列表。
                      */
                     std::vector<QueueConfig> m_queueConfigs;
                     bool m_queueConfigsHasBeenSet;
 
                     /**
-                     * <p>是否只预检此次请求。<br>true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。<br>如果检查不通过，则返回对应错误码；<br>如果检查通过，则返回RequestId。<br>false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。</p>
+                     * 是否只预检此次请求。
+true：发送检查请求，不会绑定弹性伸缩组。检查项包括是否填写了必需参数，请求格式，业务限制。
+如果检查不通过，则返回对应错误码；
+如果检查通过，则返回RequestId。
+false（默认）：发送正常请求，通过检查后直接绑定弹性伸缩组。
                      */
                     bool m_dryRun;
                     bool m_dryRunHasBeenSet;

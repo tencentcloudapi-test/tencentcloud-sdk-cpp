@@ -41,9 +41,7 @@ ClusterAdvancedSettings::ClusterAdvancedSettings() :
     m_nodeNameTypeHasBeenSet(false),
     m_qGPUShareEnableHasBeenSet(false),
     m_runtimeVersionHasBeenSet(false),
-    m_vpcCniTypeHasBeenSet(false),
-    m_isHighAvailabilityHasBeenSet(false),
-    m_securityModeConfigHasBeenSet(false)
+    m_vpcCniTypeHasBeenSet(false)
 {
 }
 
@@ -279,33 +277,6 @@ CoreInternalOutcome ClusterAdvancedSettings::Deserialize(const rapidjson::Value 
         m_vpcCniTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("IsHighAvailability") && !value["IsHighAvailability"].IsNull())
-    {
-        if (!value["IsHighAvailability"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `ClusterAdvancedSettings.IsHighAvailability` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_isHighAvailability = value["IsHighAvailability"].GetBool();
-        m_isHighAvailabilityHasBeenSet = true;
-    }
-
-    if (value.HasMember("SecurityModeConfig") && !value["SecurityModeConfig"].IsNull())
-    {
-        if (!value["SecurityModeConfig"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `ClusterAdvancedSettings.SecurityModeConfig` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_securityModeConfig.Deserialize(value["SecurityModeConfig"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_securityModeConfigHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -487,23 +458,6 @@ void ClusterAdvancedSettings::ToJsonObject(rapidjson::Value &value, rapidjson::D
         string key = "VpcCniType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_vpcCniType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_isHighAvailabilityHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IsHighAvailability";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_isHighAvailability, allocator);
-    }
-
-    if (m_securityModeConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SecurityModeConfig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_securityModeConfig.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -843,37 +797,5 @@ void ClusterAdvancedSettings::SetVpcCniType(const string& _vpcCniType)
 bool ClusterAdvancedSettings::VpcCniTypeHasBeenSet() const
 {
     return m_vpcCniTypeHasBeenSet;
-}
-
-bool ClusterAdvancedSettings::GetIsHighAvailability() const
-{
-    return m_isHighAvailability;
-}
-
-void ClusterAdvancedSettings::SetIsHighAvailability(const bool& _isHighAvailability)
-{
-    m_isHighAvailability = _isHighAvailability;
-    m_isHighAvailabilityHasBeenSet = true;
-}
-
-bool ClusterAdvancedSettings::IsHighAvailabilityHasBeenSet() const
-{
-    return m_isHighAvailabilityHasBeenSet;
-}
-
-SecurityModeConfig ClusterAdvancedSettings::GetSecurityModeConfig() const
-{
-    return m_securityModeConfig;
-}
-
-void ClusterAdvancedSettings::SetSecurityModeConfig(const SecurityModeConfig& _securityModeConfig)
-{
-    m_securityModeConfig = _securityModeConfig;
-    m_securityModeConfigHasBeenSet = true;
-}
-
-bool ClusterAdvancedSettings::SecurityModeConfigHasBeenSet() const
-{
-    return m_securityModeConfigHasBeenSet;
 }
 

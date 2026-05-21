@@ -49,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务进度。</p>
-                     * @return Progress <p>任务进度。</p>
+                     * 获取任务进度。
+                     * @return Progress 任务进度。
                      * 
                      */
                     uint64_t GetProgress() const;
 
                     /**
-                     * 设置<p>任务进度。</p>
-                     * @param _progress <p>任务进度。</p>
+                     * 设置任务进度。
+                     * @param _progress 任务进度。
                      * 
                      */
                     void SetProgress(const uint64_t& _progress);
@@ -70,15 +70,15 @@ namespace TencentCloud
                     bool ProgressHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务状态，有 PROCESSING，SUCCESS，WAITING 和 FAIL 四种。</p>
-                     * @return Status <p>任务状态，有 PROCESSING，SUCCESS，WAITING 和 FAIL 四种。</p>
+                     * 获取任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+                     * @return Status 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>任务状态，有 PROCESSING，SUCCESS，WAITING 和 FAIL 四种。</p>
-                     * @param _status <p>任务状态，有 PROCESSING，SUCCESS，WAITING 和 FAIL 四种。</p>
+                     * 设置任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
+                     * @param _status 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -91,15 +91,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误码，空字符串表示成功，其他值表示失败，取值请参考 <a href="https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81">媒体处理类错误码</a> 列表。</p>
-                     * @return ErrCodeExt <p>错误码，空字符串表示成功，其他值表示失败，取值请参考 <a href="https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81">媒体处理类错误码</a> 列表。</p>
+                     * 获取错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+                     * @return ErrCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
                      * 
                      */
                     std::string GetErrCodeExt() const;
 
                     /**
-                     * 设置<p>错误码，空字符串表示成功，其他值表示失败，取值请参考 <a href="https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81">媒体处理类错误码</a> 列表。</p>
-                     * @param _errCodeExt <p>错误码，空字符串表示成功，其他值表示失败，取值请参考 <a href="https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81">媒体处理类错误码</a> 列表。</p>
+                     * 设置错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
+                     * @param _errCodeExt 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
                      * 
                      */
                     void SetErrCodeExt(const std::string& _errCodeExt);
@@ -112,15 +112,15 @@ namespace TencentCloud
                     bool ErrCodeExtHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误信息。</p>
-                     * @return Message <p>错误信息。</p>
+                     * 获取错误信息。
+                     * @return Message 错误信息。
                      * 
                      */
                     std::string GetMessage() const;
 
                     /**
-                     * 设置<p>错误信息。</p>
-                     * @param _message <p>错误信息。</p>
+                     * 设置错误信息。
+                     * @param _message 错误信息。
                      * 
                      */
                     void SetMessage(const std::string& _message);
@@ -133,18 +133,18 @@ namespace TencentCloud
                     bool MessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>翻译任务输出信息。</p>
+                     * 获取翻译任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TransTextTask <p>翻译任务输出信息。</p>
+                     * @return TransTextTask 翻译任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     SmartSubtitleTaskTransTextResultOutput GetTransTextTask() const;
 
                     /**
-                     * 设置<p>翻译任务输出信息。</p>
+                     * 设置翻译任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _transTextTask <p>翻译任务输出信息。</p>
+                     * @param _transTextTask 翻译任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -158,18 +158,18 @@ namespace TencentCloud
                     bool TransTextTaskHasBeenSet() const;
 
                     /**
-                     * 获取<p>语音全文识别任务输出信息。</p>
+                     * 获取语音全文识别任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AsrFullTextTask <p>语音全文识别任务输出信息。</p>
+                     * @return AsrFullTextTask 语音全文识别任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     SmartSubtitleTaskAsrFullTextResultOutput GetAsrFullTextTask() const;
 
                     /**
-                     * 设置<p>语音全文识别任务输出信息。</p>
+                     * 设置语音全文识别任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _asrFullTextTask <p>语音全文识别任务输出信息。</p>
+                     * @param _asrFullTextTask 语音全文识别任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -185,38 +185,38 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务进度。</p>
+                     * 任务进度。
                      */
                     uint64_t m_progress;
                     bool m_progressHasBeenSet;
 
                     /**
-                     * <p>任务状态，有 PROCESSING，SUCCESS，WAITING 和 FAIL 四种。</p>
+                     * 任务状态，有 PROCESSING，SUCCESS 和 FAIL 三种。
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>错误码，空字符串表示成功，其他值表示失败，取值请参考 <a href="https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81">媒体处理类错误码</a> 列表。</p>
+                     * 错误码，空字符串表示成功，其他值表示失败，取值请参考 [媒体处理类错误码](https://cloud.tencent.com/document/product/862/50369#.E8.A7.86.E9.A2.91.E5.A4.84.E7.90.86.E7.B1.BB.E9.94.99.E8.AF.AF.E7.A0.81) 列表。
                      */
                     std::string m_errCodeExt;
                     bool m_errCodeExtHasBeenSet;
 
                     /**
-                     * <p>错误信息。</p>
+                     * 错误信息。
                      */
                     std::string m_message;
                     bool m_messageHasBeenSet;
 
                     /**
-                     * <p>翻译任务输出信息。</p>
+                     * 翻译任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     SmartSubtitleTaskTransTextResultOutput m_transTextTask;
                     bool m_transTextTaskHasBeenSet;
 
                     /**
-                     * <p>语音全文识别任务输出信息。</p>
+                     * 语音全文识别任务输出信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     SmartSubtitleTaskAsrFullTextResultOutput m_asrFullTextTask;

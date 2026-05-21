@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>左上顶点x坐标</p>
-                     * @return X <p>左上顶点x坐标</p>
+                     * 获取左上顶点x坐标
+                     * @return X 左上顶点x坐标
                      * 
                      */
                     int64_t GetX() const;
 
                     /**
-                     * 设置<p>左上顶点x坐标</p>
-                     * @param _x <p>左上顶点x坐标</p>
+                     * 设置左上顶点x坐标
+                     * @param _x 左上顶点x坐标
                      * 
                      */
                     void SetX(const int64_t& _x);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool XHasBeenSet() const;
 
                     /**
-                     * 获取<p>左上顶点y坐标</p>
-                     * @return Y <p>左上顶点y坐标</p>
+                     * 获取左上顶点y坐标
+                     * @return Y 左上顶点y坐标
                      * 
                      */
                     int64_t GetY() const;
 
                     /**
-                     * 设置<p>左上顶点y坐标</p>
-                     * @param _y <p>左上顶点y坐标</p>
+                     * 设置左上顶点y坐标
+                     * @param _y 左上顶点y坐标
                      * 
                      */
                     void SetY(const int64_t& _y);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool YHasBeenSet() const;
 
                     /**
-                     * 获取<p>宽</p><p>单位：px</p>
-                     * @return Width <p>宽</p><p>单位：px</p>
+                     * 获取宽
+                     * @return Width 宽
                      * 
                      */
                     int64_t GetWidth() const;
 
                     /**
-                     * 设置<p>宽</p><p>单位：px</p>
-                     * @param _width <p>宽</p><p>单位：px</p>
+                     * 设置宽
+                     * @param _width 宽
                      * 
                      */
                     void SetWidth(const int64_t& _width);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool WidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>高</p><p>单位：px</p>
-                     * @return Height <p>高</p><p>单位：px</p>
+                     * 获取高
+                     * @return Height 高
                      * 
                      */
                     int64_t GetHeight() const;
 
                     /**
-                     * 设置<p>高</p><p>单位：px</p>
-                     * @param _height <p>高</p><p>单位：px</p>
+                     * 设置高
+                     * @param _height 高
                      * 
                      */
                     void SetHeight(const int64_t& _height);
@@ -133,25 +133,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>左上顶点x坐标</p>
+                     * 左上顶点x坐标
                      */
                     int64_t m_x;
                     bool m_xHasBeenSet;
 
                     /**
-                     * <p>左上顶点y坐标</p>
+                     * 左上顶点y坐标
                      */
                     int64_t m_y;
                     bool m_yHasBeenSet;
 
                     /**
-                     * <p>宽</p><p>单位：px</p>
+                     * 宽
                      */
                     int64_t m_width;
                     bool m_widthHasBeenSet;
 
                     /**
-                     * <p>高</p><p>单位：px</p>
+                     * 高
                      */
                     int64_t m_height;
                     bool m_heightHasBeenSet;

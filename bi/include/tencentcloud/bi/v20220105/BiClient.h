@@ -27,8 +27,6 @@
 #include <tencentcloud/bi/v20220105/model/ApplyEmbedIntervalResponse.h>
 #include <tencentcloud/bi/v20220105/model/ClearEmbedTokenRequest.h>
 #include <tencentcloud/bi/v20220105/model/ClearEmbedTokenResponse.h>
-#include <tencentcloud/bi/v20220105/model/CreateAuthApiKeyRequest.h>
-#include <tencentcloud/bi/v20220105/model/CreateAuthApiKeyResponse.h>
 #include <tencentcloud/bi/v20220105/model/CreateDatasourceRequest.h>
 #include <tencentcloud/bi/v20220105/model/CreateDatasourceResponse.h>
 #include <tencentcloud/bi/v20220105/model/CreateDatasourceCloudRequest.h>
@@ -39,32 +37,18 @@
 #include <tencentcloud/bi/v20220105/model/CreatePermissionRanksResponse.h>
 #include <tencentcloud/bi/v20220105/model/CreateProjectRequest.h>
 #include <tencentcloud/bi/v20220105/model/CreateProjectResponse.h>
-#include <tencentcloud/bi/v20220105/model/CreateUserGroupRequest.h>
-#include <tencentcloud/bi/v20220105/model/CreateUserGroupResponse.h>
-#include <tencentcloud/bi/v20220105/model/CreateUserGroupMemberRequest.h>
-#include <tencentcloud/bi/v20220105/model/CreateUserGroupMemberResponse.h>
 #include <tencentcloud/bi/v20220105/model/CreateUserRoleRequest.h>
 #include <tencentcloud/bi/v20220105/model/CreateUserRoleResponse.h>
 #include <tencentcloud/bi/v20220105/model/CreateUserRoleProjectRequest.h>
 #include <tencentcloud/bi/v20220105/model/CreateUserRoleProjectResponse.h>
-#include <tencentcloud/bi/v20220105/model/DeleteAuthApiKeyRequest.h>
-#include <tencentcloud/bi/v20220105/model/DeleteAuthApiKeyResponse.h>
 #include <tencentcloud/bi/v20220105/model/DeleteDatasourceRequest.h>
 #include <tencentcloud/bi/v20220105/model/DeleteDatasourceResponse.h>
 #include <tencentcloud/bi/v20220105/model/DeleteProjectRequest.h>
 #include <tencentcloud/bi/v20220105/model/DeleteProjectResponse.h>
-#include <tencentcloud/bi/v20220105/model/DeleteUserGroupRequest.h>
-#include <tencentcloud/bi/v20220105/model/DeleteUserGroupResponse.h>
-#include <tencentcloud/bi/v20220105/model/DeleteUserGroupMemberRequest.h>
-#include <tencentcloud/bi/v20220105/model/DeleteUserGroupMemberResponse.h>
 #include <tencentcloud/bi/v20220105/model/DeleteUserRoleRequest.h>
 #include <tencentcloud/bi/v20220105/model/DeleteUserRoleResponse.h>
 #include <tencentcloud/bi/v20220105/model/DeleteUserRoleProjectRequest.h>
 #include <tencentcloud/bi/v20220105/model/DeleteUserRoleProjectResponse.h>
-#include <tencentcloud/bi/v20220105/model/DescribeAuthApiKeyInfoRequest.h>
-#include <tencentcloud/bi/v20220105/model/DescribeAuthApiKeyInfoResponse.h>
-#include <tencentcloud/bi/v20220105/model/DescribeAuthApiKeyListRequest.h>
-#include <tencentcloud/bi/v20220105/model/DescribeAuthApiKeyListResponse.h>
 #include <tencentcloud/bi/v20220105/model/DescribeDatasourceListRequest.h>
 #include <tencentcloud/bi/v20220105/model/DescribeDatasourceListResponse.h>
 #include <tencentcloud/bi/v20220105/model/DescribePageWidgetListRequest.h>
@@ -79,14 +63,6 @@
 #include <tencentcloud/bi/v20220105/model/DescribeProjectInfoResponse.h>
 #include <tencentcloud/bi/v20220105/model/DescribeProjectListRequest.h>
 #include <tencentcloud/bi/v20220105/model/DescribeProjectListResponse.h>
-#include <tencentcloud/bi/v20220105/model/DescribeResourceUserGroupPageListRequest.h>
-#include <tencentcloud/bi/v20220105/model/DescribeResourceUserGroupPageListResponse.h>
-#include <tencentcloud/bi/v20220105/model/DescribeUserGroupInfoRequest.h>
-#include <tencentcloud/bi/v20220105/model/DescribeUserGroupInfoResponse.h>
-#include <tencentcloud/bi/v20220105/model/DescribeUserGroupMemberListRequest.h>
-#include <tencentcloud/bi/v20220105/model/DescribeUserGroupMemberListResponse.h>
-#include <tencentcloud/bi/v20220105/model/DescribeUserGroupTreeListRequest.h>
-#include <tencentcloud/bi/v20220105/model/DescribeUserGroupTreeListResponse.h>
 #include <tencentcloud/bi/v20220105/model/DescribeUserProjectListRequest.h>
 #include <tencentcloud/bi/v20220105/model/DescribeUserProjectListResponse.h>
 #include <tencentcloud/bi/v20220105/model/DescribeUserRoleListRequest.h>
@@ -95,28 +71,16 @@
 #include <tencentcloud/bi/v20220105/model/DescribeUserRoleProjectListResponse.h>
 #include <tencentcloud/bi/v20220105/model/ExportScreenPageRequest.h>
 #include <tencentcloud/bi/v20220105/model/ExportScreenPageResponse.h>
-#include <tencentcloud/bi/v20220105/model/ModifyAuthApiKeyRequest.h>
-#include <tencentcloud/bi/v20220105/model/ModifyAuthApiKeyResponse.h>
 #include <tencentcloud/bi/v20220105/model/ModifyDatasourceRequest.h>
 #include <tencentcloud/bi/v20220105/model/ModifyDatasourceResponse.h>
 #include <tencentcloud/bi/v20220105/model/ModifyDatasourceCloudRequest.h>
 #include <tencentcloud/bi/v20220105/model/ModifyDatasourceCloudResponse.h>
 #include <tencentcloud/bi/v20220105/model/ModifyProjectRequest.h>
 #include <tencentcloud/bi/v20220105/model/ModifyProjectResponse.h>
-#include <tencentcloud/bi/v20220105/model/ModifyResourceUserGroupRequest.h>
-#include <tencentcloud/bi/v20220105/model/ModifyResourceUserGroupResponse.h>
-#include <tencentcloud/bi/v20220105/model/ModifyResourceUserGroupResourceRequest.h>
-#include <tencentcloud/bi/v20220105/model/ModifyResourceUserGroupResourceResponse.h>
-#include <tencentcloud/bi/v20220105/model/ModifyUserDetailInfoRequest.h>
-#include <tencentcloud/bi/v20220105/model/ModifyUserDetailInfoResponse.h>
-#include <tencentcloud/bi/v20220105/model/ModifyUserGroupRequest.h>
-#include <tencentcloud/bi/v20220105/model/ModifyUserGroupResponse.h>
 #include <tencentcloud/bi/v20220105/model/ModifyUserRoleRequest.h>
 #include <tencentcloud/bi/v20220105/model/ModifyUserRoleResponse.h>
 #include <tencentcloud/bi/v20220105/model/ModifyUserRoleProjectRequest.h>
 #include <tencentcloud/bi/v20220105/model/ModifyUserRoleProjectResponse.h>
-#include <tencentcloud/bi/v20220105/model/QueryUserGroupMemberRequest.h>
-#include <tencentcloud/bi/v20220105/model/QueryUserGroupMemberResponse.h>
 
 
 namespace TencentCloud
@@ -137,9 +101,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ClearEmbedTokenResponse> ClearEmbedTokenOutcome;
                 typedef std::future<ClearEmbedTokenOutcome> ClearEmbedTokenOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::ClearEmbedTokenRequest&, ClearEmbedTokenOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ClearEmbedTokenAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateAuthApiKeyResponse> CreateAuthApiKeyOutcome;
-                typedef std::future<CreateAuthApiKeyOutcome> CreateAuthApiKeyOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::CreateAuthApiKeyRequest&, CreateAuthApiKeyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAuthApiKeyAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateDatasourceResponse> CreateDatasourceOutcome;
                 typedef std::future<CreateDatasourceOutcome> CreateDatasourceOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::CreateDatasourceRequest&, CreateDatasourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDatasourceAsyncHandler;
@@ -155,45 +116,24 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateProjectResponse> CreateProjectOutcome;
                 typedef std::future<CreateProjectOutcome> CreateProjectOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::CreateProjectRequest&, CreateProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateUserGroupResponse> CreateUserGroupOutcome;
-                typedef std::future<CreateUserGroupOutcome> CreateUserGroupOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::CreateUserGroupRequest&, CreateUserGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUserGroupAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateUserGroupMemberResponse> CreateUserGroupMemberOutcome;
-                typedef std::future<CreateUserGroupMemberOutcome> CreateUserGroupMemberOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::CreateUserGroupMemberRequest&, CreateUserGroupMemberOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUserGroupMemberAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateUserRoleResponse> CreateUserRoleOutcome;
                 typedef std::future<CreateUserRoleOutcome> CreateUserRoleOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::CreateUserRoleRequest&, CreateUserRoleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUserRoleAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateUserRoleProjectResponse> CreateUserRoleProjectOutcome;
                 typedef std::future<CreateUserRoleProjectOutcome> CreateUserRoleProjectOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::CreateUserRoleProjectRequest&, CreateUserRoleProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateUserRoleProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteAuthApiKeyResponse> DeleteAuthApiKeyOutcome;
-                typedef std::future<DeleteAuthApiKeyOutcome> DeleteAuthApiKeyOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DeleteAuthApiKeyRequest&, DeleteAuthApiKeyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAuthApiKeyAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteDatasourceResponse> DeleteDatasourceOutcome;
                 typedef std::future<DeleteDatasourceOutcome> DeleteDatasourceOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DeleteDatasourceRequest&, DeleteDatasourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDatasourceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteProjectResponse> DeleteProjectOutcome;
                 typedef std::future<DeleteProjectOutcome> DeleteProjectOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DeleteProjectRequest&, DeleteProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteUserGroupResponse> DeleteUserGroupOutcome;
-                typedef std::future<DeleteUserGroupOutcome> DeleteUserGroupOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DeleteUserGroupRequest&, DeleteUserGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteUserGroupAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteUserGroupMemberResponse> DeleteUserGroupMemberOutcome;
-                typedef std::future<DeleteUserGroupMemberOutcome> DeleteUserGroupMemberOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DeleteUserGroupMemberRequest&, DeleteUserGroupMemberOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteUserGroupMemberAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteUserRoleResponse> DeleteUserRoleOutcome;
                 typedef std::future<DeleteUserRoleOutcome> DeleteUserRoleOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DeleteUserRoleRequest&, DeleteUserRoleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteUserRoleAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteUserRoleProjectResponse> DeleteUserRoleProjectOutcome;
                 typedef std::future<DeleteUserRoleProjectOutcome> DeleteUserRoleProjectOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DeleteUserRoleProjectRequest&, DeleteUserRoleProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteUserRoleProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeAuthApiKeyInfoResponse> DescribeAuthApiKeyInfoOutcome;
-                typedef std::future<DescribeAuthApiKeyInfoOutcome> DescribeAuthApiKeyInfoOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DescribeAuthApiKeyInfoRequest&, DescribeAuthApiKeyInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAuthApiKeyInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeAuthApiKeyListResponse> DescribeAuthApiKeyListOutcome;
-                typedef std::future<DescribeAuthApiKeyListOutcome> DescribeAuthApiKeyListOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DescribeAuthApiKeyListRequest&, DescribeAuthApiKeyListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAuthApiKeyListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDatasourceListResponse> DescribeDatasourceListOutcome;
                 typedef std::future<DescribeDatasourceListOutcome> DescribeDatasourceListOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DescribeDatasourceListRequest&, DescribeDatasourceListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDatasourceListAsyncHandler;
@@ -215,18 +155,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeProjectListResponse> DescribeProjectListOutcome;
                 typedef std::future<DescribeProjectListOutcome> DescribeProjectListOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DescribeProjectListRequest&, DescribeProjectListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProjectListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeResourceUserGroupPageListResponse> DescribeResourceUserGroupPageListOutcome;
-                typedef std::future<DescribeResourceUserGroupPageListOutcome> DescribeResourceUserGroupPageListOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DescribeResourceUserGroupPageListRequest&, DescribeResourceUserGroupPageListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourceUserGroupPageListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeUserGroupInfoResponse> DescribeUserGroupInfoOutcome;
-                typedef std::future<DescribeUserGroupInfoOutcome> DescribeUserGroupInfoOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DescribeUserGroupInfoRequest&, DescribeUserGroupInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserGroupInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeUserGroupMemberListResponse> DescribeUserGroupMemberListOutcome;
-                typedef std::future<DescribeUserGroupMemberListOutcome> DescribeUserGroupMemberListOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DescribeUserGroupMemberListRequest&, DescribeUserGroupMemberListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserGroupMemberListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeUserGroupTreeListResponse> DescribeUserGroupTreeListOutcome;
-                typedef std::future<DescribeUserGroupTreeListOutcome> DescribeUserGroupTreeListOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::DescribeUserGroupTreeListRequest&, DescribeUserGroupTreeListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserGroupTreeListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUserProjectListResponse> DescribeUserProjectListOutcome;
                 typedef std::future<DescribeUserProjectListOutcome> DescribeUserProjectListOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::DescribeUserProjectListRequest&, DescribeUserProjectListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUserProjectListAsyncHandler;
@@ -239,9 +167,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ExportScreenPageResponse> ExportScreenPageOutcome;
                 typedef std::future<ExportScreenPageOutcome> ExportScreenPageOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::ExportScreenPageRequest&, ExportScreenPageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ExportScreenPageAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyAuthApiKeyResponse> ModifyAuthApiKeyOutcome;
-                typedef std::future<ModifyAuthApiKeyOutcome> ModifyAuthApiKeyOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::ModifyAuthApiKeyRequest&, ModifyAuthApiKeyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAuthApiKeyAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyDatasourceResponse> ModifyDatasourceOutcome;
                 typedef std::future<ModifyDatasourceOutcome> ModifyDatasourceOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::ModifyDatasourceRequest&, ModifyDatasourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDatasourceAsyncHandler;
@@ -251,27 +176,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyProjectResponse> ModifyProjectOutcome;
                 typedef std::future<ModifyProjectOutcome> ModifyProjectOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::ModifyProjectRequest&, ModifyProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyResourceUserGroupResponse> ModifyResourceUserGroupOutcome;
-                typedef std::future<ModifyResourceUserGroupOutcome> ModifyResourceUserGroupOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::ModifyResourceUserGroupRequest&, ModifyResourceUserGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyResourceUserGroupAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyResourceUserGroupResourceResponse> ModifyResourceUserGroupResourceOutcome;
-                typedef std::future<ModifyResourceUserGroupResourceOutcome> ModifyResourceUserGroupResourceOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::ModifyResourceUserGroupResourceRequest&, ModifyResourceUserGroupResourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyResourceUserGroupResourceAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyUserDetailInfoResponse> ModifyUserDetailInfoOutcome;
-                typedef std::future<ModifyUserDetailInfoOutcome> ModifyUserDetailInfoOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::ModifyUserDetailInfoRequest&, ModifyUserDetailInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserDetailInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyUserGroupResponse> ModifyUserGroupOutcome;
-                typedef std::future<ModifyUserGroupOutcome> ModifyUserGroupOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::ModifyUserGroupRequest&, ModifyUserGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyUserRoleResponse> ModifyUserRoleOutcome;
                 typedef std::future<ModifyUserRoleOutcome> ModifyUserRoleOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::ModifyUserRoleRequest&, ModifyUserRoleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserRoleAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyUserRoleProjectResponse> ModifyUserRoleProjectOutcome;
                 typedef std::future<ModifyUserRoleProjectOutcome> ModifyUserRoleProjectOutcomeCallable;
                 typedef std::function<void(const BiClient*, const Model::ModifyUserRoleProjectRequest&, ModifyUserRoleProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyUserRoleProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::QueryUserGroupMemberResponse> QueryUserGroupMemberOutcome;
-                typedef std::future<QueryUserGroupMemberOutcome> QueryUserGroupMemberOutcomeCallable;
-                typedef std::function<void(const BiClient*, const Model::QueryUserGroupMemberRequest&, QueryUserGroupMemberOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryUserGroupMemberAsyncHandler;
 
 
 
@@ -292,15 +202,6 @@ namespace TencentCloud
                 ClearEmbedTokenOutcome ClearEmbedToken(const Model::ClearEmbedTokenRequest &request);
                 void ClearEmbedTokenAsync(const Model::ClearEmbedTokenRequest& request, const ClearEmbedTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ClearEmbedTokenOutcomeCallable ClearEmbedTokenCallable(const Model::ClearEmbedTokenRequest& request);
-
-                /**
-                 *创建ApiKey
-                 * @param req CreateAuthApiKeyRequest
-                 * @return CreateAuthApiKeyOutcome
-                 */
-                CreateAuthApiKeyOutcome CreateAuthApiKey(const Model::CreateAuthApiKeyRequest &request);
-                void CreateAuthApiKeyAsync(const Model::CreateAuthApiKeyRequest& request, const CreateAuthApiKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateAuthApiKeyOutcomeCallable CreateAuthApiKeyCallable(const Model::CreateAuthApiKeyRequest& request);
 
                 /**
                  *创建数据源
@@ -348,24 +249,6 @@ namespace TencentCloud
                 CreateProjectOutcomeCallable CreateProjectCallable(const Model::CreateProjectRequest& request);
 
                 /**
-                 *CreateUserGroup
-                 * @param req CreateUserGroupRequest
-                 * @return CreateUserGroupOutcome
-                 */
-                CreateUserGroupOutcome CreateUserGroup(const Model::CreateUserGroupRequest &request);
-                void CreateUserGroupAsync(const Model::CreateUserGroupRequest& request, const CreateUserGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateUserGroupOutcomeCallable CreateUserGroupCallable(const Model::CreateUserGroupRequest& request);
-
-                /**
-                 *CreateUserGroupMember
-                 * @param req CreateUserGroupMemberRequest
-                 * @return CreateUserGroupMemberOutcome
-                 */
-                CreateUserGroupMemberOutcome CreateUserGroupMember(const Model::CreateUserGroupMemberRequest &request);
-                void CreateUserGroupMemberAsync(const Model::CreateUserGroupMemberRequest& request, const CreateUserGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateUserGroupMemberOutcomeCallable CreateUserGroupMemberCallable(const Model::CreateUserGroupMemberRequest& request);
-
-                /**
                  *创建用户角色
                  * @param req CreateUserRoleRequest
                  * @return CreateUserRoleOutcome
@@ -382,15 +265,6 @@ namespace TencentCloud
                 CreateUserRoleProjectOutcome CreateUserRoleProject(const Model::CreateUserRoleProjectRequest &request);
                 void CreateUserRoleProjectAsync(const Model::CreateUserRoleProjectRequest& request, const CreateUserRoleProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateUserRoleProjectOutcomeCallable CreateUserRoleProjectCallable(const Model::CreateUserRoleProjectRequest& request);
-
-                /**
-                 *删除ApiKey
-                 * @param req DeleteAuthApiKeyRequest
-                 * @return DeleteAuthApiKeyOutcome
-                 */
-                DeleteAuthApiKeyOutcome DeleteAuthApiKey(const Model::DeleteAuthApiKeyRequest &request);
-                void DeleteAuthApiKeyAsync(const Model::DeleteAuthApiKeyRequest& request, const DeleteAuthApiKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteAuthApiKeyOutcomeCallable DeleteAuthApiKeyCallable(const Model::DeleteAuthApiKeyRequest& request);
 
                 /**
                  *删除数据源
@@ -411,24 +285,6 @@ namespace TencentCloud
                 DeleteProjectOutcomeCallable DeleteProjectCallable(const Model::DeleteProjectRequest& request);
 
                 /**
-                 *DeleteUserGroup
-                 * @param req DeleteUserGroupRequest
-                 * @return DeleteUserGroupOutcome
-                 */
-                DeleteUserGroupOutcome DeleteUserGroup(const Model::DeleteUserGroupRequest &request);
-                void DeleteUserGroupAsync(const Model::DeleteUserGroupRequest& request, const DeleteUserGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteUserGroupOutcomeCallable DeleteUserGroupCallable(const Model::DeleteUserGroupRequest& request);
-
-                /**
-                 *DeleteUserGroupMember
-                 * @param req DeleteUserGroupMemberRequest
-                 * @return DeleteUserGroupMemberOutcome
-                 */
-                DeleteUserGroupMemberOutcome DeleteUserGroupMember(const Model::DeleteUserGroupMemberRequest &request);
-                void DeleteUserGroupMemberAsync(const Model::DeleteUserGroupMemberRequest& request, const DeleteUserGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteUserGroupMemberOutcomeCallable DeleteUserGroupMemberCallable(const Model::DeleteUserGroupMemberRequest& request);
-
-                /**
                  *删除用户角色，会删除用户
                  * @param req DeleteUserRoleRequest
                  * @return DeleteUserRoleOutcome
@@ -445,24 +301,6 @@ namespace TencentCloud
                 DeleteUserRoleProjectOutcome DeleteUserRoleProject(const Model::DeleteUserRoleProjectRequest &request);
                 void DeleteUserRoleProjectAsync(const Model::DeleteUserRoleProjectRequest& request, const DeleteUserRoleProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteUserRoleProjectOutcomeCallable DeleteUserRoleProjectCallable(const Model::DeleteUserRoleProjectRequest& request);
-
-                /**
-                 *ApiKey信息
-                 * @param req DescribeAuthApiKeyInfoRequest
-                 * @return DescribeAuthApiKeyInfoOutcome
-                 */
-                DescribeAuthApiKeyInfoOutcome DescribeAuthApiKeyInfo(const Model::DescribeAuthApiKeyInfoRequest &request);
-                void DescribeAuthApiKeyInfoAsync(const Model::DescribeAuthApiKeyInfoRequest& request, const DescribeAuthApiKeyInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeAuthApiKeyInfoOutcomeCallable DescribeAuthApiKeyInfoCallable(const Model::DescribeAuthApiKeyInfoRequest& request);
-
-                /**
-                 *ApiKey列表
-                 * @param req DescribeAuthApiKeyListRequest
-                 * @return DescribeAuthApiKeyListOutcome
-                 */
-                DescribeAuthApiKeyListOutcome DescribeAuthApiKeyList(const Model::DescribeAuthApiKeyListRequest &request);
-                void DescribeAuthApiKeyListAsync(const Model::DescribeAuthApiKeyListRequest& request, const DescribeAuthApiKeyListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeAuthApiKeyListOutcomeCallable DescribeAuthApiKeyListCallable(const Model::DescribeAuthApiKeyListRequest& request);
 
                 /**
                  *查询数据源列表
@@ -528,42 +366,6 @@ namespace TencentCloud
                 DescribeProjectListOutcomeCallable DescribeProjectListCallable(const Model::DescribeProjectListRequest& request);
 
                 /**
-                 *用户组资源权限查询接口
-                 * @param req DescribeResourceUserGroupPageListRequest
-                 * @return DescribeResourceUserGroupPageListOutcome
-                 */
-                DescribeResourceUserGroupPageListOutcome DescribeResourceUserGroupPageList(const Model::DescribeResourceUserGroupPageListRequest &request);
-                void DescribeResourceUserGroupPageListAsync(const Model::DescribeResourceUserGroupPageListRequest& request, const DescribeResourceUserGroupPageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeResourceUserGroupPageListOutcomeCallable DescribeResourceUserGroupPageListCallable(const Model::DescribeResourceUserGroupPageListRequest& request);
-
-                /**
-                 *DescribeUserGroupInfo
-                 * @param req DescribeUserGroupInfoRequest
-                 * @return DescribeUserGroupInfoOutcome
-                 */
-                DescribeUserGroupInfoOutcome DescribeUserGroupInfo(const Model::DescribeUserGroupInfoRequest &request);
-                void DescribeUserGroupInfoAsync(const Model::DescribeUserGroupInfoRequest& request, const DescribeUserGroupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeUserGroupInfoOutcomeCallable DescribeUserGroupInfoCallable(const Model::DescribeUserGroupInfoRequest& request);
-
-                /**
-                 *DescribeUserGroupMemberList
-                 * @param req DescribeUserGroupMemberListRequest
-                 * @return DescribeUserGroupMemberListOutcome
-                 */
-                DescribeUserGroupMemberListOutcome DescribeUserGroupMemberList(const Model::DescribeUserGroupMemberListRequest &request);
-                void DescribeUserGroupMemberListAsync(const Model::DescribeUserGroupMemberListRequest& request, const DescribeUserGroupMemberListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeUserGroupMemberListOutcomeCallable DescribeUserGroupMemberListCallable(const Model::DescribeUserGroupMemberListRequest& request);
-
-                /**
-                 *用户组数查询接口
-                 * @param req DescribeUserGroupTreeListRequest
-                 * @return DescribeUserGroupTreeListOutcome
-                 */
-                DescribeUserGroupTreeListOutcome DescribeUserGroupTreeList(const Model::DescribeUserGroupTreeListRequest &request);
-                void DescribeUserGroupTreeListAsync(const Model::DescribeUserGroupTreeListRequest& request, const DescribeUserGroupTreeListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeUserGroupTreeListOutcomeCallable DescribeUserGroupTreeListCallable(const Model::DescribeUserGroupTreeListRequest& request);
-
-                /**
                  *项目内-用户接口
                  * @param req DescribeUserProjectListRequest
                  * @return DescribeUserProjectListOutcome
@@ -600,15 +402,6 @@ namespace TencentCloud
                 ExportScreenPageOutcomeCallable ExportScreenPageCallable(const Model::ExportScreenPageRequest& request);
 
                 /**
-                 *更新ApiKey
-                 * @param req ModifyAuthApiKeyRequest
-                 * @return ModifyAuthApiKeyOutcome
-                 */
-                ModifyAuthApiKeyOutcome ModifyAuthApiKey(const Model::ModifyAuthApiKeyRequest &request);
-                void ModifyAuthApiKeyAsync(const Model::ModifyAuthApiKeyRequest& request, const ModifyAuthApiKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyAuthApiKeyOutcomeCallable ModifyAuthApiKeyCallable(const Model::ModifyAuthApiKeyRequest& request);
-
-                /**
                  *更新数据源
                  * @param req ModifyDatasourceRequest
                  * @return ModifyDatasourceOutcome
@@ -636,42 +429,6 @@ namespace TencentCloud
                 ModifyProjectOutcomeCallable ModifyProjectCallable(const Model::ModifyProjectRequest& request);
 
                 /**
-                 *更新用户组权限
-                 * @param req ModifyResourceUserGroupRequest
-                 * @return ModifyResourceUserGroupOutcome
-                 */
-                ModifyResourceUserGroupOutcome ModifyResourceUserGroup(const Model::ModifyResourceUserGroupRequest &request);
-                void ModifyResourceUserGroupAsync(const Model::ModifyResourceUserGroupRequest& request, const ModifyResourceUserGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyResourceUserGroupOutcomeCallable ModifyResourceUserGroupCallable(const Model::ModifyResourceUserGroupRequest& request);
-
-                /**
-                 *按资源 - 更新用户组权限
-                 * @param req ModifyResourceUserGroupResourceRequest
-                 * @return ModifyResourceUserGroupResourceOutcome
-                 */
-                ModifyResourceUserGroupResourceOutcome ModifyResourceUserGroupResource(const Model::ModifyResourceUserGroupResourceRequest &request);
-                void ModifyResourceUserGroupResourceAsync(const Model::ModifyResourceUserGroupResourceRequest& request, const ModifyResourceUserGroupResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyResourceUserGroupResourceOutcomeCallable ModifyResourceUserGroupResourceCallable(const Model::ModifyResourceUserGroupResourceRequest& request);
-
-                /**
-                 *修改用户角色信息
-                 * @param req ModifyUserDetailInfoRequest
-                 * @return ModifyUserDetailInfoOutcome
-                 */
-                ModifyUserDetailInfoOutcome ModifyUserDetailInfo(const Model::ModifyUserDetailInfoRequest &request);
-                void ModifyUserDetailInfoAsync(const Model::ModifyUserDetailInfoRequest& request, const ModifyUserDetailInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyUserDetailInfoOutcomeCallable ModifyUserDetailInfoCallable(const Model::ModifyUserDetailInfoRequest& request);
-
-                /**
-                 *ModifyUserGroup
-                 * @param req ModifyUserGroupRequest
-                 * @return ModifyUserGroupOutcome
-                 */
-                ModifyUserGroupOutcome ModifyUserGroup(const Model::ModifyUserGroupRequest &request);
-                void ModifyUserGroupAsync(const Model::ModifyUserGroupRequest& request, const ModifyUserGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyUserGroupOutcomeCallable ModifyUserGroupCallable(const Model::ModifyUserGroupRequest& request);
-
-                /**
                  *修改用户角色信息
                  * @param req ModifyUserRoleRequest
                  * @return ModifyUserRoleOutcome
@@ -688,15 +445,6 @@ namespace TencentCloud
                 ModifyUserRoleProjectOutcome ModifyUserRoleProject(const Model::ModifyUserRoleProjectRequest &request);
                 void ModifyUserRoleProjectAsync(const Model::ModifyUserRoleProjectRequest& request, const ModifyUserRoleProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyUserRoleProjectOutcomeCallable ModifyUserRoleProjectCallable(const Model::ModifyUserRoleProjectRequest& request);
-
-                /**
-                 *QueryUserGroupMember
-                 * @param req QueryUserGroupMemberRequest
-                 * @return QueryUserGroupMemberOutcome
-                 */
-                QueryUserGroupMemberOutcome QueryUserGroupMember(const Model::QueryUserGroupMemberRequest &request);
-                void QueryUserGroupMemberAsync(const Model::QueryUserGroupMemberRequest& request, const QueryUserGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                QueryUserGroupMemberOutcomeCallable QueryUserGroupMemberCallable(const Model::QueryUserGroupMemberRequest& request);
 
             };
         }

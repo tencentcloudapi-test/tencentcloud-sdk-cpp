@@ -28,10 +28,7 @@ TaskDataRegistry::TaskDataRegistry() :
     m_dataFlowTypeHasBeenSet(false),
     m_tablePhysicalIdHasBeenSet(false),
     m_dbGuidHasBeenSet(false),
-    m_tableGuidHasBeenSet(false),
-    m_catalogNameHasBeenSet(false),
-    m_datasourceNameHasBeenSet(false),
-    m_qualifiedNameHasBeenSet(false)
+    m_tableGuidHasBeenSet(false)
 {
 }
 
@@ -120,36 +117,6 @@ CoreInternalOutcome TaskDataRegistry::Deserialize(const rapidjson::Value &value)
         m_tableGuidHasBeenSet = true;
     }
 
-    if (value.HasMember("CatalogName") && !value["CatalogName"].IsNull())
-    {
-        if (!value["CatalogName"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `TaskDataRegistry.CatalogName` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_catalogName = string(value["CatalogName"].GetString());
-        m_catalogNameHasBeenSet = true;
-    }
-
-    if (value.HasMember("DatasourceName") && !value["DatasourceName"].IsNull())
-    {
-        if (!value["DatasourceName"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `TaskDataRegistry.DatasourceName` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_datasourceName = string(value["DatasourceName"].GetString());
-        m_datasourceNameHasBeenSet = true;
-    }
-
-    if (value.HasMember("QualifiedName") && !value["QualifiedName"].IsNull())
-    {
-        if (!value["QualifiedName"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `TaskDataRegistry.QualifiedName` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_qualifiedName = string(value["QualifiedName"].GetString());
-        m_qualifiedNameHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -219,30 +186,6 @@ void TaskDataRegistry::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "TableGuid";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_tableGuid.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_catalogNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CatalogName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_catalogName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_datasourceNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DatasourceName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_datasourceName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_qualifiedNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "QualifiedName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_qualifiedName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -374,53 +317,5 @@ void TaskDataRegistry::SetTableGuid(const string& _tableGuid)
 bool TaskDataRegistry::TableGuidHasBeenSet() const
 {
     return m_tableGuidHasBeenSet;
-}
-
-string TaskDataRegistry::GetCatalogName() const
-{
-    return m_catalogName;
-}
-
-void TaskDataRegistry::SetCatalogName(const string& _catalogName)
-{
-    m_catalogName = _catalogName;
-    m_catalogNameHasBeenSet = true;
-}
-
-bool TaskDataRegistry::CatalogNameHasBeenSet() const
-{
-    return m_catalogNameHasBeenSet;
-}
-
-string TaskDataRegistry::GetDatasourceName() const
-{
-    return m_datasourceName;
-}
-
-void TaskDataRegistry::SetDatasourceName(const string& _datasourceName)
-{
-    m_datasourceName = _datasourceName;
-    m_datasourceNameHasBeenSet = true;
-}
-
-bool TaskDataRegistry::DatasourceNameHasBeenSet() const
-{
-    return m_datasourceNameHasBeenSet;
-}
-
-string TaskDataRegistry::GetQualifiedName() const
-{
-    return m_qualifiedName;
-}
-
-void TaskDataRegistry::SetQualifiedName(const string& _qualifiedName)
-{
-    m_qualifiedName = _qualifiedName;
-    m_qualifiedNameHasBeenSet = true;
-}
-
-bool TaskDataRegistry::QualifiedNameHasBeenSet() const
-{
-    return m_qualifiedNameHasBeenSet;
 }
 

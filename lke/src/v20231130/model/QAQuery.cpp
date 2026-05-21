@@ -32,10 +32,7 @@ QAQuery::QAQuery() :
     m_qaBizIdHasBeenSet(false),
     m_sourceHasBeenSet(false),
     m_queryAnswerHasBeenSet(false),
-    m_queryTypeHasBeenSet(false),
-    m_enableScopeHasBeenSet(false),
-    m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false)
+    m_queryTypeHasBeenSet(false)
 {
 }
 
@@ -170,50 +167,6 @@ CoreInternalOutcome QAQuery::Deserialize(const rapidjson::Value &value)
         m_queryTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("EnableScope") && !value["EnableScope"].IsNull())
-    {
-        if (!value["EnableScope"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `QAQuery.EnableScope` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_enableScope = value["EnableScope"].GetInt64();
-        m_enableScopeHasBeenSet = true;
-    }
-
-    if (value.HasMember("CreateTime") && !value["CreateTime"].IsNull())
-    {
-        if (!value["CreateTime"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `QAQuery.CreateTime` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_createTime.Deserialize(value["CreateTime"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_createTimeHasBeenSet = true;
-    }
-
-    if (value.HasMember("UpdateTime") && !value["UpdateTime"].IsNull())
-    {
-        if (!value["UpdateTime"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `QAQuery.UpdateTime` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_updateTime.Deserialize(value["UpdateTime"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_updateTimeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -325,32 +278,6 @@ void QAQuery::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "QueryType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_queryType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_enableScopeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableScope";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_enableScope, allocator);
-    }
-
-    if (m_createTimeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CreateTime";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_createTime.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_updateTimeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UpdateTime";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_updateTime.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -546,53 +473,5 @@ void QAQuery::SetQueryType(const string& _queryType)
 bool QAQuery::QueryTypeHasBeenSet() const
 {
     return m_queryTypeHasBeenSet;
-}
-
-int64_t QAQuery::GetEnableScope() const
-{
-    return m_enableScope;
-}
-
-void QAQuery::SetEnableScope(const int64_t& _enableScope)
-{
-    m_enableScope = _enableScope;
-    m_enableScopeHasBeenSet = true;
-}
-
-bool QAQuery::EnableScopeHasBeenSet() const
-{
-    return m_enableScopeHasBeenSet;
-}
-
-TimeRange QAQuery::GetCreateTime() const
-{
-    return m_createTime;
-}
-
-void QAQuery::SetCreateTime(const TimeRange& _createTime)
-{
-    m_createTime = _createTime;
-    m_createTimeHasBeenSet = true;
-}
-
-bool QAQuery::CreateTimeHasBeenSet() const
-{
-    return m_createTimeHasBeenSet;
-}
-
-TimeRange QAQuery::GetUpdateTime() const
-{
-    return m_updateTime;
-}
-
-void QAQuery::SetUpdateTime(const TimeRange& _updateTime)
-{
-    m_updateTime = _updateTime;
-    m_updateTimeHasBeenSet = true;
-}
-
-bool QAQuery::UpdateTimeHasBeenSet() const
-{
-    return m_updateTimeHasBeenSet;
 }
 

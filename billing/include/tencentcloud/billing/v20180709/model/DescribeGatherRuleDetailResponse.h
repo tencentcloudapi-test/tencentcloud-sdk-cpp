@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>归集规则ID</p>
-                     * @return Id <p>归集规则ID</p>
+                     * 获取归集规则ID
+                     * @return Id 归集规则ID
                      * 
                      */
                     uint64_t GetId() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>归集规则所属UIN</p>
-                     * @return Uin <p>归集规则所属UIN</p>
+                     * 获取归集规则所属UIN
+                     * @return Uin 归集规则所属UIN
                      * 
                      */
                     std::string GetUin() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool UinHasBeenSet() const;
 
                     /**
-                     * 获取<p>归集规则最后更新时间</p>
-                     * @return UpdateTime <p>归集规则最后更新时间</p>
+                     * 获取归集规则最后更新时间
+                     * @return UpdateTime 归集规则最后更新时间
                      * 
                      */
                     std::string GetUpdateTime() const;
@@ -87,8 +87,8 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>归集规则详情</p>
-                     * @return RuleDetail <p>归集规则详情</p>
+                     * 获取归集规则详情
+                     * @return RuleDetail 归集规则详情
                      * 
                      */
                     AllocationRuleExpression GetRuleDetail() const;
@@ -103,25 +103,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>归集规则ID</p>
+                     * 归集规则ID
                      */
                     uint64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>归集规则所属UIN</p>
+                     * 归集规则所属UIN
                      */
                     std::string m_uin;
                     bool m_uinHasBeenSet;
 
                     /**
-                     * <p>归集规则最后更新时间</p>
+                     * 归集规则最后更新时间
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>归集规则详情</p>
+                     * 归集规则详情
                      */
                     AllocationRuleExpression m_ruleDetail;
                     bool m_ruleDetailHasBeenSet;

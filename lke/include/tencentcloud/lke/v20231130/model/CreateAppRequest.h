@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>应用类型；<code>&quot;knowledge_qa&quot;</code> 知识问答应用（包含标准模式 单工作流 Multi-Agent 等模式）</p>
-                     * @return AppType <p>应用类型；<code>&quot;knowledge_qa&quot;</code> 知识问答应用（包含标准模式 单工作流 Multi-Agent 等模式）</p>
+                     * 获取应用类型；knowledge_qa-知识问答管理
+                     * @return AppType 应用类型；knowledge_qa-知识问答管理
                      * 
                      */
                     std::string GetAppType() const;
 
                     /**
-                     * 设置<p>应用类型；<code>&quot;knowledge_qa&quot;</code> 知识问答应用（包含标准模式 单工作流 Multi-Agent 等模式）</p>
-                     * @param _appType <p>应用类型；<code>&quot;knowledge_qa&quot;</code> 知识问答应用（包含标准模式 单工作流 Multi-Agent 等模式）</p>
+                     * 设置应用类型；knowledge_qa-知识问答管理
+                     * @param _appType 应用类型；knowledge_qa-知识问答管理
                      * 
                      */
                     void SetAppType(const std::string& _appType);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool AppTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>应用基础配置</p>
-                     * @return BaseConfig <p>应用基础配置</p>
+                     * 获取应用基础配置
+                     * @return BaseConfig 应用基础配置
                      * 
                      */
                     BaseConfig GetBaseConfig() const;
 
                     /**
-                     * 设置<p>应用基础配置</p>
-                     * @param _baseConfig <p>应用基础配置</p>
+                     * 设置应用基础配置
+                     * @param _baseConfig 应用基础配置
                      * 
                      */
                     void SetBaseConfig(const BaseConfig& _baseConfig);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool BaseConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式,ClawAgent:Claw模式</p>
-                     * @return Pattern <p>应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式,ClawAgent:Claw模式</p>
+                     * 获取应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式
+                     * @return Pattern 应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式
                      * 
                      */
                     std::string GetPattern() const;
 
                     /**
-                     * 设置<p>应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式,ClawAgent:Claw模式</p>
-                     * @param _pattern <p>应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式,ClawAgent:Claw模式</p>
+                     * 设置应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式
+                     * @param _pattern 应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式
                      * 
                      */
                     void SetPattern(const std::string& _pattern);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool PatternHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能体类型，用于区分应用最终以何种智能体形态对外服务（对话(&quot;dialogue&quot;) / 公众号(&quot;wechat&quot;)）。当前 ADP 创建页面不区分对话/公众号智能体，ADP 创建页默认走对话智能体。</p>
-                     * @return AgentType <p>智能体类型，用于区分应用最终以何种智能体形态对外服务（对话(&quot;dialogue&quot;) / 公众号(&quot;wechat&quot;)）。当前 ADP 创建页面不区分对话/公众号智能体，ADP 创建页默认走对话智能体。</p>
+                     * 获取智能体类型 dialogue 对话式智能体，wechat 公众号智能体
+                     * @return AgentType 智能体类型 dialogue 对话式智能体，wechat 公众号智能体
                      * 
                      */
                     std::string GetAgentType() const;
 
                     /**
-                     * 设置<p>智能体类型，用于区分应用最终以何种智能体形态对外服务（对话(&quot;dialogue&quot;) / 公众号(&quot;wechat&quot;)）。当前 ADP 创建页面不区分对话/公众号智能体，ADP 创建页默认走对话智能体。</p>
-                     * @param _agentType <p>智能体类型，用于区分应用最终以何种智能体形态对外服务（对话(&quot;dialogue&quot;) / 公众号(&quot;wechat&quot;)）。当前 ADP 创建页面不区分对话/公众号智能体，ADP 创建页默认走对话智能体。</p>
+                     * 设置智能体类型 dialogue 对话式智能体，wechat 公众号智能体
+                     * @param _agentType 智能体类型 dialogue 对话式智能体，wechat 公众号智能体
                      * 
                      */
                     void SetAgentType(const std::string& _agentType);
@@ -130,25 +130,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>应用类型；<code>&quot;knowledge_qa&quot;</code> 知识问答应用（包含标准模式 单工作流 Multi-Agent 等模式）</p>
+                     * 应用类型；knowledge_qa-知识问答管理
                      */
                     std::string m_appType;
                     bool m_appTypeHasBeenSet;
 
                     /**
-                     * <p>应用基础配置</p>
+                     * 应用基础配置
                      */
                     BaseConfig m_baseConfig;
                     bool m_baseConfigHasBeenSet;
 
                     /**
-                     * <p>应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式,ClawAgent:Claw模式</p>
+                     * 应用模式 standard:标准模式, agent: agent模式，single_workflow：单工作流模式
                      */
                     std::string m_pattern;
                     bool m_patternHasBeenSet;
 
                     /**
-                     * <p>智能体类型，用于区分应用最终以何种智能体形态对外服务（对话(&quot;dialogue&quot;) / 公众号(&quot;wechat&quot;)）。当前 ADP 创建页面不区分对话/公众号智能体，ADP 创建页默认走对话智能体。</p>
+                     * 智能体类型 dialogue 对话式智能体，wechat 公众号智能体
                      */
                     std::string m_agentType;
                     bool m_agentTypeHasBeenSet;

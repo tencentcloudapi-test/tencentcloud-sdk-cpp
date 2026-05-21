@@ -28,8 +28,7 @@ LicensePlateOCRResponse::LicensePlateOCRResponse() :
     m_confidenceHasBeenSet(false),
     m_rectHasBeenSet(false),
     m_colorHasBeenSet(false),
-    m_licensePlateInfosHasBeenSet(false),
-    m_licensePlateCategoryHasBeenSet(false)
+    m_licensePlateInfosHasBeenSet(false)
 {
 }
 
@@ -134,16 +133,6 @@ CoreInternalOutcome LicensePlateOCRResponse::Deserialize(const string &payload)
         m_licensePlateInfosHasBeenSet = true;
     }
 
-    if (rsp.HasMember("LicensePlateCategory") && !rsp["LicensePlateCategory"].IsNull())
-    {
-        if (!rsp["LicensePlateCategory"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `LicensePlateCategory` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_licensePlateCategory = string(rsp["LicensePlateCategory"].GetString());
-        m_licensePlateCategoryHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -200,14 +189,6 @@ string LicensePlateOCRResponse::ToJsonString() const
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_licensePlateCategoryHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LicensePlateCategory";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_licensePlateCategory.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -270,16 +251,6 @@ vector<LicensePlateInfo> LicensePlateOCRResponse::GetLicensePlateInfos() const
 bool LicensePlateOCRResponse::LicensePlateInfosHasBeenSet() const
 {
     return m_licensePlateInfosHasBeenSet;
-}
-
-string LicensePlateOCRResponse::GetLicensePlateCategory() const
-{
-    return m_licensePlateCategory;
-}
-
-bool LicensePlateOCRResponse::LicensePlateCategoryHasBeenSet() const
-{
-    return m_licensePlateCategoryHasBeenSet;
 }
 
 

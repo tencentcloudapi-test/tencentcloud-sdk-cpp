@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>左上角X坐标</p>
+                     * 获取左上角X坐标
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return X <p>左上角X坐标</p>
+                     * @return X 左上角X坐标
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetX() const;
 
                     /**
-                     * 设置<p>左上角X坐标</p>
+                     * 设置左上角X坐标
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _x <p>左上角X坐标</p>
+                     * @param _x 左上角X坐标
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool XHasBeenSet() const;
 
                     /**
-                     * 获取<p>左上角Y坐标</p>
+                     * 获取左上角Y坐标
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Y <p>左上角Y坐标</p>
+                     * @return Y 左上角Y坐标
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetY() const;
 
                     /**
-                     * 设置<p>左上角Y坐标</p>
+                     * 设置左上角Y坐标
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _y <p>左上角Y坐标</p>
+                     * @param _y 左上角Y坐标
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool YHasBeenSet() const;
 
                     /**
-                     * 获取<p>方框宽度<br>单位为 px</p>
+                     * 获取方框宽度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Width <p>方框宽度<br>单位为 px</p>
+                     * @return Width 方框宽度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetWidth() const;
 
                     /**
-                     * 设置<p>方框宽度<br>单位为 px</p>
+                     * 设置方框宽度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _width <p>方框宽度<br>单位为 px</p>
+                     * @param _width 方框宽度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool WidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>方框高度<br>单位为 px</p>
+                     * 获取方框高度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Height <p>方框高度<br>单位为 px</p>
+                     * @return Height 方框高度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetHeight() const;
 
                     /**
-                     * 设置<p>方框高度<br>单位为 px</p>
+                     * 设置方框高度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _height <p>方框高度<br>单位为 px</p>
+                     * @param _height 方框高度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -149,28 +149,28 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>左上角X坐标</p>
+                     * 左上角X坐标
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_x;
                     bool m_xHasBeenSet;
 
                     /**
-                     * <p>左上角Y坐标</p>
+                     * 左上角Y坐标
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_y;
                     bool m_yHasBeenSet;
 
                     /**
-                     * <p>方框宽度<br>单位为 px</p>
+                     * 方框宽度
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_width;
                     bool m_widthHasBeenSet;
 
                     /**
-                     * <p>方框高度<br>单位为 px</p>
+                     * 方框高度
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_height;

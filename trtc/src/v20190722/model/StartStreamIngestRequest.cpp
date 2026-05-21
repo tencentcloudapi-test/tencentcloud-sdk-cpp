@@ -37,10 +37,7 @@ StartStreamIngestRequest::StartStreamIngestRequest() :
     m_autoPushHasBeenSet(false),
     m_repeatNumHasBeenSet(false),
     m_maxDurationHasBeenSet(false),
-    m_volumeHasBeenSet(false),
-    m_enableProgressHasBeenSet(false),
-    m_tempoHasBeenSet(false),
-    m_idleTimeoutHasBeenSet(false)
+    m_volumeHasBeenSet(false)
 {
 }
 
@@ -176,30 +173,6 @@ string StartStreamIngestRequest::ToJsonString() const
         string key = "Volume";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_volume, allocator);
-    }
-
-    if (m_enableProgressHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableProgress";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableProgress, allocator);
-    }
-
-    if (m_tempoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Tempo";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_tempo, allocator);
-    }
-
-    if (m_idleTimeoutHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IdleTimeout";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_idleTimeout, allocator);
     }
 
 
@@ -448,54 +421,6 @@ void StartStreamIngestRequest::SetVolume(const uint64_t& _volume)
 bool StartStreamIngestRequest::VolumeHasBeenSet() const
 {
     return m_volumeHasBeenSet;
-}
-
-bool StartStreamIngestRequest::GetEnableProgress() const
-{
-    return m_enableProgress;
-}
-
-void StartStreamIngestRequest::SetEnableProgress(const bool& _enableProgress)
-{
-    m_enableProgress = _enableProgress;
-    m_enableProgressHasBeenSet = true;
-}
-
-bool StartStreamIngestRequest::EnableProgressHasBeenSet() const
-{
-    return m_enableProgressHasBeenSet;
-}
-
-double StartStreamIngestRequest::GetTempo() const
-{
-    return m_tempo;
-}
-
-void StartStreamIngestRequest::SetTempo(const double& _tempo)
-{
-    m_tempo = _tempo;
-    m_tempoHasBeenSet = true;
-}
-
-bool StartStreamIngestRequest::TempoHasBeenSet() const
-{
-    return m_tempoHasBeenSet;
-}
-
-int64_t StartStreamIngestRequest::GetIdleTimeout() const
-{
-    return m_idleTimeout;
-}
-
-void StartStreamIngestRequest::SetIdleTimeout(const int64_t& _idleTimeout)
-{
-    m_idleTimeout = _idleTimeout;
-    m_idleTimeoutHasBeenSet = true;
-}
-
-bool StartStreamIngestRequest::IdleTimeoutHasBeenSet() const
-{
-    return m_idleTimeoutHasBeenSet;
 }
 
 

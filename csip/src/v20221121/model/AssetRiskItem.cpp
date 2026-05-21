@@ -35,10 +35,7 @@ AssetRiskItem::AssetRiskItem() :
     m_checkTypeHasBeenSet(false),
     m_severityHasBeenSet(false),
     m_riskRuleIdHasBeenSet(false),
-    m_classifyHasBeenSet(false),
-    m_standardTermsHasBeenSet(false),
-    m_assetTypeHasBeenSet(false),
-    m_assetTypeIconURLHasBeenSet(false)
+    m_classifyHasBeenSet(false)
 {
 }
 
@@ -197,46 +194,6 @@ CoreInternalOutcome AssetRiskItem::Deserialize(const rapidjson::Value &value)
         m_classifyHasBeenSet = true;
     }
 
-    if (value.HasMember("StandardTerms") && !value["StandardTerms"].IsNull())
-    {
-        if (!value["StandardTerms"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `AssetRiskItem.StandardTerms` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["StandardTerms"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            StandardTerm item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_standardTerms.push_back(item);
-        }
-        m_standardTermsHasBeenSet = true;
-    }
-
-    if (value.HasMember("AssetType") && !value["AssetType"].IsNull())
-    {
-        if (!value["AssetType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AssetRiskItem.AssetType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_assetType = string(value["AssetType"].GetString());
-        m_assetTypeHasBeenSet = true;
-    }
-
-    if (value.HasMember("AssetTypeIconURL") && !value["AssetTypeIconURL"].IsNull())
-    {
-        if (!value["AssetTypeIconURL"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AssetRiskItem.AssetTypeIconURL` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_assetTypeIconURL = string(value["AssetTypeIconURL"].GetString());
-        m_assetTypeIconURLHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -362,37 +319,6 @@ void AssetRiskItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "Classify";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_classify.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_standardTermsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StandardTerms";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_standardTerms.begin(); itr != m_standardTerms.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_assetTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AssetType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_assetType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_assetTypeIconURLHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AssetTypeIconURL";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_assetTypeIconURL.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -636,53 +562,5 @@ void AssetRiskItem::SetClassify(const string& _classify)
 bool AssetRiskItem::ClassifyHasBeenSet() const
 {
     return m_classifyHasBeenSet;
-}
-
-vector<StandardTerm> AssetRiskItem::GetStandardTerms() const
-{
-    return m_standardTerms;
-}
-
-void AssetRiskItem::SetStandardTerms(const vector<StandardTerm>& _standardTerms)
-{
-    m_standardTerms = _standardTerms;
-    m_standardTermsHasBeenSet = true;
-}
-
-bool AssetRiskItem::StandardTermsHasBeenSet() const
-{
-    return m_standardTermsHasBeenSet;
-}
-
-string AssetRiskItem::GetAssetType() const
-{
-    return m_assetType;
-}
-
-void AssetRiskItem::SetAssetType(const string& _assetType)
-{
-    m_assetType = _assetType;
-    m_assetTypeHasBeenSet = true;
-}
-
-bool AssetRiskItem::AssetTypeHasBeenSet() const
-{
-    return m_assetTypeHasBeenSet;
-}
-
-string AssetRiskItem::GetAssetTypeIconURL() const
-{
-    return m_assetTypeIconURL;
-}
-
-void AssetRiskItem::SetAssetTypeIconURL(const string& _assetTypeIconURL)
-{
-    m_assetTypeIconURL = _assetTypeIconURL;
-    m_assetTypeIconURLHasBeenSet = true;
-}
-
-bool AssetRiskItem::AssetTypeIconURLHasBeenSet() const
-{
-    return m_assetTypeIconURLHasBeenSet;
 }
 

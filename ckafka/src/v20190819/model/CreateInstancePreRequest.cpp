@@ -44,8 +44,7 @@ CreateInstancePreRequest::CreateInstancePreRequest() :
     m_publicNetworkMonthlyHasBeenSet(false),
     m_instanceNumHasBeenSet(false),
     m_autoVoucherHasBeenSet(false),
-    m_elasticBandwidthSwitchHasBeenSet(false),
-    m_customSSLCertIdHasBeenSet(false)
+    m_elasticBandwidthSwitchHasBeenSet(false)
 {
 }
 
@@ -242,14 +241,6 @@ string CreateInstancePreRequest::ToJsonString() const
         string key = "ElasticBandwidthSwitch";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_elasticBandwidthSwitch, allocator);
-    }
-
-    if (m_customSSLCertIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CustomSSLCertId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_customSSLCertId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -610,22 +601,6 @@ void CreateInstancePreRequest::SetElasticBandwidthSwitch(const int64_t& _elastic
 bool CreateInstancePreRequest::ElasticBandwidthSwitchHasBeenSet() const
 {
     return m_elasticBandwidthSwitchHasBeenSet;
-}
-
-string CreateInstancePreRequest::GetCustomSSLCertId() const
-{
-    return m_customSSLCertId;
-}
-
-void CreateInstancePreRequest::SetCustomSSLCertId(const string& _customSSLCertId)
-{
-    m_customSSLCertId = _customSSLCertId;
-    m_customSSLCertIdHasBeenSet = true;
-}
-
-bool CreateInstancePreRequest::CustomSSLCertIdHasBeenSet() const
-{
-    return m_customSSLCertIdHasBeenSet;
 }
 
 

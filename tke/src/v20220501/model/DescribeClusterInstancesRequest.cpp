@@ -27,8 +27,7 @@ DescribeClusterInstancesRequest::DescribeClusterInstancesRequest() :
     m_offsetHasBeenSet(false),
     m_limitHasBeenSet(false),
     m_filtersHasBeenSet(false),
-    m_sortByHasBeenSet(false),
-    m_needTagsHasBeenSet(false)
+    m_sortByHasBeenSet(false)
 {
 }
 
@@ -85,14 +84,6 @@ string DescribeClusterInstancesRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_sortBy.ToJsonObject(d[key.c_str()], allocator);
-    }
-
-    if (m_needTagsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NeedTags";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_needTags, allocator);
     }
 
 
@@ -181,22 +172,6 @@ void DescribeClusterInstancesRequest::SetSortBy(const SortBy& _sortBy)
 bool DescribeClusterInstancesRequest::SortByHasBeenSet() const
 {
     return m_sortByHasBeenSet;
-}
-
-bool DescribeClusterInstancesRequest::GetNeedTags() const
-{
-    return m_needTags;
-}
-
-void DescribeClusterInstancesRequest::SetNeedTags(const bool& _needTags)
-{
-    m_needTags = _needTags;
-    m_needTagsHasBeenSet = true;
-}
-
-bool DescribeClusterInstancesRequest::NeedTagsHasBeenSet() const
-{
-    return m_needTagsHasBeenSet;
 }
 
 

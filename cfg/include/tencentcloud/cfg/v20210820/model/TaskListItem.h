@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/cfg/v20210820/model/TagWithDescribe.h>
 
 
 namespace TencentCloud
@@ -48,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务ID</p>
-                     * @return TaskId <p>任务ID</p>
+                     * 获取任务ID
+                     * @return TaskId 任务ID
                      * 
                      */
                     int64_t GetTaskId() const;
 
                     /**
-                     * 设置<p>任务ID</p>
-                     * @param _taskId <p>任务ID</p>
+                     * 设置任务ID
+                     * @param _taskId 任务ID
                      * 
                      */
                     void SetTaskId(const int64_t& _taskId);
@@ -69,15 +68,15 @@ namespace TencentCloud
                     bool TaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务标题</p>
-                     * @return TaskTitle <p>任务标题</p>
+                     * 获取任务标题
+                     * @return TaskTitle 任务标题
                      * 
                      */
                     std::string GetTaskTitle() const;
 
                     /**
-                     * 设置<p>任务标题</p>
-                     * @param _taskTitle <p>任务标题</p>
+                     * 设置任务标题
+                     * @param _taskTitle 任务标题
                      * 
                      */
                     void SetTaskTitle(const std::string& _taskTitle);
@@ -90,15 +89,15 @@ namespace TencentCloud
                     bool TaskTitleHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务描述</p>
-                     * @return TaskDescription <p>任务描述</p>
+                     * 获取任务描述
+                     * @return TaskDescription 任务描述
                      * 
                      */
                     std::string GetTaskDescription() const;
 
                     /**
-                     * 设置<p>任务描述</p>
-                     * @param _taskDescription <p>任务描述</p>
+                     * 设置任务描述
+                     * @param _taskDescription 任务描述
                      * 
                      */
                     void SetTaskDescription(const std::string& _taskDescription);
@@ -111,15 +110,15 @@ namespace TencentCloud
                     bool TaskDescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务标签</p>
-                     * @return TaskTag <p>任务标签</p>
+                     * 获取任务标签
+                     * @return TaskTag 任务标签
                      * 
                      */
                     std::string GetTaskTag() const;
 
                     /**
-                     * 设置<p>任务标签</p>
-                     * @param _taskTag <p>任务标签</p>
+                     * 设置任务标签
+                     * @param _taskTag 任务标签
                      * 
                      */
                     void SetTaskTag(const std::string& _taskTag);
@@ -132,15 +131,15 @@ namespace TencentCloud
                     bool TaskTagHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)</p>
-                     * @return TaskStatus <p>任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)</p>
+                     * 获取任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)
+                     * @return TaskStatus 任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)
                      * 
                      */
                     int64_t GetTaskStatus() const;
 
                     /**
-                     * 设置<p>任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)</p>
-                     * @param _taskStatus <p>任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)</p>
+                     * 设置任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)
+                     * @param _taskStatus 任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)
                      * 
                      */
                     void SetTaskStatus(const int64_t& _taskStatus);
@@ -153,15 +152,15 @@ namespace TencentCloud
                     bool TaskStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务创建时间</p>
-                     * @return TaskCreateTime <p>任务创建时间</p>
+                     * 获取任务创建时间
+                     * @return TaskCreateTime 任务创建时间
                      * 
                      */
                     std::string GetTaskCreateTime() const;
 
                     /**
-                     * 设置<p>任务创建时间</p>
-                     * @param _taskCreateTime <p>任务创建时间</p>
+                     * 设置任务创建时间
+                     * @param _taskCreateTime 任务创建时间
                      * 
                      */
                     void SetTaskCreateTime(const std::string& _taskCreateTime);
@@ -174,15 +173,15 @@ namespace TencentCloud
                     bool TaskCreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务更新时间</p>
-                     * @return TaskUpdateTime <p>任务更新时间</p>
+                     * 获取任务更新时间
+                     * @return TaskUpdateTime 任务更新时间
                      * 
                      */
                     std::string GetTaskUpdateTime() const;
 
                     /**
-                     * 设置<p>任务更新时间</p>
-                     * @param _taskUpdateTime <p>任务更新时间</p>
+                     * 设置任务更新时间
+                     * @param _taskUpdateTime 任务更新时间
                      * 
                      */
                     void SetTaskUpdateTime(const std::string& _taskUpdateTime);
@@ -195,15 +194,15 @@ namespace TencentCloud
                     bool TaskUpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>0--未开始，1--进行中，2--已完成</p>
-                     * @return TaskPreCheckStatus <p>0--未开始，1--进行中，2--已完成</p>
+                     * 获取0--未开始，1--进行中，2--已完成
+                     * @return TaskPreCheckStatus 0--未开始，1--进行中，2--已完成
                      * 
                      */
                     int64_t GetTaskPreCheckStatus() const;
 
                     /**
-                     * 设置<p>0--未开始，1--进行中，2--已完成</p>
-                     * @param _taskPreCheckStatus <p>0--未开始，1--进行中，2--已完成</p>
+                     * 设置0--未开始，1--进行中，2--已完成
+                     * @param _taskPreCheckStatus 0--未开始，1--进行中，2--已完成
                      * 
                      */
                     void SetTaskPreCheckStatus(const int64_t& _taskPreCheckStatus);
@@ -216,15 +215,15 @@ namespace TencentCloud
                     bool TaskPreCheckStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境检查是否通过</p>
-                     * @return TaskPreCheckSuccess <p>环境检查是否通过</p>
+                     * 获取环境检查是否通过
+                     * @return TaskPreCheckSuccess 环境检查是否通过
                      * 
                      */
                     bool GetTaskPreCheckSuccess() const;
 
                     /**
-                     * 设置<p>环境检查是否通过</p>
-                     * @param _taskPreCheckSuccess <p>环境检查是否通过</p>
+                     * 设置环境检查是否通过
+                     * @param _taskPreCheckSuccess 环境检查是否通过
                      * 
                      */
                     void SetTaskPreCheckSuccess(const bool& _taskPreCheckSuccess);
@@ -237,15 +236,15 @@ namespace TencentCloud
                     bool TaskPreCheckSuccessHasBeenSet() const;
 
                     /**
-                     * 获取<p>演练是否符合预期 1-符合预期 2-不符合预期</p>
-                     * @return TaskExpect <p>演练是否符合预期 1-符合预期 2-不符合预期</p>
+                     * 获取演练是否符合预期 1-符合预期 2-不符合预期
+                     * @return TaskExpect 演练是否符合预期 1-符合预期 2-不符合预期
                      * 
                      */
                     int64_t GetTaskExpect() const;
 
                     /**
-                     * 设置<p>演练是否符合预期 1-符合预期 2-不符合预期</p>
-                     * @param _taskExpect <p>演练是否符合预期 1-符合预期 2-不符合预期</p>
+                     * 设置演练是否符合预期 1-符合预期 2-不符合预期
+                     * @param _taskExpect 演练是否符合预期 1-符合预期 2-不符合预期
                      * 
                      */
                     void SetTaskExpect(const int64_t& _taskExpect);
@@ -258,15 +257,15 @@ namespace TencentCloud
                     bool TaskExpectHasBeenSet() const;
 
                     /**
-                     * 获取<p>关联应用ID</p>
-                     * @return ApplicationId <p>关联应用ID</p>
+                     * 获取关联应用ID
+                     * @return ApplicationId 关联应用ID
                      * 
                      */
                     std::string GetApplicationId() const;
 
                     /**
-                     * 设置<p>关联应用ID</p>
-                     * @param _applicationId <p>关联应用ID</p>
+                     * 设置关联应用ID
+                     * @param _applicationId 关联应用ID
                      * 
                      */
                     void SetApplicationId(const std::string& _applicationId);
@@ -279,15 +278,15 @@ namespace TencentCloud
                     bool ApplicationIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>关联应用名称</p>
-                     * @return ApplicationName <p>关联应用名称</p>
+                     * 获取关联应用名称
+                     * @return ApplicationName 关联应用名称
                      * 
                      */
                     std::string GetApplicationName() const;
 
                     /**
-                     * 设置<p>关联应用名称</p>
-                     * @param _applicationName <p>关联应用名称</p>
+                     * 设置关联应用名称
+                     * @param _applicationName 关联应用名称
                      * 
                      */
                     void SetApplicationName(const std::string& _applicationName);
@@ -300,15 +299,15 @@ namespace TencentCloud
                     bool ApplicationNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>验证项ID</p>
-                     * @return VerifyId <p>验证项ID</p>
+                     * 获取验证项ID
+                     * @return VerifyId 验证项ID
                      * 
                      */
                     uint64_t GetVerifyId() const;
 
                     /**
-                     * 设置<p>验证项ID</p>
-                     * @param _verifyId <p>验证项ID</p>
+                     * 设置验证项ID
+                     * @param _verifyId 验证项ID
                      * 
                      */
                     void SetVerifyId(const uint64_t& _verifyId);
@@ -321,15 +320,15 @@ namespace TencentCloud
                     bool VerifyIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止</p>
-                     * @return TaskStatusType <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止</p>
+                     * 获取状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
+                     * @return TaskStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
                      * 
                      */
                     uint64_t GetTaskStatusType() const;
 
                     /**
-                     * 设置<p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止</p>
-                     * @param _taskStatusType <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止</p>
+                     * 设置状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
+                     * @param _taskStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
                      * 
                      */
                     void SetTaskStatusType(const uint64_t& _taskStatusType);
@@ -342,15 +341,15 @@ namespace TencentCloud
                     bool TaskStatusTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>架构ID</p>
-                     * @return ArchId <p>架构ID</p>
+                     * 获取架构ID
+                     * @return ArchId 架构ID
                      * 
                      */
                     std::string GetArchId() const;
 
                     /**
-                     * 设置<p>架构ID</p>
-                     * @param _archId <p>架构ID</p>
+                     * 设置架构ID
+                     * @param _archId 架构ID
                      * 
                      */
                     void SetArchId(const std::string& _archId);
@@ -363,15 +362,15 @@ namespace TencentCloud
                     bool ArchIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>架构名称</p>
-                     * @return ArchName <p>架构名称</p>
+                     * 获取架构名称
+                     * @return ArchName 架构名称
                      * 
                      */
                     std::string GetArchName() const;
 
                     /**
-                     * 设置<p>架构名称</p>
-                     * @param _archName <p>架构名称</p>
+                     * 设置架构名称
+                     * @param _archName 架构名称
                      * 
                      */
                     void SetArchName(const std::string& _archName);
@@ -384,15 +383,15 @@ namespace TencentCloud
                     bool ArchNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>来源</p>
-                     * @return TaskSource <p>来源</p>
+                     * 获取来源
+                     * @return TaskSource 来源
                      * 
                      */
                     int64_t GetTaskSource() const;
 
                     /**
-                     * 设置<p>来源</p>
-                     * @param _taskSource <p>来源</p>
+                     * 设置来源
+                     * @param _taskSource 来源
                      * 
                      */
                     void SetTaskSource(const int64_t& _taskSource);
@@ -404,136 +403,109 @@ namespace TencentCloud
                      */
                     bool TaskSourceHasBeenSet() const;
 
-                    /**
-                     * 获取<p>云资源标签列表</p>
-                     * @return Tags <p>云资源标签列表</p>
-                     * 
-                     */
-                    std::vector<TagWithDescribe> GetTags() const;
-
-                    /**
-                     * 设置<p>云资源标签列表</p>
-                     * @param _tags <p>云资源标签列表</p>
-                     * 
-                     */
-                    void SetTags(const std::vector<TagWithDescribe>& _tags);
-
-                    /**
-                     * 判断参数 Tags 是否已赋值
-                     * @return Tags 是否已赋值
-                     * 
-                     */
-                    bool TagsHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>任务ID</p>
+                     * 任务ID
                      */
                     int64_t m_taskId;
                     bool m_taskIdHasBeenSet;
 
                     /**
-                     * <p>任务标题</p>
+                     * 任务标题
                      */
                     std::string m_taskTitle;
                     bool m_taskTitleHasBeenSet;
 
                     /**
-                     * <p>任务描述</p>
+                     * 任务描述
                      */
                     std::string m_taskDescription;
                     bool m_taskDescriptionHasBeenSet;
 
                     /**
-                     * <p>任务标签</p>
+                     * 任务标签
                      */
                     std::string m_taskTag;
                     bool m_taskTagHasBeenSet;
 
                     /**
-                     * <p>任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)</p>
+                     * 任务状态(1001 -- 未开始   1002 -- 进行中  1003 -- 暂停中   1004 -- 任务结束)
                      */
                     int64_t m_taskStatus;
                     bool m_taskStatusHasBeenSet;
 
                     /**
-                     * <p>任务创建时间</p>
+                     * 任务创建时间
                      */
                     std::string m_taskCreateTime;
                     bool m_taskCreateTimeHasBeenSet;
 
                     /**
-                     * <p>任务更新时间</p>
+                     * 任务更新时间
                      */
                     std::string m_taskUpdateTime;
                     bool m_taskUpdateTimeHasBeenSet;
 
                     /**
-                     * <p>0--未开始，1--进行中，2--已完成</p>
+                     * 0--未开始，1--进行中，2--已完成
                      */
                     int64_t m_taskPreCheckStatus;
                     bool m_taskPreCheckStatusHasBeenSet;
 
                     /**
-                     * <p>环境检查是否通过</p>
+                     * 环境检查是否通过
                      */
                     bool m_taskPreCheckSuccess;
                     bool m_taskPreCheckSuccessHasBeenSet;
 
                     /**
-                     * <p>演练是否符合预期 1-符合预期 2-不符合预期</p>
+                     * 演练是否符合预期 1-符合预期 2-不符合预期
                      */
                     int64_t m_taskExpect;
                     bool m_taskExpectHasBeenSet;
 
                     /**
-                     * <p>关联应用ID</p>
+                     * 关联应用ID
                      */
                     std::string m_applicationId;
                     bool m_applicationIdHasBeenSet;
 
                     /**
-                     * <p>关联应用名称</p>
+                     * 关联应用名称
                      */
                     std::string m_applicationName;
                     bool m_applicationNameHasBeenSet;
 
                     /**
-                     * <p>验证项ID</p>
+                     * 验证项ID
                      */
                     uint64_t m_verifyId;
                     bool m_verifyIdHasBeenSet;
 
                     /**
-                     * <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止</p>
+                     * 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止
                      */
                     uint64_t m_taskStatusType;
                     bool m_taskStatusTypeHasBeenSet;
 
                     /**
-                     * <p>架构ID</p>
+                     * 架构ID
                      */
                     std::string m_archId;
                     bool m_archIdHasBeenSet;
 
                     /**
-                     * <p>架构名称</p>
+                     * 架构名称
                      */
                     std::string m_archName;
                     bool m_archNameHasBeenSet;
 
                     /**
-                     * <p>来源</p>
+                     * 来源
                      */
                     int64_t m_taskSource;
                     bool m_taskSourceHasBeenSet;
-
-                    /**
-                     * <p>云资源标签列表</p>
-                     */
-                    std::vector<TagWithDescribe> m_tags;
-                    bool m_tagsHasBeenSet;
 
                 };
             }

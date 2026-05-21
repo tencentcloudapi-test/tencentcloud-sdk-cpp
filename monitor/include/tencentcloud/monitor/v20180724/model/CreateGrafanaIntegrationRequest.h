@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>Grafana 实例 ID，例如：grafana-abcdefgh</p>
-                     * @return InstanceId <p>Grafana 实例 ID，例如：grafana-abcdefgh</p>
+                     * 获取Grafana 实例 ID，例如：grafana-abcdefgh
+                     * @return InstanceId Grafana 实例 ID，例如：grafana-abcdefgh
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>Grafana 实例 ID，例如：grafana-abcdefgh</p>
-                     * @param _instanceId <p>Grafana 实例 ID，例如：grafana-abcdefgh</p>
+                     * 设置Grafana 实例 ID，例如：grafana-abcdefgh
+                     * @param _instanceId Grafana 实例 ID，例如：grafana-abcdefgh
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)</p>
-                     * @return Kind <p>集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)</p>
+                     * 获取集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)
+                     * @return Kind 集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)
                      * 
                      */
                     std::string GetKind() const;
 
                     /**
-                     * 设置<p>集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)</p>
-                     * @param _kind <p>集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)</p>
+                     * 设置集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)
+                     * @param _kind 集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)
                      * 
                      */
                     void SetKind(const std::string& _kind);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool KindHasBeenSet() const;
 
                     /**
-                     * 获取<p>集成配置</p>
-                     * @return Content <p>集成配置</p>
+                     * 获取集成配置
+                     * @return Content 集成配置
                      * 
                      */
                     std::string GetContent() const;
 
                     /**
-                     * 设置<p>集成配置</p>
-                     * @param _content <p>集成配置</p>
+                     * 设置集成配置
+                     * @param _content 集成配置
                      * 
                      */
                     void SetContent(const std::string& _content);
@@ -108,19 +108,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>Grafana 实例 ID，例如：grafana-abcdefgh</p>
+                     * Grafana 实例 ID，例如：grafana-abcdefgh
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)</p>
+                     * 集成类型(接口DescribeGrafanaIntegrationOverviews返回的集成信息中的Code字段)
                      */
                     std::string m_kind;
                     bool m_kindHasBeenSet;
 
                     /**
-                     * <p>集成配置</p>
+                     * 集成配置
                      */
                     std::string m_content;
                     bool m_contentHasBeenSet;

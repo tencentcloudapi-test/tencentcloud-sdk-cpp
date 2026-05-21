@@ -25,9 +25,7 @@ AdaptiveDynamicStreamingTaskInput::AdaptiveDynamicStreamingTaskInput() :
     m_watermarkSetHasBeenSet(false),
     m_traceWatermarkHasBeenSet(false),
     m_copyRightWatermarkHasBeenSet(false),
-    m_blindWatermarkHasBeenSet(false),
-    m_subtitleSetHasBeenSet(false),
-    m_subtitleInfoSetHasBeenSet(false)
+    m_subtitleSetHasBeenSet(false)
 {
 }
 
@@ -100,23 +98,6 @@ CoreInternalOutcome AdaptiveDynamicStreamingTaskInput::Deserialize(const rapidjs
         m_copyRightWatermarkHasBeenSet = true;
     }
 
-    if (value.HasMember("BlindWatermark") && !value["BlindWatermark"].IsNull())
-    {
-        if (!value["BlindWatermark"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveDynamicStreamingTaskInput.BlindWatermark` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_blindWatermark.Deserialize(value["BlindWatermark"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_blindWatermarkHasBeenSet = true;
-    }
-
     if (value.HasMember("SubtitleSet") && !value["SubtitleSet"].IsNull())
     {
         if (!value["SubtitleSet"].IsArray())
@@ -128,26 +109,6 @@ CoreInternalOutcome AdaptiveDynamicStreamingTaskInput::Deserialize(const rapidjs
             m_subtitleSet.push_back((*itr).GetString());
         }
         m_subtitleSetHasBeenSet = true;
-    }
-
-    if (value.HasMember("SubtitleInfoSet") && !value["SubtitleInfoSet"].IsNull())
-    {
-        if (!value["SubtitleInfoSet"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `AdaptiveDynamicStreamingTaskInput.SubtitleInfoSet` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["SubtitleInfoSet"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            SubtitleInfoInput item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_subtitleInfoSet.push_back(item);
-        }
-        m_subtitleInfoSetHasBeenSet = true;
     }
 
 
@@ -198,15 +159,6 @@ void AdaptiveDynamicStreamingTaskInput::ToJsonObject(rapidjson::Value &value, ra
         m_copyRightWatermark.ToJsonObject(value[key.c_str()], allocator);
     }
 
-    if (m_blindWatermarkHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BlindWatermark";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_blindWatermark.ToJsonObject(value[key.c_str()], allocator);
-    }
-
     if (m_subtitleSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -217,21 +169,6 @@ void AdaptiveDynamicStreamingTaskInput::ToJsonObject(rapidjson::Value &value, ra
         for (auto itr = m_subtitleSet.begin(); itr != m_subtitleSet.end(); ++itr)
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
-
-    if (m_subtitleInfoSetHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SubtitleInfoSet";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_subtitleInfoSet.begin(); itr != m_subtitleInfoSet.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
     }
 
@@ -302,22 +239,6 @@ bool AdaptiveDynamicStreamingTaskInput::CopyRightWatermarkHasBeenSet() const
     return m_copyRightWatermarkHasBeenSet;
 }
 
-BlindWatermarkInput AdaptiveDynamicStreamingTaskInput::GetBlindWatermark() const
-{
-    return m_blindWatermark;
-}
-
-void AdaptiveDynamicStreamingTaskInput::SetBlindWatermark(const BlindWatermarkInput& _blindWatermark)
-{
-    m_blindWatermark = _blindWatermark;
-    m_blindWatermarkHasBeenSet = true;
-}
-
-bool AdaptiveDynamicStreamingTaskInput::BlindWatermarkHasBeenSet() const
-{
-    return m_blindWatermarkHasBeenSet;
-}
-
 vector<string> AdaptiveDynamicStreamingTaskInput::GetSubtitleSet() const
 {
     return m_subtitleSet;
@@ -332,21 +253,5 @@ void AdaptiveDynamicStreamingTaskInput::SetSubtitleSet(const vector<string>& _su
 bool AdaptiveDynamicStreamingTaskInput::SubtitleSetHasBeenSet() const
 {
     return m_subtitleSetHasBeenSet;
-}
-
-vector<SubtitleInfoInput> AdaptiveDynamicStreamingTaskInput::GetSubtitleInfoSet() const
-{
-    return m_subtitleInfoSet;
-}
-
-void AdaptiveDynamicStreamingTaskInput::SetSubtitleInfoSet(const vector<SubtitleInfoInput>& _subtitleInfoSet)
-{
-    m_subtitleInfoSet = _subtitleInfoSet;
-    m_subtitleInfoSetHasBeenSet = true;
-}
-
-bool AdaptiveDynamicStreamingTaskInput::SubtitleInfoSetHasBeenSet() const
-{
-    return m_subtitleInfoSetHasBeenSet;
 }
 

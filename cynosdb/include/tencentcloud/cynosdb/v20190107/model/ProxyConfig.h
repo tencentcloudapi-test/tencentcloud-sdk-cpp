@@ -48,36 +48,36 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones</p>
-                     * @return ProxyCount <p>数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones</p>
-                     * @deprecated
+                     * 获取数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones
+                     * @return ProxyCount 数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones
+                     * 
                      */
                     int64_t GetProxyCount() const;
 
                     /**
-                     * 设置<p>数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones</p>
-                     * @param _proxyCount <p>数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones</p>
-                     * @deprecated
+                     * 设置数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones
+                     * @param _proxyCount 数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones
+                     * 
                      */
                     void SetProxyCount(const int64_t& _proxyCount);
 
                     /**
                      * 判断参数 ProxyCount 是否已赋值
                      * @return ProxyCount 是否已赋值
-                     * @deprecated
+                     * 
                      */
                     bool ProxyCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>cpu核数</p>
-                     * @return Cpu <p>cpu核数</p>
+                     * 获取cpu核数
+                     * @return Cpu cpu核数
                      * 
                      */
                     int64_t GetCpu() const;
 
                     /**
-                     * 设置<p>cpu核数</p>
-                     * @param _cpu <p>cpu核数</p>
+                     * 设置cpu核数
+                     * @param _cpu cpu核数
                      * 
                      */
                     void SetCpu(const int64_t& _cpu);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool CpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>内存</p>
-                     * @return Mem <p>内存</p>
+                     * 获取内存
+                     * @return Mem 内存
                      * 
                      */
                     int64_t GetMem() const;
 
                     /**
-                     * 设置<p>内存</p>
-                     * @param _mem <p>内存</p>
+                     * 设置内存
+                     * @param _mem 内存
                      * 
                      */
                     void SetMem(const int64_t& _mem);
@@ -111,15 +111,15 @@ namespace TencentCloud
                     bool MemHasBeenSet() const;
 
                     /**
-                     * 获取<p>连接池类型:SessionConnectionPool(会话级别连接池 )</p>
-                     * @return ConnectionPoolType <p>连接池类型:SessionConnectionPool(会话级别连接池 )</p>
+                     * 获取连接池类型:SessionConnectionPool(会话级别连接池 )
+                     * @return ConnectionPoolType 连接池类型:SessionConnectionPool(会话级别连接池 )
                      * 
                      */
                     std::string GetConnectionPoolType() const;
 
                     /**
-                     * 设置<p>连接池类型:SessionConnectionPool(会话级别连接池 )</p>
-                     * @param _connectionPoolType <p>连接池类型:SessionConnectionPool(会话级别连接池 )</p>
+                     * 设置连接池类型:SessionConnectionPool(会话级别连接池 )
+                     * @param _connectionPoolType 连接池类型:SessionConnectionPool(会话级别连接池 )
                      * 
                      */
                     void SetConnectionPoolType(const std::string& _connectionPoolType);
@@ -132,15 +132,15 @@ namespace TencentCloud
                     bool ConnectionPoolTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启连接池,yes-开启，no-不开启</p>
-                     * @return OpenConnectionPool <p>是否开启连接池,yes-开启，no-不开启</p>
+                     * 获取是否开启连接池,yes-开启，no-不开启
+                     * @return OpenConnectionPool 是否开启连接池,yes-开启，no-不开启
                      * 
                      */
                     std::string GetOpenConnectionPool() const;
 
                     /**
-                     * 设置<p>是否开启连接池,yes-开启，no-不开启</p>
-                     * @param _openConnectionPool <p>是否开启连接池,yes-开启，no-不开启</p>
+                     * 设置是否开启连接池,yes-开启，no-不开启
+                     * @param _openConnectionPool 是否开启连接池,yes-开启，no-不开启
                      * 
                      */
                     void SetOpenConnectionPool(const std::string& _openConnectionPool);
@@ -153,15 +153,15 @@ namespace TencentCloud
                     bool OpenConnectionPoolHasBeenSet() const;
 
                     /**
-                     * 获取<p>连接池阈值:单位（秒）</p>
-                     * @return ConnectionPoolTimeOut <p>连接池阈值:单位（秒）</p>
+                     * 获取连接池阈值:单位（秒）
+                     * @return ConnectionPoolTimeOut 连接池阈值:单位（秒）
                      * 
                      */
                     int64_t GetConnectionPoolTimeOut() const;
 
                     /**
-                     * 设置<p>连接池阈值:单位（秒）</p>
-                     * @param _connectionPoolTimeOut <p>连接池阈值:单位（秒）</p>
+                     * 设置连接池阈值:单位（秒）
+                     * @param _connectionPoolTimeOut 连接池阈值:单位（秒）
                      * 
                      */
                     void SetConnectionPoolTimeOut(const int64_t& _connectionPoolTimeOut);
@@ -174,15 +174,15 @@ namespace TencentCloud
                     bool ConnectionPoolTimeOutHasBeenSet() const;
 
                     /**
-                     * 获取<p>描述说明</p>
-                     * @return Description <p>描述说明</p>
+                     * 获取描述说明
+                     * @return Description 描述说明
                      * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置<p>描述说明</p>
-                     * @param _description <p>描述说明</p>
+                     * 设置描述说明
+                     * @param _description 描述说明
                      * 
                      */
                     void SetDescription(const std::string& _description);
@@ -195,15 +195,15 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库节点信息（该参数与ProxyCount需要任选一个输入）</p>
-                     * @return ProxyZones <p>数据库节点信息（该参数与ProxyCount需要任选一个输入）</p>
+                     * 获取数据库节点信息（该参数与ProxyCount需要任选一个输入）
+                     * @return ProxyZones 数据库节点信息（该参数与ProxyCount需要任选一个输入）
                      * 
                      */
                     std::vector<ProxyZone> GetProxyZones() const;
 
                     /**
-                     * 设置<p>数据库节点信息（该参数与ProxyCount需要任选一个输入）</p>
-                     * @param _proxyZones <p>数据库节点信息（该参数与ProxyCount需要任选一个输入）</p>
+                     * 设置数据库节点信息（该参数与ProxyCount需要任选一个输入）
+                     * @param _proxyZones 数据库节点信息（该参数与ProxyCount需要任选一个输入）
                      * 
                      */
                     void SetProxyZones(const std::vector<ProxyZone>& _proxyZones);
@@ -218,49 +218,49 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones</p>
+                     * 数据库代理组节点个数。该参数不再建议使用,建议使用ProxyZones
                      */
                     int64_t m_proxyCount;
                     bool m_proxyCountHasBeenSet;
 
                     /**
-                     * <p>cpu核数</p>
+                     * cpu核数
                      */
                     int64_t m_cpu;
                     bool m_cpuHasBeenSet;
 
                     /**
-                     * <p>内存</p>
+                     * 内存
                      */
                     int64_t m_mem;
                     bool m_memHasBeenSet;
 
                     /**
-                     * <p>连接池类型:SessionConnectionPool(会话级别连接池 )</p>
+                     * 连接池类型:SessionConnectionPool(会话级别连接池 )
                      */
                     std::string m_connectionPoolType;
                     bool m_connectionPoolTypeHasBeenSet;
 
                     /**
-                     * <p>是否开启连接池,yes-开启，no-不开启</p>
+                     * 是否开启连接池,yes-开启，no-不开启
                      */
                     std::string m_openConnectionPool;
                     bool m_openConnectionPoolHasBeenSet;
 
                     /**
-                     * <p>连接池阈值:单位（秒）</p>
+                     * 连接池阈值:单位（秒）
                      */
                     int64_t m_connectionPoolTimeOut;
                     bool m_connectionPoolTimeOutHasBeenSet;
 
                     /**
-                     * <p>描述说明</p>
+                     * 描述说明
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>数据库节点信息（该参数与ProxyCount需要任选一个输入）</p>
+                     * 数据库节点信息（该参数与ProxyCount需要任选一个输入）
                      */
                     std::vector<ProxyZone> m_proxyZones;
                     bool m_proxyZonesHasBeenSet;

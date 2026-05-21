@@ -25,8 +25,7 @@ using namespace std;
 
 AcquireSandboxInstanceTokenResponse::AcquireSandboxInstanceTokenResponse() :
     m_tokenHasBeenSet(false),
-    m_expiresAtHasBeenSet(false),
-    m_trafficTokenHasBeenSet(false)
+    m_expiresAtHasBeenSet(false)
 {
 }
 
@@ -84,16 +83,6 @@ CoreInternalOutcome AcquireSandboxInstanceTokenResponse::Deserialize(const strin
         m_expiresAtHasBeenSet = true;
     }
 
-    if (rsp.HasMember("TrafficToken") && !rsp["TrafficToken"].IsNull())
-    {
-        if (!rsp["TrafficToken"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `TrafficToken` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_trafficToken = string(rsp["TrafficToken"].GetString());
-        m_trafficTokenHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -118,14 +107,6 @@ string AcquireSandboxInstanceTokenResponse::ToJsonString() const
         string key = "ExpiresAt";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_expiresAt.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_trafficTokenHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TrafficToken";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_trafficToken.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -158,16 +139,6 @@ string AcquireSandboxInstanceTokenResponse::GetExpiresAt() const
 bool AcquireSandboxInstanceTokenResponse::ExpiresAtHasBeenSet() const
 {
     return m_expiresAtHasBeenSet;
-}
-
-string AcquireSandboxInstanceTokenResponse::GetTrafficToken() const
-{
-    return m_trafficToken;
-}
-
-bool AcquireSandboxInstanceTokenResponse::TrafficTokenHasBeenSet() const
-{
-    return m_trafficTokenHasBeenSet;
 }
 
 

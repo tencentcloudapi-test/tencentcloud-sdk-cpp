@@ -29,8 +29,7 @@ VpnGatewayRoute::VpnGatewayRoute() :
     m_routeIdHasBeenSet(false),
     m_typeHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_updateTimeHasBeenSet(false)
 {
 }
 
@@ -129,16 +128,6 @@ CoreInternalOutcome VpnGatewayRoute::Deserialize(const rapidjson::Value &value)
         m_updateTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("Description") && !value["Description"].IsNull())
-    {
-        if (!value["Description"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `VpnGatewayRoute.Description` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_description = string(value["Description"].GetString());
-        m_descriptionHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -216,14 +205,6 @@ void VpnGatewayRoute::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_descriptionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Description";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_description.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -371,21 +352,5 @@ void VpnGatewayRoute::SetUpdateTime(const string& _updateTime)
 bool VpnGatewayRoute::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
-}
-
-string VpnGatewayRoute::GetDescription() const
-{
-    return m_description;
-}
-
-void VpnGatewayRoute::SetDescription(const string& _description)
-{
-    m_description = _description;
-    m_descriptionHasBeenSet = true;
-}
-
-bool VpnGatewayRoute::DescriptionHasBeenSet() const
-{
-    return m_descriptionHasBeenSet;
 }
 

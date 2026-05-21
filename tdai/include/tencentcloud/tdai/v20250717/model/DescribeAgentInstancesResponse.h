@@ -22,7 +22,6 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tdai/v20250717/model/AgentInstance.h>
-#include <tencentcloud/tdai/v20250717/model/StatusItem.h>
 
 
 namespace TencentCloud
@@ -60,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能体实例列表</p>
-                     * @return Items <p>智能体实例列表</p>
+                     * 获取智能体实例列表
+                     * @return Items 智能体实例列表
                      * 
                      */
                     std::vector<AgentInstance> GetItems() const;
@@ -73,20 +72,6 @@ namespace TencentCloud
                      */
                     bool ItemsHasBeenSet() const;
 
-                    /**
-                     * 获取<p>无</p>
-                     * @return StatusCounts <p>无</p>
-                     * 
-                     */
-                    std::vector<StatusItem> GetStatusCounts() const;
-
-                    /**
-                     * 判断参数 StatusCounts 是否已赋值
-                     * @return StatusCounts 是否已赋值
-                     * 
-                     */
-                    bool StatusCountsHasBeenSet() const;
-
                 private:
 
                     /**
@@ -96,16 +81,10 @@ namespace TencentCloud
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>智能体实例列表</p>
+                     * 智能体实例列表
                      */
                     std::vector<AgentInstance> m_items;
                     bool m_itemsHasBeenSet;
-
-                    /**
-                     * <p>无</p>
-                     */
-                    std::vector<StatusItem> m_statusCounts;
-                    bool m_statusCountsHasBeenSet;
 
                 };
             }

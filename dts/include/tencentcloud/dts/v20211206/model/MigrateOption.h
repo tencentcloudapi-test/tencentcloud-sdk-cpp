@@ -50,15 +50,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>迁移对象选项，需要告知迁移服务迁移哪些库表对象</p>
-                     * @return DatabaseTable <p>迁移对象选项，需要告知迁移服务迁移哪些库表对象</p>
+                     * 获取迁移对象选项，需要告知迁移服务迁移哪些库表对象
+                     * @return DatabaseTable 迁移对象选项，需要告知迁移服务迁移哪些库表对象
                      * 
                      */
                     DatabaseTableObject GetDatabaseTable() const;
 
                     /**
-                     * 设置<p>迁移对象选项，需要告知迁移服务迁移哪些库表对象</p>
-                     * @param _databaseTable <p>迁移对象选项，需要告知迁移服务迁移哪些库表对象</p>
+                     * 设置迁移对象选项，需要告知迁移服务迁移哪些库表对象
+                     * @param _databaseTable 迁移对象选项，需要告知迁移服务迁移哪些库表对象
                      * 
                      */
                     void SetDatabaseTable(const DatabaseTableObject& _databaseTable);
@@ -71,15 +71,15 @@ namespace TencentCloud
                     bool DatabaseTableHasBeenSet() const;
 
                     /**
-                     * 获取<p>迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。</p>
-                     * @return MigrateType <p>迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。</p>
+                     * 获取迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。
+                     * @return MigrateType 迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。
                      * 
                      */
                     std::string GetMigrateType() const;
 
                     /**
-                     * 设置<p>迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。</p>
-                     * @param _migrateType <p>迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。</p>
+                     * 设置迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。
+                     * @param _migrateType 迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。
                      * 
                      */
                     void SetMigrateType(const std::string& _migrateType);
@@ -92,18 +92,18 @@ namespace TencentCloud
                     bool MigrateTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据一致性校验选项， 默认为不开启一致性校验</p>
+                     * 获取数据一致性校验选项， 默认为不开启一致性校验
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Consistency <p>数据一致性校验选项， 默认为不开启一致性校验</p>
+                     * @return Consistency 数据一致性校验选项， 默认为不开启一致性校验
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     ConsistencyOption GetConsistency() const;
 
                     /**
-                     * 设置<p>数据一致性校验选项， 默认为不开启一致性校验</p>
+                     * 设置数据一致性校验选项， 默认为不开启一致性校验
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _consistency <p>数据一致性校验选项， 默认为不开启一致性校验</p>
+                     * @param _consistency 数据一致性校验选项， 默认为不开启一致性校验
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -117,15 +117,15 @@ namespace TencentCloud
                     bool ConsistencyHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否迁移账号，true(迁移账号)，false(不迁移账号)</p>
-                     * @return IsMigrateAccount <p>是否迁移账号，true(迁移账号)，false(不迁移账号)</p>
+                     * 获取是否迁移账号，true(迁移账号)，false(不迁移账号)
+                     * @return IsMigrateAccount 是否迁移账号，true(迁移账号)，false(不迁移账号)
                      * 
                      */
                     bool GetIsMigrateAccount() const;
 
                     /**
-                     * 设置<p>是否迁移账号，true(迁移账号)，false(不迁移账号)</p>
-                     * @param _isMigrateAccount <p>是否迁移账号，true(迁移账号)，false(不迁移账号)</p>
+                     * 设置是否迁移账号，true(迁移账号)，false(不迁移账号)
+                     * @param _isMigrateAccount 是否迁移账号，true(迁移账号)，false(不迁移账号)
                      * 
                      */
                     void SetIsMigrateAccount(const bool& _isMigrateAccount);
@@ -138,15 +138,15 @@ namespace TencentCloud
                     bool IsMigrateAccountHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效</p>
-                     * @return IsOverrideRoot <p>是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效</p>
+                     * 获取是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效
+                     * @return IsOverrideRoot 是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效
                      * 
                      */
                     bool GetIsOverrideRoot() const;
 
                     /**
-                     * 设置<p>是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效</p>
-                     * @param _isOverrideRoot <p>是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效</p>
+                     * 设置是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效
+                     * @param _isOverrideRoot 是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效
                      * 
                      */
                     void SetIsOverrideRoot(const bool& _isOverrideRoot);
@@ -159,15 +159,15 @@ namespace TencentCloud
                     bool IsOverrideRootHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)</p>
-                     * @return IsDstReadOnly <p>是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)</p>
+                     * 获取是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)
+                     * @return IsDstReadOnly 是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)
                      * 
                      */
                     bool GetIsDstReadOnly() const;
 
                     /**
-                     * 设置<p>是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)</p>
-                     * @param _isDstReadOnly <p>是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)</p>
+                     * 设置是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)
+                     * @param _isDstReadOnly 是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)
                      * 
                      */
                     void SetIsDstReadOnly(const bool& _isDstReadOnly);
@@ -180,15 +180,19 @@ namespace TencentCloud
                     bool IsDstReadOnlyHasBeenSet() const;
 
                     /**
-                     * 获取<p>其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数:<br>[&quot;DstWriteMode&quot;:normal,     目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务    &quot;IsDstReadOnly&quot;:true,     是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读)     &quot;ClientOutputBufferHardLimit&quot;:512,     从机缓冲区的硬性容量限制(MB)     &quot;ClientOutputBufferSoftLimit&quot;:512,     从机缓冲区的软性容量限制(MB)     &quot;ClientOutputBufferPersistTime&quot;:60, 从机缓冲区的软性限制持续时间(秒)     &quot;ReplBacklogSize&quot;:512,     环形缓冲区容量限制(MB)     &quot;ReplTimeout&quot;:120，        复制超时时间(秒)     &quot;IsExpireKey&quot;:&quot;true&quot;,过期key自动淘汰]</p>
-                     * @return ExtraAttr <p>其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数:<br>[&quot;DstWriteMode&quot;:normal,     目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务    &quot;IsDstReadOnly&quot;:true,     是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读)     &quot;ClientOutputBufferHardLimit&quot;:512,     从机缓冲区的硬性容量限制(MB)     &quot;ClientOutputBufferSoftLimit&quot;:512,     从机缓冲区的软性容量限制(MB)     &quot;ClientOutputBufferPersistTime&quot;:60, 从机缓冲区的软性限制持续时间(秒)     &quot;ReplBacklogSize&quot;:512,     环形缓冲区容量限制(MB)     &quot;ReplTimeout&quot;:120，        复制超时时间(秒)     &quot;IsExpireKey&quot;:&quot;true&quot;,过期key自动淘汰]</p>
+                     * 获取其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数: 
+["DstWriteMode":normal, 	目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务	"IsDstReadOnly":true, 	是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读) 	"ClientOutputBufferHardLimit":512, 	从机缓冲区的硬性容量限制(MB) 	"ClientOutputBufferSoftLimit":512, 	从机缓冲区的软性容量限制(MB) 	"ClientOutputBufferPersistTime":60, 从机缓冲区的软性限制持续时间(秒) 	"ReplBacklogSize":512, 	环形缓冲区容量限制(MB) 	"ReplTimeout":120，		复制超时时间(秒) 	"IsExpireKey":"true",过期key自动淘汰]
+                     * @return ExtraAttr 其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数: 
+["DstWriteMode":normal, 	目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务	"IsDstReadOnly":true, 	是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读) 	"ClientOutputBufferHardLimit":512, 	从机缓冲区的硬性容量限制(MB) 	"ClientOutputBufferSoftLimit":512, 	从机缓冲区的软性容量限制(MB) 	"ClientOutputBufferPersistTime":60, 从机缓冲区的软性限制持续时间(秒) 	"ReplBacklogSize":512, 	环形缓冲区容量限制(MB) 	"ReplTimeout":120，		复制超时时间(秒) 	"IsExpireKey":"true",过期key自动淘汰]
                      * 
                      */
                     std::vector<KeyValuePairOption> GetExtraAttr() const;
 
                     /**
-                     * 设置<p>其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数:<br>[&quot;DstWriteMode&quot;:normal,     目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务    &quot;IsDstReadOnly&quot;:true,     是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读)     &quot;ClientOutputBufferHardLimit&quot;:512,     从机缓冲区的硬性容量限制(MB)     &quot;ClientOutputBufferSoftLimit&quot;:512,     从机缓冲区的软性容量限制(MB)     &quot;ClientOutputBufferPersistTime&quot;:60, 从机缓冲区的软性限制持续时间(秒)     &quot;ReplBacklogSize&quot;:512,     环形缓冲区容量限制(MB)     &quot;ReplTimeout&quot;:120，        复制超时时间(秒)     &quot;IsExpireKey&quot;:&quot;true&quot;,过期key自动淘汰]</p>
-                     * @param _extraAttr <p>其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数:<br>[&quot;DstWriteMode&quot;:normal,     目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务    &quot;IsDstReadOnly&quot;:true,     是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读)     &quot;ClientOutputBufferHardLimit&quot;:512,     从机缓冲区的硬性容量限制(MB)     &quot;ClientOutputBufferSoftLimit&quot;:512,     从机缓冲区的软性容量限制(MB)     &quot;ClientOutputBufferPersistTime&quot;:60, 从机缓冲区的软性限制持续时间(秒)     &quot;ReplBacklogSize&quot;:512,     环形缓冲区容量限制(MB)     &quot;ReplTimeout&quot;:120，        复制超时时间(秒)     &quot;IsExpireKey&quot;:&quot;true&quot;,过期key自动淘汰]</p>
+                     * 设置其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数: 
+["DstWriteMode":normal, 	目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务	"IsDstReadOnly":true, 	是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读) 	"ClientOutputBufferHardLimit":512, 	从机缓冲区的硬性容量限制(MB) 	"ClientOutputBufferSoftLimit":512, 	从机缓冲区的软性容量限制(MB) 	"ClientOutputBufferPersistTime":60, 从机缓冲区的软性限制持续时间(秒) 	"ReplBacklogSize":512, 	环形缓冲区容量限制(MB) 	"ReplTimeout":120，		复制超时时间(秒) 	"IsExpireKey":"true",过期key自动淘汰]
+                     * @param _extraAttr 其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数: 
+["DstWriteMode":normal, 	目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务	"IsDstReadOnly":true, 	是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读) 	"ClientOutputBufferHardLimit":512, 	从机缓冲区的硬性容量限制(MB) 	"ClientOutputBufferSoftLimit":512, 	从机缓冲区的软性容量限制(MB) 	"ClientOutputBufferPersistTime":60, 从机缓冲区的软性限制持续时间(秒) 	"ReplBacklogSize":512, 	环形缓冲区容量限制(MB) 	"ReplTimeout":120，		复制超时时间(秒) 	"IsExpireKey":"true",过期key自动淘汰]
                      * 
                      */
                     void SetExtraAttr(const std::vector<KeyValuePairOption>& _extraAttr);
@@ -201,15 +205,15 @@ namespace TencentCloud
                     bool ExtraAttrHasBeenSet() const;
 
                     /**
-                     * 获取<p>pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)</p>
-                     * @return MigrateWay <p>pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)</p>
+                     * 获取pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)
+                     * @return MigrateWay pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)
                      * 
                      */
                     std::string GetMigrateWay() const;
 
                     /**
-                     * 设置<p>pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)</p>
-                     * @param _migrateWay <p>pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)</p>
+                     * 设置pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)
+                     * @param _migrateWay pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)
                      * 
                      */
                     void SetMigrateWay(const std::string& _migrateWay);
@@ -224,50 +228,51 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>迁移对象选项，需要告知迁移服务迁移哪些库表对象</p>
+                     * 迁移对象选项，需要告知迁移服务迁移哪些库表对象
                      */
                     DatabaseTableObject m_databaseTable;
                     bool m_databaseTableHasBeenSet;
 
                     /**
-                     * <p>迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。</p>
+                     * 迁移类型，full(全量迁移)，structure(结构迁移)，fullAndIncrement(全量加增量迁移)， 默认为fullAndIncrement;注意redis,keewidb产品只支持fullAndIncrement类型。
                      */
                     std::string m_migrateType;
                     bool m_migrateTypeHasBeenSet;
 
                     /**
-                     * <p>数据一致性校验选项， 默认为不开启一致性校验</p>
+                     * 数据一致性校验选项， 默认为不开启一致性校验
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ConsistencyOption m_consistency;
                     bool m_consistencyHasBeenSet;
 
                     /**
-                     * <p>是否迁移账号，true(迁移账号)，false(不迁移账号)</p>
+                     * 是否迁移账号，true(迁移账号)，false(不迁移账号)
                      */
                     bool m_isMigrateAccount;
                     bool m_isMigrateAccountHasBeenSet;
 
                     /**
-                     * <p>是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效</p>
+                     * 是否用源库Root账户覆盖目标库，值包括：false-不覆盖，true-覆盖，选择库表或者结构迁移时应该为false，注意只对旧版迁移有效
                      */
                     bool m_isOverrideRoot;
                     bool m_isOverrideRootHasBeenSet;
 
                     /**
-                     * <p>是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)</p>
+                     * 是否在迁移时设置目标库只读(仅对mysql有效)，true(设置只读)、false(不设置只读，默认此值)
                      */
                     bool m_isDstReadOnly;
                     bool m_isDstReadOnlyHasBeenSet;
 
                     /**
-                     * <p>其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数:<br>[&quot;DstWriteMode&quot;:normal,     目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务    &quot;IsDstReadOnly&quot;:true,     是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读)     &quot;ClientOutputBufferHardLimit&quot;:512,     从机缓冲区的硬性容量限制(MB)     &quot;ClientOutputBufferSoftLimit&quot;:512,     从机缓冲区的软性容量限制(MB)     &quot;ClientOutputBufferPersistTime&quot;:60, 从机缓冲区的软性限制持续时间(秒)     &quot;ReplBacklogSize&quot;:512,     环形缓冲区容量限制(MB)     &quot;ReplTimeout&quot;:120，        复制超时时间(秒)     &quot;IsExpireKey&quot;:&quot;true&quot;,过期key自动淘汰]</p>
+                     * 其他附加信息，对于特定库可设置额外参数，Redis可定义如下的参数: 
+["DstWriteMode":normal, 	目标库写入模式,可取值clearData(清空目标实例数据)、overwrite(以覆盖写的方式执行任务)、normal(要求目标端为空，否则校验不通过) ，不显示指定默认以覆盖写的方式执行任务	"IsDstReadOnly":true, 	是否在迁移时设置目标库只读,true(设置只读)、false(不设置只读) 	"ClientOutputBufferHardLimit":512, 	从机缓冲区的硬性容量限制(MB) 	"ClientOutputBufferSoftLimit":512, 	从机缓冲区的软性容量限制(MB) 	"ClientOutputBufferPersistTime":60, 从机缓冲区的软性限制持续时间(秒) 	"ReplBacklogSize":512, 	环形缓冲区容量限制(MB) 	"ReplTimeout":120，		复制超时时间(秒) 	"IsExpireKey":"true",过期key自动淘汰]
                      */
                     std::vector<KeyValuePairOption> m_extraAttr;
                     bool m_extraAttrHasBeenSet;
 
                     /**
-                     * <p>pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)</p>
+                     * pgsql迁移分类：logical(逻辑迁移)、physical(物理迁移)
                      */
                     std::string m_migrateWay;
                     bool m_migrateWayHasBeenSet;

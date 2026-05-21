@@ -23,9 +23,8 @@ using namespace TencentCloud::Gs::V20191118::Model;
 using namespace std;
 
 CreateAndroidInstanceAcceleratorTokenRequest::CreateAndroidInstanceAcceleratorTokenRequest() :
-    m_androidInstanceIdsHasBeenSet(false),
     m_userIPHasBeenSet(false),
-    m_expirationDurationHasBeenSet(false)
+    m_androidInstanceIdsHasBeenSet(false)
 {
 }
 
@@ -35,6 +34,14 @@ string CreateAndroidInstanceAcceleratorTokenRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
+
+    if (m_userIPHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "UserIP";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_userIP.c_str(), allocator).Move(), allocator);
+    }
 
     if (m_androidInstanceIdsHasBeenSet)
     {
@@ -49,22 +56,6 @@ string CreateAndroidInstanceAcceleratorTokenRequest::ToJsonString() const
         }
     }
 
-    if (m_userIPHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UserIP";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_userIP.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_expirationDurationHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExpirationDuration";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_expirationDuration.c_str(), allocator).Move(), allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -72,22 +63,6 @@ string CreateAndroidInstanceAcceleratorTokenRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-vector<string> CreateAndroidInstanceAcceleratorTokenRequest::GetAndroidInstanceIds() const
-{
-    return m_androidInstanceIds;
-}
-
-void CreateAndroidInstanceAcceleratorTokenRequest::SetAndroidInstanceIds(const vector<string>& _androidInstanceIds)
-{
-    m_androidInstanceIds = _androidInstanceIds;
-    m_androidInstanceIdsHasBeenSet = true;
-}
-
-bool CreateAndroidInstanceAcceleratorTokenRequest::AndroidInstanceIdsHasBeenSet() const
-{
-    return m_androidInstanceIdsHasBeenSet;
-}
 
 string CreateAndroidInstanceAcceleratorTokenRequest::GetUserIP() const
 {
@@ -105,20 +80,20 @@ bool CreateAndroidInstanceAcceleratorTokenRequest::UserIPHasBeenSet() const
     return m_userIPHasBeenSet;
 }
 
-string CreateAndroidInstanceAcceleratorTokenRequest::GetExpirationDuration() const
+vector<string> CreateAndroidInstanceAcceleratorTokenRequest::GetAndroidInstanceIds() const
 {
-    return m_expirationDuration;
+    return m_androidInstanceIds;
 }
 
-void CreateAndroidInstanceAcceleratorTokenRequest::SetExpirationDuration(const string& _expirationDuration)
+void CreateAndroidInstanceAcceleratorTokenRequest::SetAndroidInstanceIds(const vector<string>& _androidInstanceIds)
 {
-    m_expirationDuration = _expirationDuration;
-    m_expirationDurationHasBeenSet = true;
+    m_androidInstanceIds = _androidInstanceIds;
+    m_androidInstanceIdsHasBeenSet = true;
 }
 
-bool CreateAndroidInstanceAcceleratorTokenRequest::ExpirationDurationHasBeenSet() const
+bool CreateAndroidInstanceAcceleratorTokenRequest::AndroidInstanceIdsHasBeenSet() const
 {
-    return m_expirationDurationHasBeenSet;
+    return m_androidInstanceIdsHasBeenSet;
 }
 
 

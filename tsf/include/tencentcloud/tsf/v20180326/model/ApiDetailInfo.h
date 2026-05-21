@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>API ID</p>
+                     * 获取API ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ApiId <p>API ID</p>
+                     * @return ApiId API ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetApiId() const;
 
                     /**
-                     * 设置<p>API ID</p>
+                     * 设置API ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _apiId <p>API ID</p>
+                     * @param _apiId API ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool ApiIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>命名空间ID</p>
+                     * 获取命名空间ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return NamespaceId <p>命名空间ID</p>
+                     * @return NamespaceId 命名空间ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetNamespaceId() const;
 
                     /**
-                     * 设置<p>命名空间ID</p>
+                     * 设置命名空间ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _namespaceId <p>命名空间ID</p>
+                     * @param _namespaceId 命名空间ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool NamespaceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>命名空间名称</p>
+                     * 获取命名空间名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return NamespaceName <p>命名空间名称</p>
+                     * @return NamespaceName 命名空间名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetNamespaceName() const;
 
                     /**
-                     * 设置<p>命名空间名称</p>
+                     * 设置命名空间名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _namespaceName <p>命名空间名称</p>
+                     * @param _namespaceName 命名空间名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool NamespaceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务ID</p>
+                     * 获取服务ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return MicroserviceId <p>服务ID</p>
+                     * @return MicroserviceId 服务ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMicroserviceId() const;
 
                     /**
-                     * 设置<p>服务ID</p>
+                     * 设置服务ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _microserviceId <p>服务ID</p>
+                     * @param _microserviceId 服务ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -147,18 +147,18 @@ namespace TencentCloud
                     bool MicroserviceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务名称</p>
+                     * 获取服务名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return MicroserviceName <p>服务名称</p>
+                     * @return MicroserviceName 服务名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMicroserviceName() const;
 
                     /**
-                     * 设置<p>服务名称</p>
+                     * 设置服务名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _microserviceName <p>服务名称</p>
+                     * @param _microserviceName 服务名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -172,18 +172,18 @@ namespace TencentCloud
                     bool MicroserviceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>API 请求路径</p>
+                     * 获取API 请求路径
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Path <p>API 请求路径</p>
+                     * @return Path API 请求路径
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetPath() const;
 
                     /**
-                     * 设置<p>API 请求路径</p>
+                     * 设置API 请求路径
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _path <p>API 请求路径</p>
+                     * @param _path API 请求路径
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -197,18 +197,18 @@ namespace TencentCloud
                     bool PathHasBeenSet() const;
 
                     /**
-                     * 获取<p>Api 映射路径</p>
+                     * 获取Api 映射路径
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PathMapping <p>Api 映射路径</p>
+                     * @return PathMapping Api 映射路径
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetPathMapping() const;
 
                     /**
-                     * 设置<p>Api 映射路径</p>
+                     * 设置Api 映射路径
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _pathMapping <p>Api 映射路径</p>
+                     * @param _pathMapping Api 映射路径
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -222,18 +222,18 @@ namespace TencentCloud
                     bool PathMappingHasBeenSet() const;
 
                     /**
-                     * 获取<p>请求方法</p>
+                     * 获取请求方法
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Method <p>请求方法</p>
+                     * @return Method 请求方法
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMethod() const;
 
                     /**
-                     * 设置<p>请求方法</p>
+                     * 设置请求方法
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _method <p>请求方法</p>
+                     * @param _method 请求方法
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -247,18 +247,18 @@ namespace TencentCloud
                     bool MethodHasBeenSet() const;
 
                     /**
-                     * 获取<p>所属分组ID</p>
+                     * 获取所属分组ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GroupId <p>所属分组ID</p>
+                     * @return GroupId 所属分组ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetGroupId() const;
 
                     /**
-                     * 设置<p>所属分组ID</p>
+                     * 设置所属分组ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _groupId <p>所属分组ID</p>
+                     * @param _groupId 所属分组ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -272,18 +272,18 @@ namespace TencentCloud
                     bool GroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否禁用</p>
+                     * 获取是否禁用
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UsableStatus <p>是否禁用</p>
+                     * @return UsableStatus 是否禁用
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetUsableStatus() const;
 
                     /**
-                     * 设置<p>是否禁用</p>
+                     * 设置是否禁用
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _usableStatus <p>是否禁用</p>
+                     * @param _usableStatus 是否禁用
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -297,18 +297,18 @@ namespace TencentCloud
                     bool UsableStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>发布状态</p>
+                     * 获取发布状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ReleaseStatus <p>发布状态</p>
+                     * @return ReleaseStatus 发布状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetReleaseStatus() const;
 
                     /**
-                     * 设置<p>发布状态</p>
+                     * 设置发布状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _releaseStatus <p>发布状态</p>
+                     * @param _releaseStatus 发布状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -322,18 +322,18 @@ namespace TencentCloud
                     bool ReleaseStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>开启限流</p>
+                     * 获取开启限流
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RateLimitStatus <p>开启限流</p>
+                     * @return RateLimitStatus 开启限流
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRateLimitStatus() const;
 
                     /**
-                     * 设置<p>开启限流</p>
+                     * 设置开启限流
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _rateLimitStatus <p>开启限流</p>
+                     * @param _rateLimitStatus 开启限流
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -347,18 +347,18 @@ namespace TencentCloud
                     bool RateLimitStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启mock</p>
+                     * 获取是否开启mock
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return MockStatus <p>是否开启mock</p>
+                     * @return MockStatus 是否开启mock
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMockStatus() const;
 
                     /**
-                     * 设置<p>是否开启mock</p>
+                     * 设置是否开启mock
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _mockStatus <p>是否开启mock</p>
+                     * @param _mockStatus 是否开启mock
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -372,18 +372,18 @@ namespace TencentCloud
                     bool MockStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间</p>
+                     * 获取创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CreatedTime <p>创建时间</p>
+                     * @return CreatedTime 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCreatedTime() const;
 
                     /**
-                     * 设置<p>创建时间</p>
+                     * 设置创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _createdTime <p>创建时间</p>
+                     * @param _createdTime 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -397,18 +397,18 @@ namespace TencentCloud
                     bool CreatedTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>更新时间</p>
+                     * 获取更新时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UpdatedTime <p>更新时间</p>
+                     * @return UpdatedTime 更新时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetUpdatedTime() const;
 
                     /**
-                     * 设置<p>更新时间</p>
+                     * 设置更新时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _updatedTime <p>更新时间</p>
+                     * @param _updatedTime 更新时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -422,18 +422,18 @@ namespace TencentCloud
                     bool UpdatedTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>发布时间</p>
+                     * 获取发布时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ReleasedTime <p>发布时间</p>
+                     * @return ReleasedTime 发布时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetReleasedTime() const;
 
                     /**
-                     * 设置<p>发布时间</p>
+                     * 设置发布时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _releasedTime <p>发布时间</p>
+                     * @param _releasedTime 发布时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -447,18 +447,18 @@ namespace TencentCloud
                     bool ReleasedTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>所属分组名称</p>
+                     * 获取所属分组名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GroupName <p>所属分组名称</p>
+                     * @return GroupName 所属分组名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetGroupName() const;
 
                     /**
-                     * 设置<p>所属分组名称</p>
+                     * 设置所属分组名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _groupName <p>所属分组名称</p>
+                     * @param _groupName 所属分组名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -472,18 +472,18 @@ namespace TencentCloud
                     bool GroupNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>API 超时，单位毫秒</p>
+                     * 获取API 超时，单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Timeout <p>API 超时，单位毫秒</p>
+                     * @return Timeout API 超时，单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetTimeout() const;
 
                     /**
-                     * 设置<p>API 超时，单位毫秒</p>
+                     * 设置API 超时，单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _timeout <p>API 超时，单位毫秒</p>
+                     * @param _timeout API 超时，单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -497,18 +497,18 @@ namespace TencentCloud
                     bool TimeoutHasBeenSet() const;
 
                     /**
-                     * 获取<p>Api所在服务host</p>
+                     * 获取Api所在服务host
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Host <p>Api所在服务host</p>
+                     * @return Host Api所在服务host
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetHost() const;
 
                     /**
-                     * 设置<p>Api所在服务host</p>
+                     * 设置Api所在服务host
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _host <p>Api所在服务host</p>
+                     * @param _host Api所在服务host
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -522,18 +522,18 @@ namespace TencentCloud
                     bool HostHasBeenSet() const;
 
                     /**
-                     * 获取<p>API类型。 ms ： 微服务API； external :外部服务Api</p>
+                     * 获取API类型。 ms ： 微服务API； external :外部服务Api
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ApiType <p>API类型。 ms ： 微服务API； external :外部服务Api</p>
+                     * @return ApiType API类型。 ms ： 微服务API； external :外部服务Api
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetApiType() const;
 
                     /**
-                     * 设置<p>API类型。 ms ： 微服务API； external :外部服务Api</p>
+                     * 设置API类型。 ms ： 微服务API； external :外部服务Api
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _apiType <p>API类型。 ms ： 微服务API； external :外部服务Api</p>
+                     * @param _apiType API类型。 ms ： 微服务API； external :外部服务Api
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -547,18 +547,18 @@ namespace TencentCloud
                     bool ApiTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>Api描述信息</p>
+                     * 获取Api描述信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Description <p>Api描述信息</p>
+                     * @return Description Api描述信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetDescription() const;
 
                     /**
-                     * 设置<p>Api描述信息</p>
+                     * 设置Api描述信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _description <p>Api描述信息</p>
+                     * @param _description Api描述信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -572,18 +572,18 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+                     * 获取API路径匹配类型。normal：普通API；wildcard：通配API。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ApiMatchType <p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+                     * @return ApiMatchType API路径匹配类型。normal：普通API；wildcard：通配API。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetApiMatchType() const;
 
                     /**
-                     * 设置<p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+                     * 设置API路径匹配类型。normal：普通API；wildcard：通配API。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _apiMatchType <p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+                     * @param _apiMatchType API路径匹配类型。normal：普通API；wildcard：通配API。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -597,18 +597,18 @@ namespace TencentCloud
                     bool ApiMatchTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>RPC 额外信息</p>
+                     * 获取RPC 额外信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RpcExt <p>RPC 额外信息</p>
+                     * @return RpcExt RPC 额外信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRpcExt() const;
 
                     /**
-                     * 设置<p>RPC 额外信息</p>
+                     * 设置RPC 额外信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _rpcExt <p>RPC 额外信息</p>
+                     * @param _rpcExt RPC 额外信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -622,18 +622,18 @@ namespace TencentCloud
                     bool RpcExtHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署组id</p>
+                     * 获取部署组id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GatewayDeployGroupId <p>部署组id</p>
+                     * @return GatewayDeployGroupId 部署组id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetGatewayDeployGroupId() const;
 
                     /**
-                     * 设置<p>部署组id</p>
+                     * 设置部署组id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _gatewayDeployGroupId <p>部署组id</p>
+                     * @param _gatewayDeployGroupId 部署组id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -647,18 +647,18 @@ namespace TencentCloud
                     bool GatewayDeployGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>md5</p>
+                     * 获取md5
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Md5 <p>md5</p>
+                     * @return Md5 md5
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMd5() const;
 
                     /**
-                     * 设置<p>md5</p>
+                     * 设置md5
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _md5 <p>md5</p>
+                     * @param _md5 md5
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -672,18 +672,18 @@ namespace TencentCloud
                     bool Md5HasBeenSet() const;
 
                     /**
-                     * 获取<p>RPC 类型</p>
+                     * 获取RPC 类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RpcType <p>RPC 类型</p>
+                     * @return RpcType RPC 类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRpcType() const;
 
                     /**
-                     * 设置<p>RPC 类型</p>
+                     * 设置RPC 类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _rpcType <p>RPC 类型</p>
+                     * @param _rpcType RPC 类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -696,243 +696,189 @@ namespace TencentCloud
                      */
                     bool RpcTypeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>是否禁用短路径访问开关</p>
-                     * @return PathMappingUnsupported <p>是否禁用短路径访问开关</p>
-                     * 
-                     */
-                    bool GetPathMappingUnsupported() const;
-
-                    /**
-                     * 设置<p>是否禁用短路径访问开关</p>
-                     * @param _pathMappingUnsupported <p>是否禁用短路径访问开关</p>
-                     * 
-                     */
-                    void SetPathMappingUnsupported(const bool& _pathMappingUnsupported);
-
-                    /**
-                     * 判断参数 PathMappingUnsupported 是否已赋值
-                     * @return PathMappingUnsupported 是否已赋值
-                     * 
-                     */
-                    bool PathMappingUnsupportedHasBeenSet() const;
-
-                    /**
-                     * 获取<p>禁用短路径访问开关原因</p>
-                     * @return PathMappingUnsupportedMsg <p>禁用短路径访问开关原因</p>
-                     * 
-                     */
-                    std::string GetPathMappingUnsupportedMsg() const;
-
-                    /**
-                     * 设置<p>禁用短路径访问开关原因</p>
-                     * @param _pathMappingUnsupportedMsg <p>禁用短路径访问开关原因</p>
-                     * 
-                     */
-                    void SetPathMappingUnsupportedMsg(const std::string& _pathMappingUnsupportedMsg);
-
-                    /**
-                     * 判断参数 PathMappingUnsupportedMsg 是否已赋值
-                     * @return PathMappingUnsupportedMsg 是否已赋值
-                     * 
-                     */
-                    bool PathMappingUnsupportedMsgHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>API ID</p>
+                     * API ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_apiId;
                     bool m_apiIdHasBeenSet;
 
                     /**
-                     * <p>命名空间ID</p>
+                     * 命名空间ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_namespaceId;
                     bool m_namespaceIdHasBeenSet;
 
                     /**
-                     * <p>命名空间名称</p>
+                     * 命名空间名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_namespaceName;
                     bool m_namespaceNameHasBeenSet;
 
                     /**
-                     * <p>服务ID</p>
+                     * 服务ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_microserviceId;
                     bool m_microserviceIdHasBeenSet;
 
                     /**
-                     * <p>服务名称</p>
+                     * 服务名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_microserviceName;
                     bool m_microserviceNameHasBeenSet;
 
                     /**
-                     * <p>API 请求路径</p>
+                     * API 请求路径
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_path;
                     bool m_pathHasBeenSet;
 
                     /**
-                     * <p>Api 映射路径</p>
+                     * Api 映射路径
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_pathMapping;
                     bool m_pathMappingHasBeenSet;
 
                     /**
-                     * <p>请求方法</p>
+                     * 请求方法
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_method;
                     bool m_methodHasBeenSet;
 
                     /**
-                     * <p>所属分组ID</p>
+                     * 所属分组ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_groupId;
                     bool m_groupIdHasBeenSet;
 
                     /**
-                     * <p>是否禁用</p>
+                     * 是否禁用
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_usableStatus;
                     bool m_usableStatusHasBeenSet;
 
                     /**
-                     * <p>发布状态</p>
+                     * 发布状态
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_releaseStatus;
                     bool m_releaseStatusHasBeenSet;
 
                     /**
-                     * <p>开启限流</p>
+                     * 开启限流
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_rateLimitStatus;
                     bool m_rateLimitStatusHasBeenSet;
 
                     /**
-                     * <p>是否开启mock</p>
+                     * 是否开启mock
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_mockStatus;
                     bool m_mockStatusHasBeenSet;
 
                     /**
-                     * <p>创建时间</p>
+                     * 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createdTime;
                     bool m_createdTimeHasBeenSet;
 
                     /**
-                     * <p>更新时间</p>
+                     * 更新时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_updatedTime;
                     bool m_updatedTimeHasBeenSet;
 
                     /**
-                     * <p>发布时间</p>
+                     * 发布时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_releasedTime;
                     bool m_releasedTimeHasBeenSet;
 
                     /**
-                     * <p>所属分组名称</p>
+                     * 所属分组名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_groupName;
                     bool m_groupNameHasBeenSet;
 
                     /**
-                     * <p>API 超时，单位毫秒</p>
+                     * API 超时，单位毫秒
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_timeout;
                     bool m_timeoutHasBeenSet;
 
                     /**
-                     * <p>Api所在服务host</p>
+                     * Api所在服务host
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_host;
                     bool m_hostHasBeenSet;
 
                     /**
-                     * <p>API类型。 ms ： 微服务API； external :外部服务Api</p>
+                     * API类型。 ms ： 微服务API； external :外部服务Api
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_apiType;
                     bool m_apiTypeHasBeenSet;
 
                     /**
-                     * <p>Api描述信息</p>
+                     * Api描述信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>API路径匹配类型。normal：普通API；wildcard：通配API。</p>
+                     * API路径匹配类型。normal：普通API；wildcard：通配API。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_apiMatchType;
                     bool m_apiMatchTypeHasBeenSet;
 
                     /**
-                     * <p>RPC 额外信息</p>
+                     * RPC 额外信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_rpcExt;
                     bool m_rpcExtHasBeenSet;
 
                     /**
-                     * <p>部署组id</p>
+                     * 部署组id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_gatewayDeployGroupId;
                     bool m_gatewayDeployGroupIdHasBeenSet;
 
                     /**
-                     * <p>md5</p>
+                     * md5
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_md5;
                     bool m_md5HasBeenSet;
 
                     /**
-                     * <p>RPC 类型</p>
+                     * RPC 类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_rpcType;
                     bool m_rpcTypeHasBeenSet;
-
-                    /**
-                     * <p>是否禁用短路径访问开关</p>
-                     */
-                    bool m_pathMappingUnsupported;
-                    bool m_pathMappingUnsupportedHasBeenSet;
-
-                    /**
-                     * <p>禁用短路径访问开关原因</p>
-                     */
-                    std::string m_pathMappingUnsupportedMsg;
-                    bool m_pathMappingUnsupportedMsgHasBeenSet;
 
                 };
             }

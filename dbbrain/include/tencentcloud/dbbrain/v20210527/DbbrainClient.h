@@ -45,8 +45,6 @@
 #include <tencentcloud/dbbrain/v20210527/model/CreateKillTaskResponse.h>
 #include <tencentcloud/dbbrain/v20210527/model/CreateMailProfileRequest.h>
 #include <tencentcloud/dbbrain/v20210527/model/CreateMailProfileResponse.h>
-#include <tencentcloud/dbbrain/v20210527/model/CreateMongoDBKillTaskRequest.h>
-#include <tencentcloud/dbbrain/v20210527/model/CreateMongoDBKillTaskResponse.h>
 #include <tencentcloud/dbbrain/v20210527/model/CreateProxySessionKillTaskRequest.h>
 #include <tencentcloud/dbbrain/v20210527/model/CreateProxySessionKillTaskResponse.h>
 #include <tencentcloud/dbbrain/v20210527/model/CreateRedisBigKeyAnalysisTaskRequest.h>
@@ -143,8 +141,6 @@
 #include <tencentcloud/dbbrain/v20210527/model/DescribeRedisTopHotKeysResponse.h>
 #include <tencentcloud/dbbrain/v20210527/model/DescribeRedisTopKeyPrefixListRequest.h>
 #include <tencentcloud/dbbrain/v20210527/model/DescribeRedisTopKeyPrefixListResponse.h>
-#include <tencentcloud/dbbrain/v20210527/model/DescribeRedisUnExpiredKeyStatisticsRequest.h>
-#include <tencentcloud/dbbrain/v20210527/model/DescribeRedisUnExpiredKeyStatisticsResponse.h>
 #include <tencentcloud/dbbrain/v20210527/model/DescribeSecurityAuditLogDownloadUrlsRequest.h>
 #include <tencentcloud/dbbrain/v20210527/model/DescribeSecurityAuditLogDownloadUrlsResponse.h>
 #include <tencentcloud/dbbrain/v20210527/model/DescribeSecurityAuditLogExportTasksRequest.h>
@@ -242,9 +238,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateMailProfileResponse> CreateMailProfileOutcome;
                 typedef std::future<CreateMailProfileOutcome> CreateMailProfileOutcomeCallable;
                 typedef std::function<void(const DbbrainClient*, const Model::CreateMailProfileRequest&, CreateMailProfileOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMailProfileAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateMongoDBKillTaskResponse> CreateMongoDBKillTaskOutcome;
-                typedef std::future<CreateMongoDBKillTaskOutcome> CreateMongoDBKillTaskOutcomeCallable;
-                typedef std::function<void(const DbbrainClient*, const Model::CreateMongoDBKillTaskRequest&, CreateMongoDBKillTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateMongoDBKillTaskAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateProxySessionKillTaskResponse> CreateProxySessionKillTaskOutcome;
                 typedef std::future<CreateProxySessionKillTaskOutcome> CreateProxySessionKillTaskOutcomeCallable;
                 typedef std::function<void(const DbbrainClient*, const Model::CreateProxySessionKillTaskRequest&, CreateProxySessionKillTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProxySessionKillTaskAsyncHandler;
@@ -389,9 +382,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeRedisTopKeyPrefixListResponse> DescribeRedisTopKeyPrefixListOutcome;
                 typedef std::future<DescribeRedisTopKeyPrefixListOutcome> DescribeRedisTopKeyPrefixListOutcomeCallable;
                 typedef std::function<void(const DbbrainClient*, const Model::DescribeRedisTopKeyPrefixListRequest&, DescribeRedisTopKeyPrefixListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRedisTopKeyPrefixListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRedisUnExpiredKeyStatisticsResponse> DescribeRedisUnExpiredKeyStatisticsOutcome;
-                typedef std::future<DescribeRedisUnExpiredKeyStatisticsOutcome> DescribeRedisUnExpiredKeyStatisticsOutcomeCallable;
-                typedef std::function<void(const DbbrainClient*, const Model::DescribeRedisUnExpiredKeyStatisticsRequest&, DescribeRedisUnExpiredKeyStatisticsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRedisUnExpiredKeyStatisticsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeSecurityAuditLogDownloadUrlsResponse> DescribeSecurityAuditLogDownloadUrlsOutcome;
                 typedef std::future<DescribeSecurityAuditLogDownloadUrlsOutcome> DescribeSecurityAuditLogDownloadUrlsOutcomeCallable;
                 typedef std::function<void(const DbbrainClient*, const Model::DescribeSecurityAuditLogDownloadUrlsRequest&, DescribeSecurityAuditLogDownloadUrlsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSecurityAuditLogDownloadUrlsAsyncHandler;
@@ -568,15 +558,6 @@ namespace TencentCloud
                 CreateMailProfileOutcome CreateMailProfile(const Model::CreateMailProfileRequest &request);
                 void CreateMailProfileAsync(const Model::CreateMailProfileRequest& request, const CreateMailProfileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateMailProfileOutcomeCallable CreateMailProfileCallable(const Model::CreateMailProfileRequest& request);
-
-                /**
-                 *创建中断会话的任务。
-                 * @param req CreateMongoDBKillTaskRequest
-                 * @return CreateMongoDBKillTaskOutcome
-                 */
-                CreateMongoDBKillTaskOutcome CreateMongoDBKillTask(const Model::CreateMongoDBKillTaskRequest &request);
-                void CreateMongoDBKillTaskAsync(const Model::CreateMongoDBKillTaskRequest& request, const CreateMongoDBKillTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateMongoDBKillTaskOutcomeCallable CreateMongoDBKillTaskCallable(const Model::CreateMongoDBKillTaskRequest& request);
 
                 /**
                  *创建中止所有代理节点连接会话的异步任务。当前仅支持 Redis。得到的返回值为异步任务 id，可以作为参数传入接口 DescribeProxySessionKillTasks 查询kill会话任务执行状态。
@@ -1011,15 +992,6 @@ namespace TencentCloud
                 DescribeRedisTopKeyPrefixListOutcomeCallable DescribeRedisTopKeyPrefixListCallable(const Model::DescribeRedisTopKeyPrefixListRequest& request);
 
                 /**
-                 *查询Redis全量Key的内存分布情况。
-                 * @param req DescribeRedisUnExpiredKeyStatisticsRequest
-                 * @return DescribeRedisUnExpiredKeyStatisticsOutcome
-                 */
-                DescribeRedisUnExpiredKeyStatisticsOutcome DescribeRedisUnExpiredKeyStatistics(const Model::DescribeRedisUnExpiredKeyStatisticsRequest &request);
-                void DescribeRedisUnExpiredKeyStatisticsAsync(const Model::DescribeRedisUnExpiredKeyStatisticsRequest& request, const DescribeRedisUnExpiredKeyStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRedisUnExpiredKeyStatisticsOutcomeCallable DescribeRedisUnExpiredKeyStatisticsCallable(const Model::DescribeRedisUnExpiredKeyStatisticsRequest& request);
-
-                /**
                  *查询安全审计日志导出文件下载链接。目前日志文件下载仅提供腾讯云内网地址，请通过广州地域的腾讯云服务器进行下载。
                  * @param req DescribeSecurityAuditLogDownloadUrlsRequest
                  * @return DescribeSecurityAuditLogDownloadUrlsOutcome
@@ -1155,7 +1127,7 @@ namespace TencentCloud
                 DescribeUserSqlAdviceOutcomeCallable DescribeUserSqlAdviceCallable(const Model::DescribeUserSqlAdviceRequest& request);
 
                 /**
-                 *根据会话ID中断当前会话，该接口分为两次提交：第一次为预提交阶段，Stage为"Prepare"，得到的返回值包含SqlExecId；第二次为确认提交， Stage为"Commit"， 将SqlExecId的值作为参数传入，最终终止会话进程。注意：Prepare请求与Commit请求的间隔不能超过10秒，否则Prepare阶段生成的执行凭证（SqlExecId）将过期失效，Commit操作不会执行任何kill动作。
+                 *根据会话ID中断当前会话，该接口分为两次提交：第一次为预提交阶段，Stage为"Prepare"，得到的返回值包含SqlExecId；第二次为确认提交， Stage为"Commit"， 将SqlExecId的值作为参数传入，最终终止会话进程。
                  * @param req KillMySqlThreadsRequest
                  * @return KillMySqlThreadsOutcome
                  */

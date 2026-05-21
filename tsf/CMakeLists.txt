@@ -40,7 +40,6 @@ set(tsf_public_header_model
   include/tencentcloud/tsf/v20180326/model/DeletePathRewritesRequest.h
   include/tencentcloud/tsf/v20180326/model/DeleteLaneResponse.h
   include/tencentcloud/tsf/v20180326/model/DescribeGroupReleaseRequest.h
-  include/tencentcloud/tsf/v20180326/model/SearchFiltersProgram.h
   include/tencentcloud/tsf/v20180326/model/DescribeConfigTemplateResponse.h
   include/tencentcloud/tsf/v20180326/model/TsfPageContainerEvent.h
   include/tencentcloud/tsf/v20180326/model/DescribeLicensesRequest.h
@@ -162,6 +161,7 @@ set(tsf_public_header_model
   include/tencentcloud/tsf/v20180326/model/DescribeProgramsRequest.h
   include/tencentcloud/tsf/v20180326/model/DescribePublicConfigRequest.h
   include/tencentcloud/tsf/v20180326/model/ImageRepository.h
+  include/tencentcloud/tsf/v20180326/model/DescribeInovcationIndicatorsRequest.h
   include/tencentcloud/tsf/v20180326/model/CommonOption.h
   include/tencentcloud/tsf/v20180326/model/CreatePublicConfigResponse.h
   include/tencentcloud/tsf/v20180326/model/LaneRules.h
@@ -299,6 +299,7 @@ set(tsf_public_header_model
   include/tencentcloud/tsf/v20180326/model/ApiDefinitionDescr.h
   include/tencentcloud/tsf/v20180326/model/DescribeLaneRulesResponse.h
   include/tencentcloud/tsf/v20180326/model/DescribeImageRepositoryRequest.h
+  include/tencentcloud/tsf/v20180326/model/IndicatorCoord.h
   include/tencentcloud/tsf/v20180326/model/TsfPageUnitRule.h
   include/tencentcloud/tsf/v20180326/model/OperateApplicationTcrBindingRequest.h
   include/tencentcloud/tsf/v20180326/model/DescribeApiGroupRequest.h
@@ -464,6 +465,7 @@ set(tsf_public_header_model
   include/tencentcloud/tsf/v20180326/model/ApiVersionArray.h
   include/tencentcloud/tsf/v20180326/model/GatewayConfig.h
   include/tencentcloud/tsf/v20180326/model/DeliveryConfigBindGroups.h
+  include/tencentcloud/tsf/v20180326/model/DescribeInovcationIndicatorsResponse.h
   include/tencentcloud/tsf/v20180326/model/MultiValueDataPoints.h
   include/tencentcloud/tsf/v20180326/model/ConfigReleaseLog.h
   include/tencentcloud/tsf/v20180326/model/CreateConfigRequest.h
@@ -560,6 +562,7 @@ set(tsf_public_header_model
   include/tencentcloud/tsf/v20180326/model/ServiceConfig.h
   include/tencentcloud/tsf/v20180326/model/RedoTaskExecuteRequest.h
   include/tencentcloud/tsf/v20180326/model/DescribeApplicationsResponse.h
+  include/tencentcloud/tsf/v20180326/model/InvocationIndicator.h
   include/tencentcloud/tsf/v20180326/model/DescribeStatisticsRequest.h
   include/tencentcloud/tsf/v20180326/model/DescribeConfigRequest.h
   include/tencentcloud/tsf/v20180326/model/OperateApplicationTcrBindingResponse.h
@@ -715,7 +718,6 @@ set(tsf_src
   src/v20180326/model/DeletePathRewritesRequest.cpp
   src/v20180326/model/DeleteLaneResponse.cpp
   src/v20180326/model/DescribeGroupReleaseRequest.cpp
-  src/v20180326/model/SearchFiltersProgram.cpp
   src/v20180326/model/DescribeConfigTemplateResponse.cpp
   src/v20180326/model/TsfPageContainerEvent.cpp
   src/v20180326/model/DescribeLicensesRequest.cpp
@@ -837,6 +839,7 @@ set(tsf_src
   src/v20180326/model/DescribeProgramsRequest.cpp
   src/v20180326/model/DescribePublicConfigRequest.cpp
   src/v20180326/model/ImageRepository.cpp
+  src/v20180326/model/DescribeInovcationIndicatorsRequest.cpp
   src/v20180326/model/CommonOption.cpp
   src/v20180326/model/CreatePublicConfigResponse.cpp
   src/v20180326/model/LaneRules.cpp
@@ -974,6 +977,7 @@ set(tsf_src
   src/v20180326/model/ApiDefinitionDescr.cpp
   src/v20180326/model/DescribeLaneRulesResponse.cpp
   src/v20180326/model/DescribeImageRepositoryRequest.cpp
+  src/v20180326/model/IndicatorCoord.cpp
   src/v20180326/model/TsfPageUnitRule.cpp
   src/v20180326/model/OperateApplicationTcrBindingRequest.cpp
   src/v20180326/model/DescribeApiGroupRequest.cpp
@@ -1139,6 +1143,7 @@ set(tsf_src
   src/v20180326/model/ApiVersionArray.cpp
   src/v20180326/model/GatewayConfig.cpp
   src/v20180326/model/DeliveryConfigBindGroups.cpp
+  src/v20180326/model/DescribeInovcationIndicatorsResponse.cpp
   src/v20180326/model/MultiValueDataPoints.cpp
   src/v20180326/model/ConfigReleaseLog.cpp
   src/v20180326/model/CreateConfigRequest.cpp
@@ -1235,6 +1240,7 @@ set(tsf_src
   src/v20180326/model/ServiceConfig.cpp
   src/v20180326/model/RedoTaskExecuteRequest.cpp
   src/v20180326/model/DescribeApplicationsResponse.cpp
+  src/v20180326/model/InvocationIndicator.cpp
   src/v20180326/model/DescribeStatisticsRequest.cpp
   src/v20180326/model/DescribeConfigRequest.cpp
   src/v20180326/model/OperateApplicationTcrBindingResponse.cpp

@@ -28,7 +28,6 @@
 #include <tencentcloud/cls/v20201016/model/AnalysisDimensional.h>
 #include <tencentcloud/cls/v20201016/model/Tag.h>
 #include <tencentcloud/cls/v20201016/model/AlarmClassification.h>
-#include <tencentcloud/cls/v20201016/model/MonitorNotice.h>
 
 
 namespace TencentCloud
@@ -51,15 +50,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>告警策略ID。-通过<a href="https://cloud.tencent.com/document/product/614/56461">获取告警策略列表</a>获取告警策略ID</p>
-                     * @return AlarmId <p>告警策略ID。-通过<a href="https://cloud.tencent.com/document/product/614/56461">获取告警策略列表</a>获取告警策略ID</p>
+                     * 获取告警策略ID。-通过[获取告警策略列表](https://cloud.tencent.com/document/product/614/56461)获取告警策略ID
+                     * @return AlarmId 告警策略ID。-通过[获取告警策略列表](https://cloud.tencent.com/document/product/614/56461)获取告警策略ID
                      * 
                      */
                     std::string GetAlarmId() const;
 
                     /**
-                     * 设置<p>告警策略ID。-通过<a href="https://cloud.tencent.com/document/product/614/56461">获取告警策略列表</a>获取告警策略ID</p>
-                     * @param _alarmId <p>告警策略ID。-通过<a href="https://cloud.tencent.com/document/product/614/56461">获取告警策略列表</a>获取告警策略ID</p>
+                     * 设置告警策略ID。-通过[获取告警策略列表](https://cloud.tencent.com/document/product/614/56461)获取告警策略ID
+                     * @param _alarmId 告警策略ID。-通过[获取告警策略列表](https://cloud.tencent.com/document/product/614/56461)获取告警策略ID
                      * 
                      */
                     void SetAlarmId(const std::string& _alarmId);
@@ -72,15 +71,15 @@ namespace TencentCloud
                     bool AlarmIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警策略名称。最大支持255个字节，不支持 &#39;|&#39;。</p>
-                     * @return Name <p>告警策略名称。最大支持255个字节，不支持 &#39;|&#39;。</p>
+                     * 获取告警策略名称。最大支持255个字节，不支持 '|'。
+                     * @return Name 告警策略名称。最大支持255个字节，不支持 '|'。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>告警策略名称。最大支持255个字节，不支持 &#39;|&#39;。</p>
-                     * @param _name <p>告警策略名称。最大支持255个字节，不支持 &#39;|&#39;。</p>
+                     * 设置告警策略名称。最大支持255个字节，不支持 '|'。
+                     * @param _name 告警策略名称。最大支持255个字节，不支持 '|'。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -93,15 +92,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>监控任务运行时间点。</p>
-                     * @return MonitorTime <p>监控任务运行时间点。</p>
+                     * 获取监控任务运行时间点。
+                     * @return MonitorTime 监控任务运行时间点。
                      * 
                      */
                     MonitorTime GetMonitorTime() const;
 
                     /**
-                     * 设置<p>监控任务运行时间点。</p>
-                     * @param _monitorTime <p>监控任务运行时间点。</p>
+                     * 设置监控任务运行时间点。
+                     * @param _monitorTime 监控任务运行时间点。
                      * 
                      */
                     void SetMonitorTime(const MonitorTime& _monitorTime);
@@ -114,15 +113,27 @@ namespace TencentCloud
                     bool MonitorTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警信息发送的触发条件。</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
-                     * @return Condition <p>告警信息发送的触发条件。</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 获取告警信息发送的触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+                     * @return Condition 告警信息发送的触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      * 
                      */
                     std::string GetCondition() const;
 
                     /**
-                     * 设置<p>告警信息发送的触发条件。</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
-                     * @param _condition <p>告警信息发送的触发条件。</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 设置告警信息发送的触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+                     * @param _condition 告警信息发送的触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      * 
                      */
                     void SetCondition(const std::string& _condition);
@@ -135,15 +146,35 @@ namespace TencentCloud
                     bool ConditionHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警级别。</p><p>0:警告(Warn);1:提醒(Info);2:紧急 (Critical)</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
-                     * @return AlarmLevel <p>告警级别。</p><p>0:警告(Warn);1:提醒(Info);2:紧急 (Critical)</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 获取告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+                     * @return AlarmLevel 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      * 
                      */
                     uint64_t GetAlarmLevel() const;
 
                     /**
-                     * 设置<p>告警级别。</p><p>0:警告(Warn);1:提醒(Info);2:紧急 (Critical)</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
-                     * @param _alarmLevel <p>告警级别。</p><p>0:警告(Warn);1:提醒(Info);2:紧急 (Critical)</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 设置告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+                     * @param _alarmLevel 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      * 
                      */
                     void SetAlarmLevel(const uint64_t& _alarmLevel);
@@ -156,15 +187,27 @@ namespace TencentCloud
                     bool AlarmLevelHasBeenSet() const;
 
                     /**
-                     * 获取<p>多触发条件。 </p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
-                     * @return MultiConditions <p>多触发条件。 </p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 获取多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+                     * @return MultiConditions 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      * 
                      */
                     std::vector<MultiCondition> GetMultiConditions() const;
 
                     /**
-                     * 设置<p>多触发条件。 </p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
-                     * @param _multiConditions <p>多触发条件。 </p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 设置多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
+                     * @param _multiConditions 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      * 
                      */
                     void SetMultiConditions(const std::vector<MultiCondition>& _multiConditions);
@@ -177,15 +220,15 @@ namespace TencentCloud
                     bool MultiConditionsHasBeenSet() const;
 
                     /**
-                     * 获取<p>持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。</p>
-                     * @return TriggerCount <p>持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。</p>
+                     * 获取持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
+                     * @return TriggerCount 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
                      * 
                      */
                     int64_t GetTriggerCount() const;
 
                     /**
-                     * 设置<p>持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。</p>
-                     * @param _triggerCount <p>持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。</p>
+                     * 设置持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
+                     * @param _triggerCount 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
                      * 
                      */
                     void SetTriggerCount(const int64_t& _triggerCount);
@@ -198,15 +241,15 @@ namespace TencentCloud
                     bool TriggerCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警重复的周期。单位是分钟。取值范围是0~1440。</p>
-                     * @return AlarmPeriod <p>告警重复的周期。单位是分钟。取值范围是0~1440。</p>
+                     * 获取告警重复的周期。单位是分钟。取值范围是0~1440。
+                     * @return AlarmPeriod 告警重复的周期。单位是分钟。取值范围是0~1440。
                      * 
                      */
                     int64_t GetAlarmPeriod() const;
 
                     /**
-                     * 设置<p>告警重复的周期。单位是分钟。取值范围是0~1440。</p>
-                     * @param _alarmPeriod <p>告警重复的周期。单位是分钟。取值范围是0~1440。</p>
+                     * 设置告警重复的周期。单位是分钟。取值范围是0~1440。
+                     * @param _alarmPeriod 告警重复的周期。单位是分钟。取值范围是0~1440。
                      * 
                      */
                     void SetAlarmPeriod(const int64_t& _alarmPeriod);
@@ -219,246 +262,15 @@ namespace TencentCloud
                     bool AlarmPeriodHasBeenSet() const;
 
                     /**
-                     * 获取<p>监控对象列表。</p>
-                     * @return AlarmTargets <p>监控对象列表。</p>
-                     * 
-                     */
-                    std::vector<AlarmTarget> GetAlarmTargets() const;
-
-                    /**
-                     * 设置<p>监控对象列表。</p>
-                     * @param _alarmTargets <p>监控对象列表。</p>
-                     * 
-                     */
-                    void SetAlarmTargets(const std::vector<AlarmTarget>& _alarmTargets);
-
-                    /**
-                     * 判断参数 AlarmTargets 是否已赋值
-                     * @return AlarmTargets 是否已赋值
-                     * 
-                     */
-                    bool AlarmTargetsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>是否开启告警策略。</p>
-                     * @return Status <p>是否开启告警策略。</p>
-                     * 
-                     */
-                    bool GetStatus() const;
-
-                    /**
-                     * 设置<p>是否开启告警策略。</p>
-                     * @param _status <p>是否开启告警策略。</p>
-                     * 
-                     */
-                    void SetStatus(const bool& _status);
-
-                    /**
-                     * 判断参数 Status 是否已赋值
-                     * @return Status 是否已赋值
-                     * 
-                     */
-                    bool StatusHasBeenSet() const;
-
-                    /**
-                     * 获取<p>该参数已废弃，请使用Status参数控制是否开启告警策略。</p>
-                     * @return Enable <p>该参数已废弃，请使用Status参数控制是否开启告警策略。</p>
-                     * @deprecated
-                     */
-                    bool GetEnable() const;
-
-                    /**
-                     * 设置<p>该参数已废弃，请使用Status参数控制是否开启告警策略。</p>
-                     * @param _enable <p>该参数已废弃，请使用Status参数控制是否开启告警策略。</p>
-                     * @deprecated
-                     */
-                    void SetEnable(const bool& _enable);
-
-                    /**
-                     * 判断参数 Enable 是否已赋值
-                     * @return Enable 是否已赋值
-                     * @deprecated
-                     */
-                    bool EnableHasBeenSet() const;
-
-                    /**
-                     * 获取<p>用户自定义告警内容</p>
-                     * @return MessageTemplate <p>用户自定义告警内容</p>
-                     * 
-                     */
-                    std::string GetMessageTemplate() const;
-
-                    /**
-                     * 设置<p>用户自定义告警内容</p>
-                     * @param _messageTemplate <p>用户自定义告警内容</p>
-                     * 
-                     */
-                    void SetMessageTemplate(const std::string& _messageTemplate);
-
-                    /**
-                     * 判断参数 MessageTemplate 是否已赋值
-                     * @return MessageTemplate 是否已赋值
-                     * 
-                     */
-                    bool MessageTemplateHasBeenSet() const;
-
-                    /**
-                     * 获取<p>用户自定义回调</p>
-                     * @return CallBack <p>用户自定义回调</p>
-                     * 
-                     */
-                    CallBackInfo GetCallBack() const;
-
-                    /**
-                     * 设置<p>用户自定义回调</p>
-                     * @param _callBack <p>用户自定义回调</p>
-                     * 
-                     */
-                    void SetCallBack(const CallBackInfo& _callBack);
-
-                    /**
-                     * 判断参数 CallBack 是否已赋值
-                     * @return CallBack 是否已赋值
-                     * 
-                     */
-                    bool CallBackHasBeenSet() const;
-
-                    /**
-                     * 获取<p>多维分析</p>
-                     * @return Analysis <p>多维分析</p>
-                     * 
-                     */
-                    std::vector<AnalysisDimensional> GetAnalysis() const;
-
-                    /**
-                     * 设置<p>多维分析</p>
-                     * @param _analysis <p>多维分析</p>
-                     * 
-                     */
-                    void SetAnalysis(const std::vector<AnalysisDimensional>& _analysis);
-
-                    /**
-                     * 判断参数 Analysis 是否已赋值
-                     * @return Analysis 是否已赋值
-                     * 
-                     */
-                    bool AnalysisHasBeenSet() const;
-
-                    /**
-                     * 获取<p>分组触发状态。true：开启，false：关闭（默认）</p>
-                     * @return GroupTriggerStatus <p>分组触发状态。true：开启，false：关闭（默认）</p>
-                     * 
-                     */
-                    bool GetGroupTriggerStatus() const;
-
-                    /**
-                     * 设置<p>分组触发状态。true：开启，false：关闭（默认）</p>
-                     * @param _groupTriggerStatus <p>分组触发状态。true：开启，false：关闭（默认）</p>
-                     * 
-                     */
-                    void SetGroupTriggerStatus(const bool& _groupTriggerStatus);
-
-                    /**
-                     * 判断参数 GroupTriggerStatus 是否已赋值
-                     * @return GroupTriggerStatus 是否已赋值
-                     * 
-                     */
-                    bool GroupTriggerStatusHasBeenSet() const;
-
-                    /**
-                     * 获取<p>分组触发条件。</p>
-                     * @return GroupTriggerCondition <p>分组触发条件。</p>
-                     * 
-                     */
-                    std::vector<std::string> GetGroupTriggerCondition() const;
-
-                    /**
-                     * 设置<p>分组触发条件。</p>
-                     * @param _groupTriggerCondition <p>分组触发条件。</p>
-                     * 
-                     */
-                    void SetGroupTriggerCondition(const std::vector<std::string>& _groupTriggerCondition);
-
-                    /**
-                     * 判断参数 GroupTriggerCondition 是否已赋值
-                     * @return GroupTriggerCondition 是否已赋值
-                     * 
-                     */
-                    bool GroupTriggerConditionHasBeenSet() const;
-
-                    /**
-                     * 获取<p>标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。</p>
-                     * @return Tags <p>标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。</p>
-                     * 
-                     */
-                    std::vector<Tag> GetTags() const;
-
-                    /**
-                     * 设置<p>标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。</p>
-                     * @param _tags <p>标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。</p>
-                     * 
-                     */
-                    void SetTags(const std::vector<Tag>& _tags);
-
-                    /**
-                     * 判断参数 Tags 是否已赋值
-                     * @return Tags 是否已赋值
-                     * 
-                     */
-                    bool TagsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。<br>当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。</p>
-                     * @return MonitorObjectType <p>监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。<br>当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。</p>
-                     * 
-                     */
-                    uint64_t GetMonitorObjectType() const;
-
-                    /**
-                     * 设置<p>监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。<br>当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。</p>
-                     * @param _monitorObjectType <p>监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。<br>当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。</p>
-                     * 
-                     */
-                    void SetMonitorObjectType(const uint64_t& _monitorObjectType);
-
-                    /**
-                     * 判断参数 MonitorObjectType 是否已赋值
-                     * @return MonitorObjectType 是否已赋值
-                     * 
-                     */
-                    bool MonitorObjectTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>告警附加分类信息列表。<br>Classifications元素个数不能超过20个。<br>Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 <code>^[a-z]([a-z0-9_]{0,49})$</code>。<br>Classifications元素的Value长度不能超过200个字符。</p>
-                     * @return Classifications <p>告警附加分类信息列表。<br>Classifications元素个数不能超过20个。<br>Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 <code>^[a-z]([a-z0-9_]{0,49})$</code>。<br>Classifications元素的Value长度不能超过200个字符。</p>
-                     * 
-                     */
-                    std::vector<AlarmClassification> GetClassifications() const;
-
-                    /**
-                     * 设置<p>告警附加分类信息列表。<br>Classifications元素个数不能超过20个。<br>Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 <code>^[a-z]([a-z0-9_]{0,49})$</code>。<br>Classifications元素的Value长度不能超过200个字符。</p>
-                     * @param _classifications <p>告警附加分类信息列表。<br>Classifications元素个数不能超过20个。<br>Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 <code>^[a-z]([a-z0-9_]{0,49})$</code>。<br>Classifications元素的Value长度不能超过200个字符。</p>
-                     * 
-                     */
-                    void SetClassifications(const std::vector<AlarmClassification>& _classifications);
-
-                    /**
-                     * 判断参数 Classifications 是否已赋值
-                     * @return Classifications 是否已赋值
-                     * 
-                     */
-                    bool ClassificationsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>关联的日志服务告警通知渠道组列表。-通过<a href="https://cloud.tencent.com/document/product/614/56462">获取通知渠道组列表</a>获取关联的告警通知渠道组列表，和MonitorNotice互斥</p>
-                     * @return AlarmNoticeIds <p>关联的日志服务告警通知渠道组列表。-通过<a href="https://cloud.tencent.com/document/product/614/56462">获取通知渠道组列表</a>获取关联的告警通知渠道组列表，和MonitorNotice互斥</p>
+                     * 获取关联的告警通知渠道组列表。-通过[获取通知渠道组列表](https://cloud.tencent.com/document/product/614/56462)获取关联的告警通知渠道组列表，和MonitorNotice互斥
+                     * @return AlarmNoticeIds 关联的告警通知渠道组列表。-通过[获取通知渠道组列表](https://cloud.tencent.com/document/product/614/56462)获取关联的告警通知渠道组列表，和MonitorNotice互斥
                      * 
                      */
                     std::vector<std::string> GetAlarmNoticeIds() const;
 
                     /**
-                     * 设置<p>关联的日志服务告警通知渠道组列表。-通过<a href="https://cloud.tencent.com/document/product/614/56462">获取通知渠道组列表</a>获取关联的告警通知渠道组列表，和MonitorNotice互斥</p>
-                     * @param _alarmNoticeIds <p>关联的日志服务告警通知渠道组列表。-通过<a href="https://cloud.tencent.com/document/product/614/56462">获取通知渠道组列表</a>获取关联的告警通知渠道组列表，和MonitorNotice互斥</p>
+                     * 设置关联的告警通知渠道组列表。-通过[获取通知渠道组列表](https://cloud.tencent.com/document/product/614/56462)获取关联的告警通知渠道组列表，和MonitorNotice互斥
+                     * @param _alarmNoticeIds 关联的告警通知渠道组列表。-通过[获取通知渠道组列表](https://cloud.tencent.com/document/product/614/56462)获取关联的告警通知渠道组列表，和MonitorNotice互斥
                      * 
                      */
                     void SetAlarmNoticeIds(const std::vector<std::string>& _alarmNoticeIds);
@@ -471,153 +283,393 @@ namespace TencentCloud
                     bool AlarmNoticeIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>关联的可观测平台通知模板，与 AlarmNoticeIds 参数互斥，不能同时使用</p>
-                     * @return MonitorNotice <p>关联的可观测平台通知模板，与 AlarmNoticeIds 参数互斥，不能同时使用</p>
+                     * 获取监控对象列表。
+                     * @return AlarmTargets 监控对象列表。
                      * 
                      */
-                    MonitorNotice GetMonitorNotice() const;
+                    std::vector<AlarmTarget> GetAlarmTargets() const;
 
                     /**
-                     * 设置<p>关联的可观测平台通知模板，与 AlarmNoticeIds 参数互斥，不能同时使用</p>
-                     * @param _monitorNotice <p>关联的可观测平台通知模板，与 AlarmNoticeIds 参数互斥，不能同时使用</p>
+                     * 设置监控对象列表。
+                     * @param _alarmTargets 监控对象列表。
                      * 
                      */
-                    void SetMonitorNotice(const MonitorNotice& _monitorNotice);
+                    void SetAlarmTargets(const std::vector<AlarmTarget>& _alarmTargets);
 
                     /**
-                     * 判断参数 MonitorNotice 是否已赋值
-                     * @return MonitorNotice 是否已赋值
+                     * 判断参数 AlarmTargets 是否已赋值
+                     * @return AlarmTargets 是否已赋值
                      * 
                      */
-                    bool MonitorNoticeHasBeenSet() const;
+                    bool AlarmTargetsHasBeenSet() const;
+
+                    /**
+                     * 获取是否开启告警策略。
+                     * @return Status 是否开启告警策略。
+                     * 
+                     */
+                    bool GetStatus() const;
+
+                    /**
+                     * 设置是否开启告警策略。
+                     * @param _status 是否开启告警策略。
+                     * 
+                     */
+                    void SetStatus(const bool& _status);
+
+                    /**
+                     * 判断参数 Status 是否已赋值
+                     * @return Status 是否已赋值
+                     * 
+                     */
+                    bool StatusHasBeenSet() const;
+
+                    /**
+                     * 获取该参数已废弃，请使用Status参数控制是否开启告警策略。
+                     * @return Enable 该参数已废弃，请使用Status参数控制是否开启告警策略。
+                     * @deprecated
+                     */
+                    bool GetEnable() const;
+
+                    /**
+                     * 设置该参数已废弃，请使用Status参数控制是否开启告警策略。
+                     * @param _enable 该参数已废弃，请使用Status参数控制是否开启告警策略。
+                     * @deprecated
+                     */
+                    void SetEnable(const bool& _enable);
+
+                    /**
+                     * 判断参数 Enable 是否已赋值
+                     * @return Enable 是否已赋值
+                     * @deprecated
+                     */
+                    bool EnableHasBeenSet() const;
+
+                    /**
+                     * 获取用户自定义告警内容
+                     * @return MessageTemplate 用户自定义告警内容
+                     * 
+                     */
+                    std::string GetMessageTemplate() const;
+
+                    /**
+                     * 设置用户自定义告警内容
+                     * @param _messageTemplate 用户自定义告警内容
+                     * 
+                     */
+                    void SetMessageTemplate(const std::string& _messageTemplate);
+
+                    /**
+                     * 判断参数 MessageTemplate 是否已赋值
+                     * @return MessageTemplate 是否已赋值
+                     * 
+                     */
+                    bool MessageTemplateHasBeenSet() const;
+
+                    /**
+                     * 获取用户自定义回调
+                     * @return CallBack 用户自定义回调
+                     * 
+                     */
+                    CallBackInfo GetCallBack() const;
+
+                    /**
+                     * 设置用户自定义回调
+                     * @param _callBack 用户自定义回调
+                     * 
+                     */
+                    void SetCallBack(const CallBackInfo& _callBack);
+
+                    /**
+                     * 判断参数 CallBack 是否已赋值
+                     * @return CallBack 是否已赋值
+                     * 
+                     */
+                    bool CallBackHasBeenSet() const;
+
+                    /**
+                     * 获取多维分析
+                     * @return Analysis 多维分析
+                     * 
+                     */
+                    std::vector<AnalysisDimensional> GetAnalysis() const;
+
+                    /**
+                     * 设置多维分析
+                     * @param _analysis 多维分析
+                     * 
+                     */
+                    void SetAnalysis(const std::vector<AnalysisDimensional>& _analysis);
+
+                    /**
+                     * 判断参数 Analysis 是否已赋值
+                     * @return Analysis 是否已赋值
+                     * 
+                     */
+                    bool AnalysisHasBeenSet() const;
+
+                    /**
+                     * 获取分组触发状态。true：开启，false：关闭（默认）
+                     * @return GroupTriggerStatus 分组触发状态。true：开启，false：关闭（默认）
+                     * 
+                     */
+                    bool GetGroupTriggerStatus() const;
+
+                    /**
+                     * 设置分组触发状态。true：开启，false：关闭（默认）
+                     * @param _groupTriggerStatus 分组触发状态。true：开启，false：关闭（默认）
+                     * 
+                     */
+                    void SetGroupTriggerStatus(const bool& _groupTriggerStatus);
+
+                    /**
+                     * 判断参数 GroupTriggerStatus 是否已赋值
+                     * @return GroupTriggerStatus 是否已赋值
+                     * 
+                     */
+                    bool GroupTriggerStatusHasBeenSet() const;
+
+                    /**
+                     * 获取分组触发条件。
+                     * @return GroupTriggerCondition 分组触发条件。
+                     * 
+                     */
+                    std::vector<std::string> GetGroupTriggerCondition() const;
+
+                    /**
+                     * 设置分组触发条件。
+                     * @param _groupTriggerCondition 分组触发条件。
+                     * 
+                     */
+                    void SetGroupTriggerCondition(const std::vector<std::string>& _groupTriggerCondition);
+
+                    /**
+                     * 判断参数 GroupTriggerCondition 是否已赋值
+                     * @return GroupTriggerCondition 是否已赋值
+                     * 
+                     */
+                    bool GroupTriggerConditionHasBeenSet() const;
+
+                    /**
+                     * 获取标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+                     * @return Tags 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+                     * 
+                     */
+                    std::vector<Tag> GetTags() const;
+
+                    /**
+                     * 设置标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+                     * @param _tags 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+                     * 
+                     */
+                    void SetTags(const std::vector<Tag>& _tags);
+
+                    /**
+                     * 判断参数 Tags 是否已赋值
+                     * @return Tags 是否已赋值
+                     * 
+                     */
+                    bool TagsHasBeenSet() const;
+
+                    /**
+                     * 获取监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+                     * @return MonitorObjectType 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+                     * 
+                     */
+                    uint64_t GetMonitorObjectType() const;
+
+                    /**
+                     * 设置监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+                     * @param _monitorObjectType 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+                     * 
+                     */
+                    void SetMonitorObjectType(const uint64_t& _monitorObjectType);
+
+                    /**
+                     * 判断参数 MonitorObjectType 是否已赋值
+                     * @return MonitorObjectType 是否已赋值
+                     * 
+                     */
+                    bool MonitorObjectTypeHasBeenSet() const;
+
+                    /**
+                     * 获取告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+                     * @return Classifications 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+                     * 
+                     */
+                    std::vector<AlarmClassification> GetClassifications() const;
+
+                    /**
+                     * 设置告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+                     * @param _classifications 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+                     * 
+                     */
+                    void SetClassifications(const std::vector<AlarmClassification>& _classifications);
+
+                    /**
+                     * 判断参数 Classifications 是否已赋值
+                     * @return Classifications 是否已赋值
+                     * 
+                     */
+                    bool ClassificationsHasBeenSet() const;
 
                 private:
 
                     /**
-                     * <p>告警策略ID。-通过<a href="https://cloud.tencent.com/document/product/614/56461">获取告警策略列表</a>获取告警策略ID</p>
+                     * 告警策略ID。-通过[获取告警策略列表](https://cloud.tencent.com/document/product/614/56461)获取告警策略ID
                      */
                     std::string m_alarmId;
                     bool m_alarmIdHasBeenSet;
 
                     /**
-                     * <p>告警策略名称。最大支持255个字节，不支持 &#39;|&#39;。</p>
+                     * 告警策略名称。最大支持255个字节，不支持 '|'。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>监控任务运行时间点。</p>
+                     * 监控任务运行时间点。
                      */
                     MonitorTime m_monitorTime;
                     bool m_monitorTimeHasBeenSet;
 
                     /**
-                     * <p>告警信息发送的触发条件。</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 告警信息发送的触发条件。
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      */
                     std::string m_condition;
                     bool m_conditionHasBeenSet;
 
                     /**
-                     * <p>告警级别。</p><p>0:警告(Warn);1:提醒(Info);2:紧急 (Critical)</p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 告警级别。
+
+0:警告(Warn);1:提醒(Info);2:紧急 (Critical)
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      */
                     uint64_t m_alarmLevel;
                     bool m_alarmLevelHasBeenSet;
 
                     /**
-                     * <p>多触发条件。 </p><p>注意:  </p><ul><li>Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。</li></ul>
+                     * 多触发条件。 
+
+注意:  
+- Condition和AlarmLevel是一组配置，MultiConditions是另一组配置，2组配置互斥。
                      */
                     std::vector<MultiCondition> m_multiConditions;
                     bool m_multiConditionsHasBeenSet;
 
                     /**
-                     * <p>持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。</p>
+                     * 持续周期。持续满足触发条件TriggerCount个周期后，再进行告警；最小值为1，最大值为2000。
                      */
                     int64_t m_triggerCount;
                     bool m_triggerCountHasBeenSet;
 
                     /**
-                     * <p>告警重复的周期。单位是分钟。取值范围是0~1440。</p>
+                     * 告警重复的周期。单位是分钟。取值范围是0~1440。
                      */
                     int64_t m_alarmPeriod;
                     bool m_alarmPeriodHasBeenSet;
 
                     /**
-                     * <p>监控对象列表。</p>
-                     */
-                    std::vector<AlarmTarget> m_alarmTargets;
-                    bool m_alarmTargetsHasBeenSet;
-
-                    /**
-                     * <p>是否开启告警策略。</p>
-                     */
-                    bool m_status;
-                    bool m_statusHasBeenSet;
-
-                    /**
-                     * <p>该参数已废弃，请使用Status参数控制是否开启告警策略。</p>
-                     */
-                    bool m_enable;
-                    bool m_enableHasBeenSet;
-
-                    /**
-                     * <p>用户自定义告警内容</p>
-                     */
-                    std::string m_messageTemplate;
-                    bool m_messageTemplateHasBeenSet;
-
-                    /**
-                     * <p>用户自定义回调</p>
-                     */
-                    CallBackInfo m_callBack;
-                    bool m_callBackHasBeenSet;
-
-                    /**
-                     * <p>多维分析</p>
-                     */
-                    std::vector<AnalysisDimensional> m_analysis;
-                    bool m_analysisHasBeenSet;
-
-                    /**
-                     * <p>分组触发状态。true：开启，false：关闭（默认）</p>
-                     */
-                    bool m_groupTriggerStatus;
-                    bool m_groupTriggerStatusHasBeenSet;
-
-                    /**
-                     * <p>分组触发条件。</p>
-                     */
-                    std::vector<std::string> m_groupTriggerCondition;
-                    bool m_groupTriggerConditionHasBeenSet;
-
-                    /**
-                     * <p>标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。</p>
-                     */
-                    std::vector<Tag> m_tags;
-                    bool m_tagsHasBeenSet;
-
-                    /**
-                     * <p>监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。<br>当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。</p>
-                     */
-                    uint64_t m_monitorObjectType;
-                    bool m_monitorObjectTypeHasBeenSet;
-
-                    /**
-                     * <p>告警附加分类信息列表。<br>Classifications元素个数不能超过20个。<br>Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 <code>^[a-z]([a-z0-9_]{0,49})$</code>。<br>Classifications元素的Value长度不能超过200个字符。</p>
-                     */
-                    std::vector<AlarmClassification> m_classifications;
-                    bool m_classificationsHasBeenSet;
-
-                    /**
-                     * <p>关联的日志服务告警通知渠道组列表。-通过<a href="https://cloud.tencent.com/document/product/614/56462">获取通知渠道组列表</a>获取关联的告警通知渠道组列表，和MonitorNotice互斥</p>
+                     * 关联的告警通知渠道组列表。-通过[获取通知渠道组列表](https://cloud.tencent.com/document/product/614/56462)获取关联的告警通知渠道组列表，和MonitorNotice互斥
                      */
                     std::vector<std::string> m_alarmNoticeIds;
                     bool m_alarmNoticeIdsHasBeenSet;
 
                     /**
-                     * <p>关联的可观测平台通知模板，与 AlarmNoticeIds 参数互斥，不能同时使用</p>
+                     * 监控对象列表。
                      */
-                    MonitorNotice m_monitorNotice;
-                    bool m_monitorNoticeHasBeenSet;
+                    std::vector<AlarmTarget> m_alarmTargets;
+                    bool m_alarmTargetsHasBeenSet;
+
+                    /**
+                     * 是否开启告警策略。
+                     */
+                    bool m_status;
+                    bool m_statusHasBeenSet;
+
+                    /**
+                     * 该参数已废弃，请使用Status参数控制是否开启告警策略。
+                     */
+                    bool m_enable;
+                    bool m_enableHasBeenSet;
+
+                    /**
+                     * 用户自定义告警内容
+                     */
+                    std::string m_messageTemplate;
+                    bool m_messageTemplateHasBeenSet;
+
+                    /**
+                     * 用户自定义回调
+                     */
+                    CallBackInfo m_callBack;
+                    bool m_callBackHasBeenSet;
+
+                    /**
+                     * 多维分析
+                     */
+                    std::vector<AnalysisDimensional> m_analysis;
+                    bool m_analysisHasBeenSet;
+
+                    /**
+                     * 分组触发状态。true：开启，false：关闭（默认）
+                     */
+                    bool m_groupTriggerStatus;
+                    bool m_groupTriggerStatusHasBeenSet;
+
+                    /**
+                     * 分组触发条件。
+                     */
+                    std::vector<std::string> m_groupTriggerCondition;
+                    bool m_groupTriggerConditionHasBeenSet;
+
+                    /**
+                     * 标签描述列表，通过指定该参数可以同时绑定标签到相应的告警策略。最大支持10个标签键值对，并且不能有重复的键值对。
+                     */
+                    std::vector<Tag> m_tags;
+                    bool m_tagsHasBeenSet;
+
+                    /**
+                     * 监控对象类型。0:执行语句共用监控对象; 1:每个执行语句单独选择监控对象。 
+当值为1时，AlarmTargets元素个数不能超过10个，AlarmTargets中的Number必须是从1开始的连续正整数，不能重复。
+
+                     */
+                    uint64_t m_monitorObjectType;
+                    bool m_monitorObjectTypeHasBeenSet;
+
+                    /**
+                     * 告警附加分类信息列表。
+Classifications元素个数不能超过20个。
+Classifications元素的Key不能为空，不能重复，长度不能超过50个字符，符合正则 `^[a-z]([a-z0-9_]{0,49})$`。
+Classifications元素的Value长度不能超过200个字符。
+                     */
+                    std::vector<AlarmClassification> m_classifications;
+                    bool m_classificationsHasBeenSet;
 
                 };
             }

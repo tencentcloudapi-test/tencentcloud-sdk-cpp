@@ -27,8 +27,7 @@ DescribeRelatedUsersRequest::DescribeRelatedUsersRequest() :
     m_envIdHasBeenSet(false),
     m_pageNoHasBeenSet(false),
     m_pageSizeHasBeenSet(false),
-    m_envTypeHasBeenSet(false),
-    m_roleStringIdHasBeenSet(false)
+    m_envTypeHasBeenSet(false)
 {
 }
 
@@ -77,14 +76,6 @@ string DescribeRelatedUsersRequest::ToJsonString() const
         string key = "EnvType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_envType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_roleStringIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RoleStringId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_roleStringId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -173,22 +164,6 @@ void DescribeRelatedUsersRequest::SetEnvType(const string& _envType)
 bool DescribeRelatedUsersRequest::EnvTypeHasBeenSet() const
 {
     return m_envTypeHasBeenSet;
-}
-
-string DescribeRelatedUsersRequest::GetRoleStringId() const
-{
-    return m_roleStringId;
-}
-
-void DescribeRelatedUsersRequest::SetRoleStringId(const string& _roleStringId)
-{
-    m_roleStringId = _roleStringId;
-    m_roleStringIdHasBeenSet = true;
-}
-
-bool DescribeRelatedUsersRequest::RoleStringIdHasBeenSet() const
-{
-    return m_roleStringIdHasBeenSet;
 }
 
 

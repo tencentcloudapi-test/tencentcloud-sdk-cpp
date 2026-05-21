@@ -24,9 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/ags/v20250920/model/MountOption.h>
-#include <tencentcloud/ags/v20250920/model/CustomConfigurationDetail.h>
-#include <tencentcloud/ags/v20250920/model/MetadataVar.h>
 
 
 namespace TencentCloud
@@ -50,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>沙箱实例唯一标识符</p>
-                     * @return InstanceId <p>沙箱实例唯一标识符</p>
+                     * 获取沙箱实例唯一标识符
+                     * @return InstanceId 沙箱实例唯一标识符
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>沙箱实例唯一标识符</p>
-                     * @param _instanceId <p>沙箱实例唯一标识符</p>
+                     * 设置沙箱实例唯一标识符
+                     * @param _instanceId 沙箱实例唯一标识符
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -71,15 +68,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>所属沙箱工具 ID</p>
-                     * @return ToolId <p>所属沙箱工具 ID</p>
+                     * 获取所属沙箱工具 ID
+                     * @return ToolId 所属沙箱工具 ID
                      * 
                      */
                     std::string GetToolId() const;
 
                     /**
-                     * 设置<p>所属沙箱工具 ID</p>
-                     * @param _toolId <p>所属沙箱工具 ID</p>
+                     * 设置所属沙箱工具 ID
+                     * @param _toolId 所属沙箱工具 ID
                      * 
                      */
                     void SetToolId(const std::string& _toolId);
@@ -92,15 +89,15 @@ namespace TencentCloud
                     bool ToolIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>所属沙箱工具名称</p>
-                     * @return ToolName <p>所属沙箱工具名称</p>
+                     * 获取所属沙箱工具名称
+                     * @return ToolName 所属沙箱工具名称
                      * 
                      */
                     std::string GetToolName() const;
 
                     /**
-                     * 设置<p>所属沙箱工具名称</p>
-                     * @param _toolName <p>所属沙箱工具名称</p>
+                     * 设置所属沙箱工具名称
+                     * @param _toolName 所属沙箱工具名称
                      * 
                      */
                     void SetToolName(const std::string& _toolName);
@@ -113,15 +110,15 @@ namespace TencentCloud
                     bool ToolNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）</p>
-                     * @return Status <p>实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）</p>
+                     * 获取实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）
+                     * @return Status 实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）</p>
-                     * @param _status <p>实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）</p>
+                     * 设置实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）
+                     * @param _status 实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -134,36 +131,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否常驻实例</p>
-                     * @return Persistent <p>是否常驻实例</p>
-                     * 
-                     */
-                    bool GetPersistent() const;
-
-                    /**
-                     * 设置<p>是否常驻实例</p>
-                     * @param _persistent <p>是否常驻实例</p>
-                     * 
-                     */
-                    void SetPersistent(const bool& _persistent);
-
-                    /**
-                     * 判断参数 Persistent 是否已赋值
-                     * @return Persistent 是否已赋值
-                     * 
-                     */
-                    bool PersistentHasBeenSet() const;
-
-                    /**
-                     * 获取<p>超时时间（秒），null 表示无超时设置</p>
-                     * @return TimeoutSeconds <p>超时时间（秒），null 表示无超时设置</p>
+                     * 获取超时时间（秒），null 表示无超时设置
+                     * @return TimeoutSeconds 超时时间（秒），null 表示无超时设置
                      * 
                      */
                     uint64_t GetTimeoutSeconds() const;
 
                     /**
-                     * 设置<p>超时时间（秒），null 表示无超时设置</p>
-                     * @param _timeoutSeconds <p>超时时间（秒），null 表示无超时设置</p>
+                     * 设置超时时间（秒），null 表示无超时设置
+                     * @param _timeoutSeconds 超时时间（秒），null 表示无超时设置
                      * 
                      */
                     void SetTimeoutSeconds(const uint64_t& _timeoutSeconds);
@@ -176,15 +152,15 @@ namespace TencentCloud
                     bool TimeoutSecondsHasBeenSet() const;
 
                     /**
-                     * 获取<p>过期时间（ISO 8601 格式），null 表示无过期时间</p>
-                     * @return ExpiresAt <p>过期时间（ISO 8601 格式），null 表示无过期时间</p>
+                     * 获取过期时间（ISO 8601 格式），null 表示无过期时间
+                     * @return ExpiresAt 过期时间（ISO 8601 格式），null 表示无过期时间
                      * 
                      */
                     std::string GetExpiresAt() const;
 
                     /**
-                     * 设置<p>过期时间（ISO 8601 格式），null 表示无过期时间</p>
-                     * @param _expiresAt <p>过期时间（ISO 8601 格式），null 表示无过期时间</p>
+                     * 设置过期时间（ISO 8601 格式），null 表示无过期时间
+                     * @param _expiresAt 过期时间（ISO 8601 格式），null 表示无过期时间
                      * 
                      */
                     void SetExpiresAt(const std::string& _expiresAt);
@@ -197,15 +173,15 @@ namespace TencentCloud
                     bool ExpiresAtHasBeenSet() const;
 
                     /**
-                     * 获取<p>停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error</p>
-                     * @return StopReason <p>停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error</p>
+                     * 获取停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error
+                     * @return StopReason 停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error
                      * 
                      */
                     std::string GetStopReason() const;
 
                     /**
-                     * 设置<p>停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error</p>
-                     * @param _stopReason <p>停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error</p>
+                     * 设置停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error
+                     * @param _stopReason 停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error
                      * 
                      */
                     void SetStopReason(const std::string& _stopReason);
@@ -218,15 +194,15 @@ namespace TencentCloud
                     bool StopReasonHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间（ISO 8601 格式）</p>
-                     * @return CreateTime <p>创建时间（ISO 8601 格式）</p>
+                     * 获取创建时间（ISO 8601 格式）
+                     * @return CreateTime 创建时间（ISO 8601 格式）
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间（ISO 8601 格式）</p>
-                     * @param _createTime <p>创建时间（ISO 8601 格式）</p>
+                     * 设置创建时间（ISO 8601 格式）
+                     * @param _createTime 创建时间（ISO 8601 格式）
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -239,15 +215,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>更新时间（ISO 8601 格式）</p>
-                     * @return UpdateTime <p>更新时间（ISO 8601 格式）</p>
+                     * 获取更新时间（ISO 8601 格式）
+                     * @return UpdateTime 更新时间（ISO 8601 格式）
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>更新时间（ISO 8601 格式）</p>
-                     * @param _updateTime <p>更新时间（ISO 8601 格式）</p>
+                     * 设置更新时间（ISO 8601 格式）
+                     * @param _updateTime 更新时间（ISO 8601 格式）
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -259,202 +235,61 @@ namespace TencentCloud
                      */
                     bool UpdateTimeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>存储挂载选项</p>
-                     * @return MountOptions <p>存储挂载选项</p>
-                     * 
-                     */
-                    std::vector<MountOption> GetMountOptions() const;
-
-                    /**
-                     * 设置<p>存储挂载选项</p>
-                     * @param _mountOptions <p>存储挂载选项</p>
-                     * 
-                     */
-                    void SetMountOptions(const std::vector<MountOption>& _mountOptions);
-
-                    /**
-                     * 判断参数 MountOptions 是否已赋值
-                     * @return MountOptions 是否已赋值
-                     * 
-                     */
-                    bool MountOptionsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>沙箱实例自定义配置</p>
-                     * @return CustomConfiguration <p>沙箱实例自定义配置</p>
-                     * 
-                     */
-                    CustomConfigurationDetail GetCustomConfiguration() const;
-
-                    /**
-                     * 设置<p>沙箱实例自定义配置</p>
-                     * @param _customConfiguration <p>沙箱实例自定义配置</p>
-                     * 
-                     */
-                    void SetCustomConfiguration(const CustomConfigurationDetail& _customConfiguration);
-
-                    /**
-                     * 判断参数 CustomConfiguration 是否已赋值
-                     * @return CustomConfiguration 是否已赋值
-                     * 
-                     */
-                    bool CustomConfigurationHasBeenSet() const;
-
-                    /**
-                     * 获取<p>网络模式</p><p>枚举值：</p><ul><li>PUBLIC： 公网访问</li><li>SANDBOX： 无网络</li><li>INTERNAL_SERVICE： 腾讯云内部公共服务</li></ul><p>可以覆盖工具级别的网络配置。但如果一个工具本身就不支持 VPC 网络，那么即便在实例设置里选了 VPC 模式，也是无效的</p>
-                     * @return NetworkMode <p>网络模式</p><p>枚举值：</p><ul><li>PUBLIC： 公网访问</li><li>SANDBOX： 无网络</li><li>INTERNAL_SERVICE： 腾讯云内部公共服务</li></ul><p>可以覆盖工具级别的网络配置。但如果一个工具本身就不支持 VPC 网络，那么即便在实例设置里选了 VPC 模式，也是无效的</p>
-                     * 
-                     */
-                    std::string GetNetworkMode() const;
-
-                    /**
-                     * 设置<p>网络模式</p><p>枚举值：</p><ul><li>PUBLIC： 公网访问</li><li>SANDBOX： 无网络</li><li>INTERNAL_SERVICE： 腾讯云内部公共服务</li></ul><p>可以覆盖工具级别的网络配置。但如果一个工具本身就不支持 VPC 网络，那么即便在实例设置里选了 VPC 模式，也是无效的</p>
-                     * @param _networkMode <p>网络模式</p><p>枚举值：</p><ul><li>PUBLIC： 公网访问</li><li>SANDBOX： 无网络</li><li>INTERNAL_SERVICE： 腾讯云内部公共服务</li></ul><p>可以覆盖工具级别的网络配置。但如果一个工具本身就不支持 VPC 网络，那么即便在实例设置里选了 VPC 模式，也是无效的</p>
-                     * 
-                     */
-                    void SetNetworkMode(const std::string& _networkMode);
-
-                    /**
-                     * 判断参数 NetworkMode 是否已赋值
-                     * @return NetworkMode 是否已赋值
-                     * 
-                     */
-                    bool NetworkModeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>沙箱实例元数据</p>
-                     * @return Metadata <p>沙箱实例元数据</p>
-                     * 
-                     */
-                    std::vector<MetadataVar> GetMetadata() const;
-
-                    /**
-                     * 设置<p>沙箱实例元数据</p>
-                     * @param _metadata <p>沙箱实例元数据</p>
-                     * 
-                     */
-                    void SetMetadata(const std::vector<MetadataVar>& _metadata);
-
-                    /**
-                     * 判断参数 Metadata 是否已赋值
-                     * @return Metadata 是否已赋值
-                     * 
-                     */
-                    bool MetadataHasBeenSet() const;
-
-                    /**
-                     * 获取<p>沙箱访问认证模式</p><p>枚举值：</p><ul><li>DEFAULT： 默认，即 TOKEN 认证</li><li>TOKEN： Token认证，即所有端口访问都需携带TOKEN</li><li>NONE： 免认证，即所有端口访问无需携带TOKEN</li><li>PUBLIC： 公开模式，即ENVD管理端口（49983）访问需携带TOKEN，其他端口无需携带TOKEN</li></ul><p>默认值：DEFAULT</p>
-                     * @return AuthMode <p>沙箱访问认证模式</p><p>枚举值：</p><ul><li>DEFAULT： 默认，即 TOKEN 认证</li><li>TOKEN： Token认证，即所有端口访问都需携带TOKEN</li><li>NONE： 免认证，即所有端口访问无需携带TOKEN</li><li>PUBLIC： 公开模式，即ENVD管理端口（49983）访问需携带TOKEN，其他端口无需携带TOKEN</li></ul><p>默认值：DEFAULT</p>
-                     * 
-                     */
-                    std::string GetAuthMode() const;
-
-                    /**
-                     * 设置<p>沙箱访问认证模式</p><p>枚举值：</p><ul><li>DEFAULT： 默认，即 TOKEN 认证</li><li>TOKEN： Token认证，即所有端口访问都需携带TOKEN</li><li>NONE： 免认证，即所有端口访问无需携带TOKEN</li><li>PUBLIC： 公开模式，即ENVD管理端口（49983）访问需携带TOKEN，其他端口无需携带TOKEN</li></ul><p>默认值：DEFAULT</p>
-                     * @param _authMode <p>沙箱访问认证模式</p><p>枚举值：</p><ul><li>DEFAULT： 默认，即 TOKEN 认证</li><li>TOKEN： Token认证，即所有端口访问都需携带TOKEN</li><li>NONE： 免认证，即所有端口访问无需携带TOKEN</li><li>PUBLIC： 公开模式，即ENVD管理端口（49983）访问需携带TOKEN，其他端口无需携带TOKEN</li></ul><p>默认值：DEFAULT</p>
-                     * 
-                     */
-                    void SetAuthMode(const std::string& _authMode);
-
-                    /**
-                     * 判断参数 AuthMode 是否已赋值
-                     * @return AuthMode 是否已赋值
-                     * 
-                     */
-                    bool AuthModeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>沙箱实例唯一标识符</p>
+                     * 沙箱实例唯一标识符
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>所属沙箱工具 ID</p>
+                     * 所属沙箱工具 ID
                      */
                     std::string m_toolId;
                     bool m_toolIdHasBeenSet;
 
                     /**
-                     * <p>所属沙箱工具名称</p>
+                     * 所属沙箱工具名称
                      */
                     std::string m_toolName;
                     bool m_toolNameHasBeenSet;
 
                     /**
-                     * <p>实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）</p>
+                     * 实例状态：STARTING（启动中）、RUNNING（运行中）、STOPPING（停止中）、STOPPED（已停止）、STOP_FAILED（停止失败）、FAILED（失败状态）
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>是否常驻实例</p>
-                     */
-                    bool m_persistent;
-                    bool m_persistentHasBeenSet;
-
-                    /**
-                     * <p>超时时间（秒），null 表示无超时设置</p>
+                     * 超时时间（秒），null 表示无超时设置
                      */
                     uint64_t m_timeoutSeconds;
                     bool m_timeoutSecondsHasBeenSet;
 
                     /**
-                     * <p>过期时间（ISO 8601 格式），null 表示无过期时间</p>
+                     * 过期时间（ISO 8601 格式），null 表示无过期时间
                      */
                     std::string m_expiresAt;
                     bool m_expiresAtHasBeenSet;
 
                     /**
-                     * <p>停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error</p>
+                     * 停止原因：manual（手动）、timeout（超时）、error（错误）、system（系统），仅在状态为 STOPPED、STOP_FAILED 或 FAILED 时有值。当 provider 停止失败时，状态为 STOP_FAILED，原因为 error
                      */
                     std::string m_stopReason;
                     bool m_stopReasonHasBeenSet;
 
                     /**
-                     * <p>创建时间（ISO 8601 格式）</p>
+                     * 创建时间（ISO 8601 格式）
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>更新时间（ISO 8601 格式）</p>
+                     * 更新时间（ISO 8601 格式）
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
-
-                    /**
-                     * <p>存储挂载选项</p>
-                     */
-                    std::vector<MountOption> m_mountOptions;
-                    bool m_mountOptionsHasBeenSet;
-
-                    /**
-                     * <p>沙箱实例自定义配置</p>
-                     */
-                    CustomConfigurationDetail m_customConfiguration;
-                    bool m_customConfigurationHasBeenSet;
-
-                    /**
-                     * <p>网络模式</p><p>枚举值：</p><ul><li>PUBLIC： 公网访问</li><li>SANDBOX： 无网络</li><li>INTERNAL_SERVICE： 腾讯云内部公共服务</li></ul><p>可以覆盖工具级别的网络配置。但如果一个工具本身就不支持 VPC 网络，那么即便在实例设置里选了 VPC 模式，也是无效的</p>
-                     */
-                    std::string m_networkMode;
-                    bool m_networkModeHasBeenSet;
-
-                    /**
-                     * <p>沙箱实例元数据</p>
-                     */
-                    std::vector<MetadataVar> m_metadata;
-                    bool m_metadataHasBeenSet;
-
-                    /**
-                     * <p>沙箱访问认证模式</p><p>枚举值：</p><ul><li>DEFAULT： 默认，即 TOKEN 认证</li><li>TOKEN： Token认证，即所有端口访问都需携带TOKEN</li><li>NONE： 免认证，即所有端口访问无需携带TOKEN</li><li>PUBLIC： 公开模式，即ENVD管理端口（49983）访问需携带TOKEN，其他端口无需携带TOKEN</li></ul><p>默认值：DEFAULT</p>
-                     */
-                    std::string m_authMode;
-                    bool m_authModeHasBeenSet;
 
                 };
             }

@@ -27,8 +27,6 @@
 #include <tencentcloud/dnspod/v20210323/model/CheckRecordSnapshotRollbackResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/CheckSnapshotRollbackRequest.h>
 #include <tencentcloud/dnspod/v20210323/model/CheckSnapshotRollbackResponse.h>
-#include <tencentcloud/dnspod/v20210323/model/CreateAndPayDealRequest.h>
-#include <tencentcloud/dnspod/v20210323/model/CreateAndPayDealResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/CreateDealRequest.h>
 #include <tencentcloud/dnspod/v20210323/model/CreateDealResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/CreateDomainRequest.h>
@@ -183,14 +181,10 @@
 #include <tencentcloud/dnspod/v20210323/model/ModifyLineGroupResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyPackageAutoRenewRequest.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyPackageAutoRenewResponse.h>
-#include <tencentcloud/dnspod/v20210323/model/ModifyPackageDomainRequest.h>
-#include <tencentcloud/dnspod/v20210323/model/ModifyPackageDomainResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordRequest.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordBatchRequest.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordBatchResponse.h>
-#include <tencentcloud/dnspod/v20210323/model/ModifyRecordBatchV3Request.h>
-#include <tencentcloud/dnspod/v20210323/model/ModifyRecordBatchV3Response.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordFieldsRequest.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordFieldsResponse.h>
 #include <tencentcloud/dnspod/v20210323/model/ModifyRecordGroupRequest.h>
@@ -235,9 +229,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CheckSnapshotRollbackResponse> CheckSnapshotRollbackOutcome;
                 typedef std::future<CheckSnapshotRollbackOutcome> CheckSnapshotRollbackOutcomeCallable;
                 typedef std::function<void(const DnspodClient*, const Model::CheckSnapshotRollbackRequest&, CheckSnapshotRollbackOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CheckSnapshotRollbackAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateAndPayDealResponse> CreateAndPayDealOutcome;
-                typedef std::future<CreateAndPayDealOutcome> CreateAndPayDealOutcomeCallable;
-                typedef std::function<void(const DnspodClient*, const Model::CreateAndPayDealRequest&, CreateAndPayDealOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAndPayDealAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateDealResponse> CreateDealOutcome;
                 typedef std::future<CreateDealOutcome> CreateDealOutcomeCallable;
                 typedef std::function<void(const DnspodClient*, const Model::CreateDealRequest&, CreateDealOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDealAsyncHandler;
@@ -469,18 +460,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyPackageAutoRenewResponse> ModifyPackageAutoRenewOutcome;
                 typedef std::future<ModifyPackageAutoRenewOutcome> ModifyPackageAutoRenewOutcomeCallable;
                 typedef std::function<void(const DnspodClient*, const Model::ModifyPackageAutoRenewRequest&, ModifyPackageAutoRenewOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyPackageAutoRenewAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyPackageDomainResponse> ModifyPackageDomainOutcome;
-                typedef std::future<ModifyPackageDomainOutcome> ModifyPackageDomainOutcomeCallable;
-                typedef std::function<void(const DnspodClient*, const Model::ModifyPackageDomainRequest&, ModifyPackageDomainOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyPackageDomainAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyRecordResponse> ModifyRecordOutcome;
                 typedef std::future<ModifyRecordOutcome> ModifyRecordOutcomeCallable;
                 typedef std::function<void(const DnspodClient*, const Model::ModifyRecordRequest&, ModifyRecordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRecordAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyRecordBatchResponse> ModifyRecordBatchOutcome;
                 typedef std::future<ModifyRecordBatchOutcome> ModifyRecordBatchOutcomeCallable;
                 typedef std::function<void(const DnspodClient*, const Model::ModifyRecordBatchRequest&, ModifyRecordBatchOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRecordBatchAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyRecordBatchV3Response> ModifyRecordBatchV3Outcome;
-                typedef std::future<ModifyRecordBatchV3Outcome> ModifyRecordBatchV3OutcomeCallable;
-                typedef std::function<void(const DnspodClient*, const Model::ModifyRecordBatchV3Request&, ModifyRecordBatchV3Outcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRecordBatchV3AsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyRecordFieldsResponse> ModifyRecordFieldsOutcome;
                 typedef std::future<ModifyRecordFieldsOutcome> ModifyRecordFieldsOutcomeCallable;
                 typedef std::function<void(const DnspodClient*, const Model::ModifyRecordFieldsRequest&, ModifyRecordFieldsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRecordFieldsAsyncHandler;
@@ -537,15 +522,6 @@ namespace TencentCloud
                 CheckSnapshotRollbackOutcome CheckSnapshotRollback(const Model::CheckSnapshotRollbackRequest &request);
                 void CheckSnapshotRollbackAsync(const Model::CheckSnapshotRollbackRequest& request, const CheckSnapshotRollbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CheckSnapshotRollbackOutcomeCallable CheckSnapshotRollbackCallable(const Model::CheckSnapshotRollbackRequest& request);
-
-                /**
-                 *DNSPod商品下单并支付
-                 * @param req CreateAndPayDealRequest
-                 * @return CreateAndPayDealOutcome
-                 */
-                CreateAndPayDealOutcome CreateAndPayDeal(const Model::CreateAndPayDealRequest &request);
-                void CreateAndPayDealAsync(const Model::CreateAndPayDealRequest& request, const CreateAndPayDealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateAndPayDealOutcomeCallable CreateAndPayDealCallable(const Model::CreateAndPayDealRequest& request);
 
                 /**
                  *DNSPod商品下单
@@ -1251,15 +1227,6 @@ namespace TencentCloud
                 ModifyPackageAutoRenewOutcomeCallable ModifyPackageAutoRenewCallable(const Model::ModifyPackageAutoRenewRequest& request);
 
                 /**
-                 *套餐绑定、解绑、更换域名
-                 * @param req ModifyPackageDomainRequest
-                 * @return ModifyPackageDomainOutcome
-                 */
-                ModifyPackageDomainOutcome ModifyPackageDomain(const Model::ModifyPackageDomainRequest &request);
-                void ModifyPackageDomainAsync(const Model::ModifyPackageDomainRequest& request, const ModifyPackageDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyPackageDomainOutcomeCallable ModifyPackageDomainCallable(const Model::ModifyPackageDomainRequest& request);
-
-                /**
                  *修改记录
                  * @param req ModifyRecordRequest
                  * @return ModifyRecordOutcome
@@ -1276,15 +1243,6 @@ namespace TencentCloud
                 ModifyRecordBatchOutcome ModifyRecordBatch(const Model::ModifyRecordBatchRequest &request);
                 void ModifyRecordBatchAsync(const Model::ModifyRecordBatchRequest& request, const ModifyRecordBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyRecordBatchOutcomeCallable ModifyRecordBatchCallable(const Model::ModifyRecordBatchRequest& request);
-
-                /**
-                 *批量修改记录
-                 * @param req ModifyRecordBatchV3Request
-                 * @return ModifyRecordBatchV3Outcome
-                 */
-                ModifyRecordBatchV3Outcome ModifyRecordBatchV3(const Model::ModifyRecordBatchV3Request &request);
-                void ModifyRecordBatchV3Async(const Model::ModifyRecordBatchV3Request& request, const ModifyRecordBatchV3AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyRecordBatchV3OutcomeCallable ModifyRecordBatchV3Callable(const Model::ModifyRecordBatchV3Request& request);
 
                 /**
                  *修改记录可选字段

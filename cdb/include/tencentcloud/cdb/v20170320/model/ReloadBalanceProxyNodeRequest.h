@@ -64,27 +64,15 @@ namespace TencentCloud
                     bool ProxyGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
-说明：
-1. 对于双节点实例而言，此参数为非必填，如果不传则会对所有代理组地址进行负载均衡。
-2. 对于云盘版实例而言，此参数为必填。
-                     * @return ProxyAddressId 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
-说明：
-1. 对于双节点实例而言，此参数为非必填，如果不传则会对所有代理组地址进行负载均衡。
-2. 对于云盘版实例而言，此参数为必填。
+                     * 获取代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。如果不传则会对所有代理组地址进行负载均衡。
+                     * @return ProxyAddressId 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。如果不传则会对所有代理组地址进行负载均衡。
                      * 
                      */
                     std::string GetProxyAddressId() const;
 
                     /**
-                     * 设置代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
-说明：
-1. 对于双节点实例而言，此参数为非必填，如果不传则会对所有代理组地址进行负载均衡。
-2. 对于云盘版实例而言，此参数为必填。
-                     * @param _proxyAddressId 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
-说明：
-1. 对于双节点实例而言，此参数为非必填，如果不传则会对所有代理组地址进行负载均衡。
-2. 对于云盘版实例而言，此参数为必填。
+                     * 设置代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。如果不传则会对所有代理组地址进行负载均衡。
+                     * @param _proxyAddressId 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。如果不传则会对所有代理组地址进行负载均衡。
                      * 
                      */
                     void SetProxyAddressId(const std::string& _proxyAddressId);
@@ -105,10 +93,7 @@ namespace TencentCloud
                     bool m_proxyGroupIdHasBeenSet;
 
                     /**
-                     * 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
-说明：
-1. 对于双节点实例而言，此参数为非必填，如果不传则会对所有代理组地址进行负载均衡。
-2. 对于云盘版实例而言，此参数为必填。
+                     * 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。如果不传则会对所有代理组地址进行负载均衡。
                      */
                     std::string m_proxyAddressId;
                     bool m_proxyAddressIdHasBeenSet;

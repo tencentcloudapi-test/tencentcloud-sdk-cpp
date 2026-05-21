@@ -44,8 +44,24 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>0：成功。</p></li><li><p>不收费结果码：<br>-1：未查询到结果。<br>-2：手机号格式不正确。<br>-3：验证中心服务繁忙。<br>-4：认证次数超过当日限制，请次日重试。</p></li></ul>
-                     * @return Result <p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>0：成功。</p></li><li><p>不收费结果码：<br>-1：未查询到结果。<br>-2：手机号格式不正确。<br>-3：验证中心服务繁忙。<br>-4：认证次数超过当日限制，请次日重试。</p></li></ul>
+                     * 获取认证结果码，收费情况如下。
+- 收费结果码：
+0：成功。
+
+- 不收费结果码：
+-1：未查询到结果。
+-2：手机号格式不正确。
+-3：验证中心服务繁忙。
+-4：认证次数超过当日限制，请次日重试。
+                     * @return Result 认证结果码，收费情况如下。
+- 收费结果码：
+0：成功。
+
+- 不收费结果码：
+-1：未查询到结果。
+-2：手机号格式不正确。
+-3：验证中心服务繁忙。
+-4：认证次数超过当日限制，请次日重试。
                      * 
                      */
                     std::string GetResult() const;
@@ -58,8 +74,8 @@ namespace TencentCloud
                     bool ResultHasBeenSet() const;
 
                     /**
-                     * 获取<p>业务结果描述。</p>
-                     * @return Description <p>业务结果描述。</p>
+                     * 获取业务结果描述。
+                     * @return Description 业务结果描述。
                      * 
                      */
                     std::string GetDescription() const;
@@ -72,8 +88,20 @@ namespace TencentCloud
                     bool DescriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态码。- 取值范围：0：正常。1：停机。2：销号。4：不在网。5：在网但不可用 。99：未知状态。</p>
-                     * @return StatusCode <p>状态码。- 取值范围：0：正常。1：停机。2：销号。4：不在网。5：在网但不可用 。99：未知状态。</p>
+                     * 获取状态码。
+- 取值范围：
+0：正常。
+1：停机。
+2：销号。
+4：不在网。
+99：未知状态。
+                     * @return StatusCode 状态码。
+- 取值范围：
+0：正常。
+1：停机。
+2：销号。
+4：不在网。
+99：未知状态。
                      * 
                      */
                     int64_t GetStatusCode() const;
@@ -88,19 +116,33 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>认证结果码，收费情况如下。</p><ul><li><p>收费结果码：<br>0：成功。</p></li><li><p>不收费结果码：<br>-1：未查询到结果。<br>-2：手机号格式不正确。<br>-3：验证中心服务繁忙。<br>-4：认证次数超过当日限制，请次日重试。</p></li></ul>
+                     * 认证结果码，收费情况如下。
+- 收费结果码：
+0：成功。
+
+- 不收费结果码：
+-1：未查询到结果。
+-2：手机号格式不正确。
+-3：验证中心服务繁忙。
+-4：认证次数超过当日限制，请次日重试。
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
 
                     /**
-                     * <p>业务结果描述。</p>
+                     * 业务结果描述。
                      */
                     std::string m_description;
                     bool m_descriptionHasBeenSet;
 
                     /**
-                     * <p>状态码。- 取值范围：0：正常。1：停机。2：销号。4：不在网。5：在网但不可用 。99：未知状态。</p>
+                     * 状态码。
+- 取值范围：
+0：正常。
+1：停机。
+2：销号。
+4：不在网。
+99：未知状态。
                      */
                     int64_t m_statusCode;
                     bool m_statusCodeHasBeenSet;

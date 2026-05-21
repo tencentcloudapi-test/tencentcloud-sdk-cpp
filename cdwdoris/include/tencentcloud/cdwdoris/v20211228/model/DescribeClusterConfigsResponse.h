@@ -114,20 +114,6 @@ namespace TencentCloud
                      */
                     bool ExistingJarConfListHasBeenSet() const;
 
-                    /**
-                     * 获取ipdb的文件大小 byte
-                     * @return IPDBFileSizeLimit ipdb的文件大小 byte
-                     * 
-                     */
-                    std::string GetIPDBFileSizeLimit() const;
-
-                    /**
-                     * 判断参数 IPDBFileSizeLimit 是否已赋值
-                     * @return IPDBFileSizeLimit 是否已赋值
-                     * 
-                     */
-                    bool IPDBFileSizeLimitHasBeenSet() const;
-
                 private:
 
                     /**
@@ -159,12 +145,6 @@ namespace TencentCloud
                      */
                     std::vector<ClusterConfigsInfoFromEMR> m_existingJarConfList;
                     bool m_existingJarConfListHasBeenSet;
-
-                    /**
-                     * ipdb的文件大小 byte
-                     */
-                    std::string m_iPDBFileSizeLimit;
-                    bool m_iPDBFileSizeLimitHasBeenSet;
 
                 };
             }

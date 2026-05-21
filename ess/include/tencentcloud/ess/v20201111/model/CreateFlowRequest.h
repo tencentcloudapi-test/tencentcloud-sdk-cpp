@@ -25,7 +25,6 @@
 #include <tencentcloud/ess/v20201111/model/FlowCreateApprover.h>
 #include <tencentcloud/ess/v20201111/model/Agent.h>
 #include <tencentcloud/ess/v20201111/model/CcInfo.h>
-#include <tencentcloud/ess/v20201111/model/FlowOperateLimit.h>
 
 
 namespace TencentCloud
@@ -272,10 +271,10 @@ namespace TencentCloud
                     bool RemindedOnHasBeenSet() const;
 
                     /**
-                     * 获取调用方自定义的个性化字段(可自定义此名称)，并以base64格式编码，支持的最大数据大小为 20480长度。
+                     * 获取调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
-                     * @return UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64格式编码，支持的最大数据大小为 20480长度。
+                     * @return UserData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
                      * 
@@ -283,10 +282,10 @@ namespace TencentCloud
                     std::string GetUserData() const;
 
                     /**
-                     * 设置调用方自定义的个性化字段(可自定义此名称)，并以base64格式编码，支持的最大数据大小为 20480长度。
+                     * 设置调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
-                     * @param _userData 调用方自定义的个性化字段(可自定义此名称)，并以base64格式编码，支持的最大数据大小为 20480长度。
+                     * @param _userData 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
                      * 
@@ -633,48 +632,6 @@ namespace TencentCloud
                      */
                     bool FlowDisplayTypeHasBeenSet() const;
 
-                    /**
-                     * 获取是否开启发起合同审批，默认：false（不开启），开启后，发起合同（StartFlow），会提交电子签内置的审批流
-                     * @return Workflow 是否开启发起合同审批，默认：false（不开启），开启后，发起合同（StartFlow），会提交电子签内置的审批流
-                     * 
-                     */
-                    bool GetWorkflow() const;
-
-                    /**
-                     * 设置是否开启发起合同审批，默认：false（不开启），开启后，发起合同（StartFlow），会提交电子签内置的审批流
-                     * @param _workflow 是否开启发起合同审批，默认：false（不开启），开启后，发起合同（StartFlow），会提交电子签内置的审批流
-                     * 
-                     */
-                    void SetWorkflow(const bool& _workflow);
-
-                    /**
-                     * 判断参数 Workflow 是否已赋值
-                     * @return Workflow 是否已赋值
-                     * 
-                     */
-                    bool WorkflowHasBeenSet() const;
-
-                    /**
-                     * 获取发起合同流程时对合同流程的部分操作加以限制的配置。
-                     * @return FlowOperateLimit 发起合同流程时对合同流程的部分操作加以限制的配置。
-                     * 
-                     */
-                    FlowOperateLimit GetFlowOperateLimit() const;
-
-                    /**
-                     * 设置发起合同流程时对合同流程的部分操作加以限制的配置。
-                     * @param _flowOperateLimit 发起合同流程时对合同流程的部分操作加以限制的配置。
-                     * 
-                     */
-                    void SetFlowOperateLimit(const FlowOperateLimit& _flowOperateLimit);
-
-                    /**
-                     * 判断参数 FlowOperateLimit 是否已赋值
-                     * @return FlowOperateLimit 是否已赋值
-                     * 
-                     */
-                    bool FlowOperateLimitHasBeenSet() const;
-
                 private:
 
                     /**
@@ -740,7 +697,7 @@ namespace TencentCloud
                     bool m_remindedOnHasBeenSet;
 
                     /**
-                     * 调用方自定义的个性化字段(可自定义此名称)，并以base64格式编码，支持的最大数据大小为 20480长度。
+                     * 调用方自定义的个性化字段(可自定义此名称)，并以base64方式编码，支持的最大数据大小为 20480长度。
 
 在合同状态变更的回调信息等场景中，该字段的信息将原封不动地透传给贵方。回调的相关说明可参考开发者中心的<a href="https://qian.tencent.com/developers/company/callback_types_v2" target="_blank">回调通知</a>模块。
                      */
@@ -836,18 +793,6 @@ namespace TencentCloud
                      */
                     int64_t m_flowDisplayType;
                     bool m_flowDisplayTypeHasBeenSet;
-
-                    /**
-                     * 是否开启发起合同审批，默认：false（不开启），开启后，发起合同（StartFlow），会提交电子签内置的审批流
-                     */
-                    bool m_workflow;
-                    bool m_workflowHasBeenSet;
-
-                    /**
-                     * 发起合同流程时对合同流程的部分操作加以限制的配置。
-                     */
-                    FlowOperateLimit m_flowOperateLimit;
-                    bool m_flowOperateLimitHasBeenSet;
 
                 };
             }

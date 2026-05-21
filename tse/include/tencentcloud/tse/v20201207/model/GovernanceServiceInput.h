@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>服务名。</p>
-                     * @return Name <p>服务名。</p>
+                     * 获取服务名。
+                     * @return Name 服务名。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>服务名。</p>
-                     * @param _name <p>服务名。</p>
+                     * 设置服务名。
+                     * @param _name 服务名。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务所属命名空间。</p>
-                     * @return Namespace <p>服务所属命名空间。</p>
+                     * 获取服务所属命名空间。
+                     * @return Namespace 服务所属命名空间。
                      * 
                      */
                     std::string GetNamespace() const;
 
                     /**
-                     * 设置<p>服务所属命名空间。</p>
-                     * @param _namespace <p>服务所属命名空间。</p>
+                     * 设置服务所属命名空间。
+                     * @param _namespace 服务所属命名空间。
                      * 
                      */
                     void SetNamespace(const std::string& _namespace);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool NamespaceHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务描述信息。</p>
-                     * @return Comment <p>服务描述信息。</p>
+                     * 获取服务描述信息。
+                     * @return Comment 服务描述信息。
                      * 
                      */
                     std::string GetComment() const;
 
                     /**
-                     * 设置<p>服务描述信息。</p>
-                     * @param _comment <p>服务描述信息。</p>
+                     * 设置服务描述信息。
+                     * @param _comment 服务描述信息。
                      * 
                      */
                     void SetComment(const std::string& _comment);
@@ -111,15 +111,15 @@ namespace TencentCloud
                     bool CommentHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务元数据。</p>
-                     * @return Metadatas <p>服务元数据。</p>
+                     * 获取服务元数据。
+                     * @return Metadatas 服务元数据。
                      * 
                      */
                     std::vector<Metadata> GetMetadatas() const;
 
                     /**
-                     * 设置<p>服务元数据。</p>
-                     * @param _metadatas <p>服务元数据。</p>
+                     * 设置服务元数据。
+                     * @param _metadatas 服务元数据。
                      * 
                      */
                     void SetMetadatas(const std::vector<Metadata>& _metadatas);
@@ -132,15 +132,15 @@ namespace TencentCloud
                     bool MetadatasHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务所属部门。</p>
-                     * @return Department <p>服务所属部门。</p>
+                     * 获取服务所属部门。
+                     * @return Department 服务所属部门。
                      * 
                      */
                     std::string GetDepartment() const;
 
                     /**
-                     * 设置<p>服务所属部门。</p>
-                     * @param _department <p>服务所属部门。</p>
+                     * 设置服务所属部门。
+                     * @param _department 服务所属部门。
                      * 
                      */
                     void SetDepartment(const std::string& _department);
@@ -153,15 +153,15 @@ namespace TencentCloud
                     bool DepartmentHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务所属业务。</p>
-                     * @return Business <p>服务所属业务。</p>
+                     * 获取服务所属业务。
+                     * @return Business 服务所属业务。
                      * 
                      */
                     std::string GetBusiness() const;
 
                     /**
-                     * 设置<p>服务所属业务。</p>
-                     * @param _business <p>服务所属业务。</p>
+                     * 设置服务所属业务。
+                     * @param _business 服务所属业务。
                      * 
                      */
                     void SetBusiness(const std::string& _business);
@@ -174,15 +174,15 @@ namespace TencentCloud
                     bool BusinessHasBeenSet() const;
 
                     /**
-                     * 获取<p>被添加进来可以操作此命名空间的用户ID列表</p>
-                     * @return UserIds <p>被添加进来可以操作此命名空间的用户ID列表</p>
+                     * 获取被添加进来可以操作此命名空间的用户ID列表
+                     * @return UserIds 被添加进来可以操作此命名空间的用户ID列表
                      * 
                      */
                     std::vector<std::string> GetUserIds() const;
 
                     /**
-                     * 设置<p>被添加进来可以操作此命名空间的用户ID列表</p>
-                     * @param _userIds <p>被添加进来可以操作此命名空间的用户ID列表</p>
+                     * 设置被添加进来可以操作此命名空间的用户ID列表
+                     * @param _userIds 被添加进来可以操作此命名空间的用户ID列表
                      * 
                      */
                     void SetUserIds(const std::vector<std::string>& _userIds);
@@ -195,15 +195,15 @@ namespace TencentCloud
                     bool UserIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>被添加进来可以操作此命名空间的用户组ID列表</p>
-                     * @return GroupIds <p>被添加进来可以操作此命名空间的用户组ID列表</p>
+                     * 获取被添加进来可以操作此命名空间的用户组ID列表
+                     * @return GroupIds 被添加进来可以操作此命名空间的用户组ID列表
                      * 
                      */
                     std::vector<std::string> GetGroupIds() const;
 
                     /**
-                     * 设置<p>被添加进来可以操作此命名空间的用户组ID列表</p>
-                     * @param _groupIds <p>被添加进来可以操作此命名空间的用户组ID列表</p>
+                     * 设置被添加进来可以操作此命名空间的用户组ID列表
+                     * @param _groupIds 被添加进来可以操作此命名空间的用户组ID列表
                      * 
                      */
                     void SetGroupIds(const std::vector<std::string>& _groupIds);
@@ -216,15 +216,15 @@ namespace TencentCloud
                     bool GroupIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>从操作此命名空间的用户组ID列表被移除的ID列表</p>
-                     * @return RemoveUserIds <p>从操作此命名空间的用户组ID列表被移除的ID列表</p>
+                     * 获取从操作此命名空间的用户组ID列表被移除的ID列表
+                     * @return RemoveUserIds 从操作此命名空间的用户组ID列表被移除的ID列表
                      * 
                      */
                     std::vector<std::string> GetRemoveUserIds() const;
 
                     /**
-                     * 设置<p>从操作此命名空间的用户组ID列表被移除的ID列表</p>
-                     * @param _removeUserIds <p>从操作此命名空间的用户组ID列表被移除的ID列表</p>
+                     * 设置从操作此命名空间的用户组ID列表被移除的ID列表
+                     * @param _removeUserIds 从操作此命名空间的用户组ID列表被移除的ID列表
                      * 
                      */
                     void SetRemoveUserIds(const std::vector<std::string>& _removeUserIds);
@@ -237,15 +237,15 @@ namespace TencentCloud
                     bool RemoveUserIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>从可以操作此命名空间的用户组ID列表中被移除的ID列表</p>
-                     * @return RemoveGroupIds <p>从可以操作此命名空间的用户组ID列表中被移除的ID列表</p>
+                     * 获取从可以操作此命名空间的用户组ID列表中被移除的ID列表
+                     * @return RemoveGroupIds 从可以操作此命名空间的用户组ID列表中被移除的ID列表
                      * 
                      */
                     std::vector<std::string> GetRemoveGroupIds() const;
 
                     /**
-                     * 设置<p>从可以操作此命名空间的用户组ID列表中被移除的ID列表</p>
-                     * @param _removeGroupIds <p>从可以操作此命名空间的用户组ID列表中被移除的ID列表</p>
+                     * 设置从可以操作此命名空间的用户组ID列表中被移除的ID列表
+                     * @param _removeGroupIds 从可以操作此命名空间的用户组ID列表中被移除的ID列表
                      * 
                      */
                     void SetRemoveGroupIds(const std::vector<std::string>& _removeGroupIds);
@@ -258,15 +258,15 @@ namespace TencentCloud
                     bool RemoveGroupIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>该服务对哪些命名空间可见</p>
-                     * @return ExportTo <p>该服务对哪些命名空间可见</p>
+                     * 获取该服务对哪些命名空间可见
+                     * @return ExportTo 该服务对哪些命名空间可见
                      * 
                      */
                     std::vector<std::string> GetExportTo() const;
 
                     /**
-                     * 设置<p>该服务对哪些命名空间可见</p>
-                     * @param _exportTo <p>该服务对哪些命名空间可见</p>
+                     * 设置该服务对哪些命名空间可见
+                     * @param _exportTo 该服务对哪些命名空间可见
                      * 
                      */
                     void SetExportTo(const std::vector<std::string>& _exportTo);
@@ -279,15 +279,15 @@ namespace TencentCloud
                     bool ExportToHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启同步到全局注册中心</p>
-                     * @return SyncToGlobalRegistry <p>是否开启同步到全局注册中心</p>
+                     * 获取是否开启同步到全局注册中心
+                     * @return SyncToGlobalRegistry 是否开启同步到全局注册中心
                      * 
                      */
                     bool GetSyncToGlobalRegistry() const;
 
                     /**
-                     * 设置<p>是否开启同步到全局注册中心</p>
-                     * @param _syncToGlobalRegistry <p>是否开启同步到全局注册中心</p>
+                     * 设置是否开启同步到全局注册中心
+                     * @param _syncToGlobalRegistry 是否开启同步到全局注册中心
                      * 
                      */
                     void SetSyncToGlobalRegistry(const bool& _syncToGlobalRegistry);
@@ -299,106 +299,79 @@ namespace TencentCloud
                      */
                     bool SyncToGlobalRegistryHasBeenSet() const;
 
-                    /**
-                     * 获取<p>服务类型</p><p>枚举值：</p><ul><li>0： 微服务（默认）</li><li>1： MCP Server</li><li>2： AI Agent</li></ul><p>默认值：0</p>
-                     * @return Type <p>服务类型</p><p>枚举值：</p><ul><li>0： 微服务（默认）</li><li>1： MCP Server</li><li>2： AI Agent</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    uint64_t GetType() const;
-
-                    /**
-                     * 设置<p>服务类型</p><p>枚举值：</p><ul><li>0： 微服务（默认）</li><li>1： MCP Server</li><li>2： AI Agent</li></ul><p>默认值：0</p>
-                     * @param _type <p>服务类型</p><p>枚举值：</p><ul><li>0： 微服务（默认）</li><li>1： MCP Server</li><li>2： AI Agent</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    void SetType(const uint64_t& _type);
-
-                    /**
-                     * 判断参数 Type 是否已赋值
-                     * @return Type 是否已赋值
-                     * 
-                     */
-                    bool TypeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>服务名。</p>
+                     * 服务名。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>服务所属命名空间。</p>
+                     * 服务所属命名空间。
                      */
                     std::string m_namespace;
                     bool m_namespaceHasBeenSet;
 
                     /**
-                     * <p>服务描述信息。</p>
+                     * 服务描述信息。
                      */
                     std::string m_comment;
                     bool m_commentHasBeenSet;
 
                     /**
-                     * <p>服务元数据。</p>
+                     * 服务元数据。
                      */
                     std::vector<Metadata> m_metadatas;
                     bool m_metadatasHasBeenSet;
 
                     /**
-                     * <p>服务所属部门。</p>
+                     * 服务所属部门。
                      */
                     std::string m_department;
                     bool m_departmentHasBeenSet;
 
                     /**
-                     * <p>服务所属业务。</p>
+                     * 服务所属业务。
                      */
                     std::string m_business;
                     bool m_businessHasBeenSet;
 
                     /**
-                     * <p>被添加进来可以操作此命名空间的用户ID列表</p>
+                     * 被添加进来可以操作此命名空间的用户ID列表
                      */
                     std::vector<std::string> m_userIds;
                     bool m_userIdsHasBeenSet;
 
                     /**
-                     * <p>被添加进来可以操作此命名空间的用户组ID列表</p>
+                     * 被添加进来可以操作此命名空间的用户组ID列表
                      */
                     std::vector<std::string> m_groupIds;
                     bool m_groupIdsHasBeenSet;
 
                     /**
-                     * <p>从操作此命名空间的用户组ID列表被移除的ID列表</p>
+                     * 从操作此命名空间的用户组ID列表被移除的ID列表
                      */
                     std::vector<std::string> m_removeUserIds;
                     bool m_removeUserIdsHasBeenSet;
 
                     /**
-                     * <p>从可以操作此命名空间的用户组ID列表中被移除的ID列表</p>
+                     * 从可以操作此命名空间的用户组ID列表中被移除的ID列表
                      */
                     std::vector<std::string> m_removeGroupIds;
                     bool m_removeGroupIdsHasBeenSet;
 
                     /**
-                     * <p>该服务对哪些命名空间可见</p>
+                     * 该服务对哪些命名空间可见
                      */
                     std::vector<std::string> m_exportTo;
                     bool m_exportToHasBeenSet;
 
                     /**
-                     * <p>是否开启同步到全局注册中心</p>
+                     * 是否开启同步到全局注册中心
                      */
                     bool m_syncToGlobalRegistry;
                     bool m_syncToGlobalRegistryHasBeenSet;
-
-                    /**
-                     * <p>服务类型</p><p>枚举值：</p><ul><li>0： 微服务（默认）</li><li>1： MCP Server</li><li>2： AI Agent</li></ul><p>默认值：0</p>
-                     */
-                    uint64_t m_type;
-                    bool m_typeHasBeenSet;
 
                 };
             }

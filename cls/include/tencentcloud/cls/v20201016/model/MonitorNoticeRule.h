@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>腾讯云可观测平台通知模板 ID</p>
-                     * @return NoticeId <p>腾讯云可观测平台通知模板 ID</p>
+                     * 获取腾讯云可观测平台通知模板 ID
+                     * @return NoticeId 腾讯云可观测平台通知模板 ID
                      * 
                      */
                     std::string GetNoticeId() const;
 
                     /**
-                     * 设置<p>腾讯云可观测平台通知模板 ID</p>
-                     * @param _noticeId <p>腾讯云可观测平台通知模板 ID</p>
+                     * 设置腾讯云可观测平台通知模板 ID
+                     * @param _noticeId 腾讯云可观测平台通知模板 ID
                      * 
                      */
                     void SetNoticeId(const std::string& _noticeId);
@@ -68,18 +68,18 @@ namespace TencentCloud
                     bool NoticeIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>腾讯云可观测平台内容模板ID，为空时使用默认内容模板</p>
+                     * 获取腾讯云可观测平台内容模板ID，不传默认内容模板
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ContentTmplId <p>腾讯云可观测平台内容模板ID，为空时使用默认内容模板</p>
+                     * @return ContentTmplId 腾讯云可观测平台内容模板ID，不传默认内容模板
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetContentTmplId() const;
 
                     /**
-                     * 设置<p>腾讯云可观测平台内容模板ID，为空时使用默认内容模板</p>
+                     * 设置腾讯云可观测平台内容模板ID，不传默认内容模板
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _contentTmplId <p>腾讯云可观测平台内容模板ID，为空时使用默认内容模板</p>
+                     * @param _contentTmplId 腾讯云可观测平台内容模板ID，不传默认内容模板
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -93,15 +93,15 @@ namespace TencentCloud
                     bool ContentTmplIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)</p>
-                     * @return AlarmLevels <p>告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)</p>
+                     * 获取告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)
+                     * @return AlarmLevels 告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)
                      * 
                      */
                     std::vector<uint64_t> GetAlarmLevels() const;
 
                     /**
-                     * 设置<p>告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)</p>
-                     * @param _alarmLevels <p>告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)</p>
+                     * 设置告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)
+                     * @param _alarmLevels 告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)
                      * 
                      */
                     void SetAlarmLevels(const std::vector<uint64_t>& _alarmLevels);
@@ -116,20 +116,20 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>腾讯云可观测平台通知模板 ID</p>
+                     * 腾讯云可观测平台通知模板 ID
                      */
                     std::string m_noticeId;
                     bool m_noticeIdHasBeenSet;
 
                     /**
-                     * <p>腾讯云可观测平台内容模板ID，为空时使用默认内容模板</p>
+                     * 腾讯云可观测平台内容模板ID，不传默认内容模板
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_contentTmplId;
                     bool m_contentTmplIdHasBeenSet;
 
                     /**
-                     * <p>告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)</p>
+                     * 告警级别,0:警告(Warn); 1:提醒(Info); 2:紧急 (Critical)
                      */
                     std::vector<uint64_t> m_alarmLevels;
                     bool m_alarmLevelsHasBeenSet;

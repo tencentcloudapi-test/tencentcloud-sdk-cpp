@@ -26,8 +26,7 @@ DescribeOrganizationAuthStatusRequest::DescribeOrganizationAuthStatusRequest() :
     m_operatorHasBeenSet(false),
     m_organizationNameHasBeenSet(false),
     m_uniformSocialCreditCodeHasBeenSet(false),
-    m_legalNameHasBeenSet(false),
-    m_authorizationInfoIdHasBeenSet(false)
+    m_legalNameHasBeenSet(false)
 {
 }
 
@@ -69,14 +68,6 @@ string DescribeOrganizationAuthStatusRequest::ToJsonString() const
         string key = "LegalName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_legalName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_authorizationInfoIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AuthorizationInfoId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_authorizationInfoId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -149,22 +140,6 @@ void DescribeOrganizationAuthStatusRequest::SetLegalName(const string& _legalNam
 bool DescribeOrganizationAuthStatusRequest::LegalNameHasBeenSet() const
 {
     return m_legalNameHasBeenSet;
-}
-
-string DescribeOrganizationAuthStatusRequest::GetAuthorizationInfoId() const
-{
-    return m_authorizationInfoId;
-}
-
-void DescribeOrganizationAuthStatusRequest::SetAuthorizationInfoId(const string& _authorizationInfoId)
-{
-    m_authorizationInfoId = _authorizationInfoId;
-    m_authorizationInfoIdHasBeenSet = true;
-}
-
-bool DescribeOrganizationAuthStatusRequest::AuthorizationInfoIdHasBeenSet() const
-{
-    return m_authorizationInfoIdHasBeenSet;
 }
 
 

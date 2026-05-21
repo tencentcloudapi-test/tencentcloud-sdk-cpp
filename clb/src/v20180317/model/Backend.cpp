@@ -30,8 +30,7 @@ Backend::Backend() :
     m_instanceNameHasBeenSet(false),
     m_registeredTimeHasBeenSet(false),
     m_eniIdHasBeenSet(false),
-    m_tagHasBeenSet(false),
-    m_zoneHasBeenSet(false)
+    m_tagHasBeenSet(false)
 {
 }
 
@@ -146,16 +145,6 @@ CoreInternalOutcome Backend::Deserialize(const rapidjson::Value &value)
         m_tagHasBeenSet = true;
     }
 
-    if (value.HasMember("Zone") && !value["Zone"].IsNull())
-    {
-        if (!value["Zone"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Backend.Zone` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_zone = string(value["Zone"].GetString());
-        m_zoneHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -251,14 +240,6 @@ void Backend::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         string key = "Tag";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_tag.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_zoneHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Zone";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -422,21 +403,5 @@ void Backend::SetTag(const string& _tag)
 bool Backend::TagHasBeenSet() const
 {
     return m_tagHasBeenSet;
-}
-
-string Backend::GetZone() const
-{
-    return m_zone;
-}
-
-void Backend::SetZone(const string& _zone)
-{
-    m_zone = _zone;
-    m_zoneHasBeenSet = true;
-}
-
-bool Backend::ZoneHasBeenSet() const
-{
-    return m_zoneHasBeenSet;
 }
 

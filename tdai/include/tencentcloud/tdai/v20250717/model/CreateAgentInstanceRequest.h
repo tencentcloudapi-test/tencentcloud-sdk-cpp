@@ -45,15 +45,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>智能体ID</p>
-                     * @return AgentId <p>智能体ID</p>
+                     * 获取智能体ID
+                     * @return AgentId 智能体ID
                      * 
                      */
                     std::string GetAgentId() const;
 
                     /**
-                     * 设置<p>智能体ID</p>
-                     * @param _agentId <p>智能体ID</p>
+                     * 设置智能体ID
+                     * @param _agentId 智能体ID
                      * 
                      */
                     void SetAgentId(const std::string& _agentId);
@@ -66,15 +66,15 @@ namespace TencentCloud
                     bool AgentIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能体版本</p>
-                     * @return AgentVersion <p>智能体版本</p>
+                     * 获取智能体版本
+                     * @return AgentVersion 智能体版本
                      * 
                      */
                     std::string GetAgentVersion() const;
 
                     /**
-                     * 设置<p>智能体版本</p>
-                     * @param _agentVersion <p>智能体版本</p>
+                     * 设置智能体版本
+                     * @param _agentVersion 智能体版本
                      * 
                      */
                     void SetAgentVersion(const std::string& _agentVersion);
@@ -87,15 +87,15 @@ namespace TencentCloud
                     bool AgentVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例名</p>
-                     * @return InstanceName <p>实例名</p>
+                     * 获取实例名
+                     * @return InstanceName 实例名
                      * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
-                     * 设置<p>实例名</p>
-                     * @param _instanceName <p>实例名</p>
+                     * 设置实例名
+                     * @param _instanceName 实例名
                      * 
                      */
                     void SetInstanceName(const std::string& _instanceName);
@@ -108,15 +108,15 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能体实例的参数列表</p>
-                     * @return Parameters <p>智能体实例的参数列表</p>
+                     * 获取智能体实例的参数列表
+                     * @return Parameters 智能体实例的参数列表
                      * 
                      */
                     std::vector<Parameter> GetParameters() const;
 
                     /**
-                     * 设置<p>智能体实例的参数列表</p>
-                     * @param _parameters <p>智能体实例的参数列表</p>
+                     * 设置智能体实例的参数列表
+                     * @param _parameters 智能体实例的参数列表
                      * 
                      */
                     void SetParameters(const std::vector<Parameter>& _parameters);
@@ -129,15 +129,15 @@ namespace TencentCloud
                     bool ParametersHasBeenSet() const;
 
                     /**
-                     * 获取<p>资源的标签信息</p>
-                     * @return Tags <p>资源的标签信息</p>
+                     * 获取资源的标签信息
+                     * @return Tags 资源的标签信息
                      * 
                      */
                     std::vector<TagItem> GetTags() const;
 
                     /**
-                     * 设置<p>资源的标签信息</p>
-                     * @param _tags <p>资源的标签信息</p>
+                     * 设置资源的标签信息
+                     * @param _tags 资源的标签信息
                      * 
                      */
                     void SetTags(const std::vector<TagItem>& _tags);
@@ -149,172 +149,37 @@ namespace TencentCloud
                      */
                     bool TagsHasBeenSet() const;
 
-                    /**
-                     * 获取<p>无</p>
-                     * @return InstanceType <p>无</p>
-                     * 
-                     */
-                    std::string GetInstanceType() const;
-
-                    /**
-                     * 设置<p>无</p>
-                     * @param _instanceType <p>无</p>
-                     * 
-                     */
-                    void SetInstanceType(const std::string& _instanceType);
-
-                    /**
-                     * 判断参数 InstanceType 是否已赋值
-                     * @return InstanceType 是否已赋值
-                     * 
-                     */
-                    bool InstanceTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>无</p>
-                     * @return TemplateId <p>无</p>
-                     * 
-                     */
-                    int64_t GetTemplateId() const;
-
-                    /**
-                     * 设置<p>无</p>
-                     * @param _templateId <p>无</p>
-                     * 
-                     */
-                    void SetTemplateId(const int64_t& _templateId);
-
-                    /**
-                     * 判断参数 TemplateId 是否已赋值
-                     * @return TemplateId 是否已赋值
-                     * 
-                     */
-                    bool TemplateIdHasBeenSet() const;
-
-                    /**
-                     * 获取<p>无</p>
-                     * @return Skills <p>无</p>
-                     * 
-                     */
-                    std::vector<std::string> GetSkills() const;
-
-                    /**
-                     * 设置<p>无</p>
-                     * @param _skills <p>无</p>
-                     * 
-                     */
-                    void SetSkills(const std::vector<std::string>& _skills);
-
-                    /**
-                     * 判断参数 Skills 是否已赋值
-                     * @return Skills 是否已赋值
-                     * 
-                     */
-                    bool SkillsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>无</p>
-                     * @return SoulId <p>无</p>
-                     * 
-                     */
-                    int64_t GetSoulId() const;
-
-                    /**
-                     * 设置<p>无</p>
-                     * @param _soulId <p>无</p>
-                     * 
-                     */
-                    void SetSoulId(const int64_t& _soulId);
-
-                    /**
-                     * 判断参数 SoulId 是否已赋值
-                     * @return SoulId 是否已赋值
-                     * 
-                     */
-                    bool SoulIdHasBeenSet() const;
-
-                    /**
-                     * 获取<p>无</p>
-                     * @return Description <p>无</p>
-                     * 
-                     */
-                    std::string GetDescription() const;
-
-                    /**
-                     * 设置<p>无</p>
-                     * @param _description <p>无</p>
-                     * 
-                     */
-                    void SetDescription(const std::string& _description);
-
-                    /**
-                     * 判断参数 Description 是否已赋值
-                     * @return Description 是否已赋值
-                     * 
-                     */
-                    bool DescriptionHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>智能体ID</p>
+                     * 智能体ID
                      */
                     std::string m_agentId;
                     bool m_agentIdHasBeenSet;
 
                     /**
-                     * <p>智能体版本</p>
+                     * 智能体版本
                      */
                     std::string m_agentVersion;
                     bool m_agentVersionHasBeenSet;
 
                     /**
-                     * <p>实例名</p>
+                     * 实例名
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>智能体实例的参数列表</p>
+                     * 智能体实例的参数列表
                      */
                     std::vector<Parameter> m_parameters;
                     bool m_parametersHasBeenSet;
 
                     /**
-                     * <p>资源的标签信息</p>
+                     * 资源的标签信息
                      */
                     std::vector<TagItem> m_tags;
                     bool m_tagsHasBeenSet;
-
-                    /**
-                     * <p>无</p>
-                     */
-                    std::string m_instanceType;
-                    bool m_instanceTypeHasBeenSet;
-
-                    /**
-                     * <p>无</p>
-                     */
-                    int64_t m_templateId;
-                    bool m_templateIdHasBeenSet;
-
-                    /**
-                     * <p>无</p>
-                     */
-                    std::vector<std::string> m_skills;
-                    bool m_skillsHasBeenSet;
-
-                    /**
-                     * <p>无</p>
-                     */
-                    int64_t m_soulId;
-                    bool m_soulIdHasBeenSet;
-
-                    /**
-                     * <p>无</p>
-                     */
-                    std::string m_description;
-                    bool m_descriptionHasBeenSet;
 
                 };
             }

@@ -25,8 +25,7 @@ BaseUser::BaseUser() :
     m_userNameHasBeenSet(false),
     m_displayNameHasBeenSet(false),
     m_phoneNumHasBeenSet(false),
-    m_emailHasBeenSet(false),
-    m_userTagHasBeenSet(false)
+    m_emailHasBeenSet(false)
 {
 }
 
@@ -85,16 +84,6 @@ CoreInternalOutcome BaseUser::Deserialize(const rapidjson::Value &value)
         m_emailHasBeenSet = true;
     }
 
-    if (value.HasMember("UserTag") && !value["UserTag"].IsNull())
-    {
-        if (!value["UserTag"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `BaseUser.UserTag` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_userTag = value["UserTag"].GetUint64();
-        m_userTagHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -140,14 +129,6 @@ void BaseUser::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "Email";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_email.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_userTagHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UserTag";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_userTag, allocator);
     }
 
 }
@@ -231,21 +212,5 @@ void BaseUser::SetEmail(const string& _email)
 bool BaseUser::EmailHasBeenSet() const
 {
     return m_emailHasBeenSet;
-}
-
-uint64_t BaseUser::GetUserTag() const
-{
-    return m_userTag;
-}
-
-void BaseUser::SetUserTag(const uint64_t& _userTag)
-{
-    m_userTag = _userTag;
-    m_userTagHasBeenSet = true;
-}
-
-bool BaseUser::UserTagHasBeenSet() const
-{
-    return m_userTagHasBeenSet;
 }
 

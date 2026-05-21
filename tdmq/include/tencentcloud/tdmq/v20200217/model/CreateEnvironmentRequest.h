@@ -22,7 +22,6 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tdmq/v20200217/model/RetentionPolicy.h>
-#include <tencentcloud/tdmq/v20200217/model/Tag.h>
 
 
 namespace TencentCloud
@@ -170,69 +169,6 @@ namespace TencentCloud
                      */
                     bool AutoSubscriptionCreationHasBeenSet() const;
 
-                    /**
-                     * 获取离线订阅过期自动清理时间
-                     * @return SubscriptionExpirationTime 离线订阅过期自动清理时间
-                     * 
-                     */
-                    uint64_t GetSubscriptionExpirationTime() const;
-
-                    /**
-                     * 设置离线订阅过期自动清理时间
-                     * @param _subscriptionExpirationTime 离线订阅过期自动清理时间
-                     * 
-                     */
-                    void SetSubscriptionExpirationTime(const uint64_t& _subscriptionExpirationTime);
-
-                    /**
-                     * 判断参数 SubscriptionExpirationTime 是否已赋值
-                     * @return SubscriptionExpirationTime 是否已赋值
-                     * 
-                     */
-                    bool SubscriptionExpirationTimeHasBeenSet() const;
-
-                    /**
-                     * 获取离线订阅过期自动清理时间开关
-                     * @return SubscriptionExpirationTimeEnable 离线订阅过期自动清理时间开关
-                     * 
-                     */
-                    bool GetSubscriptionExpirationTimeEnable() const;
-
-                    /**
-                     * 设置离线订阅过期自动清理时间开关
-                     * @param _subscriptionExpirationTimeEnable 离线订阅过期自动清理时间开关
-                     * 
-                     */
-                    void SetSubscriptionExpirationTimeEnable(const bool& _subscriptionExpirationTimeEnable);
-
-                    /**
-                     * 判断参数 SubscriptionExpirationTimeEnable 是否已赋值
-                     * @return SubscriptionExpirationTimeEnable 是否已赋值
-                     * 
-                     */
-                    bool SubscriptionExpirationTimeEnableHasBeenSet() const;
-
-                    /**
-                     * 获取命名空间标签
-                     * @return Tags 命名空间标签
-                     * 
-                     */
-                    std::vector<Tag> GetTags() const;
-
-                    /**
-                     * 设置命名空间标签
-                     * @param _tags 命名空间标签
-                     * 
-                     */
-                    void SetTags(const std::vector<Tag>& _tags);
-
-                    /**
-                     * 判断参数 Tags 是否已赋值
-                     * @return Tags 是否已赋值
-                     * 
-                     */
-                    bool TagsHasBeenSet() const;
-
                 private:
 
                     /**
@@ -270,24 +206,6 @@ namespace TencentCloud
                      */
                     bool m_autoSubscriptionCreation;
                     bool m_autoSubscriptionCreationHasBeenSet;
-
-                    /**
-                     * 离线订阅过期自动清理时间
-                     */
-                    uint64_t m_subscriptionExpirationTime;
-                    bool m_subscriptionExpirationTimeHasBeenSet;
-
-                    /**
-                     * 离线订阅过期自动清理时间开关
-                     */
-                    bool m_subscriptionExpirationTimeEnable;
-                    bool m_subscriptionExpirationTimeEnableHasBeenSet;
-
-                    /**
-                     * 命名空间标签
-                     */
-                    std::vector<Tag> m_tags;
-                    bool m_tagsHasBeenSet;
 
                 };
             }

@@ -24,7 +24,7 @@ Objects::Objects() :
     m_modeHasBeenSet(false),
     m_databasesHasBeenSet(false),
     m_advancedObjectsHasBeenSet(false),
-    m_databasesOpFilterHasBeenSet(false)
+    m_onlineDDLHasBeenSet(false)
 {
 }
 
@@ -76,24 +76,21 @@ CoreInternalOutcome Objects::Deserialize(const rapidjson::Value &value)
         m_advancedObjectsHasBeenSet = true;
     }
 
-    if (value.HasMember("DatabasesOpFilter") && !value["DatabasesOpFilter"].IsNull())
+    if (value.HasMember("OnlineDDL") && !value["OnlineDDL"].IsNull())
     {
-        if (!value["DatabasesOpFilter"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `Objects.DatabasesOpFilter` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["DatabasesOpFilter"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
+        if (!value["OnlineDDL"].IsObject())
         {
-            DBOpFilter item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_databasesOpFilter.push_back(item);
+            return CoreInternalOutcome(Core::Error("response `Objects.OnlineDDL` is not object type").SetRequestId(requestId));
         }
-        m_databasesOpFilterHasBeenSet = true;
+
+        CoreInternalOutcome outcome = m_onlineDDL.Deserialize(value["OnlineDDL"]);
+        if (!outcome.IsSuccess())
+        {
+            outcome.GetError().SetRequestId(requestId);
+            return outcome;
+        }
+
+        m_onlineDDLHasBeenSet = true;
     }
 
 
@@ -139,19 +136,13 @@ void Objects::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         }
     }
 
-    if (m_databasesOpFilterHasBeenSet)
+    if (m_onlineDDLHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DatabasesOpFilter";
+        string key = "OnlineDDL";
         iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_databasesOpFilter.begin(); itr != m_databasesOpFilter.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
+        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
+        m_onlineDDL.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -205,19 +196,19 @@ bool Objects::AdvancedObjectsHasBeenSet() const
     return m_advancedObjectsHasBeenSet;
 }
 
-vector<DBOpFilter> Objects::GetDatabasesOpFilter() const
+OnlineDDL Objects::GetOnlineDDL() const
 {
-    return m_databasesOpFilter;
+    return m_onlineDDL;
 }
 
-void Objects::SetDatabasesOpFilter(const vector<DBOpFilter>& _databasesOpFilter)
+void Objects::SetOnlineDDL(const OnlineDDL& _onlineDDL)
 {
-    m_databasesOpFilter = _databasesOpFilter;
-    m_databasesOpFilterHasBeenSet = true;
+    m_onlineDDL = _onlineDDL;
+    m_onlineDDLHasBeenSet = true;
 }
 
-bool Objects::DatabasesOpFilterHasBeenSet() const
+bool Objects::OnlineDDLHasBeenSet() const
 {
-    return m_databasesOpFilterHasBeenSet;
+    return m_onlineDDLHasBeenSet;
 }
 

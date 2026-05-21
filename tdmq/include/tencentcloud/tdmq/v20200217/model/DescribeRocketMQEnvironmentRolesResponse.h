@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取总数
-                     * @return TotalCount 总数
+                     * 获取记录数。
+                     * @return TotalCount 记录数。
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取角色授权列表
-                     * @return EnvironmentRoleSets 角色授权列表
+                     * 获取命名空间角色集合。
+                     * @return EnvironmentRoleSets 命名空间角色集合。
                      * 
                      */
                     std::vector<EnvironmentRole> GetEnvironmentRoleSets() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 总数
+                     * 记录数。
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * 角色授权列表
+                     * 命名空间角色集合。
                      */
                     std::vector<EnvironmentRole> m_environmentRoleSets;
                     bool m_environmentRoleSetsHasBeenSet;

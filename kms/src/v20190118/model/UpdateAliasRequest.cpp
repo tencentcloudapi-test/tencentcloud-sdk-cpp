@@ -24,8 +24,7 @@ using namespace std;
 
 UpdateAliasRequest::UpdateAliasRequest() :
     m_aliasHasBeenSet(false),
-    m_keyIdHasBeenSet(false),
-    m_memberAccountHasBeenSet(false)
+    m_keyIdHasBeenSet(false)
 {
 }
 
@@ -50,15 +49,6 @@ string UpdateAliasRequest::ToJsonString() const
         string key = "KeyId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_keyId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_memberAccountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MemberAccount";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_memberAccount.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -99,22 +89,6 @@ void UpdateAliasRequest::SetKeyId(const string& _keyId)
 bool UpdateAliasRequest::KeyIdHasBeenSet() const
 {
     return m_keyIdHasBeenSet;
-}
-
-MemberAccount UpdateAliasRequest::GetMemberAccount() const
-{
-    return m_memberAccount;
-}
-
-void UpdateAliasRequest::SetMemberAccount(const MemberAccount& _memberAccount)
-{
-    m_memberAccount = _memberAccount;
-    m_memberAccountHasBeenSet = true;
-}
-
-bool UpdateAliasRequest::MemberAccountHasBeenSet() const
-{
-    return m_memberAccountHasBeenSet;
 }
 
 

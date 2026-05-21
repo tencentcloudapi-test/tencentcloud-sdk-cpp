@@ -67,15 +67,15 @@ TaskStatus定义如下:
 
 
                     /**
-                     * 获取<p>任务ID</p>
-                     * @return TaskId <p>任务ID</p>
+                     * 获取任务ID
+                     * @return TaskId 任务ID
                      * 
                      */
                     std::string GetTaskId() const;
 
                     /**
-                     * 设置<p>任务ID</p>
-                     * @param _taskId <p>任务ID</p>
+                     * 设置任务ID
+                     * @param _taskId 任务ID
                      * 
                      */
                     void SetTaskId(const std::string& _taskId);
@@ -88,18 +88,18 @@ TaskStatus定义如下:
                     bool TaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>描述任务名称，指定后可根据名称筛选</p>
+                     * 获取描述任务名称，指定后可根据名称筛选
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskName <p>描述任务名称，指定后可根据名称筛选</p>
+                     * @return TaskName 描述任务名称，指定后可根据名称筛选
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskName() const;
 
                     /**
-                     * 设置<p>描述任务名称，指定后可根据名称筛选</p>
+                     * 设置描述任务名称，指定后可根据名称筛选
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskName <p>描述任务名称，指定后可根据名称筛选</p>
+                     * @param _taskName 描述任务名称，指定后可根据名称筛选
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -113,15 +113,15 @@ TaskStatus定义如下:
                     bool TaskNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>媒资文件ID</p>
-                     * @return MediaId <p>媒资文件ID</p>
+                     * 获取媒资文件ID
+                     * @return MediaId 媒资文件ID
                      * 
                      */
                     std::string GetMediaId() const;
 
                     /**
-                     * 设置<p>媒资文件ID</p>
-                     * @param _mediaId <p>媒资文件ID</p>
+                     * 设置媒资文件ID
+                     * @param _mediaId 媒资文件ID
                      * 
                      */
                     void SetMediaId(const std::string& _mediaId);
@@ -134,15 +134,15 @@ TaskStatus定义如下:
                     bool MediaIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务执行状态</p>
-                     * @return TaskStatus <p>任务执行状态</p>
+                     * 获取任务执行状态
+                     * @return TaskStatus 任务执行状态
                      * 
                      */
                     int64_t GetTaskStatus() const;
 
                     /**
-                     * 设置<p>任务执行状态</p>
-                     * @param _taskStatus <p>任务执行状态</p>
+                     * 设置任务执行状态
+                     * @param _taskStatus 任务执行状态
                      * 
                      */
                     void SetTaskStatus(const int64_t& _taskStatus);
@@ -155,18 +155,18 @@ TaskStatus定义如下:
                     bool TaskStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务进度，范围为[0，100]</p>
+                     * 获取任务进度，范围为[0，100]
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskProgress <p>任务进度，范围为[0，100]</p>
+                     * @return TaskProgress 任务进度，范围为[0，100]
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetTaskProgress() const;
 
                     /**
-                     * 设置<p>任务进度，范围为[0，100]</p>
+                     * 设置任务进度，范围为[0，100]
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskProgress <p>任务进度，范围为[0，100]</p>
+                     * @param _taskProgress 任务进度，范围为[0，100]
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -180,18 +180,18 @@ TaskStatus定义如下:
                     bool TaskProgressHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务执行时间</p><p>单位：秒</p>
+                     * 获取任务执行时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskTimeCost <p>任务执行时间</p><p>单位：秒</p>
+                     * @return TaskTimeCost 任务执行时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetTaskTimeCost() const;
 
                     /**
-                     * 设置<p>任务执行时间</p><p>单位：秒</p>
+                     * 设置任务执行时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskTimeCost <p>任务执行时间</p><p>单位：秒</p>
+                     * @param _taskTimeCost 任务执行时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -205,15 +205,15 @@ TaskStatus定义如下:
                     bool TaskTimeCostHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务创建时间</p>
-                     * @return TaskCreateTime <p>任务创建时间</p>
+                     * 获取任务创建时间
+                     * @return TaskCreateTime 任务创建时间
                      * 
                      */
                     std::string GetTaskCreateTime() const;
 
                     /**
-                     * 设置<p>任务创建时间</p>
-                     * @param _taskCreateTime <p>任务创建时间</p>
+                     * 设置任务创建时间
+                     * @param _taskCreateTime 任务创建时间
                      * 
                      */
                     void SetTaskCreateTime(const std::string& _taskCreateTime);
@@ -226,18 +226,18 @@ TaskStatus定义如下:
                     bool TaskCreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务开始执行时间</p>
+                     * 获取任务开始执行时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskStartTime <p>任务开始执行时间</p>
+                     * @return TaskStartTime 任务开始执行时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskStartTime() const;
 
                     /**
-                     * 设置<p>任务开始执行时间</p>
+                     * 设置任务开始执行时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskStartTime <p>任务开始执行时间</p>
+                     * @param _taskStartTime 任务开始执行时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -251,18 +251,18 @@ TaskStatus定义如下:
                     bool TaskStartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务失败原因</p>
+                     * 获取任务失败原因
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FailedReason <p>任务失败原因</p>
+                     * @return FailedReason 任务失败原因
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFailedReason() const;
 
                     /**
-                     * 设置<p>任务失败原因</p>
+                     * 设置任务失败原因
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _failedReason <p>任务失败原因</p>
+                     * @param _failedReason 任务失败原因
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -276,15 +276,15 @@ TaskStatus定义如下:
                     bool FailedReasonHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务执行时指定的先验知识</p>
-                     * @return MediaPreknownInfo <p>任务执行时指定的先验知识</p>
+                     * 获取任务执行时指定的先验知识
+                     * @return MediaPreknownInfo 任务执行时指定的先验知识
                      * 
                      */
                     MediaPreknownInfo GetMediaPreknownInfo() const;
 
                     /**
-                     * 设置<p>任务执行时指定的先验知识</p>
-                     * @param _mediaPreknownInfo <p>任务执行时指定的先验知识</p>
+                     * 设置任务执行时指定的先验知识
+                     * @param _mediaPreknownInfo 任务执行时指定的先验知识
                      * 
                      */
                     void SetMediaPreknownInfo(const MediaPreknownInfo& _mediaPreknownInfo);
@@ -297,18 +297,18 @@ TaskStatus定义如下:
                     bool MediaPreknownInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>媒资文件名称</p>
+                     * 获取媒资文件名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return MediaName <p>媒资文件名称</p>
+                     * @return MediaName 媒资文件名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetMediaName() const;
 
                     /**
-                     * 设置<p>媒资文件名称</p>
+                     * 设置媒资文件名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _mediaName <p>媒资文件名称</p>
+                     * @param _mediaName 媒资文件名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -322,18 +322,18 @@ TaskStatus定义如下:
                     bool MediaNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>媒资自定义标签</p>
+                     * 获取媒资自定义标签
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Label <p>媒资自定义标签</p>
+                     * @return Label 媒资自定义标签
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetLabel() const;
 
                     /**
-                     * 设置<p>媒资自定义标签</p>
+                     * 设置媒资自定义标签
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _label <p>媒资自定义标签</p>
+                     * @param _label 媒资自定义标签
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -347,18 +347,18 @@ TaskStatus定义如下:
                     bool LabelHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务分析完成后的后调地址</p>
+                     * 获取任务分析完成后的后调地址
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CallbackURL <p>任务分析完成后的后调地址</p>
+                     * @return CallbackURL 任务分析完成后的后调地址
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCallbackURL() const;
 
                     /**
-                     * 设置<p>任务分析完成后的后调地址</p>
+                     * 设置任务分析完成后的后调地址
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _callbackURL <p>任务分析完成后的后调地址</p>
+                     * @param _callbackURL 任务分析完成后的后调地址
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -372,18 +372,18 @@ TaskStatus定义如下:
                     bool CallbackURLHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * 获取任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AudioMetadata <p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * @return AudioMetadata 任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     AudioMetadata GetAudioMetadata() const;
 
                     /**
-                     * 设置<p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * 设置任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _audioMetadata <p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * @param _audioMetadata 任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -397,18 +397,18 @@ TaskStatus定义如下:
                     bool AudioMetadataHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * 获取任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ImageMetadata <p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * @return ImageMetadata 任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     ImageMetadata GetImageMetadata() const;
 
                     /**
-                     * 设置<p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * 设置任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _imageMetadata <p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * @param _imageMetadata 任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -422,18 +422,18 @@ TaskStatus定义如下:
                     bool ImageMetadataHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务对应的媒资文件元信息，仅在MediaType为Text时有效</p>
+                     * 获取任务对应的媒资文件元信息，仅在MediaType为Text时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TextMetadata <p>任务对应的媒资文件元信息，仅在MediaType为Text时有效</p>
+                     * @return TextMetadata 任务对应的媒资文件元信息，仅在MediaType为Text时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     TextMetadata GetTextMetadata() const;
 
                     /**
-                     * 设置<p>任务对应的媒资文件元信息，仅在MediaType为Text时有效</p>
+                     * 设置任务对应的媒资文件元信息，仅在MediaType为Text时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _textMetadata <p>任务对应的媒资文件元信息，仅在MediaType为Text时有效</p>
+                     * @param _textMetadata 任务对应的媒资文件元信息，仅在MediaType为Text时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -447,18 +447,18 @@ TaskStatus定义如下:
                     bool TextMetadataHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务对应的媒资文件元信息，仅在MediaType为Video时有效</p>
+                     * 获取任务对应的媒资文件元信息，仅在MediaType为Video时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Metadata <p>任务对应的媒资文件元信息，仅在MediaType为Video时有效</p>
+                     * @return Metadata 任务对应的媒资文件元信息，仅在MediaType为Video时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     MediaMetadata GetMetadata() const;
 
                     /**
-                     * 设置<p>任务对应的媒资文件元信息，仅在MediaType为Video时有效</p>
+                     * 设置任务对应的媒资文件元信息，仅在MediaType为Video时有效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _metadata <p>任务对应的媒资文件元信息，仅在MediaType为Video时有效</p>
+                     * @param _metadata 任务对应的媒资文件元信息，仅在MediaType为Video时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -474,114 +474,114 @@ TaskStatus定义如下:
                 private:
 
                     /**
-                     * <p>任务ID</p>
+                     * 任务ID
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;
 
                     /**
-                     * <p>描述任务名称，指定后可根据名称筛选</p>
+                     * 描述任务名称，指定后可根据名称筛选
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskName;
                     bool m_taskNameHasBeenSet;
 
                     /**
-                     * <p>媒资文件ID</p>
+                     * 媒资文件ID
                      */
                     std::string m_mediaId;
                     bool m_mediaIdHasBeenSet;
 
                     /**
-                     * <p>任务执行状态</p>
+                     * 任务执行状态
                      */
                     int64_t m_taskStatus;
                     bool m_taskStatusHasBeenSet;
 
                     /**
-                     * <p>任务进度，范围为[0，100]</p>
+                     * 任务进度，范围为[0，100]
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_taskProgress;
                     bool m_taskProgressHasBeenSet;
 
                     /**
-                     * <p>任务执行时间</p><p>单位：秒</p>
+                     * 任务执行时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_taskTimeCost;
                     bool m_taskTimeCostHasBeenSet;
 
                     /**
-                     * <p>任务创建时间</p>
+                     * 任务创建时间
                      */
                     std::string m_taskCreateTime;
                     bool m_taskCreateTimeHasBeenSet;
 
                     /**
-                     * <p>任务开始执行时间</p>
+                     * 任务开始执行时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskStartTime;
                     bool m_taskStartTimeHasBeenSet;
 
                     /**
-                     * <p>任务失败原因</p>
+                     * 任务失败原因
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_failedReason;
                     bool m_failedReasonHasBeenSet;
 
                     /**
-                     * <p>任务执行时指定的先验知识</p>
+                     * 任务执行时指定的先验知识
                      */
                     MediaPreknownInfo m_mediaPreknownInfo;
                     bool m_mediaPreknownInfoHasBeenSet;
 
                     /**
-                     * <p>媒资文件名称</p>
+                     * 媒资文件名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_mediaName;
                     bool m_mediaNameHasBeenSet;
 
                     /**
-                     * <p>媒资自定义标签</p>
+                     * 媒资自定义标签
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_label;
                     bool m_labelHasBeenSet;
 
                     /**
-                     * <p>任务分析完成后的后调地址</p>
+                     * 任务分析完成后的后调地址
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_callbackURL;
                     bool m_callbackURLHasBeenSet;
 
                     /**
-                     * <p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * 任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     AudioMetadata m_audioMetadata;
                     bool m_audioMetadataHasBeenSet;
 
                     /**
-                     * <p>任务对应的媒资文件元信息，仅在MediaType为Audio时有效</p>
+                     * 任务对应的媒资文件元信息，仅在MediaType为Audio时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ImageMetadata m_imageMetadata;
                     bool m_imageMetadataHasBeenSet;
 
                     /**
-                     * <p>任务对应的媒资文件元信息，仅在MediaType为Text时有效</p>
+                     * 任务对应的媒资文件元信息，仅在MediaType为Text时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     TextMetadata m_textMetadata;
                     bool m_textMetadataHasBeenSet;
 
                     /**
-                     * <p>任务对应的媒资文件元信息，仅在MediaType为Video时有效</p>
+                     * 任务对应的媒资文件元信息，仅在MediaType为Video时有效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     MediaMetadata m_metadata;

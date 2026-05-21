@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返回的code，0为正常，非0为错误</p>
-                     * @return ReturnCode <p>返回的code，0为正常，非0为错误</p>
+                     * 获取返回的code，0为正常，非0为错误
+                     * @return ReturnCode 返回的code，0为正常，非0为错误
                      * 
                      */
                     std::string GetReturnCode() const;
 
                     /**
-                     * 设置<p>返回的code，0为正常，非0为错误</p>
-                     * @param _returnCode <p>返回的code，0为正常，非0为错误</p>
+                     * 设置返回的code，0为正常，非0为错误
+                     * @param _returnCode 返回的code，0为正常，非0为错误
                      * 
                      */
                     void SetReturnCode(const std::string& _returnCode);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool ReturnCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>成功消息</p>
-                     * @return ReturnMessage <p>成功消息</p>
+                     * 获取成功消息
+                     * @return ReturnMessage 成功消息
                      * 
                      */
                     std::string GetReturnMessage() const;
 
                     /**
-                     * 设置<p>成功消息</p>
-                     * @param _returnMessage <p>成功消息</p>
+                     * 设置成功消息
+                     * @param _returnMessage 成功消息
                      * 
                      */
                     void SetReturnMessage(const std::string& _returnMessage);
@@ -90,18 +90,18 @@ namespace TencentCloud
                     bool ReturnMessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作型返回的Data数据,可能有flowId等</p>
+                     * 获取操作型返回的Data数据,可能有flowId等
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Data <p>操作型返回的Data数据,可能有flowId等</p>
+                     * @return Data 操作型返回的Data数据,可能有flowId等
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     OperateResponseData GetData() const;
 
                     /**
-                     * 设置<p>操作型返回的Data数据,可能有flowId等</p>
+                     * 设置操作型返回的Data数据,可能有flowId等
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _data <p>操作型返回的Data数据,可能有flowId等</p>
+                     * @param _data 操作型返回的Data数据,可能有flowId等
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -117,19 +117,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返回的code，0为正常，非0为错误</p>
+                     * 返回的code，0为正常，非0为错误
                      */
                     std::string m_returnCode;
                     bool m_returnCodeHasBeenSet;
 
                     /**
-                     * <p>成功消息</p>
+                     * 成功消息
                      */
                     std::string m_returnMessage;
                     bool m_returnMessageHasBeenSet;
 
                     /**
-                     * <p>操作型返回的Data数据,可能有flowId等</p>
+                     * 操作型返回的Data数据,可能有flowId等
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     OperateResponseData m_data;

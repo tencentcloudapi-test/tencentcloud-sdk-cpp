@@ -23,8 +23,7 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Monitor::V20180724::Model;
 using namespace std;
 
-DescribeClusterAgentCreatingProgressResponse::DescribeClusterAgentCreatingProgressResponse() :
-    m_responseHasBeenSet(false)
+DescribeClusterAgentCreatingProgressResponse::DescribeClusterAgentCreatingProgressResponse()
 {
 }
 
@@ -62,26 +61,6 @@ CoreInternalOutcome DescribeClusterAgentCreatingProgressResponse::Deserialize(co
     }
 
 
-    if (rsp.HasMember("Response") && !rsp["Response"].IsNull())
-    {
-        if (!rsp["Response"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `Response` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["Response"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            BindProgressResponse item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_response.push_back(item);
-        }
-        m_responseHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -91,21 +70,6 @@ string DescribeClusterAgentCreatingProgressResponse::ToJsonString() const
     rapidjson::Document value;
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
-
-    if (m_responseHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Response";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_response.begin(); itr != m_response.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
 
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
@@ -118,15 +82,5 @@ string DescribeClusterAgentCreatingProgressResponse::ToJsonString() const
     return buffer.GetString();
 }
 
-
-vector<BindProgressResponse> DescribeClusterAgentCreatingProgressResponse::GetResponse() const
-{
-    return m_response;
-}
-
-bool DescribeClusterAgentCreatingProgressResponse::ResponseHasBeenSet() const
-{
-    return m_responseHasBeenSet;
-}
 
 

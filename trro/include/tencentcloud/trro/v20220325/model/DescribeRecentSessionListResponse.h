@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>总个数</p>
-                     * @return Total <p>总个数</p>
+                     * 获取总个数
+                     * @return Total 总个数
                      * 
                      */
                     uint64_t GetTotal() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>会话列表</p>
-                     * @return RecentSessionList <p>会话列表</p>
+                     * 获取会话列表
+                     * @return RecentSessionList 会话列表
                      * 
                      */
                     std::vector<RecentSessionInfo> GetRecentSessionList() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool RecentSessionListHasBeenSet() const;
 
                     /**
-                     * 获取<p>本页数量</p>
-                     * @return Num <p>本页数量</p>
+                     * 获取本页数量
+                     * @return Num 本页数量
                      * 
                      */
                     uint64_t GetNum() const;
@@ -89,19 +89,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>总个数</p>
+                     * 总个数
                      */
                     uint64_t m_total;
                     bool m_totalHasBeenSet;
 
                     /**
-                     * <p>会话列表</p>
+                     * 会话列表
                      */
                     std::vector<RecentSessionInfo> m_recentSessionList;
                     bool m_recentSessionListHasBeenSet;
 
                     /**
-                     * <p>本页数量</p>
+                     * 本页数量
                      */
                     uint64_t m_num;
                     bool m_numHasBeenSet;

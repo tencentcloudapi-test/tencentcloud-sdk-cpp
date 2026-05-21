@@ -28,8 +28,7 @@ VulInfoHostInfo::VulInfoHostInfo() :
     m_isSupportAutoFixHasBeenSet(false),
     m_uuidHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
-    m_machineTypeHasBeenSet(false),
-    m_agentStatusHasBeenSet(false)
+    m_machineTypeHasBeenSet(false)
 {
 }
 
@@ -121,16 +120,6 @@ CoreInternalOutcome VulInfoHostInfo::Deserialize(const rapidjson::Value &value)
         m_machineTypeHasBeenSet = true;
     }
 
-    if (value.HasMember("AgentStatus") && !value["AgentStatus"].IsNull())
-    {
-        if (!value["AgentStatus"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `VulInfoHostInfo.AgentStatus` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_agentStatus = value["AgentStatus"].GetUint64();
-        m_agentStatusHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -205,14 +194,6 @@ void VulInfoHostInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "MachineType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_machineType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_agentStatusHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AgentStatus";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_agentStatus, allocator);
     }
 
 }
@@ -344,21 +325,5 @@ void VulInfoHostInfo::SetMachineType(const string& _machineType)
 bool VulInfoHostInfo::MachineTypeHasBeenSet() const
 {
     return m_machineTypeHasBeenSet;
-}
-
-uint64_t VulInfoHostInfo::GetAgentStatus() const
-{
-    return m_agentStatus;
-}
-
-void VulInfoHostInfo::SetAgentStatus(const uint64_t& _agentStatus)
-{
-    m_agentStatus = _agentStatus;
-    m_agentStatusHasBeenSet = true;
-}
-
-bool VulInfoHostInfo::AgentStatusHasBeenSet() const
-{
-    return m_agentStatusHasBeenSet;
 }
 

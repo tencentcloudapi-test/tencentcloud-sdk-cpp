@@ -85,67 +85,25 @@ namespace TencentCloud
                     bool ChatIdHasBeenSet() const;
 
                     /**
-                     * 获取流ID
-                     * @return StreamingId 流ID
+                     * 获取最后一条流式TokenID
+                     * @return LastStreamingTokenId 最后一条流式TokenID
                      * 
                      */
-                    std::string GetStreamingId() const;
+                    int64_t GetLastStreamingTokenId() const;
 
                     /**
-                     * 设置流ID
-                     * @param _streamingId 流ID
+                     * 设置最后一条流式TokenID
+                     * @param _lastStreamingTokenId 最后一条流式TokenID
                      * 
                      */
-                    void SetStreamingId(const std::string& _streamingId);
+                    void SetLastStreamingTokenId(const int64_t& _lastStreamingTokenId);
 
                     /**
-                     * 判断参数 StreamingId 是否已赋值
-                     * @return StreamingId 是否已赋值
+                     * 判断参数 LastStreamingTokenId 是否已赋值
+                     * @return LastStreamingTokenId 是否已赋值
                      * 
                      */
-                    bool StreamingIdHasBeenSet() const;
-
-                    /**
-                     * 获取开始拉取的流式TokenID。0表示从该流最早的TokenID开始获取
-                     * @return BeginStreamingTokenId 开始拉取的流式TokenID。0表示从该流最早的TokenID开始获取
-                     * 
-                     */
-                    int64_t GetBeginStreamingTokenId() const;
-
-                    /**
-                     * 设置开始拉取的流式TokenID。0表示从该流最早的TokenID开始获取
-                     * @param _beginStreamingTokenId 开始拉取的流式TokenID。0表示从该流最早的TokenID开始获取
-                     * 
-                     */
-                    void SetBeginStreamingTokenId(const int64_t& _beginStreamingTokenId);
-
-                    /**
-                     * 判断参数 BeginStreamingTokenId 是否已赋值
-                     * @return BeginStreamingTokenId 是否已赋值
-                     * 
-                     */
-                    bool BeginStreamingTokenIdHasBeenSet() const;
-
-                    /**
-                     * 获取单次获取的token数量，默认2000
-                     * @return TokenLimit 单次获取的token数量，默认2000
-                     * 
-                     */
-                    int64_t GetTokenLimit() const;
-
-                    /**
-                     * 设置单次获取的token数量，默认2000
-                     * @param _tokenLimit 单次获取的token数量，默认2000
-                     * 
-                     */
-                    void SetTokenLimit(const int64_t& _tokenLimit);
-
-                    /**
-                     * 判断参数 TokenLimit 是否已赋值
-                     * @return TokenLimit 是否已赋值
-                     * 
-                     */
-                    bool TokenLimitHasBeenSet() const;
+                    bool LastStreamingTokenIdHasBeenSet() const;
 
                 private:
 
@@ -162,22 +120,10 @@ namespace TencentCloud
                     bool m_chatIdHasBeenSet;
 
                     /**
-                     * 流ID
+                     * 最后一条流式TokenID
                      */
-                    std::string m_streamingId;
-                    bool m_streamingIdHasBeenSet;
-
-                    /**
-                     * 开始拉取的流式TokenID。0表示从该流最早的TokenID开始获取
-                     */
-                    int64_t m_beginStreamingTokenId;
-                    bool m_beginStreamingTokenIdHasBeenSet;
-
-                    /**
-                     * 单次获取的token数量，默认2000
-                     */
-                    int64_t m_tokenLimit;
-                    bool m_tokenLimitHasBeenSet;
+                    int64_t m_lastStreamingTokenId;
+                    bool m_lastStreamingTokenIdHasBeenSet;
 
                 };
             }

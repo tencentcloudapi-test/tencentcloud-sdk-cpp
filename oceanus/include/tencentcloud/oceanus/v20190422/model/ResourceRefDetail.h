@@ -172,27 +172,6 @@ namespace TencentCloud
                      */
                     bool ConnectorHasBeenSet() const;
 
-                    /**
-                     * 获取Connector版本
-                     * @return ConnectorVersion Connector版本
-                     * 
-                     */
-                    std::string GetConnectorVersion() const;
-
-                    /**
-                     * 设置Connector版本
-                     * @param _connectorVersion Connector版本
-                     * 
-                     */
-                    void SetConnectorVersion(const std::string& _connectorVersion);
-
-                    /**
-                     * 判断参数 ConnectorVersion 是否已赋值
-                     * @return ConnectorVersion 是否已赋值
-                     * 
-                     */
-                    bool ConnectorVersionHasBeenSet() const;
-
                 private:
 
                     /**
@@ -230,12 +209,6 @@ namespace TencentCloud
                      */
                     std::string m_connector;
                     bool m_connectorHasBeenSet;
-
-                    /**
-                     * Connector版本
-                     */
-                    std::string m_connectorVersion;
-                    bool m_connectorVersionHasBeenSet;
 
                 };
             }

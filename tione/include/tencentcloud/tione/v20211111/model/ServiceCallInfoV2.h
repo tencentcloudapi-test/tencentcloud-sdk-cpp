@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tione/v20211111/model/AuthToken.h>
-#include <tencentcloud/tione/v20211111/model/GatewayConfig.h>
 
 
 namespace TencentCloud
@@ -211,27 +210,6 @@ namespace TencentCloud
                      */
                     bool GrpcHostHasBeenSet() const;
 
-                    /**
-                     * 获取网关相关配置
-                     * @return GatewayConfig 网关相关配置
-                     * 
-                     */
-                    GatewayConfig GetGatewayConfig() const;
-
-                    /**
-                     * 设置网关相关配置
-                     * @param _gatewayConfig 网关相关配置
-                     * 
-                     */
-                    void SetGatewayConfig(const GatewayConfig& _gatewayConfig);
-
-                    /**
-                     * 判断参数 GatewayConfig 是否已赋值
-                     * @return GatewayConfig 是否已赋值
-                     * 
-                     */
-                    bool GatewayConfigHasBeenSet() const;
-
                 private:
 
                     /**
@@ -279,12 +257,6 @@ namespace TencentCloud
                      */
                     std::string m_grpcHost;
                     bool m_grpcHostHasBeenSet;
-
-                    /**
-                     * 网关相关配置
-                     */
-                    GatewayConfig m_gatewayConfig;
-                    bool m_gatewayConfigHasBeenSet;
 
                 };
             }

@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>支持的可用区列表</p>
-                     * @return ZoneSet <p>支持的可用区列表</p>
+                     * 获取支持的可用区列表
+                     * @return ZoneSet 支持的可用区列表
                      * 
                      */
                     std::vector<RegionZoneInfo> GetZoneSet() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>支持的可用区列表</p>
+                     * 支持的可用区列表
                      */
                     std::vector<RegionZoneInfo> m_zoneSet;
                     bool m_zoneSetHasBeenSet;

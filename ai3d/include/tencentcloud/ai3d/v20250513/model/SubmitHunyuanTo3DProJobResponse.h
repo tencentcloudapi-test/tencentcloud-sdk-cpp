@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务ID（有效期24小时）</p>
-                     * @return JobId <p>任务ID（有效期24小时）</p>
+                     * 获取任务ID（有效期24小时）
+                     * @return JobId 任务ID（有效期24小时）
                      * 
                      */
                     std::string GetJobId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务ID（有效期24小时）</p>
+                     * 任务ID（有效期24小时）
                      */
                     std::string m_jobId;
                     bool m_jobIdHasBeenSet;

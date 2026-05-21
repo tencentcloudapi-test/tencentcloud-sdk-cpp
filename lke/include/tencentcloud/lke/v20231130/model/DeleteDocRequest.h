@@ -64,19 +64,15 @@ namespace TencentCloud
                     bool DocBizIdsHasBeenSet() const;
 
                     /**
-                     * 获取应用ID。
-删除知识库文档时，该参数填入知识库ID。
-                     * @return BotBizId 应用ID。
-删除知识库文档时，该参数填入知识库ID。
+                     * 获取应用ID
+                     * @return BotBizId 应用ID
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置应用ID。
-删除知识库文档时，该参数填入知识库ID。
-                     * @param _botBizId 应用ID。
-删除知识库文档时，该参数填入知识库ID。
+                     * 设置应用ID
+                     * @param _botBizId 应用ID
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -97,8 +93,7 @@ namespace TencentCloud
                     bool m_docBizIdsHasBeenSet;
 
                     /**
-                     * 应用ID。
-删除知识库文档时，该参数填入知识库ID。
+                     * 应用ID
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;

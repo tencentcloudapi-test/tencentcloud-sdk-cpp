@@ -67,9 +67,7 @@ CreateClustersRequest::CreateClustersRequest() :
     m_gdnIdHasBeenSet(false),
     m_proxyConfigHasBeenSet(false),
     m_autoArchiveHasBeenSet(false),
-    m_autoArchiveDelayHoursHasBeenSet(false),
-    m_clusterLevelHasBeenSet(false),
-    m_cynosVersionHasBeenSet(false)
+    m_autoArchiveDelayHoursHasBeenSet(false)
 {
 }
 
@@ -470,22 +468,6 @@ string CreateClustersRequest::ToJsonString() const
         string key = "AutoArchiveDelayHours";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_autoArchiveDelayHours, allocator);
-    }
-
-    if (m_clusterLevelHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterLevel";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_clusterLevel.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_cynosVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CynosVersion";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_cynosVersion.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -1214,38 +1196,6 @@ void CreateClustersRequest::SetAutoArchiveDelayHours(const int64_t& _autoArchive
 bool CreateClustersRequest::AutoArchiveDelayHoursHasBeenSet() const
 {
     return m_autoArchiveDelayHoursHasBeenSet;
-}
-
-string CreateClustersRequest::GetClusterLevel() const
-{
-    return m_clusterLevel;
-}
-
-void CreateClustersRequest::SetClusterLevel(const string& _clusterLevel)
-{
-    m_clusterLevel = _clusterLevel;
-    m_clusterLevelHasBeenSet = true;
-}
-
-bool CreateClustersRequest::ClusterLevelHasBeenSet() const
-{
-    return m_clusterLevelHasBeenSet;
-}
-
-string CreateClustersRequest::GetCynosVersion() const
-{
-    return m_cynosVersion;
-}
-
-void CreateClustersRequest::SetCynosVersion(const string& _cynosVersion)
-{
-    m_cynosVersion = _cynosVersion;
-    m_cynosVersionHasBeenSet = true;
-}
-
-bool CreateClustersRequest::CynosVersionHasBeenSet() const
-{
-    return m_cynosVersionHasBeenSet;
 }
 
 

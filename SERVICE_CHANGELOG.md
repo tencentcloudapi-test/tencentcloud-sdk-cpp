@@ -1,10 +1,29 @@
-# Release 3.3.101
+# Release 3.0.1219
 
-## TDSQL-C MySQL 版(cynosdb) 版本：2019-01-07
+## 弹性伸缩(as) 版本：2018-04-19
 
-### 第 167 次发布
+### 第 89 次发布
 
-发布时间：2026-05-21 01:22:38
+发布时间：2025-11-26 01:10:16
+
+本次发布包含了以下内容：
+
+改善已有的文档。
+
+修改数据结构：
+
+* [ServiceSettings](https://cloud.tencent.com/document/api/377/20453#ServiceSettings)
+
+	* 新增成员：PriorityScaleInUnhealthy
+
+
+
+
+## 消息队列 CKafka 版(ckafka) 版本：2019-08-19
+
+### 第 138 次发布
+
+发布时间：2025-11-26 01:23:11
 
 本次发布包含了以下内容：
 
@@ -12,42 +31,19 @@
 
 新增接口：
 
-* [AddLibraDBInstances](https://cloud.tencent.com/document/api/1003/131941)
-
-修改接口：
-
-* [CreateClusters](https://cloud.tencent.com/document/api/1003/48087)
-
-	* 新增入参：ClusterLevel
-
+* [DescribeModifyType](https://cloud.tencent.com/document/api/597/125916)
 
 新增数据结构：
 
-* [Objects](https://cloud.tencent.com/document/api/1003/48097#Objects)
+* [DescModifyType](https://cloud.tencent.com/document/api/597/40861#DescModifyType)
 
 
 
-## 全球加速(ga2) 版本：2025-01-15
+## 日志服务(cls) 版本：2020-10-16
 
-### 第 4 次发布
+### 第 142 次发布
 
-发布时间：2026-05-21 01:31:05
-
-本次发布包含了以下内容：
-
-改善已有的文档。
-
-新增接口：
-
-* [DescribeTaskResult](https://cloud.tencent.com/document/api/1817/131942)
-
-
-
-## 腾讯云智能体开发平台(lke) 版本：2023-11-30
-
-### 第 90 次发布
-
-发布时间：2026-05-21 01:38:56
+发布时间：2025-11-26 01:25:34
 
 本次发布包含了以下内容：
 
@@ -55,104 +51,120 @@
 
 修改接口：
 
-* [SaveDoc](https://cloud.tencent.com/document/api/1759/105054)
+* [CreateTopic](https://cloud.tencent.com/document/api/614/56456)
 
-	* 新增入参：FileUrl
+	* 新增入参：Encryption
 
+
+
+
+## TDSQL-C MySQL 版(cynosdb) 版本：2019-01-07
+
+### 第 144 次发布
+
+发布时间：2025-11-26 01:30:03
+
+本次发布包含了以下内容：
+
+改善已有的文档。
+
+修改接口：
+
+* [UpgradeProxy](https://cloud.tencent.com/document/api/1003/94127)
+
+	* 新增入参：IsRollUpgrade, RollUpgradeWaitingTime
+
+
+
+
+## 数据湖计算 DLC(dlc) 版本：2021-01-25
+
+### 第 142 次发布
+
+发布时间：2025-11-26 01:33:59
+
+本次发布包含了以下内容：
+
+改善已有的文档。
+
+新增接口：
+
+* [DescribeTaskList](https://cloud.tencent.com/document/api/1342/125917)
+
+新增数据结构：
+
+* [TaskFullRespInfo](https://cloud.tencent.com/document/api/1342/53778#TaskFullRespInfo)
+
+
+
+## 腾讯电子签企业版(ess) 版本：2020-11-11
+
+### 第 264 次发布
+
+发布时间：2025-11-26 01:42:14
+
+本次发布包含了以下内容：
+
+改善已有的文档。
+
+修改数据结构：
+
+* [ComparisonDetail](https://cloud.tencent.com/document/api/1323/70369#ComparisonDetail)
+
+	* 新增成员：ComparisonPointId
+
+
+
+
+## 物联网开发平台(iotexplorer) 版本：2019-04-23
+
+### 第 127 次发布
+
+发布时间：2025-11-26 01:49:52
+
+本次发布包含了以下内容：
+
+改善已有的文档。
+
+修改接口：
+
+* [BatchUpdateFirmware](https://cloud.tencent.com/document/api/1081/123152)
+
+	* 新增入参：RateLimit
+
+
+
+
+## 云数据库 MongoDB(mongodb) 版本：2019-07-25
+
+### 第 62 次发布
+
+发布时间：2025-11-26 02:05:48
+
+本次发布包含了以下内容：
+
+改善已有的文档。
+
+修改接口：
+
+* [SetBackupRules](https://cloud.tencent.com/document/api/240/107166)
+
+	* 新增入参：BackupFrequency, ActiveWeekdays, LongTermUnit, LongTermActiveDays, LongTermExpiredDays, OplogExpiredDays, BackupVersion, AlarmWaterLevel
+
+	* <font color="#dd0000">**修改入参**：</font>BackupMethod, BackupTime
+
+
+
+
+## 云数据库 MongoDB(mongodb) 版本：2018-04-08
 
 
 
 ## 媒体处理(mps) 版本：2019-06-12
 
-### 第 205 次发布
+### 第 161 次发布
 
-发布时间：2026-05-20 20:58:20
-
-本次发布包含了以下内容：
-
-改善已有的文档。
-
-新增接口：
-
-* [DeleteVoice](https://cloud.tencent.com/document/api/862/131940)
-
-
-
-## 腾讯云数据库 AI 服务(tdai) 版本：2025-07-17
-
-### 第 13 次发布
-
-发布时间：2026-05-21 01:52:27
-
-本次发布包含了以下内容：
-
-改善已有的文档。
-
-修改接口：
-
-* [CreateChatCompletion](https://cloud.tencent.com/document/api/1813/123254)
-
-	* 新增入参：InputContent, InstanceId, ChatId
-
-
-
-
-## 消息队列 TDMQ(tdmq) 版本：2020-02-17
-
-### 第 175 次发布
-
-发布时间：2026-05-21 01:52:47
-
-本次发布包含了以下内容：
-
-改善已有的文档。
-
-修改接口：
-
-* [CreateRabbitMQUser](https://cloud.tencent.com/document/api/1179/90855)
-
-	* 新增入参：EnableCamAuth
-
-* [ModifyRabbitMQUser](https://cloud.tencent.com/document/api/1179/93454)
-
-	* 新增入参：EnableCamAuth
-
-
-
-
-## 边缘安全加速平台(teo) 版本：2022-09-01
-
-### 第 145 次发布
-
-发布时间：2026-05-21 01:54:02
-
-本次发布包含了以下内容：
-
-改善已有的文档。
-
-新增数据结构：
-
-* [SiteFailover](https://cloud.tencent.com/document/api/1552/80721#SiteFailover)
-* [SiteFailoverParameters](https://cloud.tencent.com/document/api/1552/80721#SiteFailoverParameters)
-
-修改数据结构：
-
-* [RuleEngineAction](https://cloud.tencent.com/document/api/1552/80721#RuleEngineAction)
-
-	* 新增成员：SiteFailoverParameters
-
-
-
-
-## 边缘安全加速平台(teo) 版本：2022-01-06
-
-
-
-## TSF-Polaris&ZK&网关(tse) 版本：2020-12-07
-
-### 第 108 次发布
-
-发布时间：2026-05-21 01:59:16
+发布时间：2025-11-26 02:10:03
 
 本次发布包含了以下内容：
 
@@ -160,82 +172,33 @@
 
 新增接口：
 
-* [AddCloudNativeAPIGatewayConsumerGroupAuth](https://cloud.tencent.com/document/api/1364/131972)
-* [AddCloudNativeAPIGatewayConsumerInGroup](https://cloud.tencent.com/document/api/1364/131971)
-* [CreateCloudNativeAPIGatewayConsumer](https://cloud.tencent.com/document/api/1364/131970)
-* [CreateCloudNativeAPIGatewayConsumerGroup](https://cloud.tencent.com/document/api/1364/131969)
-* [CreateCloudNativeAPIGatewayLLMModelAPI](https://cloud.tencent.com/document/api/1364/131968)
-* [CreateCloudNativeAPIGatewayLLMModelService](https://cloud.tencent.com/document/api/1364/131967)
-* [CreateCloudNativeAPIGatewaySecretKey](https://cloud.tencent.com/document/api/1364/131966)
-* [DeleteCloudNativeAPIGatewayConsumer](https://cloud.tencent.com/document/api/1364/131965)
-* [DeleteCloudNativeAPIGatewayConsumerGroup](https://cloud.tencent.com/document/api/1364/131964)
-* [DeleteCloudNativeAPIGatewayLLMModelAPI](https://cloud.tencent.com/document/api/1364/131963)
-* [DeleteCloudNativeAPIGatewayLLMModelService](https://cloud.tencent.com/document/api/1364/131962)
-* [DeleteCloudNativeAPIGatewaySecretKey](https://cloud.tencent.com/document/api/1364/131961)
-* [DescribeCloudNativeAPIGatewayConsumer](https://cloud.tencent.com/document/api/1364/131960)
-* [DescribeCloudNativeAPIGatewayConsumerGroup](https://cloud.tencent.com/document/api/1364/131959)
-* [DescribeCloudNativeAPIGatewayConsumerGroupList](https://cloud.tencent.com/document/api/1364/131958)
-* [DescribeCloudNativeAPIGatewayConsumerList](https://cloud.tencent.com/document/api/1364/131957)
-* [DescribeCloudNativeAPIGatewayLLMModelAPI](https://cloud.tencent.com/document/api/1364/131956)
-* [DescribeCloudNativeAPIGatewayLLMModelAPIs](https://cloud.tencent.com/document/api/1364/131955)
-* [DescribeCloudNativeAPIGatewayLLMModelService](https://cloud.tencent.com/document/api/1364/131954)
-* [DescribeCloudNativeAPIGatewayLLMModelServices](https://cloud.tencent.com/document/api/1364/131953)
-* [DescribeCloudNativeAPIGatewaySecretKey](https://cloud.tencent.com/document/api/1364/131952)
-* [DescribeCloudNativeAPIGatewaySecretKeyList](https://cloud.tencent.com/document/api/1364/131951)
-* [DescribeCloudNativeAPIGatewaySecretKeyValue](https://cloud.tencent.com/document/api/1364/131950)
-* [ModifyCloudNativeAPIGatewayConsumer](https://cloud.tencent.com/document/api/1364/131949)
-* [ModifyCloudNativeAPIGatewayConsumerGroup](https://cloud.tencent.com/document/api/1364/131948)
-* [ModifyCloudNativeAPIGatewayLLMModelAPI](https://cloud.tencent.com/document/api/1364/131947)
-* [ModifyCloudNativeAPIGatewayLLMModelService](https://cloud.tencent.com/document/api/1364/131946)
-* [ModifyCloudNativeAPIGatewaySecretKeyStatus](https://cloud.tencent.com/document/api/1364/131945)
-* [RemoveCloudNativeAPIGatewayConsumerGroupAuth](https://cloud.tencent.com/document/api/1364/131944)
-* [RemoveCloudNativeAPIGatewayConsumerInGroup](https://cloud.tencent.com/document/api/1364/131943)
+* [DescribeUsageData](https://cloud.tencent.com/document/api/862/125919)
 
 新增数据结构：
 
-* [AIGWCrossServiceFallbackConfig](https://cloud.tencent.com/document/api/1364/54942#AIGWCrossServiceFallbackConfig)
-* [AIGWFallbackServiceItem](https://cloud.tencent.com/document/api/1364/54942#AIGWFallbackServiceItem)
-* [AIGWKVMatch](https://cloud.tencent.com/document/api/1364/54942#AIGWKVMatch)
-* [CNAPIGwConsumer](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwConsumer)
-* [CNAPIGwConsumerGroup](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwConsumerGroup)
-* [CNAPIGwConsumerGroupList](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwConsumerGroupList)
-* [CNAPIGwConsumerList](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwConsumerList)
-* [CNAPIGwCreateCommonResult](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwCreateCommonResult)
-* [CNAPIGwSecretKey](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwSecretKey)
-* [CNAPIGwSecretKeyList](https://cloud.tencent.com/document/api/1364/54942#CNAPIGwSecretKeyList)
-* [CloudNativeAPIGatewayLLMModelAPI](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelAPI)
-* [CloudNativeAPIGatewayLLMModelFallbackRule](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelFallbackRule)
-* [CloudNativeAPIGatewayLLMModelParamCheckInfo](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelParamCheckInfo)
-* [CloudNativeAPIGatewayLLMModelService](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelService)
-* [CloudNativeAPIGatewayLLMModelServiceRoute](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelServiceRoute)
-* [CloudNativeAPIGatewayLLMModelServiceRouteModelNameStrategy](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelServiceRouteModelNameStrategy)
-* [CloudNativeAPIGatewayLLMModelServiceRouteWeightedStrategy](https://cloud.tencent.com/document/api/1364/54942#CloudNativeAPIGatewayLLMModelServiceRouteWeightedStrategy)
-* [DefaultKongRoute](https://cloud.tencent.com/document/api/1364/54942#DefaultKongRoute)
-* [ListCloudNativeAPIGatewayLLMModelAPI](https://cloud.tencent.com/document/api/1364/54942#ListCloudNativeAPIGatewayLLMModelAPI)
-* [ListCloudNativeAPIGatewayLLMModelService](https://cloud.tencent.com/document/api/1364/54942#ListCloudNativeAPIGatewayLLMModelService)
+* [SpecificationDataItem](https://cloud.tencent.com/document/api/862/37615#SpecificationDataItem)
+* [TaskStatData](https://cloud.tencent.com/document/api/862/37615#TaskStatData)
+* [TaskStatDataItem](https://cloud.tencent.com/document/api/862/37615#TaskStatDataItem)
 
 
 
-## 数据开发治理平台 WeData(wedata) 版本：2025-08-06
+## 容器服务(tke) 版本：2022-05-01
 
 
 
-## 数据开发治理平台 WeData(wedata) 版本：2021-08-20
+## 容器服务(tke) 版本：2018-05-25
 
-### 第 194 次发布
+### 第 209 次发布
 
-发布时间：2026-05-21 02:06:20
+发布时间：2025-11-26 02:58:02
 
 本次发布包含了以下内容：
 
 改善已有的文档。
 
-修改数据结构：
+新增接口：
 
-* [DataSourceInfoPage](https://cloud.tencent.com/document/api/1267/76336#DataSourceInfoPage)
-
-	* 新增成员：SnapshotId
-
+* [SwitchClusterEndpoint](https://cloud.tencent.com/document/api/457/125920)
 
 
 

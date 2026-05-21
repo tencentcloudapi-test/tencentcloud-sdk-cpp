@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>存储类型</p>
-                     * @return Type <p>存储类型</p>
+                     * 获取存储类型
+                     * @return Type 存储类型
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>存储类型</p>
-                     * @param _type <p>存储类型</p>
+                     * 设置存储类型
+                     * @param _type 存储类型
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>对象存储桶名称</p>
-                     * @return BucketName <p>对象存储桶名称</p>
+                     * 获取对象存储桶名称
+                     * @return BucketName 对象存储桶名称
                      * 
                      */
                     std::string GetBucketName() const;
 
                     /**
-                     * 设置<p>对象存储桶名称</p>
-                     * @param _bucketName <p>对象存储桶名称</p>
+                     * 设置对象存储桶名称
+                     * @param _bucketName 对象存储桶名称
                      * 
                      */
                     void SetBucketName(const std::string& _bucketName);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool BucketNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储连接地址</p>
-                     * @return Endpoint <p>存储连接地址</p>
+                     * 获取存储连接地址
+                     * @return Endpoint 存储连接地址
                      * 
                      */
                     std::string GetEndpoint() const;
 
                     /**
-                     * 设置<p>存储连接地址</p>
-                     * @param _endpoint <p>存储连接地址</p>
+                     * 设置存储连接地址
+                     * @param _endpoint 存储连接地址
                      * 
                      */
                     void SetEndpoint(const std::string& _endpoint);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool EndpointHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储连接用户密码</p>
-                     * @return KeyID <p>存储连接用户密码</p>
+                     * 获取存储连接用户密码
+                     * @return KeyID 存储连接用户密码
                      * 
                      */
                     std::string GetKeyID() const;
 
                     /**
-                     * 设置<p>存储连接用户密码</p>
-                     * @param _keyID <p>存储连接用户密码</p>
+                     * 设置存储连接用户密码
+                     * @param _keyID 存储连接用户密码
                      * 
                      */
                     void SetKeyID(const std::string& _keyID);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool KeyIDHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储挂载目的目录</p>
-                     * @return DstPath <p>存储挂载目的目录</p>
+                     * 获取存储挂载目的目录
+                     * @return DstPath 存储挂载目的目录
                      * 
                      */
                     std::string GetDstPath() const;
 
                     /**
-                     * 设置<p>存储挂载目的目录</p>
-                     * @param _dstPath <p>存储挂载目的目录</p>
+                     * 设置存储挂载目的目录
+                     * @param _dstPath 存储挂载目的目录
                      * 
                      */
                     void SetDstPath(const std::string& _dstPath);
@@ -152,15 +152,15 @@ namespace TencentCloud
                     bool DstPathHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储挂载源目录</p>
-                     * @return SrcPath <p>存储挂载源目录</p>
+                     * 获取存储挂载源目录
+                     * @return SrcPath 存储挂载源目录
                      * 
                      */
                     std::string GetSrcPath() const;
 
                     /**
-                     * 设置<p>存储挂载源目录</p>
-                     * @param _srcPath <p>存储挂载源目录</p>
+                     * 设置存储挂载源目录
+                     * @param _srcPath 存储挂载源目录
                      * 
                      */
                     void SetSrcPath(const std::string& _srcPath);
@@ -172,124 +172,43 @@ namespace TencentCloud
                      */
                     bool SrcPathHasBeenSet() const;
 
-                    /**
-                     * 获取<p>cfs 实例ip</p>
-                     * @return MountIP <p>cfs 实例ip</p>
-                     * 
-                     */
-                    std::string GetMountIP() const;
-
-                    /**
-                     * 设置<p>cfs 实例ip</p>
-                     * @param _mountIP <p>cfs 实例ip</p>
-                     * 
-                     */
-                    void SetMountIP(const std::string& _mountIP);
-
-                    /**
-                     * 判断参数 MountIP 是否已赋值
-                     * @return MountIP 是否已赋值
-                     * 
-                     */
-                    bool MountIPHasBeenSet() const;
-
-                    /**
-                     * 获取<p>默认读写</p>
-                     * @return ReadOnly <p>默认读写</p>
-                     * 
-                     */
-                    bool GetReadOnly() const;
-
-                    /**
-                     * 设置<p>默认读写</p>
-                     * @param _readOnly <p>默认读写</p>
-                     * 
-                     */
-                    void SetReadOnly(const bool& _readOnly);
-
-                    /**
-                     * 判断参数 ReadOnly 是否已赋值
-                     * @return ReadOnly 是否已赋值
-                     * 
-                     */
-                    bool ReadOnlyHasBeenSet() const;
-
-                    /**
-                     * 获取<p>CFS 实例 ID</p>
-                     * @return InstanceId <p>CFS 实例 ID</p>
-                     * 
-                     */
-                    std::string GetInstanceId() const;
-
-                    /**
-                     * 设置<p>CFS 实例 ID</p>
-                     * @param _instanceId <p>CFS 实例 ID</p>
-                     * 
-                     */
-                    void SetInstanceId(const std::string& _instanceId);
-
-                    /**
-                     * 判断参数 InstanceId 是否已赋值
-                     * @return InstanceId 是否已赋值
-                     * 
-                     */
-                    bool InstanceIdHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>存储类型</p>
+                     * 存储类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>对象存储桶名称</p>
+                     * 对象存储桶名称
                      */
                     std::string m_bucketName;
                     bool m_bucketNameHasBeenSet;
 
                     /**
-                     * <p>存储连接地址</p>
+                     * 存储连接地址
                      */
                     std::string m_endpoint;
                     bool m_endpointHasBeenSet;
 
                     /**
-                     * <p>存储连接用户密码</p>
+                     * 存储连接用户密码
                      */
                     std::string m_keyID;
                     bool m_keyIDHasBeenSet;
 
                     /**
-                     * <p>存储挂载目的目录</p>
+                     * 存储挂载目的目录
                      */
                     std::string m_dstPath;
                     bool m_dstPathHasBeenSet;
 
                     /**
-                     * <p>存储挂载源目录</p>
+                     * 存储挂载源目录
                      */
                     std::string m_srcPath;
                     bool m_srcPathHasBeenSet;
-
-                    /**
-                     * <p>cfs 实例ip</p>
-                     */
-                    std::string m_mountIP;
-                    bool m_mountIPHasBeenSet;
-
-                    /**
-                     * <p>默认读写</p>
-                     */
-                    bool m_readOnly;
-                    bool m_readOnlyHasBeenSet;
-
-                    /**
-                     * <p>CFS 实例 ID</p>
-                     */
-                    std::string m_instanceId;
-                    bool m_instanceIdHasBeenSet;
 
                 };
             }

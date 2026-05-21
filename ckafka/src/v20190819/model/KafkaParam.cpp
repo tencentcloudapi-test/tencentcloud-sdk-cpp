@@ -41,8 +41,7 @@ KafkaParam::KafkaParam() :
     m_keepPartitionHasBeenSet(false),
     m_topicRegularExpressionHasBeenSet(false),
     m_prefixHasBeenSet(false),
-    m_separatorHasBeenSet(false),
-    m_topicListHasBeenSet(false)
+    m_separatorHasBeenSet(false)
 {
 }
 
@@ -271,19 +270,6 @@ CoreInternalOutcome KafkaParam::Deserialize(const rapidjson::Value &value)
         m_separatorHasBeenSet = true;
     }
 
-    if (value.HasMember("TopicList") && !value["TopicList"].IsNull())
-    {
-        if (!value["TopicList"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `KafkaParam.TopicList` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["TopicList"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_topicList.push_back((*itr).GetString());
-        }
-        m_topicListHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -464,19 +450,6 @@ void KafkaParam::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "Separator";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_separator.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_topicListHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TopicList";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_topicList.begin(); itr != m_topicList.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
     }
 
 }
@@ -816,21 +789,5 @@ void KafkaParam::SetSeparator(const string& _separator)
 bool KafkaParam::SeparatorHasBeenSet() const
 {
     return m_separatorHasBeenSet;
-}
-
-vector<string> KafkaParam::GetTopicList() const
-{
-    return m_topicList;
-}
-
-void KafkaParam::SetTopicList(const vector<string>& _topicList)
-{
-    m_topicList = _topicList;
-    m_topicListHasBeenSet = true;
-}
-
-bool KafkaParam::TopicListHasBeenSet() const
-{
-    return m_topicListHasBeenSet;
 }
 

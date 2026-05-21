@@ -23,9 +23,7 @@ using namespace TencentCloud::Tione::V20211111::Model;
 using namespace std;
 
 DescribeTrainingTaskRequest::DescribeTrainingTaskRequest() :
-    m_idHasBeenSet(false),
-    m_tiProjectIdHasBeenSet(false),
-    m_instanceIdHasBeenSet(false)
+    m_idHasBeenSet(false)
 {
 }
 
@@ -42,22 +40,6 @@ string DescribeTrainingTaskRequest::ToJsonString() const
         string key = "Id";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_id.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_tiProjectIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TiProjectId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_tiProjectId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_instanceIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "InstanceId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -82,38 +64,6 @@ void DescribeTrainingTaskRequest::SetId(const string& _id)
 bool DescribeTrainingTaskRequest::IdHasBeenSet() const
 {
     return m_idHasBeenSet;
-}
-
-string DescribeTrainingTaskRequest::GetTiProjectId() const
-{
-    return m_tiProjectId;
-}
-
-void DescribeTrainingTaskRequest::SetTiProjectId(const string& _tiProjectId)
-{
-    m_tiProjectId = _tiProjectId;
-    m_tiProjectIdHasBeenSet = true;
-}
-
-bool DescribeTrainingTaskRequest::TiProjectIdHasBeenSet() const
-{
-    return m_tiProjectIdHasBeenSet;
-}
-
-string DescribeTrainingTaskRequest::GetInstanceId() const
-{
-    return m_instanceId;
-}
-
-void DescribeTrainingTaskRequest::SetInstanceId(const string& _instanceId)
-{
-    m_instanceId = _instanceId;
-    m_instanceIdHasBeenSet = true;
-}
-
-bool DescribeTrainingTaskRequest::InstanceIdHasBeenSet() const
-{
-    return m_instanceIdHasBeenSet;
 }
 
 

@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/tdmq/v20200217/model/TagFilter.h>
 
 
 namespace TencentCloud
@@ -107,15 +106,15 @@ namespace TencentCloud
                     bool ClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取主题所在的命名空间，4.x 通用集群命名空间固定为: tdmq_default
-                     * @return NamespaceId 主题所在的命名空间，4.x 通用集群命名空间固定为: tdmq_default
+                     * 获取命名空间
+                     * @return NamespaceId 命名空间
                      * 
                      */
                     std::string GetNamespaceId() const;
 
                     /**
-                     * 设置主题所在的命名空间，4.x 通用集群命名空间固定为: tdmq_default
-                     * @param _namespaceId 主题所在的命名空间，4.x 通用集群命名空间固定为: tdmq_default
+                     * 设置命名空间
+                     * @param _namespaceId 命名空间
                      * 
                      */
                     void SetNamespaceId(const std::string& _namespaceId);
@@ -190,27 +189,6 @@ namespace TencentCloud
                      */
                     bool FilterGroupHasBeenSet() const;
 
-                    /**
-                     * 获取标签过滤器
-                     * @return TagFilters 标签过滤器
-                     * 
-                     */
-                    std::vector<TagFilter> GetTagFilters() const;
-
-                    /**
-                     * 设置标签过滤器
-                     * @param _tagFilters 标签过滤器
-                     * 
-                     */
-                    void SetTagFilters(const std::vector<TagFilter>& _tagFilters);
-
-                    /**
-                     * 判断参数 TagFilters 是否已赋值
-                     * @return TagFilters 是否已赋值
-                     * 
-                     */
-                    bool TagFiltersHasBeenSet() const;
-
                 private:
 
                     /**
@@ -232,7 +210,7 @@ namespace TencentCloud
                     bool m_clusterIdHasBeenSet;
 
                     /**
-                     * 主题所在的命名空间，4.x 通用集群命名空间固定为: tdmq_default
+                     * 命名空间
                      */
                     std::string m_namespaceId;
                     bool m_namespaceIdHasBeenSet;
@@ -254,12 +232,6 @@ namespace TencentCloud
                      */
                     std::string m_filterGroup;
                     bool m_filterGroupHasBeenSet;
-
-                    /**
-                     * 标签过滤器
-                     */
-                    std::vector<TagFilter> m_tagFilters;
-                    bool m_tagFiltersHasBeenSet;
 
                 };
             }

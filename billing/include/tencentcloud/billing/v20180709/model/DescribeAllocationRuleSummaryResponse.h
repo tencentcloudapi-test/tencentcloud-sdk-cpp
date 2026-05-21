@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>公摊规则表达式</p>
-                     * @return RuleList <p>公摊规则表达式</p>
+                     * 获取公摊规则表达式
+                     * @return RuleList 公摊规则表达式
                      * 
                      */
                     std::vector<AllocationRuleOverview> GetRuleList() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool RuleListHasBeenSet() const;
 
                     /**
-                     * 获取<p>规则总数</p>
-                     * @return Total <p>规则总数</p>
+                     * 获取规则总数
+                     * @return Total 规则总数
                      * 
                      */
                     uint64_t GetTotal() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>公摊规则表达式</p>
+                     * 公摊规则表达式
                      */
                     std::vector<AllocationRuleOverview> m_ruleList;
                     bool m_ruleListHasBeenSet;
 
                     /**
-                     * <p>规则总数</p>
+                     * 规则总数
                      */
                     uint64_t m_total;
                     bool m_totalHasBeenSet;

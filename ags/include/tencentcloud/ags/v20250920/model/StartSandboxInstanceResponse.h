@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>创建的沙箱实例完整信息</p>
-                     * @return Instance <p>创建的沙箱实例完整信息</p>
+                     * 获取创建的沙箱实例完整信息
+                     * @return Instance 创建的沙箱实例完整信息
                      * 
                      */
                     SandboxInstance GetInstance() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>创建的沙箱实例完整信息</p>
+                     * 创建的沙箱实例完整信息
                      */
                     SandboxInstance m_instance;
                     bool m_instanceHasBeenSet;

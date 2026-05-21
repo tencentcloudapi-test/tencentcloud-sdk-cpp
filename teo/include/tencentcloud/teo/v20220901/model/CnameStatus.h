@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 接入域名 CNAME 配置状态
+                * CNAME 状态
                 */
                 class CnameStatus : public AbstractModel
                 {
@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取接入域名。
-                     * @return RecordName 接入域名。
+                     * 获取记录名称。
+                     * @return RecordName 记录名称。
                      * 
                      */
                     std::string GetRecordName() const;
 
                     /**
-                     * 设置接入域名。
-                     * @param _recordName 接入域名。
+                     * 设置记录名称。
+                     * @param _recordName 记录名称。
                      * 
                      */
                     void SetRecordName(const std::string& _recordName);
@@ -68,15 +68,19 @@ namespace TencentCloud
                     bool RecordNameHasBeenSet() const;
 
                     /**
-                     * 获取EdgeOne 分配给接入域名的 CNAME。
-                     * @return Cname EdgeOne 分配给接入域名的 CNAME。
+                     * 获取CNAME 地址。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Cname CNAME 地址。
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCname() const;
 
                     /**
-                     * 设置EdgeOne 分配给接入域名的 CNAME。
-                     * @param _cname EdgeOne 分配给接入域名的 CNAME。
+                     * 设置CNAME 地址。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _cname CNAME 地址。
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetCname(const std::string& _cname);
@@ -89,27 +93,23 @@ namespace TencentCloud
                     bool CnameHasBeenSet() const;
 
                     /**
-                     * 获取CNAME 配置状态校验结果，取值有：
-<li>active：表示接入域名已正确配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>moved：表示接入域名未配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>invalid：表示接入域名配置的 CNAME 为 EdgeOne 为其他域名分配的 CNAME，会导致服务异常，请修改为 EdgeOne 为该接入域名提供的指定 CNAME，您可通过本结构体的 Cname 字段获取 EdgeOne 为该接入域名提供的 CNAME。</li>
-                     * @return Status CNAME 配置状态校验结果，取值有：
-<li>active：表示接入域名已正确配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>moved：表示接入域名未配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>invalid：表示接入域名配置的 CNAME 为 EdgeOne 为其他域名分配的 CNAME，会导致服务异常，请修改为 EdgeOne 为该接入域名提供的指定 CNAME，您可通过本结构体的 Cname 字段获取 EdgeOne 为该接入域名提供的 CNAME。</li>
+                     * 获取CNAME 状态信息，取值有：
+<li>active：生效；</li>
+<li>moved：不生效；</li>
+                     * @return Status CNAME 状态信息，取值有：
+<li>active：生效；</li>
+<li>moved：不生效；</li>
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置CNAME 配置状态校验结果，取值有：
-<li>active：表示接入域名已正确配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>moved：表示接入域名未配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>invalid：表示接入域名配置的 CNAME 为 EdgeOne 为其他域名分配的 CNAME，会导致服务异常，请修改为 EdgeOne 为该接入域名提供的指定 CNAME，您可通过本结构体的 Cname 字段获取 EdgeOne 为该接入域名提供的 CNAME。</li>
-                     * @param _status CNAME 配置状态校验结果，取值有：
-<li>active：表示接入域名已正确配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>moved：表示接入域名未配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>invalid：表示接入域名配置的 CNAME 为 EdgeOne 为其他域名分配的 CNAME，会导致服务异常，请修改为 EdgeOne 为该接入域名提供的指定 CNAME，您可通过本结构体的 Cname 字段获取 EdgeOne 为该接入域名提供的 CNAME。</li>
+                     * 设置CNAME 状态信息，取值有：
+<li>active：生效；</li>
+<li>moved：不生效；</li>
+                     * @param _status CNAME 状态信息，取值有：
+<li>active：生效；</li>
+<li>moved：不生效；</li>
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -124,22 +124,22 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 接入域名。
+                     * 记录名称。
                      */
                     std::string m_recordName;
                     bool m_recordNameHasBeenSet;
 
                     /**
-                     * EdgeOne 分配给接入域名的 CNAME。
+                     * CNAME 地址。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_cname;
                     bool m_cnameHasBeenSet;
 
                     /**
-                     * CNAME 配置状态校验结果，取值有：
-<li>active：表示接入域名已正确配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>moved：表示接入域名未配置到 EdgeOne 为其分配的指定 CNAME；</li>
-<li>invalid：表示接入域名配置的 CNAME 为 EdgeOne 为其他域名分配的 CNAME，会导致服务异常，请修改为 EdgeOne 为该接入域名提供的指定 CNAME，您可通过本结构体的 Cname 字段获取 EdgeOne 为该接入域名提供的 CNAME。</li>
+                     * CNAME 状态信息，取值有：
+<li>active：生效；</li>
+<li>moved：不生效；</li>
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;

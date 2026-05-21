@@ -216,27 +216,6 @@ namespace TencentCloud
                     bool InstanceChargeTypeHasBeenSet() const;
 
                     /**
-                     * 获取计量类型
-                     * @return InstanceMeteringType 计量类型
-                     * 
-                     */
-                    std::string GetInstanceMeteringType() const;
-
-                    /**
-                     * 设置计量类型
-                     * @param _instanceMeteringType 计量类型
-                     * 
-                     */
-                    void SetInstanceMeteringType(const std::string& _instanceMeteringType);
-
-                    /**
-                     * 判断参数 InstanceMeteringType 是否已赋值
-                     * @return InstanceMeteringType 是否已赋值
-                     * 
-                     */
-                    bool InstanceMeteringTypeHasBeenSet() const;
-
-                    /**
                      * 获取限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
                      * @return BandwidthLimitType 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
                      * 
@@ -531,15 +510,15 @@ namespace TencentCloud
                     bool MrtbAggregatePolicyFlagHasBeenSet() const;
 
                     /**
-                     * 获取是否支持AsPath策略值
-                     * @return MrtbPolicyValueFlag 是否支持AsPath策略值
+                     * 获取是否支持策略值
+                     * @return MrtbPolicyValueFlag 是否支持策略值
                      * 
                      */
                     bool GetMrtbPolicyValueFlag() const;
 
                     /**
-                     * 设置是否支持AsPath策略值
-                     * @param _mrtbPolicyValueFlag 是否支持AsPath策略值
+                     * 设置是否支持策略值
+                     * @param _mrtbPolicyValueFlag 是否支持策略值
                      * 
                      */
                     void SetMrtbPolicyValueFlag(const bool& _mrtbPolicyValueFlag);
@@ -550,48 +529,6 @@ namespace TencentCloud
                      * 
                      */
                     bool MrtbPolicyValueFlagHasBeenSet() const;
-
-                    /**
-                     * 获取是否支持Community策略值
-                     * @return RouteTablePolicyValueCommunityFlag 是否支持Community策略值
-                     * 
-                     */
-                    bool GetRouteTablePolicyValueCommunityFlag() const;
-
-                    /**
-                     * 设置是否支持Community策略值
-                     * @param _routeTablePolicyValueCommunityFlag 是否支持Community策略值
-                     * 
-                     */
-                    void SetRouteTablePolicyValueCommunityFlag(const bool& _routeTablePolicyValueCommunityFlag);
-
-                    /**
-                     * 判断参数 RouteTablePolicyValueCommunityFlag 是否已赋值
-                     * @return RouteTablePolicyValueCommunityFlag 是否已赋值
-                     * 
-                     */
-                    bool RouteTablePolicyValueCommunityFlagHasBeenSet() const;
-
-                    /**
-                     * 获取是否支持策略路由
-                     * @return PolicyBasedRoutingFlag 是否支持策略路由
-                     * 
-                     */
-                    bool GetPolicyBasedRoutingFlag() const;
-
-                    /**
-                     * 设置是否支持策略路由
-                     * @param _policyBasedRoutingFlag 是否支持策略路由
-                     * 
-                     */
-                    void SetPolicyBasedRoutingFlag(const bool& _policyBasedRoutingFlag);
-
-                    /**
-                     * 判断参数 PolicyBasedRoutingFlag 是否已赋值
-                     * @return PolicyBasedRoutingFlag 是否已赋值
-                     * 
-                     */
-                    bool PolicyBasedRoutingFlagHasBeenSet() const;
 
                 private:
 
@@ -642,12 +579,6 @@ namespace TencentCloud
                      */
                     std::string m_instanceChargeType;
                     bool m_instanceChargeTypeHasBeenSet;
-
-                    /**
-                     * 计量类型
-                     */
-                    std::string m_instanceMeteringType;
-                    bool m_instanceMeteringTypeHasBeenSet;
 
                     /**
                      * 限速类型，`INTER_REGION_LIMIT` 为地域间限速；`OUTER_REGION_LIMIT` 为地域出口限速。
@@ -734,22 +665,10 @@ namespace TencentCloud
                     bool m_mrtbAggregatePolicyFlagHasBeenSet;
 
                     /**
-                     * 是否支持AsPath策略值
+                     * 是否支持策略值
                      */
                     bool m_mrtbPolicyValueFlag;
                     bool m_mrtbPolicyValueFlagHasBeenSet;
-
-                    /**
-                     * 是否支持Community策略值
-                     */
-                    bool m_routeTablePolicyValueCommunityFlag;
-                    bool m_routeTablePolicyValueCommunityFlagHasBeenSet;
-
-                    /**
-                     * 是否支持策略路由
-                     */
-                    bool m_policyBasedRoutingFlag;
-                    bool m_policyBasedRoutingFlagHasBeenSet;
 
                 };
             }

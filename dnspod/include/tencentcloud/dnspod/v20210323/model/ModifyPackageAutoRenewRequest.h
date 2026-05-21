@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取计费资源ID
-                     * @return ResourceId 计费资源ID
+                     * 获取资源ID。可以在控制台查看所有的资源
+                     * @return ResourceId 资源ID。可以在控制台查看所有的资源
                      * 
                      */
                     std::string GetResourceId() const;
 
                     /**
-                     * 设置计费资源ID
-                     * @param _resourceId 计费资源ID
+                     * 设置资源ID。可以在控制台查看所有的资源
+                     * @param _resourceId 资源ID。可以在控制台查看所有的资源
                      * 
                      */
                     void SetResourceId(const std::string& _resourceId);
@@ -87,7 +87,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 计费资源ID
+                     * 资源ID。可以在控制台查看所有的资源
                      */
                     std::string m_resourceId;
                     bool m_resourceIdHasBeenSet;

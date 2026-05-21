@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>命令ID。</p>
-                     * @return CommandId <p>命令ID。</p>
+                     * 获取命令ID。
+                     * @return CommandId 命令ID。
                      * 
                      */
                     std::string GetCommandId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>命令ID。</p>
+                     * 命令ID。
                      */
                     std::string m_commandId;
                     bool m_commandIdHasBeenSet;

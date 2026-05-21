@@ -36,8 +36,7 @@ TestRunningRecord::TestRunningRecord() :
     m_subRecordListHasBeenSet(false),
     m_regionHasBeenSet(false),
     m_bucketNameHasBeenSet(false),
-    m_errorMessageHasBeenSet(false),
-    m_scriptContentTruncatedHasBeenSet(false)
+    m_errorMessageHasBeenSet(false)
 {
 }
 
@@ -216,16 +215,6 @@ CoreInternalOutcome TestRunningRecord::Deserialize(const rapidjson::Value &value
         m_errorMessageHasBeenSet = true;
     }
 
-    if (value.HasMember("ScriptContentTruncated") && !value["ScriptContentTruncated"].IsNull())
-    {
-        if (!value["ScriptContentTruncated"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `TestRunningRecord.ScriptContentTruncated` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_scriptContentTruncated = value["ScriptContentTruncated"].GetBool();
-        m_scriptContentTruncatedHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -366,14 +355,6 @@ void TestRunningRecord::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "ErrorMessage";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_errorMessage.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_scriptContentTruncatedHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ScriptContentTruncated";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_scriptContentTruncated, allocator);
     }
 
 }
@@ -633,21 +614,5 @@ void TestRunningRecord::SetErrorMessage(const string& _errorMessage)
 bool TestRunningRecord::ErrorMessageHasBeenSet() const
 {
     return m_errorMessageHasBeenSet;
-}
-
-bool TestRunningRecord::GetScriptContentTruncated() const
-{
-    return m_scriptContentTruncated;
-}
-
-void TestRunningRecord::SetScriptContentTruncated(const bool& _scriptContentTruncated)
-{
-    m_scriptContentTruncated = _scriptContentTruncated;
-    m_scriptContentTruncatedHasBeenSet = true;
-}
-
-bool TestRunningRecord::ScriptContentTruncatedHasBeenSet() const
-{
-    return m_scriptContentTruncatedHasBeenSet;
 }
 

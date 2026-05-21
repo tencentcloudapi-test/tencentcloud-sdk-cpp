@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>角色名称</p>
-                     * @return RoleName <p>角色名称</p>
+                     * 获取角色名称
+                     * @return RoleName 角色名称
                      * 
                      */
                     std::string GetRoleName() const;
@@ -58,8 +58,8 @@ namespace TencentCloud
                     bool RoleNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>角色token</p>
-                     * @return Token <p>角色token</p>
+                     * 获取角色token
+                     * @return Token 角色token
                      * 
                      */
                     std::string GetToken() const;
@@ -72,9 +72,9 @@ namespace TencentCloud
                     bool TokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>备注说明</p>
+                     * 获取备注说明
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Remark <p>备注说明</p>
+                     * @return Remark 备注说明
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -90,19 +90,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>角色名称</p>
+                     * 角色名称
                      */
                     std::string m_roleName;
                     bool m_roleNameHasBeenSet;
 
                     /**
-                     * <p>角色token</p>
+                     * 角色token
                      */
                     std::string m_token;
                     bool m_tokenHasBeenSet;
 
                     /**
-                     * <p>备注说明</p>
+                     * 备注说明
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_remark;

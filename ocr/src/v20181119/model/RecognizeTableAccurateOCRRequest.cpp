@@ -25,8 +25,7 @@ using namespace std;
 RecognizeTableAccurateOCRRequest::RecognizeTableAccurateOCRRequest() :
     m_imageBase64HasBeenSet(false),
     m_imageUrlHasBeenSet(false),
-    m_pdfPageNumberHasBeenSet(false),
-    m_useNewModelHasBeenSet(false)
+    m_pdfPageNumberHasBeenSet(false)
 {
 }
 
@@ -59,14 +58,6 @@ string RecognizeTableAccurateOCRRequest::ToJsonString() const
         string key = "PdfPageNumber";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_pdfPageNumber, allocator);
-    }
-
-    if (m_useNewModelHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UseNewModel";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_useNewModel, allocator);
     }
 
 
@@ -123,22 +114,6 @@ void RecognizeTableAccurateOCRRequest::SetPdfPageNumber(const uint64_t& _pdfPage
 bool RecognizeTableAccurateOCRRequest::PdfPageNumberHasBeenSet() const
 {
     return m_pdfPageNumberHasBeenSet;
-}
-
-bool RecognizeTableAccurateOCRRequest::GetUseNewModel() const
-{
-    return m_useNewModel;
-}
-
-void RecognizeTableAccurateOCRRequest::SetUseNewModel(const bool& _useNewModel)
-{
-    m_useNewModel = _useNewModel;
-    m_useNewModelHasBeenSet = true;
-}
-
-bool RecognizeTableAccurateOCRRequest::UseNewModelHasBeenSet() const
-{
-    return m_useNewModelHasBeenSet;
 }
 
 

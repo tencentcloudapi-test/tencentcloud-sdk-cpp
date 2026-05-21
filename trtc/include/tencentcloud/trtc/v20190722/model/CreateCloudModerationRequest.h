@@ -108,27 +108,6 @@ namespace TencentCloud
                     bool UserIdHasBeenSet() const;
 
                     /**
-                     * 获取云端审核控制参数。
-                     * @return ModerationParams 云端审核控制参数。
-                     * 
-                     */
-                    ModerationParams GetModerationParams() const;
-
-                    /**
-                     * 设置云端审核控制参数。
-                     * @param _moderationParams 云端审核控制参数。
-                     * 
-                     */
-                    void SetModerationParams(const ModerationParams& _moderationParams);
-
-                    /**
-                     * 判断参数 ModerationParams 是否已赋值
-                     * @return ModerationParams 是否已赋值
-                     * 
-                     */
-                    bool ModerationParamsHasBeenSet() const;
-
-                    /**
                      * 获取机器人UserId对应的校验签名，即UserId和UserSig相当于机器人进房的登录密码，具体计算方法请参考TRTC计算UserSig的方案。
                      * @return UserSig 机器人UserId对应的校验签名，即UserId和UserSig相当于机器人进房的登录密码，具体计算方法请参考TRTC计算UserSig的方案。
                      * 
@@ -150,15 +129,36 @@ namespace TencentCloud
                     bool UserSigHasBeenSet() const;
 
                     /**
-                     * 获取云端审核文件上传到云存储的参数。
-                     * @return ModerationStorageParams 云端审核文件上传到云存储的参数。
+                     * 获取云端审核控制参数。
+                     * @return ModerationParams 云端审核控制参数。
+                     * 
+                     */
+                    ModerationParams GetModerationParams() const;
+
+                    /**
+                     * 设置云端审核控制参数。
+                     * @param _moderationParams 云端审核控制参数。
+                     * 
+                     */
+                    void SetModerationParams(const ModerationParams& _moderationParams);
+
+                    /**
+                     * 判断参数 ModerationParams 是否已赋值
+                     * @return ModerationParams 是否已赋值
+                     * 
+                     */
+                    bool ModerationParamsHasBeenSet() const;
+
+                    /**
+                     * 获取云端审核文件上传到云存储的参数
+                     * @return ModerationStorageParams 云端审核文件上传到云存储的参数
                      * 
                      */
                     ModerationStorageParams GetModerationStorageParams() const;
 
                     /**
-                     * 设置云端审核文件上传到云存储的参数。
-                     * @param _moderationStorageParams 云端审核文件上传到云存储的参数。
+                     * 设置云端审核文件上传到云存储的参数
+                     * @param _moderationStorageParams 云端审核文件上传到云存储的参数
                      * 
                      */
                     void SetModerationStorageParams(const ModerationStorageParams& _moderationStorageParams);
@@ -233,19 +233,19 @@ namespace TencentCloud
                     bool m_userIdHasBeenSet;
 
                     /**
-                     * 云端审核控制参数。
-                     */
-                    ModerationParams m_moderationParams;
-                    bool m_moderationParamsHasBeenSet;
-
-                    /**
                      * 机器人UserId对应的校验签名，即UserId和UserSig相当于机器人进房的登录密码，具体计算方法请参考TRTC计算UserSig的方案。
                      */
                     std::string m_userSig;
                     bool m_userSigHasBeenSet;
 
                     /**
-                     * 云端审核文件上传到云存储的参数。
+                     * 云端审核控制参数。
+                     */
+                    ModerationParams m_moderationParams;
+                    bool m_moderationParamsHasBeenSet;
+
+                    /**
+                     * 云端审核文件上传到云存储的参数
                      */
                     ModerationStorageParams m_moderationStorageParams;
                     bool m_moderationStorageParamsHasBeenSet;

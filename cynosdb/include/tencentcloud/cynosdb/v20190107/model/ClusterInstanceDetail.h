@@ -343,22 +343,14 @@ namespace TencentCloud
 
                     /**
                      * 获取实例机器类型
-1. common，通用型。
-2. exclusive，独享型。
                      * @return InstanceDeviceType 实例机器类型
-1. common，通用型。
-2. exclusive，独享型。
                      * 
                      */
                     std::string GetInstanceDeviceType() const;
 
                     /**
                      * 设置实例机器类型
-1. common，通用型。
-2. exclusive，独享型。
                      * @param _instanceDeviceType 实例机器类型
-1. common，通用型。
-2. exclusive，独享型。
                      * 
                      */
                     void SetInstanceDeviceType(const std::string& _instanceDeviceType);
@@ -372,18 +364,14 @@ namespace TencentCloud
 
                     /**
                      * 获取实例存储类型
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * @return InstanceStorageType 实例存储类型
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * 
                      */
                     std::string GetInstanceStorageType() const;
 
                     /**
                      * 设置实例存储类型
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * @param _instanceStorageType 实例存储类型
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * 
                      */
                     void SetInstanceStorageType(const std::string& _instanceStorageType);
@@ -418,18 +406,14 @@ namespace TencentCloud
 
                     /**
                      * 获取节点列表
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * @return NodeList 节点列表
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * 
                      */
                     std::vector<std::string> GetNodeList() const;
 
                     /**
                      * 设置节点列表
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * @param _nodeList 节点列表
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      * 
                      */
                     void SetNodeList(const std::vector<std::string>& _nodeList);
@@ -529,15 +513,12 @@ namespace TencentCloud
 
                     /**
                      * 实例机器类型
-1. common，通用型。
-2. exclusive，独享型。
                      */
                     std::string m_instanceDeviceType;
                     bool m_instanceDeviceTypeHasBeenSet;
 
                     /**
                      * 实例存储类型
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      */
                     std::string m_instanceStorageType;
                     bool m_instanceStorageTypeHasBeenSet;
@@ -550,7 +531,6 @@ namespace TencentCloud
 
                     /**
                      * 节点列表
-说明：仅当要查询的资源为 LibraDB 时，此参数才会返回值。
                      */
                     std::vector<std::string> m_nodeList;
                     bool m_nodeListHasBeenSet;

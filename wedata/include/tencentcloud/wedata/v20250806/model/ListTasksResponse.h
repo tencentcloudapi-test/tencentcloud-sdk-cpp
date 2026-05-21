@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务分页信息</p>
-                     * @return Data <p>任务分页信息</p>
+                     * 获取任务分页信息
+                     * @return Data 任务分页信息
                      * 
                      */
                     ListTaskInfo GetData() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务分页信息</p>
+                     * 任务分页信息
                      */
                     ListTaskInfo m_data;
                     bool m_dataHasBeenSet;

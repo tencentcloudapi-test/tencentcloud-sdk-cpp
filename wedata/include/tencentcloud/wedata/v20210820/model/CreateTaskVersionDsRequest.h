@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务id</p>
-                     * @return Task <p>任务id</p>
+                     * 获取任务id
+                     * @return Task 任务id
                      * 
                      */
                     BatchCreateTaskVersionDTO GetTask() const;
 
                     /**
-                     * 设置<p>任务id</p>
-                     * @param _task <p>任务id</p>
+                     * 设置任务id
+                     * @param _task 任务id
                      * 
                      */
                     void SetTask(const BatchCreateTaskVersionDTO& _task);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool TaskHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要校验父任务已经提交到调度</p>
-                     * @return NeedCheckParentSubmitted <p>是否需要校验父任务已经提交到调度</p>
+                     * 获取是否需要校验父任务已经提交到调度
+                     * @return NeedCheckParentSubmitted 是否需要校验父任务已经提交到调度
                      * 
                      */
                     bool GetNeedCheckParentSubmitted() const;
 
                     /**
-                     * 设置<p>是否需要校验父任务已经提交到调度</p>
-                     * @param _needCheckParentSubmitted <p>是否需要校验父任务已经提交到调度</p>
+                     * 设置是否需要校验父任务已经提交到调度
+                     * @param _needCheckParentSubmitted 是否需要校验父任务已经提交到调度
                      * 
                      */
                     void SetNeedCheckParentSubmitted(const bool& _needCheckParentSubmitted);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool NeedCheckParentSubmittedHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否自动运行</p>
-                     * @return AutoRun <p>是否自动运行</p>
+                     * 获取是否自动运行
+                     * @return AutoRun 是否自动运行
                      * 
                      */
                     bool GetAutoRun() const;
 
                     /**
-                     * 设置<p>是否自动运行</p>
-                     * @param _autoRun <p>是否自动运行</p>
+                     * 设置是否自动运行
+                     * @param _autoRun 是否自动运行
                      * 
                      */
                     void SetAutoRun(const bool& _autoRun);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool AutoRunHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目ID</p>
-                     * @return ProjectId <p>项目ID</p>
+                     * 获取项目ID
+                     * @return ProjectId 项目ID
                      * 
                      */
                     std::string GetProjectId() const;
 
                     /**
-                     * 设置<p>项目ID</p>
-                     * @param _projectId <p>项目ID</p>
+                     * 设置项目ID
+                     * @param _projectId 项目ID
                      * 
                      */
                     void SetProjectId(const std::string& _projectId);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool RequestFromSourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警方式:email-邮件;sms-短信;wecom-企业微信</p>
-                     * @return AlarmWays <p>告警方式:email-邮件;sms-短信;wecom-企业微信</p>
+                     * 获取告警方式:email-邮件;sms-短信;wecom-企业微信
+                     * @return AlarmWays 告警方式:email-邮件;sms-短信;wecom-企业微信
                      * 
                      */
                     std::string GetAlarmWays() const;
 
                     /**
-                     * 设置<p>告警方式:email-邮件;sms-短信;wecom-企业微信</p>
-                     * @param _alarmWays <p>告警方式:email-邮件;sms-短信;wecom-企业微信</p>
+                     * 设置告警方式:email-邮件;sms-短信;wecom-企业微信
+                     * @param _alarmWays 告警方式:email-邮件;sms-短信;wecom-企业微信
                      * 
                      */
                     void SetAlarmWays(const std::string& _alarmWays);
@@ -170,15 +170,15 @@ namespace TencentCloud
                     bool AlarmWaysHasBeenSet() const;
 
                     /**
-                     * 获取<p>告警对象:1-项目管理员，2-任务责任人</p>
-                     * @return AlarmRecipientTypes <p>告警对象:1-项目管理员，2-任务责任人</p>
+                     * 获取告警对象:1-项目管理员，2-任务责任人
+                     * @return AlarmRecipientTypes 告警对象:1-项目管理员，2-任务责任人
                      * 
                      */
                     std::string GetAlarmRecipientTypes() const;
 
                     /**
-                     * 设置<p>告警对象:1-项目管理员，2-任务责任人</p>
-                     * @param _alarmRecipientTypes <p>告警对象:1-项目管理员，2-任务责任人</p>
+                     * 设置告警对象:1-项目管理员，2-任务责任人
+                     * @param _alarmRecipientTypes 告警对象:1-项目管理员，2-任务责任人
                      * 
                      */
                     void SetAlarmRecipientTypes(const std::string& _alarmRecipientTypes);
@@ -191,15 +191,15 @@ namespace TencentCloud
                     bool AlarmRecipientTypesHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验</p>
-                     * @return EnableCheckTaskCycleLink <p>是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验</p>
+                     * 获取是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验
+                     * @return EnableCheckTaskCycleLink 是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验
                      * 
                      */
                     bool GetEnableCheckTaskCycleLink() const;
 
                     /**
-                     * 设置<p>是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验</p>
-                     * @param _enableCheckTaskCycleLink <p>是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验</p>
+                     * 设置是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验
+                     * @param _enableCheckTaskCycleLink 是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验
                      * 
                      */
                     void SetEnableCheckTaskCycleLink(const bool& _enableCheckTaskCycleLink);
@@ -212,15 +212,15 @@ namespace TencentCloud
                     bool EnableCheckTaskCycleLinkHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要补录中间实例</p>
-                     * @return EnableMakeUp <p>是否需要补录中间实例</p>
+                     * 获取是否需要补录中间实例
+                     * @return EnableMakeUp 是否需要补录中间实例
                      * 
                      */
                     bool GetEnableMakeUp() const;
 
                     /**
-                     * 设置<p>是否需要补录中间实例</p>
-                     * @param _enableMakeUp <p>是否需要补录中间实例</p>
+                     * 设置是否需要补录中间实例
+                     * @param _enableMakeUp 是否需要补录中间实例
                      * 
                      */
                     void SetEnableMakeUp(const bool& _enableMakeUp);
@@ -232,70 +232,28 @@ namespace TencentCloud
                      */
                     bool EnableMakeUpHasBeenSet() const;
 
-                    /**
-                     * 获取<p>指定审批人列表</p>
-                     * @return AssignApprovalList <p>指定审批人列表</p>
-                     * 
-                     */
-                    std::vector<std::string> GetAssignApprovalList() const;
-
-                    /**
-                     * 设置<p>指定审批人列表</p>
-                     * @param _assignApprovalList <p>指定审批人列表</p>
-                     * 
-                     */
-                    void SetAssignApprovalList(const std::vector<std::string>& _assignApprovalList);
-
-                    /**
-                     * 判断参数 AssignApprovalList 是否已赋值
-                     * @return AssignApprovalList 是否已赋值
-                     * 
-                     */
-                    bool AssignApprovalListHasBeenSet() const;
-
-                    /**
-                     * 获取<p>MAKEUP:补录缺失的实例;FORCE_SUCCESS:将缺失的实例置成功;SKIP:不处理，忽略缺失的实例</p>
-                     * @return MissingInstanceStrategy <p>MAKEUP:补录缺失的实例;FORCE_SUCCESS:将缺失的实例置成功;SKIP:不处理，忽略缺失的实例</p>
-                     * 
-                     */
-                    std::string GetMissingInstanceStrategy() const;
-
-                    /**
-                     * 设置<p>MAKEUP:补录缺失的实例;FORCE_SUCCESS:将缺失的实例置成功;SKIP:不处理，忽略缺失的实例</p>
-                     * @param _missingInstanceStrategy <p>MAKEUP:补录缺失的实例;FORCE_SUCCESS:将缺失的实例置成功;SKIP:不处理，忽略缺失的实例</p>
-                     * 
-                     */
-                    void SetMissingInstanceStrategy(const std::string& _missingInstanceStrategy);
-
-                    /**
-                     * 判断参数 MissingInstanceStrategy 是否已赋值
-                     * @return MissingInstanceStrategy 是否已赋值
-                     * 
-                     */
-                    bool MissingInstanceStrategyHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>任务id</p>
+                     * 任务id
                      */
                     BatchCreateTaskVersionDTO m_task;
                     bool m_taskHasBeenSet;
 
                     /**
-                     * <p>是否需要校验父任务已经提交到调度</p>
+                     * 是否需要校验父任务已经提交到调度
                      */
                     bool m_needCheckParentSubmitted;
                     bool m_needCheckParentSubmittedHasBeenSet;
 
                     /**
-                     * <p>是否自动运行</p>
+                     * 是否自动运行
                      */
                     bool m_autoRun;
                     bool m_autoRunHasBeenSet;
 
                     /**
-                     * <p>项目ID</p>
+                     * 项目ID
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;
@@ -307,40 +265,28 @@ namespace TencentCloud
                     bool m_requestFromSourceHasBeenSet;
 
                     /**
-                     * <p>告警方式:email-邮件;sms-短信;wecom-企业微信</p>
+                     * 告警方式:email-邮件;sms-短信;wecom-企业微信
                      */
                     std::string m_alarmWays;
                     bool m_alarmWaysHasBeenSet;
 
                     /**
-                     * <p>告警对象:1-项目管理员，2-任务责任人</p>
+                     * 告警对象:1-项目管理员，2-任务责任人
                      */
                     std::string m_alarmRecipientTypes;
                     bool m_alarmRecipientTypesHasBeenSet;
 
                     /**
-                     * <p>是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验</p>
+                     * 是否需要校验循环依赖，默认为 true，如果使用了 CheckTaskCycleLink 和 CheckTaskCycleConfiguration 两个接口校验成功可以传 false，后台服务器不再做校验
                      */
                     bool m_enableCheckTaskCycleLink;
                     bool m_enableCheckTaskCycleLinkHasBeenSet;
 
                     /**
-                     * <p>是否需要补录中间实例</p>
+                     * 是否需要补录中间实例
                      */
                     bool m_enableMakeUp;
                     bool m_enableMakeUpHasBeenSet;
-
-                    /**
-                     * <p>指定审批人列表</p>
-                     */
-                    std::vector<std::string> m_assignApprovalList;
-                    bool m_assignApprovalListHasBeenSet;
-
-                    /**
-                     * <p>MAKEUP:补录缺失的实例;FORCE_SUCCESS:将缺失的实例置成功;SKIP:不处理，忽略缺失的实例</p>
-                     */
-                    std::string m_missingInstanceStrategy;
-                    bool m_missingInstanceStrategyHasBeenSet;
 
                 };
             }

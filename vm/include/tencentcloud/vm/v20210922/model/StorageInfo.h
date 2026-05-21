@@ -48,15 +48,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>类型 可选：<br>URL 资源链接类型<br>COS 腾讯云对象存储类型</p>
-                     * @return Type <p>类型 可选：<br>URL 资源链接类型<br>COS 腾讯云对象存储类型</p>
+                     * 获取类型 可选：
+URL 资源链接类型
+COS 腾讯云对象存储类型
+                     * @return Type 类型 可选：
+URL 资源链接类型
+COS 腾讯云对象存储类型
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>类型 可选：<br>URL 资源链接类型<br>COS 腾讯云对象存储类型</p>
-                     * @param _type <p>类型 可选：<br>URL 资源链接类型<br>COS 腾讯云对象存储类型</p>
+                     * 设置类型 可选：
+URL 资源链接类型
+COS 腾讯云对象存储类型
+                     * @param _type 类型 可选：
+URL 资源链接类型
+COS 腾讯云对象存储类型
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -69,15 +77,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>资源链接</p>
-                     * @return Url <p>资源链接</p>
+                     * 获取资源链接
+                     * @return Url 资源链接
                      * 
                      */
                     std::string GetUrl() const;
 
                     /**
-                     * 设置<p>资源链接</p>
-                     * @param _url <p>资源链接</p>
+                     * 设置资源链接
+                     * @param _url 资源链接
                      * 
                      */
                     void SetUrl(const std::string& _url);
@@ -90,15 +98,15 @@ namespace TencentCloud
                     bool UrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>腾讯云存储桶信息</p>
-                     * @return BucketInfo <p>腾讯云存储桶信息</p>
+                     * 获取腾讯云存储桶信息
+                     * @return BucketInfo 腾讯云存储桶信息
                      * 
                      */
                     BucketInfo GetBucketInfo() const;
 
                     /**
-                     * 设置<p>腾讯云存储桶信息</p>
-                     * @param _bucketInfo <p>腾讯云存储桶信息</p>
+                     * 设置腾讯云存储桶信息
+                     * @param _bucketInfo 腾讯云存储桶信息
                      * 
                      */
                     void SetBucketInfo(const BucketInfo& _bucketInfo);
@@ -110,79 +118,27 @@ namespace TencentCloud
                      */
                     bool BucketInfoHasBeenSet() const;
 
-                    /**
-                     * 获取<p>大模型审核场景下，送审的图片列表</p>
-                     * @return ImageUrlList <p>大模型审核场景下，送审的图片列表</p>
-                     * 
-                     */
-                    std::vector<std::string> GetImageUrlList() const;
-
-                    /**
-                     * 设置<p>大模型审核场景下，送审的图片列表</p>
-                     * @param _imageUrlList <p>大模型审核场景下，送审的图片列表</p>
-                     * 
-                     */
-                    void SetImageUrlList(const std::vector<std::string>& _imageUrlList);
-
-                    /**
-                     * 判断参数 ImageUrlList 是否已赋值
-                     * @return ImageUrlList 是否已赋值
-                     * 
-                     */
-                    bool ImageUrlListHasBeenSet() const;
-
-                    /**
-                     * 获取<p>大模型审核场景下，base64编码的审核要求内容</p>
-                     * @return TextContent <p>大模型审核场景下，base64编码的审核要求内容</p>
-                     * 
-                     */
-                    std::string GetTextContent() const;
-
-                    /**
-                     * 设置<p>大模型审核场景下，base64编码的审核要求内容</p>
-                     * @param _textContent <p>大模型审核场景下，base64编码的审核要求内容</p>
-                     * 
-                     */
-                    void SetTextContent(const std::string& _textContent);
-
-                    /**
-                     * 判断参数 TextContent 是否已赋值
-                     * @return TextContent 是否已赋值
-                     * 
-                     */
-                    bool TextContentHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>类型 可选：<br>URL 资源链接类型<br>COS 腾讯云对象存储类型</p>
+                     * 类型 可选：
+URL 资源链接类型
+COS 腾讯云对象存储类型
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>资源链接</p>
+                     * 资源链接
                      */
                     std::string m_url;
                     bool m_urlHasBeenSet;
 
                     /**
-                     * <p>腾讯云存储桶信息</p>
+                     * 腾讯云存储桶信息
                      */
                     BucketInfo m_bucketInfo;
                     bool m_bucketInfoHasBeenSet;
-
-                    /**
-                     * <p>大模型审核场景下，送审的图片列表</p>
-                     */
-                    std::vector<std::string> m_imageUrlList;
-                    bool m_imageUrlListHasBeenSet;
-
-                    /**
-                     * <p>大模型审核场景下，base64编码的审核要求内容</p>
-                     */
-                    std::string m_textContent;
-                    bool m_textContentHasBeenSet;
 
                 };
             }

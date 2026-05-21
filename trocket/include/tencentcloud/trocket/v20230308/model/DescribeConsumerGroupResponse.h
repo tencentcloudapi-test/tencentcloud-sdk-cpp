@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/trocket/v20230308/model/RetryPolicy.h>
 
 
 namespace TencentCloud
@@ -198,20 +197,6 @@ CLUSTERING 集群模式
                      */
                     bool MessageModelHasBeenSet() const;
 
-                    /**
-                     * 获取重试策略
-                     * @return RetryPolicy 重试策略
-                     * 
-                     */
-                    RetryPolicy GetRetryPolicy() const;
-
-                    /**
-                     * 判断参数 RetryPolicy 是否已赋值
-                     * @return RetryPolicy 是否已赋值
-                     * 
-                     */
-                    bool RetryPolicyHasBeenSet() const;
-
                 private:
 
                     /**
@@ -280,12 +265,6 @@ CLUSTERING 集群模式
                      */
                     std::string m_messageModel;
                     bool m_messageModelHasBeenSet;
-
-                    /**
-                     * 重试策略
-                     */
-                    RetryPolicy m_retryPolicy;
-                    bool m_retryPolicyHasBeenSet;
 
                 };
             }

@@ -24,12 +24,11 @@ using namespace std;
 
 ModifyConsumerGroupRequest::ModifyConsumerGroupRequest() :
     m_instanceIdHasBeenSet(false),
+    m_consumerGroupHasBeenSet(false),
     m_consumeEnableHasBeenSet(false),
     m_consumeMessageOrderlyHasBeenSet(false),
-    m_consumerGroupHasBeenSet(false),
     m_maxRetryTimesHasBeenSet(false),
-    m_remarkHasBeenSet(false),
-    m_retryPolicyHasBeenSet(false)
+    m_remarkHasBeenSet(false)
 {
 }
 
@@ -48,6 +47,14 @@ string ModifyConsumerGroupRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
     }
 
+    if (m_consumerGroupHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "ConsumerGroup";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_consumerGroup.c_str(), allocator).Move(), allocator);
+    }
+
     if (m_consumeEnableHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -64,14 +71,6 @@ string ModifyConsumerGroupRequest::ToJsonString() const
         d.AddMember(iKey, m_consumeMessageOrderly, allocator);
     }
 
-    if (m_consumerGroupHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ConsumerGroup";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_consumerGroup.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_maxRetryTimesHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -86,15 +85,6 @@ string ModifyConsumerGroupRequest::ToJsonString() const
         string key = "Remark";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_remark.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_retryPolicyHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RetryPolicy";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_retryPolicy.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -119,6 +109,22 @@ void ModifyConsumerGroupRequest::SetInstanceId(const string& _instanceId)
 bool ModifyConsumerGroupRequest::InstanceIdHasBeenSet() const
 {
     return m_instanceIdHasBeenSet;
+}
+
+string ModifyConsumerGroupRequest::GetConsumerGroup() const
+{
+    return m_consumerGroup;
+}
+
+void ModifyConsumerGroupRequest::SetConsumerGroup(const string& _consumerGroup)
+{
+    m_consumerGroup = _consumerGroup;
+    m_consumerGroupHasBeenSet = true;
+}
+
+bool ModifyConsumerGroupRequest::ConsumerGroupHasBeenSet() const
+{
+    return m_consumerGroupHasBeenSet;
 }
 
 bool ModifyConsumerGroupRequest::GetConsumeEnable() const
@@ -153,22 +159,6 @@ bool ModifyConsumerGroupRequest::ConsumeMessageOrderlyHasBeenSet() const
     return m_consumeMessageOrderlyHasBeenSet;
 }
 
-string ModifyConsumerGroupRequest::GetConsumerGroup() const
-{
-    return m_consumerGroup;
-}
-
-void ModifyConsumerGroupRequest::SetConsumerGroup(const string& _consumerGroup)
-{
-    m_consumerGroup = _consumerGroup;
-    m_consumerGroupHasBeenSet = true;
-}
-
-bool ModifyConsumerGroupRequest::ConsumerGroupHasBeenSet() const
-{
-    return m_consumerGroupHasBeenSet;
-}
-
 int64_t ModifyConsumerGroupRequest::GetMaxRetryTimes() const
 {
     return m_maxRetryTimes;
@@ -199,22 +189,6 @@ void ModifyConsumerGroupRequest::SetRemark(const string& _remark)
 bool ModifyConsumerGroupRequest::RemarkHasBeenSet() const
 {
     return m_remarkHasBeenSet;
-}
-
-RetryPolicy ModifyConsumerGroupRequest::GetRetryPolicy() const
-{
-    return m_retryPolicy;
-}
-
-void ModifyConsumerGroupRequest::SetRetryPolicy(const RetryPolicy& _retryPolicy)
-{
-    m_retryPolicy = _retryPolicy;
-    m_retryPolicyHasBeenSet = true;
-}
-
-bool ModifyConsumerGroupRequest::RetryPolicyHasBeenSet() const
-{
-    return m_retryPolicyHasBeenSet;
 }
 
 

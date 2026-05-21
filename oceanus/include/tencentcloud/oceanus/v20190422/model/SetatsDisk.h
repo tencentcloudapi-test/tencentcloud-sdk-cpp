@@ -47,18 +47,34 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>磁盘类型<br>CLOUD_BSSD<br>CLOUD_SSD<br>CLOUD_HSSD<br>CLOUD_PREMIUM</p>
+                     * 获取磁盘类型
+CLOUD_BSSD
+CLOUD_SSD
+CLOUD_HSSD
+CLOUD_PREMIUM
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DiskType <p>磁盘类型<br>CLOUD_BSSD<br>CLOUD_SSD<br>CLOUD_HSSD<br>CLOUD_PREMIUM</p>
+                     * @return DiskType 磁盘类型
+CLOUD_BSSD
+CLOUD_SSD
+CLOUD_HSSD
+CLOUD_PREMIUM
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetDiskType() const;
 
                     /**
-                     * 设置<p>磁盘类型<br>CLOUD_BSSD<br>CLOUD_SSD<br>CLOUD_HSSD<br>CLOUD_PREMIUM</p>
+                     * 设置磁盘类型
+CLOUD_BSSD
+CLOUD_SSD
+CLOUD_HSSD
+CLOUD_PREMIUM
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _diskType <p>磁盘类型<br>CLOUD_BSSD<br>CLOUD_SSD<br>CLOUD_HSSD<br>CLOUD_PREMIUM</p>
+                     * @param _diskType 磁盘类型
+CLOUD_BSSD
+CLOUD_SSD
+CLOUD_HSSD
+CLOUD_PREMIUM
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +88,18 @@ namespace TencentCloud
                     bool DiskTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>磁盘大小</p><p>单位：GB</p>
+                     * 获取磁盘大小
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DiskSize <p>磁盘大小</p><p>单位：GB</p>
+                     * @return DiskSize 磁盘大小
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetDiskSize() const;
 
                     /**
-                     * 设置<p>磁盘大小</p><p>单位：GB</p>
+                     * 设置磁盘大小
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _diskSize <p>磁盘大小</p><p>单位：GB</p>
+                     * @param _diskSize 磁盘大小
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -99,14 +115,18 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>磁盘类型<br>CLOUD_BSSD<br>CLOUD_SSD<br>CLOUD_HSSD<br>CLOUD_PREMIUM</p>
+                     * 磁盘类型
+CLOUD_BSSD
+CLOUD_SSD
+CLOUD_HSSD
+CLOUD_PREMIUM
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_diskType;
                     bool m_diskTypeHasBeenSet;
 
                     /**
-                     * <p>磁盘大小</p><p>单位：GB</p>
+                     * 磁盘大小
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_diskSize;

@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返回数量，默认为10，最大值为100。</p>
-                     * @return Limit <p>返回数量，默认为10，最大值为100。</p>
+                     * 获取返回数量，默认为10，最大值为100。
+                     * @return Limit 返回数量，默认为10，最大值为100。
                      * 
                      */
                     int64_t GetLimit() const;
 
                     /**
-                     * 设置<p>返回数量，默认为10，最大值为100。</p>
-                     * @param _limit <p>返回数量，默认为10，最大值为100。</p>
+                     * 设置返回数量，默认为10，最大值为100。
+                     * @param _limit 返回数量，默认为10，最大值为100。
                      * 
                      */
                     void SetLimit(const int64_t& _limit);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>偏移量，默认为0。</p>
-                     * @return Offset <p>偏移量，默认为0。</p>
+                     * 获取偏移量，默认为0。
+                     * @return Offset 偏移量，默认为0。
                      * 
                      */
                     int64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量，默认为0。</p>
-                     * @param _offset <p>偏移量，默认为0。</p>
+                     * 设置偏移量，默认为0。
+                     * @param _offset 偏移量，默认为0。
                      * 
                      */
                     void SetOffset(const int64_t& _offset);
@@ -86,15 +86,35 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。<br>task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。<br>task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。<br>task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。<br>task-operator- string （子uin过滤）<br>task-kind - string （任务类型过滤）</p>
-                     * @return Filters <p>过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。<br>task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。<br>task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。<br>task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。<br>task-operator- string （子uin过滤）<br>task-kind - string （任务类型过滤）</p>
+                     * 获取过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。
+task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。
+task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。
+task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。
+task-operator- string （子uin过滤）
+task-kind - string （任务类型过滤）
+                     * @return Filters 过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。
+task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。
+task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。
+task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。
+task-operator- string （子uin过滤）
+task-kind - string （任务类型过滤）
                      * 
                      */
                     std::vector<Filter> GetFilters() const;
 
                     /**
-                     * 设置<p>过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。<br>task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。<br>task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。<br>task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。<br>task-operator- string （子uin过滤）<br>task-kind - string （任务类型过滤）</p>
-                     * @param _filters <p>过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。<br>task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。<br>task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。<br>task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。<br>task-operator- string （子uin过滤）<br>task-kind - string （任务类型过滤）</p>
+                     * 设置过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。
+task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。
+task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。
+task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。
+task-operator- string （子uin过滤）
+task-kind - string （任务类型过滤）
+                     * @param _filters 过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。
+task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。
+task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。
+task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。
+task-operator- string （子uin过滤）
+task-kind - string （任务类型过滤）
                      * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
@@ -107,15 +127,15 @@ namespace TencentCloud
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）</p>
-                     * @return SortBy <p>排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）</p>
+                     * 获取排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）
+                     * @return SortBy 排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）
                      * 
                      */
                     std::string GetSortBy() const;
 
                     /**
-                     * 设置<p>排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）</p>
-                     * @param _sortBy <p>排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）</p>
+                     * 设置排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）
+                     * @param _sortBy 排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）
                      * 
                      */
                     void SetSortBy(const std::string& _sortBy);
@@ -128,15 +148,15 @@ namespace TencentCloud
                     bool SortByHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序方式，desc表示正序，asc表示反序， 默认为asc。</p>
-                     * @return Sorting <p>排序方式，desc表示正序，asc表示反序， 默认为asc。</p>
+                     * 获取排序方式，desc表示正序，asc表示反序， 默认为asc。
+                     * @return Sorting 排序方式，desc表示正序，asc表示反序， 默认为asc。
                      * 
                      */
                     std::string GetSorting() const;
 
                     /**
-                     * 设置<p>排序方式，desc表示正序，asc表示反序， 默认为asc。</p>
-                     * @param _sorting <p>排序方式，desc表示正序，asc表示反序， 默认为asc。</p>
+                     * 设置排序方式，desc表示正序，asc表示反序， 默认为asc。
+                     * @param _sorting 排序方式，desc表示正序，asc表示反序， 默认为asc。
                      * 
                      */
                     void SetSorting(const std::string& _sorting);
@@ -149,15 +169,15 @@ namespace TencentCloud
                     bool SortingHasBeenSet() const;
 
                     /**
-                     * 获取<p>起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻</p>
-                     * @return StartTime <p>起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻</p>
+                     * 获取起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻
+                     * @return StartTime 起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻
                      * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置<p>起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻</p>
-                     * @param _startTime <p>起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻</p>
+                     * 设置起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻
+                     * @param _startTime 起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻
                      * 
                      */
                     void SetStartTime(const std::string& _startTime);
@@ -170,15 +190,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻</p>
-                     * @return EndTime <p>结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻</p>
+                     * 获取结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻
+                     * @return EndTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻
                      * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置<p>结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻</p>
-                     * @param _endTime <p>结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻</p>
+                     * 设置结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻
+                     * @param _endTime 结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻
                      * 
                      */
                     void SetEndTime(const std::string& _endTime);
@@ -191,15 +211,15 @@ namespace TencentCloud
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据引擎名称，用于筛选</p>
-                     * @return DataEngineName <p>数据引擎名称，用于筛选</p>
+                     * 获取数据引擎名称，用于筛选
+                     * @return DataEngineName 数据引擎名称，用于筛选
                      * 
                      */
                     std::string GetDataEngineName() const;
 
                     /**
-                     * 设置<p>数据引擎名称，用于筛选</p>
-                     * @param _dataEngineName <p>数据引擎名称，用于筛选</p>
+                     * 设置数据引擎名称，用于筛选
+                     * @param _dataEngineName 数据引擎名称，用于筛选
                      * 
                      */
                     void SetDataEngineName(const std::string& _dataEngineName);
@@ -212,15 +232,15 @@ namespace TencentCloud
                     bool DataEngineNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>spark引擎资源组名称</p>
-                     * @return ResourceGroupName <p>spark引擎资源组名称</p>
+                     * 获取spark引擎资源组名称
+                     * @return ResourceGroupName spark引擎资源组名称
                      * 
                      */
                     std::string GetResourceGroupName() const;
 
                     /**
-                     * 设置<p>spark引擎资源组名称</p>
-                     * @param _resourceGroupName <p>spark引擎资源组名称</p>
+                     * 设置spark引擎资源组名称
+                     * @param _resourceGroupName spark引擎资源组名称
                      * 
                      */
                     void SetResourceGroupName(const std::string& _resourceGroupName);
@@ -235,55 +255,60 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返回数量，默认为10，最大值为100。</p>
+                     * 返回数量，默认为10，最大值为100。
                      */
                     int64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>偏移量，默认为0。</p>
+                     * 偏移量，默认为0。
                      */
                     int64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。<br>task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。<br>task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。<br>task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。<br>task-operator- string （子uin过滤）<br>task-kind - string （任务类型过滤）</p>
+                     * 过滤条件，如下支持的过滤类型，传参Name应为以下其中一个,其中task-id支持最大50个过滤个数，其他过滤参数支持的总数不超过5个。
+task-id - String - （任务ID准确过滤）task-id取值形如：e386471f-139a-4e59-877f-50ece8135b99。
+task-state - String - （任务状态过滤）取值范围 0(初始化)， 1(运行中)， 2(成功)， -1(失败)。
+task-sql-keyword - String - （SQL语句关键字模糊过滤）取值形如：DROP TABLE。
+task-operator- string （子uin过滤）
+task-kind - string （任务类型过滤）
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * <p>排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）</p>
+                     * 排序字段，支持如下字段类型，create-time（创建时间，默认）、update-time（更新时间）
                      */
                     std::string m_sortBy;
                     bool m_sortByHasBeenSet;
 
                     /**
-                     * <p>排序方式，desc表示正序，asc表示反序， 默认为asc。</p>
+                     * 排序方式，desc表示正序，asc表示反序， 默认为asc。
                      */
                     std::string m_sorting;
                     bool m_sortingHasBeenSet;
 
                     /**
-                     * <p>起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻</p>
+                     * 起始时间点，格式为yyyy-mm-dd HH:MM:SS。默认为45天前的当前时刻
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻</p>
+                     * 结束时间点，格式为yyyy-mm-dd HH:MM:SS时间跨度在(0,30天]，支持最近45天数据查询。默认为当前时刻
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * <p>数据引擎名称，用于筛选</p>
+                     * 数据引擎名称，用于筛选
                      */
                     std::string m_dataEngineName;
                     bool m_dataEngineNameHasBeenSet;
 
                     /**
-                     * <p>spark引擎资源组名称</p>
+                     * spark引擎资源组名称
                      */
                     std::string m_resourceGroupName;
                     bool m_resourceGroupNameHasBeenSet;

@@ -50,15 +50,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>模型版本id, DescribeTrainingModelVersion查询模型接口时的id<br>自动学习类型的模型填写自动学习的任务id</p>
-                     * @return ModelVersionId <p>模型版本id, DescribeTrainingModelVersion查询模型接口时的id<br>自动学习类型的模型填写自动学习的任务id</p>
+                     * 获取模型版本id, DescribeTrainingModelVersion查询模型接口时的id
+自动学习类型的模型填写自动学习的任务id
+                     * @return ModelVersionId 模型版本id, DescribeTrainingModelVersion查询模型接口时的id
+自动学习类型的模型填写自动学习的任务id
                      * 
                      */
                     std::string GetModelVersionId() const;
 
                     /**
-                     * 设置<p>模型版本id, DescribeTrainingModelVersion查询模型接口时的id<br>自动学习类型的模型填写自动学习的任务id</p>
-                     * @param _modelVersionId <p>模型版本id, DescribeTrainingModelVersion查询模型接口时的id<br>自动学习类型的模型填写自动学习的任务id</p>
+                     * 设置模型版本id, DescribeTrainingModelVersion查询模型接口时的id
+自动学习类型的模型填写自动学习的任务id
+                     * @param _modelVersionId 模型版本id, DescribeTrainingModelVersion查询模型接口时的id
+自动学习类型的模型填写自动学习的任务id
                      * 
                      */
                     void SetModelVersionId(const std::string& _modelVersionId);
@@ -71,15 +75,15 @@ namespace TencentCloud
                     bool ModelVersionIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型id</p>
-                     * @return ModelId <p>模型id</p>
+                     * 获取模型id
+                     * @return ModelId 模型id
                      * 
                      */
                     std::string GetModelId() const;
 
                     /**
-                     * 设置<p>模型id</p>
-                     * @param _modelId <p>模型id</p>
+                     * 设置模型id
+                     * @param _modelId 模型id
                      * 
                      */
                     void SetModelId(const std::string& _modelId);
@@ -92,15 +96,15 @@ namespace TencentCloud
                     bool ModelIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型名</p>
-                     * @return ModelName <p>模型名</p>
+                     * 获取模型名
+                     * @return ModelName 模型名
                      * 
                      */
                     std::string GetModelName() const;
 
                     /**
-                     * 设置<p>模型名</p>
-                     * @param _modelName <p>模型名</p>
+                     * 设置模型名
+                     * @param _modelName 模型名
                      * 
                      */
                     void SetModelName(const std::string& _modelName);
@@ -113,15 +117,15 @@ namespace TencentCloud
                     bool ModelNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型版本</p>
-                     * @return ModelVersion <p>模型版本</p>
+                     * 获取模型版本
+                     * @return ModelVersion 模型版本
                      * 
                      */
                     std::string GetModelVersion() const;
 
                     /**
-                     * 设置<p>模型版本</p>
-                     * @param _modelVersion <p>模型版本</p>
+                     * 设置模型版本
+                     * @param _modelVersion 模型版本
                      * 
                      */
                     void SetModelVersion(const std::string& _modelVersion);
@@ -134,15 +138,15 @@ namespace TencentCloud
                     bool ModelVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型来源</p>
-                     * @return ModelSource <p>模型来源</p>
+                     * 获取模型来源
+                     * @return ModelSource 模型来源
                      * 
                      */
                     std::string GetModelSource() const;
 
                     /**
-                     * 设置<p>模型来源</p>
-                     * @param _modelSource <p>模型来源</p>
+                     * 设置模型来源
+                     * @param _modelSource 模型来源
                      * 
                      */
                     void SetModelSource(const std::string& _modelSource);
@@ -155,15 +159,15 @@ namespace TencentCloud
                     bool ModelSourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>cos路径信息</p>
-                     * @return CosPathInfo <p>cos路径信息</p>
+                     * 获取cos路径信息
+                     * @return CosPathInfo cos路径信息
                      * 
                      */
                     CosPathInfo GetCosPathInfo() const;
 
                     /**
-                     * 设置<p>cos路径信息</p>
-                     * @param _cosPathInfo <p>cos路径信息</p>
+                     * 设置cos路径信息
+                     * @param _cosPathInfo cos路径信息
                      * 
                      */
                     void SetCosPathInfo(const CosPathInfo& _cosPathInfo);
@@ -176,19 +180,15 @@ namespace TencentCloud
                     bool CosPathInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>GooseFSx的配置，ModelSource为GooseFSx时有效</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return GooseFSx <p>GooseFSx的配置，ModelSource为GooseFSx时有效</p>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 获取GooseFSx的配置，ModelSource为GooseFSx时有效
+                     * @return GooseFSx GooseFSx的配置，ModelSource为GooseFSx时有效
                      * 
                      */
                     GooseFSx GetGooseFSx() const;
 
                     /**
-                     * 设置<p>GooseFSx的配置，ModelSource为GooseFSx时有效</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _gooseFSx <p>GooseFSx的配置，ModelSource为GooseFSx时有效</p>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * 设置GooseFSx的配置，ModelSource为GooseFSx时有效
+                     * @param _gooseFSx GooseFSx的配置，ModelSource为GooseFSx时有效
                      * 
                      */
                     void SetGooseFSx(const GooseFSx& _gooseFSx);
@@ -201,18 +201,18 @@ namespace TencentCloud
                     bool GooseFSxHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型对应的算法框架，预留</p>
+                     * 获取模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AlgorithmFramework <p>模型对应的算法框架，预留</p>
+                     * @return AlgorithmFramework 模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetAlgorithmFramework() const;
 
                     /**
-                     * 设置<p>模型对应的算法框架，预留</p>
+                     * 设置模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _algorithmFramework <p>模型对应的算法框架，预留</p>
+                     * @param _algorithmFramework 模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -226,18 +226,18 @@ namespace TencentCloud
                     bool AlgorithmFrameworkHasBeenSet() const;
 
                     /**
-                     * 获取<p>默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML</p>
+                     * 获取默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ModelType <p>默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML</p>
+                     * @return ModelType 默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetModelType() const;
 
                     /**
-                     * 设置<p>默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML</p>
+                     * 设置默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _modelType <p>默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML</p>
+                     * @param _modelType 默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -251,18 +251,18 @@ namespace TencentCloud
                     bool ModelTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型格式</p>
+                     * 获取模型格式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ModelFormat <p>模型格式</p>
+                     * @return ModelFormat 模型格式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetModelFormat() const;
 
                     /**
-                     * 设置<p>模型格式</p>
+                     * 设置模型格式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _modelFormat <p>模型格式</p>
+                     * @param _modelFormat 模型格式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -276,18 +276,18 @@ namespace TencentCloud
                     bool ModelFormatHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否为私有化大模型</p>
+                     * 获取是否为私有化大模型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IsPrivateModel <p>是否为私有化大模型</p>
+                     * @return IsPrivateModel 是否为私有化大模型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     bool GetIsPrivateModel() const;
 
                     /**
-                     * 设置<p>是否为私有化大模型</p>
+                     * 设置是否为私有化大模型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _isPrivateModel <p>是否为私有化大模型</p>
+                     * @param _isPrivateModel 是否为私有化大模型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -301,15 +301,15 @@ namespace TencentCloud
                     bool IsPrivateModelHasBeenSet() const;
 
                     /**
-                     * 获取<p>模型的类别 多模态MultiModal, 文本大模型 LLM</p>
-                     * @return ModelCategory <p>模型的类别 多模态MultiModal, 文本大模型 LLM</p>
+                     * 获取模型的类别 多模态MultiModal, 文本大模型 LLM
+                     * @return ModelCategory 模型的类别 多模态MultiModal, 文本大模型 LLM
                      * 
                      */
                     std::string GetModelCategory() const;
 
                     /**
-                     * 设置<p>模型的类别 多模态MultiModal, 文本大模型 LLM</p>
-                     * @param _modelCategory <p>模型的类别 多模态MultiModal, 文本大模型 LLM</p>
+                     * 设置模型的类别 多模态MultiModal, 文本大模型 LLM
+                     * @param _modelCategory 模型的类别 多模态MultiModal, 文本大模型 LLM
                      * 
                      */
                     void SetModelCategory(const std::string& _modelCategory);
@@ -322,15 +322,15 @@ namespace TencentCloud
                     bool ModelCategoryHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源的配置</p>
-                     * @return PublicDataSource <p>数据源的配置</p>
+                     * 获取数据源的配置
+                     * @return PublicDataSource 数据源的配置
                      * 
                      */
                     PublicDataSourceFS GetPublicDataSource() const;
 
                     /**
-                     * 设置<p>数据源的配置</p>
-                     * @param _publicDataSource <p>数据源的配置</p>
+                     * 设置数据源的配置
+                     * @param _publicDataSource 数据源的配置
                      * 
                      */
                     void SetPublicDataSource(const PublicDataSourceFS& _publicDataSource);
@@ -345,84 +345,84 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>模型版本id, DescribeTrainingModelVersion查询模型接口时的id<br>自动学习类型的模型填写自动学习的任务id</p>
+                     * 模型版本id, DescribeTrainingModelVersion查询模型接口时的id
+自动学习类型的模型填写自动学习的任务id
                      */
                     std::string m_modelVersionId;
                     bool m_modelVersionIdHasBeenSet;
 
                     /**
-                     * <p>模型id</p>
+                     * 模型id
                      */
                     std::string m_modelId;
                     bool m_modelIdHasBeenSet;
 
                     /**
-                     * <p>模型名</p>
+                     * 模型名
                      */
                     std::string m_modelName;
                     bool m_modelNameHasBeenSet;
 
                     /**
-                     * <p>模型版本</p>
+                     * 模型版本
                      */
                     std::string m_modelVersion;
                     bool m_modelVersionHasBeenSet;
 
                     /**
-                     * <p>模型来源</p>
+                     * 模型来源
                      */
                     std::string m_modelSource;
                     bool m_modelSourceHasBeenSet;
 
                     /**
-                     * <p>cos路径信息</p>
+                     * cos路径信息
                      */
                     CosPathInfo m_cosPathInfo;
                     bool m_cosPathInfoHasBeenSet;
 
                     /**
-                     * <p>GooseFSx的配置，ModelSource为GooseFSx时有效</p>
-注意：此字段可能返回 null，表示取不到有效值。
+                     * GooseFSx的配置，ModelSource为GooseFSx时有效
                      */
                     GooseFSx m_gooseFSx;
                     bool m_gooseFSxHasBeenSet;
 
                     /**
-                     * <p>模型对应的算法框架，预留</p>
+                     * 模型对应的算法框架，预留
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_algorithmFramework;
                     bool m_algorithmFrameworkHasBeenSet;
 
                     /**
-                     * <p>默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML</p>
+                     * 默认为 NORMAL, 已加速模型: ACCELERATE, 自动学习模型 AUTO_ML
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_modelType;
                     bool m_modelTypeHasBeenSet;
 
                     /**
-                     * <p>模型格式</p>
+                     * 模型格式
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_modelFormat;
                     bool m_modelFormatHasBeenSet;
 
                     /**
-                     * <p>是否为私有化大模型</p>
+                     * 是否为私有化大模型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_isPrivateModel;
                     bool m_isPrivateModelHasBeenSet;
 
                     /**
-                     * <p>模型的类别 多模态MultiModal, 文本大模型 LLM</p>
+                     * 模型的类别 多模态MultiModal, 文本大模型 LLM
                      */
                     std::string m_modelCategory;
                     bool m_modelCategoryHasBeenSet;
 
                     /**
-                     * <p>数据源的配置</p>
+                     * 数据源的配置
                      */
                     PublicDataSourceFS m_publicDataSource;
                     bool m_publicDataSourceHasBeenSet;

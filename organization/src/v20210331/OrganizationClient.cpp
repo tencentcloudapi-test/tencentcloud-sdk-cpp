@@ -390,56 +390,6 @@ OrganizationClient::AddShareUnitMembersOutcomeCallable OrganizationClient::AddSh
     return prom->get_future();
 }
 
-OrganizationClient::AddShareUnitNodeOutcome OrganizationClient::AddShareUnitNode(const AddShareUnitNodeRequest &request)
-{
-    auto outcome = MakeRequest(request, "AddShareUnitNode");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        AddShareUnitNodeResponse rsp = AddShareUnitNodeResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return AddShareUnitNodeOutcome(rsp);
-        else
-            return AddShareUnitNodeOutcome(o.GetError());
-    }
-    else
-    {
-        return AddShareUnitNodeOutcome(outcome.GetError());
-    }
-}
-
-void OrganizationClient::AddShareUnitNodeAsync(const AddShareUnitNodeRequest& request, const AddShareUnitNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const AddShareUnitNodeRequest&;
-    using Resp = AddShareUnitNodeResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "AddShareUnitNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OrganizationClient::AddShareUnitNodeOutcomeCallable OrganizationClient::AddShareUnitNodeCallable(const AddShareUnitNodeRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<AddShareUnitNodeOutcome>>();
-    AddShareUnitNodeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddShareUnitNodeRequest&,
-        AddShareUnitNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 OrganizationClient::AddShareUnitResourcesOutcome OrganizationClient::AddShareUnitResources(const AddShareUnitResourcesRequest &request)
 {
     auto outcome = MakeRequest(request, "AddShareUnitResources");
@@ -2340,56 +2290,6 @@ OrganizationClient::DeleteShareUnitMembersOutcomeCallable OrganizationClient::De
     return prom->get_future();
 }
 
-OrganizationClient::DeleteShareUnitNodeOutcome OrganizationClient::DeleteShareUnitNode(const DeleteShareUnitNodeRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteShareUnitNode");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteShareUnitNodeResponse rsp = DeleteShareUnitNodeResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteShareUnitNodeOutcome(rsp);
-        else
-            return DeleteShareUnitNodeOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteShareUnitNodeOutcome(outcome.GetError());
-    }
-}
-
-void OrganizationClient::DeleteShareUnitNodeAsync(const DeleteShareUnitNodeRequest& request, const DeleteShareUnitNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteShareUnitNodeRequest&;
-    using Resp = DeleteShareUnitNodeResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteShareUnitNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OrganizationClient::DeleteShareUnitNodeOutcomeCallable OrganizationClient::DeleteShareUnitNodeCallable(const DeleteShareUnitNodeRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteShareUnitNodeOutcome>>();
-    DeleteShareUnitNodeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteShareUnitNodeRequest&,
-        DeleteShareUnitNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 OrganizationClient::DeleteShareUnitResourcesOutcome OrganizationClient::DeleteShareUnitResources(const DeleteShareUnitResourcesRequest &request)
 {
     auto outcome = MakeRequest(request, "DeleteShareUnitResources");
@@ -3490,56 +3390,6 @@ OrganizationClient::DescribeShareUnitMembersOutcomeCallable OrganizationClient::
     return prom->get_future();
 }
 
-OrganizationClient::DescribeShareUnitNodesOutcome OrganizationClient::DescribeShareUnitNodes(const DescribeShareUnitNodesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeShareUnitNodes");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeShareUnitNodesResponse rsp = DescribeShareUnitNodesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeShareUnitNodesOutcome(rsp);
-        else
-            return DescribeShareUnitNodesOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeShareUnitNodesOutcome(outcome.GetError());
-    }
-}
-
-void OrganizationClient::DescribeShareUnitNodesAsync(const DescribeShareUnitNodesRequest& request, const DescribeShareUnitNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeShareUnitNodesRequest&;
-    using Resp = DescribeShareUnitNodesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeShareUnitNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OrganizationClient::DescribeShareUnitNodesOutcomeCallable OrganizationClient::DescribeShareUnitNodesCallable(const DescribeShareUnitNodesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeShareUnitNodesOutcome>>();
-    DescribeShareUnitNodesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeShareUnitNodesRequest&,
-        DescribeShareUnitNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 OrganizationClient::DescribeShareUnitResourcesOutcome OrganizationClient::DescribeShareUnitResources(const DescribeShareUnitResourcesRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeShareUnitResources");
@@ -3932,56 +3782,6 @@ OrganizationClient::GetGroupOutcomeCallable OrganizationClient::GetGroupCallable
         const OrganizationClient*,
         const GetGroupRequest&,
         GetGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-OrganizationClient::GetIPWhitelistOutcome OrganizationClient::GetIPWhitelist(const GetIPWhitelistRequest &request)
-{
-    auto outcome = MakeRequest(request, "GetIPWhitelist");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GetIPWhitelistResponse rsp = GetIPWhitelistResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GetIPWhitelistOutcome(rsp);
-        else
-            return GetIPWhitelistOutcome(o.GetError());
-    }
-    else
-    {
-        return GetIPWhitelistOutcome(outcome.GetError());
-    }
-}
-
-void OrganizationClient::GetIPWhitelistAsync(const GetIPWhitelistRequest& request, const GetIPWhitelistAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const GetIPWhitelistRequest&;
-    using Resp = GetIPWhitelistResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "GetIPWhitelist", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OrganizationClient::GetIPWhitelistOutcomeCallable OrganizationClient::GetIPWhitelistCallable(const GetIPWhitelistRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<GetIPWhitelistOutcome>>();
-    GetIPWhitelistAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetIPWhitelistRequest&,
-        GetIPWhitelistOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -5982,56 +5782,6 @@ OrganizationClient::UpdateGroupOutcomeCallable OrganizationClient::UpdateGroupCa
         const OrganizationClient*,
         const UpdateGroupRequest&,
         UpdateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-OrganizationClient::UpdateIPWhitelistOutcome OrganizationClient::UpdateIPWhitelist(const UpdateIPWhitelistRequest &request)
-{
-    auto outcome = MakeRequest(request, "UpdateIPWhitelist");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        UpdateIPWhitelistResponse rsp = UpdateIPWhitelistResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return UpdateIPWhitelistOutcome(rsp);
-        else
-            return UpdateIPWhitelistOutcome(o.GetError());
-    }
-    else
-    {
-        return UpdateIPWhitelistOutcome(outcome.GetError());
-    }
-}
-
-void OrganizationClient::UpdateIPWhitelistAsync(const UpdateIPWhitelistRequest& request, const UpdateIPWhitelistAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const UpdateIPWhitelistRequest&;
-    using Resp = UpdateIPWhitelistResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "UpdateIPWhitelist", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-OrganizationClient::UpdateIPWhitelistOutcomeCallable OrganizationClient::UpdateIPWhitelistCallable(const UpdateIPWhitelistRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<UpdateIPWhitelistOutcome>>();
-    UpdateIPWhitelistAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateIPWhitelistRequest&,
-        UpdateIPWhitelistOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

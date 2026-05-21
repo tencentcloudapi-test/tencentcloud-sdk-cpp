@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/trocket/v20230308/model/RetryPolicy.h>
 
 
 namespace TencentCloud
@@ -63,6 +62,27 @@ namespace TencentCloud
                      * 
                      */
                     bool InstanceIdHasBeenSet() const;
+
+                    /**
+                     * 获取消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
+                     * @return ConsumerGroup 消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
+                     * 
+                     */
+                    std::string GetConsumerGroup() const;
+
+                    /**
+                     * 设置消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
+                     * @param _consumerGroup 消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
+                     * 
+                     */
+                    void SetConsumerGroup(const std::string& _consumerGroup);
+
+                    /**
+                     * 判断参数 ConsumerGroup 是否已赋值
+                     * @return ConsumerGroup 是否已赋值
+                     * 
+                     */
+                    bool ConsumerGroupHasBeenSet() const;
 
                     /**
                      * 获取是否开启消费
@@ -111,27 +131,6 @@ namespace TencentCloud
                     bool ConsumeMessageOrderlyHasBeenSet() const;
 
                     /**
-                     * 获取消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
-                     * @return ConsumerGroup 消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
-                     * 
-                     */
-                    std::string GetConsumerGroup() const;
-
-                    /**
-                     * 设置消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
-                     * @param _consumerGroup 消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
-                     * 
-                     */
-                    void SetConsumerGroup(const std::string& _consumerGroup);
-
-                    /**
-                     * 判断参数 ConsumerGroup 是否已赋值
-                     * @return ConsumerGroup 是否已赋值
-                     * 
-                     */
-                    bool ConsumerGroupHasBeenSet() const;
-
-                    /**
                      * 获取最大重试次数，取值范围0～1000
                      * @return MaxRetryTimes 最大重试次数，取值范围0～1000
                      * 
@@ -173,27 +172,6 @@ namespace TencentCloud
                      */
                     bool RemarkHasBeenSet() const;
 
-                    /**
-                     * 获取重试策略
-                     * @return RetryPolicy 重试策略
-                     * 
-                     */
-                    RetryPolicy GetRetryPolicy() const;
-
-                    /**
-                     * 设置重试策略
-                     * @param _retryPolicy 重试策略
-                     * 
-                     */
-                    void SetRetryPolicy(const RetryPolicy& _retryPolicy);
-
-                    /**
-                     * 判断参数 RetryPolicy 是否已赋值
-                     * @return RetryPolicy 是否已赋值
-                     * 
-                     */
-                    bool RetryPolicyHasBeenSet() const;
-
                 private:
 
                     /**
@@ -201,6 +179,12 @@ namespace TencentCloud
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
+
+                    /**
+                     * 消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
+                     */
+                    std::string m_consumerGroup;
+                    bool m_consumerGroupHasBeenSet;
 
                     /**
                      * 是否开启消费
@@ -216,12 +200,6 @@ namespace TencentCloud
                     bool m_consumeMessageOrderlyHasBeenSet;
 
                     /**
-                     * 消费组名称，从 [DescribeConsumerGroupList](https://cloud.tencent.com/document/api/1493/101535) 接口返回的 [ConsumeGroupItem](https://cloud.tencent.com/document/api/1493/96031#ConsumeGroupItem) 或控制台获得。
-                     */
-                    std::string m_consumerGroup;
-                    bool m_consumerGroupHasBeenSet;
-
-                    /**
                      * 最大重试次数，取值范围0～1000
                      */
                     int64_t m_maxRetryTimes;
@@ -232,12 +210,6 @@ namespace TencentCloud
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
-
-                    /**
-                     * 重试策略
-                     */
-                    RetryPolicy m_retryPolicy;
-                    bool m_retryPolicyHasBeenSet;
 
                 };
             }

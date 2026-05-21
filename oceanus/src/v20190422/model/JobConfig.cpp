@@ -54,15 +54,13 @@ JobConfig::JobConfig() :
     m_indexNameHasBeenSet(false),
     m_workspaceNameHasBeenSet(false),
     m_flinkVersionHasBeenSet(false),
-    m_jdkVersionHasBeenSet(false),
     m_jobManagerCpuHasBeenSet(false),
     m_jobManagerMemHasBeenSet(false),
     m_taskManagerCpuHasBeenSet(false),
     m_taskManagerMemHasBeenSet(false),
     m_jobConfigItemHasBeenSet(false),
     m_checkpointTimeoutSecondHasBeenSet(false),
-    m_checkpointIntervalSecondHasBeenSet(false),
-    m_variableReplaceModeHasBeenSet(false)
+    m_checkpointIntervalSecondHasBeenSet(false)
 {
 }
 
@@ -452,16 +450,6 @@ CoreInternalOutcome JobConfig::Deserialize(const rapidjson::Value &value)
         m_flinkVersionHasBeenSet = true;
     }
 
-    if (value.HasMember("JdkVersion") && !value["JdkVersion"].IsNull())
-    {
-        if (!value["JdkVersion"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `JobConfig.JdkVersion` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_jdkVersion = string(value["JdkVersion"].GetString());
-        m_jdkVersionHasBeenSet = true;
-    }
-
     if (value.HasMember("JobManagerCpu") && !value["JobManagerCpu"].IsNull())
     {
         if (!value["JobManagerCpu"].IsLosslessDouble())
@@ -509,7 +497,8 @@ CoreInternalOutcome JobConfig::Deserialize(const rapidjson::Value &value)
             return CoreInternalOutcome(Core::Error("response `JobConfig.JobConfigItem` is not object type").SetRequestId(requestId));
         }
 
-        CoreInternalOutcome outcome = m_jobConfigItem.Deserialize(value["JobConfigItem"]);
+        m_jobConfigItem = std::make_shared<JobConfig>();
+        CoreInternalOutcome outcome = m_jobConfigItem->Deserialize(value["JobConfigItem"]);
         if (!outcome.IsSuccess())
         {
             outcome.GetError().SetRequestId(requestId);
@@ -537,16 +526,6 @@ CoreInternalOutcome JobConfig::Deserialize(const rapidjson::Value &value)
         }
         m_checkpointIntervalSecond = value["CheckpointIntervalSecond"].GetInt64();
         m_checkpointIntervalSecondHasBeenSet = true;
-    }
-
-    if (value.HasMember("VariableReplaceMode") && !value["VariableReplaceMode"].IsNull())
-    {
-        if (!value["VariableReplaceMode"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `JobConfig.VariableReplaceMode` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_variableReplaceMode = value["VariableReplaceMode"].GetInt64();
-        m_variableReplaceModeHasBeenSet = true;
     }
 
 
@@ -844,14 +823,6 @@ void JobConfig::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         value.AddMember(iKey, rapidjson::Value(m_flinkVersion.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_jdkVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "JdkVersion";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_jdkVersion.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_jobManagerCpuHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -890,7 +861,10 @@ void JobConfig::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "JobConfigItem";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_jobConfigItem.ToJsonObject(value[key.c_str()], allocator);
+        if (m_jobConfigItem)
+        {
+            m_jobConfigItem->ToJsonObject(value[key.c_str()], allocator);
+        }
     }
 
     if (m_checkpointTimeoutSecondHasBeenSet)
@@ -907,14 +881,6 @@ void JobConfig::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "CheckpointIntervalSecond";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_checkpointIntervalSecond, allocator);
-    }
-
-    if (m_variableReplaceModeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "VariableReplaceMode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_variableReplaceMode, allocator);
     }
 
 }
@@ -1448,22 +1414,6 @@ bool JobConfig::FlinkVersionHasBeenSet() const
     return m_flinkVersionHasBeenSet;
 }
 
-string JobConfig::GetJdkVersion() const
-{
-    return m_jdkVersion;
-}
-
-void JobConfig::SetJdkVersion(const string& _jdkVersion)
-{
-    m_jdkVersion = _jdkVersion;
-    m_jdkVersionHasBeenSet = true;
-}
-
-bool JobConfig::JdkVersionHasBeenSet() const
-{
-    return m_jdkVersionHasBeenSet;
-}
-
 double JobConfig::GetJobManagerCpu() const
 {
     return m_jobManagerCpu;
@@ -1528,12 +1478,12 @@ bool JobConfig::TaskManagerMemHasBeenSet() const
     return m_taskManagerMemHasBeenSet;
 }
 
-JobConfig JobConfig::GetJobConfigItem() const
+shared_ptr<JobConfig> JobConfig::GetJobConfigItem() const
 {
     return m_jobConfigItem;
 }
 
-void JobConfig::SetJobConfigItem(const JobConfig& _jobConfigItem)
+void JobConfig::SetJobConfigItem(const shared_ptr<JobConfig>& _jobConfigItem)
 {
     m_jobConfigItem = _jobConfigItem;
     m_jobConfigItemHasBeenSet = true;
@@ -1574,21 +1524,5 @@ void JobConfig::SetCheckpointIntervalSecond(const int64_t& _checkpointIntervalSe
 bool JobConfig::CheckpointIntervalSecondHasBeenSet() const
 {
     return m_checkpointIntervalSecondHasBeenSet;
-}
-
-int64_t JobConfig::GetVariableReplaceMode() const
-{
-    return m_variableReplaceMode;
-}
-
-void JobConfig::SetVariableReplaceMode(const int64_t& _variableReplaceMode)
-{
-    m_variableReplaceMode = _variableReplaceMode;
-    m_variableReplaceModeHasBeenSet = true;
-}
-
-bool JobConfig::VariableReplaceModeHasBeenSet() const
-{
-    return m_variableReplaceModeHasBeenSet;
 }
 

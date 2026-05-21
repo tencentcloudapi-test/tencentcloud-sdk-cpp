@@ -44,8 +44,12 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>生成的认证链接。</p><p>注： <code>链接有效期统一30天</code></p>
-                     * @return AuthUrl <p>生成的认证链接。</p><p>注： <code>链接有效期统一30天</code></p>
+                     * 获取生成的认证链接。
+
+注： `链接有效期统一30天`
+                     * @return AuthUrl 生成的认证链接。
+
+注： `链接有效期统一30天`
                      * 
                      */
                     std::string GetAuthUrl() const;
@@ -58,8 +62,8 @@ namespace TencentCloud
                     bool AuthUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>链接过期时间，格式为Unix标准时间戳（秒）</p>
-                     * @return ExpiredTime <p>链接过期时间，格式为Unix标准时间戳（秒）</p>
+                     * 获取链接过期时间，格式为Unix标准时间戳（秒）
+                     * @return ExpiredTime 链接过期时间，格式为Unix标准时间戳（秒）
                      * 
                      */
                     int64_t GetExpiredTime() const;
@@ -74,13 +78,15 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>生成的认证链接。</p><p>注： <code>链接有效期统一30天</code></p>
+                     * 生成的认证链接。
+
+注： `链接有效期统一30天`
                      */
                     std::string m_authUrl;
                     bool m_authUrlHasBeenSet;
 
                     /**
-                     * <p>链接过期时间，格式为Unix标准时间戳（秒）</p>
+                     * 链接过期时间，格式为Unix标准时间戳（秒）
                      */
                     int64_t m_expiredTime;
                     bool m_expiredTimeHasBeenSet;

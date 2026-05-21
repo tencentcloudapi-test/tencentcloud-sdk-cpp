@@ -44,9 +44,7 @@ InOutputBotUCBRule::InOutputBotUCBRule() :
     m_validStatusHasBeenSet(false),
     m_blockPageIdHasBeenSet(false),
     m_actionListHasBeenSet(false),
-    m_delayTimeHasBeenSet(false),
-    m_batchHasBeenSet(false),
-    m_hitCountHasBeenSet(false)
+    m_delayTimeHasBeenSet(false)
 {
 }
 
@@ -322,26 +320,6 @@ CoreInternalOutcome InOutputBotUCBRule::Deserialize(const rapidjson::Value &valu
         m_delayTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("Batch") && !value["Batch"].IsNull())
-    {
-        if (!value["Batch"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `InOutputBotUCBRule.Batch` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_batch = value["Batch"].GetInt64();
-        m_batchHasBeenSet = true;
-    }
-
-    if (value.HasMember("HitCount") && !value["HitCount"].IsNull())
-    {
-        if (!value["HitCount"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `InOutputBotUCBRule.HitCount` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_hitCount = value["HitCount"].GetUint64();
-        m_hitCountHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -554,22 +532,6 @@ void InOutputBotUCBRule::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "DelayTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_delayTime, allocator);
-    }
-
-    if (m_batchHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Batch";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_batch, allocator);
-    }
-
-    if (m_hitCountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "HitCount";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_hitCount, allocator);
     }
 
 }
@@ -957,37 +919,5 @@ void InOutputBotUCBRule::SetDelayTime(const int64_t& _delayTime)
 bool InOutputBotUCBRule::DelayTimeHasBeenSet() const
 {
     return m_delayTimeHasBeenSet;
-}
-
-int64_t InOutputBotUCBRule::GetBatch() const
-{
-    return m_batch;
-}
-
-void InOutputBotUCBRule::SetBatch(const int64_t& _batch)
-{
-    m_batch = _batch;
-    m_batchHasBeenSet = true;
-}
-
-bool InOutputBotUCBRule::BatchHasBeenSet() const
-{
-    return m_batchHasBeenSet;
-}
-
-uint64_t InOutputBotUCBRule::GetHitCount() const
-{
-    return m_hitCount;
-}
-
-void InOutputBotUCBRule::SetHitCount(const uint64_t& _hitCount)
-{
-    m_hitCount = _hitCount;
-    m_hitCountHasBeenSet = true;
-}
-
-bool InOutputBotUCBRule::HitCountHasBeenSet() const
-{
-    return m_hitCountHasBeenSet;
 }
 

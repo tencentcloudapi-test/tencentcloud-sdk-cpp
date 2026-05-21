@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>项目id</p>
-                     * @return ProjectId <p>项目id</p>
+                     * 获取项目id
+                     * @return ProjectId 项目id
                      * 
                      */
                     std::string GetProjectId() const;
 
                     /**
-                     * 设置<p>项目id</p>
-                     * @param _projectId <p>项目id</p>
+                     * 设置项目id
+                     * @param _projectId 项目id
                      * 
                      */
                     void SetProjectId(const std::string& _projectId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据源id</p>
-                     * @return Id <p>数据源id</p>
+                     * 获取数据源id
+                     * @return Id 数据源id
                      * 
                      */
                     int64_t GetId() const;
 
                     /**
-                     * 设置<p>数据源id</p>
-                     * @param _id <p>数据源id</p>
+                     * 设置数据源id
+                     * @param _id 数据源id
                      * 
                      */
                     void SetId(const int64_t& _id);
@@ -87,13 +87,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>项目id</p>
+                     * 项目id
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>数据源id</p>
+                     * 数据源id
                      */
                     int64_t m_id;
                     bool m_idHasBeenSet;

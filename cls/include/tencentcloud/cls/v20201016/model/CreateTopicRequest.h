@@ -45,15 +45,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>日志集ID</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/58624">获取日志集列表</a>获取日志集Id。</li></ul>
-                     * @return LogsetId <p>日志集ID</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/58624">获取日志集列表</a>获取日志集Id。</li></ul>
+                     * 获取日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
+                     * @return LogsetId 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
                      * 
                      */
                     std::string GetLogsetId() const;
 
                     /**
-                     * 设置<p>日志集ID</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/58624">获取日志集列表</a>获取日志集Id。</li></ul>
-                     * @param _logsetId <p>日志集ID</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/58624">获取日志集列表</a>获取日志集Id。</li></ul>
+                     * 设置日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
+                     * @param _logsetId 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
                      * 
                      */
                     void SetLogsetId(const std::string& _logsetId);
@@ -66,15 +70,35 @@ namespace TencentCloud
                     bool LogsetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题名称<br>名称限制</p><ul><li>不能为空字符串</li><li>不能包含字符&#39;|&#39;</li><li>不能使用以下名称[&quot;cls_service_log&quot;,&quot;loglistener_status&quot;,&quot;loglistener_alarm&quot;,&quot;loglistener_business&quot;,&quot;cls_service_metric&quot;]</li></ul>
-                     * @return TopicName <p>主题名称<br>名称限制</p><ul><li>不能为空字符串</li><li>不能包含字符&#39;|&#39;</li><li>不能使用以下名称[&quot;cls_service_log&quot;,&quot;loglistener_status&quot;,&quot;loglistener_alarm&quot;,&quot;loglistener_business&quot;,&quot;cls_service_metric&quot;]</li></ul>
+                     * 获取主题名称
+名称限制
+- 不能为空字符串
+- 不能包含字符'|'
+- 不能使用以下名称["cls_service_log","loglistener_status","loglistener_alarm","loglistener_business","cls_service_metric"]
+
+                     * @return TopicName 主题名称
+名称限制
+- 不能为空字符串
+- 不能包含字符'|'
+- 不能使用以下名称["cls_service_log","loglistener_status","loglistener_alarm","loglistener_business","cls_service_metric"]
+
                      * 
                      */
                     std::string GetTopicName() const;
 
                     /**
-                     * 设置<p>主题名称<br>名称限制</p><ul><li>不能为空字符串</li><li>不能包含字符&#39;|&#39;</li><li>不能使用以下名称[&quot;cls_service_log&quot;,&quot;loglistener_status&quot;,&quot;loglistener_alarm&quot;,&quot;loglistener_business&quot;,&quot;cls_service_metric&quot;]</li></ul>
-                     * @param _topicName <p>主题名称<br>名称限制</p><ul><li>不能为空字符串</li><li>不能包含字符&#39;|&#39;</li><li>不能使用以下名称[&quot;cls_service_log&quot;,&quot;loglistener_status&quot;,&quot;loglistener_alarm&quot;,&quot;loglistener_business&quot;,&quot;cls_service_metric&quot;]</li></ul>
+                     * 设置主题名称
+名称限制
+- 不能为空字符串
+- 不能包含字符'|'
+- 不能使用以下名称["cls_service_log","loglistener_status","loglistener_alarm","loglistener_business","cls_service_metric"]
+
+                     * @param _topicName 主题名称
+名称限制
+- 不能为空字符串
+- 不能包含字符'|'
+- 不能使用以下名称["cls_service_log","loglistener_status","loglistener_alarm","loglistener_business","cls_service_metric"]
+
                      * 
                      */
                     void SetTopicName(const std::string& _topicName);
@@ -87,15 +111,15 @@ namespace TencentCloud
                     bool TopicNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题分区个数。默认创建1个，最大支持创建10个分区。</p>
-                     * @return PartitionCount <p>主题分区个数。默认创建1个，最大支持创建10个分区。</p>
+                     * 获取主题分区个数。默认创建1个，最大支持创建10个分区。
+                     * @return PartitionCount 主题分区个数。默认创建1个，最大支持创建10个分区。
                      * 
                      */
                     int64_t GetPartitionCount() const;
 
                     /**
-                     * 设置<p>主题分区个数。默认创建1个，最大支持创建10个分区。</p>
-                     * @param _partitionCount <p>主题分区个数。默认创建1个，最大支持创建10个分区。</p>
+                     * 设置主题分区个数。默认创建1个，最大支持创建10个分区。
+                     * @param _partitionCount 主题分区个数。默认创建1个，最大支持创建10个分区。
                      * 
                      */
                     void SetPartitionCount(const int64_t& _partitionCount);
@@ -108,15 +132,15 @@ namespace TencentCloud
                     bool PartitionCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。</p>
-                     * @return Tags <p>标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。</p>
+                     * 获取标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。
+                     * @return Tags 标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。</p>
-                     * @param _tags <p>标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。</p>
+                     * 设置标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。
+                     * @param _tags 标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -129,15 +153,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启自动分裂，默认值为true</p>
-                     * @return AutoSplit <p>是否开启自动分裂，默认值为true</p>
+                     * 获取是否开启自动分裂，默认值为true
+                     * @return AutoSplit 是否开启自动分裂，默认值为true
                      * 
                      */
                     bool GetAutoSplit() const;
 
                     /**
-                     * 设置<p>是否开启自动分裂，默认值为true</p>
-                     * @param _autoSplit <p>是否开启自动分裂，默认值为true</p>
+                     * 设置是否开启自动分裂，默认值为true
+                     * @param _autoSplit 是否开启自动分裂，默认值为true
                      * 
                      */
                     void SetAutoSplit(const bool& _autoSplit);
@@ -150,15 +174,15 @@ namespace TencentCloud
                     bool AutoSplitHasBeenSet() const;
 
                     /**
-                     * 获取<p>开启自动分裂后，每个主题能够允许的最大分区数，默认值为50</p>
-                     * @return MaxSplitPartitions <p>开启自动分裂后，每个主题能够允许的最大分区数，默认值为50</p>
+                     * 获取开启自动分裂后，每个主题能够允许的最大分区数，默认值为50
+                     * @return MaxSplitPartitions 开启自动分裂后，每个主题能够允许的最大分区数，默认值为50
                      * 
                      */
                     int64_t GetMaxSplitPartitions() const;
 
                     /**
-                     * 设置<p>开启自动分裂后，每个主题能够允许的最大分区数，默认值为50</p>
-                     * @param _maxSplitPartitions <p>开启自动分裂后，每个主题能够允许的最大分区数，默认值为50</p>
+                     * 设置开启自动分裂后，每个主题能够允许的最大分区数，默认值为50
+                     * @param _maxSplitPartitions 开启自动分裂后，每个主题能够允许的最大分区数，默认值为50
                      * 
                      */
                     void SetMaxSplitPartitions(const int64_t& _maxSplitPartitions);
@@ -171,15 +195,15 @@ namespace TencentCloud
                     bool MaxSplitPartitionsHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。</p>
-                     * @return StorageType <p>日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。</p>
+                     * 获取日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。
+                     * @return StorageType 日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。
                      * 
                      */
                     std::string GetStorageType() const;
 
                     /**
-                     * 设置<p>日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。</p>
-                     * @param _storageType <p>日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。</p>
+                     * 设置日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。
+                     * @param _storageType 日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。
                      * 
                      */
                     void SetStorageType(const std::string& _storageType);
@@ -192,15 +216,27 @@ namespace TencentCloud
                     bool StorageTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储时间，单位天。</p><ul><li>日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。</li><li>日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。</li><li>指标主题：支持1至3600天，值为3640时代表永久保存。</li></ul>
-                     * @return Period <p>存储时间，单位天。</p><ul><li>日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。</li><li>日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。</li><li>指标主题：支持1至3600天，值为3640时代表永久保存。</li></ul>
+                     * 获取存储时间，单位天。
+- 日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
+- 指标主题：支持1至3600天，值为3640时代表永久保存。
+                     * @return Period 存储时间，单位天。
+- 日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
+- 指标主题：支持1至3600天，值为3640时代表永久保存。
                      * 
                      */
                     int64_t GetPeriod() const;
 
                     /**
-                     * 设置<p>存储时间，单位天。</p><ul><li>日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。</li><li>日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。</li><li>指标主题：支持1至3600天，值为3640时代表永久保存。</li></ul>
-                     * @param _period <p>存储时间，单位天。</p><ul><li>日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。</li><li>日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。</li><li>指标主题：支持1至3600天，值为3640时代表永久保存。</li></ul>
+                     * 设置存储时间，单位天。
+- 日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
+- 指标主题：支持1至3600天，值为3640时代表永久保存。
+                     * @param _period 存储时间，单位天。
+- 日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
+- 指标主题：支持1至3600天，值为3640时代表永久保存。
                      * 
                      */
                     void SetPeriod(const int64_t& _period);
@@ -213,15 +249,15 @@ namespace TencentCloud
                     bool PeriodHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题描述</p>
-                     * @return Describes <p>主题描述</p>
+                     * 获取主题描述
+                     * @return Describes 主题描述
                      * 
                      */
                     std::string GetDescribes() const;
 
                     /**
-                     * 设置<p>主题描述</p>
-                     * @param _describes <p>主题描述</p>
+                     * 设置主题描述
+                     * @param _describes 主题描述
                      * 
                      */
                     void SetDescribes(const std::string& _describes);
@@ -234,15 +270,23 @@ namespace TencentCloud
                     bool DescribesHasBeenSet() const;
 
                     /**
-                     * 获取<p>0：日志主题关闭日志沉降。<br>非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。<br>仅在StorageType为 hot 时生效，指标主题不支持该配置。</p>
-                     * @return HotPeriod <p>0：日志主题关闭日志沉降。<br>非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。<br>仅在StorageType为 hot 时生效，指标主题不支持该配置。</p>
+                     * 获取0：日志主题关闭日志沉降。
+非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。
+仅在StorageType为 hot 时生效，指标主题不支持该配置。
+                     * @return HotPeriod 0：日志主题关闭日志沉降。
+非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。
+仅在StorageType为 hot 时生效，指标主题不支持该配置。
                      * 
                      */
                     uint64_t GetHotPeriod() const;
 
                     /**
-                     * 设置<p>0：日志主题关闭日志沉降。<br>非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。<br>仅在StorageType为 hot 时生效，指标主题不支持该配置。</p>
-                     * @param _hotPeriod <p>0：日志主题关闭日志沉降。<br>非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。<br>仅在StorageType为 hot 时生效，指标主题不支持该配置。</p>
+                     * 设置0：日志主题关闭日志沉降。
+非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。
+仅在StorageType为 hot 时生效，指标主题不支持该配置。
+                     * @param _hotPeriod 0：日志主题关闭日志沉降。
+非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。
+仅在StorageType为 hot 时生效，指标主题不支持该配置。
                      * 
                      */
                     void SetHotPeriod(const uint64_t& _hotPeriod);
@@ -255,15 +299,31 @@ namespace TencentCloud
                     bool HotPeriodHasBeenSet() const;
 
                     /**
-                     * 获取<p>加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。<br>0或者不传： 不加密<br>1：kms-cls 云产品密钥加密</p><p>支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo</p>
-                     * @return Encryption <p>加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。<br>0或者不传： 不加密<br>1：kms-cls 云产品密钥加密</p><p>支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo</p>
+                     * 获取加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。
+0或者不传： 不加密
+1：kms-cls 云产品密钥加密
+
+支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo
+                     * @return Encryption 加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。
+0或者不传： 不加密
+1：kms-cls 云产品密钥加密
+
+支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo
                      * 
                      */
                     uint64_t GetEncryption() const;
 
                     /**
-                     * 设置<p>加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。<br>0或者不传： 不加密<br>1：kms-cls 云产品密钥加密</p><p>支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo</p>
-                     * @param _encryption <p>加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。<br>0或者不传： 不加密<br>1：kms-cls 云产品密钥加密</p><p>支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo</p>
+                     * 设置加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。
+0或者不传： 不加密
+1：kms-cls 云产品密钥加密
+
+支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo
+                     * @param _encryption 加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。
+0或者不传： 不加密
+1：kms-cls 云产品密钥加密
+
+支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo
                      * 
                      */
                     void SetEncryption(const uint64_t& _encryption);
@@ -276,15 +336,23 @@ namespace TencentCloud
                     bool EncryptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
-                     * @return BizType <p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
+                     * 获取主题类型
+- 0:日志主题，默认值
+- 1:指标主题
+                     * @return BizType 主题类型
+- 0:日志主题，默认值
+- 1:指标主题
                      * 
                      */
                     uint64_t GetBizType() const;
 
                     /**
-                     * 设置<p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
-                     * @param _bizType <p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
+                     * 设置主题类型
+- 0:日志主题，默认值
+- 1:指标主题
+                     * @param _bizType 主题类型
+- 0:日志主题，默认值
+- 1:指标主题
                      * 
                      */
                     void SetBizType(const uint64_t& _bizType);
@@ -297,15 +365,27 @@ namespace TencentCloud
                     bool BizTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。</p><ul><li>用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符</li><li>尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。</li><li>如果指定该字段，需保证全地域唯一</li></ul>
-                     * @return TopicId <p>主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。</p><ul><li>用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符</li><li>尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。</li><li>如果指定该字段，需保证全地域唯一</li></ul>
+                     * 获取主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。
+- 用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符
+- 尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。
+- 如果指定该字段，需保证全地域唯一
+                     * @return TopicId 主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。
+- 用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符
+- 尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。
+- 如果指定该字段，需保证全地域唯一
                      * 
                      */
                     std::string GetTopicId() const;
 
                     /**
-                     * 设置<p>主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。</p><ul><li>用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符</li><li>尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。</li><li>如果指定该字段，需保证全地域唯一</li></ul>
-                     * @param _topicId <p>主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。</p><ul><li>用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符</li><li>尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。</li><li>如果指定该字段，需保证全地域唯一</li></ul>
+                     * 设置主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。
+- 用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符
+- 尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。
+- 如果指定该字段，需保证全地域唯一
+                     * @param _topicId 主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。
+- 用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符
+- 尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。
+- 如果指定该字段，需保证全地域唯一
                      * 
                      */
                     void SetTopicId(const std::string& _topicId);
@@ -318,15 +398,19 @@ namespace TencentCloud
                     bool TopicIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>免鉴权开关。 false：关闭； true：开启。默认为false。<br>开启后将支持指定操作匿名访问该日志主题。详情请参见<a href="https://cloud.tencent.com/document/product/614/41035">日志主题</a>。指标主题不支持该配置。</p>
-                     * @return IsWebTracking <p>免鉴权开关。 false：关闭； true：开启。默认为false。<br>开启后将支持指定操作匿名访问该日志主题。详情请参见<a href="https://cloud.tencent.com/document/product/614/41035">日志主题</a>。指标主题不支持该配置。</p>
+                     * 获取免鉴权开关。 false：关闭； true：开启。默认为false。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。指标主题不支持该配置。
+                     * @return IsWebTracking 免鉴权开关。 false：关闭； true：开启。默认为false。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。指标主题不支持该配置。
                      * 
                      */
                     bool GetIsWebTracking() const;
 
                     /**
-                     * 设置<p>免鉴权开关。 false：关闭； true：开启。默认为false。<br>开启后将支持指定操作匿名访问该日志主题。详情请参见<a href="https://cloud.tencent.com/document/product/614/41035">日志主题</a>。指标主题不支持该配置。</p>
-                     * @param _isWebTracking <p>免鉴权开关。 false：关闭； true：开启。默认为false。<br>开启后将支持指定操作匿名访问该日志主题。详情请参见<a href="https://cloud.tencent.com/document/product/614/41035">日志主题</a>。指标主题不支持该配置。</p>
+                     * 设置免鉴权开关。 false：关闭； true：开启。默认为false。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。指标主题不支持该配置。
+                     * @param _isWebTracking 免鉴权开关。 false：关闭； true：开启。默认为false。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。指标主题不支持该配置。
                      * 
                      */
                     void SetIsWebTracking(const bool& _isWebTracking);
@@ -339,15 +423,15 @@ namespace TencentCloud
                     bool IsWebTrackingHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题扩展信息</p>
-                     * @return Extends <p>主题扩展信息</p>
+                     * 获取主题扩展信息
+                     * @return Extends 主题扩展信息
                      * 
                      */
                     TopicExtendInfo GetExtends() const;
 
                     /**
-                     * 设置<p>主题扩展信息</p>
-                     * @param _extends <p>主题扩展信息</p>
+                     * 设置主题扩展信息
+                     * @param _extends 主题扩展信息
                      * 
                      */
                     void SetExtends(const TopicExtendInfo& _extends);
@@ -360,15 +444,15 @@ namespace TencentCloud
                     bool ExtendsHasBeenSet() const;
 
                     /**
-                     * 获取<p>开启记录公网来源ip和服务端接收时间</p>
-                     * @return IsSourceFrom <p>开启记录公网来源ip和服务端接收时间</p>
+                     * 获取开启记录公网来源ip和服务端接收时间
+                     * @return IsSourceFrom 开启记录公网来源ip和服务端接收时间
                      * 
                      */
                     bool GetIsSourceFrom() const;
 
                     /**
-                     * 设置<p>开启记录公网来源ip和服务端接收时间</p>
-                     * @param _isSourceFrom <p>开启记录公网来源ip和服务端接收时间</p>
+                     * 设置开启记录公网来源ip和服务端接收时间
+                     * @param _isSourceFrom 开启记录公网来源ip和服务端接收时间
                      * 
                      */
                     void SetIsSourceFrom(const bool& _isSourceFrom);
@@ -380,130 +464,124 @@ namespace TencentCloud
                      */
                     bool IsSourceFromHasBeenSet() const;
 
-                    /**
-                     * 获取<p>计费模式</p><p>枚举值：</p><ul><li>0： 按使用功能计费</li><li>1： 按原始日志量计费（目前仅面向少部分客户支持）</li></ul><p>默认值：0</p>
-                     * @return BillingMode <p>计费模式</p><p>枚举值：</p><ul><li>0： 按使用功能计费</li><li>1： 按原始日志量计费（目前仅面向少部分客户支持）</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    uint64_t GetBillingMode() const;
-
-                    /**
-                     * 设置<p>计费模式</p><p>枚举值：</p><ul><li>0： 按使用功能计费</li><li>1： 按原始日志量计费（目前仅面向少部分客户支持）</li></ul><p>默认值：0</p>
-                     * @param _billingMode <p>计费模式</p><p>枚举值：</p><ul><li>0： 按使用功能计费</li><li>1： 按原始日志量计费（目前仅面向少部分客户支持）</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    void SetBillingMode(const uint64_t& _billingMode);
-
-                    /**
-                     * 判断参数 BillingMode 是否已赋值
-                     * @return BillingMode 是否已赋值
-                     * 
-                     */
-                    bool BillingModeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>日志集ID</p><ul><li>通过<a href="https://cloud.tencent.com/document/product/614/58624">获取日志集列表</a>获取日志集Id。</li></ul>
+                     * 日志集ID
+- 通过[获取日志集列表](https://cloud.tencent.com/document/product/614/58624)获取日志集Id。
                      */
                     std::string m_logsetId;
                     bool m_logsetIdHasBeenSet;
 
                     /**
-                     * <p>主题名称<br>名称限制</p><ul><li>不能为空字符串</li><li>不能包含字符&#39;|&#39;</li><li>不能使用以下名称[&quot;cls_service_log&quot;,&quot;loglistener_status&quot;,&quot;loglistener_alarm&quot;,&quot;loglistener_business&quot;,&quot;cls_service_metric&quot;]</li></ul>
+                     * 主题名称
+名称限制
+- 不能为空字符串
+- 不能包含字符'|'
+- 不能使用以下名称["cls_service_log","loglistener_status","loglistener_alarm","loglistener_business","cls_service_metric"]
+
                      */
                     std::string m_topicName;
                     bool m_topicNameHasBeenSet;
 
                     /**
-                     * <p>主题分区个数。默认创建1个，最大支持创建10个分区。</p>
+                     * 主题分区个数。默认创建1个，最大支持创建10个分区。
                      */
                     int64_t m_partitionCount;
                     bool m_partitionCountHasBeenSet;
 
                     /**
-                     * <p>标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。</p>
+                     * 标签描述列表，通过指定该参数可以同时绑定标签到相应的主题。最大支持10个标签键值对，同一个资源只能绑定到同一个标签键下。
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>是否开启自动分裂，默认值为true</p>
+                     * 是否开启自动分裂，默认值为true
                      */
                     bool m_autoSplit;
                     bool m_autoSplitHasBeenSet;
 
                     /**
-                     * <p>开启自动分裂后，每个主题能够允许的最大分区数，默认值为50</p>
+                     * 开启自动分裂后，每个主题能够允许的最大分区数，默认值为50
                      */
                     int64_t m_maxSplitPartitions;
                     bool m_maxSplitPartitionsHasBeenSet;
 
                     /**
-                     * <p>日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。</p>
+                     * 日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。指标主题不支持该配置。
                      */
                     std::string m_storageType;
                     bool m_storageTypeHasBeenSet;
 
                     /**
-                     * <p>存储时间，单位天。</p><ul><li>日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。</li><li>日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。</li><li>指标主题：支持1至3600天，值为3640时代表永久保存。</li></ul>
+                     * 存储时间，单位天。
+- 日志主题：日志接入标准存储时，支持1至3600天，值为3640时代表永久保存。
+- 日志主题：日志接入低频存储时，支持7至3600天，值为3640时代表永久保存。
+- 指标主题：支持1至3600天，值为3640时代表永久保存。
                      */
                     int64_t m_period;
                     bool m_periodHasBeenSet;
 
                     /**
-                     * <p>主题描述</p>
+                     * 主题描述
                      */
                     std::string m_describes;
                     bool m_describesHasBeenSet;
 
                     /**
-                     * <p>0：日志主题关闭日志沉降。<br>非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。<br>仅在StorageType为 hot 时生效，指标主题不支持该配置。</p>
+                     * 0：日志主题关闭日志沉降。
+非0：日志主题开启日志沉降后标准存储的天数，HotPeriod需要大于等于7，且小于Period。
+仅在StorageType为 hot 时生效，指标主题不支持该配置。
                      */
                     uint64_t m_hotPeriod;
                     bool m_hotPeriodHasBeenSet;
 
                     /**
-                     * <p>加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。<br>0或者不传： 不加密<br>1：kms-cls 云产品密钥加密</p><p>支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo</p>
+                     * 加密相关参数。 支持加密地域并且开白用户可以传此参数，其他场景不能传递该参数。
+0或者不传： 不加密
+1：kms-cls 云产品密钥加密
+
+支持地域：ap-beijing,ap-guangzhou,ap-shanghai,ap-singapore,ap-bangkok,ap-jakarta,eu-frankfurt,ap-seoul,ap-tokyo
                      */
                     uint64_t m_encryption;
                     bool m_encryptionHasBeenSet;
 
                     /**
-                     * <p>主题类型</p><ul><li>0:日志主题，默认值</li><li>1:指标主题</li></ul>
+                     * 主题类型
+- 0:日志主题，默认值
+- 1:指标主题
                      */
                     uint64_t m_bizType;
                     bool m_bizTypeHasBeenSet;
 
                     /**
-                     * <p>主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。</p><ul><li>用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符</li><li>尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。</li><li>如果指定该字段，需保证全地域唯一</li></ul>
+                     * 主题自定义ID，格式为：用户自定义部分-用户APPID。未填写该参数时将自动生成ID。
+- 用户自定义部分仅支持小写字母、数字和-，且不能以-开头和结尾，长度为3至40字符
+- 尾部需要使用-拼接用户APPID，APPID可在https://console.cloud.tencent.com/developer页面查询。
+- 如果指定该字段，需保证全地域唯一
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;
 
                     /**
-                     * <p>免鉴权开关。 false：关闭； true：开启。默认为false。<br>开启后将支持指定操作匿名访问该日志主题。详情请参见<a href="https://cloud.tencent.com/document/product/614/41035">日志主题</a>。指标主题不支持该配置。</p>
+                     * 免鉴权开关。 false：关闭； true：开启。默认为false。
+开启后将支持指定操作匿名访问该日志主题。详情请参见[日志主题](https://cloud.tencent.com/document/product/614/41035)。指标主题不支持该配置。
                      */
                     bool m_isWebTracking;
                     bool m_isWebTrackingHasBeenSet;
 
                     /**
-                     * <p>主题扩展信息</p>
+                     * 主题扩展信息
                      */
                     TopicExtendInfo m_extends;
                     bool m_extendsHasBeenSet;
 
                     /**
-                     * <p>开启记录公网来源ip和服务端接收时间</p>
+                     * 开启记录公网来源ip和服务端接收时间
                      */
                     bool m_isSourceFrom;
                     bool m_isSourceFromHasBeenSet;
-
-                    /**
-                     * <p>计费模式</p><p>枚举值：</p><ul><li>0： 按使用功能计费</li><li>1： 按原始日志量计费（目前仅面向少部分客户支持）</li></ul><p>默认值：0</p>
-                     */
-                    uint64_t m_billingMode;
-                    bool m_billingModeHasBeenSet;
 
                 };
             }

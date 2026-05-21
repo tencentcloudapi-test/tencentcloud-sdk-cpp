@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>节点运行的ID</p>
-                     * @return NodeRunId <p>节点运行的ID</p>
+                     * 获取节点运行的ID
+                     * @return NodeRunId 节点运行的ID
                      * 
                      */
                     std::string GetNodeRunId() const;
 
                     /**
-                     * 设置<p>节点运行的ID</p>
-                     * @param _nodeRunId <p>节点运行的ID</p>
+                     * 设置节点运行的ID
+                     * @param _nodeRunId 节点运行的ID
                      * 
                      */
                     void SetNodeRunId(const std::string& _nodeRunId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool NodeRunIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点ID</p>
-                     * @return NodeId <p>节点ID</p>
+                     * 获取节点ID
+                     * @return NodeId 节点ID
                      * 
                      */
                     std::string GetNodeId() const;
 
                     /**
-                     * 设置<p>节点ID</p>
-                     * @param _nodeId <p>节点ID</p>
+                     * 设置节点ID
+                     * @param _nodeId 节点ID
                      * 
                      */
                     void SetNodeId(const std::string& _nodeId);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool NodeIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>工作流运行实例的ID</p>
-                     * @return WorkflowRunId <p>工作流运行实例的ID</p>
+                     * 获取工作流运行实例的ID
+                     * @return WorkflowRunId 工作流运行实例的ID
                      * 
                      */
                     std::string GetWorkflowRunId() const;
 
                     /**
-                     * 设置<p>工作流运行实例的ID</p>
-                     * @param _workflowRunId <p>工作流运行实例的ID</p>
+                     * 设置工作流运行实例的ID
+                     * @param _workflowRunId 工作流运行实例的ID
                      * 
                      */
                     void SetWorkflowRunId(const std::string& _workflowRunId);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool WorkflowRunIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点名称</p>
-                     * @return NodeName <p>节点名称</p>
+                     * 获取节点名称
+                     * @return NodeName 节点名称
                      * 
                      */
                     std::string GetNodeName() const;
 
                     /**
-                     * 设置<p>节点名称</p>
-                     * @param _nodeName <p>节点名称</p>
+                     * 设置节点名称
+                     * @param _nodeName 节点名称
                      * 
                      */
                     void SetNodeName(const std::string& _nodeName);
@@ -131,15 +131,91 @@ namespace TencentCloud
                     bool NodeNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点类型。<br>1： 开始节点<br>2：参数提取节点<br>3：大模型节点<br>4：知识问答节点<br>5：知识检索节点<br>6：标签提取节点<br>7：代码执行节点<br>8：工具节点<br>9：逻辑判断节点<br>10：回复节点<br>11：选项卡节点<br>12：循环节点<br>13：意图识别节点<br>14：工作流节点<br>15：插件节点<br>16：结束节点<br>17: 变量聚合节点数据<br>18: 批处理节点<br>19: 消息队列节点</p>
-                     * @return NodeType <p>节点类型。<br>1： 开始节点<br>2：参数提取节点<br>3：大模型节点<br>4：知识问答节点<br>5：知识检索节点<br>6：标签提取节点<br>7：代码执行节点<br>8：工具节点<br>9：逻辑判断节点<br>10：回复节点<br>11：选项卡节点<br>12：循环节点<br>13：意图识别节点<br>14：工作流节点<br>15：插件节点<br>16：结束节点<br>17: 变量聚合节点数据<br>18: 批处理节点<br>19: 消息队列节点</p>
+                     * 获取节点类型。
+1： 开始节点
+2：参数提取节点
+3：大模型节点
+4：知识问答节点
+5：知识检索节点
+6：标签提取节点
+7：代码执行节点
+8：工具节点
+9：逻辑判断节点
+10：回复节点
+11：选项卡节点
+12：循环节点
+13：意图识别节点
+14：工作流节点
+15：插件节点
+16：结束节点
+17: 变量聚合节点数据
+18: 批处理节点
+19: 消息队列节点
+                     * @return NodeType 节点类型。
+1： 开始节点
+2：参数提取节点
+3：大模型节点
+4：知识问答节点
+5：知识检索节点
+6：标签提取节点
+7：代码执行节点
+8：工具节点
+9：逻辑判断节点
+10：回复节点
+11：选项卡节点
+12：循环节点
+13：意图识别节点
+14：工作流节点
+15：插件节点
+16：结束节点
+17: 变量聚合节点数据
+18: 批处理节点
+19: 消息队列节点
                      * 
                      */
                     uint64_t GetNodeType() const;
 
                     /**
-                     * 设置<p>节点类型。<br>1： 开始节点<br>2：参数提取节点<br>3：大模型节点<br>4：知识问答节点<br>5：知识检索节点<br>6：标签提取节点<br>7：代码执行节点<br>8：工具节点<br>9：逻辑判断节点<br>10：回复节点<br>11：选项卡节点<br>12：循环节点<br>13：意图识别节点<br>14：工作流节点<br>15：插件节点<br>16：结束节点<br>17: 变量聚合节点数据<br>18: 批处理节点<br>19: 消息队列节点</p>
-                     * @param _nodeType <p>节点类型。<br>1： 开始节点<br>2：参数提取节点<br>3：大模型节点<br>4：知识问答节点<br>5：知识检索节点<br>6：标签提取节点<br>7：代码执行节点<br>8：工具节点<br>9：逻辑判断节点<br>10：回复节点<br>11：选项卡节点<br>12：循环节点<br>13：意图识别节点<br>14：工作流节点<br>15：插件节点<br>16：结束节点<br>17: 变量聚合节点数据<br>18: 批处理节点<br>19: 消息队列节点</p>
+                     * 设置节点类型。
+1： 开始节点
+2：参数提取节点
+3：大模型节点
+4：知识问答节点
+5：知识检索节点
+6：标签提取节点
+7：代码执行节点
+8：工具节点
+9：逻辑判断节点
+10：回复节点
+11：选项卡节点
+12：循环节点
+13：意图识别节点
+14：工作流节点
+15：插件节点
+16：结束节点
+17: 变量聚合节点数据
+18: 批处理节点
+19: 消息队列节点
+                     * @param _nodeType 节点类型。
+1： 开始节点
+2：参数提取节点
+3：大模型节点
+4：知识问答节点
+5：知识检索节点
+6：标签提取节点
+7：代码执行节点
+8：工具节点
+9：逻辑判断节点
+10：回复节点
+11：选项卡节点
+12：循环节点
+13：意图识别节点
+14：工作流节点
+15：插件节点
+16：结束节点
+17: 变量聚合节点数据
+18: 批处理节点
+19: 消息队列节点
                      * 
                      */
                     void SetNodeType(const uint64_t& _nodeType);
@@ -152,15 +228,15 @@ namespace TencentCloud
                     bool NodeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消</p>
-                     * @return State <p>运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消</p>
+                     * 获取运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消
+                     * @return State 运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消
                      * 
                      */
                     uint64_t GetState() const;
 
                     /**
-                     * 设置<p>运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消</p>
-                     * @param _state <p>运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消</p>
+                     * 设置运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消
+                     * @param _state 运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消
                      * 
                      */
                     void SetState(const uint64_t& _state);
@@ -173,15 +249,15 @@ namespace TencentCloud
                     bool StateHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误码</p>
-                     * @return FailCode <p>错误码</p>
+                     * 获取错误码
+                     * @return FailCode 错误码
                      * 
                      */
                     std::string GetFailCode() const;
 
                     /**
-                     * 设置<p>错误码</p>
-                     * @param _failCode <p>错误码</p>
+                     * 设置错误码
+                     * @param _failCode 错误码
                      * 
                      */
                     void SetFailCode(const std::string& _failCode);
@@ -194,15 +270,15 @@ namespace TencentCloud
                     bool FailCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误信息</p>
-                     * @return FailMessage <p>错误信息</p>
+                     * 获取错误信息
+                     * @return FailMessage 错误信息
                      * 
                      */
                     std::string GetFailMessage() const;
 
                     /**
-                     * 设置<p>错误信息</p>
-                     * @param _failMessage <p>错误信息</p>
+                     * 设置错误信息
+                     * @param _failMessage 错误信息
                      * 
                      */
                     void SetFailMessage(const std::string& _failMessage);
@@ -215,15 +291,15 @@ namespace TencentCloud
                     bool FailMessageHasBeenSet() const;
 
                     /**
-                     * 获取<p>消耗时间（毫秒）</p>
-                     * @return CostMilliseconds <p>消耗时间（毫秒）</p>
+                     * 获取消耗时间（毫秒）
+                     * @return CostMilliseconds 消耗时间（毫秒）
                      * 
                      */
                     uint64_t GetCostMilliseconds() const;
 
                     /**
-                     * 设置<p>消耗时间（毫秒）</p>
-                     * @param _costMilliseconds <p>消耗时间（毫秒）</p>
+                     * 设置消耗时间（毫秒）
+                     * @param _costMilliseconds 消耗时间（毫秒）
                      * 
                      */
                     void SetCostMilliseconds(const uint64_t& _costMilliseconds);
@@ -236,15 +312,15 @@ namespace TencentCloud
                     bool CostMillisecondsHasBeenSet() const;
 
                     /**
-                     * 获取<p>消耗的token总数</p>
-                     * @return TotalTokens <p>消耗的token总数</p>
+                     * 获取消耗的token总数
+                     * @return TotalTokens 消耗的token总数
                      * 
                      */
                     uint64_t GetTotalTokens() const;
 
                     /**
-                     * 设置<p>消耗的token总数</p>
-                     * @param _totalTokens <p>消耗的token总数</p>
+                     * 设置消耗的token总数
+                     * @param _totalTokens 消耗的token总数
                      * 
                      */
                     void SetTotalTokens(const uint64_t& _totalTokens);
@@ -256,99 +332,86 @@ namespace TencentCloud
                      */
                     bool TotalTokensHasBeenSet() const;
 
-                    /**
-                     * 获取<p>分支下标列表</p><p>单位：无</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return BranchIndexList <p>分支下标列表</p><p>单位：无</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    std::vector<int64_t> GetBranchIndexList() const;
-
-                    /**
-                     * 设置<p>分支下标列表</p><p>单位：无</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _branchIndexList <p>分支下标列表</p><p>单位：无</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetBranchIndexList(const std::vector<int64_t>& _branchIndexList);
-
-                    /**
-                     * 判断参数 BranchIndexList 是否已赋值
-                     * @return BranchIndexList 是否已赋值
-                     * 
-                     */
-                    bool BranchIndexListHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>节点运行的ID</p>
+                     * 节点运行的ID
                      */
                     std::string m_nodeRunId;
                     bool m_nodeRunIdHasBeenSet;
 
                     /**
-                     * <p>节点ID</p>
+                     * 节点ID
                      */
                     std::string m_nodeId;
                     bool m_nodeIdHasBeenSet;
 
                     /**
-                     * <p>工作流运行实例的ID</p>
+                     * 工作流运行实例的ID
                      */
                     std::string m_workflowRunId;
                     bool m_workflowRunIdHasBeenSet;
 
                     /**
-                     * <p>节点名称</p>
+                     * 节点名称
                      */
                     std::string m_nodeName;
                     bool m_nodeNameHasBeenSet;
 
                     /**
-                     * <p>节点类型。<br>1： 开始节点<br>2：参数提取节点<br>3：大模型节点<br>4：知识问答节点<br>5：知识检索节点<br>6：标签提取节点<br>7：代码执行节点<br>8：工具节点<br>9：逻辑判断节点<br>10：回复节点<br>11：选项卡节点<br>12：循环节点<br>13：意图识别节点<br>14：工作流节点<br>15：插件节点<br>16：结束节点<br>17: 变量聚合节点数据<br>18: 批处理节点<br>19: 消息队列节点</p>
+                     * 节点类型。
+1： 开始节点
+2：参数提取节点
+3：大模型节点
+4：知识问答节点
+5：知识检索节点
+6：标签提取节点
+7：代码执行节点
+8：工具节点
+9：逻辑判断节点
+10：回复节点
+11：选项卡节点
+12：循环节点
+13：意图识别节点
+14：工作流节点
+15：插件节点
+16：结束节点
+17: 变量聚合节点数据
+18: 批处理节点
+19: 消息队列节点
                      */
                     uint64_t m_nodeType;
                     bool m_nodeTypeHasBeenSet;
 
                     /**
-                     * <p>运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消</p>
+                     * 运行状态。0: 初始状态；1: 运行中；2: 运行成功； 3: 运行失败； 4: 已取消
                      */
                     uint64_t m_state;
                     bool m_stateHasBeenSet;
 
                     /**
-                     * <p>错误码</p>
+                     * 错误码
                      */
                     std::string m_failCode;
                     bool m_failCodeHasBeenSet;
 
                     /**
-                     * <p>错误信息</p>
+                     * 错误信息
                      */
                     std::string m_failMessage;
                     bool m_failMessageHasBeenSet;
 
                     /**
-                     * <p>消耗时间（毫秒）</p>
+                     * 消耗时间（毫秒）
                      */
                     uint64_t m_costMilliseconds;
                     bool m_costMillisecondsHasBeenSet;
 
                     /**
-                     * <p>消耗的token总数</p>
+                     * 消耗的token总数
                      */
                     uint64_t m_totalTokens;
                     bool m_totalTokensHasBeenSet;
-
-                    /**
-                     * <p>分支下标列表</p><p>单位：无</p>
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    std::vector<int64_t> m_branchIndexList;
-                    bool m_branchIndexListHasBeenSet;
 
                 };
             }

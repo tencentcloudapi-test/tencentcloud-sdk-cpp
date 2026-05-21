@@ -23,8 +23,7 @@ using namespace TencentCloud::Tke::V20180525::Model;
 using namespace std;
 
 GetMostSuitableImageCacheRequest::GetMostSuitableImageCacheRequest() :
-    m_imagesHasBeenSet(false),
-    m_snapshotterHasBeenSet(false)
+    m_imagesHasBeenSet(false)
 {
 }
 
@@ -46,14 +45,6 @@ string GetMostSuitableImageCacheRequest::ToJsonString() const
         {
             d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
-    }
-
-    if (m_snapshotterHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Snapshotter";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_snapshotter.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -78,22 +69,6 @@ void GetMostSuitableImageCacheRequest::SetImages(const vector<string>& _images)
 bool GetMostSuitableImageCacheRequest::ImagesHasBeenSet() const
 {
     return m_imagesHasBeenSet;
-}
-
-string GetMostSuitableImageCacheRequest::GetSnapshotter() const
-{
-    return m_snapshotter;
-}
-
-void GetMostSuitableImageCacheRequest::SetSnapshotter(const string& _snapshotter)
-{
-    m_snapshotter = _snapshotter;
-    m_snapshotterHasBeenSet = true;
-}
-
-bool GetMostSuitableImageCacheRequest::SnapshotterHasBeenSet() const
-{
-    return m_snapshotterHasBeenSet;
 }
 
 

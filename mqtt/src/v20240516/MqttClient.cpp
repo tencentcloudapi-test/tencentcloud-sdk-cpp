@@ -590,56 +590,6 @@ MqttClient::CreateJWTAuthenticatorOutcomeCallable MqttClient::CreateJWTAuthentic
     return prom->get_future();
 }
 
-MqttClient::CreateMessageEnrichmentRuleOutcome MqttClient::CreateMessageEnrichmentRule(const CreateMessageEnrichmentRuleRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateMessageEnrichmentRule");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateMessageEnrichmentRuleResponse rsp = CreateMessageEnrichmentRuleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateMessageEnrichmentRuleOutcome(rsp);
-        else
-            return CreateMessageEnrichmentRuleOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateMessageEnrichmentRuleOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::CreateMessageEnrichmentRuleAsync(const CreateMessageEnrichmentRuleRequest& request, const CreateMessageEnrichmentRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateMessageEnrichmentRuleRequest&;
-    using Resp = CreateMessageEnrichmentRuleResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateMessageEnrichmentRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::CreateMessageEnrichmentRuleOutcomeCallable MqttClient::CreateMessageEnrichmentRuleCallable(const CreateMessageEnrichmentRuleRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateMessageEnrichmentRuleOutcome>>();
-    CreateMessageEnrichmentRuleAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const CreateMessageEnrichmentRuleRequest&,
-        CreateMessageEnrichmentRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MqttClient::CreateTopicOutcome MqttClient::CreateTopic(const CreateTopicRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateTopic");
@@ -1232,56 +1182,6 @@ MqttClient::DeleteInstanceOutcomeCallable MqttClient::DeleteInstanceCallable(con
         const MqttClient*,
         const DeleteInstanceRequest&,
         DeleteInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MqttClient::DeleteMessageEnrichmentRuleOutcome MqttClient::DeleteMessageEnrichmentRule(const DeleteMessageEnrichmentRuleRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteMessageEnrichmentRule");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteMessageEnrichmentRuleResponse rsp = DeleteMessageEnrichmentRuleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteMessageEnrichmentRuleOutcome(rsp);
-        else
-            return DeleteMessageEnrichmentRuleOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteMessageEnrichmentRuleOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::DeleteMessageEnrichmentRuleAsync(const DeleteMessageEnrichmentRuleRequest& request, const DeleteMessageEnrichmentRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteMessageEnrichmentRuleRequest&;
-    using Resp = DeleteMessageEnrichmentRuleResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteMessageEnrichmentRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::DeleteMessageEnrichmentRuleOutcomeCallable MqttClient::DeleteMessageEnrichmentRuleCallable(const DeleteMessageEnrichmentRuleRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteMessageEnrichmentRuleOutcome>>();
-    DeleteMessageEnrichmentRuleAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const DeleteMessageEnrichmentRuleRequest&,
-        DeleteMessageEnrichmentRuleOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2140,56 +2040,6 @@ MqttClient::DescribeMessageDetailsOutcomeCallable MqttClient::DescribeMessageDet
     return prom->get_future();
 }
 
-MqttClient::DescribeMessageEnrichmentRulesOutcome MqttClient::DescribeMessageEnrichmentRules(const DescribeMessageEnrichmentRulesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeMessageEnrichmentRules");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeMessageEnrichmentRulesResponse rsp = DescribeMessageEnrichmentRulesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeMessageEnrichmentRulesOutcome(rsp);
-        else
-            return DescribeMessageEnrichmentRulesOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeMessageEnrichmentRulesOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::DescribeMessageEnrichmentRulesAsync(const DescribeMessageEnrichmentRulesRequest& request, const DescribeMessageEnrichmentRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeMessageEnrichmentRulesRequest&;
-    using Resp = DescribeMessageEnrichmentRulesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeMessageEnrichmentRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::DescribeMessageEnrichmentRulesOutcomeCallable MqttClient::DescribeMessageEnrichmentRulesCallable(const DescribeMessageEnrichmentRulesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeMessageEnrichmentRulesOutcome>>();
-    DescribeMessageEnrichmentRulesAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const DescribeMessageEnrichmentRulesRequest&,
-        DescribeMessageEnrichmentRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MqttClient::DescribeMessageListOutcome MqttClient::DescribeMessageList(const DescribeMessageListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeMessageList");
@@ -2290,106 +2140,6 @@ MqttClient::DescribeProductSKUListOutcomeCallable MqttClient::DescribeProductSKU
     return prom->get_future();
 }
 
-MqttClient::DescribeSharedSubscriptionClientOutcome MqttClient::DescribeSharedSubscriptionClient(const DescribeSharedSubscriptionClientRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeSharedSubscriptionClient");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeSharedSubscriptionClientResponse rsp = DescribeSharedSubscriptionClientResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeSharedSubscriptionClientOutcome(rsp);
-        else
-            return DescribeSharedSubscriptionClientOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeSharedSubscriptionClientOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::DescribeSharedSubscriptionClientAsync(const DescribeSharedSubscriptionClientRequest& request, const DescribeSharedSubscriptionClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeSharedSubscriptionClientRequest&;
-    using Resp = DescribeSharedSubscriptionClientResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeSharedSubscriptionClient", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::DescribeSharedSubscriptionClientOutcomeCallable MqttClient::DescribeSharedSubscriptionClientCallable(const DescribeSharedSubscriptionClientRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeSharedSubscriptionClientOutcome>>();
-    DescribeSharedSubscriptionClientAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const DescribeSharedSubscriptionClientRequest&,
-        DescribeSharedSubscriptionClientOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MqttClient::DescribeSharedSubscriptionGroupsOutcome MqttClient::DescribeSharedSubscriptionGroups(const DescribeSharedSubscriptionGroupsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeSharedSubscriptionGroups");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeSharedSubscriptionGroupsResponse rsp = DescribeSharedSubscriptionGroupsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeSharedSubscriptionGroupsOutcome(rsp);
-        else
-            return DescribeSharedSubscriptionGroupsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeSharedSubscriptionGroupsOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::DescribeSharedSubscriptionGroupsAsync(const DescribeSharedSubscriptionGroupsRequest& request, const DescribeSharedSubscriptionGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeSharedSubscriptionGroupsRequest&;
-    using Resp = DescribeSharedSubscriptionGroupsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeSharedSubscriptionGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::DescribeSharedSubscriptionGroupsOutcomeCallable MqttClient::DescribeSharedSubscriptionGroupsCallable(const DescribeSharedSubscriptionGroupsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeSharedSubscriptionGroupsOutcome>>();
-    DescribeSharedSubscriptionGroupsAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const DescribeSharedSubscriptionGroupsRequest&,
-        DescribeSharedSubscriptionGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MqttClient::DescribeSharedSubscriptionLagOutcome MqttClient::DescribeSharedSubscriptionLag(const DescribeSharedSubscriptionLagRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeSharedSubscriptionLag");
@@ -2432,56 +2182,6 @@ MqttClient::DescribeSharedSubscriptionLagOutcomeCallable MqttClient::DescribeSha
         const MqttClient*,
         const DescribeSharedSubscriptionLagRequest&,
         DescribeSharedSubscriptionLagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MqttClient::DescribeSharedSubscriptionsOutcome MqttClient::DescribeSharedSubscriptions(const DescribeSharedSubscriptionsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeSharedSubscriptions");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeSharedSubscriptionsResponse rsp = DescribeSharedSubscriptionsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeSharedSubscriptionsOutcome(rsp);
-        else
-            return DescribeSharedSubscriptionsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeSharedSubscriptionsOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::DescribeSharedSubscriptionsAsync(const DescribeSharedSubscriptionsRequest& request, const DescribeSharedSubscriptionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeSharedSubscriptionsRequest&;
-    using Resp = DescribeSharedSubscriptionsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeSharedSubscriptions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::DescribeSharedSubscriptionsOutcomeCallable MqttClient::DescribeSharedSubscriptionsCallable(const DescribeSharedSubscriptionsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeSharedSubscriptionsOutcome>>();
-    DescribeSharedSubscriptionsAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const DescribeSharedSubscriptionsRequest&,
-        DescribeSharedSubscriptionsOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3090,56 +2790,6 @@ MqttClient::ModifyJWTAuthenticatorOutcomeCallable MqttClient::ModifyJWTAuthentic
     return prom->get_future();
 }
 
-MqttClient::ModifyMessageEnrichmentRuleOutcome MqttClient::ModifyMessageEnrichmentRule(const ModifyMessageEnrichmentRuleRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyMessageEnrichmentRule");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyMessageEnrichmentRuleResponse rsp = ModifyMessageEnrichmentRuleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyMessageEnrichmentRuleOutcome(rsp);
-        else
-            return ModifyMessageEnrichmentRuleOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyMessageEnrichmentRuleOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::ModifyMessageEnrichmentRuleAsync(const ModifyMessageEnrichmentRuleRequest& request, const ModifyMessageEnrichmentRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyMessageEnrichmentRuleRequest&;
-    using Resp = ModifyMessageEnrichmentRuleResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyMessageEnrichmentRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::ModifyMessageEnrichmentRuleOutcomeCallable MqttClient::ModifyMessageEnrichmentRuleCallable(const ModifyMessageEnrichmentRuleRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyMessageEnrichmentRuleOutcome>>();
-    ModifyMessageEnrichmentRuleAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const ModifyMessageEnrichmentRuleRequest&,
-        ModifyMessageEnrichmentRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MqttClient::ModifyTopicOutcome MqttClient::ModifyTopic(const ModifyTopicRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyTopic");
@@ -3482,56 +3132,6 @@ MqttClient::UpdateAuthorizationPolicyPriorityOutcomeCallable MqttClient::UpdateA
         const MqttClient*,
         const UpdateAuthorizationPolicyPriorityRequest&,
         UpdateAuthorizationPolicyPriorityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-MqttClient::UpdateMessageEnrichmentRulePriorityOutcome MqttClient::UpdateMessageEnrichmentRulePriority(const UpdateMessageEnrichmentRulePriorityRequest &request)
-{
-    auto outcome = MakeRequest(request, "UpdateMessageEnrichmentRulePriority");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        UpdateMessageEnrichmentRulePriorityResponse rsp = UpdateMessageEnrichmentRulePriorityResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return UpdateMessageEnrichmentRulePriorityOutcome(rsp);
-        else
-            return UpdateMessageEnrichmentRulePriorityOutcome(o.GetError());
-    }
-    else
-    {
-        return UpdateMessageEnrichmentRulePriorityOutcome(outcome.GetError());
-    }
-}
-
-void MqttClient::UpdateMessageEnrichmentRulePriorityAsync(const UpdateMessageEnrichmentRulePriorityRequest& request, const UpdateMessageEnrichmentRulePriorityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const UpdateMessageEnrichmentRulePriorityRequest&;
-    using Resp = UpdateMessageEnrichmentRulePriorityResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "UpdateMessageEnrichmentRulePriority", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MqttClient::UpdateMessageEnrichmentRulePriorityOutcomeCallable MqttClient::UpdateMessageEnrichmentRulePriorityCallable(const UpdateMessageEnrichmentRulePriorityRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<UpdateMessageEnrichmentRulePriorityOutcome>>();
-    UpdateMessageEnrichmentRulePriorityAsync(
-    request,
-    [prom](
-        const MqttClient*,
-        const UpdateMessageEnrichmentRulePriorityRequest&,
-        UpdateMessageEnrichmentRulePriorityOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

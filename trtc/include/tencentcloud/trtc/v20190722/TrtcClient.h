@@ -23,8 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/trtc/v20190722/model/AsyncTextToSpeechRequest.h>
-#include <tencentcloud/trtc/v20190722/model/AsyncTextToSpeechResponse.h>
 #include <tencentcloud/trtc/v20190722/model/ControlAIConversationRequest.h>
 #include <tencentcloud/trtc/v20190722/model/ControlAIConversationResponse.h>
 #include <tencentcloud/trtc/v20190722/model/CreateBasicModerationRequest.h>
@@ -35,8 +33,6 @@
 #include <tencentcloud/trtc/v20190722/model/CreateCloudRecordingResponse.h>
 #include <tencentcloud/trtc/v20190722/model/CreateCloudSliceTaskRequest.h>
 #include <tencentcloud/trtc/v20190722/model/CreateCloudSliceTaskResponse.h>
-#include <tencentcloud/trtc/v20190722/model/CreateCloudTranscriptionRequest.h>
-#include <tencentcloud/trtc/v20190722/model/CreateCloudTranscriptionResponse.h>
 #include <tencentcloud/trtc/v20190722/model/CreatePictureRequest.h>
 #include <tencentcloud/trtc/v20190722/model/CreatePictureResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DeleteBasicModerationRequest.h>
@@ -47,8 +43,6 @@
 #include <tencentcloud/trtc/v20190722/model/DeleteCloudRecordingResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DeleteCloudSliceTaskRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DeleteCloudSliceTaskResponse.h>
-#include <tencentcloud/trtc/v20190722/model/DeleteCloudTranscriptionRequest.h>
-#include <tencentcloud/trtc/v20190722/model/DeleteCloudTranscriptionResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DeletePictureRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DeletePictureResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DeleteVoicePrintRequest.h>
@@ -57,8 +51,6 @@
 #include <tencentcloud/trtc/v20190722/model/DescribeAIConversationResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeAITranscriptionRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeAITranscriptionResponse.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeAsyncTextToSpeechRequest.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeAsyncTextToSpeechResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeCallDetailInfoRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeCallDetailInfoResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeCloudModerationRequest.h>
@@ -67,8 +59,6 @@
 #include <tencentcloud/trtc/v20190722/model/DescribeCloudRecordingResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeCloudSliceTaskRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeCloudSliceTaskResponse.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeCloudTranscriptionRequest.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeCloudTranscriptionResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeMixTranscodingUsageRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeMixTranscodingUsageResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribePictureRequest.h>
@@ -85,22 +75,22 @@
 #include <tencentcloud/trtc/v20190722/model/DescribeScaleInfoResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeStreamIngestRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeStreamIngestResponse.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeTRTCAIRecognitionUsageRequest.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeTRTCAIRecognitionUsageResponse.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeTRTCDedicatedCloudAccUsageRequest.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeTRTCDedicatedCloudAccUsageResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketQualityDataRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketQualityDataResponse.h>
+#include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketQualityMetricDataRequest.h>
+#include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketQualityMetricDataResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketScaleDataRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketScaleDataResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketScaleMetricDataRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCMarketScaleMetricDataResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeQualityDataRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeQualityDataResponse.h>
+#include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeQualityMetricDataRequest.h>
+#include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeQualityMetricDataResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeScaleDataRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeScaleDataResponse.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeTRTCSegmentModerationUsageRequest.h>
-#include <tencentcloud/trtc/v20190722/model/DescribeTRTCSegmentModerationUsageResponse.h>
+#include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeScaleMetricDataRequest.h>
+#include <tencentcloud/trtc/v20190722/model/DescribeTRTCRealTimeScaleMetricDataResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTrtcMcuTranscodeTimeRequest.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTrtcMcuTranscodeTimeResponse.h>
 #include <tencentcloud/trtc/v20190722/model/DescribeTrtcRoomUsageRequest.h>
@@ -191,9 +181,6 @@ namespace TencentCloud
                 TrtcClient(const Credential &credential, const std::string &region);
                 TrtcClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::AsyncTextToSpeechResponse> AsyncTextToSpeechOutcome;
-                typedef std::future<AsyncTextToSpeechOutcome> AsyncTextToSpeechOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::AsyncTextToSpeechRequest&, AsyncTextToSpeechOutcome, const std::shared_ptr<const AsyncCallerContext>&)> AsyncTextToSpeechAsyncHandler;
                 typedef Outcome<Core::Error, Model::ControlAIConversationResponse> ControlAIConversationOutcome;
                 typedef std::future<ControlAIConversationOutcome> ControlAIConversationOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::ControlAIConversationRequest&, ControlAIConversationOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ControlAIConversationAsyncHandler;
@@ -209,9 +196,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateCloudSliceTaskResponse> CreateCloudSliceTaskOutcome;
                 typedef std::future<CreateCloudSliceTaskOutcome> CreateCloudSliceTaskOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::CreateCloudSliceTaskRequest&, CreateCloudSliceTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCloudSliceTaskAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateCloudTranscriptionResponse> CreateCloudTranscriptionOutcome;
-                typedef std::future<CreateCloudTranscriptionOutcome> CreateCloudTranscriptionOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::CreateCloudTranscriptionRequest&, CreateCloudTranscriptionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCloudTranscriptionAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreatePictureResponse> CreatePictureOutcome;
                 typedef std::future<CreatePictureOutcome> CreatePictureOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::CreatePictureRequest&, CreatePictureOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreatePictureAsyncHandler;
@@ -227,9 +211,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteCloudSliceTaskResponse> DeleteCloudSliceTaskOutcome;
                 typedef std::future<DeleteCloudSliceTaskOutcome> DeleteCloudSliceTaskOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DeleteCloudSliceTaskRequest&, DeleteCloudSliceTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCloudSliceTaskAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteCloudTranscriptionResponse> DeleteCloudTranscriptionOutcome;
-                typedef std::future<DeleteCloudTranscriptionOutcome> DeleteCloudTranscriptionOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::DeleteCloudTranscriptionRequest&, DeleteCloudTranscriptionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteCloudTranscriptionAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeletePictureResponse> DeletePictureOutcome;
                 typedef std::future<DeletePictureOutcome> DeletePictureOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DeletePictureRequest&, DeletePictureOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeletePictureAsyncHandler;
@@ -242,9 +223,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAITranscriptionResponse> DescribeAITranscriptionOutcome;
                 typedef std::future<DescribeAITranscriptionOutcome> DescribeAITranscriptionOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeAITranscriptionRequest&, DescribeAITranscriptionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAITranscriptionAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeAsyncTextToSpeechResponse> DescribeAsyncTextToSpeechOutcome;
-                typedef std::future<DescribeAsyncTextToSpeechOutcome> DescribeAsyncTextToSpeechOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::DescribeAsyncTextToSpeechRequest&, DescribeAsyncTextToSpeechOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAsyncTextToSpeechAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeCallDetailInfoResponse> DescribeCallDetailInfoOutcome;
                 typedef std::future<DescribeCallDetailInfoOutcome> DescribeCallDetailInfoOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeCallDetailInfoRequest&, DescribeCallDetailInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCallDetailInfoAsyncHandler;
@@ -257,9 +235,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeCloudSliceTaskResponse> DescribeCloudSliceTaskOutcome;
                 typedef std::future<DescribeCloudSliceTaskOutcome> DescribeCloudSliceTaskOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeCloudSliceTaskRequest&, DescribeCloudSliceTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCloudSliceTaskAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeCloudTranscriptionResponse> DescribeCloudTranscriptionOutcome;
-                typedef std::future<DescribeCloudTranscriptionOutcome> DescribeCloudTranscriptionOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::DescribeCloudTranscriptionRequest&, DescribeCloudTranscriptionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeCloudTranscriptionAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeMixTranscodingUsageResponse> DescribeMixTranscodingUsageOutcome;
                 typedef std::future<DescribeMixTranscodingUsageOutcome> DescribeMixTranscodingUsageOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeMixTranscodingUsageRequest&, DescribeMixTranscodingUsageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMixTranscodingUsageAsyncHandler;
@@ -284,15 +259,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeStreamIngestResponse> DescribeStreamIngestOutcome;
                 typedef std::future<DescribeStreamIngestOutcome> DescribeStreamIngestOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeStreamIngestRequest&, DescribeStreamIngestOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeStreamIngestAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeTRTCAIRecognitionUsageResponse> DescribeTRTCAIRecognitionUsageOutcome;
-                typedef std::future<DescribeTRTCAIRecognitionUsageOutcome> DescribeTRTCAIRecognitionUsageOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCAIRecognitionUsageRequest&, DescribeTRTCAIRecognitionUsageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCAIRecognitionUsageAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeTRTCDedicatedCloudAccUsageResponse> DescribeTRTCDedicatedCloudAccUsageOutcome;
-                typedef std::future<DescribeTRTCDedicatedCloudAccUsageOutcome> DescribeTRTCDedicatedCloudAccUsageOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCDedicatedCloudAccUsageRequest&, DescribeTRTCDedicatedCloudAccUsageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCDedicatedCloudAccUsageAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTRTCMarketQualityDataResponse> DescribeTRTCMarketQualityDataOutcome;
                 typedef std::future<DescribeTRTCMarketQualityDataOutcome> DescribeTRTCMarketQualityDataOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCMarketQualityDataRequest&, DescribeTRTCMarketQualityDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCMarketQualityDataAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeTRTCMarketQualityMetricDataResponse> DescribeTRTCMarketQualityMetricDataOutcome;
+                typedef std::future<DescribeTRTCMarketQualityMetricDataOutcome> DescribeTRTCMarketQualityMetricDataOutcomeCallable;
+                typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCMarketQualityMetricDataRequest&, DescribeTRTCMarketQualityMetricDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCMarketQualityMetricDataAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTRTCMarketScaleDataResponse> DescribeTRTCMarketScaleDataOutcome;
                 typedef std::future<DescribeTRTCMarketScaleDataOutcome> DescribeTRTCMarketScaleDataOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCMarketScaleDataRequest&, DescribeTRTCMarketScaleDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCMarketScaleDataAsyncHandler;
@@ -302,12 +274,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeTRTCRealTimeQualityDataResponse> DescribeTRTCRealTimeQualityDataOutcome;
                 typedef std::future<DescribeTRTCRealTimeQualityDataOutcome> DescribeTRTCRealTimeQualityDataOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCRealTimeQualityDataRequest&, DescribeTRTCRealTimeQualityDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCRealTimeQualityDataAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeTRTCRealTimeQualityMetricDataResponse> DescribeTRTCRealTimeQualityMetricDataOutcome;
+                typedef std::future<DescribeTRTCRealTimeQualityMetricDataOutcome> DescribeTRTCRealTimeQualityMetricDataOutcomeCallable;
+                typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCRealTimeQualityMetricDataRequest&, DescribeTRTCRealTimeQualityMetricDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCRealTimeQualityMetricDataAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTRTCRealTimeScaleDataResponse> DescribeTRTCRealTimeScaleDataOutcome;
                 typedef std::future<DescribeTRTCRealTimeScaleDataOutcome> DescribeTRTCRealTimeScaleDataOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCRealTimeScaleDataRequest&, DescribeTRTCRealTimeScaleDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCRealTimeScaleDataAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeTRTCSegmentModerationUsageResponse> DescribeTRTCSegmentModerationUsageOutcome;
-                typedef std::future<DescribeTRTCSegmentModerationUsageOutcome> DescribeTRTCSegmentModerationUsageOutcomeCallable;
-                typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCSegmentModerationUsageRequest&, DescribeTRTCSegmentModerationUsageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCSegmentModerationUsageAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeTRTCRealTimeScaleMetricDataResponse> DescribeTRTCRealTimeScaleMetricDataOutcome;
+                typedef std::future<DescribeTRTCRealTimeScaleMetricDataOutcome> DescribeTRTCRealTimeScaleMetricDataOutcomeCallable;
+                typedef std::function<void(const TrtcClient*, const Model::DescribeTRTCRealTimeScaleMetricDataRequest&, DescribeTRTCRealTimeScaleMetricDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTRTCRealTimeScaleMetricDataAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTrtcMcuTranscodeTimeResponse> DescribeTrtcMcuTranscodeTimeOutcome;
                 typedef std::future<DescribeTrtcMcuTranscodeTimeOutcome> DescribeTrtcMcuTranscodeTimeOutcomeCallable;
                 typedef std::function<void(const TrtcClient*, const Model::DescribeTrtcMcuTranscodeTimeRequest&, DescribeTrtcMcuTranscodeTimeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTrtcMcuTranscodeTimeAsyncHandler;
@@ -426,15 +401,6 @@ namespace TencentCloud
 
 
                 /**
-                 *异步语音合成
-                 * @param req AsyncTextToSpeechRequest
-                 * @return AsyncTextToSpeechOutcome
-                 */
-                AsyncTextToSpeechOutcome AsyncTextToSpeech(const Model::AsyncTextToSpeechRequest &request);
-                void AsyncTextToSpeechAsync(const Model::AsyncTextToSpeechRequest& request, const AsyncTextToSpeechAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                AsyncTextToSpeechOutcomeCallable AsyncTextToSpeechCallable(const Model::AsyncTextToSpeechRequest& request);
-
-                /**
                  *提供服务端控制机器人的功能
                  * @param req ControlAIConversationRequest
                  * @return ControlAIConversationOutcome
@@ -470,7 +436,6 @@ namespace TencentCloud
                 /**
                  *接口说明：
 启动云端录制功能，完成房间内的音视频录制，并上传到指定的云存储。您可以通过此 API 接口把TRTC 房间中的每一路音视频流做单独的录制又或者多路视频画面合流混成一路。
-在线上正式运营之前，请关注录制的最佳实践 [录制最佳实践](https://cloud.tencent.com/document/product/647/76497#e7e2f04c-6cde-43c9-9cd0-0f8d22dee68c)，配合最佳实践，可大大提高接口录制的可用性。
 
 您可以通过此接口实现如下目标：
 * 指定订阅流参数（RecordParams）来指定需要录制的主播的黑名单或者白名单。
@@ -501,16 +466,6 @@ namespace TencentCloud
                 CreateCloudSliceTaskOutcome CreateCloudSliceTask(const Model::CreateCloudSliceTaskRequest &request);
                 void CreateCloudSliceTaskAsync(const Model::CreateCloudSliceTaskRequest& request, const CreateCloudSliceTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateCloudSliceTaskOutcomeCallable CreateCloudSliceTaskCallable(const Model::CreateCloudSliceTaskRequest& request);
-
-                /**
-                 *接口说明：
-启动云端转录功能。
-                 * @param req CreateCloudTranscriptionRequest
-                 * @return CreateCloudTranscriptionOutcome
-                 */
-                CreateCloudTranscriptionOutcome CreateCloudTranscription(const Model::CreateCloudTranscriptionRequest &request);
-                void CreateCloudTranscriptionAsync(const Model::CreateCloudTranscriptionRequest& request, const CreateCloudTranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateCloudTranscriptionOutcomeCallable CreateCloudTranscriptionCallable(const Model::CreateCloudTranscriptionRequest& request);
 
                 /**
                  *如果您需要在 [云端混流转码](https://cloud.tencent.com/document/product/647/16827) 时频繁新增自定义背景图或水印，可通过此接口上传新的图片素材。无需频繁新增图片的场景，建议直接在 [控制台 > 应用管理 > 素材管理](https://cloud.tencent.com/document/product/647/50769) 中操作。
@@ -558,15 +513,6 @@ namespace TencentCloud
                 DeleteCloudSliceTaskOutcomeCallable DeleteCloudSliceTaskCallable(const Model::DeleteCloudSliceTaskRequest& request);
 
                 /**
-                 *成功开启转录后，可以使用此接口来停止转录任务。
-                 * @param req DeleteCloudTranscriptionRequest
-                 * @return DeleteCloudTranscriptionOutcome
-                 */
-                DeleteCloudTranscriptionOutcome DeleteCloudTranscription(const Model::DeleteCloudTranscriptionRequest &request);
-                void DeleteCloudTranscriptionAsync(const Model::DeleteCloudTranscriptionRequest& request, const DeleteCloudTranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteCloudTranscriptionOutcomeCallable DeleteCloudTranscriptionCallable(const Model::DeleteCloudTranscriptionRequest& request);
-
-                /**
                  *如果您需要在 [云端混流转码](https://cloud.tencent.com/document/product/647/16827) 时频繁删除自定义背景图或水印，可通过此接口删除已上传的图片。无需频繁删除图片的场景，建议直接在 [控制台 > 应用管理 > 素材管理](https://cloud.tencent.com/document/product/647/50769) 中操作。
                  * @param req DeletePictureRequest
                  * @return DeletePictureOutcome
@@ -601,15 +547,6 @@ namespace TencentCloud
                 DescribeAITranscriptionOutcome DescribeAITranscription(const Model::DescribeAITranscriptionRequest &request);
                 void DescribeAITranscriptionAsync(const Model::DescribeAITranscriptionRequest& request, const DescribeAITranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeAITranscriptionOutcomeCallable DescribeAITranscriptionCallable(const Model::DescribeAITranscriptionRequest& request);
-
-                /**
-                 *查询异步语音合成状态
-                 * @param req DescribeAsyncTextToSpeechRequest
-                 * @return DescribeAsyncTextToSpeechOutcome
-                 */
-                DescribeAsyncTextToSpeechOutcome DescribeAsyncTextToSpeech(const Model::DescribeAsyncTextToSpeechRequest &request);
-                void DescribeAsyncTextToSpeechAsync(const Model::DescribeAsyncTextToSpeechRequest& request, const DescribeAsyncTextToSpeechAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeAsyncTextToSpeechOutcomeCallable DescribeAsyncTextToSpeechCallable(const Model::DescribeAsyncTextToSpeechRequest& request);
 
                 /**
                  *查询指定时间内的用户列表及用户通话质量数据，最大可查询14天内数据。DataType 不为null，查询起止时间不超过1个小时，查询用户不超过6个，支持跨天查询。DataType为null时，查询起止时间不超过4个小时， 默认查询6个用户，同时支持每页查询100以内用户个数（PageSize不超过100）。接口用于查询质量问题，不推荐作为计费使用。（同老接口DescribeCallDetail）
@@ -652,15 +589,6 @@ namespace TencentCloud
                 DescribeCloudSliceTaskOutcome DescribeCloudSliceTask(const Model::DescribeCloudSliceTaskRequest &request);
                 void DescribeCloudSliceTaskAsync(const Model::DescribeCloudSliceTaskRequest& request, const DescribeCloudSliceTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeCloudSliceTaskOutcomeCallable DescribeCloudSliceTaskCallable(const Model::DescribeCloudSliceTaskRequest& request);
-
-                /**
-                 *成功开启转录后，可以使用此接口来查询录制状态。仅在转录任务进行时有效，转录退出后查询将会返回错误。
-                 * @param req DescribeCloudTranscriptionRequest
-                 * @return DescribeCloudTranscriptionOutcome
-                 */
-                DescribeCloudTranscriptionOutcome DescribeCloudTranscription(const Model::DescribeCloudTranscriptionRequest &request);
-                void DescribeCloudTranscriptionAsync(const Model::DescribeCloudTranscriptionRequest& request, const DescribeCloudTranscriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeCloudTranscriptionOutcomeCallable DescribeCloudTranscriptionCallable(const Model::DescribeCloudTranscriptionRequest& request);
 
                 /**
                  *获取TRTC混流转码的用量明细。
@@ -760,30 +688,6 @@ namespace TencentCloud
                 DescribeStreamIngestOutcomeCallable DescribeStreamIngestCallable(const Model::DescribeStreamIngestRequest& request);
 
                 /**
-                 *AI 智能识别与对话用量查询（AI对话/语音转文本/实时翻译/实时语音合成）
-- 查询时间小于等于1天时，返回每5分钟粒度的数据；查询时间大于1天时，返回按天汇总的数据。
-- 单次查询统计区间最多不能超过31天。
-- 若查询当天用量，由于统计延迟等原因，返回数据可能不够准确。
-                 * @param req DescribeTRTCAIRecognitionUsageRequest
-                 * @return DescribeTRTCAIRecognitionUsageOutcome
-                 */
-                DescribeTRTCAIRecognitionUsageOutcome DescribeTRTCAIRecognitionUsage(const Model::DescribeTRTCAIRecognitionUsageRequest &request);
-                void DescribeTRTCAIRecognitionUsageAsync(const Model::DescribeTRTCAIRecognitionUsageRequest& request, const DescribeTRTCAIRecognitionUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeTRTCAIRecognitionUsageOutcomeCallable DescribeTRTCAIRecognitionUsageCallable(const Model::DescribeTRTCAIRecognitionUsageRequest& request);
-
-                /**
-                 *TRTC专属云网络加速用量查询
-- 查询时间小于等于1天时，返回每5分钟粒度的数据；查询时间大于1天时，返回按天汇总的数据。
-- 单次查询统计区间最多不能超过31天。
-- 若查询当天用量，由于统计延迟等原因，返回数据可能不够准确。
-                 * @param req DescribeTRTCDedicatedCloudAccUsageRequest
-                 * @return DescribeTRTCDedicatedCloudAccUsageOutcome
-                 */
-                DescribeTRTCDedicatedCloudAccUsageOutcome DescribeTRTCDedicatedCloudAccUsage(const Model::DescribeTRTCDedicatedCloudAccUsageRequest &request);
-                void DescribeTRTCDedicatedCloudAccUsageAsync(const Model::DescribeTRTCDedicatedCloudAccUsageRequest& request, const DescribeTRTCDedicatedCloudAccUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeTRTCDedicatedCloudAccUsageOutcomeCallable DescribeTRTCDedicatedCloudAccUsageCallable(const Model::DescribeTRTCDedicatedCloudAccUsageRequest& request);
-
-                /**
                  *查询TRTC监控仪表盘-数据大盘质量指标（包括下列指标）
 joinSuccessRate：加入频道成功率。
 joinSuccessIn5sRate：5s内加入频道成功率。
@@ -799,6 +703,25 @@ networkDelay ：网络延迟率。
                 DescribeTRTCMarketQualityDataOutcome DescribeTRTCMarketQualityData(const Model::DescribeTRTCMarketQualityDataRequest &request);
                 void DescribeTRTCMarketQualityDataAsync(const Model::DescribeTRTCMarketQualityDataRequest& request, const DescribeTRTCMarketQualityDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeTRTCMarketQualityDataOutcomeCallable DescribeTRTCMarketQualityDataCallable(const Model::DescribeTRTCMarketQualityDataRequest& request);
+
+                /**
+                 *云监控monitor接口已下线，trtc同步下线接口
+
+查询TRTC监控仪表盘-数据大盘质量指标（包括下列指标）
+joinSuccessRate：加入频道成功率。
+joinSuccessIn5sRate：5s内加入频道成功率。
+audioFreezeRate：音频卡顿率。
+videoFreezeRate：视频卡顿率。
+networkDelay ：网络延迟率。
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘版本功能和计费说明：https://cloud.tencent.com/document/product/647/81331。
+2.查询时间范围根据监控仪表盘功能版本而定，【基础版】可查近30天，【进阶版】可查近60天。
+                 * @param req DescribeTRTCMarketQualityMetricDataRequest
+                 * @return DescribeTRTCMarketQualityMetricDataOutcome
+                 */
+                DescribeTRTCMarketQualityMetricDataOutcome DescribeTRTCMarketQualityMetricData(const Model::DescribeTRTCMarketQualityMetricDataRequest &request);
+                void DescribeTRTCMarketQualityMetricDataAsync(const Model::DescribeTRTCMarketQualityMetricDataRequest& request, const DescribeTRTCMarketQualityMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeTRTCMarketQualityMetricDataOutcomeCallable DescribeTRTCMarketQualityMetricDataCallable(const Model::DescribeTRTCMarketQualityMetricDataRequest& request);
 
                 /**
                  *查询TRTC监控仪表盘-数据大盘规模指标（会返回通话人数，通话房间数，峰值同时在线人数，峰值同时在线频道数）
@@ -849,6 +772,22 @@ peakCurrentUsers：峰值同时在线人数。
                 DescribeTRTCRealTimeQualityDataOutcomeCallable DescribeTRTCRealTimeQualityDataCallable(const Model::DescribeTRTCRealTimeQualityDataRequest& request);
 
                 /**
+                 *云监控monitor接口已下线，trtc同步下线接口
+
+查询TRTC监控仪表盘-实时监控质量指标（会返回下列指标）
+-视频卡顿率
+-音频卡顿率
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘版本功能和计费说明：https://cloud.tencent.com/document/product/647/81331。
+2.查询时间范围根据监控仪表盘功能版本而定，基础版可查近3小时，进阶版可查近12小时。
+                 * @param req DescribeTRTCRealTimeQualityMetricDataRequest
+                 * @return DescribeTRTCRealTimeQualityMetricDataOutcome
+                 */
+                DescribeTRTCRealTimeQualityMetricDataOutcome DescribeTRTCRealTimeQualityMetricData(const Model::DescribeTRTCRealTimeQualityMetricDataRequest &request);
+                void DescribeTRTCRealTimeQualityMetricDataAsync(const Model::DescribeTRTCRealTimeQualityMetricDataRequest& request, const DescribeTRTCRealTimeQualityMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeTRTCRealTimeQualityMetricDataOutcomeCallable DescribeTRTCRealTimeQualityMetricDataCallable(const Model::DescribeTRTCRealTimeQualityMetricDataRequest& request);
+
+                /**
                  *查询TRTC监控仪表盘-实时监控规模指标（会返回下列指标）
 -userCount（在线用户数）
 -roomCount（在线房间数）
@@ -863,16 +802,20 @@ peakCurrentUsers：峰值同时在线人数。
                 DescribeTRTCRealTimeScaleDataOutcomeCallable DescribeTRTCRealTimeScaleDataCallable(const Model::DescribeTRTCRealTimeScaleDataRequest& request);
 
                 /**
-                 *切片截图与内容理解用量查询，支持查询音视频切片（云端切片场景）和 AI 内容理解（审核场景）两种业务类型
-- 查询时间小于等于1天时，返回每5分钟粒度的数据；查询时间大于1天时，返回按天汇总的数据。
-- 单次查询统计区间最多不能超过31天。
-- 若查询当天用量，由于统计延迟等原因，返回数据可能不够准确。
-                 * @param req DescribeTRTCSegmentModerationUsageRequest
-                 * @return DescribeTRTCSegmentModerationUsageOutcome
+                 *查询TRTC监控仪表盘-实时监控规模指标（会返回下列指标）
+-userCount（在线用户数）
+-roomCount（在线房间数）
+注意：
+1.调用接口需开通监控仪表盘【基础版】和【进阶版】，监控仪表盘【免费版】不支持调用，监控仪表盘版本功能和计费说明：https://cloud.tencent.com/document/product/647/81331。
+2.查询时间范围根据监控仪表盘功能版本而定，基础版可查近3小时，进阶版可查近12小时。
+xa0
+3.除此之外您也可以通过订阅TRTC包月套餐(https://buy.cloud.tencent.com/trtc)尊享版或旗舰版解锁此接口（DescribeTRTCRealTimeScaleMetricData）的调用能力，请在开通包月套餐后，请提交工单联系售后解锁调用能力https://console.cloud.tencent.com/workorder/category
+                 * @param req DescribeTRTCRealTimeScaleMetricDataRequest
+                 * @return DescribeTRTCRealTimeScaleMetricDataOutcome
                  */
-                DescribeTRTCSegmentModerationUsageOutcome DescribeTRTCSegmentModerationUsage(const Model::DescribeTRTCSegmentModerationUsageRequest &request);
-                void DescribeTRTCSegmentModerationUsageAsync(const Model::DescribeTRTCSegmentModerationUsageRequest& request, const DescribeTRTCSegmentModerationUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeTRTCSegmentModerationUsageOutcomeCallable DescribeTRTCSegmentModerationUsageCallable(const Model::DescribeTRTCSegmentModerationUsageRequest& request);
+                DescribeTRTCRealTimeScaleMetricDataOutcome DescribeTRTCRealTimeScaleMetricData(const Model::DescribeTRTCRealTimeScaleMetricDataRequest &request);
+                void DescribeTRTCRealTimeScaleMetricDataAsync(const Model::DescribeTRTCRealTimeScaleMetricDataRequest& request, const DescribeTRTCRealTimeScaleMetricDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeTRTCRealTimeScaleMetricDataOutcomeCallable DescribeTRTCRealTimeScaleMetricDataCallable(const Model::DescribeTRTCRealTimeScaleMetricDataRequest& request);
 
                 /**
                  *查询旁路转码计费时长。
@@ -1136,7 +1079,6 @@ TRTC 的一个房间中可能会同时存在多路音视频流，您可以通过
                 /**
                  *接口说明：  
 启动一个混流转推任务，将  TRTC 房间的多路音视频流混成一路音视频流，编码后推到直播 CDN 或者回推到 TRTC 房间。也支持不转码直接转推 TRTC 房间的单路流。启动成功后，会返回一个 SdkAppid 维度唯一的任务 Id（TaskId）。您需要保存该 TaskId，后续需要依赖此 TaskId 更新和结束任务。可以参考文档： [功能说明](https://cloud.tencent.com/document/product/647/84721#b9a855f4-e38c-4616-9b07-fc44e0e8282a) 和 [常见问题](https://cloud.tencent.com/document/product/647/62620)
-需要注意的是，TaskId调用时效性是30天，从成功启动转推并获得任务ID后开始计算，超时后无法调用更新和停止等接口，但是转推任务不会停止。最终任务会等所有参与混流转推的主播离开TRTC房间或切换成观众，并且超过MaxIdleTime时长后，自动停止。
 
 注意：
 您可以在控制台开通旁路转推回调功能，对转推 CDN 状态的事件进行监控，回调请参考文档：[旁路转推回调说明](https://cloud.tencent.com/document/product/647/88552)  

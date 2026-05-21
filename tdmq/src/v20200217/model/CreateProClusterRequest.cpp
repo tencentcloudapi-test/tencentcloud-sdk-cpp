@@ -25,14 +25,13 @@ using namespace std;
 CreateProClusterRequest::CreateProClusterRequest() :
     m_zoneIdsHasBeenSet(false),
     m_productNameHasBeenSet(false),
+    m_storageSizeHasBeenSet(false),
     m_autoRenewFlagHasBeenSet(false),
     m_timeSpanHasBeenSet(false),
     m_clusterNameHasBeenSet(false),
     m_autoVoucherHasBeenSet(false),
-    m_storageSizeHasBeenSet(false),
     m_vpcHasBeenSet(false),
-    m_tagsHasBeenSet(false),
-    m_instanceVersionHasBeenSet(false)
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -62,6 +61,14 @@ string CreateProClusterRequest::ToJsonString() const
         string key = "ProductName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_productName.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_storageSizeHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "StorageSize";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_storageSize, allocator);
     }
 
     if (m_autoRenewFlagHasBeenSet)
@@ -96,14 +103,6 @@ string CreateProClusterRequest::ToJsonString() const
         d.AddMember(iKey, m_autoVoucher, allocator);
     }
 
-    if (m_storageSizeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StorageSize";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_storageSize, allocator);
-    }
-
     if (m_vpcHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -126,14 +125,6 @@ string CreateProClusterRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_instanceVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "InstanceVersion";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_instanceVersion.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -174,6 +165,22 @@ void CreateProClusterRequest::SetProductName(const string& _productName)
 bool CreateProClusterRequest::ProductNameHasBeenSet() const
 {
     return m_productNameHasBeenSet;
+}
+
+int64_t CreateProClusterRequest::GetStorageSize() const
+{
+    return m_storageSize;
+}
+
+void CreateProClusterRequest::SetStorageSize(const int64_t& _storageSize)
+{
+    m_storageSize = _storageSize;
+    m_storageSizeHasBeenSet = true;
+}
+
+bool CreateProClusterRequest::StorageSizeHasBeenSet() const
+{
+    return m_storageSizeHasBeenSet;
 }
 
 int64_t CreateProClusterRequest::GetAutoRenewFlag() const
@@ -240,22 +247,6 @@ bool CreateProClusterRequest::AutoVoucherHasBeenSet() const
     return m_autoVoucherHasBeenSet;
 }
 
-int64_t CreateProClusterRequest::GetStorageSize() const
-{
-    return m_storageSize;
-}
-
-void CreateProClusterRequest::SetStorageSize(const int64_t& _storageSize)
-{
-    m_storageSize = _storageSize;
-    m_storageSizeHasBeenSet = true;
-}
-
-bool CreateProClusterRequest::StorageSizeHasBeenSet() const
-{
-    return m_storageSizeHasBeenSet;
-}
-
 VpcInfo CreateProClusterRequest::GetVpc() const
 {
     return m_vpc;
@@ -286,22 +277,6 @@ void CreateProClusterRequest::SetTags(const vector<Tag>& _tags)
 bool CreateProClusterRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
-}
-
-string CreateProClusterRequest::GetInstanceVersion() const
-{
-    return m_instanceVersion;
-}
-
-void CreateProClusterRequest::SetInstanceVersion(const string& _instanceVersion)
-{
-    m_instanceVersion = _instanceVersion;
-    m_instanceVersionHasBeenSet = true;
-}
-
-bool CreateProClusterRequest::InstanceVersionHasBeenSet() const
-{
-    return m_instanceVersionHasBeenSet;
 }
 
 

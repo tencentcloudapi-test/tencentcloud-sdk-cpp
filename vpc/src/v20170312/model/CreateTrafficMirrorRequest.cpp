@@ -34,9 +34,7 @@ CreateTrafficMirrorRequest::CreateTrafficMirrorRequest() :
     m_collectorTargetHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
     m_typeHasBeenSet(false),
-    m_tagsHasBeenSet(false),
-    m_ingressFilterRulesHasBeenSet(false),
-    m_egressFilterRulesHasBeenSet(false)
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -157,36 +155,6 @@ string CreateTrafficMirrorRequest::ToJsonString() const
 
         int i=0;
         for (auto itr = m_tags.begin(); itr != m_tags.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_ingressFilterRulesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IngressFilterRules";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_ingressFilterRules.begin(); itr != m_ingressFilterRules.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_egressFilterRulesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EgressFilterRules";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_egressFilterRules.begin(); itr != m_egressFilterRules.end(); ++itr, ++i)
         {
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
@@ -391,38 +359,6 @@ void CreateTrafficMirrorRequest::SetTags(const vector<Tag>& _tags)
 bool CreateTrafficMirrorRequest::TagsHasBeenSet() const
 {
     return m_tagsHasBeenSet;
-}
-
-vector<TrafficMirrorFilter> CreateTrafficMirrorRequest::GetIngressFilterRules() const
-{
-    return m_ingressFilterRules;
-}
-
-void CreateTrafficMirrorRequest::SetIngressFilterRules(const vector<TrafficMirrorFilter>& _ingressFilterRules)
-{
-    m_ingressFilterRules = _ingressFilterRules;
-    m_ingressFilterRulesHasBeenSet = true;
-}
-
-bool CreateTrafficMirrorRequest::IngressFilterRulesHasBeenSet() const
-{
-    return m_ingressFilterRulesHasBeenSet;
-}
-
-vector<TrafficMirrorFilter> CreateTrafficMirrorRequest::GetEgressFilterRules() const
-{
-    return m_egressFilterRules;
-}
-
-void CreateTrafficMirrorRequest::SetEgressFilterRules(const vector<TrafficMirrorFilter>& _egressFilterRules)
-{
-    m_egressFilterRules = _egressFilterRules;
-    m_egressFilterRulesHasBeenSet = true;
-}
-
-bool CreateTrafficMirrorRequest::EgressFilterRulesHasBeenSet() const
-{
-    return m_egressFilterRulesHasBeenSet;
 }
 
 

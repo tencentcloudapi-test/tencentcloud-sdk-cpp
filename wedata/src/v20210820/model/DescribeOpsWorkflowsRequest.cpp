@@ -39,8 +39,7 @@ DescribeOpsWorkflowsRequest::DescribeOpsWorkflowsRequest() :
     m_projectIdsHasBeenSet(false),
     m_workflowTypeListHasBeenSet(false),
     m_keyWordHasBeenSet(false),
-    m_scheduleTimeZoneHasBeenSet(false),
-    m_checkPrivilegeHasBeenSet(false)
+    m_scheduleTimeZoneHasBeenSet(false)
 {
 }
 
@@ -195,14 +194,6 @@ string DescribeOpsWorkflowsRequest::ToJsonString() const
         string key = "ScheduleTimeZone";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_scheduleTimeZone.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_checkPrivilegeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CheckPrivilege";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_checkPrivilege, allocator);
     }
 
 
@@ -483,22 +474,6 @@ void DescribeOpsWorkflowsRequest::SetScheduleTimeZone(const string& _scheduleTim
 bool DescribeOpsWorkflowsRequest::ScheduleTimeZoneHasBeenSet() const
 {
     return m_scheduleTimeZoneHasBeenSet;
-}
-
-bool DescribeOpsWorkflowsRequest::GetCheckPrivilege() const
-{
-    return m_checkPrivilege;
-}
-
-void DescribeOpsWorkflowsRequest::SetCheckPrivilege(const bool& _checkPrivilege)
-{
-    m_checkPrivilege = _checkPrivilege;
-    m_checkPrivilegeHasBeenSet = true;
-}
-
-bool DescribeOpsWorkflowsRequest::CheckPrivilegeHasBeenSet() const
-{
-    return m_checkPrivilegeHasBeenSet;
 }
 
 

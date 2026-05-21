@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>符合筛选条件的数量</p>
-                     * @return TotalCount <p>符合筛选条件的数量</p>
+                     * 获取符合筛选条件的数量
+                     * @return TotalCount 符合筛选条件的数量
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例列表</p>
-                     * @return Instances <p>实例列表</p>
+                     * 获取实例列表
+                     * @return Instances 实例列表
                      * 
                      */
                     std::vector<MigrateDBItem> GetInstances() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>符合筛选条件的数量</p>
+                     * 符合筛选条件的数量
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>实例列表</p>
+                     * 实例列表
                      */
                     std::vector<MigrateDBItem> m_instances;
                     bool m_instancesHasBeenSet;

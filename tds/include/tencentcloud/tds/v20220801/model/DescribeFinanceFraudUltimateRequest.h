@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>客户端通过SDK获取的设备Token</p>
-                     * @return DeviceToken <p>客户端通过SDK获取的设备Token</p>
+                     * 获取客户端通过SDK获取的设备Token
+                     * @return DeviceToken 客户端通过SDK获取的设备Token
                      * 
                      */
                     std::string GetDeviceToken() const;
 
                     /**
-                     * 设置<p>客户端通过SDK获取的设备Token</p>
-                     * @param _deviceToken <p>客户端通过SDK获取的设备Token</p>
+                     * 设置客户端通过SDK获取的设备Token
+                     * @param _deviceToken 客户端通过SDK获取的设备Token
                      * 
                      */
                     void SetDeviceToken(const std::string& _deviceToken);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool DeviceTokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用场景。目前仅支持login-登录场景、register-注册场景</p>
-                     * @return SceneCode <p>使用场景。目前仅支持login-登录场景、register-注册场景</p>
+                     * 获取使用场景。目前仅支持login-登录场景、register-注册场景
+                     * @return SceneCode 使用场景。目前仅支持login-登录场景、register-注册场景
                      * 
                      */
                     std::string GetSceneCode() const;
 
                     /**
-                     * 设置<p>使用场景。目前仅支持login-登录场景、register-注册场景</p>
-                     * @param _sceneCode <p>使用场景。目前仅支持login-登录场景、register-注册场景</p>
+                     * 设置使用场景。目前仅支持login-登录场景、register-注册场景
+                     * @param _sceneCode 使用场景。目前仅支持login-登录场景、register-注册场景
                      * 
                      */
                     void SetSceneCode(const std::string& _sceneCode);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool SceneCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户唯一标识</p>
-                     * @return UserId <p>用户唯一标识</p>
+                     * 获取用户唯一标识
+                     * @return UserId 用户唯一标识
                      * 
                      */
                     std::string GetUserId() const;
 
                     /**
-                     * 设置<p>用户唯一标识</p>
-                     * @param _userId <p>用户唯一标识</p>
+                     * 设置用户唯一标识
+                     * @param _userId 用户唯一标识
                      * 
                      */
                     void SetUserId(const std::string& _userId);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool UserIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>事件时间戳（毫秒）</p>
-                     * @return EventTime <p>事件时间戳（毫秒）</p>
+                     * 获取事件时间戳（毫秒）
+                     * @return EventTime 事件时间戳（毫秒）
                      * 
                      */
                     uint64_t GetEventTime() const;
 
                     /**
-                     * 设置<p>事件时间戳（毫秒）</p>
-                     * @param _eventTime <p>事件时间戳（毫秒）</p>
+                     * 设置事件时间戳（毫秒）
+                     * @param _eventTime 事件时间戳（毫秒）
                      * 
                      */
                     void SetEventTime(const uint64_t& _eventTime);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool EventTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时</p>
-                     * @return ElapsedTime <p>事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时</p>
+                     * 获取事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时
+                     * @return ElapsedTime 事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时
                      * 
                      */
                     uint64_t GetElapsedTime() const;
 
                     /**
-                     * 设置<p>事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时</p>
-                     * @param _elapsedTime <p>事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时</p>
+                     * 设置事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时
+                     * @param _elapsedTime 事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时
                      * 
                      */
                     void SetElapsedTime(const uint64_t& _elapsedTime);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool ElapsedTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>微信的OpenId</p>
-                     * @return WeChatOpenId <p>微信的OpenId</p>
+                     * 获取微信的OpenId
+                     * @return WeChatOpenId 微信的OpenId
                      * 
                      */
                     std::string GetWeChatOpenId() const;
 
                     /**
-                     * 设置<p>微信的OpenId</p>
-                     * @param _weChatOpenId <p>微信的OpenId</p>
+                     * 设置微信的OpenId
+                     * @param _weChatOpenId 微信的OpenId
                      * 
                      */
                     void SetWeChatOpenId(const std::string& _weChatOpenId);
@@ -170,15 +170,15 @@ namespace TencentCloud
                     bool WeChatOpenIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5</p>
-                     * @return PhoneNumber <p>手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5</p>
+                     * 获取手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5
+                     * @return PhoneNumber 手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5
                      * 
                      */
                     std::string GetPhoneNumber() const;
 
                     /**
-                     * 设置<p>手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5</p>
-                     * @param _phoneNumber <p>手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5</p>
+                     * 设置手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5
+                     * @param _phoneNumber 手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5
                      * 
                      */
                     void SetPhoneNumber(const std::string& _phoneNumber);
@@ -191,15 +191,15 @@ namespace TencentCloud
                     bool PhoneNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>业务客户端IP</p>
-                     * @return BizClientIp <p>业务客户端IP</p>
+                     * 获取业务客户端IP
+                     * @return BizClientIp 业务客户端IP
                      * 
                      */
                     std::string GetBizClientIp() const;
 
                     /**
-                     * 设置<p>业务客户端IP</p>
-                     * @param _bizClientIp <p>业务客户端IP</p>
+                     * 设置业务客户端IP
+                     * @param _bizClientIp 业务客户端IP
                      * 
                      */
                     void SetBizClientIp(const std::string& _bizClientIp);
@@ -212,15 +212,15 @@ namespace TencentCloud
                     bool BizClientIpHasBeenSet() const;
 
                     /**
-                     * 获取<p>QQ的OpenId</p>
-                     * @return QQOpenId <p>QQ的OpenId</p>
+                     * 获取QQ的OpenId
+                     * @return QQOpenId QQ的OpenId
                      * 
                      */
                     std::string GetQQOpenId() const;
 
                     /**
-                     * 设置<p>QQ的OpenId</p>
-                     * @param _qQOpenId <p>QQ的OpenId</p>
+                     * 设置QQ的OpenId
+                     * @param _qQOpenId QQ的OpenId
                      * 
                      */
                     void SetQQOpenId(const std::string& _qQOpenId);
@@ -233,15 +233,15 @@ namespace TencentCloud
                     bool QQOpenIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据授权信息</p>
-                     * @return DataAuthorization <p>数据授权信息</p>
+                     * 获取数据授权信息
+                     * @return DataAuthorization 数据授权信息
                      * 
                      */
                     DataAuthorizationInfo GetDataAuthorization() const;
 
                     /**
-                     * 设置<p>数据授权信息</p>
-                     * @param _dataAuthorization <p>数据授权信息</p>
+                     * 设置数据授权信息
+                     * @param _dataAuthorization 数据授权信息
                      * 
                      */
                     void SetDataAuthorization(const DataAuthorizationInfo& _dataAuthorization);
@@ -256,61 +256,61 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>客户端通过SDK获取的设备Token</p>
+                     * 客户端通过SDK获取的设备Token
                      */
                     std::string m_deviceToken;
                     bool m_deviceTokenHasBeenSet;
 
                     /**
-                     * <p>使用场景。目前仅支持login-登录场景、register-注册场景</p>
+                     * 使用场景。目前仅支持login-登录场景、register-注册场景
                      */
                     std::string m_sceneCode;
                     bool m_sceneCodeHasBeenSet;
 
                     /**
-                     * <p>用户唯一标识</p>
+                     * 用户唯一标识
                      */
                     std::string m_userId;
                     bool m_userIdHasBeenSet;
 
                     /**
-                     * <p>事件时间戳（毫秒）</p>
+                     * 事件时间戳（毫秒）
                      */
                     uint64_t m_eventTime;
                     bool m_eventTimeHasBeenSet;
 
                     /**
-                     * <p>事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时</p>
+                     * 事件耗时（毫秒），例如进入登录界面到点击登录按钮耗时
                      */
                     uint64_t m_elapsedTime;
                     bool m_elapsedTimeHasBeenSet;
 
                     /**
-                     * <p>微信的OpenId</p>
+                     * 微信的OpenId
                      */
                     std::string m_weChatOpenId;
                     bool m_weChatOpenIdHasBeenSet;
 
                     /**
-                     * <p>手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5</p>
+                     * 手机号码（注：不需要带国家代码 例如：13430421011）。可以传入原文或MD5
                      */
                     std::string m_phoneNumber;
                     bool m_phoneNumberHasBeenSet;
 
                     /**
-                     * <p>业务客户端IP</p>
+                     * 业务客户端IP
                      */
                     std::string m_bizClientIp;
                     bool m_bizClientIpHasBeenSet;
 
                     /**
-                     * <p>QQ的OpenId</p>
+                     * QQ的OpenId
                      */
                     std::string m_qQOpenId;
                     bool m_qQOpenIdHasBeenSet;
 
                     /**
-                     * <p>数据授权信息</p>
+                     * 数据授权信息
                      */
                     DataAuthorizationInfo m_dataAuthorization;
                     bool m_dataAuthorizationHasBeenSet;

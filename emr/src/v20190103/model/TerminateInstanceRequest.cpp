@@ -26,8 +26,7 @@ TerminateInstanceRequest::TerminateInstanceRequest() :
     m_instanceIdHasBeenSet(false),
     m_resourceIdsHasBeenSet(false),
     m_resourceBaseTypeHasBeenSet(false),
-    m_computeResourceIdHasBeenSet(false),
-    m_retainTkeClusterHasBeenSet(false)
+    m_computeResourceIdHasBeenSet(false)
 {
 }
 
@@ -73,14 +72,6 @@ string TerminateInstanceRequest::ToJsonString() const
         string key = "ComputeResourceId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_computeResourceId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_retainTkeClusterHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RetainTkeCluster";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_retainTkeCluster, allocator);
     }
 
 
@@ -153,22 +144,6 @@ void TerminateInstanceRequest::SetComputeResourceId(const string& _computeResour
 bool TerminateInstanceRequest::ComputeResourceIdHasBeenSet() const
 {
     return m_computeResourceIdHasBeenSet;
-}
-
-bool TerminateInstanceRequest::GetRetainTkeCluster() const
-{
-    return m_retainTkeCluster;
-}
-
-void TerminateInstanceRequest::SetRetainTkeCluster(const bool& _retainTkeCluster)
-{
-    m_retainTkeCluster = _retainTkeCluster;
-    m_retainTkeClusterHasBeenSet = true;
-}
-
-bool TerminateInstanceRequest::RetainTkeClusterHasBeenSet() const
-{
-    return m_retainTkeClusterHasBeenSet;
 }
 
 

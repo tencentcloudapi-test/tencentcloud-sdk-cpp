@@ -47,15 +47,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>策略模式,  RULE_MODE_RELEASE: 放行<br>   RULE_MODE_ALERT: 告警<br>   RULE_MODE_HOLDUP:拦截</p>
-                     * @return RuleMode <p>策略模式,  RULE_MODE_RELEASE: 放行<br>   RULE_MODE_ALERT: 告警<br>   RULE_MODE_HOLDUP:拦截</p>
+                     * 获取策略模式,  RULE_MODE_RELEASE: 放行
+   RULE_MODE_ALERT: 告警
+   RULE_MODE_HOLDUP:拦截
+                     * @return RuleMode 策略模式,  RULE_MODE_RELEASE: 放行
+   RULE_MODE_ALERT: 告警
+   RULE_MODE_HOLDUP:拦截
                      * 
                      */
                     std::string GetRuleMode() const;
 
                     /**
-                     * 设置<p>策略模式,  RULE_MODE_RELEASE: 放行<br>   RULE_MODE_ALERT: 告警<br>   RULE_MODE_HOLDUP:拦截</p>
-                     * @param _ruleMode <p>策略模式,  RULE_MODE_RELEASE: 放行<br>   RULE_MODE_ALERT: 告警<br>   RULE_MODE_HOLDUP:拦截</p>
+                     * 设置策略模式,  RULE_MODE_RELEASE: 放行
+   RULE_MODE_ALERT: 告警
+   RULE_MODE_HOLDUP:拦截
+                     * @param _ruleMode 策略模式,  RULE_MODE_RELEASE: 放行
+   RULE_MODE_ALERT: 告警
+   RULE_MODE_HOLDUP:拦截
                      * 
                      */
                     void SetRuleMode(const std::string& _ruleMode);
@@ -68,15 +76,15 @@ namespace TencentCloud
                     bool RuleModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>进程路径</p>
-                     * @return ProcessPath <p>进程路径</p>
+                     * 获取进程路径
+                     * @return ProcessPath 进程路径
                      * 
                      */
                     std::string GetProcessPath() const;
 
                     /**
-                     * 设置<p>进程路径</p>
-                     * @param _processPath <p>进程路径</p>
+                     * 设置进程路径
+                     * @param _processPath 进程路径
                      * 
                      */
                     void SetProcessPath(const std::string& _processPath);
@@ -89,15 +97,15 @@ namespace TencentCloud
                     bool ProcessPathHasBeenSet() const;
 
                     /**
-                     * 获取<p>被访问文件路径，仅仅在访问控制生效</p>
-                     * @return TargetFilePath <p>被访问文件路径，仅仅在访问控制生效</p>
+                     * 获取被访问文件路径，仅仅在访问控制生效
+                     * @return TargetFilePath 被访问文件路径，仅仅在访问控制生效
                      * 
                      */
                     std::string GetTargetFilePath() const;
 
                     /**
-                     * 设置<p>被访问文件路径，仅仅在访问控制生效</p>
-                     * @param _targetFilePath <p>被访问文件路径，仅仅在访问控制生效</p>
+                     * 设置被访问文件路径，仅仅在访问控制生效
+                     * @param _targetFilePath 被访问文件路径，仅仅在访问控制生效
                      * 
                      */
                     void SetTargetFilePath(const std::string& _targetFilePath);
@@ -110,15 +118,15 @@ namespace TencentCloud
                     bool TargetFilePathHasBeenSet() const;
 
                     /**
-                     * 获取<p>子策略id</p>
-                     * @return RuleId <p>子策略id</p>
+                     * 获取子策略id
+                     * @return RuleId 子策略id
                      * 
                      */
                     std::string GetRuleId() const;
 
                     /**
-                     * 设置<p>子策略id</p>
-                     * @param _ruleId <p>子策略id</p>
+                     * 设置子策略id
+                     * @param _ruleId 子策略id
                      * 
                      */
                     void SetRuleId(const std::string& _ruleId);
@@ -130,58 +138,33 @@ namespace TencentCloud
                      */
                     bool RuleIdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>命令行参数</p>
-                     * @return CmdLine <p>命令行参数</p>
-                     * 
-                     */
-                    std::string GetCmdLine() const;
-
-                    /**
-                     * 设置<p>命令行参数</p>
-                     * @param _cmdLine <p>命令行参数</p>
-                     * 
-                     */
-                    void SetCmdLine(const std::string& _cmdLine);
-
-                    /**
-                     * 判断参数 CmdLine 是否已赋值
-                     * @return CmdLine 是否已赋值
-                     * 
-                     */
-                    bool CmdLineHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>策略模式,  RULE_MODE_RELEASE: 放行<br>   RULE_MODE_ALERT: 告警<br>   RULE_MODE_HOLDUP:拦截</p>
+                     * 策略模式,  RULE_MODE_RELEASE: 放行
+   RULE_MODE_ALERT: 告警
+   RULE_MODE_HOLDUP:拦截
                      */
                     std::string m_ruleMode;
                     bool m_ruleModeHasBeenSet;
 
                     /**
-                     * <p>进程路径</p>
+                     * 进程路径
                      */
                     std::string m_processPath;
                     bool m_processPathHasBeenSet;
 
                     /**
-                     * <p>被访问文件路径，仅仅在访问控制生效</p>
+                     * 被访问文件路径，仅仅在访问控制生效
                      */
                     std::string m_targetFilePath;
                     bool m_targetFilePathHasBeenSet;
 
                     /**
-                     * <p>子策略id</p>
+                     * 子策略id
                      */
                     std::string m_ruleId;
                     bool m_ruleIdHasBeenSet;
-
-                    /**
-                     * <p>命令行参数</p>
-                     */
-                    std::string m_cmdLine;
-                    bool m_cmdLineHasBeenSet;
 
                 };
             }

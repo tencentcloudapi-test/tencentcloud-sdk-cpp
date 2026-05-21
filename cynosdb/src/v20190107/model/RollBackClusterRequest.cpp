@@ -30,8 +30,7 @@ RollBackClusterRequest::RollBackClusterRequest() :
     m_expectTimeThreshHasBeenSet(false),
     m_rollbackDatabasesHasBeenSet(false),
     m_rollbackTablesHasBeenSet(false),
-    m_rollbackModeHasBeenSet(false),
-    m_vaultIdHasBeenSet(false)
+    m_rollbackModeHasBeenSet(false)
 {
 }
 
@@ -118,14 +117,6 @@ string RollBackClusterRequest::ToJsonString() const
         string key = "RollbackMode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_rollbackMode.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_vaultIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "VaultId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_vaultId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -262,22 +253,6 @@ void RollBackClusterRequest::SetRollbackMode(const string& _rollbackMode)
 bool RollBackClusterRequest::RollbackModeHasBeenSet() const
 {
     return m_rollbackModeHasBeenSet;
-}
-
-string RollBackClusterRequest::GetVaultId() const
-{
-    return m_vaultId;
-}
-
-void RollBackClusterRequest::SetVaultId(const string& _vaultId)
-{
-    m_vaultId = _vaultId;
-    m_vaultIdHasBeenSet = true;
-}
-
-bool RollBackClusterRequest::VaultIdHasBeenSet() const
-{
-    return m_vaultIdHasBeenSet;
 }
 
 

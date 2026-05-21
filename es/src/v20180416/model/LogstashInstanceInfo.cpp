@@ -51,8 +51,7 @@ LogstashInstanceInfo::LogstashInstanceInfo() :
     m_tagListHasBeenSet(false),
     m_memSizeHasBeenSet(false),
     m_deployModeHasBeenSet(false),
-    m_multiZoneInfoHasBeenSet(false),
-    m_userDnsIpHasBeenSet(false)
+    m_multiZoneInfoHasBeenSet(false)
 {
 }
 
@@ -418,16 +417,6 @@ CoreInternalOutcome LogstashInstanceInfo::Deserialize(const rapidjson::Value &va
         m_multiZoneInfoHasBeenSet = true;
     }
 
-    if (value.HasMember("UserDnsIp") && !value["UserDnsIp"].IsNull())
-    {
-        if (!value["UserDnsIp"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `LogstashInstanceInfo.UserDnsIp` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_userDnsIp = string(value["UserDnsIp"].GetString());
-        m_userDnsIpHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -710,14 +699,6 @@ void LogstashInstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Docu
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_userDnsIpHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UserDnsIp";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_userDnsIp.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1217,21 +1198,5 @@ void LogstashInstanceInfo::SetMultiZoneInfo(const vector<ZoneDetail>& _multiZone
 bool LogstashInstanceInfo::MultiZoneInfoHasBeenSet() const
 {
     return m_multiZoneInfoHasBeenSet;
-}
-
-string LogstashInstanceInfo::GetUserDnsIp() const
-{
-    return m_userDnsIp;
-}
-
-void LogstashInstanceInfo::SetUserDnsIp(const string& _userDnsIp)
-{
-    m_userDnsIp = _userDnsIp;
-    m_userDnsIpHasBeenSet = true;
-}
-
-bool LogstashInstanceInfo::UserDnsIpHasBeenSet() const
-{
-    return m_userDnsIpHasBeenSet;
 }
 

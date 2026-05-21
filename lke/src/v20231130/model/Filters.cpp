@@ -22,8 +22,7 @@ using namespace std;
 
 Filters::Filters() :
     m_queryHasBeenSet(false),
-    m_reasonsHasBeenSet(false),
-    m_handlingStatusesHasBeenSet(false)
+    m_reasonsHasBeenSet(false)
 {
 }
 
@@ -55,19 +54,6 @@ CoreInternalOutcome Filters::Deserialize(const rapidjson::Value &value)
         m_reasonsHasBeenSet = true;
     }
 
-    if (value.HasMember("HandlingStatuses") && !value["HandlingStatuses"].IsNull())
-    {
-        if (!value["HandlingStatuses"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `Filters.HandlingStatuses` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["HandlingStatuses"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_handlingStatuses.push_back((*itr).GetUint64());
-        }
-        m_handlingStatusesHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -93,19 +79,6 @@ void Filters::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allocat
         for (auto itr = m_reasons.begin(); itr != m_reasons.end(); ++itr)
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
-
-    if (m_handlingStatusesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "HandlingStatuses";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_handlingStatuses.begin(); itr != m_handlingStatuses.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetUint64(*itr), allocator);
         }
     }
 
@@ -142,21 +115,5 @@ void Filters::SetReasons(const vector<string>& _reasons)
 bool Filters::ReasonsHasBeenSet() const
 {
     return m_reasonsHasBeenSet;
-}
-
-vector<uint64_t> Filters::GetHandlingStatuses() const
-{
-    return m_handlingStatuses;
-}
-
-void Filters::SetHandlingStatuses(const vector<uint64_t>& _handlingStatuses)
-{
-    m_handlingStatuses = _handlingStatuses;
-    m_handlingStatusesHasBeenSet = true;
-}
-
-bool Filters::HandlingStatusesHasBeenSet() const
-{
-    return m_handlingStatusesHasBeenSet;
 }
 

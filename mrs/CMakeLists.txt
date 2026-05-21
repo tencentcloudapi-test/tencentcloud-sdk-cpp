@@ -103,7 +103,7 @@ set(mrs_public_header_model
   include/tencentcloud/mrs/v20200910/model/ImageMaskFlags.h
   include/tencentcloud/mrs/v20200910/model/TurnPDFToObjectResponse.h
   include/tencentcloud/mrs/v20200910/model/InternalMedicineHeart.h
-  include/tencentcloud/mrs/v20200910/model/ImageToClassRequest.h
+  include/tencentcloud/mrs/v20200910/model/ReportInfo.h
   include/tencentcloud/mrs/v20200910/model/Endoscopy.h
   include/tencentcloud/mrs/v20200910/model/TurnPDFToObjectAsyncGetResultResponse.h
   include/tencentcloud/mrs/v20200910/model/PhysicalBaseItem.h
@@ -116,7 +116,6 @@ set(mrs_public_header_model
   include/tencentcloud/mrs/v20200910/model/AspectRatio.h
   include/tencentcloud/mrs/v20200910/model/PersonalHistoryBlock.h
   include/tencentcloud/mrs/v20200910/model/NeonatalInfo.h
-  include/tencentcloud/mrs/v20200910/model/Size.h
   include/tencentcloud/mrs/v20200910/model/EyeItem.h
   include/tencentcloud/mrs/v20200910/model/FamilyMedicalHistory.h
   include/tencentcloud/mrs/v20200910/model/BiologicalProductInfoBrochure.h
@@ -127,7 +126,6 @@ set(mrs_public_header_model
   include/tencentcloud/mrs/v20200910/model/ImageToClassResponse.h
   include/tencentcloud/mrs/v20200910/model/DischargeDiagnosisBlock.h
   include/tencentcloud/mrs/v20200910/model/DrugListBlock.h
-  include/tencentcloud/mrs/v20200910/model/ReportInfo.h
   include/tencentcloud/mrs/v20200910/model/Template.h
   include/tencentcloud/mrs/v20200910/model/GynaecologyBriefSummary.h
   include/tencentcloud/mrs/v20200910/model/RelativeHistoryBlock.h
@@ -219,7 +217,7 @@ set(mrs_public_header_model
   include/tencentcloud/mrs/v20200910/model/DrugInstructionObjectRequest.h
   include/tencentcloud/mrs/v20200910/model/BiopsyPart.h
   include/tencentcloud/mrs/v20200910/model/Invas.h
-  include/tencentcloud/mrs/v20200910/model/EyeFinalItem.h
+  include/tencentcloud/mrs/v20200910/model/ImageToClassRequest.h
   include/tencentcloud/mrs/v20200910/model/InternalMedicineAbdomenLiver.h
   include/tencentcloud/mrs/v20200910/model/BaseInfo.h
   include/tencentcloud/mrs/v20200910/model/ChemicalProductInfoPrecautions.h
@@ -232,7 +230,7 @@ set(mrs_public_header_model
   include/tencentcloud/mrs/v20200910/model/TextTypeListBlock.h
   include/tencentcloud/mrs/v20200910/model/ObstetricalHistoryBlock.h
   include/tencentcloud/mrs/v20200910/model/SurgerySpinalExtremities.h
-  include/tencentcloud/mrs/v20200910/model/ItemCoordinate.h
+  include/tencentcloud/mrs/v20200910/model/Size.h
   include/tencentcloud/mrs/v20200910/model/DischargeConditionBlock.h
   include/tencentcloud/mrs/v20200910/model/LymphTotal.h
   include/tencentcloud/mrs/v20200910/model/ChemicalProductInfoApproval.h
@@ -394,7 +392,7 @@ set(mrs_src
   src/v20200910/model/ImageMaskFlags.cpp
   src/v20200910/model/TurnPDFToObjectResponse.cpp
   src/v20200910/model/InternalMedicineHeart.cpp
-  src/v20200910/model/ImageToClassRequest.cpp
+  src/v20200910/model/ReportInfo.cpp
   src/v20200910/model/Endoscopy.cpp
   src/v20200910/model/TurnPDFToObjectAsyncGetResultResponse.cpp
   src/v20200910/model/PhysicalBaseItem.cpp
@@ -407,7 +405,6 @@ set(mrs_src
   src/v20200910/model/AspectRatio.cpp
   src/v20200910/model/PersonalHistoryBlock.cpp
   src/v20200910/model/NeonatalInfo.cpp
-  src/v20200910/model/Size.cpp
   src/v20200910/model/EyeItem.cpp
   src/v20200910/model/FamilyMedicalHistory.cpp
   src/v20200910/model/BiologicalProductInfoBrochure.cpp
@@ -418,7 +415,6 @@ set(mrs_src
   src/v20200910/model/ImageToClassResponse.cpp
   src/v20200910/model/DischargeDiagnosisBlock.cpp
   src/v20200910/model/DrugListBlock.cpp
-  src/v20200910/model/ReportInfo.cpp
   src/v20200910/model/Template.cpp
   src/v20200910/model/GynaecologyBriefSummary.cpp
   src/v20200910/model/RelativeHistoryBlock.cpp
@@ -510,7 +506,7 @@ set(mrs_src
   src/v20200910/model/DrugInstructionObjectRequest.cpp
   src/v20200910/model/BiopsyPart.cpp
   src/v20200910/model/Invas.cpp
-  src/v20200910/model/EyeFinalItem.cpp
+  src/v20200910/model/ImageToClassRequest.cpp
   src/v20200910/model/InternalMedicineAbdomenLiver.cpp
   src/v20200910/model/BaseInfo.cpp
   src/v20200910/model/ChemicalProductInfoPrecautions.cpp
@@ -523,7 +519,7 @@ set(mrs_src
   src/v20200910/model/TextTypeListBlock.cpp
   src/v20200910/model/ObstetricalHistoryBlock.cpp
   src/v20200910/model/SurgerySpinalExtremities.cpp
-  src/v20200910/model/ItemCoordinate.cpp
+  src/v20200910/model/Size.cpp
   src/v20200910/model/DischargeConditionBlock.cpp
   src/v20200910/model/LymphTotal.cpp
   src/v20200910/model/ChemicalProductInfoApproval.cpp

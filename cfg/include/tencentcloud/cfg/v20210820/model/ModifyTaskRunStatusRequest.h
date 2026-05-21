@@ -168,27 +168,6 @@ namespace TencentCloud
                      */
                     bool RecordHasBeenSet() const;
 
-                    /**
-                     * 获取
-                     * @return IncludeRecordInReport 
-                     * 
-                     */
-                    int64_t GetIncludeRecordInReport() const;
-
-                    /**
-                     * 设置
-                     * @param _includeRecordInReport 
-                     * 
-                     */
-                    void SetIncludeRecordInReport(const int64_t& _includeRecordInReport);
-
-                    /**
-                     * 判断参数 IncludeRecordInReport 是否已赋值
-                     * @return IncludeRecordInReport 是否已赋值
-                     * 
-                     */
-                    bool IncludeRecordInReportHasBeenSet() const;
-
                 private:
 
                     /**
@@ -226,12 +205,6 @@ namespace TencentCloud
                      */
                     std::string m_record;
                     bool m_recordHasBeenSet;
-
-                    /**
-                     * 
-                     */
-                    int64_t m_includeRecordInReport;
-                    bool m_includeRecordInReportHasBeenSet;
 
                 };
             }

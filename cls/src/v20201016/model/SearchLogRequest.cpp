@@ -25,8 +25,8 @@ using namespace std;
 SearchLogRequest::SearchLogRequest() :
     m_fromHasBeenSet(false),
     m_toHasBeenSet(false),
-    m_queryStringHasBeenSet(false),
-    m_querySyntaxHasBeenSet(false),
+    m_queryHasBeenSet(false),
+    m_syntaxRuleHasBeenSet(false),
     m_topicIdHasBeenSet(false),
     m_topicsHasBeenSet(false),
     m_sortHasBeenSet(false),
@@ -35,9 +35,7 @@ SearchLogRequest::SearchLogRequest() :
     m_contextHasBeenSet(false),
     m_samplingRateHasBeenSet(false),
     m_useNewAnalysisHasBeenSet(false),
-    m_highLightHasBeenSet(false),
-    m_queryHasBeenSet(false),
-    m_syntaxRuleHasBeenSet(false)
+    m_highLightHasBeenSet(false)
 {
 }
 
@@ -64,20 +62,20 @@ string SearchLogRequest::ToJsonString() const
         d.AddMember(iKey, m_to, allocator);
     }
 
-    if (m_queryStringHasBeenSet)
+    if (m_queryHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "QueryString";
+        string key = "Query";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_queryString.c_str(), allocator).Move(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_query.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_querySyntaxHasBeenSet)
+    if (m_syntaxRuleHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "QuerySyntax";
+        string key = "SyntaxRule";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_querySyntax, allocator);
+        d.AddMember(iKey, m_syntaxRule, allocator);
     }
 
     if (m_topicIdHasBeenSet)
@@ -159,22 +157,6 @@ string SearchLogRequest::ToJsonString() const
         d.AddMember(iKey, m_highLight, allocator);
     }
 
-    if (m_queryHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Query";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_query.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_syntaxRuleHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SyntaxRule";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_syntaxRule, allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -215,36 +197,36 @@ bool SearchLogRequest::ToHasBeenSet() const
     return m_toHasBeenSet;
 }
 
-string SearchLogRequest::GetQueryString() const
+string SearchLogRequest::GetQuery() const
 {
-    return m_queryString;
+    return m_query;
 }
 
-void SearchLogRequest::SetQueryString(const string& _queryString)
+void SearchLogRequest::SetQuery(const string& _query)
 {
-    m_queryString = _queryString;
-    m_queryStringHasBeenSet = true;
+    m_query = _query;
+    m_queryHasBeenSet = true;
 }
 
-bool SearchLogRequest::QueryStringHasBeenSet() const
+bool SearchLogRequest::QueryHasBeenSet() const
 {
-    return m_queryStringHasBeenSet;
+    return m_queryHasBeenSet;
 }
 
-uint64_t SearchLogRequest::GetQuerySyntax() const
+uint64_t SearchLogRequest::GetSyntaxRule() const
 {
-    return m_querySyntax;
+    return m_syntaxRule;
 }
 
-void SearchLogRequest::SetQuerySyntax(const uint64_t& _querySyntax)
+void SearchLogRequest::SetSyntaxRule(const uint64_t& _syntaxRule)
 {
-    m_querySyntax = _querySyntax;
-    m_querySyntaxHasBeenSet = true;
+    m_syntaxRule = _syntaxRule;
+    m_syntaxRuleHasBeenSet = true;
 }
 
-bool SearchLogRequest::QuerySyntaxHasBeenSet() const
+bool SearchLogRequest::SyntaxRuleHasBeenSet() const
 {
-    return m_querySyntaxHasBeenSet;
+    return m_syntaxRuleHasBeenSet;
 }
 
 string SearchLogRequest::GetTopicId() const
@@ -389,38 +371,6 @@ void SearchLogRequest::SetHighLight(const bool& _highLight)
 bool SearchLogRequest::HighLightHasBeenSet() const
 {
     return m_highLightHasBeenSet;
-}
-
-string SearchLogRequest::GetQuery() const
-{
-    return m_query;
-}
-
-void SearchLogRequest::SetQuery(const string& _query)
-{
-    m_query = _query;
-    m_queryHasBeenSet = true;
-}
-
-bool SearchLogRequest::QueryHasBeenSet() const
-{
-    return m_queryHasBeenSet;
-}
-
-uint64_t SearchLogRequest::GetSyntaxRule() const
-{
-    return m_syntaxRule;
-}
-
-void SearchLogRequest::SetSyntaxRule(const uint64_t& _syntaxRule)
-{
-    m_syntaxRule = _syntaxRule;
-    m_syntaxRuleHasBeenSet = true;
-}
-
-bool SearchLogRequest::SyntaxRuleHasBeenSet() const
-{
-    return m_syntaxRuleHasBeenSet;
 }
 
 

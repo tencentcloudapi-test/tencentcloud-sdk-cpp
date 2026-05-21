@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>唯一标识</p>
+                     * 获取唯一标识
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Id <p>唯一标识</p>
+                     * @return Id 唯一标识
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetId() const;
 
                     /**
-                     * 设置<p>唯一标识</p>
+                     * 设置唯一标识
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _id <p>唯一标识</p>
+                     * @param _id 唯一标识
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务id</p>
+                     * 获取任务id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskId <p>任务id</p>
+                     * @return TaskId 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskId() const;
 
                     /**
-                     * 设置<p>任务id</p>
+                     * 设置任务id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskId <p>任务id</p>
+                     * @param _taskId 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool TaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数名</p>
+                     * 获取参数名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ParamKey <p>参数名</p>
+                     * @return ParamKey 参数名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetParamKey() const;
 
                     /**
-                     * 设置<p>参数名</p>
+                     * 设置参数名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paramKey <p>参数名</p>
+                     * @param _paramKey 参数名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool ParamKeyHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数描述</p>
+                     * 获取参数描述
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ParamDesc <p>参数描述</p>
+                     * @return ParamDesc 参数描述
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetParamDesc() const;
 
                     /**
-                     * 设置<p>参数描述</p>
+                     * 设置参数描述
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paramDesc <p>参数描述</p>
+                     * @param _paramDesc 参数描述
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -147,18 +147,18 @@ namespace TencentCloud
                     bool ParamDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>参数定义</p>
+                     * 获取参数定义
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ParamDefine <p>参数定义</p>
+                     * @return ParamDefine 参数定义
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetParamDefine() const;
 
                     /**
-                     * 设置<p>参数定义</p>
+                     * 设置参数定义
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _paramDefine <p>参数定义</p>
+                     * @param _paramDefine 参数定义
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -172,18 +172,18 @@ namespace TencentCloud
                     bool ParamDefineHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间</p>
+                     * 获取创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CreateTime <p>创建时间</p>
+                     * @return CreateTime 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间</p>
+                     * 设置创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _createTime <p>创建时间</p>
+                     * @param _createTime 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -197,18 +197,18 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>更新时间</p>
+                     * 获取更新时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UpdateTime <p>更新时间</p>
+                     * @return UpdateTime 更新时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>更新时间</p>
+                     * 设置更新时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _updateTime <p>更新时间</p>
+                     * @param _updateTime 更新时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -222,18 +222,18 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务名</p>
+                     * 获取任务名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskName <p>任务名</p>
+                     * @return TaskName 任务名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTaskName() const;
 
                     /**
-                     * 设置<p>任务名</p>
+                     * 设置任务名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskName <p>任务名</p>
+                     * @param _taskName 任务名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -247,18 +247,18 @@ namespace TencentCloud
                     bool TaskNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目id</p>
+                     * 获取项目id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ProjectId <p>项目id</p>
+                     * @return ProjectId 项目id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetProjectId() const;
 
                     /**
-                     * 设置<p>项目id</p>
+                     * 设置项目id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _projectId <p>项目id</p>
+                     * @param _projectId 项目id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -272,18 +272,18 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目名</p>
+                     * 获取项目名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ProjectName <p>项目名</p>
+                     * @return ProjectName 项目名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetProjectName() const;
 
                     /**
-                     * 设置<p>项目名</p>
+                     * 设置项目名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _projectName <p>项目名</p>
+                     * @param _projectName 项目名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -299,70 +299,70 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>唯一标识</p>
+                     * 唯一标识
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>任务id</p>
+                     * 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskId;
                     bool m_taskIdHasBeenSet;
 
                     /**
-                     * <p>参数名</p>
+                     * 参数名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramKey;
                     bool m_paramKeyHasBeenSet;
 
                     /**
-                     * <p>参数描述</p>
+                     * 参数描述
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramDesc;
                     bool m_paramDescHasBeenSet;
 
                     /**
-                     * <p>参数定义</p>
+                     * 参数定义
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_paramDefine;
                     bool m_paramDefineHasBeenSet;
 
                     /**
-                     * <p>创建时间</p>
+                     * 创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>更新时间</p>
+                     * 更新时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>任务名</p>
+                     * 任务名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskName;
                     bool m_taskNameHasBeenSet;
 
                     /**
-                     * <p>项目id</p>
+                     * 项目id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>项目名</p>
+                     * 项目名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_projectName;

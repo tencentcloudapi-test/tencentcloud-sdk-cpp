@@ -540,56 +540,6 @@ LiveClient::CancelCommonMixStreamOutcomeCallable LiveClient::CancelCommonMixStre
     return prom->get_future();
 }
 
-LiveClient::CloseSourceStreamOutcome LiveClient::CloseSourceStream(const CloseSourceStreamRequest &request)
-{
-    auto outcome = MakeRequest(request, "CloseSourceStream");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CloseSourceStreamResponse rsp = CloseSourceStreamResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CloseSourceStreamOutcome(rsp);
-        else
-            return CloseSourceStreamOutcome(o.GetError());
-    }
-    else
-    {
-        return CloseSourceStreamOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CloseSourceStreamAsync(const CloseSourceStreamRequest& request, const CloseSourceStreamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CloseSourceStreamRequest&;
-    using Resp = CloseSourceStreamResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CloseSourceStream", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CloseSourceStreamOutcomeCallable LiveClient::CloseSourceStreamCallable(const CloseSourceStreamRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CloseSourceStreamOutcome>>();
-    CloseSourceStreamAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CloseSourceStreamRequest&,
-        CloseSourceStreamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::CopyCasterOutcome LiveClient::CopyCaster(const CopyCasterRequest &request)
 {
     auto outcome = MakeRequest(request, "CopyCaster");
@@ -632,106 +582,6 @@ LiveClient::CopyCasterOutcomeCallable LiveClient::CopyCasterCallable(const CopyC
         const LiveClient*,
         const CopyCasterRequest&,
         CopyCasterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::CopyLiveAvatarRoomOutcome LiveClient::CopyLiveAvatarRoom(const CopyLiveAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "CopyLiveAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CopyLiveAvatarRoomResponse rsp = CopyLiveAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CopyLiveAvatarRoomOutcome(rsp);
-        else
-            return CopyLiveAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return CopyLiveAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CopyLiveAvatarRoomAsync(const CopyLiveAvatarRoomRequest& request, const CopyLiveAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CopyLiveAvatarRoomRequest&;
-    using Resp = CopyLiveAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CopyLiveAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CopyLiveAvatarRoomOutcomeCallable LiveClient::CopyLiveAvatarRoomCallable(const CopyLiveAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CopyLiveAvatarRoomOutcome>>();
-    CopyLiveAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CopyLiveAvatarRoomRequest&,
-        CopyLiveAvatarRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::CreateAuditKeywordLibOutcome LiveClient::CreateAuditKeywordLib(const CreateAuditKeywordLibRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateAuditKeywordLib");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateAuditKeywordLibResponse rsp = CreateAuditKeywordLibResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateAuditKeywordLibOutcome(rsp);
-        else
-            return CreateAuditKeywordLibOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateAuditKeywordLibOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CreateAuditKeywordLibAsync(const CreateAuditKeywordLibRequest& request, const CreateAuditKeywordLibAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateAuditKeywordLibRequest&;
-    using Resp = CreateAuditKeywordLibResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateAuditKeywordLib", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CreateAuditKeywordLibOutcomeCallable LiveClient::CreateAuditKeywordLibCallable(const CreateAuditKeywordLibRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateAuditKeywordLibOutcome>>();
-    CreateAuditKeywordLibAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CreateAuditKeywordLibRequest&,
-        CreateAuditKeywordLibOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -1090,106 +940,6 @@ LiveClient::CreateCommonMixStreamOutcomeCallable LiveClient::CreateCommonMixStre
     return prom->get_future();
 }
 
-LiveClient::CreateLiveAvatarRoomOutcome LiveClient::CreateLiveAvatarRoom(const CreateLiveAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateLiveAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateLiveAvatarRoomResponse rsp = CreateLiveAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateLiveAvatarRoomOutcome(rsp);
-        else
-            return CreateLiveAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateLiveAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CreateLiveAvatarRoomAsync(const CreateLiveAvatarRoomRequest& request, const CreateLiveAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateLiveAvatarRoomRequest&;
-    using Resp = CreateLiveAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateLiveAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CreateLiveAvatarRoomOutcomeCallable LiveClient::CreateLiveAvatarRoomCallable(const CreateLiveAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateLiveAvatarRoomOutcome>>();
-    CreateLiveAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CreateLiveAvatarRoomRequest&,
-        CreateLiveAvatarRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::CreateLiveAvatarScriptOutcome LiveClient::CreateLiveAvatarScript(const CreateLiveAvatarScriptRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateLiveAvatarScript");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateLiveAvatarScriptResponse rsp = CreateLiveAvatarScriptResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateLiveAvatarScriptOutcome(rsp);
-        else
-            return CreateLiveAvatarScriptOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateLiveAvatarScriptOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CreateLiveAvatarScriptAsync(const CreateLiveAvatarScriptRequest& request, const CreateLiveAvatarScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateLiveAvatarScriptRequest&;
-    using Resp = CreateLiveAvatarScriptResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateLiveAvatarScript", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CreateLiveAvatarScriptOutcomeCallable LiveClient::CreateLiveAvatarScriptCallable(const CreateLiveAvatarScriptRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateLiveAvatarScriptOutcome>>();
-    CreateLiveAvatarScriptAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CreateLiveAvatarScriptRequest&,
-        CreateLiveAvatarScriptOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::CreateLiveCallbackRuleOutcome LiveClient::CreateLiveCallbackRule(const CreateLiveCallbackRuleRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateLiveCallbackRule");
@@ -1282,56 +1032,6 @@ LiveClient::CreateLiveCallbackTemplateOutcomeCallable LiveClient::CreateLiveCall
         const LiveClient*,
         const CreateLiveCallbackTemplateRequest&,
         CreateLiveCallbackTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::CreateLiveCloudEffectOutcome LiveClient::CreateLiveCloudEffect(const CreateLiveCloudEffectRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateLiveCloudEffect");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateLiveCloudEffectResponse rsp = CreateLiveCloudEffectResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateLiveCloudEffectOutcome(rsp);
-        else
-            return CreateLiveCloudEffectOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateLiveCloudEffectOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CreateLiveCloudEffectAsync(const CreateLiveCloudEffectRequest& request, const CreateLiveCloudEffectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateLiveCloudEffectRequest&;
-    using Resp = CreateLiveCloudEffectResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateLiveCloudEffect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CreateLiveCloudEffectOutcomeCallable LiveClient::CreateLiveCloudEffectCallable(const CreateLiveCloudEffectRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateLiveCloudEffectOutcome>>();
-    CreateLiveCloudEffectAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CreateLiveCloudEffectRequest&,
-        CreateLiveCloudEffectOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2140,56 +1840,6 @@ LiveClient::CreateRecordTaskOutcomeCallable LiveClient::CreateRecordTaskCallable
     return prom->get_future();
 }
 
-LiveClient::CreateSceneVideoTaskOutcome LiveClient::CreateSceneVideoTask(const CreateSceneVideoTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateSceneVideoTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateSceneVideoTaskResponse rsp = CreateSceneVideoTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateSceneVideoTaskOutcome(rsp);
-        else
-            return CreateSceneVideoTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateSceneVideoTaskOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CreateSceneVideoTaskAsync(const CreateSceneVideoTaskRequest& request, const CreateSceneVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateSceneVideoTaskRequest&;
-    using Resp = CreateSceneVideoTaskResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateSceneVideoTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CreateSceneVideoTaskOutcomeCallable LiveClient::CreateSceneVideoTaskCallable(const CreateSceneVideoTaskRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateSceneVideoTaskOutcome>>();
-    CreateSceneVideoTaskAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CreateSceneVideoTaskRequest&,
-        CreateSceneVideoTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::CreateScreenshotTaskOutcome LiveClient::CreateScreenshotTask(const CreateScreenshotTaskRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateScreenshotTask");
@@ -2232,56 +1882,6 @@ LiveClient::CreateScreenshotTaskOutcomeCallable LiveClient::CreateScreenshotTask
         const LiveClient*,
         const CreateScreenshotTaskRequest&,
         CreateScreenshotTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::CreateVideoRedrawTaskOutcome LiveClient::CreateVideoRedrawTask(const CreateVideoRedrawTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateVideoRedrawTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateVideoRedrawTaskResponse rsp = CreateVideoRedrawTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateVideoRedrawTaskOutcome(rsp);
-        else
-            return CreateVideoRedrawTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateVideoRedrawTaskOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::CreateVideoRedrawTaskAsync(const CreateVideoRedrawTaskRequest& request, const CreateVideoRedrawTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateVideoRedrawTaskRequest&;
-    using Resp = CreateVideoRedrawTaskResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoRedrawTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::CreateVideoRedrawTaskOutcomeCallable LiveClient::CreateVideoRedrawTaskCallable(const CreateVideoRedrawTaskRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateVideoRedrawTaskOutcome>>();
-    CreateVideoRedrawTaskAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const CreateVideoRedrawTaskRequest&,
-        CreateVideoRedrawTaskOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -2632,106 +2232,6 @@ LiveClient::DeleteCasterOutputInfoOutcomeCallable LiveClient::DeleteCasterOutput
         const LiveClient*,
         const DeleteCasterOutputInfoRequest&,
         DeleteCasterOutputInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DeleteLiveAvatarRoomOutcome LiveClient::DeleteLiveAvatarRoom(const DeleteLiveAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteLiveAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteLiveAvatarRoomResponse rsp = DeleteLiveAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteLiveAvatarRoomOutcome(rsp);
-        else
-            return DeleteLiveAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteLiveAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DeleteLiveAvatarRoomAsync(const DeleteLiveAvatarRoomRequest& request, const DeleteLiveAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteLiveAvatarRoomRequest&;
-    using Resp = DeleteLiveAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteLiveAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DeleteLiveAvatarRoomOutcomeCallable LiveClient::DeleteLiveAvatarRoomCallable(const DeleteLiveAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteLiveAvatarRoomOutcome>>();
-    DeleteLiveAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DeleteLiveAvatarRoomRequest&,
-        DeleteLiveAvatarRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DeleteLiveAvatarScriptOutcome LiveClient::DeleteLiveAvatarScript(const DeleteLiveAvatarScriptRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteLiveAvatarScript");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteLiveAvatarScriptResponse rsp = DeleteLiveAvatarScriptResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteLiveAvatarScriptOutcome(rsp);
-        else
-            return DeleteLiveAvatarScriptOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteLiveAvatarScriptOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DeleteLiveAvatarScriptAsync(const DeleteLiveAvatarScriptRequest& request, const DeleteLiveAvatarScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteLiveAvatarScriptRequest&;
-    using Resp = DeleteLiveAvatarScriptResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteLiveAvatarScript", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DeleteLiveAvatarScriptOutcomeCallable LiveClient::DeleteLiveAvatarScriptCallable(const DeleteLiveAvatarScriptRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteLiveAvatarScriptOutcome>>();
-    DeleteLiveAvatarScriptAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DeleteLiveAvatarScriptRequest&,
-        DeleteLiveAvatarScriptOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3790,56 +3290,6 @@ LiveClient::DeleteScreenshotTaskOutcomeCallable LiveClient::DeleteScreenshotTask
     return prom->get_future();
 }
 
-LiveClient::DescribeAIGCTaskStatusOutcome LiveClient::DescribeAIGCTaskStatus(const DescribeAIGCTaskStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeAIGCTaskStatus");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeAIGCTaskStatusResponse rsp = DescribeAIGCTaskStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeAIGCTaskStatusOutcome(rsp);
-        else
-            return DescribeAIGCTaskStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeAIGCTaskStatusOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeAIGCTaskStatusAsync(const DescribeAIGCTaskStatusRequest& request, const DescribeAIGCTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeAIGCTaskStatusRequest&;
-    using Resp = DescribeAIGCTaskStatusResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeAIGCTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeAIGCTaskStatusOutcomeCallable LiveClient::DescribeAIGCTaskStatusCallable(const DescribeAIGCTaskStatusRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeAIGCTaskStatusOutcome>>();
-    DescribeAIGCTaskStatusAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeAIGCTaskStatusRequest&,
-        DescribeAIGCTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::DescribeAllStreamPlayInfoListOutcome LiveClient::DescribeAllStreamPlayInfoList(const DescribeAllStreamPlayInfoListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeAllStreamPlayInfoList");
@@ -4232,56 +3682,6 @@ LiveClient::DescribeCasterDisplayInfoOutcomeCallable LiveClient::DescribeCasterD
         const LiveClient*,
         const DescribeCasterDisplayInfoRequest&,
         DescribeCasterDisplayInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeCasterEmergencyStatusOutcome LiveClient::DescribeCasterEmergencyStatus(const DescribeCasterEmergencyStatusRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeCasterEmergencyStatus");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeCasterEmergencyStatusResponse rsp = DescribeCasterEmergencyStatusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeCasterEmergencyStatusOutcome(rsp);
-        else
-            return DescribeCasterEmergencyStatusOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeCasterEmergencyStatusOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeCasterEmergencyStatusAsync(const DescribeCasterEmergencyStatusRequest& request, const DescribeCasterEmergencyStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeCasterEmergencyStatusRequest&;
-    using Resp = DescribeCasterEmergencyStatusResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeCasterEmergencyStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeCasterEmergencyStatusOutcomeCallable LiveClient::DescribeCasterEmergencyStatusCallable(const DescribeCasterEmergencyStatusRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeCasterEmergencyStatusOutcome>>();
-    DescribeCasterEmergencyStatusAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeCasterEmergencyStatusRequest&,
-        DescribeCasterEmergencyStatusOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -4990,306 +4390,6 @@ LiveClient::DescribeHttpStatusInfoListOutcomeCallable LiveClient::DescribeHttpSt
     return prom->get_future();
 }
 
-LiveClient::DescribeLiveAvatarBackgroundListOutcome LiveClient::DescribeLiveAvatarBackgroundList(const DescribeLiveAvatarBackgroundListRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveAvatarBackgroundList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveAvatarBackgroundListResponse rsp = DescribeLiveAvatarBackgroundListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveAvatarBackgroundListOutcome(rsp);
-        else
-            return DescribeLiveAvatarBackgroundListOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveAvatarBackgroundListOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveAvatarBackgroundListAsync(const DescribeLiveAvatarBackgroundListRequest& request, const DescribeLiveAvatarBackgroundListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveAvatarBackgroundListRequest&;
-    using Resp = DescribeLiveAvatarBackgroundListResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveAvatarBackgroundList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveAvatarBackgroundListOutcomeCallable LiveClient::DescribeLiveAvatarBackgroundListCallable(const DescribeLiveAvatarBackgroundListRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveAvatarBackgroundListOutcome>>();
-    DescribeLiveAvatarBackgroundListAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveAvatarBackgroundListRequest&,
-        DescribeLiveAvatarBackgroundListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeLiveAvatarImageListOutcome LiveClient::DescribeLiveAvatarImageList(const DescribeLiveAvatarImageListRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveAvatarImageList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveAvatarImageListResponse rsp = DescribeLiveAvatarImageListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveAvatarImageListOutcome(rsp);
-        else
-            return DescribeLiveAvatarImageListOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveAvatarImageListOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveAvatarImageListAsync(const DescribeLiveAvatarImageListRequest& request, const DescribeLiveAvatarImageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveAvatarImageListRequest&;
-    using Resp = DescribeLiveAvatarImageListResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveAvatarImageList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveAvatarImageListOutcomeCallable LiveClient::DescribeLiveAvatarImageListCallable(const DescribeLiveAvatarImageListRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveAvatarImageListOutcome>>();
-    DescribeLiveAvatarImageListAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveAvatarImageListRequest&,
-        DescribeLiveAvatarImageListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeLiveAvatarRoomsOutcome LiveClient::DescribeLiveAvatarRooms(const DescribeLiveAvatarRoomsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveAvatarRooms");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveAvatarRoomsResponse rsp = DescribeLiveAvatarRoomsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveAvatarRoomsOutcome(rsp);
-        else
-            return DescribeLiveAvatarRoomsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveAvatarRoomsOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveAvatarRoomsAsync(const DescribeLiveAvatarRoomsRequest& request, const DescribeLiveAvatarRoomsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveAvatarRoomsRequest&;
-    using Resp = DescribeLiveAvatarRoomsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveAvatarRooms", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveAvatarRoomsOutcomeCallable LiveClient::DescribeLiveAvatarRoomsCallable(const DescribeLiveAvatarRoomsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveAvatarRoomsOutcome>>();
-    DescribeLiveAvatarRoomsAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveAvatarRoomsRequest&,
-        DescribeLiveAvatarRoomsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeLiveAvatarScriptsOutcome LiveClient::DescribeLiveAvatarScripts(const DescribeLiveAvatarScriptsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveAvatarScripts");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveAvatarScriptsResponse rsp = DescribeLiveAvatarScriptsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveAvatarScriptsOutcome(rsp);
-        else
-            return DescribeLiveAvatarScriptsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveAvatarScriptsOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveAvatarScriptsAsync(const DescribeLiveAvatarScriptsRequest& request, const DescribeLiveAvatarScriptsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveAvatarScriptsRequest&;
-    using Resp = DescribeLiveAvatarScriptsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveAvatarScripts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveAvatarScriptsOutcomeCallable LiveClient::DescribeLiveAvatarScriptsCallable(const DescribeLiveAvatarScriptsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveAvatarScriptsOutcome>>();
-    DescribeLiveAvatarScriptsAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveAvatarScriptsRequest&,
-        DescribeLiveAvatarScriptsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeLiveAvatarTemporaryScriptListOutcome LiveClient::DescribeLiveAvatarTemporaryScriptList(const DescribeLiveAvatarTemporaryScriptListRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveAvatarTemporaryScriptList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveAvatarTemporaryScriptListResponse rsp = DescribeLiveAvatarTemporaryScriptListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveAvatarTemporaryScriptListOutcome(rsp);
-        else
-            return DescribeLiveAvatarTemporaryScriptListOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveAvatarTemporaryScriptListOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveAvatarTemporaryScriptListAsync(const DescribeLiveAvatarTemporaryScriptListRequest& request, const DescribeLiveAvatarTemporaryScriptListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveAvatarTemporaryScriptListRequest&;
-    using Resp = DescribeLiveAvatarTemporaryScriptListResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveAvatarTemporaryScriptList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveAvatarTemporaryScriptListOutcomeCallable LiveClient::DescribeLiveAvatarTemporaryScriptListCallable(const DescribeLiveAvatarTemporaryScriptListRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveAvatarTemporaryScriptListOutcome>>();
-    DescribeLiveAvatarTemporaryScriptListAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveAvatarTemporaryScriptListRequest&,
-        DescribeLiveAvatarTemporaryScriptListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeLiveAvatarTimbreListOutcome LiveClient::DescribeLiveAvatarTimbreList(const DescribeLiveAvatarTimbreListRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveAvatarTimbreList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveAvatarTimbreListResponse rsp = DescribeLiveAvatarTimbreListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveAvatarTimbreListOutcome(rsp);
-        else
-            return DescribeLiveAvatarTimbreListOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveAvatarTimbreListOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveAvatarTimbreListAsync(const DescribeLiveAvatarTimbreListRequest& request, const DescribeLiveAvatarTimbreListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveAvatarTimbreListRequest&;
-    using Resp = DescribeLiveAvatarTimbreListResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveAvatarTimbreList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveAvatarTimbreListOutcomeCallable LiveClient::DescribeLiveAvatarTimbreListCallable(const DescribeLiveAvatarTimbreListRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveAvatarTimbreListOutcome>>();
-    DescribeLiveAvatarTimbreListAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveAvatarTimbreListRequest&,
-        DescribeLiveAvatarTimbreListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::DescribeLiveCallbackRulesOutcome LiveClient::DescribeLiveCallbackRules(const DescribeLiveCallbackRulesRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeLiveCallbackRules");
@@ -5532,56 +4632,6 @@ LiveClient::DescribeLiveCertsOutcomeCallable LiveClient::DescribeLiveCertsCallab
         const LiveClient*,
         const DescribeLiveCertsRequest&,
         DescribeLiveCertsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeLiveCloudEffectConfigOutcome LiveClient::DescribeLiveCloudEffectConfig(const DescribeLiveCloudEffectConfigRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeLiveCloudEffectConfig");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeLiveCloudEffectConfigResponse rsp = DescribeLiveCloudEffectConfigResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeLiveCloudEffectConfigOutcome(rsp);
-        else
-            return DescribeLiveCloudEffectConfigOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeLiveCloudEffectConfigOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeLiveCloudEffectConfigAsync(const DescribeLiveCloudEffectConfigRequest& request, const DescribeLiveCloudEffectConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeLiveCloudEffectConfigRequest&;
-    using Resp = DescribeLiveCloudEffectConfigResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveCloudEffectConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeLiveCloudEffectConfigOutcomeCallable LiveClient::DescribeLiveCloudEffectConfigCallable(const DescribeLiveCloudEffectConfigRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeLiveCloudEffectConfigOutcome>>();
-    DescribeLiveCloudEffectConfigAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeLiveCloudEffectConfigRequest&,
-        DescribeLiveCloudEffectConfigOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -6032,6 +5082,56 @@ LiveClient::DescribeLiveEnhanceInfoListOutcomeCallable LiveClient::DescribeLiveE
         const LiveClient*,
         const DescribeLiveEnhanceInfoListRequest&,
         DescribeLiveEnhanceInfoListOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+LiveClient::DescribeLiveForbidStreamListOutcome LiveClient::DescribeLiveForbidStreamList(const DescribeLiveForbidStreamListRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeLiveForbidStreamList");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeLiveForbidStreamListResponse rsp = DescribeLiveForbidStreamListResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeLiveForbidStreamListOutcome(rsp);
+        else
+            return DescribeLiveForbidStreamListOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeLiveForbidStreamListOutcome(outcome.GetError());
+    }
+}
+
+void LiveClient::DescribeLiveForbidStreamListAsync(const DescribeLiveForbidStreamListRequest& request, const DescribeLiveForbidStreamListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeLiveForbidStreamListRequest&;
+    using Resp = DescribeLiveForbidStreamListResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeLiveForbidStreamList", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+LiveClient::DescribeLiveForbidStreamListOutcomeCallable LiveClient::DescribeLiveForbidStreamListCallable(const DescribeLiveForbidStreamListRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeLiveForbidStreamListOutcome>>();
+    DescribeLiveForbidStreamListAsync(
+    request,
+    [prom](
+        const LiveClient*,
+        const DescribeLiveForbidStreamListRequest&,
+        DescribeLiveForbidStreamListOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -7890,56 +6990,6 @@ LiveClient::DescribeMonitorReportOutcomeCallable LiveClient::DescribeMonitorRepo
     return prom->get_future();
 }
 
-LiveClient::DescribeOriginStreamInfoOutcome LiveClient::DescribeOriginStreamInfo(const DescribeOriginStreamInfoRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeOriginStreamInfo");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeOriginStreamInfoResponse rsp = DescribeOriginStreamInfoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeOriginStreamInfoOutcome(rsp);
-        else
-            return DescribeOriginStreamInfoOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeOriginStreamInfoOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeOriginStreamInfoAsync(const DescribeOriginStreamInfoRequest& request, const DescribeOriginStreamInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeOriginStreamInfoRequest&;
-    using Resp = DescribeOriginStreamInfoResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeOriginStreamInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeOriginStreamInfoOutcomeCallable LiveClient::DescribeOriginStreamInfoCallable(const DescribeOriginStreamInfoRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeOriginStreamInfoOutcome>>();
-    DescribeOriginStreamInfoAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeOriginStreamInfoRequest&,
-        DescribeOriginStreamInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::DescribePlayErrorCodeDetailInfoListOutcome LiveClient::DescribePlayErrorCodeDetailInfoList(const DescribePlayErrorCodeDetailInfoListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribePlayErrorCodeDetailInfoList");
@@ -8240,56 +7290,6 @@ LiveClient::DescribePullTransformPushInfoOutcomeCallable LiveClient::DescribePul
     return prom->get_future();
 }
 
-LiveClient::DescribePullTransformPushInfoListOutcome LiveClient::DescribePullTransformPushInfoList(const DescribePullTransformPushInfoListRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribePullTransformPushInfoList");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribePullTransformPushInfoListResponse rsp = DescribePullTransformPushInfoListResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribePullTransformPushInfoListOutcome(rsp);
-        else
-            return DescribePullTransformPushInfoListOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribePullTransformPushInfoListOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribePullTransformPushInfoListAsync(const DescribePullTransformPushInfoListRequest& request, const DescribePullTransformPushInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribePullTransformPushInfoListRequest&;
-    using Resp = DescribePullTransformPushInfoListResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribePullTransformPushInfoList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribePullTransformPushInfoListOutcomeCallable LiveClient::DescribePullTransformPushInfoListCallable(const DescribePullTransformPushInfoListRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribePullTransformPushInfoListOutcome>>();
-    DescribePullTransformPushInfoListAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribePullTransformPushInfoListRequest&,
-        DescribePullTransformPushInfoListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::DescribePushBandwidthAndFluxListOutcome LiveClient::DescribePushBandwidthAndFluxList(const DescribePushBandwidthAndFluxListRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribePushBandwidthAndFluxList");
@@ -8382,56 +7382,6 @@ LiveClient::DescribeRecordTaskOutcomeCallable LiveClient::DescribeRecordTaskCall
         const LiveClient*,
         const DescribeRecordTaskRequest&,
         DescribeRecordTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::DescribeSceneVideoTaskOutcome LiveClient::DescribeSceneVideoTask(const DescribeSceneVideoTaskRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeSceneVideoTask");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeSceneVideoTaskResponse rsp = DescribeSceneVideoTaskResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeSceneVideoTaskOutcome(rsp);
-        else
-            return DescribeSceneVideoTaskOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeSceneVideoTaskOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::DescribeSceneVideoTaskAsync(const DescribeSceneVideoTaskRequest& request, const DescribeSceneVideoTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeSceneVideoTaskRequest&;
-    using Resp = DescribeSceneVideoTaskResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeSceneVideoTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::DescribeSceneVideoTaskOutcomeCallable LiveClient::DescribeSceneVideoTaskCallable(const DescribeSceneVideoTaskRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeSceneVideoTaskOutcome>>();
-    DescribeSceneVideoTaskAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const DescribeSceneVideoTaskRequest&,
-        DescribeSceneVideoTaskOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -9240,106 +8190,6 @@ LiveClient::ForbidLiveStreamOutcomeCallable LiveClient::ForbidLiveStreamCallable
     return prom->get_future();
 }
 
-LiveClient::GenerateLiveAvatarScriptBroadcastOutcome LiveClient::GenerateLiveAvatarScriptBroadcast(const GenerateLiveAvatarScriptBroadcastRequest &request)
-{
-    auto outcome = MakeRequest(request, "GenerateLiveAvatarScriptBroadcast");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        GenerateLiveAvatarScriptBroadcastResponse rsp = GenerateLiveAvatarScriptBroadcastResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return GenerateLiveAvatarScriptBroadcastOutcome(rsp);
-        else
-            return GenerateLiveAvatarScriptBroadcastOutcome(o.GetError());
-    }
-    else
-    {
-        return GenerateLiveAvatarScriptBroadcastOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::GenerateLiveAvatarScriptBroadcastAsync(const GenerateLiveAvatarScriptBroadcastRequest& request, const GenerateLiveAvatarScriptBroadcastAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const GenerateLiveAvatarScriptBroadcastRequest&;
-    using Resp = GenerateLiveAvatarScriptBroadcastResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "GenerateLiveAvatarScriptBroadcast", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::GenerateLiveAvatarScriptBroadcastOutcomeCallable LiveClient::GenerateLiveAvatarScriptBroadcastCallable(const GenerateLiveAvatarScriptBroadcastRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<GenerateLiveAvatarScriptBroadcastOutcome>>();
-    GenerateLiveAvatarScriptBroadcastAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const GenerateLiveAvatarScriptBroadcastRequest&,
-        GenerateLiveAvatarScriptBroadcastOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::InsertTaskTemporaryFilesOutcome LiveClient::InsertTaskTemporaryFiles(const InsertTaskTemporaryFilesRequest &request)
-{
-    auto outcome = MakeRequest(request, "InsertTaskTemporaryFiles");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        InsertTaskTemporaryFilesResponse rsp = InsertTaskTemporaryFilesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return InsertTaskTemporaryFilesOutcome(rsp);
-        else
-            return InsertTaskTemporaryFilesOutcome(o.GetError());
-    }
-    else
-    {
-        return InsertTaskTemporaryFilesOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::InsertTaskTemporaryFilesAsync(const InsertTaskTemporaryFilesRequest& request, const InsertTaskTemporaryFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const InsertTaskTemporaryFilesRequest&;
-    using Resp = InsertTaskTemporaryFilesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "InsertTaskTemporaryFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::InsertTaskTemporaryFilesOutcomeCallable LiveClient::InsertTaskTemporaryFilesCallable(const InsertTaskTemporaryFilesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<InsertTaskTemporaryFilesOutcome>>();
-    InsertTaskTemporaryFilesAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const InsertTaskTemporaryFilesRequest&,
-        InsertTaskTemporaryFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::ModifyCasterOutcome LiveClient::ModifyCaster(const ModifyCasterRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyCaster");
@@ -9632,106 +8482,6 @@ LiveClient::ModifyCasterOutputInfoOutcomeCallable LiveClient::ModifyCasterOutput
         const LiveClient*,
         const ModifyCasterOutputInfoRequest&,
         ModifyCasterOutputInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::ModifyLiveAvatarRoomOutcome LiveClient::ModifyLiveAvatarRoom(const ModifyLiveAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyLiveAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyLiveAvatarRoomResponse rsp = ModifyLiveAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyLiveAvatarRoomOutcome(rsp);
-        else
-            return ModifyLiveAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyLiveAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::ModifyLiveAvatarRoomAsync(const ModifyLiveAvatarRoomRequest& request, const ModifyLiveAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyLiveAvatarRoomRequest&;
-    using Resp = ModifyLiveAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyLiveAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::ModifyLiveAvatarRoomOutcomeCallable LiveClient::ModifyLiveAvatarRoomCallable(const ModifyLiveAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyLiveAvatarRoomOutcome>>();
-    ModifyLiveAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const ModifyLiveAvatarRoomRequest&,
-        ModifyLiveAvatarRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::ModifyLiveAvatarScriptOutcome LiveClient::ModifyLiveAvatarScript(const ModifyLiveAvatarScriptRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyLiveAvatarScript");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyLiveAvatarScriptResponse rsp = ModifyLiveAvatarScriptResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyLiveAvatarScriptOutcome(rsp);
-        else
-            return ModifyLiveAvatarScriptOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyLiveAvatarScriptOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::ModifyLiveAvatarScriptAsync(const ModifyLiveAvatarScriptRequest& request, const ModifyLiveAvatarScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyLiveAvatarScriptRequest&;
-    using Resp = ModifyLiveAvatarScriptResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyLiveAvatarScript", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::ModifyLiveAvatarScriptOutcomeCallable LiveClient::ModifyLiveAvatarScriptCallable(const ModifyLiveAvatarScriptRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyLiveAvatarScriptOutcome>>();
-    ModifyLiveAvatarScriptAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const ModifyLiveAvatarScriptRequest&,
-        ModifyLiveAvatarScriptOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -10390,56 +9140,6 @@ LiveClient::ModifyLiveTranscodeTemplateOutcomeCallable LiveClient::ModifyLiveTra
     return prom->get_future();
 }
 
-LiveClient::ModifyOriginStreamInfoOutcome LiveClient::ModifyOriginStreamInfo(const ModifyOriginStreamInfoRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyOriginStreamInfo");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyOriginStreamInfoResponse rsp = ModifyOriginStreamInfoResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyOriginStreamInfoOutcome(rsp);
-        else
-            return ModifyOriginStreamInfoOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyOriginStreamInfoOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::ModifyOriginStreamInfoAsync(const ModifyOriginStreamInfoRequest& request, const ModifyOriginStreamInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyOriginStreamInfoRequest&;
-    using Resp = ModifyOriginStreamInfoResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyOriginStreamInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::ModifyOriginStreamInfoOutcomeCallable LiveClient::ModifyOriginStreamInfoCallable(const ModifyOriginStreamInfoRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyOriginStreamInfoOutcome>>();
-    ModifyOriginStreamInfoAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const ModifyOriginStreamInfoRequest&,
-        ModifyOriginStreamInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::ModifyPullStreamConfigOutcome LiveClient::ModifyPullStreamConfig(const ModifyPullStreamConfigRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyPullStreamConfig");
@@ -10790,106 +9490,6 @@ LiveClient::SendLiveCloudEffectOutcomeCallable LiveClient::SendLiveCloudEffectCa
     return prom->get_future();
 }
 
-LiveClient::SendTemporaryScriptToAvatarRoomOutcome LiveClient::SendTemporaryScriptToAvatarRoom(const SendTemporaryScriptToAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "SendTemporaryScriptToAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        SendTemporaryScriptToAvatarRoomResponse rsp = SendTemporaryScriptToAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return SendTemporaryScriptToAvatarRoomOutcome(rsp);
-        else
-            return SendTemporaryScriptToAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return SendTemporaryScriptToAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::SendTemporaryScriptToAvatarRoomAsync(const SendTemporaryScriptToAvatarRoomRequest& request, const SendTemporaryScriptToAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const SendTemporaryScriptToAvatarRoomRequest&;
-    using Resp = SendTemporaryScriptToAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "SendTemporaryScriptToAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::SendTemporaryScriptToAvatarRoomOutcomeCallable LiveClient::SendTemporaryScriptToAvatarRoomCallable(const SendTemporaryScriptToAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<SendTemporaryScriptToAvatarRoomOutcome>>();
-    SendTemporaryScriptToAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const SendTemporaryScriptToAvatarRoomRequest&,
-        SendTemporaryScriptToAvatarRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::StartLiveAvatarRoomOutcome LiveClient::StartLiveAvatarRoom(const StartLiveAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "StartLiveAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        StartLiveAvatarRoomResponse rsp = StartLiveAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return StartLiveAvatarRoomOutcome(rsp);
-        else
-            return StartLiveAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return StartLiveAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::StartLiveAvatarRoomAsync(const StartLiveAvatarRoomRequest& request, const StartLiveAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const StartLiveAvatarRoomRequest&;
-    using Resp = StartLiveAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "StartLiveAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::StartLiveAvatarRoomOutcomeCallable LiveClient::StartLiveAvatarRoomCallable(const StartLiveAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<StartLiveAvatarRoomOutcome>>();
-    StartLiveAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const StartLiveAvatarRoomRequest&,
-        StartLiveAvatarRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 LiveClient::StartLivePadStreamOutcome LiveClient::StartLivePadStream(const StartLivePadStreamRequest &request)
 {
     auto outcome = MakeRequest(request, "StartLivePadStream");
@@ -11082,56 +9682,6 @@ LiveClient::StopCasterPvwOutcomeCallable LiveClient::StopCasterPvwCallable(const
         const LiveClient*,
         const StopCasterPvwRequest&,
         StopCasterPvwOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::StopLiveAvatarRoomOutcome LiveClient::StopLiveAvatarRoom(const StopLiveAvatarRoomRequest &request)
-{
-    auto outcome = MakeRequest(request, "StopLiveAvatarRoom");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        StopLiveAvatarRoomResponse rsp = StopLiveAvatarRoomResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return StopLiveAvatarRoomOutcome(rsp);
-        else
-            return StopLiveAvatarRoomOutcome(o.GetError());
-    }
-    else
-    {
-        return StopLiveAvatarRoomOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::StopLiveAvatarRoomAsync(const StopLiveAvatarRoomRequest& request, const StopLiveAvatarRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const StopLiveAvatarRoomRequest&;
-    using Resp = StopLiveAvatarRoomResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "StopLiveAvatarRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::StopLiveAvatarRoomOutcomeCallable LiveClient::StopLiveAvatarRoomCallable(const StopLiveAvatarRoomRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<StopLiveAvatarRoomOutcome>>();
-    StopLiveAvatarRoomAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const StopLiveAvatarRoomRequest&,
-        StopLiveAvatarRoomOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -11432,56 +9982,6 @@ LiveClient::SwitchBackupStreamOutcomeCallable LiveClient::SwitchBackupStreamCall
         const LiveClient*,
         const SwitchBackupStreamRequest&,
         SwitchBackupStreamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-LiveClient::SwitchCasterToEmergencyOutcome LiveClient::SwitchCasterToEmergency(const SwitchCasterToEmergencyRequest &request)
-{
-    auto outcome = MakeRequest(request, "SwitchCasterToEmergency");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        SwitchCasterToEmergencyResponse rsp = SwitchCasterToEmergencyResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return SwitchCasterToEmergencyOutcome(rsp);
-        else
-            return SwitchCasterToEmergencyOutcome(o.GetError());
-    }
-    else
-    {
-        return SwitchCasterToEmergencyOutcome(outcome.GetError());
-    }
-}
-
-void LiveClient::SwitchCasterToEmergencyAsync(const SwitchCasterToEmergencyRequest& request, const SwitchCasterToEmergencyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const SwitchCasterToEmergencyRequest&;
-    using Resp = SwitchCasterToEmergencyResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "SwitchCasterToEmergency", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-LiveClient::SwitchCasterToEmergencyOutcomeCallable LiveClient::SwitchCasterToEmergencyCallable(const SwitchCasterToEmergencyRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<SwitchCasterToEmergencyOutcome>>();
-    SwitchCasterToEmergencyAsync(
-    request,
-    [prom](
-        const LiveClient*,
-        const SwitchCasterToEmergencyRequest&,
-        SwitchCasterToEmergencyOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

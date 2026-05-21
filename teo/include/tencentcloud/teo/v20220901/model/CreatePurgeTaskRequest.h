@@ -73,13 +73,13 @@ namespace TencentCloud
 <li>purge_url：URL刷新；</li>
 <li>purge_prefix：目录刷新；</li>
 <li>purge_host：Hostname 刷新；</li>
-<li>purge_all：站点下全部缓存刷新（取该值时不支持 ZoneId 入参为 *）；</li>
+<li>purge_all：站点下全部缓存刷新；</li>
 <li>purge_cache_tag：cache-tag 刷新。</li>缓存清除类型详情请查看[清除缓存](https://cloud.tencent.com/document/product/1552/70759)。
                      * @return Type 节点缓存清除类型，取值有：
 <li>purge_url：URL刷新；</li>
 <li>purge_prefix：目录刷新；</li>
 <li>purge_host：Hostname 刷新；</li>
-<li>purge_all：站点下全部缓存刷新（取该值时不支持 ZoneId 入参为 *）；</li>
+<li>purge_all：站点下全部缓存刷新；</li>
 <li>purge_cache_tag：cache-tag 刷新。</li>缓存清除类型详情请查看[清除缓存](https://cloud.tencent.com/document/product/1552/70759)。
                      * 
                      */
@@ -90,13 +90,13 @@ namespace TencentCloud
 <li>purge_url：URL刷新；</li>
 <li>purge_prefix：目录刷新；</li>
 <li>purge_host：Hostname 刷新；</li>
-<li>purge_all：站点下全部缓存刷新（取该值时不支持 ZoneId 入参为 *）；</li>
+<li>purge_all：站点下全部缓存刷新；</li>
 <li>purge_cache_tag：cache-tag 刷新。</li>缓存清除类型详情请查看[清除缓存](https://cloud.tencent.com/document/product/1552/70759)。
                      * @param _type 节点缓存清除类型，取值有：
 <li>purge_url：URL刷新；</li>
 <li>purge_prefix：目录刷新；</li>
 <li>purge_host：Hostname 刷新；</li>
-<li>purge_all：站点下全部缓存刷新（取该值时不支持 ZoneId 入参为 *）；</li>
+<li>purge_all：站点下全部缓存刷新；</li>
 <li>purge_cache_tag：cache-tag 刷新。</li>缓存清除类型详情请查看[清除缓存](https://cloud.tencent.com/document/product/1552/70759)。
                      * 
                      */
@@ -177,15 +177,15 @@ namespace TencentCloud
                     bool EncodeUrlHasBeenSet() const;
 
                     /**
-                     * 获取节点缓存清除类型取值为 purge_cache_tag 时，该参数必填，入参值为域名。
-                     * @return CacheTag 节点缓存清除类型取值为 purge_cache_tag 时，该参数必填，入参值为域名。
+                     * 获取节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
+                     * @return CacheTag 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
                      * 
                      */
                     CacheTag GetCacheTag() const;
 
                     /**
-                     * 设置节点缓存清除类型取值为 purge_cache_tag 时，该参数必填，入参值为域名。
-                     * @param _cacheTag 节点缓存清除类型取值为 purge_cache_tag 时，该参数必填，入参值为域名。
+                     * 设置节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
+                     * @param _cacheTag 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
                      * 
                      */
                     void SetCacheTag(const CacheTag& _cacheTag);
@@ -211,7 +211,7 @@ namespace TencentCloud
 <li>purge_url：URL刷新；</li>
 <li>purge_prefix：目录刷新；</li>
 <li>purge_host：Hostname 刷新；</li>
-<li>purge_all：站点下全部缓存刷新（取该值时不支持 ZoneId 入参为 *）；</li>
+<li>purge_all：站点下全部缓存刷新；</li>
 <li>purge_cache_tag：cache-tag 刷新。</li>缓存清除类型详情请查看[清除缓存](https://cloud.tencent.com/document/product/1552/70759)。
                      */
                     std::string m_type;
@@ -237,7 +237,7 @@ namespace TencentCloud
                     bool m_encodeUrlHasBeenSet;
 
                     /**
-                     * 节点缓存清除类型取值为 purge_cache_tag 时，该参数必填，入参值为域名。
+                     * 节点缓存清除类型取值为 purge_cache_tag 时附带的信息。
                      */
                     CacheTag m_cacheTag;
                     bool m_cacheTagHasBeenSet;

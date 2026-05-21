@@ -35,8 +35,7 @@ IndicatorItem::IndicatorItem() :
     m_coordsHasBeenSet(false),
     m_inferNormalHasBeenSet(false),
     m_sampleHasBeenSet(false),
-    m_methodHasBeenSet(false),
-    m_itemCoordsHasBeenSet(false)
+    m_methodHasBeenSet(false)
 {
 }
 
@@ -202,23 +201,6 @@ CoreInternalOutcome IndicatorItem::Deserialize(const rapidjson::Value &value)
         m_methodHasBeenSet = true;
     }
 
-    if (value.HasMember("ItemCoords") && !value["ItemCoords"].IsNull())
-    {
-        if (!value["ItemCoords"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `IndicatorItem.ItemCoords` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_itemCoords.Deserialize(value["ItemCoords"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_itemCoordsHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -345,15 +327,6 @@ void IndicatorItem::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
         string key = "Method";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_method.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_itemCoordsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ItemCoords";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_itemCoords.ToJsonObject(value[key.c_str()], allocator);
     }
 
 }
@@ -597,21 +570,5 @@ void IndicatorItem::SetMethod(const string& _method)
 bool IndicatorItem::MethodHasBeenSet() const
 {
     return m_methodHasBeenSet;
-}
-
-ItemCoordinate IndicatorItem::GetItemCoords() const
-{
-    return m_itemCoords;
-}
-
-void IndicatorItem::SetItemCoords(const ItemCoordinate& _itemCoords)
-{
-    m_itemCoords = _itemCoords;
-    m_itemCoordsHasBeenSet = true;
-}
-
-bool IndicatorItem::ItemCoordsHasBeenSet() const
-{
-    return m_itemCoordsHasBeenSet;
 }
 

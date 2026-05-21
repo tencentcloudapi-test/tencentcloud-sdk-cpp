@@ -44,18 +44,14 @@ namespace TencentCloud
 
                     /**
                      * 获取应用ID
-若要操作共享知识库，传KnowledgeBizId
                      * @return BotBizId 应用ID
-若要操作共享知识库，传KnowledgeBizId
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
                      * 设置应用ID
-若要操作共享知识库，传KnowledgeBizId
                      * @param _botBizId 应用ID
-若要操作共享知识库，传KnowledgeBizId
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -113,7 +109,6 @@ namespace TencentCloud
 
                     /**
                      * 应用ID
-若要操作共享知识库，传KnowledgeBizId
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;

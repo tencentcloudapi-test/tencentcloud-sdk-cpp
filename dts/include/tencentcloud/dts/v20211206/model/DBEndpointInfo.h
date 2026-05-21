@@ -162,15 +162,15 @@ namespace TencentCloud
                     bool InfoHasBeenSet() const;
 
                     /**
-                     * 获取实例服务提供商，如:"others","aliyun","aws"
-                     * @return Supplier 实例服务提供商，如:"others","aliyun","aws"
+                     * 获取实例服务提供商，如:"aliyun","others"
+                     * @return Supplier 实例服务提供商，如:"aliyun","others"
                      * 
                      */
                     std::string GetSupplier() const;
 
                     /**
-                     * 设置实例服务提供商，如:"others","aliyun","aws"
-                     * @param _supplier 实例服务提供商，如:"others","aliyun","aws"
+                     * 设置实例服务提供商，如:"aliyun","others"
+                     * @param _supplier 实例服务提供商，如:"aliyun","others"
                      * 
                      */
                     void SetSupplier(const std::string& _supplier);
@@ -333,7 +333,7 @@ MongoDB可定义如下的参数：
                     bool m_infoHasBeenSet;
 
                     /**
-                     * 实例服务提供商，如:"others","aliyun","aws"
+                     * 实例服务提供商，如:"aliyun","others"
                      */
                     std::string m_supplier;
                     bool m_supplierHasBeenSet;

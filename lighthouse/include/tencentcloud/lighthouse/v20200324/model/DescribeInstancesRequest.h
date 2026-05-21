@@ -90,10 +90,6 @@ namespace TencentCloud
 <li> tag:tag-key</li>按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
 类型：String
 必选：否
-<li>bundle-id</li>按照【套餐 ID】进行过滤。
-类型：String
-必选：否
-
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 100。参数不支持同时指定 InstanceIds 和 Filters。
                      * @return Filters 过滤器列表。
 <li>instance-name</li>按照【实例名称】进行过滤。
@@ -120,10 +116,6 @@ namespace TencentCloud
 <li> tag:tag-key</li>按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
 类型：String
 必选：否
-<li>bundle-id</li>按照【套餐 ID】进行过滤。
-类型：String
-必选：否
-
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 100。参数不支持同时指定 InstanceIds 和 Filters。
                      * 
                      */
@@ -155,10 +147,6 @@ namespace TencentCloud
 <li> tag:tag-key</li>按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
 类型：String
 必选：否
-<li>bundle-id</li>按照【套餐 ID】进行过滤。
-类型：String
-必选：否
-
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 100。参数不支持同时指定 InstanceIds 和 Filters。
                      * @param _filters 过滤器列表。
 <li>instance-name</li>按照【实例名称】进行过滤。
@@ -185,10 +173,6 @@ namespace TencentCloud
 <li> tag:tag-key</li>按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
 类型：String
 必选：否
-<li>bundle-id</li>按照【套餐 ID】进行过滤。
-类型：String
-必选：否
-
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 100。参数不支持同时指定 InstanceIds 和 Filters。
                      * 
                      */
@@ -335,10 +319,6 @@ namespace TencentCloud
 <li> tag:tag-key</li>按照【标签键值对】进行过滤。 tag-key使用具体的标签键进行替换。
 类型：String
 必选：否
-<li>bundle-id</li>按照【套餐 ID】进行过滤。
-类型：String
-必选：否
-
 每次请求的 Filters 的上限为 10，Filter.Values 的上限为 100。参数不支持同时指定 InstanceIds 和 Filters。
                      */
                     std::vector<Filter> m_filters;

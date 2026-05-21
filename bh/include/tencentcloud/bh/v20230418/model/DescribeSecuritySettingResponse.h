@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/bh/v20230418/model/SecuritySetting.h>
 
 
 namespace TencentCloud
@@ -44,27 +43,7 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
-                    /**
-                     * 获取无
-                     * @return SecuritySetting 无
-                     * 
-                     */
-                    SecuritySetting GetSecuritySetting() const;
-
-                    /**
-                     * 判断参数 SecuritySetting 是否已赋值
-                     * @return SecuritySetting 是否已赋值
-                     * 
-                     */
-                    bool SecuritySettingHasBeenSet() const;
-
                 private:
-
-                    /**
-                     * 无
-                     */
-                    SecuritySetting m_securitySetting;
-                    bool m_securitySettingHasBeenSet;
 
                 };
             }

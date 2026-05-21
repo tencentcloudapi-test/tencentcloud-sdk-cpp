@@ -29,9 +29,7 @@ CreateDataRepositoryTaskRequest::CreateDataRepositoryTaskRequest() :
     m_taskPathHasBeenSet(false),
     m_taskNameHasBeenSet(false),
     m_repositoryTypeHasBeenSet(false),
-    m_textLocationHasBeenSet(false),
-    m_enableDataFlowSubPathHasBeenSet(false),
-    m_dataFlowSubPathHasBeenSet(false)
+    m_textLocationHasBeenSet(false)
 {
 }
 
@@ -96,22 +94,6 @@ string CreateDataRepositoryTaskRequest::ToJsonString() const
         string key = "TextLocation";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_textLocation.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_enableDataFlowSubPathHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableDataFlowSubPath";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableDataFlowSubPath, allocator);
-    }
-
-    if (m_dataFlowSubPathHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DataFlowSubPath";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_dataFlowSubPath.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -232,38 +214,6 @@ void CreateDataRepositoryTaskRequest::SetTextLocation(const string& _textLocatio
 bool CreateDataRepositoryTaskRequest::TextLocationHasBeenSet() const
 {
     return m_textLocationHasBeenSet;
-}
-
-bool CreateDataRepositoryTaskRequest::GetEnableDataFlowSubPath() const
-{
-    return m_enableDataFlowSubPath;
-}
-
-void CreateDataRepositoryTaskRequest::SetEnableDataFlowSubPath(const bool& _enableDataFlowSubPath)
-{
-    m_enableDataFlowSubPath = _enableDataFlowSubPath;
-    m_enableDataFlowSubPathHasBeenSet = true;
-}
-
-bool CreateDataRepositoryTaskRequest::EnableDataFlowSubPathHasBeenSet() const
-{
-    return m_enableDataFlowSubPathHasBeenSet;
-}
-
-string CreateDataRepositoryTaskRequest::GetDataFlowSubPath() const
-{
-    return m_dataFlowSubPath;
-}
-
-void CreateDataRepositoryTaskRequest::SetDataFlowSubPath(const string& _dataFlowSubPath)
-{
-    m_dataFlowSubPath = _dataFlowSubPath;
-    m_dataFlowSubPathHasBeenSet = true;
-}
-
-bool CreateDataRepositoryTaskRequest::DataFlowSubPathHasBeenSet() const
-{
-    return m_dataFlowSubPathHasBeenSet;
 }
 
 

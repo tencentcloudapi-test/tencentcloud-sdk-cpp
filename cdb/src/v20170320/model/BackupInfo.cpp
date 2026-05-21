@@ -40,7 +40,6 @@ BackupInfo::BackupInfo() :
     m_remoteInfoHasBeenSet(false),
     m_cosStorageTypeHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
-    m_progressHasBeenSet(false),
     m_encryptionFlagHasBeenSet(false),
     m_executedGTIDSetHasBeenSet(false),
     m_mD5HasBeenSet(false)
@@ -252,16 +251,6 @@ CoreInternalOutcome BackupInfo::Deserialize(const rapidjson::Value &value)
         m_instanceIdHasBeenSet = true;
     }
 
-    if (value.HasMember("Progress") && !value["Progress"].IsNull())
-    {
-        if (!value["Progress"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `BackupInfo.Progress` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_progress = value["Progress"].GetInt64();
-        m_progressHasBeenSet = true;
-    }
-
     if (value.HasMember("EncryptionFlag") && !value["EncryptionFlag"].IsNull())
     {
         if (!value["EncryptionFlag"].IsString())
@@ -456,14 +445,6 @@ void BackupInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Allo
         string key = "InstanceId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_instanceId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_progressHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Progress";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_progress, allocator);
     }
 
     if (m_encryptionFlagHasBeenSet)
@@ -795,22 +776,6 @@ void BackupInfo::SetInstanceId(const string& _instanceId)
 bool BackupInfo::InstanceIdHasBeenSet() const
 {
     return m_instanceIdHasBeenSet;
-}
-
-int64_t BackupInfo::GetProgress() const
-{
-    return m_progress;
-}
-
-void BackupInfo::SetProgress(const int64_t& _progress)
-{
-    m_progress = _progress;
-    m_progressHasBeenSet = true;
-}
-
-bool BackupInfo::ProgressHasBeenSet() const
-{
-    return m_progressHasBeenSet;
 }
 
 string BackupInfo::GetEncryptionFlag() const

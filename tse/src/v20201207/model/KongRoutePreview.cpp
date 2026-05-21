@@ -38,8 +38,7 @@ KongRoutePreview::KongRoutePreview() :
     m_headersHasBeenSet(false),
     m_requestBufferingHasBeenSet(false),
     m_responseBufferingHasBeenSet(false),
-    m_regexPriorityHasBeenSet(false),
-    m_queryStringParametersHasBeenSet(false)
+    m_regexPriorityHasBeenSet(false)
 {
 }
 
@@ -253,26 +252,6 @@ CoreInternalOutcome KongRoutePreview::Deserialize(const rapidjson::Value &value)
         m_regexPriorityHasBeenSet = true;
     }
 
-    if (value.HasMember("QueryStringParameters") && !value["QueryStringParameters"].IsNull())
-    {
-        if (!value["QueryStringParameters"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `KongRoutePreview.QueryStringParameters` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["QueryStringParameters"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            KVMapping item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_queryStringParameters.push_back(item);
-        }
-        m_queryStringParametersHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -454,21 +433,6 @@ void KongRoutePreview::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "RegexPriority";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_regexPriority, allocator);
-    }
-
-    if (m_queryStringParametersHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "QueryStringParameters";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_queryStringParameters.begin(); itr != m_queryStringParameters.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
     }
 
 }
@@ -760,21 +724,5 @@ void KongRoutePreview::SetRegexPriority(const int64_t& _regexPriority)
 bool KongRoutePreview::RegexPriorityHasBeenSet() const
 {
     return m_regexPriorityHasBeenSet;
-}
-
-vector<KVMapping> KongRoutePreview::GetQueryStringParameters() const
-{
-    return m_queryStringParameters;
-}
-
-void KongRoutePreview::SetQueryStringParameters(const vector<KVMapping>& _queryStringParameters)
-{
-    m_queryStringParameters = _queryStringParameters;
-    m_queryStringParametersHasBeenSet = true;
-}
-
-bool KongRoutePreview::QueryStringParametersHasBeenSet() const
-{
-    return m_queryStringParametersHasBeenSet;
 }
 

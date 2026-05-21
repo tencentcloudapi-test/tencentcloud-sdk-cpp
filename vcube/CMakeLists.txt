@@ -24,8 +24,6 @@ set(vcube_public_header_model
   include/tencentcloud/vcube/v20220410/model/XMagicResourceSimpleInfo.h
   include/tencentcloud/vcube/v20220410/model/DeleteApplicationAndWebPlayerLicenseResponse.h
   include/tencentcloud/vcube/v20220410/model/DeleteApplicationAndVideoLicenseResponse.h
-  include/tencentcloud/vcube/v20220410/model/OverviewLicense.h
-  include/tencentcloud/vcube/v20220410/model/RenewResource.h
   include/tencentcloud/vcube/v20220410/model/LicenseResourceSimpleInfo.h
   include/tencentcloud/vcube/v20220410/model/DescribeVcubeApplicationAndXMagicListRequest.h
   include/tencentcloud/vcube/v20220410/model/DescribeVcubeResourcesListResponse.h
@@ -37,7 +35,6 @@ set(vcube_public_header_model
   include/tencentcloud/vcube/v20220410/model/CreateXMagicRequest.h
   include/tencentcloud/vcube/v20220410/model/RenewLicenseResponse.h
   include/tencentcloud/vcube/v20220410/model/CreateActivityLicenseRequest.h
-  include/tencentcloud/vcube/v20220410/model/Overview.h
   include/tencentcloud/vcube/v20220410/model/XMagicSimpleInfo.h
   include/tencentcloud/vcube/v20220410/model/CreateTrialApplicationAndLicenseRequest.h
   include/tencentcloud/vcube/v20220410/model/CreateApplicationAndBindLicenseRequest.h
@@ -50,7 +47,7 @@ set(vcube_public_header_model
   include/tencentcloud/vcube/v20220410/model/ModifyFormalApplicationRequest.h
   include/tencentcloud/vcube/v20220410/model/DescribeSTSRequest.h
   include/tencentcloud/vcube/v20220410/model/RenewLicenseRequest.h
-  include/tencentcloud/vcube/v20220410/model/OverviewAppInfo.h
+  include/tencentcloud/vcube/v20220410/model/RenewResource.h
   include/tencentcloud/vcube/v20220410/model/ModifyPresetApplicationRequest.h
   include/tencentcloud/vcube/v20220410/model/DescribeNewsRequest.h
   include/tencentcloud/vcube/v20220410/model/ModifyXMagicRequest.h
@@ -119,8 +116,6 @@ set(vcube_src
   src/v20220410/model/XMagicResourceSimpleInfo.cpp
   src/v20220410/model/DeleteApplicationAndWebPlayerLicenseResponse.cpp
   src/v20220410/model/DeleteApplicationAndVideoLicenseResponse.cpp
-  src/v20220410/model/OverviewLicense.cpp
-  src/v20220410/model/RenewResource.cpp
   src/v20220410/model/LicenseResourceSimpleInfo.cpp
   src/v20220410/model/DescribeVcubeApplicationAndXMagicListRequest.cpp
   src/v20220410/model/DescribeVcubeResourcesListResponse.cpp
@@ -132,7 +127,6 @@ set(vcube_src
   src/v20220410/model/CreateXMagicRequest.cpp
   src/v20220410/model/RenewLicenseResponse.cpp
   src/v20220410/model/CreateActivityLicenseRequest.cpp
-  src/v20220410/model/Overview.cpp
   src/v20220410/model/XMagicSimpleInfo.cpp
   src/v20220410/model/CreateTrialApplicationAndLicenseRequest.cpp
   src/v20220410/model/CreateApplicationAndBindLicenseRequest.cpp
@@ -145,7 +139,7 @@ set(vcube_src
   src/v20220410/model/ModifyFormalApplicationRequest.cpp
   src/v20220410/model/DescribeSTSRequest.cpp
   src/v20220410/model/RenewLicenseRequest.cpp
-  src/v20220410/model/OverviewAppInfo.cpp
+  src/v20220410/model/RenewResource.cpp
   src/v20220410/model/ModifyPresetApplicationRequest.cpp
   src/v20220410/model/DescribeNewsRequest.cpp
   src/v20220410/model/ModifyXMagicRequest.cpp

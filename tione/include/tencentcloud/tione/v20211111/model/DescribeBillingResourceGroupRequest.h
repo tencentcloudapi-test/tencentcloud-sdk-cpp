@@ -65,45 +65,20 @@ namespace TencentCloud
                     bool ResourceGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>TI工作空间ID</p><p>仅用于“工作空间”白名单功能。如需使用，请联系TI管理员开通白名单。</p>
-                     * @return TiProjectId <p>TI工作空间ID</p><p>仅用于“工作空间”白名单功能。如需使用，请联系TI管理员开通白名单。</p>
-                     * 
-                     */
-                    std::string GetTiProjectId() const;
-
-                    /**
-                     * 设置<p>TI工作空间ID</p><p>仅用于“工作空间”白名单功能。如需使用，请联系TI管理员开通白名单。</p>
-                     * @param _tiProjectId <p>TI工作空间ID</p><p>仅用于“工作空间”白名单功能。如需使用，请联系TI管理员开通白名单。</p>
-                     * 
-                     */
-                    void SetTiProjectId(const std::string& _tiProjectId);
-
-                    /**
-                     * 判断参数 TiProjectId 是否已赋值
-                     * @return TiProjectId 是否已赋值
-                     * 
-                     */
-                    bool TiProjectIdHasBeenSet() const;
-
-                    /**
                      * 获取过滤条件
 注意: 
 1. Filter.Name 只支持以下枚举值:
     InstanceId (资源组节点id)
     InstanceStatus (资源组节点状态)
 2. Filter.Values: 长度为1且Filter.Fuzzy=true时，支持模糊查询; 不为1时，精确查询
-3. Filter.Negative: 是否取反，默认为false
-4. Filter.Fuzzy: 是否模糊查询，默认为false
-5. 每次请求的Filters的上限为10，Filter.Values的上限为100
+3. 每次请求的Filters的上限为10，Filter.Values的上限为100
                      * @return Filters 过滤条件
 注意: 
 1. Filter.Name 只支持以下枚举值:
     InstanceId (资源组节点id)
     InstanceStatus (资源组节点状态)
 2. Filter.Values: 长度为1且Filter.Fuzzy=true时，支持模糊查询; 不为1时，精确查询
-3. Filter.Negative: 是否取反，默认为false
-4. Filter.Fuzzy: 是否模糊查询，默认为false
-5. 每次请求的Filters的上限为10，Filter.Values的上限为100
+3. 每次请求的Filters的上限为10，Filter.Values的上限为100
                      * 
                      */
                     std::vector<Filter> GetFilters() const;
@@ -115,18 +90,14 @@ namespace TencentCloud
     InstanceId (资源组节点id)
     InstanceStatus (资源组节点状态)
 2. Filter.Values: 长度为1且Filter.Fuzzy=true时，支持模糊查询; 不为1时，精确查询
-3. Filter.Negative: 是否取反，默认为false
-4. Filter.Fuzzy: 是否模糊查询，默认为false
-5. 每次请求的Filters的上限为10，Filter.Values的上限为100
+3. 每次请求的Filters的上限为10，Filter.Values的上限为100
                      * @param _filters 过滤条件
 注意: 
 1. Filter.Name 只支持以下枚举值:
     InstanceId (资源组节点id)
     InstanceStatus (资源组节点状态)
 2. Filter.Values: 长度为1且Filter.Fuzzy=true时，支持模糊查询; 不为1时，精确查询
-3. Filter.Negative: 是否取反，默认为false
-4. Filter.Fuzzy: 是否模糊查询，默认为false
-5. 每次请求的Filters的上限为10，Filter.Values的上限为100
+3. 每次请求的Filters的上限为10，Filter.Values的上限为100
                      * 
                      */
                     void SetFilters(const std::vector<Filter>& _filters);
@@ -139,15 +110,15 @@ namespace TencentCloud
                     bool FiltersHasBeenSet() const;
 
                     /**
-                     * 获取分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10...即每页左边为闭区间; 默认0
-                     * @return Offset 分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10...即每页左边为闭区间; 默认0
+                     * 获取分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10....即每页左边为闭区间; 默认0
+                     * @return Offset 分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10....即每页左边为闭区间; 默认0
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10...即每页左边为闭区间; 默认0
-                     * @param _offset 分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10...即每页左边为闭区间; 默认0
+                     * 设置分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10....即每页左边为闭区间; 默认0
+                     * @param _offset 分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10....即每页左边为闭区间; 默认0
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -231,27 +202,19 @@ namespace TencentCloud
                     bool m_resourceGroupIdHasBeenSet;
 
                     /**
-                     * <p>TI工作空间ID</p><p>仅用于“工作空间”白名单功能。如需使用，请联系TI管理员开通白名单。</p>
-                     */
-                    std::string m_tiProjectId;
-                    bool m_tiProjectIdHasBeenSet;
-
-                    /**
                      * 过滤条件
 注意: 
 1. Filter.Name 只支持以下枚举值:
     InstanceId (资源组节点id)
     InstanceStatus (资源组节点状态)
 2. Filter.Values: 长度为1且Filter.Fuzzy=true时，支持模糊查询; 不为1时，精确查询
-3. Filter.Negative: 是否取反，默认为false
-4. Filter.Fuzzy: 是否模糊查询，默认为false
-5. 每次请求的Filters的上限为10，Filter.Values的上限为100
+3. 每次请求的Filters的上限为10，Filter.Values的上限为100
                      */
                     std::vector<Filter> m_filters;
                     bool m_filtersHasBeenSet;
 
                     /**
-                     * 分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10...即每页左边为闭区间; 默认0
+                     * 分页查询起始位置，如：Limit为10，第一页Offset为0，第二页Offset为10....即每页左边为闭区间; 默认0
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;

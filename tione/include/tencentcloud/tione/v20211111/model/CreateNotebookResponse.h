@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>notebook标志</p>
-                     * @return Id <p>notebook标志</p>
+                     * 获取notebook标志
+                     * @return Id notebook标志
                      * 
                      */
                     std::string GetId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>notebook标志</p>
+                     * notebook标志
                      */
                     std::string m_id;
                     bool m_idHasBeenSet;

@@ -24,8 +24,7 @@ using namespace std;
 
 DescribeSlaveZonesRequest::DescribeSlaveZonesRequest() :
     m_zoneHasBeenSet(false),
-    m_ossClusterIdHasBeenSet(false),
-    m_storageVersionHasBeenSet(false)
+    m_ossClusterIdHasBeenSet(false)
 {
 }
 
@@ -50,14 +49,6 @@ string DescribeSlaveZonesRequest::ToJsonString() const
         string key = "OssClusterId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_ossClusterId, allocator);
-    }
-
-    if (m_storageVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StorageVersion";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_storageVersion.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -98,22 +89,6 @@ void DescribeSlaveZonesRequest::SetOssClusterId(const int64_t& _ossClusterId)
 bool DescribeSlaveZonesRequest::OssClusterIdHasBeenSet() const
 {
     return m_ossClusterIdHasBeenSet;
-}
-
-string DescribeSlaveZonesRequest::GetStorageVersion() const
-{
-    return m_storageVersion;
-}
-
-void DescribeSlaveZonesRequest::SetStorageVersion(const string& _storageVersion)
-{
-    m_storageVersion = _storageVersion;
-    m_storageVersionHasBeenSet = true;
-}
-
-bool DescribeSlaveZonesRequest::StorageVersionHasBeenSet() const
-{
-    return m_storageVersionHasBeenSet;
 }
 
 

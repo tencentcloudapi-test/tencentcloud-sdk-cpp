@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>代理组 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
-                     * @return ProxyGroupId <p>代理组 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
+                     * 获取代理组 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * @return ProxyGroupId 代理组 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      * 
                      */
                     std::string GetProxyGroupId() const;
 
                     /**
-                     * 设置<p>代理组 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
-                     * @param _proxyGroupId <p>代理组 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
+                     * 设置代理组 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * @param _proxyGroupId 代理组 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      * 
                      */
                     void SetProxyGroupId(const std::string& _proxyGroupId);
@@ -65,15 +65,19 @@ namespace TencentCloud
                     bool ProxyGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>权重分配模式，<br>系统自动分配：&quot;system&quot;， 自定义：&quot;custom&quot;</p>
-                     * @return WeightMode <p>权重分配模式，<br>系统自动分配：&quot;system&quot;， 自定义：&quot;custom&quot;</p>
+                     * 获取权重分配模式，
+系统自动分配："system"， 自定义："custom"
+                     * @return WeightMode 权重分配模式，
+系统自动分配："system"， 自定义："custom"
                      * 
                      */
                     std::string GetWeightMode() const;
 
                     /**
-                     * 设置<p>权重分配模式，<br>系统自动分配：&quot;system&quot;， 自定义：&quot;custom&quot;</p>
-                     * @param _weightMode <p>权重分配模式，<br>系统自动分配：&quot;system&quot;， 自定义：&quot;custom&quot;</p>
+                     * 设置权重分配模式，
+系统自动分配："system"， 自定义："custom"
+                     * @param _weightMode 权重分配模式，
+系统自动分配："system"， 自定义："custom"
                      * 
                      */
                     void SetWeightMode(const std::string& _weightMode);
@@ -86,15 +90,15 @@ namespace TencentCloud
                     bool WeightModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启延迟剔除，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @return IsKickOut <p>是否开启延迟剔除，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 获取是否开启延迟剔除，取值："true" | "false"
+                     * @return IsKickOut 是否开启延迟剔除，取值："true" | "false"
                      * 
                      */
                     bool GetIsKickOut() const;
 
                     /**
-                     * 设置<p>是否开启延迟剔除，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @param _isKickOut <p>是否开启延迟剔除，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 设置是否开启延迟剔除，取值："true" | "false"
+                     * @param _isKickOut 是否开启延迟剔除，取值："true" | "false"
                      * 
                      */
                     void SetIsKickOut(const bool& _isKickOut);
@@ -107,15 +111,19 @@ namespace TencentCloud
                     bool IsKickOutHasBeenSet() const;
 
                     /**
-                     * 获取<p>最小保留数量，最小取值：0。<br>说明：当 IsKickOut 为 true 时才有效。</p>
-                     * @return MinCount <p>最小保留数量，最小取值：0。<br>说明：当 IsKickOut 为 true 时才有效。</p>
+                     * 获取最小保留数量，最小取值：0。
+说明：当 IsKickOut 为 true 时才有效。
+                     * @return MinCount 最小保留数量，最小取值：0。
+说明：当 IsKickOut 为 true 时才有效。
                      * 
                      */
                     uint64_t GetMinCount() const;
 
                     /**
-                     * 设置<p>最小保留数量，最小取值：0。<br>说明：当 IsKickOut 为 true 时才有效。</p>
-                     * @param _minCount <p>最小保留数量，最小取值：0。<br>说明：当 IsKickOut 为 true 时才有效。</p>
+                     * 设置最小保留数量，最小取值：0。
+说明：当 IsKickOut 为 true 时才有效。
+                     * @param _minCount 最小保留数量，最小取值：0。
+说明：当 IsKickOut 为 true 时才有效。
                      * 
                      */
                     void SetMinCount(const uint64_t& _minCount);
@@ -128,15 +136,15 @@ namespace TencentCloud
                     bool MinCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。</p>
-                     * @return MaxDelay <p>延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。</p>
+                     * 获取延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。
+                     * @return MaxDelay 延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。
                      * 
                      */
                     uint64_t GetMaxDelay() const;
 
                     /**
-                     * 设置<p>延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。</p>
-                     * @param _maxDelay <p>延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。</p>
+                     * 设置延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。
+                     * @param _maxDelay 延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。
                      * 
                      */
                     void SetMaxDelay(const uint64_t& _maxDelay);
@@ -149,15 +157,15 @@ namespace TencentCloud
                     bool MaxDelayHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启故障转移，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @return FailOver <p>是否开启故障转移，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 获取是否开启故障转移，取值："true" | "false"
+                     * @return FailOver 是否开启故障转移，取值："true" | "false"
                      * 
                      */
                     bool GetFailOver() const;
 
                     /**
-                     * 设置<p>是否开启故障转移，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @param _failOver <p>是否开启故障转移，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 设置是否开启故障转移，取值："true" | "false"
+                     * @param _failOver 是否开启故障转移，取值："true" | "false"
                      * 
                      */
                     void SetFailOver(const bool& _failOver);
@@ -170,15 +178,15 @@ namespace TencentCloud
                     bool FailOverHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否自动添加RO，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @return AutoAddRo <p>是否自动添加RO，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 获取是否自动添加RO，取值："true" | "false"
+                     * @return AutoAddRo 是否自动添加RO，取值："true" | "false"
                      * 
                      */
                     bool GetAutoAddRo() const;
 
                     /**
-                     * 设置<p>是否自动添加RO，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @param _autoAddRo <p>是否自动添加RO，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 设置是否自动添加RO，取值："true" | "false"
+                     * @param _autoAddRo 是否自动添加RO，取值："true" | "false"
                      * 
                      */
                     void SetAutoAddRo(const bool& _autoAddRo);
@@ -191,15 +199,15 @@ namespace TencentCloud
                     bool AutoAddRoHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否是只读，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @return ReadOnly <p>是否是只读，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 获取是否是只读，取值："true" | "false"
+                     * @return ReadOnly 是否是只读，取值："true" | "false"
                      * 
                      */
                     bool GetReadOnly() const;
 
                     /**
-                     * 设置<p>是否是只读，取值：&quot;true&quot; | &quot;false&quot;</p>
-                     * @param _readOnly <p>是否是只读，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 设置是否是只读，取值："true" | "false"
+                     * @param _readOnly 是否是只读，取值："true" | "false"
                      * 
                      */
                     void SetReadOnly(const bool& _readOnly);
@@ -212,15 +220,15 @@ namespace TencentCloud
                     bool ReadOnlyHasBeenSet() const;
 
                     /**
-                     * 获取<p>代理组地址 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
-                     * @return ProxyAddressId <p>代理组地址 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
+                     * 获取代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * @return ProxyAddressId 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      * 
                      */
                     std::string GetProxyAddressId() const;
 
                     /**
-                     * 设置<p>代理组地址 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
-                     * @param _proxyAddressId <p>代理组地址 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
+                     * 设置代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
+                     * @param _proxyAddressId 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      * 
                      */
                     void SetProxyAddressId(const std::string& _proxyAddressId);
@@ -233,15 +241,15 @@ namespace TencentCloud
                     bool ProxyAddressIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启事务分离，取值：&quot;true&quot; | &quot;false&quot;，默认值 false。</p>
-                     * @return TransSplit <p>是否开启事务分离，取值：&quot;true&quot; | &quot;false&quot;，默认值 false。</p>
+                     * 获取是否开启事务分离，取值："true" | "false"，默认值 false。
+                     * @return TransSplit 是否开启事务分离，取值："true" | "false"，默认值 false。
                      * 
                      */
                     bool GetTransSplit() const;
 
                     /**
-                     * 设置<p>是否开启事务分离，取值：&quot;true&quot; | &quot;false&quot;，默认值 false。</p>
-                     * @param _transSplit <p>是否开启事务分离，取值：&quot;true&quot; | &quot;false&quot;，默认值 false。</p>
+                     * 设置是否开启事务分离，取值："true" | "false"，默认值 false。
+                     * @param _transSplit 是否开启事务分离，取值："true" | "false"，默认值 false。
                      * 
                      */
                     void SetTransSplit(const bool& _transSplit);
@@ -254,15 +262,19 @@ namespace TencentCloud
                     bool TransSplitHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启连接池。默认关闭。<br>注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。</p>
-                     * @return ConnectionPool <p>是否开启连接池。默认关闭。<br>注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。</p>
+                     * 获取是否开启连接池。默认关闭。
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
+                     * @return ConnectionPool 是否开启连接池。默认关闭。
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
                      * 
                      */
                     bool GetConnectionPool() const;
 
                     /**
-                     * 设置<p>是否开启连接池。默认关闭。<br>注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。</p>
-                     * @param _connectionPool <p>是否开启连接池。默认关闭。<br>注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。</p>
+                     * 设置是否开启连接池。默认关闭。
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
+                     * @param _connectionPool 是否开启连接池。默认关闭。
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
                      * 
                      */
                     void SetConnectionPool(const bool& _connectionPool);
@@ -275,15 +287,15 @@ namespace TencentCloud
                     bool ConnectionPoolHasBeenSet() const;
 
                     /**
-                     * 获取<p>读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。</p>
-                     * @return ProxyAllocation <p>读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。</p>
+                     * 获取读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。
+                     * @return ProxyAllocation 读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。
                      * 
                      */
                     std::vector<ProxyAllocation> GetProxyAllocation() const;
 
                     /**
-                     * 设置<p>读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。</p>
-                     * @param _proxyAllocation <p>读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。</p>
+                     * 设置读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。
+                     * @param _proxyAllocation 读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。
                      * 
                      */
                     void SetProxyAllocation(const std::vector<ProxyAllocation>& _proxyAllocation);
@@ -296,15 +308,15 @@ namespace TencentCloud
                     bool ProxyAllocationHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启自适应负载均衡。默认关闭。</p>
-                     * @return AutoLoadBalance <p>是否开启自适应负载均衡。默认关闭。</p>
+                     * 获取是否开启自适应负载均衡。默认关闭。
+                     * @return AutoLoadBalance 是否开启自适应负载均衡。默认关闭。
                      * 
                      */
                     bool GetAutoLoadBalance() const;
 
                     /**
-                     * 设置<p>是否开启自适应负载均衡。默认关闭。</p>
-                     * @param _autoLoadBalance <p>是否开启自适应负载均衡。默认关闭。</p>
+                     * 设置是否开启自适应负载均衡。默认关闭。
+                     * @param _autoLoadBalance 是否开启自适应负载均衡。默认关闭。
                      * 
                      */
                     void SetAutoLoadBalance(const bool& _autoLoadBalance);
@@ -317,15 +329,15 @@ namespace TencentCloud
                     bool AutoLoadBalanceHasBeenSet() const;
 
                     /**
-                     * 获取<p>访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。</p>
-                     * @return AccessMode <p>访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。</p>
+                     * 获取访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。
+                     * @return AccessMode 访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。
                      * 
                      */
                     std::string GetAccessMode() const;
 
                     /**
-                     * 设置<p>访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。</p>
-                     * @param _accessMode <p>访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。</p>
+                     * 设置访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。
+                     * @param _accessMode 访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。
                      * 
                      */
                     void SetAccessMode(const std::string& _accessMode);
@@ -338,18 +350,18 @@ namespace TencentCloud
                     bool AccessModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否将libra节点当作普通RO节点</p>
-                     * @return ApNodeAsRoNode <p>是否将libra节点当作普通RO节点</p>
+                     * 获取是否将libra节点当作普通RO节点
+                     * @return ApNodeAsRoNode 是否将libra节点当作普通RO节点
                      * 
                      */
-                    bool GetApNodeAsRoNode() const;
+                    std::string GetApNodeAsRoNode() const;
 
                     /**
-                     * 设置<p>是否将libra节点当作普通RO节点</p>
-                     * @param _apNodeAsRoNode <p>是否将libra节点当作普通RO节点</p>
+                     * 设置是否将libra节点当作普通RO节点
+                     * @param _apNodeAsRoNode 是否将libra节点当作普通RO节点
                      * 
                      */
-                    void SetApNodeAsRoNode(const bool& _apNodeAsRoNode);
+                    void SetApNodeAsRoNode(const std::string& _apNodeAsRoNode);
 
                     /**
                      * 判断参数 ApNodeAsRoNode 是否已赋值
@@ -359,18 +371,18 @@ namespace TencentCloud
                     bool ApNodeAsRoNodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>libra节点故障，是否转发给其他节点</p>
-                     * @return ApQueryToOtherNode <p>libra节点故障，是否转发给其他节点</p>
+                     * 获取libra节点故障，是否转发给其他节点
+                     * @return ApQueryToOtherNode libra节点故障，是否转发给其他节点
                      * 
                      */
-                    bool GetApQueryToOtherNode() const;
+                    std::string GetApQueryToOtherNode() const;
 
                     /**
-                     * 设置<p>libra节点故障，是否转发给其他节点</p>
-                     * @param _apQueryToOtherNode <p>libra节点故障，是否转发给其他节点</p>
+                     * 设置libra节点故障，是否转发给其他节点
+                     * @param _apQueryToOtherNode libra节点故障，是否转发给其他节点
                      * 
                      */
-                    void SetApQueryToOtherNode(const bool& _apQueryToOtherNode);
+                    void SetApQueryToOtherNode(const std::string& _apQueryToOtherNode);
 
                     /**
                      * 判断参数 ApQueryToOtherNode 是否已赋值
@@ -382,99 +394,102 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>代理组 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
+                     * 代理组 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      */
                     std::string m_proxyGroupId;
                     bool m_proxyGroupIdHasBeenSet;
 
                     /**
-                     * <p>权重分配模式，<br>系统自动分配：&quot;system&quot;， 自定义：&quot;custom&quot;</p>
+                     * 权重分配模式，
+系统自动分配："system"， 自定义："custom"
                      */
                     std::string m_weightMode;
                     bool m_weightModeHasBeenSet;
 
                     /**
-                     * <p>是否开启延迟剔除，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 是否开启延迟剔除，取值："true" | "false"
                      */
                     bool m_isKickOut;
                     bool m_isKickOutHasBeenSet;
 
                     /**
-                     * <p>最小保留数量，最小取值：0。<br>说明：当 IsKickOut 为 true 时才有效。</p>
+                     * 最小保留数量，最小取值：0。
+说明：当 IsKickOut 为 true 时才有效。
                      */
                     uint64_t m_minCount;
                     bool m_minCountHasBeenSet;
 
                     /**
-                     * <p>延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。</p>
+                     * 延迟剔除阈值，最小取值：1，取值范围：[1,10000]，整数。
                      */
                     uint64_t m_maxDelay;
                     bool m_maxDelayHasBeenSet;
 
                     /**
-                     * <p>是否开启故障转移，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 是否开启故障转移，取值："true" | "false"
                      */
                     bool m_failOver;
                     bool m_failOverHasBeenSet;
 
                     /**
-                     * <p>是否自动添加RO，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 是否自动添加RO，取值："true" | "false"
                      */
                     bool m_autoAddRo;
                     bool m_autoAddRoHasBeenSet;
 
                     /**
-                     * <p>是否是只读，取值：&quot;true&quot; | &quot;false&quot;</p>
+                     * 是否是只读，取值："true" | "false"
                      */
                     bool m_readOnly;
                     bool m_readOnlyHasBeenSet;
 
                     /**
-                     * <p>代理组地址 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/90585">DescribeCdbProxyInfo</a> 接口获取。</p>
+                     * 代理组地址 ID。可通过 [DescribeCdbProxyInfo](https://cloud.tencent.com/document/api/236/90585) 接口获取。
                      */
                     std::string m_proxyAddressId;
                     bool m_proxyAddressIdHasBeenSet;
 
                     /**
-                     * <p>是否开启事务分离，取值：&quot;true&quot; | &quot;false&quot;，默认值 false。</p>
+                     * 是否开启事务分离，取值："true" | "false"，默认值 false。
                      */
                     bool m_transSplit;
                     bool m_transSplitHasBeenSet;
 
                     /**
-                     * <p>是否开启连接池。默认关闭。<br>注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。</p>
+                     * 是否开启连接池。默认关闭。
+注意：如需使用数据库代理连接池能力，MySQL 8.0 主实例的内核小版本要大于等于 MySQL 8.0 20230630。
                      */
                     bool m_connectionPool;
                     bool m_connectionPoolHasBeenSet;
 
                     /**
-                     * <p>读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。</p>
+                     * 读写权重分配。如果 WeightMode 传的是 system ，则传入的权重不生效，由系统分配默认权重。
                      */
                     std::vector<ProxyAllocation> m_proxyAllocation;
                     bool m_proxyAllocationHasBeenSet;
 
                     /**
-                     * <p>是否开启自适应负载均衡。默认关闭。</p>
+                     * 是否开启自适应负载均衡。默认关闭。
                      */
                     bool m_autoLoadBalance;
                     bool m_autoLoadBalanceHasBeenSet;
 
                     /**
-                     * <p>访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。</p>
+                     * 访问模式：nearby - 就近访问，balance - 均衡分配，默认就近访问。
                      */
                     std::string m_accessMode;
                     bool m_accessModeHasBeenSet;
 
                     /**
-                     * <p>是否将libra节点当作普通RO节点</p>
+                     * 是否将libra节点当作普通RO节点
                      */
-                    bool m_apNodeAsRoNode;
+                    std::string m_apNodeAsRoNode;
                     bool m_apNodeAsRoNodeHasBeenSet;
 
                     /**
-                     * <p>libra节点故障，是否转发给其他节点</p>
+                     * libra节点故障，是否转发给其他节点
                      */
-                    bool m_apQueryToOtherNode;
+                    std::string m_apQueryToOtherNode;
                     bool m_apQueryToOtherNodeHasBeenSet;
 
                 };

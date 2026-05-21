@@ -23,7 +23,6 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/kms/v20190118/model/ExclusiveHSM.h>
 #include <tencentcloud/kms/v20190118/model/DestinationSyncConfig.h>
-#include <tencentcloud/kms/v20190118/model/RegionQps.h>
 
 
 namespace TencentCloud
@@ -47,8 +46,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>KMS服务是否开通， true 表示已开通</p>
-                     * @return ServiceEnabled <p>KMS服务是否开通， true 表示已开通</p>
+                     * 获取KMS服务是否开通， true 表示已开通
+                     * @return ServiceEnabled KMS服务是否开通， true 表示已开通
                      * 
                      */
                     bool GetServiceEnabled() const;
@@ -61,8 +60,8 @@ namespace TencentCloud
                     bool ServiceEnabledHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放</p>
-                     * @return InvalidType <p>服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放</p>
+                     * 获取服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
+                     * @return InvalidType 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
                      * 
                      */
                     int64_t GetInvalidType() const;
@@ -75,8 +74,8 @@ namespace TencentCloud
                     bool InvalidTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>0-普通版，1-旗舰版</p>
-                     * @return UserLevel <p>0-普通版，1-旗舰版</p>
+                     * 获取0-普通版，1-旗舰版
+                     * @return UserLevel 0-普通版，1-旗舰版
                      * 
                      */
                     uint64_t GetUserLevel() const;
@@ -89,8 +88,8 @@ namespace TencentCloud
                     bool UserLevelHasBeenSet() const;
 
                     /**
-                     * 获取<p>旗舰版到期时间（Epoch Unix Timestamp）。</p>
-                     * @return ProExpireTime <p>旗舰版到期时间（Epoch Unix Timestamp）。</p>
+                     * 获取旗舰版到期时间（Epoch Unix Timestamp）。
+                     * @return ProExpireTime 旗舰版到期时间（Epoch Unix Timestamp）。
                      * 
                      */
                     uint64_t GetProExpireTime() const;
@@ -103,8 +102,8 @@ namespace TencentCloud
                     bool ProExpireTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>旗舰版是否自动续费：0-不自动续费，1-自动续费</p>
-                     * @return ProRenewFlag <p>旗舰版是否自动续费：0-不自动续费，1-自动续费</p>
+                     * 获取旗舰版是否自动续费：0-不自动续费，1-自动续费
+                     * @return ProRenewFlag 旗舰版是否自动续费：0-不自动续费，1-自动续费
                      * 
                      */
                     uint64_t GetProRenewFlag() const;
@@ -117,8 +116,8 @@ namespace TencentCloud
                     bool ProRenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>旗舰版购买记录的唯一性标识。如果未开通旗舰版，则返回值为空</p>
-                     * @return ProResourceId <p>旗舰版购买记录的唯一性标识。如果未开通旗舰版，则返回值为空</p>
+                     * 获取旗舰版购买记录的唯一性标识。如果未开通旗舰版，则返回值为空
+                     * @return ProResourceId 旗舰版购买记录的唯一性标识。如果未开通旗舰版，则返回值为空
                      * 
                      */
                     std::string GetProResourceId() const;
@@ -131,8 +130,8 @@ namespace TencentCloud
                     bool ProResourceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开通 KMS 托管版</p>
-                     * @return ExclusiveVSMEnabled <p>是否开通 KMS 托管版</p>
+                     * 获取是否开通 KMS 托管版
+                     * @return ExclusiveVSMEnabled 是否开通 KMS 托管版
                      * 
                      */
                     bool GetExclusiveVSMEnabled() const;
@@ -145,8 +144,8 @@ namespace TencentCloud
                     bool ExclusiveVSMEnabledHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开通 KMS 独享版</p>
-                     * @return ExclusiveHSMEnabled <p>是否开通 KMS 独享版</p>
+                     * 获取是否开通 KMS 独享版
+                     * @return ExclusiveHSMEnabled 是否开通 KMS 独享版
                      * 
                      */
                     bool GetExclusiveHSMEnabled() const;
@@ -159,8 +158,8 @@ namespace TencentCloud
                     bool ExclusiveHSMEnabledHasBeenSet() const;
 
                     /**
-                     * 获取<p>KMS 订阅信息。</p>
-                     * @return SubscriptionInfo <p>KMS 订阅信息。</p>
+                     * 获取KMS 订阅信息。
+                     * @return SubscriptionInfo KMS 订阅信息。
                      * 
                      */
                     std::string GetSubscriptionInfo() const;
@@ -173,8 +172,8 @@ namespace TencentCloud
                     bool SubscriptionInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回KMS用户密钥使用数量</p>
-                     * @return CmkUserCount <p>返回KMS用户密钥使用数量</p>
+                     * 获取返回KMS用户密钥使用数量
+                     * @return CmkUserCount 返回KMS用户密钥使用数量
                      * 
                      */
                     uint64_t GetCmkUserCount() const;
@@ -187,8 +186,8 @@ namespace TencentCloud
                     bool CmkUserCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回KMS用户密钥规格数量</p>
-                     * @return CmkLimit <p>返回KMS用户密钥规格数量</p>
+                     * 获取返回KMS用户密钥规格数量
+                     * @return CmkLimit 返回KMS用户密钥规格数量
                      * 
                      */
                     uint64_t GetCmkLimit() const;
@@ -201,8 +200,8 @@ namespace TencentCloud
                     bool CmkLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回独享集群组</p>
-                     * @return ExclusiveHSMList <p>返回独享集群组</p>
+                     * 获取返回独享集群组
+                     * @return ExclusiveHSMList 返回独享集群组
                      * 
                      */
                     std::vector<ExclusiveHSM> GetExclusiveHSMList() const;
@@ -215,8 +214,8 @@ namespace TencentCloud
                     bool ExclusiveHSMListHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否支持数据密钥托管。1:支持，0:不支持。</p>
-                     * @return IsAllowedDataKeyHosted <p>是否支持数据密钥托管。1:支持，0:不支持。</p>
+                     * 获取是否支持数据密钥托管。1:支持，0:不支持。
+                     * @return IsAllowedDataKeyHosted 是否支持数据密钥托管。1:支持，0:不支持。
                      * 
                      */
                     bool GetIsAllowedDataKeyHosted() const;
@@ -229,8 +228,8 @@ namespace TencentCloud
                     bool IsAllowedDataKeyHostedHasBeenSet() const;
 
                     /**
-                     * 获取<p>IsAllowedDataKeyHosted为1时有效，数据密钥的购买额度</p>
-                     * @return DataKeyLimit <p>IsAllowedDataKeyHosted为1时有效，数据密钥的购买额度</p>
+                     * 获取IsAllowedDataKeyHosted为1时有效，数据密钥的购买额度
+                     * @return DataKeyLimit IsAllowedDataKeyHosted为1时有效，数据密钥的购买额度
                      * 
                      */
                     uint64_t GetDataKeyLimit() const;
@@ -243,8 +242,8 @@ namespace TencentCloud
                     bool DataKeyLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>IsAllowedDataKeyHosted为1时有效，数据密钥免费额度。</p>
-                     * @return FreeDataKeyLimit <p>IsAllowedDataKeyHosted为1时有效，数据密钥免费额度。</p>
+                     * 获取IsAllowedDataKeyHosted为1时有效，数据密钥免费额度。
+                     * @return FreeDataKeyLimit IsAllowedDataKeyHosted为1时有效，数据密钥免费额度。
                      * 
                      */
                     uint64_t GetFreeDataKeyLimit() const;
@@ -257,8 +256,8 @@ namespace TencentCloud
                     bool FreeDataKeyLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>IsAllowedDataKeyHosted为1时有效，已使用的数据密钥数量。</p>
-                     * @return DataKeyUsedCount <p>IsAllowedDataKeyHosted为1时有效，已使用的数据密钥数量。</p>
+                     * 获取IsAllowedDataKeyHosted为1时有效，已使用的数据密钥数量。
+                     * @return DataKeyUsedCount IsAllowedDataKeyHosted为1时有效，已使用的数据密钥数量。
                      * 
                      */
                     uint64_t GetDataKeyUsedCount() const;
@@ -271,8 +270,8 @@ namespace TencentCloud
                     bool DataKeyUsedCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>同步任务的目标地域信息</p>
-                     * @return SyncTaskList <p>同步任务的目标地域信息</p>
+                     * 获取同步任务的目标地域信息
+                     * @return SyncTaskList 同步任务的目标地域信息
                      * 
                      */
                     std::vector<DestinationSyncConfig> GetSyncTaskList() const;
@@ -285,8 +284,8 @@ namespace TencentCloud
                     bool SyncTaskListHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否支持同步任务。true:支持，false:不支持。</p>
-                     * @return IsAllowedSync <p>是否支持同步任务。true:支持，false:不支持。</p>
+                     * 获取是否支持同步任务。true:支持，false:不支持。
+                     * @return IsAllowedSync 是否支持同步任务。true:支持，false:不支持。
                      * 
                      */
                     bool GetIsAllowedSync() const;
@@ -298,175 +297,115 @@ namespace TencentCloud
                      */
                     bool IsAllowedSyncHasBeenSet() const;
 
-                    /**
-                     * 获取<p>地域下的QPS</p>
-                     * @return QpsLimit <p>地域下的QPS</p>
-                     * 
-                     */
-                    uint64_t GetQpsLimit() const;
-
-                    /**
-                     * 判断参数 QpsLimit 是否已赋值
-                     * @return QpsLimit 是否已赋值
-                     * 
-                     */
-                    bool QpsLimitHasBeenSet() const;
-
-                    /**
-                     * 获取<p>总的QPS值</p>
-                     * @return QpsTotalLimit <p>总的QPS值</p>
-                     * 
-                     */
-                    uint64_t GetQpsTotalLimit() const;
-
-                    /**
-                     * 判断参数 QpsTotalLimit 是否已赋值
-                     * @return QpsTotalLimit 是否已赋值
-                     * 
-                     */
-                    bool QpsTotalLimitHasBeenSet() const;
-
-                    /**
-                     * 获取<p>地域下的QPS</p>
-                     * @return RegionsQps <p>地域下的QPS</p>
-                     * 
-                     */
-                    std::vector<RegionQps> GetRegionsQps() const;
-
-                    /**
-                     * 判断参数 RegionsQps 是否已赋值
-                     * @return RegionsQps 是否已赋值
-                     * 
-                     */
-                    bool RegionsQpsHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>KMS服务是否开通， true 表示已开通</p>
+                     * KMS服务是否开通， true 表示已开通
                      */
                     bool m_serviceEnabled;
                     bool m_serviceEnabledHasBeenSet;
 
                     /**
-                     * <p>服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放</p>
+                     * 服务不可用类型： 0-未购买，1-正常， 2-欠费停服， 3-资源释放
                      */
                     int64_t m_invalidType;
                     bool m_invalidTypeHasBeenSet;
 
                     /**
-                     * <p>0-普通版，1-旗舰版</p>
+                     * 0-普通版，1-旗舰版
                      */
                     uint64_t m_userLevel;
                     bool m_userLevelHasBeenSet;
 
                     /**
-                     * <p>旗舰版到期时间（Epoch Unix Timestamp）。</p>
+                     * 旗舰版到期时间（Epoch Unix Timestamp）。
                      */
                     uint64_t m_proExpireTime;
                     bool m_proExpireTimeHasBeenSet;
 
                     /**
-                     * <p>旗舰版是否自动续费：0-不自动续费，1-自动续费</p>
+                     * 旗舰版是否自动续费：0-不自动续费，1-自动续费
                      */
                     uint64_t m_proRenewFlag;
                     bool m_proRenewFlagHasBeenSet;
 
                     /**
-                     * <p>旗舰版购买记录的唯一性标识。如果未开通旗舰版，则返回值为空</p>
+                     * 旗舰版购买记录的唯一性标识。如果未开通旗舰版，则返回值为空
                      */
                     std::string m_proResourceId;
                     bool m_proResourceIdHasBeenSet;
 
                     /**
-                     * <p>是否开通 KMS 托管版</p>
+                     * 是否开通 KMS 托管版
                      */
                     bool m_exclusiveVSMEnabled;
                     bool m_exclusiveVSMEnabledHasBeenSet;
 
                     /**
-                     * <p>是否开通 KMS 独享版</p>
+                     * 是否开通 KMS 独享版
                      */
                     bool m_exclusiveHSMEnabled;
                     bool m_exclusiveHSMEnabledHasBeenSet;
 
                     /**
-                     * <p>KMS 订阅信息。</p>
+                     * KMS 订阅信息。
                      */
                     std::string m_subscriptionInfo;
                     bool m_subscriptionInfoHasBeenSet;
 
                     /**
-                     * <p>返回KMS用户密钥使用数量</p>
+                     * 返回KMS用户密钥使用数量
                      */
                     uint64_t m_cmkUserCount;
                     bool m_cmkUserCountHasBeenSet;
 
                     /**
-                     * <p>返回KMS用户密钥规格数量</p>
+                     * 返回KMS用户密钥规格数量
                      */
                     uint64_t m_cmkLimit;
                     bool m_cmkLimitHasBeenSet;
 
                     /**
-                     * <p>返回独享集群组</p>
+                     * 返回独享集群组
                      */
                     std::vector<ExclusiveHSM> m_exclusiveHSMList;
                     bool m_exclusiveHSMListHasBeenSet;
 
                     /**
-                     * <p>是否支持数据密钥托管。1:支持，0:不支持。</p>
+                     * 是否支持数据密钥托管。1:支持，0:不支持。
                      */
                     bool m_isAllowedDataKeyHosted;
                     bool m_isAllowedDataKeyHostedHasBeenSet;
 
                     /**
-                     * <p>IsAllowedDataKeyHosted为1时有效，数据密钥的购买额度</p>
+                     * IsAllowedDataKeyHosted为1时有效，数据密钥的购买额度
                      */
                     uint64_t m_dataKeyLimit;
                     bool m_dataKeyLimitHasBeenSet;
 
                     /**
-                     * <p>IsAllowedDataKeyHosted为1时有效，数据密钥免费额度。</p>
+                     * IsAllowedDataKeyHosted为1时有效，数据密钥免费额度。
                      */
                     uint64_t m_freeDataKeyLimit;
                     bool m_freeDataKeyLimitHasBeenSet;
 
                     /**
-                     * <p>IsAllowedDataKeyHosted为1时有效，已使用的数据密钥数量。</p>
+                     * IsAllowedDataKeyHosted为1时有效，已使用的数据密钥数量。
                      */
                     uint64_t m_dataKeyUsedCount;
                     bool m_dataKeyUsedCountHasBeenSet;
 
                     /**
-                     * <p>同步任务的目标地域信息</p>
+                     * 同步任务的目标地域信息
                      */
                     std::vector<DestinationSyncConfig> m_syncTaskList;
                     bool m_syncTaskListHasBeenSet;
 
                     /**
-                     * <p>是否支持同步任务。true:支持，false:不支持。</p>
+                     * 是否支持同步任务。true:支持，false:不支持。
                      */
                     bool m_isAllowedSync;
                     bool m_isAllowedSyncHasBeenSet;
-
-                    /**
-                     * <p>地域下的QPS</p>
-                     */
-                    uint64_t m_qpsLimit;
-                    bool m_qpsLimitHasBeenSet;
-
-                    /**
-                     * <p>总的QPS值</p>
-                     */
-                    uint64_t m_qpsTotalLimit;
-                    bool m_qpsTotalLimitHasBeenSet;
-
-                    /**
-                     * <p>地域下的QPS</p>
-                     */
-                    std::vector<RegionQps> m_regionsQps;
-                    bool m_regionsQpsHasBeenSet;
 
                 };
             }

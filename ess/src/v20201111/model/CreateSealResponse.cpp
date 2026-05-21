@@ -25,11 +25,8 @@ using namespace std;
 
 CreateSealResponse::CreateSealResponse() :
     m_sealIdHasBeenSet(false),
-    m_imageUrlHasBeenSet(false),
     m_sealOperatorVerifyPathHasBeenSet(false),
-    m_sealOperatorVerifyQrcodeUrlHasBeenSet(false),
-    m_previewFileUrlHasBeenSet(false),
-    m_previewPdfUrlHasBeenSet(false)
+    m_sealOperatorVerifyQrcodeUrlHasBeenSet(false)
 {
 }
 
@@ -77,16 +74,6 @@ CoreInternalOutcome CreateSealResponse::Deserialize(const string &payload)
         m_sealIdHasBeenSet = true;
     }
 
-    if (rsp.HasMember("ImageUrl") && !rsp["ImageUrl"].IsNull())
-    {
-        if (!rsp["ImageUrl"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `ImageUrl` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_imageUrl = string(rsp["ImageUrl"].GetString());
-        m_imageUrlHasBeenSet = true;
-    }
-
     if (rsp.HasMember("SealOperatorVerifyPath") && !rsp["SealOperatorVerifyPath"].IsNull())
     {
         if (!rsp["SealOperatorVerifyPath"].IsString())
@@ -107,26 +94,6 @@ CoreInternalOutcome CreateSealResponse::Deserialize(const string &payload)
         m_sealOperatorVerifyQrcodeUrlHasBeenSet = true;
     }
 
-    if (rsp.HasMember("PreviewFileUrl") && !rsp["PreviewFileUrl"].IsNull())
-    {
-        if (!rsp["PreviewFileUrl"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `PreviewFileUrl` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_previewFileUrl = string(rsp["PreviewFileUrl"].GetString());
-        m_previewFileUrlHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("PreviewPdfUrl") && !rsp["PreviewPdfUrl"].IsNull())
-    {
-        if (!rsp["PreviewPdfUrl"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `PreviewPdfUrl` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_previewPdfUrl = string(rsp["PreviewPdfUrl"].GetString());
-        m_previewPdfUrlHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -145,14 +112,6 @@ string CreateSealResponse::ToJsonString() const
         value.AddMember(iKey, rapidjson::Value(m_sealId.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_imageUrlHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ImageUrl";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_imageUrl.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_sealOperatorVerifyPathHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -167,22 +126,6 @@ string CreateSealResponse::ToJsonString() const
         string key = "SealOperatorVerifyQrcodeUrl";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_sealOperatorVerifyQrcodeUrl.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_previewFileUrlHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PreviewFileUrl";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_previewFileUrl.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_previewPdfUrlHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PreviewPdfUrl";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_previewPdfUrl.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -207,16 +150,6 @@ bool CreateSealResponse::SealIdHasBeenSet() const
     return m_sealIdHasBeenSet;
 }
 
-string CreateSealResponse::GetImageUrl() const
-{
-    return m_imageUrl;
-}
-
-bool CreateSealResponse::ImageUrlHasBeenSet() const
-{
-    return m_imageUrlHasBeenSet;
-}
-
 string CreateSealResponse::GetSealOperatorVerifyPath() const
 {
     return m_sealOperatorVerifyPath;
@@ -235,26 +168,6 @@ string CreateSealResponse::GetSealOperatorVerifyQrcodeUrl() const
 bool CreateSealResponse::SealOperatorVerifyQrcodeUrlHasBeenSet() const
 {
     return m_sealOperatorVerifyQrcodeUrlHasBeenSet;
-}
-
-string CreateSealResponse::GetPreviewFileUrl() const
-{
-    return m_previewFileUrl;
-}
-
-bool CreateSealResponse::PreviewFileUrlHasBeenSet() const
-{
-    return m_previewFileUrlHasBeenSet;
-}
-
-string CreateSealResponse::GetPreviewPdfUrl() const
-{
-    return m_previewPdfUrl;
-}
-
-bool CreateSealResponse::PreviewPdfUrlHasBeenSet() const
-{
-    return m_previewPdfUrlHasBeenSet;
 }
 
 

@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>项目ID</p>
-                     * @return ProjectId <p>项目ID</p>
+                     * 获取项目ID
+                     * @return ProjectId 项目ID
                      * 
                      */
                     std::string GetProjectId() const;
 
                     /**
-                     * 设置<p>项目ID</p>
-                     * @param _projectId <p>项目ID</p>
+                     * 设置项目ID
+                     * @param _projectId 项目ID
                      * 
                      */
                     void SetProjectId(const std::string& _projectId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>设备ID</p>
-                     * @return DeviceId <p>设备ID</p>
+                     * 获取设备ID
+                     * @return DeviceId 设备ID
                      * 
                      */
                     std::string GetDeviceId() const;
 
                     /**
-                     * 设置<p>设备ID</p>
-                     * @param _deviceId <p>设备ID</p>
+                     * 设置设备ID
+                     * @param _deviceId 设备ID
                      * 
                      */
                     void SetDeviceId(const std::string& _deviceId);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool DeviceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>起始时间，单位：秒</p>
-                     * @return StartTime <p>起始时间，单位：秒</p>
+                     * 获取起始时间，单位：秒
+                     * @return StartTime 起始时间，单位：秒
                      * 
                      */
                     uint64_t GetStartTime() const;
 
                     /**
-                     * 设置<p>起始时间，单位：秒</p>
-                     * @param _startTime <p>起始时间，单位：秒</p>
+                     * 设置起始时间，单位：秒
+                     * @param _startTime 起始时间，单位：秒
                      * 
                      */
                     void SetStartTime(const uint64_t& _startTime);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>结束时间，单位：秒</p>
-                     * @return EndTime <p>结束时间，单位：秒</p>
+                     * 获取结束时间，单位：秒
+                     * @return EndTime 结束时间，单位：秒
                      * 
                      */
                     uint64_t GetEndTime() const;
 
                     /**
-                     * 设置<p>结束时间，单位：秒</p>
-                     * @param _endTime <p>结束时间，单位：秒</p>
+                     * 设置结束时间，单位：秒
+                     * @param _endTime 结束时间，单位：秒
                      * 
                      */
                     void SetEndTime(const uint64_t& _endTime);
@@ -129,25 +129,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>项目ID</p>
+                     * 项目ID
                      */
                     std::string m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>设备ID</p>
+                     * 设备ID
                      */
                     std::string m_deviceId;
                     bool m_deviceIdHasBeenSet;
 
                     /**
-                     * <p>起始时间，单位：秒</p>
+                     * 起始时间，单位：秒
                      */
                     uint64_t m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>结束时间，单位：秒</p>
+                     * 结束时间，单位：秒
                      */
                     uint64_t m_endTime;
                     bool m_endTimeHasBeenSet;

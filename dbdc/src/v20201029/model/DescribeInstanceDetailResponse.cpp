@@ -49,10 +49,7 @@ DescribeInstanceDetailResponse::DescribeInstanceDetailResponse() :
     m_diskAssignableHasBeenSet(false),
     m_zoneHasBeenSet(false),
     m_fenceIdHasBeenSet(false),
-    m_clusterIdHasBeenSet(false),
-    m_resourceTagsHasBeenSet(false),
-    m_cpuTypeHasBeenSet(false),
-    m_zonesHasBeenSet(false)
+    m_clusterIdHasBeenSet(false)
 {
 }
 
@@ -350,49 +347,6 @@ CoreInternalOutcome DescribeInstanceDetailResponse::Deserialize(const string &pa
         m_clusterIdHasBeenSet = true;
     }
 
-    if (rsp.HasMember("ResourceTags") && !rsp["ResourceTags"].IsNull())
-    {
-        if (!rsp["ResourceTags"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `ResourceTags` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["ResourceTags"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            ResourceTag item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_resourceTags.push_back(item);
-        }
-        m_resourceTagsHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("CpuType") && !rsp["CpuType"].IsNull())
-    {
-        if (!rsp["CpuType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CpuType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_cpuType = string(rsp["CpuType"].GetString());
-        m_cpuTypeHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("Zones") && !rsp["Zones"].IsNull())
-    {
-        if (!rsp["Zones"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `Zones` is not array type"));
-
-        const rapidjson::Value &tmpValue = rsp["Zones"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_zones.push_back((*itr).GetString());
-        }
-        m_zonesHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -609,42 +563,6 @@ string DescribeInstanceDetailResponse::ToJsonString() const
         string key = "ClusterId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_clusterId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_resourceTagsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ResourceTags";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_resourceTags.begin(); itr != m_resourceTags.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_cpuTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CpuType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_cpuType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_zonesHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Zones";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_zones.begin(); itr != m_zones.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -917,36 +835,6 @@ string DescribeInstanceDetailResponse::GetClusterId() const
 bool DescribeInstanceDetailResponse::ClusterIdHasBeenSet() const
 {
     return m_clusterIdHasBeenSet;
-}
-
-vector<ResourceTag> DescribeInstanceDetailResponse::GetResourceTags() const
-{
-    return m_resourceTags;
-}
-
-bool DescribeInstanceDetailResponse::ResourceTagsHasBeenSet() const
-{
-    return m_resourceTagsHasBeenSet;
-}
-
-string DescribeInstanceDetailResponse::GetCpuType() const
-{
-    return m_cpuType;
-}
-
-bool DescribeInstanceDetailResponse::CpuTypeHasBeenSet() const
-{
-    return m_cpuTypeHasBeenSet;
-}
-
-vector<string> DescribeInstanceDetailResponse::GetZones() const
-{
-    return m_zones;
-}
-
-bool DescribeInstanceDetailResponse::ZonesHasBeenSet() const
-{
-    return m_zonesHasBeenSet;
 }
 
 

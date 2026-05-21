@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>创建的沙箱工具 ID</p>
-                     * @return ToolId <p>创建的沙箱工具 ID</p>
+                     * 获取创建的沙箱工具 ID
+                     * @return ToolId 创建的沙箱工具 ID
                      * 
                      */
                     std::string GetToolId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>创建的沙箱工具 ID</p>
+                     * 创建的沙箱工具 ID
                      */
                     std::string m_toolId;
                     bool m_toolIdHasBeenSet;

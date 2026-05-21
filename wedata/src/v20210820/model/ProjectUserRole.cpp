@@ -32,10 +32,7 @@ ProjectUserRole::ProjectUserRole() :
     m_emailHasBeenSet(false),
     m_ownerUinHasBeenSet(false),
     m_appIdHasBeenSet(false),
-    m_isProjectOwnerHasBeenSet(false),
-    m_createTimestampHasBeenSet(false),
-    m_statusHasBeenSet(false),
-    m_userTagHasBeenSet(false)
+    m_isProjectOwnerHasBeenSet(false)
 {
 }
 
@@ -174,36 +171,6 @@ CoreInternalOutcome ProjectUserRole::Deserialize(const rapidjson::Value &value)
         m_isProjectOwnerHasBeenSet = true;
     }
 
-    if (value.HasMember("CreateTimestamp") && !value["CreateTimestamp"].IsNull())
-    {
-        if (!value["CreateTimestamp"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ProjectUserRole.CreateTimestamp` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_createTimestamp = value["CreateTimestamp"].GetUint64();
-        m_createTimestampHasBeenSet = true;
-    }
-
-    if (value.HasMember("Status") && !value["Status"].IsNull())
-    {
-        if (!value["Status"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ProjectUserRole.Status` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_status = value["Status"].GetUint64();
-        m_statusHasBeenSet = true;
-    }
-
-    if (value.HasMember("UserTag") && !value["UserTag"].IsNull())
-    {
-        if (!value["UserTag"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ProjectUserRole.UserTag` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_userTag = value["UserTag"].GetUint64();
-        m_userTagHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -312,30 +279,6 @@ void ProjectUserRole::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "IsProjectOwner";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_isProjectOwner, allocator);
-    }
-
-    if (m_createTimestampHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CreateTimestamp";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_createTimestamp, allocator);
-    }
-
-    if (m_statusHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Status";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_status, allocator);
-    }
-
-    if (m_userTagHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UserTag";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_userTag, allocator);
     }
 
 }
@@ -531,53 +474,5 @@ void ProjectUserRole::SetIsProjectOwner(const bool& _isProjectOwner)
 bool ProjectUserRole::IsProjectOwnerHasBeenSet() const
 {
     return m_isProjectOwnerHasBeenSet;
-}
-
-uint64_t ProjectUserRole::GetCreateTimestamp() const
-{
-    return m_createTimestamp;
-}
-
-void ProjectUserRole::SetCreateTimestamp(const uint64_t& _createTimestamp)
-{
-    m_createTimestamp = _createTimestamp;
-    m_createTimestampHasBeenSet = true;
-}
-
-bool ProjectUserRole::CreateTimestampHasBeenSet() const
-{
-    return m_createTimestampHasBeenSet;
-}
-
-uint64_t ProjectUserRole::GetStatus() const
-{
-    return m_status;
-}
-
-void ProjectUserRole::SetStatus(const uint64_t& _status)
-{
-    m_status = _status;
-    m_statusHasBeenSet = true;
-}
-
-bool ProjectUserRole::StatusHasBeenSet() const
-{
-    return m_statusHasBeenSet;
-}
-
-uint64_t ProjectUserRole::GetUserTag() const
-{
-    return m_userTag;
-}
-
-void ProjectUserRole::SetUserTag(const uint64_t& _userTag)
-{
-    m_userTag = _userTag;
-    m_userTagHasBeenSet = true;
-}
-
-bool ProjectUserRole::UserTagHasBeenSet() const
-{
-    return m_userTagHasBeenSet;
 }
 

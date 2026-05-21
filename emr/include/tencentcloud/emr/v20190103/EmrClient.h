@@ -37,8 +37,6 @@
 #include <tencentcloud/emr/v20190103/model/CreateCloudInstanceResponse.h>
 #include <tencentcloud/emr/v20190103/model/CreateClusterRequest.h>
 #include <tencentcloud/emr/v20190103/model/CreateClusterResponse.h>
-#include <tencentcloud/emr/v20190103/model/CreateDynamicInstanceRequest.h>
-#include <tencentcloud/emr/v20190103/model/CreateDynamicInstanceResponse.h>
 #include <tencentcloud/emr/v20190103/model/CreateGroupsSTDRequest.h>
 #include <tencentcloud/emr/v20190103/model/CreateGroupsSTDResponse.h>
 #include <tencentcloud/emr/v20190103/model/CreateInstanceRequest.h>
@@ -61,8 +59,6 @@
 #include <tencentcloud/emr/v20190103/model/DescribeAutoScaleRecordsResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeAutoScaleStrategiesRequest.h>
 #include <tencentcloud/emr/v20190103/model/DescribeAutoScaleStrategiesResponse.h>
-#include <tencentcloud/emr/v20190103/model/DescribeBootScriptRequest.h>
-#include <tencentcloud/emr/v20190103/model/DescribeBootScriptResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeClusterFlowStatusDetailRequest.h>
 #include <tencentcloud/emr/v20190103/model/DescribeClusterFlowStatusDetailResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeClusterNodesRequest.h>
@@ -71,10 +67,6 @@
 #include <tencentcloud/emr/v20190103/model/DescribeCvmQuotaResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeDAGInfoRequest.h>
 #include <tencentcloud/emr/v20190103/model/DescribeDAGInfoResponse.h>
-#include <tencentcloud/emr/v20190103/model/DescribeDynamicInstanceListRequest.h>
-#include <tencentcloud/emr/v20190103/model/DescribeDynamicInstanceListResponse.h>
-#include <tencentcloud/emr/v20190103/model/DescribeEMREventListRequest.h>
-#include <tencentcloud/emr/v20190103/model/DescribeEMREventListResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeEmrApplicationStaticsRequest.h>
 #include <tencentcloud/emr/v20190103/model/DescribeEmrApplicationStaticsResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeEmrOverviewMetricsRequest.h>
@@ -85,10 +77,6 @@
 #include <tencentcloud/emr/v20190103/model/DescribeGroupsSTDResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeHBaseTableOverviewRequest.h>
 #include <tencentcloud/emr/v20190103/model/DescribeHBaseTableOverviewResponse.h>
-#include <tencentcloud/emr/v20190103/model/DescribeHBaseTableRequestMetricRequest.h>
-#include <tencentcloud/emr/v20190103/model/DescribeHBaseTableRequestMetricResponse.h>
-#include <tencentcloud/emr/v20190103/model/DescribeHBaseTableStoreSizeMetricRequest.h>
-#include <tencentcloud/emr/v20190103/model/DescribeHBaseTableStoreSizeMetricResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeHDFSStorageInfoRequest.h>
 #include <tencentcloud/emr/v20190103/model/DescribeHDFSStorageInfoResponse.h>
 #include <tencentcloud/emr/v20190103/model/DescribeHiveQueriesRequest.h>
@@ -155,16 +143,10 @@
 #include <tencentcloud/emr/v20190103/model/InquiryPriceScaleOutInstanceResponse.h>
 #include <tencentcloud/emr/v20190103/model/InquiryPriceUpdateInstanceRequest.h>
 #include <tencentcloud/emr/v20190103/model/InquiryPriceUpdateInstanceResponse.h>
-#include <tencentcloud/emr/v20190103/model/InstallSoftwareRequest.h>
-#include <tencentcloud/emr/v20190103/model/InstallSoftwareResponse.h>
 #include <tencentcloud/emr/v20190103/model/ModifyAutoRenewFlagRequest.h>
 #include <tencentcloud/emr/v20190103/model/ModifyAutoRenewFlagResponse.h>
 #include <tencentcloud/emr/v20190103/model/ModifyAutoScaleStrategyRequest.h>
 #include <tencentcloud/emr/v20190103/model/ModifyAutoScaleStrategyResponse.h>
-#include <tencentcloud/emr/v20190103/model/ModifyBootScriptRequest.h>
-#include <tencentcloud/emr/v20190103/model/ModifyBootScriptResponse.h>
-#include <tencentcloud/emr/v20190103/model/ModifyDynamicInstanceRequest.h>
-#include <tencentcloud/emr/v20190103/model/ModifyDynamicInstanceResponse.h>
 #include <tencentcloud/emr/v20190103/model/ModifyGlobalConfigRequest.h>
 #include <tencentcloud/emr/v20190103/model/ModifyGlobalConfigResponse.h>
 #include <tencentcloud/emr/v20190103/model/ModifyInspectionSettingsRequest.h>
@@ -215,8 +197,6 @@
 #include <tencentcloud/emr/v20190103/model/SyncPodStateResponse.h>
 #include <tencentcloud/emr/v20190103/model/TerminateClusterNodesRequest.h>
 #include <tencentcloud/emr/v20190103/model/TerminateClusterNodesResponse.h>
-#include <tencentcloud/emr/v20190103/model/TerminateDynamicInstancesRequest.h>
-#include <tencentcloud/emr/v20190103/model/TerminateDynamicInstancesResponse.h>
 #include <tencentcloud/emr/v20190103/model/TerminateInstanceRequest.h>
 #include <tencentcloud/emr/v20190103/model/TerminateInstanceResponse.h>
 #include <tencentcloud/emr/v20190103/model/TerminateSLInstanceRequest.h>
@@ -258,9 +238,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateClusterResponse> CreateClusterOutcome;
                 typedef std::future<CreateClusterOutcome> CreateClusterOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::CreateClusterRequest&, CreateClusterOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateClusterAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateDynamicInstanceResponse> CreateDynamicInstanceOutcome;
-                typedef std::future<CreateDynamicInstanceOutcome> CreateDynamicInstanceOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::CreateDynamicInstanceRequest&, CreateDynamicInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDynamicInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateGroupsSTDResponse> CreateGroupsSTDOutcome;
                 typedef std::future<CreateGroupsSTDOutcome> CreateGroupsSTDOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::CreateGroupsSTDRequest&, CreateGroupsSTDOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateGroupsSTDAsyncHandler;
@@ -294,9 +271,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAutoScaleStrategiesResponse> DescribeAutoScaleStrategiesOutcome;
                 typedef std::future<DescribeAutoScaleStrategiesOutcome> DescribeAutoScaleStrategiesOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::DescribeAutoScaleStrategiesRequest&, DescribeAutoScaleStrategiesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAutoScaleStrategiesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeBootScriptResponse> DescribeBootScriptOutcome;
-                typedef std::future<DescribeBootScriptOutcome> DescribeBootScriptOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::DescribeBootScriptRequest&, DescribeBootScriptOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeBootScriptAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeClusterFlowStatusDetailResponse> DescribeClusterFlowStatusDetailOutcome;
                 typedef std::future<DescribeClusterFlowStatusDetailOutcome> DescribeClusterFlowStatusDetailOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::DescribeClusterFlowStatusDetailRequest&, DescribeClusterFlowStatusDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClusterFlowStatusDetailAsyncHandler;
@@ -309,12 +283,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDAGInfoResponse> DescribeDAGInfoOutcome;
                 typedef std::future<DescribeDAGInfoOutcome> DescribeDAGInfoOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::DescribeDAGInfoRequest&, DescribeDAGInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDAGInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDynamicInstanceListResponse> DescribeDynamicInstanceListOutcome;
-                typedef std::future<DescribeDynamicInstanceListOutcome> DescribeDynamicInstanceListOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::DescribeDynamicInstanceListRequest&, DescribeDynamicInstanceListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDynamicInstanceListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeEMREventListResponse> DescribeEMREventListOutcome;
-                typedef std::future<DescribeEMREventListOutcome> DescribeEMREventListOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::DescribeEMREventListRequest&, DescribeEMREventListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeEMREventListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeEmrApplicationStaticsResponse> DescribeEmrApplicationStaticsOutcome;
                 typedef std::future<DescribeEmrApplicationStaticsOutcome> DescribeEmrApplicationStaticsOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::DescribeEmrApplicationStaticsRequest&, DescribeEmrApplicationStaticsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeEmrApplicationStaticsAsyncHandler;
@@ -330,12 +298,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeHBaseTableOverviewResponse> DescribeHBaseTableOverviewOutcome;
                 typedef std::future<DescribeHBaseTableOverviewOutcome> DescribeHBaseTableOverviewOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::DescribeHBaseTableOverviewRequest&, DescribeHBaseTableOverviewOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeHBaseTableOverviewAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeHBaseTableRequestMetricResponse> DescribeHBaseTableRequestMetricOutcome;
-                typedef std::future<DescribeHBaseTableRequestMetricOutcome> DescribeHBaseTableRequestMetricOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::DescribeHBaseTableRequestMetricRequest&, DescribeHBaseTableRequestMetricOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeHBaseTableRequestMetricAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeHBaseTableStoreSizeMetricResponse> DescribeHBaseTableStoreSizeMetricOutcome;
-                typedef std::future<DescribeHBaseTableStoreSizeMetricOutcome> DescribeHBaseTableStoreSizeMetricOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::DescribeHBaseTableStoreSizeMetricRequest&, DescribeHBaseTableStoreSizeMetricOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeHBaseTableStoreSizeMetricAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeHDFSStorageInfoResponse> DescribeHDFSStorageInfoOutcome;
                 typedef std::future<DescribeHDFSStorageInfoOutcome> DescribeHDFSStorageInfoOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::DescribeHDFSStorageInfoRequest&, DescribeHDFSStorageInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeHDFSStorageInfoAsyncHandler;
@@ -435,21 +397,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::InquiryPriceUpdateInstanceResponse> InquiryPriceUpdateInstanceOutcome;
                 typedef std::future<InquiryPriceUpdateInstanceOutcome> InquiryPriceUpdateInstanceOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::InquiryPriceUpdateInstanceRequest&, InquiryPriceUpdateInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InquiryPriceUpdateInstanceAsyncHandler;
-                typedef Outcome<Core::Error, Model::InstallSoftwareResponse> InstallSoftwareOutcome;
-                typedef std::future<InstallSoftwareOutcome> InstallSoftwareOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::InstallSoftwareRequest&, InstallSoftwareOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InstallSoftwareAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyAutoRenewFlagResponse> ModifyAutoRenewFlagOutcome;
                 typedef std::future<ModifyAutoRenewFlagOutcome> ModifyAutoRenewFlagOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::ModifyAutoRenewFlagRequest&, ModifyAutoRenewFlagOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAutoRenewFlagAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyAutoScaleStrategyResponse> ModifyAutoScaleStrategyOutcome;
                 typedef std::future<ModifyAutoScaleStrategyOutcome> ModifyAutoScaleStrategyOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::ModifyAutoScaleStrategyRequest&, ModifyAutoScaleStrategyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAutoScaleStrategyAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyBootScriptResponse> ModifyBootScriptOutcome;
-                typedef std::future<ModifyBootScriptOutcome> ModifyBootScriptOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::ModifyBootScriptRequest&, ModifyBootScriptOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyBootScriptAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyDynamicInstanceResponse> ModifyDynamicInstanceOutcome;
-                typedef std::future<ModifyDynamicInstanceOutcome> ModifyDynamicInstanceOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::ModifyDynamicInstanceRequest&, ModifyDynamicInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDynamicInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyGlobalConfigResponse> ModifyGlobalConfigOutcome;
                 typedef std::future<ModifyGlobalConfigOutcome> ModifyGlobalConfigOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::ModifyGlobalConfigRequest&, ModifyGlobalConfigOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyGlobalConfigAsyncHandler;
@@ -525,9 +478,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::TerminateClusterNodesResponse> TerminateClusterNodesOutcome;
                 typedef std::future<TerminateClusterNodesOutcome> TerminateClusterNodesOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::TerminateClusterNodesRequest&, TerminateClusterNodesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateClusterNodesAsyncHandler;
-                typedef Outcome<Core::Error, Model::TerminateDynamicInstancesResponse> TerminateDynamicInstancesOutcome;
-                typedef std::future<TerminateDynamicInstancesOutcome> TerminateDynamicInstancesOutcomeCallable;
-                typedef std::function<void(const EmrClient*, const Model::TerminateDynamicInstancesRequest&, TerminateDynamicInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateDynamicInstancesAsyncHandler;
                 typedef Outcome<Core::Error, Model::TerminateInstanceResponse> TerminateInstanceOutcome;
                 typedef std::future<TerminateInstanceOutcome> TerminateInstanceOutcomeCallable;
                 typedef std::function<void(const EmrClient*, const Model::TerminateInstanceRequest&, TerminateInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateInstanceAsyncHandler;
@@ -605,15 +555,6 @@ namespace TencentCloud
                 CreateClusterOutcomeCallable CreateClusterCallable(const Model::CreateClusterRequest& request);
 
                 /**
-                 *创建容器EMR-TKE集群DynamicInstance
-                 * @param req CreateDynamicInstanceRequest
-                 * @return CreateDynamicInstanceOutcome
-                 */
-                CreateDynamicInstanceOutcome CreateDynamicInstance(const Model::CreateDynamicInstanceRequest &request);
-                void CreateDynamicInstanceAsync(const Model::CreateDynamicInstanceRequest& request, const CreateDynamicInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateDynamicInstanceOutcomeCallable CreateDynamicInstanceCallable(const Model::CreateDynamicInstanceRequest& request);
-
-                /**
                  *用户管理-批量创建用户组
                  * @param req CreateGroupsSTDRequest
                  * @return CreateGroupsSTDOutcome
@@ -632,8 +573,8 @@ namespace TencentCloud
                 CreateInstanceOutcomeCallable CreateInstanceCallable(const Model::CreateInstanceRequest& request);
 
                 /**
-                 *本接口（CreateSLInstance）用于创建Serverless实例、如HBase、Starrocks、TCBase等
-- 接口调用成功，会创建Serverless实例，创建实例请求成功会返回创建实例的InstaceId和请求的 RequestID。
+                 *本接口（CreateSLInstance）用于创建Serverless HBase实例
+- 接口调用成功，会创建Serverless HBase实例，创建实例请求成功会返回创建实例的InstaceId和请求的 RequestID。
 - 接口为异步接口，接口返回时操作并未立即完成，实例操作结果可以通过调用DescribeInstancesList查看当前实例的StatusDesc状态。
                  * @param req CreateSLInstanceRequest
                  * @return CreateSLInstanceOutcome
@@ -715,15 +656,6 @@ namespace TencentCloud
                 DescribeAutoScaleStrategiesOutcomeCallable DescribeAutoScaleStrategiesCallable(const Model::DescribeAutoScaleStrategiesRequest& request);
 
                 /**
-                 *获取引导脚本
-                 * @param req DescribeBootScriptRequest
-                 * @return DescribeBootScriptOutcome
-                 */
-                DescribeBootScriptOutcome DescribeBootScript(const Model::DescribeBootScriptRequest &request);
-                void DescribeBootScriptAsync(const Model::DescribeBootScriptRequest& request, const DescribeBootScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeBootScriptOutcomeCallable DescribeBootScriptCallable(const Model::DescribeBootScriptRequest& request);
-
-                /**
                  *查询EMR任务运行详情状态
                  * @param req DescribeClusterFlowStatusDetailRequest
                  * @return DescribeClusterFlowStatusDetailOutcome
@@ -758,24 +690,6 @@ namespace TencentCloud
                 DescribeDAGInfoOutcome DescribeDAGInfo(const Model::DescribeDAGInfoRequest &request);
                 void DescribeDAGInfoAsync(const Model::DescribeDAGInfoRequest& request, const DescribeDAGInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDAGInfoOutcomeCallable DescribeDAGInfoCallable(const Model::DescribeDAGInfoRequest& request);
-
-                /**
-                 *描述容器EMR-TKE集群DynamicInstance列表
-                 * @param req DescribeDynamicInstanceListRequest
-                 * @return DescribeDynamicInstanceListOutcome
-                 */
-                DescribeDynamicInstanceListOutcome DescribeDynamicInstanceList(const Model::DescribeDynamicInstanceListRequest &request);
-                void DescribeDynamicInstanceListAsync(const Model::DescribeDynamicInstanceListRequest& request, const DescribeDynamicInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDynamicInstanceListOutcomeCallable DescribeDynamicInstanceListCallable(const Model::DescribeDynamicInstanceListRequest& request);
-
-                /**
-                 *查询EMR事件监控数据
-                 * @param req DescribeEMREventListRequest
-                 * @return DescribeEMREventListOutcome
-                 */
-                DescribeEMREventListOutcome DescribeEMREventList(const Model::DescribeEMREventListRequest &request);
-                void DescribeEMREventListAsync(const Model::DescribeEMREventListRequest& request, const DescribeEMREventListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeEMREventListOutcomeCallable DescribeEMREventListCallable(const Model::DescribeEMREventListRequest& request);
 
                 /**
                  *yarn application 统计接口查询
@@ -821,24 +735,6 @@ namespace TencentCloud
                 DescribeHBaseTableOverviewOutcome DescribeHBaseTableOverview(const Model::DescribeHBaseTableOverviewRequest &request);
                 void DescribeHBaseTableOverviewAsync(const Model::DescribeHBaseTableOverviewRequest& request, const DescribeHBaseTableOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeHBaseTableOverviewOutcomeCallable DescribeHBaseTableOverviewCallable(const Model::DescribeHBaseTableOverviewRequest& request);
-
-                /**
-                 *Hbase的表粒度读取和写入速率
-                 * @param req DescribeHBaseTableRequestMetricRequest
-                 * @return DescribeHBaseTableRequestMetricOutcome
-                 */
-                DescribeHBaseTableRequestMetricOutcome DescribeHBaseTableRequestMetric(const Model::DescribeHBaseTableRequestMetricRequest &request);
-                void DescribeHBaseTableRequestMetricAsync(const Model::DescribeHBaseTableRequestMetricRequest& request, const DescribeHBaseTableRequestMetricAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeHBaseTableRequestMetricOutcomeCallable DescribeHBaseTableRequestMetricCallable(const Model::DescribeHBaseTableRequestMetricRequest& request);
-
-                /**
-                 *查询Hbase的表粒度StoreSize大小监控指标数据
-                 * @param req DescribeHBaseTableStoreSizeMetricRequest
-                 * @return DescribeHBaseTableStoreSizeMetricOutcome
-                 */
-                DescribeHBaseTableStoreSizeMetricOutcome DescribeHBaseTableStoreSizeMetric(const Model::DescribeHBaseTableStoreSizeMetricRequest &request);
-                void DescribeHBaseTableStoreSizeMetricAsync(const Model::DescribeHBaseTableStoreSizeMetricRequest& request, const DescribeHBaseTableStoreSizeMetricAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeHBaseTableStoreSizeMetricOutcomeCallable DescribeHBaseTableStoreSizeMetricCallable(const Model::DescribeHBaseTableStoreSizeMetricRequest& request);
 
                 /**
                  *查询HDFS存储文件信息
@@ -1139,15 +1035,6 @@ namespace TencentCloud
                 InquiryPriceUpdateInstanceOutcomeCallable InquiryPriceUpdateInstanceCallable(const Model::InquiryPriceUpdateInstanceRequest& request);
 
                 /**
-                 *安装组件。对于依赖元数据库的组件，有可能会需要下单一个cdb。可根据InstallSoftWareInfo查看当前集群可安装的组件，以及哪些组件有可能需要cdb。
-                 * @param req InstallSoftwareRequest
-                 * @return InstallSoftwareOutcome
-                 */
-                InstallSoftwareOutcome InstallSoftware(const Model::InstallSoftwareRequest &request);
-                void InstallSoftwareAsync(const Model::InstallSoftwareRequest& request, const InstallSoftwareAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                InstallSoftwareOutcomeCallable InstallSoftwareCallable(const Model::InstallSoftwareRequest& request);
-
-                /**
                  *前提：预付费集群
 资源级别开启或关闭自动续费
                  * @param req ModifyAutoRenewFlagRequest
@@ -1165,24 +1052,6 @@ namespace TencentCloud
                 ModifyAutoScaleStrategyOutcome ModifyAutoScaleStrategy(const Model::ModifyAutoScaleStrategyRequest &request);
                 void ModifyAutoScaleStrategyAsync(const Model::ModifyAutoScaleStrategyRequest& request, const ModifyAutoScaleStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyAutoScaleStrategyOutcomeCallable ModifyAutoScaleStrategyCallable(const Model::ModifyAutoScaleStrategyRequest& request);
-
-                /**
-                 *修改引导脚本
-                 * @param req ModifyBootScriptRequest
-                 * @return ModifyBootScriptOutcome
-                 */
-                ModifyBootScriptOutcome ModifyBootScript(const Model::ModifyBootScriptRequest &request);
-                void ModifyBootScriptAsync(const Model::ModifyBootScriptRequest& request, const ModifyBootScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyBootScriptOutcomeCallable ModifyBootScriptCallable(const Model::ModifyBootScriptRequest& request);
-
-                /**
-                 *更新容器EMR-TKE集群DynamicInstance
-                 * @param req ModifyDynamicInstanceRequest
-                 * @return ModifyDynamicInstanceOutcome
-                 */
-                ModifyDynamicInstanceOutcome ModifyDynamicInstance(const Model::ModifyDynamicInstanceRequest &request);
-                void ModifyDynamicInstanceAsync(const Model::ModifyDynamicInstanceRequest& request, const ModifyDynamicInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyDynamicInstanceOutcomeCallable ModifyDynamicInstanceCallable(const Model::ModifyDynamicInstanceRequest& request);
 
                 /**
                  *修改YARN资源调度的全局配置
@@ -1416,15 +1285,6 @@ namespace TencentCloud
                 TerminateClusterNodesOutcome TerminateClusterNodes(const Model::TerminateClusterNodesRequest &request);
                 void TerminateClusterNodesAsync(const Model::TerminateClusterNodesRequest& request, const TerminateClusterNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 TerminateClusterNodesOutcomeCallable TerminateClusterNodesCallable(const Model::TerminateClusterNodesRequest& request);
-
-                /**
-                 *销毁容器EMR-TKE集群DynamicInstance
-                 * @param req TerminateDynamicInstancesRequest
-                 * @return TerminateDynamicInstancesOutcome
-                 */
-                TerminateDynamicInstancesOutcome TerminateDynamicInstances(const Model::TerminateDynamicInstancesRequest &request);
-                void TerminateDynamicInstancesAsync(const Model::TerminateDynamicInstancesRequest& request, const TerminateDynamicInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                TerminateDynamicInstancesOutcomeCallable TerminateDynamicInstancesCallable(const Model::TerminateDynamicInstancesRequest& request);
 
                 /**
                  *销毁EMR实例。此接口仅支持弹性MapReduce正式计费版本。

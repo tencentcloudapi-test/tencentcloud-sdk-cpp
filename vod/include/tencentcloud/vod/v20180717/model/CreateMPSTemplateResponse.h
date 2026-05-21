@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
-                     * @return Definition <p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+                     * 获取MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。
+                     * @return Definition MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。
                      * 
                      */
                     int64_t GetDefinition() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。</p>
+                     * MPS 任务模板唯一标识。该模板独立于直接在 MPS 服务中创建的模板。
                      */
                     int64_t m_definition;
                     bool m_definitionHasBeenSet;

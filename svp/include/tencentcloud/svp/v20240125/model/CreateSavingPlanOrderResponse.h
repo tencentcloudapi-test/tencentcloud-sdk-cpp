@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>订单号</p>
-                     * @return BigDealId <p>订单号</p>
+                     * 获取订单号
+                     * @return BigDealId 订单号
                      * 
                      */
                     std::string GetBigDealId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>订单号</p>
+                     * 订单号
                      */
                     std::string m_bigDealId;
                     bool m_bigDealIdHasBeenSet;

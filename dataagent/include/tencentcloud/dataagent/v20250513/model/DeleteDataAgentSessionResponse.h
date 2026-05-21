@@ -57,20 +57,6 @@ namespace TencentCloud
                      */
                     bool SessionIdHasBeenSet() const;
 
-                    /**
-                     * 获取删除的会话ID列表
-                     * @return SessionIds 删除的会话ID列表
-                     * 
-                     */
-                    std::vector<std::string> GetSessionIds() const;
-
-                    /**
-                     * 判断参数 SessionIds 是否已赋值
-                     * @return SessionIds 是否已赋值
-                     * 
-                     */
-                    bool SessionIdsHasBeenSet() const;
-
                 private:
 
                     /**
@@ -78,12 +64,6 @@ namespace TencentCloud
                      */
                     std::string m_sessionId;
                     bool m_sessionIdHasBeenSet;
-
-                    /**
-                     * 删除的会话ID列表
-                     */
-                    std::vector<std::string> m_sessionIds;
-                    bool m_sessionIdsHasBeenSet;
 
                 };
             }

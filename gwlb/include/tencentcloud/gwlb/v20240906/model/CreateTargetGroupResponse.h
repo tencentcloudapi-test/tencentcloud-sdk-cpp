@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>创建目标组后生成的id</p>
-                     * @return TargetGroupId <p>创建目标组后生成的id</p>
+                     * 获取创建目标组后生成的id
+                     * @return TargetGroupId 创建目标组后生成的id
                      * 
                      */
                     std::string GetTargetGroupId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>创建目标组后生成的id</p>
+                     * 创建目标组后生成的id
                      */
                     std::string m_targetGroupId;
                     bool m_targetGroupIdHasBeenSet;

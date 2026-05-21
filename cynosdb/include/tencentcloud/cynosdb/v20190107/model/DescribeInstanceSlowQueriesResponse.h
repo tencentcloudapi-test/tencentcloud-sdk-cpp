@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>总条数</p>
-                     * @return TotalCount <p>总条数</p>
+                     * 获取总条数
+                     * @return TotalCount 总条数
                      * 
                      */
                     int64_t GetTotalCount() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>慢查询记录</p>
-                     * @return SlowQueries <p>慢查询记录</p>
+                     * 获取慢查询记录
+                     * @return SlowQueries 慢查询记录
                      * 
                      */
                     std::vector<SlowQueriesItem> GetSlowQueries() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>总条数</p>
+                     * 总条数
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
 
                     /**
-                     * <p>慢查询记录</p>
+                     * 慢查询记录
                      */
                     std::vector<SlowQueriesItem> m_slowQueries;
                     bool m_slowQueriesHasBeenSet;

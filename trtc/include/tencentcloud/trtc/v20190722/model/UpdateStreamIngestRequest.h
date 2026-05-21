@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool StreamUrlHasBeenSet() const;
 
                     /**
-                     * 获取音量，取值范围[0, 200]，默认100，表示原音量。
-                     * @return Volume 音量，取值范围[0, 200]，默认100，表示原音量。
+                     * 获取音量，取值范围[0, 100]，默认100，表示原音量。
+                     * @return Volume 音量，取值范围[0, 100]，默认100，表示原音量。
                      * 
                      */
                     uint64_t GetVolume() const;
 
                     /**
-                     * 设置音量，取值范围[0, 200]，默认100，表示原音量。
-                     * @param _volume 音量，取值范围[0, 200]，默认100，表示原音量。
+                     * 设置音量，取值范围[0, 100]，默认100，表示原音量。
+                     * @param _volume 音量，取值范围[0, 100]，默认100，表示原音量。
                      * 
                      */
                     void SetVolume(const uint64_t& _volume);
@@ -147,48 +147,6 @@ namespace TencentCloud
                      */
                     bool IsPauseHasBeenSet() const;
 
-                    /**
-                     * 获取是否开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * @return EnableProgress 是否开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * 
-                     */
-                    bool GetEnableProgress() const;
-
-                    /**
-                     * 设置是否开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * @param _enableProgress 是否开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     * 
-                     */
-                    void SetEnableProgress(const bool& _enableProgress);
-
-                    /**
-                     * 判断参数 EnableProgress 是否已赋值
-                     * @return EnableProgress 是否已赋值
-                     * 
-                     */
-                    bool EnableProgressHasBeenSet() const;
-
-                    /**
-                     * 获取播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * @return Tempo 播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * 
-                     */
-                    double GetTempo() const;
-
-                    /**
-                     * 设置播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * @param _tempo 播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     * 
-                     */
-                    void SetTempo(const double& _tempo);
-
-                    /**
-                     * 判断参数 Tempo 是否已赋值
-                     * @return Tempo 是否已赋值
-                     * 
-                     */
-                    bool TempoHasBeenSet() const;
-
                 private:
 
                     /**
@@ -210,7 +168,7 @@ namespace TencentCloud
                     bool m_streamUrlHasBeenSet;
 
                     /**
-                     * 音量，取值范围[0, 200]，默认100，表示原音量。
+                     * 音量，取值范围[0, 100]，默认100，表示原音量。
                      */
                     uint64_t m_volume;
                     bool m_volumeHasBeenSet;
@@ -220,18 +178,6 @@ namespace TencentCloud
                      */
                     bool m_isPause;
                     bool m_isPauseHasBeenSet;
-
-                    /**
-                     * 是否开启播放进度回调, 默认false，当开启后，播放进度会通过trtc custom data 回调给播放端
-                     */
-                    bool m_enableProgress;
-                    bool m_enableProgressHasBeenSet;
-
-                    /**
-                     * 播放倍速，默认1.0，可取[0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0]
-                     */
-                    double m_tempo;
-                    bool m_tempoHasBeenSet;
 
                 };
             }

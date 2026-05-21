@@ -28,8 +28,7 @@ DescribeDeviceListRequest::DescribeDeviceListRequest() :
     m_searchWordsHasBeenSet(false),
     m_pageSizeHasBeenSet(false),
     m_pageNumberHasBeenSet(false),
-    m_deviceStatusHasBeenSet(false),
-    m_registerTypeHasBeenSet(false)
+    m_deviceStatusHasBeenSet(false)
 {
 }
 
@@ -86,14 +85,6 @@ string DescribeDeviceListRequest::ToJsonString() const
         string key = "DeviceStatus";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_deviceStatus.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_registerTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RegisterType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_registerType, allocator);
     }
 
 
@@ -198,22 +189,6 @@ void DescribeDeviceListRequest::SetDeviceStatus(const string& _deviceStatus)
 bool DescribeDeviceListRequest::DeviceStatusHasBeenSet() const
 {
     return m_deviceStatusHasBeenSet;
-}
-
-int64_t DescribeDeviceListRequest::GetRegisterType() const
-{
-    return m_registerType;
-}
-
-void DescribeDeviceListRequest::SetRegisterType(const int64_t& _registerType)
-{
-    m_registerType = _registerType;
-    m_registerTypeHasBeenSet = true;
-}
-
-bool DescribeDeviceListRequest::RegisterTypeHasBeenSet() const
-{
-    return m_registerTypeHasBeenSet;
 }
 
 

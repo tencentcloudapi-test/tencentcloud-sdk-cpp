@@ -49,8 +49,7 @@ CreateDBInstanceHourRequest::CreateDBInstanceHourRequest() :
     m_readonlyNodeNumHasBeenSet(false),
     m_readonlyNodeAvailabilityZoneListHasBeenSet(false),
     m_hiddenZoneHasBeenSet(false),
-    m_paramTemplateIdHasBeenSet(false),
-    m_cpuCoreHasBeenSet(false)
+    m_paramTemplateIdHasBeenSet(false)
 {
 }
 
@@ -297,14 +296,6 @@ string CreateDBInstanceHourRequest::ToJsonString() const
         string key = "ParamTemplateId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_paramTemplateId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_cpuCoreHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CpuCore";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_cpuCore, allocator);
     }
 
 
@@ -745,22 +736,6 @@ void CreateDBInstanceHourRequest::SetParamTemplateId(const string& _paramTemplat
 bool CreateDBInstanceHourRequest::ParamTemplateIdHasBeenSet() const
 {
     return m_paramTemplateIdHasBeenSet;
-}
-
-int64_t CreateDBInstanceHourRequest::GetCpuCore() const
-{
-    return m_cpuCore;
-}
-
-void CreateDBInstanceHourRequest::SetCpuCore(const int64_t& _cpuCore)
-{
-    m_cpuCore = _cpuCore;
-    m_cpuCoreHasBeenSet = true;
-}
-
-bool CreateDBInstanceHourRequest::CpuCoreHasBeenSet() const
-{
-    return m_cpuCoreHasBeenSet;
 }
 
 

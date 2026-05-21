@@ -30,8 +30,7 @@ CreateFlowSignUrlRequest::CreateFlowSignUrlRequest() :
     m_videoVerifyTimesLimitHasBeenSet(false),
     m_organizationHasBeenSet(false),
     m_jumpUrlHasBeenSet(false),
-    m_urlTypeHasBeenSet(false),
-    m_expiredOnHasBeenSet(false)
+    m_urlTypeHasBeenSet(false)
 {
 }
 
@@ -114,14 +113,6 @@ string CreateFlowSignUrlRequest::ToJsonString() const
         string key = "UrlType";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_urlType, allocator);
-    }
-
-    if (m_expiredOnHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExpiredOn";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_expiredOn, allocator);
     }
 
 
@@ -258,22 +249,6 @@ void CreateFlowSignUrlRequest::SetUrlType(const int64_t& _urlType)
 bool CreateFlowSignUrlRequest::UrlTypeHasBeenSet() const
 {
     return m_urlTypeHasBeenSet;
-}
-
-int64_t CreateFlowSignUrlRequest::GetExpiredOn() const
-{
-    return m_expiredOn;
-}
-
-void CreateFlowSignUrlRequest::SetExpiredOn(const int64_t& _expiredOn)
-{
-    m_expiredOn = _expiredOn;
-    m_expiredOnHasBeenSet = true;
-}
-
-bool CreateFlowSignUrlRequest::ExpiredOnHasBeenSet() const
-{
-    return m_expiredOnHasBeenSet;
 }
 
 

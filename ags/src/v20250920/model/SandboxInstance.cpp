@@ -25,17 +25,11 @@ SandboxInstance::SandboxInstance() :
     m_toolIdHasBeenSet(false),
     m_toolNameHasBeenSet(false),
     m_statusHasBeenSet(false),
-    m_persistentHasBeenSet(false),
     m_timeoutSecondsHasBeenSet(false),
     m_expiresAtHasBeenSet(false),
     m_stopReasonHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_updateTimeHasBeenSet(false),
-    m_mountOptionsHasBeenSet(false),
-    m_customConfigurationHasBeenSet(false),
-    m_networkModeHasBeenSet(false),
-    m_metadataHasBeenSet(false),
-    m_authModeHasBeenSet(false)
+    m_updateTimeHasBeenSet(false)
 {
 }
 
@@ -82,16 +76,6 @@ CoreInternalOutcome SandboxInstance::Deserialize(const rapidjson::Value &value)
         }
         m_status = string(value["Status"].GetString());
         m_statusHasBeenSet = true;
-    }
-
-    if (value.HasMember("Persistent") && !value["Persistent"].IsNull())
-    {
-        if (!value["Persistent"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `SandboxInstance.Persistent` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_persistent = value["Persistent"].GetBool();
-        m_persistentHasBeenSet = true;
     }
 
     if (value.HasMember("TimeoutSeconds") && !value["TimeoutSeconds"].IsNull())
@@ -144,83 +128,6 @@ CoreInternalOutcome SandboxInstance::Deserialize(const rapidjson::Value &value)
         m_updateTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("MountOptions") && !value["MountOptions"].IsNull())
-    {
-        if (!value["MountOptions"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `SandboxInstance.MountOptions` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["MountOptions"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            MountOption item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_mountOptions.push_back(item);
-        }
-        m_mountOptionsHasBeenSet = true;
-    }
-
-    if (value.HasMember("CustomConfiguration") && !value["CustomConfiguration"].IsNull())
-    {
-        if (!value["CustomConfiguration"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `SandboxInstance.CustomConfiguration` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_customConfiguration.Deserialize(value["CustomConfiguration"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_customConfigurationHasBeenSet = true;
-    }
-
-    if (value.HasMember("NetworkMode") && !value["NetworkMode"].IsNull())
-    {
-        if (!value["NetworkMode"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SandboxInstance.NetworkMode` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_networkMode = string(value["NetworkMode"].GetString());
-        m_networkModeHasBeenSet = true;
-    }
-
-    if (value.HasMember("Metadata") && !value["Metadata"].IsNull())
-    {
-        if (!value["Metadata"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `SandboxInstance.Metadata` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["Metadata"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            MetadataVar item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_metadata.push_back(item);
-        }
-        m_metadataHasBeenSet = true;
-    }
-
-    if (value.HasMember("AuthMode") && !value["AuthMode"].IsNull())
-    {
-        if (!value["AuthMode"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SandboxInstance.AuthMode` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_authMode = string(value["AuthMode"].GetString());
-        m_authModeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -258,14 +165,6 @@ void SandboxInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "Status";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_status.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_persistentHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Persistent";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_persistent, allocator);
     }
 
     if (m_timeoutSecondsHasBeenSet)
@@ -306,61 +205,6 @@ void SandboxInstance::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "UpdateTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_updateTime.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_mountOptionsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MountOptions";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_mountOptions.begin(); itr != m_mountOptions.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_customConfigurationHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CustomConfiguration";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_customConfiguration.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_networkModeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "NetworkMode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_networkMode.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_metadataHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Metadata";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_metadata.begin(); itr != m_metadata.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_authModeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AuthMode";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_authMode.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -428,22 +272,6 @@ void SandboxInstance::SetStatus(const string& _status)
 bool SandboxInstance::StatusHasBeenSet() const
 {
     return m_statusHasBeenSet;
-}
-
-bool SandboxInstance::GetPersistent() const
-{
-    return m_persistent;
-}
-
-void SandboxInstance::SetPersistent(const bool& _persistent)
-{
-    m_persistent = _persistent;
-    m_persistentHasBeenSet = true;
-}
-
-bool SandboxInstance::PersistentHasBeenSet() const
-{
-    return m_persistentHasBeenSet;
 }
 
 uint64_t SandboxInstance::GetTimeoutSeconds() const
@@ -524,85 +352,5 @@ void SandboxInstance::SetUpdateTime(const string& _updateTime)
 bool SandboxInstance::UpdateTimeHasBeenSet() const
 {
     return m_updateTimeHasBeenSet;
-}
-
-vector<MountOption> SandboxInstance::GetMountOptions() const
-{
-    return m_mountOptions;
-}
-
-void SandboxInstance::SetMountOptions(const vector<MountOption>& _mountOptions)
-{
-    m_mountOptions = _mountOptions;
-    m_mountOptionsHasBeenSet = true;
-}
-
-bool SandboxInstance::MountOptionsHasBeenSet() const
-{
-    return m_mountOptionsHasBeenSet;
-}
-
-CustomConfigurationDetail SandboxInstance::GetCustomConfiguration() const
-{
-    return m_customConfiguration;
-}
-
-void SandboxInstance::SetCustomConfiguration(const CustomConfigurationDetail& _customConfiguration)
-{
-    m_customConfiguration = _customConfiguration;
-    m_customConfigurationHasBeenSet = true;
-}
-
-bool SandboxInstance::CustomConfigurationHasBeenSet() const
-{
-    return m_customConfigurationHasBeenSet;
-}
-
-string SandboxInstance::GetNetworkMode() const
-{
-    return m_networkMode;
-}
-
-void SandboxInstance::SetNetworkMode(const string& _networkMode)
-{
-    m_networkMode = _networkMode;
-    m_networkModeHasBeenSet = true;
-}
-
-bool SandboxInstance::NetworkModeHasBeenSet() const
-{
-    return m_networkModeHasBeenSet;
-}
-
-vector<MetadataVar> SandboxInstance::GetMetadata() const
-{
-    return m_metadata;
-}
-
-void SandboxInstance::SetMetadata(const vector<MetadataVar>& _metadata)
-{
-    m_metadata = _metadata;
-    m_metadataHasBeenSet = true;
-}
-
-bool SandboxInstance::MetadataHasBeenSet() const
-{
-    return m_metadataHasBeenSet;
-}
-
-string SandboxInstance::GetAuthMode() const
-{
-    return m_authMode;
-}
-
-void SandboxInstance::SetAuthMode(const string& _authMode)
-{
-    m_authMode = _authMode;
-    m_authModeHasBeenSet = true;
-}
-
-bool SandboxInstance::AuthModeHasBeenSet() const
-{
-    return m_authModeHasBeenSet;
 }
 

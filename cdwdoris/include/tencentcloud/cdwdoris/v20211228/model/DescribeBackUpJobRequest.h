@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群id</p>
-                     * @return InstanceId <p>集群id</p>
+                     * 获取集群id
+                     * @return InstanceId 集群id
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>集群id</p>
-                     * @param _instanceId <p>集群id</p>
+                     * 设置集群id
+                     * @param _instanceId 集群id
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -64,15 +64,27 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务类型：<br>0-不限制，或使用TypeFilters过滤；<br>1-备份恢复（包括周期备份和一次性备份）；<br>2-数据迁移（包括跨集群迁移和cos迁移）</p>
-                     * @return ApplicationType <p>任务类型：<br>0-不限制，或使用TypeFilters过滤；<br>1-备份恢复（包括周期备份和一次性备份）；<br>2-数据迁移（包括跨集群迁移和cos迁移）</p>
+                     * 获取任务类型：
+0-不限制，或使用TypeFilters过滤；
+1-备份恢复（包括周期备份和一次性备份）；
+2-数据迁移（包括跨集群迁移和cos迁移）	
+                     * @return ApplicationType 任务类型：
+0-不限制，或使用TypeFilters过滤；
+1-备份恢复（包括周期备份和一次性备份）；
+2-数据迁移（包括跨集群迁移和cos迁移）	
                      * 
                      */
                     int64_t GetApplicationType() const;
 
                     /**
-                     * 设置<p>任务类型：<br>0-不限制，或使用TypeFilters过滤；<br>1-备份恢复（包括周期备份和一次性备份）；<br>2-数据迁移（包括跨集群迁移和cos迁移）</p>
-                     * @param _applicationType <p>任务类型：<br>0-不限制，或使用TypeFilters过滤；<br>1-备份恢复（包括周期备份和一次性备份）；<br>2-数据迁移（包括跨集群迁移和cos迁移）</p>
+                     * 设置任务类型：
+0-不限制，或使用TypeFilters过滤；
+1-备份恢复（包括周期备份和一次性备份）；
+2-数据迁移（包括跨集群迁移和cos迁移）	
+                     * @param _applicationType 任务类型：
+0-不限制，或使用TypeFilters过滤；
+1-备份恢复（包括周期备份和一次性备份）；
+2-数据迁移（包括跨集群迁移和cos迁移）	
                      * 
                      */
                     void SetApplicationType(const int64_t& _applicationType);
@@ -85,99 +97,15 @@ namespace TencentCloud
                     bool ApplicationTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务类型过滤器</p>
-                     * @return TypeFilters <p>任务类型过滤器</p>
-                     * 
-                     */
-                    std::vector<int64_t> GetTypeFilters() const;
-
-                    /**
-                     * 设置<p>任务类型过滤器</p>
-                     * @param _typeFilters <p>任务类型过滤器</p>
-                     * 
-                     */
-                    void SetTypeFilters(const std::vector<int64_t>& _typeFilters);
-
-                    /**
-                     * 判断参数 TypeFilters 是否已赋值
-                     * @return TypeFilters 是否已赋值
-                     * 
-                     */
-                    bool TypeFiltersHasBeenSet() const;
-
-                    /**
-                     * 获取<p>实例状态过滤器</p>
-                     * @return StatusFilters <p>实例状态过滤器</p>
-                     * 
-                     */
-                    std::vector<int64_t> GetStatusFilters() const;
-
-                    /**
-                     * 设置<p>实例状态过滤器</p>
-                     * @param _statusFilters <p>实例状态过滤器</p>
-                     * 
-                     */
-                    void SetStatusFilters(const std::vector<int64_t>& _statusFilters);
-
-                    /**
-                     * 判断参数 StatusFilters 是否已赋值
-                     * @return StatusFilters 是否已赋值
-                     * 
-                     */
-                    bool StatusFiltersHasBeenSet() const;
-
-                    /**
-                     * 获取<p>任务名称过滤器</p>
-                     * @return ScheduleNameFilters <p>任务名称过滤器</p>
-                     * 
-                     */
-                    std::string GetScheduleNameFilters() const;
-
-                    /**
-                     * 设置<p>任务名称过滤器</p>
-                     * @param _scheduleNameFilters <p>任务名称过滤器</p>
-                     * 
-                     */
-                    void SetScheduleNameFilters(const std::string& _scheduleNameFilters);
-
-                    /**
-                     * 判断参数 ScheduleNameFilters 是否已赋值
-                     * @return ScheduleNameFilters 是否已赋值
-                     * 
-                     */
-                    bool ScheduleNameFiltersHasBeenSet() const;
-
-                    /**
-                     * 获取<p>按照快照生成时间排序，默认DESC：<br>ASC-升序<br>DESC-降序</p>
-                     * @return OrderType <p>按照快照生成时间排序，默认DESC：<br>ASC-升序<br>DESC-降序</p>
-                     * 
-                     */
-                    std::string GetOrderType() const;
-
-                    /**
-                     * 设置<p>按照快照生成时间排序，默认DESC：<br>ASC-升序<br>DESC-降序</p>
-                     * @param _orderType <p>按照快照生成时间排序，默认DESC：<br>ASC-升序<br>DESC-降序</p>
-                     * 
-                     */
-                    void SetOrderType(const std::string& _orderType);
-
-                    /**
-                     * 判断参数 OrderType 是否已赋值
-                     * @return OrderType 是否已赋值
-                     * 
-                     */
-                    bool OrderTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>分页大小</p>
-                     * @return PageSize <p>分页大小</p>
+                     * 获取分页大小
+                     * @return PageSize 分页大小
                      * 
                      */
                     int64_t GetPageSize() const;
 
                     /**
-                     * 设置<p>分页大小</p>
-                     * @param _pageSize <p>分页大小</p>
+                     * 设置分页大小
+                     * @param _pageSize 分页大小
                      * 
                      */
                     void SetPageSize(const int64_t& _pageSize);
@@ -190,15 +118,15 @@ namespace TencentCloud
                     bool PageSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>页号</p>
-                     * @return PageNum <p>页号</p>
+                     * 获取页号
+                     * @return PageNum 页号
                      * 
                      */
                     int64_t GetPageNum() const;
 
                     /**
-                     * 设置<p>页号</p>
-                     * @param _pageNum <p>页号</p>
+                     * 设置页号
+                     * @param _pageNum 页号
                      * 
                      */
                     void SetPageNum(const int64_t& _pageNum);
@@ -211,15 +139,15 @@ namespace TencentCloud
                     bool PageNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>开始时间</p>
-                     * @return BeginTime <p>开始时间</p>
+                     * 获取开始时间
+                     * @return BeginTime 开始时间
                      * 
                      */
                     std::string GetBeginTime() const;
 
                     /**
-                     * 设置<p>开始时间</p>
-                     * @param _beginTime <p>开始时间</p>
+                     * 设置开始时间
+                     * @param _beginTime 开始时间
                      * 
                      */
                     void SetBeginTime(const std::string& _beginTime);
@@ -232,15 +160,15 @@ namespace TencentCloud
                     bool BeginTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>结束时间</p>
-                     * @return EndTime <p>结束时间</p>
+                     * 获取结束时间
+                     * @return EndTime 结束时间
                      * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置<p>结束时间</p>
-                     * @param _endTime <p>结束时间</p>
+                     * 设置结束时间
+                     * @param _endTime 结束时间
                      * 
                      */
                     void SetEndTime(const std::string& _endTime);
@@ -253,15 +181,15 @@ namespace TencentCloud
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>jobid的string类型</p>
-                     * @return JobIdFiltersStr <p>jobid的string类型</p>
+                     * 获取jobid的string类型
+                     * @return JobIdFiltersStr jobid的string类型
                      * 
                      */
                     std::string GetJobIdFiltersStr() const;
 
                     /**
-                     * 设置<p>jobid的string类型</p>
-                     * @param _jobIdFiltersStr <p>jobid的string类型</p>
+                     * 设置jobid的string类型
+                     * @param _jobIdFiltersStr jobid的string类型
                      * 
                      */
                     void SetJobIdFiltersStr(const std::string& _jobIdFiltersStr);
@@ -273,100 +201,52 @@ namespace TencentCloud
                      */
                     bool JobIdFiltersStrHasBeenSet() const;
 
-                    /**
-                     * 获取<p>0-未加密；1-已加密</p>
-                     * @return EncryptionFilters <p>0-未加密；1-已加密</p>
-                     * 
-                     */
-                    std::vector<int64_t> GetEncryptionFilters() const;
-
-                    /**
-                     * 设置<p>0-未加密；1-已加密</p>
-                     * @param _encryptionFilters <p>0-未加密；1-已加密</p>
-                     * 
-                     */
-                    void SetEncryptionFilters(const std::vector<int64_t>& _encryptionFilters);
-
-                    /**
-                     * 判断参数 EncryptionFilters 是否已赋值
-                     * @return EncryptionFilters 是否已赋值
-                     * 
-                     */
-                    bool EncryptionFiltersHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>集群id</p>
+                     * 集群id
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>任务类型：<br>0-不限制，或使用TypeFilters过滤；<br>1-备份恢复（包括周期备份和一次性备份）；<br>2-数据迁移（包括跨集群迁移和cos迁移）</p>
+                     * 任务类型：
+0-不限制，或使用TypeFilters过滤；
+1-备份恢复（包括周期备份和一次性备份）；
+2-数据迁移（包括跨集群迁移和cos迁移）	
                      */
                     int64_t m_applicationType;
                     bool m_applicationTypeHasBeenSet;
 
                     /**
-                     * <p>任务类型过滤器</p>
-                     */
-                    std::vector<int64_t> m_typeFilters;
-                    bool m_typeFiltersHasBeenSet;
-
-                    /**
-                     * <p>实例状态过滤器</p>
-                     */
-                    std::vector<int64_t> m_statusFilters;
-                    bool m_statusFiltersHasBeenSet;
-
-                    /**
-                     * <p>任务名称过滤器</p>
-                     */
-                    std::string m_scheduleNameFilters;
-                    bool m_scheduleNameFiltersHasBeenSet;
-
-                    /**
-                     * <p>按照快照生成时间排序，默认DESC：<br>ASC-升序<br>DESC-降序</p>
-                     */
-                    std::string m_orderType;
-                    bool m_orderTypeHasBeenSet;
-
-                    /**
-                     * <p>分页大小</p>
+                     * 分页大小
                      */
                     int64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
 
                     /**
-                     * <p>页号</p>
+                     * 页号
                      */
                     int64_t m_pageNum;
                     bool m_pageNumHasBeenSet;
 
                     /**
-                     * <p>开始时间</p>
+                     * 开始时间
                      */
                     std::string m_beginTime;
                     bool m_beginTimeHasBeenSet;
 
                     /**
-                     * <p>结束时间</p>
+                     * 结束时间
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * <p>jobid的string类型</p>
+                     * jobid的string类型
                      */
                     std::string m_jobIdFiltersStr;
                     bool m_jobIdFiltersStrHasBeenSet;
-
-                    /**
-                     * <p>0-未加密；1-已加密</p>
-                     */
-                    std::vector<int64_t> m_encryptionFilters;
-                    bool m_encryptionFiltersHasBeenSet;
 
                 };
             }

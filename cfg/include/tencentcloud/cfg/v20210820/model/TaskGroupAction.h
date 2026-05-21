@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务分组动作ID</p>
-                     * @return TaskGroupActionId <p>任务分组动作ID</p>
+                     * 获取任务分组动作ID
+                     * @return TaskGroupActionId 任务分组动作ID
                      * 
                      */
                     int64_t GetTaskGroupActionId() const;
 
                     /**
-                     * 设置<p>任务分组动作ID</p>
-                     * @param _taskGroupActionId <p>任务分组动作ID</p>
+                     * 设置任务分组动作ID
+                     * @param _taskGroupActionId 任务分组动作ID
                      * 
                      */
                     void SetTaskGroupActionId(const int64_t& _taskGroupActionId);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool TaskGroupActionIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务分组动作实例列表</p>
-                     * @return TaskGroupInstances <p>任务分组动作实例列表</p>
+                     * 获取任务分组动作实例列表
+                     * @return TaskGroupInstances 任务分组动作实例列表
                      * 
                      */
                     std::vector<TaskGroupInstance> GetTaskGroupInstances() const;
 
                     /**
-                     * 设置<p>任务分组动作实例列表</p>
-                     * @param _taskGroupInstances <p>任务分组动作实例列表</p>
+                     * 设置任务分组动作实例列表
+                     * @param _taskGroupInstances 任务分组动作实例列表
                      * 
                      */
                     void SetTaskGroupInstances(const std::vector<TaskGroupInstance>& _taskGroupInstances);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool TaskGroupInstancesHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作ID</p>
-                     * @return ActionId <p>动作ID</p>
+                     * 获取动作ID
+                     * @return ActionId 动作ID
                      * 
                      */
                     int64_t GetActionId() const;
 
                     /**
-                     * 设置<p>动作ID</p>
-                     * @param _actionId <p>动作ID</p>
+                     * 设置动作ID
+                     * @param _actionId 动作ID
                      * 
                      */
                     void SetActionId(const int64_t& _actionId);
@@ -111,15 +111,15 @@ namespace TencentCloud
                     bool ActionIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>分组动作顺序</p>
-                     * @return TaskGroupActionOrder <p>分组动作顺序</p>
+                     * 获取分组动作顺序
+                     * @return TaskGroupActionOrder 分组动作顺序
                      * 
                      */
                     int64_t GetTaskGroupActionOrder() const;
 
                     /**
-                     * 设置<p>分组动作顺序</p>
-                     * @param _taskGroupActionOrder <p>分组动作顺序</p>
+                     * 设置分组动作顺序
+                     * @param _taskGroupActionOrder 分组动作顺序
                      * 
                      */
                     void SetTaskGroupActionOrder(const int64_t& _taskGroupActionOrder);
@@ -132,15 +132,15 @@ namespace TencentCloud
                     bool TaskGroupActionOrderHasBeenSet() const;
 
                     /**
-                     * 获取<p>分组动作通用配置</p>
-                     * @return TaskGroupActionGeneralConfiguration <p>分组动作通用配置</p>
+                     * 获取分组动作通用配置
+                     * @return TaskGroupActionGeneralConfiguration 分组动作通用配置
                      * 
                      */
                     std::string GetTaskGroupActionGeneralConfiguration() const;
 
                     /**
-                     * 设置<p>分组动作通用配置</p>
-                     * @param _taskGroupActionGeneralConfiguration <p>分组动作通用配置</p>
+                     * 设置分组动作通用配置
+                     * @param _taskGroupActionGeneralConfiguration 分组动作通用配置
                      * 
                      */
                     void SetTaskGroupActionGeneralConfiguration(const std::string& _taskGroupActionGeneralConfiguration);
@@ -153,15 +153,15 @@ namespace TencentCloud
                     bool TaskGroupActionGeneralConfigurationHasBeenSet() const;
 
                     /**
-                     * 获取<p>分组动作自定义配置</p>
-                     * @return TaskGroupActionCustomConfiguration <p>分组动作自定义配置</p>
+                     * 获取分组动作自定义配置
+                     * @return TaskGroupActionCustomConfiguration 分组动作自定义配置
                      * 
                      */
                     std::string GetTaskGroupActionCustomConfiguration() const;
 
                     /**
-                     * 设置<p>分组动作自定义配置</p>
-                     * @param _taskGroupActionCustomConfiguration <p>分组动作自定义配置</p>
+                     * 设置分组动作自定义配置
+                     * @param _taskGroupActionCustomConfiguration 分组动作自定义配置
                      * 
                      */
                     void SetTaskGroupActionCustomConfiguration(const std::string& _taskGroupActionCustomConfiguration);
@@ -174,15 +174,15 @@ namespace TencentCloud
                     bool TaskGroupActionCustomConfigurationHasBeenSet() const;
 
                     /**
-                     * 获取<p>分组动作状态</p><p>枚举值：</p><ul><li>2001： 未开始</li><li>2002： 待执行</li><li>2003： 执行中</li><li>2004： 执行结束</li></ul>
-                     * @return TaskGroupActionStatus <p>分组动作状态</p><p>枚举值：</p><ul><li>2001： 未开始</li><li>2002： 待执行</li><li>2003： 执行中</li><li>2004： 执行结束</li></ul>
+                     * 获取分组动作状态
+                     * @return TaskGroupActionStatus 分组动作状态
                      * 
                      */
                     int64_t GetTaskGroupActionStatus() const;
 
                     /**
-                     * 设置<p>分组动作状态</p><p>枚举值：</p><ul><li>2001： 未开始</li><li>2002： 待执行</li><li>2003： 执行中</li><li>2004： 执行结束</li></ul>
-                     * @param _taskGroupActionStatus <p>分组动作状态</p><p>枚举值：</p><ul><li>2001： 未开始</li><li>2002： 待执行</li><li>2003： 执行中</li><li>2004： 执行结束</li></ul>
+                     * 设置分组动作状态
+                     * @param _taskGroupActionStatus 分组动作状态
                      * 
                      */
                     void SetTaskGroupActionStatus(const int64_t& _taskGroupActionStatus);
@@ -195,15 +195,15 @@ namespace TencentCloud
                     bool TaskGroupActionStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作分组创建时间</p>
-                     * @return TaskGroupActionCreateTime <p>动作分组创建时间</p>
+                     * 获取动作分组创建时间
+                     * @return TaskGroupActionCreateTime 动作分组创建时间
                      * 
                      */
                     std::string GetTaskGroupActionCreateTime() const;
 
                     /**
-                     * 设置<p>动作分组创建时间</p>
-                     * @param _taskGroupActionCreateTime <p>动作分组创建时间</p>
+                     * 设置动作分组创建时间
+                     * @param _taskGroupActionCreateTime 动作分组创建时间
                      * 
                      */
                     void SetTaskGroupActionCreateTime(const std::string& _taskGroupActionCreateTime);
@@ -216,15 +216,15 @@ namespace TencentCloud
                     bool TaskGroupActionCreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作分组更新时间</p>
-                     * @return TaskGroupActionUpdateTime <p>动作分组更新时间</p>
+                     * 获取动作分组更新时间
+                     * @return TaskGroupActionUpdateTime 动作分组更新时间
                      * 
                      */
                     std::string GetTaskGroupActionUpdateTime() const;
 
                     /**
-                     * 设置<p>动作分组更新时间</p>
-                     * @param _taskGroupActionUpdateTime <p>动作分组更新时间</p>
+                     * 设置动作分组更新时间
+                     * @param _taskGroupActionUpdateTime 动作分组更新时间
                      * 
                      */
                     void SetTaskGroupActionUpdateTime(const std::string& _taskGroupActionUpdateTime);
@@ -237,15 +237,15 @@ namespace TencentCloud
                     bool TaskGroupActionUpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作名称</p>
-                     * @return ActionTitle <p>动作名称</p>
+                     * 获取动作名称
+                     * @return ActionTitle 动作名称
                      * 
                      */
                     std::string GetActionTitle() const;
 
                     /**
-                     * 设置<p>动作名称</p>
-                     * @param _actionTitle <p>动作名称</p>
+                     * 设置动作名称
+                     * @param _actionTitle 动作名称
                      * 
                      */
                     void SetActionTitle(const std::string& _actionTitle);
@@ -258,15 +258,15 @@ namespace TencentCloud
                     bool ActionTitleHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
-                     * @return TaskGroupActionStatusType <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
+                     * 获取状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
+                     * @return TaskGroupActionStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
                      * 
                      */
                     int64_t GetTaskGroupActionStatusType() const;
 
                     /**
-                     * 设置<p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
-                     * @param _taskGroupActionStatusType <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
+                     * 设置状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
+                     * @param _taskGroupActionStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
                      * 
                      */
                     void SetTaskGroupActionStatusType(const int64_t& _taskGroupActionStatusType);
@@ -279,15 +279,15 @@ namespace TencentCloud
                     bool TaskGroupActionStatusTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>RandomId</p>
-                     * @return TaskGroupActionRandomId <p>RandomId</p>
+                     * 获取RandomId
+                     * @return TaskGroupActionRandomId RandomId
                      * 
                      */
                     int64_t GetTaskGroupActionRandomId() const;
 
                     /**
-                     * 设置<p>RandomId</p>
-                     * @param _taskGroupActionRandomId <p>RandomId</p>
+                     * 设置RandomId
+                     * @param _taskGroupActionRandomId RandomId
                      * 
                      */
                     void SetTaskGroupActionRandomId(const int64_t& _taskGroupActionRandomId);
@@ -300,15 +300,15 @@ namespace TencentCloud
                     bool TaskGroupActionRandomIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>RecoverId</p>
-                     * @return TaskGroupActionRecoverId <p>RecoverId</p>
+                     * 获取RecoverId
+                     * @return TaskGroupActionRecoverId RecoverId
                      * 
                      */
                     int64_t GetTaskGroupActionRecoverId() const;
 
                     /**
-                     * 设置<p>RecoverId</p>
-                     * @param _taskGroupActionRecoverId <p>RecoverId</p>
+                     * 设置RecoverId
+                     * @param _taskGroupActionRecoverId RecoverId
                      * 
                      */
                     void SetTaskGroupActionRecoverId(const int64_t& _taskGroupActionRecoverId);
@@ -321,15 +321,15 @@ namespace TencentCloud
                     bool TaskGroupActionRecoverIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>ExecuteId</p>
-                     * @return TaskGroupActionExecuteId <p>ExecuteId</p>
+                     * 获取ExecuteId
+                     * @return TaskGroupActionExecuteId ExecuteId
                      * 
                      */
                     int64_t GetTaskGroupActionExecuteId() const;
 
                     /**
-                     * 设置<p>ExecuteId</p>
-                     * @param _taskGroupActionExecuteId <p>ExecuteId</p>
+                     * 设置ExecuteId
+                     * @param _taskGroupActionExecuteId ExecuteId
                      * 
                      */
                     void SetTaskGroupActionExecuteId(const int64_t& _taskGroupActionExecuteId);
@@ -342,15 +342,15 @@ namespace TencentCloud
                     bool TaskGroupActionExecuteIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>调用api类型，0:tat, 1:云api</p>
-                     * @return ActionApiType <p>调用api类型，0:tat, 1:云api</p>
+                     * 获取调用api类型，0:tat, 1:云api
+                     * @return ActionApiType 调用api类型，0:tat, 1:云api
                      * 
                      */
                     int64_t GetActionApiType() const;
 
                     /**
-                     * 设置<p>调用api类型，0:tat, 1:云api</p>
-                     * @param _actionApiType <p>调用api类型，0:tat, 1:云api</p>
+                     * 设置调用api类型，0:tat, 1:云api
+                     * @param _actionApiType 调用api类型，0:tat, 1:云api
                      * 
                      */
                     void SetActionApiType(const int64_t& _actionApiType);
@@ -363,15 +363,15 @@ namespace TencentCloud
                     bool ActionApiTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>1:故障，2:恢复</p>
-                     * @return ActionAttribute <p>1:故障，2:恢复</p>
+                     * 获取1:故障，2:恢复
+                     * @return ActionAttribute 1:故障，2:恢复
                      * 
                      */
                     int64_t GetActionAttribute() const;
 
                     /**
-                     * 设置<p>1:故障，2:恢复</p>
-                     * @param _actionAttribute <p>1:故障，2:恢复</p>
+                     * 设置1:故障，2:恢复
+                     * @param _actionAttribute 1:故障，2:恢复
                      * 
                      */
                     void SetActionAttribute(const int64_t& _actionAttribute);
@@ -384,15 +384,15 @@ namespace TencentCloud
                     bool ActionAttributeHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作类型：平台、自定义</p>
-                     * @return ActionType <p>动作类型：平台、自定义</p>
+                     * 获取动作类型：平台、自定义
+                     * @return ActionType 动作类型：平台、自定义
                      * 
                      */
                     std::string GetActionType() const;
 
                     /**
-                     * 设置<p>动作类型：平台、自定义</p>
-                     * @param _actionType <p>动作类型：平台、自定义</p>
+                     * 设置动作类型：平台、自定义
+                     * @param _actionType 动作类型：平台、自定义
                      * 
                      */
                     void SetActionType(const std::string& _actionType);
@@ -405,15 +405,15 @@ namespace TencentCloud
                     bool ActionTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否可重试</p>
-                     * @return IsExecuteRedo <p>是否可重试</p>
+                     * 获取是否可重试
+                     * @return IsExecuteRedo 是否可重试
                      * 
                      */
                     bool GetIsExecuteRedo() const;
 
                     /**
-                     * 设置<p>是否可重试</p>
-                     * @param _isExecuteRedo <p>是否可重试</p>
+                     * 设置是否可重试
+                     * @param _isExecuteRedo 是否可重试
                      * 
                      */
                     void SetIsExecuteRedo(const bool& _isExecuteRedo);
@@ -426,15 +426,15 @@ namespace TencentCloud
                     bool IsExecuteRedoHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作风险级别</p>
-                     * @return ActionRisk <p>动作风险级别</p>
+                     * 获取动作风险级别
+                     * @return ActionRisk 动作风险级别
                      * 
                      */
                     std::string GetActionRisk() const;
 
                     /**
-                     * 设置<p>动作风险级别</p>
-                     * @param _actionRisk <p>动作风险级别</p>
+                     * 设置动作风险级别
+                     * @param _actionRisk 动作风险级别
                      * 
                      */
                     void SetActionRisk(const std::string& _actionRisk);
@@ -447,15 +447,15 @@ namespace TencentCloud
                     bool ActionRiskHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作运行时间</p><p>单位：秒</p>
-                     * @return TaskGroupActionExecuteTime <p>动作运行时间</p><p>单位：秒</p>
+                     * 获取动作运行时间
+                     * @return TaskGroupActionExecuteTime 动作运行时间
                      * 
                      */
                     int64_t GetTaskGroupActionExecuteTime() const;
 
                     /**
-                     * 设置<p>动作运行时间</p><p>单位：秒</p>
-                     * @param _taskGroupActionExecuteTime <p>动作运行时间</p><p>单位：秒</p>
+                     * 设置动作运行时间
+                     * @param _taskGroupActionExecuteTime 动作运行时间
                      * 
                      */
                     void SetTaskGroupActionExecuteTime(const int64_t& _taskGroupActionExecuteTime);
@@ -468,15 +468,15 @@ namespace TencentCloud
                     bool TaskGroupActionExecuteTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作开始执行时间</p>
-                     * @return TaskGroupActionStartTime <p>动作开始执行时间</p>
+                     * 获取动作开始执行时间
+                     * @return TaskGroupActionStartTime 动作开始执行时间
                      * 
                      */
                     std::string GetTaskGroupActionStartTime() const;
 
                     /**
-                     * 设置<p>动作开始执行时间</p>
-                     * @param _taskGroupActionStartTime <p>动作开始执行时间</p>
+                     * 设置动作开始执行时间
+                     * @param _taskGroupActionStartTime 动作开始执行时间
                      * 
                      */
                     void SetTaskGroupActionStartTime(const std::string& _taskGroupActionStartTime);
@@ -491,127 +491,127 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务分组动作ID</p>
+                     * 任务分组动作ID
                      */
                     int64_t m_taskGroupActionId;
                     bool m_taskGroupActionIdHasBeenSet;
 
                     /**
-                     * <p>任务分组动作实例列表</p>
+                     * 任务分组动作实例列表
                      */
                     std::vector<TaskGroupInstance> m_taskGroupInstances;
                     bool m_taskGroupInstancesHasBeenSet;
 
                     /**
-                     * <p>动作ID</p>
+                     * 动作ID
                      */
                     int64_t m_actionId;
                     bool m_actionIdHasBeenSet;
 
                     /**
-                     * <p>分组动作顺序</p>
+                     * 分组动作顺序
                      */
                     int64_t m_taskGroupActionOrder;
                     bool m_taskGroupActionOrderHasBeenSet;
 
                     /**
-                     * <p>分组动作通用配置</p>
+                     * 分组动作通用配置
                      */
                     std::string m_taskGroupActionGeneralConfiguration;
                     bool m_taskGroupActionGeneralConfigurationHasBeenSet;
 
                     /**
-                     * <p>分组动作自定义配置</p>
+                     * 分组动作自定义配置
                      */
                     std::string m_taskGroupActionCustomConfiguration;
                     bool m_taskGroupActionCustomConfigurationHasBeenSet;
 
                     /**
-                     * <p>分组动作状态</p><p>枚举值：</p><ul><li>2001： 未开始</li><li>2002： 待执行</li><li>2003： 执行中</li><li>2004： 执行结束</li></ul>
+                     * 分组动作状态
                      */
                     int64_t m_taskGroupActionStatus;
                     bool m_taskGroupActionStatusHasBeenSet;
 
                     /**
-                     * <p>动作分组创建时间</p>
+                     * 动作分组创建时间
                      */
                     std::string m_taskGroupActionCreateTime;
                     bool m_taskGroupActionCreateTimeHasBeenSet;
 
                     /**
-                     * <p>动作分组更新时间</p>
+                     * 动作分组更新时间
                      */
                     std::string m_taskGroupActionUpdateTime;
                     bool m_taskGroupActionUpdateTimeHasBeenSet;
 
                     /**
-                     * <p>动作名称</p>
+                     * 动作名称
                      */
                     std::string m_actionTitle;
                     bool m_actionTitleHasBeenSet;
 
                     /**
-                     * <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
+                     * 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
                      */
                     int64_t m_taskGroupActionStatusType;
                     bool m_taskGroupActionStatusTypeHasBeenSet;
 
                     /**
-                     * <p>RandomId</p>
+                     * RandomId
                      */
                     int64_t m_taskGroupActionRandomId;
                     bool m_taskGroupActionRandomIdHasBeenSet;
 
                     /**
-                     * <p>RecoverId</p>
+                     * RecoverId
                      */
                     int64_t m_taskGroupActionRecoverId;
                     bool m_taskGroupActionRecoverIdHasBeenSet;
 
                     /**
-                     * <p>ExecuteId</p>
+                     * ExecuteId
                      */
                     int64_t m_taskGroupActionExecuteId;
                     bool m_taskGroupActionExecuteIdHasBeenSet;
 
                     /**
-                     * <p>调用api类型，0:tat, 1:云api</p>
+                     * 调用api类型，0:tat, 1:云api
                      */
                     int64_t m_actionApiType;
                     bool m_actionApiTypeHasBeenSet;
 
                     /**
-                     * <p>1:故障，2:恢复</p>
+                     * 1:故障，2:恢复
                      */
                     int64_t m_actionAttribute;
                     bool m_actionAttributeHasBeenSet;
 
                     /**
-                     * <p>动作类型：平台、自定义</p>
+                     * 动作类型：平台、自定义
                      */
                     std::string m_actionType;
                     bool m_actionTypeHasBeenSet;
 
                     /**
-                     * <p>是否可重试</p>
+                     * 是否可重试
                      */
                     bool m_isExecuteRedo;
                     bool m_isExecuteRedoHasBeenSet;
 
                     /**
-                     * <p>动作风险级别</p>
+                     * 动作风险级别
                      */
                     std::string m_actionRisk;
                     bool m_actionRiskHasBeenSet;
 
                     /**
-                     * <p>动作运行时间</p><p>单位：秒</p>
+                     * 动作运行时间
                      */
                     int64_t m_taskGroupActionExecuteTime;
                     bool m_taskGroupActionExecuteTimeHasBeenSet;
 
                     /**
-                     * <p>动作开始执行时间</p>
+                     * 动作开始执行时间
                      */
                     std::string m_taskGroupActionStartTime;
                     bool m_taskGroupActionStartTimeHasBeenSet;

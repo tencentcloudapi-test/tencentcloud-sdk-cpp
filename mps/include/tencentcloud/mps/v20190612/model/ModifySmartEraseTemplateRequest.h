@@ -46,15 +46,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>智能擦除模板唯一标识</p>
-                     * @return Definition <p>智能擦除模板唯一标识</p>
+                     * 获取智能擦除模板唯一标识
+                     * @return Definition 智能擦除模板唯一标识
                      * 
                      */
                     int64_t GetDefinition() const;
 
                     /**
-                     * 设置<p>智能擦除模板唯一标识</p>
-                     * @param _definition <p>智能擦除模板唯一标识</p>
+                     * 设置智能擦除模板唯一标识
+                     * @param _definition 智能擦除模板唯一标识
                      * 
                      */
                     void SetDefinition(const int64_t& _definition);
@@ -67,15 +67,15 @@ namespace TencentCloud
                     bool DefinitionHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能擦除模板名称长度限制：64 个字符。</p>
-                     * @return Name <p>智能擦除模板名称长度限制：64 个字符。</p>
+                     * 获取智能擦除模板名称长度限制：64 个字符。
+                     * @return Name 智能擦除模板名称长度限制：64 个字符。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>智能擦除模板名称长度限制：64 个字符。</p>
-                     * @param _name <p>智能擦除模板名称长度限制：64 个字符。</p>
+                     * 设置智能擦除模板名称长度限制：64 个字符。
+                     * @param _name 智能擦除模板名称长度限制：64 个字符。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -88,15 +88,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能擦除模板描述信息长度限制：256 个字符。</p>
-                     * @return Comment <p>智能擦除模板描述信息长度限制：256 个字符。</p>
+                     * 获取智能擦除模板描述信息长度限制：256 个字符。
+                     * @return Comment 智能擦除模板描述信息长度限制：256 个字符。
                      * 
                      */
                     std::string GetComment() const;
 
                     /**
-                     * 设置<p>智能擦除模板描述信息长度限制：256 个字符。</p>
-                     * @param _comment <p>智能擦除模板描述信息长度限制：256 个字符。</p>
+                     * 设置智能擦除模板描述信息长度限制：256 个字符。
+                     * @param _comment 智能擦除模板描述信息长度限制：256 个字符。
                      * 
                      */
                     void SetComment(const std::string& _comment);
@@ -109,15 +109,27 @@ namespace TencentCloud
                     bool CommentHasBeenSet() const;
 
                     /**
-                     * 获取<p>擦除类型</p><ul><li>subtitle 去字幕</li><li>watermark 去水印</li><li>privacy 隐私保护</li></ul>
-                     * @return EraseType <p>擦除类型</p><ul><li>subtitle 去字幕</li><li>watermark 去水印</li><li>privacy 隐私保护</li></ul>
+                     * 获取擦除类型
+- subtitle 去字幕
+- watermark 去水印
+- privacy 隐私保护
+                     * @return EraseType 擦除类型
+- subtitle 去字幕
+- watermark 去水印
+- privacy 隐私保护
                      * 
                      */
                     std::string GetEraseType() const;
 
                     /**
-                     * 设置<p>擦除类型</p><ul><li>subtitle 去字幕</li><li>watermark 去水印</li><li>privacy 隐私保护</li></ul>
-                     * @param _eraseType <p>擦除类型</p><ul><li>subtitle 去字幕</li><li>watermark 去水印</li><li>privacy 隐私保护</li></ul>
+                     * 设置擦除类型
+- subtitle 去字幕
+- watermark 去水印
+- privacy 隐私保护
+                     * @param _eraseType 擦除类型
+- subtitle 去字幕
+- watermark 去水印
+- privacy 隐私保护
                      * 
                      */
                     void SetEraseType(const std::string& _eraseType);
@@ -130,15 +142,15 @@ namespace TencentCloud
                     bool EraseTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。</p>
-                     * @return EraseSubtitleConfig <p>字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。</p>
+                     * 获取字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。
+                     * @return EraseSubtitleConfig 字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。
                      * 
                      */
                     SmartEraseSubtitleConfig GetEraseSubtitleConfig() const;
 
                     /**
-                     * 设置<p>字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。</p>
-                     * @param _eraseSubtitleConfig <p>字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。</p>
+                     * 设置字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。
+                     * @param _eraseSubtitleConfig 字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。
                      * 
                      */
                     void SetEraseSubtitleConfig(const SmartEraseSubtitleConfig& _eraseSubtitleConfig);
@@ -151,15 +163,15 @@ namespace TencentCloud
                     bool EraseSubtitleConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。</p>
-                     * @return EraseWatermarkConfig <p>水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。</p>
+                     * 获取水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。
+                     * @return EraseWatermarkConfig 水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。
                      * 
                      */
                     SmartEraseWatermarkConfig GetEraseWatermarkConfig() const;
 
                     /**
-                     * 设置<p>水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。</p>
-                     * @param _eraseWatermarkConfig <p>水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。</p>
+                     * 设置水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。
+                     * @param _eraseWatermarkConfig 水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。
                      * 
                      */
                     void SetEraseWatermarkConfig(const SmartEraseWatermarkConfig& _eraseWatermarkConfig);
@@ -172,15 +184,15 @@ namespace TencentCloud
                     bool EraseWatermarkConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。</p>
-                     * @return ErasePrivacyConfig <p>隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。</p>
+                     * 获取隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。
+                     * @return ErasePrivacyConfig 隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。
                      * 
                      */
                     SmartErasePrivacyConfig GetErasePrivacyConfig() const;
 
                     /**
-                     * 设置<p>隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。</p>
-                     * @param _erasePrivacyConfig <p>隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。</p>
+                     * 设置隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。
+                     * @param _erasePrivacyConfig 隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。
                      * 
                      */
                     void SetErasePrivacyConfig(const SmartErasePrivacyConfig& _erasePrivacyConfig);
@@ -195,43 +207,46 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>智能擦除模板唯一标识</p>
+                     * 智能擦除模板唯一标识
                      */
                     int64_t m_definition;
                     bool m_definitionHasBeenSet;
 
                     /**
-                     * <p>智能擦除模板名称长度限制：64 个字符。</p>
+                     * 智能擦除模板名称长度限制：64 个字符。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>智能擦除模板描述信息长度限制：256 个字符。</p>
+                     * 智能擦除模板描述信息长度限制：256 个字符。
                      */
                     std::string m_comment;
                     bool m_commentHasBeenSet;
 
                     /**
-                     * <p>擦除类型</p><ul><li>subtitle 去字幕</li><li>watermark 去水印</li><li>privacy 隐私保护</li></ul>
+                     * 擦除类型
+- subtitle 去字幕
+- watermark 去水印
+- privacy 隐私保护
                      */
                     std::string m_eraseType;
                     bool m_eraseTypeHasBeenSet;
 
                     /**
-                     * <p>字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。</p>
+                     * 字幕擦除配置，EraseType取subtitle或者EraseType不填，对应模板原EraseType为subtitle时生效。
                      */
                     SmartEraseSubtitleConfig m_eraseSubtitleConfig;
                     bool m_eraseSubtitleConfigHasBeenSet;
 
                     /**
-                     * <p>水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。</p>
+                     * 水印擦除配置，EraseType取watermark或者EraseType不填，对应模板原EraseType为watermark时生效。
                      */
                     SmartEraseWatermarkConfig m_eraseWatermarkConfig;
                     bool m_eraseWatermarkConfigHasBeenSet;
 
                     /**
-                     * <p>隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。</p>
+                     * 隐私保护配置，EraseType取privacy或者EraseType不填，对应模板原EraseType为privacy时生效。
                      */
                     SmartErasePrivacyConfig m_erasePrivacyConfig;
                     bool m_erasePrivacyConfigHasBeenSet;

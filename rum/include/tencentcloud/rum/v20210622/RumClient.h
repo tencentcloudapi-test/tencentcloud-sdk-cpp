@@ -23,10 +23,14 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
+#include <tencentcloud/rum/v20210622/model/CreateProjectRequest.h>
+#include <tencentcloud/rum/v20210622/model/CreateProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/CreateReleaseFileRequest.h>
 #include <tencentcloud/rum/v20210622/model/CreateReleaseFileResponse.h>
 #include <tencentcloud/rum/v20210622/model/CreateStarProjectRequest.h>
 #include <tencentcloud/rum/v20210622/model/CreateStarProjectResponse.h>
+#include <tencentcloud/rum/v20210622/model/CreateTawInstanceRequest.h>
+#include <tencentcloud/rum/v20210622/model/CreateTawInstanceResponse.h>
 #include <tencentcloud/rum/v20210622/model/CreateWhitelistRequest.h>
 #include <tencentcloud/rum/v20210622/model/CreateWhitelistResponse.h>
 #include <tencentcloud/rum/v20210622/model/DeleteInstanceRequest.h>
@@ -47,100 +51,42 @@
 #include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseDetailListResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseListRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeAppSingleCaseListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeApplicationExitReportDetailRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeApplicationExitReportDetailResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeApplicationExitReportListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeApplicationExitReportListResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataBridgeUrlV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataBridgeUrlV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataCustomUrlRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataCustomUrlResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataCustomUrlV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataCustomUrlV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataEventUrlRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataEventUrlResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataEventUrlV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataEventUrlV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataFetchProjectRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataFetchProjectResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataFetchUrlRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataFetchUrlResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataFetchUrlInfoRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataFetchUrlInfoResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataFetchUrlV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataFetchUrlV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlInfoRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlInfoResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlStatisticsRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlStatisticsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlStatisticsV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataLogUrlStatisticsV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPerformancePageRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPerformancePageResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataPerformancePageV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataPerformancePageV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlInfoRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlInfoResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlStatisticsRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlStatisticsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlStatisticsV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataPvUrlStatisticsV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataReportCountRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataReportCountResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataReportCountV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataReportCountV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataSetUrlStatisticsRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataSetUrlStatisticsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataSetUrlStatisticsV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataSetUrlStatisticsV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataStaticProjectRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataStaticProjectResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataStaticProjectV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataStaticProjectV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataStaticResourceRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataStaticResourceResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataStaticResourceV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataStaticResourceV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataStaticUrlRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataStaticUrlResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataStaticUrlV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataStaticUrlV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataWebVitalsPageRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeDataWebVitalsPageResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataWebVitalsPageV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeDataWebVitalsPageV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeErrorRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeErrorResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeExceptionDetailRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeExceptionDetailResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeExceptionReportListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeExceptionReportListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMMallocProblemDetailRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMMallocProblemDetailResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMMallocProblemListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMMallocProblemListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMMallocReportListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMMallocReportListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMProblemDetailRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMProblemDetailResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMProblemListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMProblemListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMReportListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeFOOMReportListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeIssuesDistributionRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeIssuesDistributionResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeIssuesListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeIssuesListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeIssuesStatisticsTrendRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeIssuesStatisticsTrendResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLagANRProblemAccountDetailRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLagANRProblemAccountDetailResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLagANRProblemFeatureAccountsRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLagANRProblemFeatureAccountsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLagANRProblemListRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeLagANRProblemListResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeProjectLimitsRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeProjectLimitsResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeProjectsRequest.h>
@@ -153,38 +99,20 @@
 #include <tencentcloud/rum/v20210622/model/DescribeReleaseFilesResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumGroupLogRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumGroupLogResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumGroupLogV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumGroupLogV2Response.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogDetailsV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogDetailsV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumLogExportRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumLogExportResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumLogExportsRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumLogExportsResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportsV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogExportsV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumLogListRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumLogListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogTotalV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumLogTotalV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumStatsLogListRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeRumStatsLogListResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumStatsLogListV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeRumStatsLogListV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeScoresRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeScoresResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeScoresV2Request.h>
-#include <tencentcloud/rum/v20210622/model/DescribeScoresV2Response.h>
 #include <tencentcloud/rum/v20210622/model/DescribeTawAreasRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeTawAreasResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeTawInstancesRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeTawInstancesResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeTokenRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeTokenResponse.h>
-#include <tencentcloud/rum/v20210622/model/DescribeTopIssuesRequest.h>
-#include <tencentcloud/rum/v20210622/model/DescribeTopIssuesResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeUvListRequest.h>
 #include <tencentcloud/rum/v20210622/model/DescribeUvListResponse.h>
 #include <tencentcloud/rum/v20210622/model/DescribeWhitelistsRequest.h>
@@ -217,12 +145,18 @@ namespace TencentCloud
                 RumClient(const Credential &credential, const std::string &region);
                 RumClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
+                typedef Outcome<Core::Error, Model::CreateProjectResponse> CreateProjectOutcome;
+                typedef std::future<CreateProjectOutcome> CreateProjectOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::CreateProjectRequest&, CreateProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateProjectAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateReleaseFileResponse> CreateReleaseFileOutcome;
                 typedef std::future<CreateReleaseFileOutcome> CreateReleaseFileOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::CreateReleaseFileRequest&, CreateReleaseFileOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateReleaseFileAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateStarProjectResponse> CreateStarProjectOutcome;
                 typedef std::future<CreateStarProjectOutcome> CreateStarProjectOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::CreateStarProjectRequest&, CreateStarProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateStarProjectAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateTawInstanceResponse> CreateTawInstanceOutcome;
+                typedef std::future<CreateTawInstanceOutcome> CreateTawInstanceOutcomeCallable;
+                typedef std::function<void(const RumClient*, const Model::CreateTawInstanceRequest&, CreateTawInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateTawInstanceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateWhitelistResponse> CreateWhitelistOutcome;
                 typedef std::future<CreateWhitelistOutcome> CreateWhitelistOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::CreateWhitelistRequest&, CreateWhitelistOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateWhitelistAsyncHandler;
@@ -253,30 +187,15 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeAppSingleCaseListResponse> DescribeAppSingleCaseListOutcome;
                 typedef std::future<DescribeAppSingleCaseListOutcome> DescribeAppSingleCaseListOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeAppSingleCaseListRequest&, DescribeAppSingleCaseListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAppSingleCaseListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeApplicationExitReportDetailResponse> DescribeApplicationExitReportDetailOutcome;
-                typedef std::future<DescribeApplicationExitReportDetailOutcome> DescribeApplicationExitReportDetailOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeApplicationExitReportDetailRequest&, DescribeApplicationExitReportDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationExitReportDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeApplicationExitReportListResponse> DescribeApplicationExitReportListOutcome;
-                typedef std::future<DescribeApplicationExitReportListOutcome> DescribeApplicationExitReportListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeApplicationExitReportListRequest&, DescribeApplicationExitReportListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeApplicationExitReportListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataResponse> DescribeDataOutcome;
                 typedef std::future<DescribeDataOutcome> DescribeDataOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataRequest&, DescribeDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataBridgeUrlV2Response> DescribeDataBridgeUrlV2Outcome;
-                typedef std::future<DescribeDataBridgeUrlV2Outcome> DescribeDataBridgeUrlV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataBridgeUrlV2Request&, DescribeDataBridgeUrlV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataBridgeUrlV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataCustomUrlResponse> DescribeDataCustomUrlOutcome;
                 typedef std::future<DescribeDataCustomUrlOutcome> DescribeDataCustomUrlOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataCustomUrlRequest&, DescribeDataCustomUrlOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataCustomUrlAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataCustomUrlV2Response> DescribeDataCustomUrlV2Outcome;
-                typedef std::future<DescribeDataCustomUrlV2Outcome> DescribeDataCustomUrlV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataCustomUrlV2Request&, DescribeDataCustomUrlV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataCustomUrlV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataEventUrlResponse> DescribeDataEventUrlOutcome;
                 typedef std::future<DescribeDataEventUrlOutcome> DescribeDataEventUrlOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataEventUrlRequest&, DescribeDataEventUrlOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataEventUrlAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataEventUrlV2Response> DescribeDataEventUrlV2Outcome;
-                typedef std::future<DescribeDataEventUrlV2Outcome> DescribeDataEventUrlV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataEventUrlV2Request&, DescribeDataEventUrlV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataEventUrlV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataFetchProjectResponse> DescribeDataFetchProjectOutcome;
                 typedef std::future<DescribeDataFetchProjectOutcome> DescribeDataFetchProjectOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataFetchProjectRequest&, DescribeDataFetchProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataFetchProjectAsyncHandler;
@@ -286,114 +205,42 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDataFetchUrlInfoResponse> DescribeDataFetchUrlInfoOutcome;
                 typedef std::future<DescribeDataFetchUrlInfoOutcome> DescribeDataFetchUrlInfoOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataFetchUrlInfoRequest&, DescribeDataFetchUrlInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataFetchUrlInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataFetchUrlV2Response> DescribeDataFetchUrlV2Outcome;
-                typedef std::future<DescribeDataFetchUrlV2Outcome> DescribeDataFetchUrlV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataFetchUrlV2Request&, DescribeDataFetchUrlV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataFetchUrlV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataLogUrlInfoResponse> DescribeDataLogUrlInfoOutcome;
                 typedef std::future<DescribeDataLogUrlInfoOutcome> DescribeDataLogUrlInfoOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataLogUrlInfoRequest&, DescribeDataLogUrlInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataLogUrlInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataLogUrlStatisticsResponse> DescribeDataLogUrlStatisticsOutcome;
                 typedef std::future<DescribeDataLogUrlStatisticsOutcome> DescribeDataLogUrlStatisticsOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataLogUrlStatisticsRequest&, DescribeDataLogUrlStatisticsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataLogUrlStatisticsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataLogUrlStatisticsV2Response> DescribeDataLogUrlStatisticsV2Outcome;
-                typedef std::future<DescribeDataLogUrlStatisticsV2Outcome> DescribeDataLogUrlStatisticsV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataLogUrlStatisticsV2Request&, DescribeDataLogUrlStatisticsV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataLogUrlStatisticsV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataPerformancePageResponse> DescribeDataPerformancePageOutcome;
                 typedef std::future<DescribeDataPerformancePageOutcome> DescribeDataPerformancePageOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataPerformancePageRequest&, DescribeDataPerformancePageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPerformancePageAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataPerformancePageV2Response> DescribeDataPerformancePageV2Outcome;
-                typedef std::future<DescribeDataPerformancePageV2Outcome> DescribeDataPerformancePageV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataPerformancePageV2Request&, DescribeDataPerformancePageV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPerformancePageV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataPvUrlInfoResponse> DescribeDataPvUrlInfoOutcome;
                 typedef std::future<DescribeDataPvUrlInfoOutcome> DescribeDataPvUrlInfoOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataPvUrlInfoRequest&, DescribeDataPvUrlInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPvUrlInfoAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataPvUrlStatisticsResponse> DescribeDataPvUrlStatisticsOutcome;
                 typedef std::future<DescribeDataPvUrlStatisticsOutcome> DescribeDataPvUrlStatisticsOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataPvUrlStatisticsRequest&, DescribeDataPvUrlStatisticsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPvUrlStatisticsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataPvUrlStatisticsV2Response> DescribeDataPvUrlStatisticsV2Outcome;
-                typedef std::future<DescribeDataPvUrlStatisticsV2Outcome> DescribeDataPvUrlStatisticsV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataPvUrlStatisticsV2Request&, DescribeDataPvUrlStatisticsV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataPvUrlStatisticsV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataReportCountResponse> DescribeDataReportCountOutcome;
                 typedef std::future<DescribeDataReportCountOutcome> DescribeDataReportCountOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataReportCountRequest&, DescribeDataReportCountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataReportCountAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataReportCountV2Response> DescribeDataReportCountV2Outcome;
-                typedef std::future<DescribeDataReportCountV2Outcome> DescribeDataReportCountV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataReportCountV2Request&, DescribeDataReportCountV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataReportCountV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataSetUrlStatisticsResponse> DescribeDataSetUrlStatisticsOutcome;
                 typedef std::future<DescribeDataSetUrlStatisticsOutcome> DescribeDataSetUrlStatisticsOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataSetUrlStatisticsRequest&, DescribeDataSetUrlStatisticsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataSetUrlStatisticsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataSetUrlStatisticsV2Response> DescribeDataSetUrlStatisticsV2Outcome;
-                typedef std::future<DescribeDataSetUrlStatisticsV2Outcome> DescribeDataSetUrlStatisticsV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataSetUrlStatisticsV2Request&, DescribeDataSetUrlStatisticsV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataSetUrlStatisticsV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataStaticProjectResponse> DescribeDataStaticProjectOutcome;
                 typedef std::future<DescribeDataStaticProjectOutcome> DescribeDataStaticProjectOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataStaticProjectRequest&, DescribeDataStaticProjectOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataStaticProjectAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataStaticProjectV2Response> DescribeDataStaticProjectV2Outcome;
-                typedef std::future<DescribeDataStaticProjectV2Outcome> DescribeDataStaticProjectV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataStaticProjectV2Request&, DescribeDataStaticProjectV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataStaticProjectV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataStaticResourceResponse> DescribeDataStaticResourceOutcome;
                 typedef std::future<DescribeDataStaticResourceOutcome> DescribeDataStaticResourceOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataStaticResourceRequest&, DescribeDataStaticResourceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataStaticResourceAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataStaticResourceV2Response> DescribeDataStaticResourceV2Outcome;
-                typedef std::future<DescribeDataStaticResourceV2Outcome> DescribeDataStaticResourceV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataStaticResourceV2Request&, DescribeDataStaticResourceV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataStaticResourceV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataStaticUrlResponse> DescribeDataStaticUrlOutcome;
                 typedef std::future<DescribeDataStaticUrlOutcome> DescribeDataStaticUrlOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataStaticUrlRequest&, DescribeDataStaticUrlOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataStaticUrlAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataStaticUrlV2Response> DescribeDataStaticUrlV2Outcome;
-                typedef std::future<DescribeDataStaticUrlV2Outcome> DescribeDataStaticUrlV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataStaticUrlV2Request&, DescribeDataStaticUrlV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataStaticUrlV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeDataWebVitalsPageResponse> DescribeDataWebVitalsPageOutcome;
                 typedef std::future<DescribeDataWebVitalsPageOutcome> DescribeDataWebVitalsPageOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeDataWebVitalsPageRequest&, DescribeDataWebVitalsPageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataWebVitalsPageAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeDataWebVitalsPageV2Response> DescribeDataWebVitalsPageV2Outcome;
-                typedef std::future<DescribeDataWebVitalsPageV2Outcome> DescribeDataWebVitalsPageV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeDataWebVitalsPageV2Request&, DescribeDataWebVitalsPageV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDataWebVitalsPageV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeErrorResponse> DescribeErrorOutcome;
                 typedef std::future<DescribeErrorOutcome> DescribeErrorOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeErrorRequest&, DescribeErrorOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeErrorAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeExceptionDetailResponse> DescribeExceptionDetailOutcome;
-                typedef std::future<DescribeExceptionDetailOutcome> DescribeExceptionDetailOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeExceptionDetailRequest&, DescribeExceptionDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeExceptionDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeExceptionReportListResponse> DescribeExceptionReportListOutcome;
-                typedef std::future<DescribeExceptionReportListOutcome> DescribeExceptionReportListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeExceptionReportListRequest&, DescribeExceptionReportListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeExceptionReportListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFOOMMallocProblemDetailResponse> DescribeFOOMMallocProblemDetailOutcome;
-                typedef std::future<DescribeFOOMMallocProblemDetailOutcome> DescribeFOOMMallocProblemDetailOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeFOOMMallocProblemDetailRequest&, DescribeFOOMMallocProblemDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFOOMMallocProblemDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFOOMMallocProblemListResponse> DescribeFOOMMallocProblemListOutcome;
-                typedef std::future<DescribeFOOMMallocProblemListOutcome> DescribeFOOMMallocProblemListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeFOOMMallocProblemListRequest&, DescribeFOOMMallocProblemListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFOOMMallocProblemListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFOOMMallocReportListResponse> DescribeFOOMMallocReportListOutcome;
-                typedef std::future<DescribeFOOMMallocReportListOutcome> DescribeFOOMMallocReportListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeFOOMMallocReportListRequest&, DescribeFOOMMallocReportListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFOOMMallocReportListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFOOMProblemDetailResponse> DescribeFOOMProblemDetailOutcome;
-                typedef std::future<DescribeFOOMProblemDetailOutcome> DescribeFOOMProblemDetailOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeFOOMProblemDetailRequest&, DescribeFOOMProblemDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFOOMProblemDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFOOMProblemListResponse> DescribeFOOMProblemListOutcome;
-                typedef std::future<DescribeFOOMProblemListOutcome> DescribeFOOMProblemListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeFOOMProblemListRequest&, DescribeFOOMProblemListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFOOMProblemListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFOOMReportListResponse> DescribeFOOMReportListOutcome;
-                typedef std::future<DescribeFOOMReportListOutcome> DescribeFOOMReportListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeFOOMReportListRequest&, DescribeFOOMReportListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFOOMReportListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeIssuesDistributionResponse> DescribeIssuesDistributionOutcome;
-                typedef std::future<DescribeIssuesDistributionOutcome> DescribeIssuesDistributionOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeIssuesDistributionRequest&, DescribeIssuesDistributionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeIssuesDistributionAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeIssuesListResponse> DescribeIssuesListOutcome;
-                typedef std::future<DescribeIssuesListOutcome> DescribeIssuesListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeIssuesListRequest&, DescribeIssuesListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeIssuesListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeIssuesStatisticsTrendResponse> DescribeIssuesStatisticsTrendOutcome;
-                typedef std::future<DescribeIssuesStatisticsTrendOutcome> DescribeIssuesStatisticsTrendOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeIssuesStatisticsTrendRequest&, DescribeIssuesStatisticsTrendOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeIssuesStatisticsTrendAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeLagANRProblemAccountDetailResponse> DescribeLagANRProblemAccountDetailOutcome;
-                typedef std::future<DescribeLagANRProblemAccountDetailOutcome> DescribeLagANRProblemAccountDetailOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeLagANRProblemAccountDetailRequest&, DescribeLagANRProblemAccountDetailOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLagANRProblemAccountDetailAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeLagANRProblemFeatureAccountsResponse> DescribeLagANRProblemFeatureAccountsOutcome;
-                typedef std::future<DescribeLagANRProblemFeatureAccountsOutcome> DescribeLagANRProblemFeatureAccountsOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeLagANRProblemFeatureAccountsRequest&, DescribeLagANRProblemFeatureAccountsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLagANRProblemFeatureAccountsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeLagANRProblemListResponse> DescribeLagANRProblemListOutcome;
-                typedef std::future<DescribeLagANRProblemListOutcome> DescribeLagANRProblemListOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeLagANRProblemListRequest&, DescribeLagANRProblemListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeLagANRProblemListAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeProjectLimitsResponse> DescribeProjectLimitsOutcome;
                 typedef std::future<DescribeProjectLimitsOutcome> DescribeProjectLimitsOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeProjectLimitsRequest&, DescribeProjectLimitsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeProjectLimitsAsyncHandler;
@@ -412,54 +259,27 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeRumGroupLogResponse> DescribeRumGroupLogOutcome;
                 typedef std::future<DescribeRumGroupLogOutcome> DescribeRumGroupLogOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeRumGroupLogRequest&, DescribeRumGroupLogOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumGroupLogAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRumGroupLogV2Response> DescribeRumGroupLogV2Outcome;
-                typedef std::future<DescribeRumGroupLogV2Outcome> DescribeRumGroupLogV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeRumGroupLogV2Request&, DescribeRumGroupLogV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumGroupLogV2AsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRumLogDetailsV2Response> DescribeRumLogDetailsV2Outcome;
-                typedef std::future<DescribeRumLogDetailsV2Outcome> DescribeRumLogDetailsV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeRumLogDetailsV2Request&, DescribeRumLogDetailsV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogDetailsV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRumLogExportResponse> DescribeRumLogExportOutcome;
                 typedef std::future<DescribeRumLogExportOutcome> DescribeRumLogExportOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeRumLogExportRequest&, DescribeRumLogExportOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogExportAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRumLogExportV2Response> DescribeRumLogExportV2Outcome;
-                typedef std::future<DescribeRumLogExportV2Outcome> DescribeRumLogExportV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeRumLogExportV2Request&, DescribeRumLogExportV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogExportV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRumLogExportsResponse> DescribeRumLogExportsOutcome;
                 typedef std::future<DescribeRumLogExportsOutcome> DescribeRumLogExportsOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeRumLogExportsRequest&, DescribeRumLogExportsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogExportsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRumLogExportsV2Response> DescribeRumLogExportsV2Outcome;
-                typedef std::future<DescribeRumLogExportsV2Outcome> DescribeRumLogExportsV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeRumLogExportsV2Request&, DescribeRumLogExportsV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogExportsV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRumLogListResponse> DescribeRumLogListOutcome;
                 typedef std::future<DescribeRumLogListOutcome> DescribeRumLogListOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeRumLogListRequest&, DescribeRumLogListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRumLogTotalV2Response> DescribeRumLogTotalV2Outcome;
-                typedef std::future<DescribeRumLogTotalV2Outcome> DescribeRumLogTotalV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeRumLogTotalV2Request&, DescribeRumLogTotalV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumLogTotalV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeRumStatsLogListResponse> DescribeRumStatsLogListOutcome;
                 typedef std::future<DescribeRumStatsLogListOutcome> DescribeRumStatsLogListOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeRumStatsLogListRequest&, DescribeRumStatsLogListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumStatsLogListAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeRumStatsLogListV2Response> DescribeRumStatsLogListV2Outcome;
-                typedef std::future<DescribeRumStatsLogListV2Outcome> DescribeRumStatsLogListV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeRumStatsLogListV2Request&, DescribeRumStatsLogListV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRumStatsLogListV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeScoresResponse> DescribeScoresOutcome;
                 typedef std::future<DescribeScoresOutcome> DescribeScoresOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeScoresRequest&, DescribeScoresOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeScoresAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeScoresV2Response> DescribeScoresV2Outcome;
-                typedef std::future<DescribeScoresV2Outcome> DescribeScoresV2OutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeScoresV2Request&, DescribeScoresV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeScoresV2AsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTawAreasResponse> DescribeTawAreasOutcome;
                 typedef std::future<DescribeTawAreasOutcome> DescribeTawAreasOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeTawAreasRequest&, DescribeTawAreasOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTawAreasAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTawInstancesResponse> DescribeTawInstancesOutcome;
                 typedef std::future<DescribeTawInstancesOutcome> DescribeTawInstancesOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeTawInstancesRequest&, DescribeTawInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTawInstancesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeTokenResponse> DescribeTokenOutcome;
-                typedef std::future<DescribeTokenOutcome> DescribeTokenOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeTokenRequest&, DescribeTokenOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTokenAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeTopIssuesResponse> DescribeTopIssuesOutcome;
-                typedef std::future<DescribeTopIssuesOutcome> DescribeTopIssuesOutcomeCallable;
-                typedef std::function<void(const RumClient*, const Model::DescribeTopIssuesRequest&, DescribeTopIssuesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTopIssuesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeUvListResponse> DescribeUvListOutcome;
                 typedef std::future<DescribeUvListOutcome> DescribeUvListOutcomeCallable;
                 typedef std::function<void(const RumClient*, const Model::DescribeUvListRequest&, DescribeUvListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeUvListAsyncHandler;
@@ -491,6 +311,15 @@ namespace TencentCloud
 
 
                 /**
+                 *创建 RUM 应用（归属于某个团队）
+                 * @param req CreateProjectRequest
+                 * @return CreateProjectOutcome
+                 */
+                CreateProjectOutcome CreateProject(const Model::CreateProjectRequest &request);
+                void CreateProjectAsync(const Model::CreateProjectRequest& request, const CreateProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateProjectOutcomeCallable CreateProjectCallable(const Model::CreateProjectRequest& request);
+
+                /**
                  *创建对应项目的文件记录
                  * @param req CreateReleaseFileRequest
                  * @return CreateReleaseFileOutcome
@@ -507,6 +336,15 @@ namespace TencentCloud
                 CreateStarProjectOutcome CreateStarProject(const Model::CreateStarProjectRequest &request);
                 void CreateStarProjectAsync(const Model::CreateStarProjectRequest& request, const CreateStarProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateStarProjectOutcomeCallable CreateStarProjectCallable(const Model::CreateStarProjectRequest& request);
+
+                /**
+                 *创建 RUM 业务系统
+                 * @param req CreateTawInstanceRequest
+                 * @return CreateTawInstanceOutcome
+                 */
+                CreateTawInstanceOutcome CreateTawInstance(const Model::CreateTawInstanceRequest &request);
+                void CreateTawInstanceAsync(const Model::CreateTawInstanceRequest& request, const CreateTawInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateTawInstanceOutcomeCallable CreateTawInstanceCallable(const Model::CreateTawInstanceRequest& request);
 
                 /**
                  *创建白名单
@@ -599,24 +437,6 @@ namespace TencentCloud
                 DescribeAppSingleCaseListOutcomeCallable DescribeAppSingleCaseListCallable(const Model::DescribeAppSingleCaseListRequest& request);
 
                 /**
-                 *获取应用退出个例上报详情
-                 * @param req DescribeApplicationExitReportDetailRequest
-                 * @return DescribeApplicationExitReportDetailOutcome
-                 */
-                DescribeApplicationExitReportDetailOutcome DescribeApplicationExitReportDetail(const Model::DescribeApplicationExitReportDetailRequest &request);
-                void DescribeApplicationExitReportDetailAsync(const Model::DescribeApplicationExitReportDetailRequest& request, const DescribeApplicationExitReportDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeApplicationExitReportDetailOutcomeCallable DescribeApplicationExitReportDetailCallable(const Model::DescribeApplicationExitReportDetailRequest& request);
-
-                /**
-                 *获取应用退出个例上报列表
-                 * @param req DescribeApplicationExitReportListRequest
-                 * @return DescribeApplicationExitReportListOutcome
-                 */
-                DescribeApplicationExitReportListOutcome DescribeApplicationExitReportList(const Model::DescribeApplicationExitReportListRequest &request);
-                void DescribeApplicationExitReportListAsync(const Model::DescribeApplicationExitReportListRequest& request, const DescribeApplicationExitReportListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeApplicationExitReportListOutcomeCallable DescribeApplicationExitReportListCallable(const Model::DescribeApplicationExitReportListRequest& request);
-
-                /**
                  *转发monitor查询
                  * @param req DescribeDataRequest
                  * @return DescribeDataOutcome
@@ -624,15 +444,6 @@ namespace TencentCloud
                 DescribeDataOutcome DescribeData(const Model::DescribeDataRequest &request);
                 void DescribeDataAsync(const Model::DescribeDataRequest& request, const DescribeDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataOutcomeCallable DescribeDataCallable(const Model::DescribeDataRequest& request);
-
-                /**
-                 *获取DescribeDataBridgeUrl信息
-                 * @param req DescribeDataBridgeUrlV2Request
-                 * @return DescribeDataBridgeUrlV2Outcome
-                 */
-                DescribeDataBridgeUrlV2Outcome DescribeDataBridgeUrlV2(const Model::DescribeDataBridgeUrlV2Request &request);
-                void DescribeDataBridgeUrlV2Async(const Model::DescribeDataBridgeUrlV2Request& request, const DescribeDataBridgeUrlV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataBridgeUrlV2OutcomeCallable DescribeDataBridgeUrlV2Callable(const Model::DescribeDataBridgeUrlV2Request& request);
 
                 /**
                  *获取DescribeDataCustomUrl信息
@@ -644,15 +455,6 @@ namespace TencentCloud
                 DescribeDataCustomUrlOutcomeCallable DescribeDataCustomUrlCallable(const Model::DescribeDataCustomUrlRequest& request);
 
                 /**
-                 *获取DescribeDataCustomUrl信息
-                 * @param req DescribeDataCustomUrlV2Request
-                 * @return DescribeDataCustomUrlV2Outcome
-                 */
-                DescribeDataCustomUrlV2Outcome DescribeDataCustomUrlV2(const Model::DescribeDataCustomUrlV2Request &request);
-                void DescribeDataCustomUrlV2Async(const Model::DescribeDataCustomUrlV2Request& request, const DescribeDataCustomUrlV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataCustomUrlV2OutcomeCallable DescribeDataCustomUrlV2Callable(const Model::DescribeDataCustomUrlV2Request& request);
-
-                /**
                  *获取DescribeDataEventUrl信息
                  * @param req DescribeDataEventUrlRequest
                  * @return DescribeDataEventUrlOutcome
@@ -660,15 +462,6 @@ namespace TencentCloud
                 DescribeDataEventUrlOutcome DescribeDataEventUrl(const Model::DescribeDataEventUrlRequest &request);
                 void DescribeDataEventUrlAsync(const Model::DescribeDataEventUrlRequest& request, const DescribeDataEventUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataEventUrlOutcomeCallable DescribeDataEventUrlCallable(const Model::DescribeDataEventUrlRequest& request);
-
-                /**
-                 *获取DescribeDataEventUrl信息
-                 * @param req DescribeDataEventUrlV2Request
-                 * @return DescribeDataEventUrlV2Outcome
-                 */
-                DescribeDataEventUrlV2Outcome DescribeDataEventUrlV2(const Model::DescribeDataEventUrlV2Request &request);
-                void DescribeDataEventUrlV2Async(const Model::DescribeDataEventUrlV2Request& request, const DescribeDataEventUrlV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataEventUrlV2OutcomeCallable DescribeDataEventUrlV2Callable(const Model::DescribeDataEventUrlV2Request& request);
 
                 /**
                  *获取DescribeDataFetchProject信息。已下线，请使用DescribeDataFetchUrl
@@ -698,15 +491,6 @@ namespace TencentCloud
                 DescribeDataFetchUrlInfoOutcomeCallable DescribeDataFetchUrlInfoCallable(const Model::DescribeDataFetchUrlInfoRequest& request);
 
                 /**
-                 *获取DescribeDataFetchUrl信息
-                 * @param req DescribeDataFetchUrlV2Request
-                 * @return DescribeDataFetchUrlV2Outcome
-                 */
-                DescribeDataFetchUrlV2Outcome DescribeDataFetchUrlV2(const Model::DescribeDataFetchUrlV2Request &request);
-                void DescribeDataFetchUrlV2Async(const Model::DescribeDataFetchUrlV2Request& request, const DescribeDataFetchUrlV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataFetchUrlV2OutcomeCallable DescribeDataFetchUrlV2Callable(const Model::DescribeDataFetchUrlV2Request& request);
-
-                /**
                  *获取loginfo信息
                  * @param req DescribeDataLogUrlInfoRequest
                  * @return DescribeDataLogUrlInfoOutcome
@@ -725,15 +509,6 @@ namespace TencentCloud
                 DescribeDataLogUrlStatisticsOutcomeCallable DescribeDataLogUrlStatisticsCallable(const Model::DescribeDataLogUrlStatisticsRequest& request);
 
                 /**
-                 *获取LogUrlStatistics信息
-                 * @param req DescribeDataLogUrlStatisticsV2Request
-                 * @return DescribeDataLogUrlStatisticsV2Outcome
-                 */
-                DescribeDataLogUrlStatisticsV2Outcome DescribeDataLogUrlStatisticsV2(const Model::DescribeDataLogUrlStatisticsV2Request &request);
-                void DescribeDataLogUrlStatisticsV2Async(const Model::DescribeDataLogUrlStatisticsV2Request& request, const DescribeDataLogUrlStatisticsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataLogUrlStatisticsV2OutcomeCallable DescribeDataLogUrlStatisticsV2Callable(const Model::DescribeDataLogUrlStatisticsV2Request& request);
-
-                /**
                  *获取PerformancePage信息
                  * @param req DescribeDataPerformancePageRequest
                  * @return DescribeDataPerformancePageOutcome
@@ -741,15 +516,6 @@ namespace TencentCloud
                 DescribeDataPerformancePageOutcome DescribeDataPerformancePage(const Model::DescribeDataPerformancePageRequest &request);
                 void DescribeDataPerformancePageAsync(const Model::DescribeDataPerformancePageRequest& request, const DescribeDataPerformancePageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataPerformancePageOutcomeCallable DescribeDataPerformancePageCallable(const Model::DescribeDataPerformancePageRequest& request);
-
-                /**
-                 *获取PerformancePage信息
-                 * @param req DescribeDataPerformancePageV2Request
-                 * @return DescribeDataPerformancePageV2Outcome
-                 */
-                DescribeDataPerformancePageV2Outcome DescribeDataPerformancePageV2(const Model::DescribeDataPerformancePageV2Request &request);
-                void DescribeDataPerformancePageV2Async(const Model::DescribeDataPerformancePageV2Request& request, const DescribeDataPerformancePageV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataPerformancePageV2OutcomeCallable DescribeDataPerformancePageV2Callable(const Model::DescribeDataPerformancePageV2Request& request);
 
                 /**
                  *获取PvUrlInfo信息
@@ -770,15 +536,6 @@ namespace TencentCloud
                 DescribeDataPvUrlStatisticsOutcomeCallable DescribeDataPvUrlStatisticsCallable(const Model::DescribeDataPvUrlStatisticsRequest& request);
 
                 /**
-                 *获取DescribeDataPvUrlStatistics信息
-                 * @param req DescribeDataPvUrlStatisticsV2Request
-                 * @return DescribeDataPvUrlStatisticsV2Outcome
-                 */
-                DescribeDataPvUrlStatisticsV2Outcome DescribeDataPvUrlStatisticsV2(const Model::DescribeDataPvUrlStatisticsV2Request &request);
-                void DescribeDataPvUrlStatisticsV2Async(const Model::DescribeDataPvUrlStatisticsV2Request& request, const DescribeDataPvUrlStatisticsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataPvUrlStatisticsV2OutcomeCallable DescribeDataPvUrlStatisticsV2Callable(const Model::DescribeDataPvUrlStatisticsV2Request& request);
-
-                /**
                  *获取项目上报量
                  * @param req DescribeDataReportCountRequest
                  * @return DescribeDataReportCountOutcome
@@ -786,15 +543,6 @@ namespace TencentCloud
                 DescribeDataReportCountOutcome DescribeDataReportCount(const Model::DescribeDataReportCountRequest &request);
                 void DescribeDataReportCountAsync(const Model::DescribeDataReportCountRequest& request, const DescribeDataReportCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataReportCountOutcomeCallable DescribeDataReportCountCallable(const Model::DescribeDataReportCountRequest& request);
-
-                /**
-                 *获取项目上报量
-                 * @param req DescribeDataReportCountV2Request
-                 * @return DescribeDataReportCountV2Outcome
-                 */
-                DescribeDataReportCountV2Outcome DescribeDataReportCountV2(const Model::DescribeDataReportCountV2Request &request);
-                void DescribeDataReportCountV2Async(const Model::DescribeDataReportCountV2Request& request, const DescribeDataReportCountV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataReportCountV2OutcomeCallable DescribeDataReportCountV2Callable(const Model::DescribeDataReportCountV2Request& request);
 
                 /**
                  *获取DescribeDataSetUrlStatistics信息
@@ -806,15 +554,6 @@ namespace TencentCloud
                 DescribeDataSetUrlStatisticsOutcomeCallable DescribeDataSetUrlStatisticsCallable(const Model::DescribeDataSetUrlStatisticsRequest& request);
 
                 /**
-                 *获取DescribeDataSetUrlStatistics信息
-                 * @param req DescribeDataSetUrlStatisticsV2Request
-                 * @return DescribeDataSetUrlStatisticsV2Outcome
-                 */
-                DescribeDataSetUrlStatisticsV2Outcome DescribeDataSetUrlStatisticsV2(const Model::DescribeDataSetUrlStatisticsV2Request &request);
-                void DescribeDataSetUrlStatisticsV2Async(const Model::DescribeDataSetUrlStatisticsV2Request& request, const DescribeDataSetUrlStatisticsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataSetUrlStatisticsV2OutcomeCallable DescribeDataSetUrlStatisticsV2Callable(const Model::DescribeDataSetUrlStatisticsV2Request& request);
-
-                /**
                  *获取DescribeDataStaticProject信息
                  * @param req DescribeDataStaticProjectRequest
                  * @return DescribeDataStaticProjectOutcome
@@ -822,15 +561,6 @@ namespace TencentCloud
                 DescribeDataStaticProjectOutcome DescribeDataStaticProject(const Model::DescribeDataStaticProjectRequest &request);
                 void DescribeDataStaticProjectAsync(const Model::DescribeDataStaticProjectRequest& request, const DescribeDataStaticProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataStaticProjectOutcomeCallable DescribeDataStaticProjectCallable(const Model::DescribeDataStaticProjectRequest& request);
-
-                /**
-                 *获取DescribeDataStaticProject信息
-                 * @param req DescribeDataStaticProjectV2Request
-                 * @return DescribeDataStaticProjectV2Outcome
-                 */
-                DescribeDataStaticProjectV2Outcome DescribeDataStaticProjectV2(const Model::DescribeDataStaticProjectV2Request &request);
-                void DescribeDataStaticProjectV2Async(const Model::DescribeDataStaticProjectV2Request& request, const DescribeDataStaticProjectV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataStaticProjectV2OutcomeCallable DescribeDataStaticProjectV2Callable(const Model::DescribeDataStaticProjectV2Request& request);
 
                 /**
                  *获取DescribeDataStaticResource信息
@@ -842,15 +572,6 @@ namespace TencentCloud
                 DescribeDataStaticResourceOutcomeCallable DescribeDataStaticResourceCallable(const Model::DescribeDataStaticResourceRequest& request);
 
                 /**
-                 *获取DescribeDataStaticResource信息
-                 * @param req DescribeDataStaticResourceV2Request
-                 * @return DescribeDataStaticResourceV2Outcome
-                 */
-                DescribeDataStaticResourceV2Outcome DescribeDataStaticResourceV2(const Model::DescribeDataStaticResourceV2Request &request);
-                void DescribeDataStaticResourceV2Async(const Model::DescribeDataStaticResourceV2Request& request, const DescribeDataStaticResourceV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataStaticResourceV2OutcomeCallable DescribeDataStaticResourceV2Callable(const Model::DescribeDataStaticResourceV2Request& request);
-
-                /**
                  *获取DescribeDataStaticUrl信息
                  * @param req DescribeDataStaticUrlRequest
                  * @return DescribeDataStaticUrlOutcome
@@ -858,15 +579,6 @@ namespace TencentCloud
                 DescribeDataStaticUrlOutcome DescribeDataStaticUrl(const Model::DescribeDataStaticUrlRequest &request);
                 void DescribeDataStaticUrlAsync(const Model::DescribeDataStaticUrlRequest& request, const DescribeDataStaticUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeDataStaticUrlOutcomeCallable DescribeDataStaticUrlCallable(const Model::DescribeDataStaticUrlRequest& request);
-
-                /**
-                 *获取DescribeDataStaticUrl信息
-                 * @param req DescribeDataStaticUrlV2Request
-                 * @return DescribeDataStaticUrlV2Outcome
-                 */
-                DescribeDataStaticUrlV2Outcome DescribeDataStaticUrlV2(const Model::DescribeDataStaticUrlV2Request &request);
-                void DescribeDataStaticUrlV2Async(const Model::DescribeDataStaticUrlV2Request& request, const DescribeDataStaticUrlV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataStaticUrlV2OutcomeCallable DescribeDataStaticUrlV2Callable(const Model::DescribeDataStaticUrlV2Request& request);
 
                 /**
                  *获取DescribeDataWebVitalsPage信息，用户核心活动信息
@@ -879,16 +591,6 @@ namespace TencentCloud
                 DescribeDataWebVitalsPageOutcomeCallable DescribeDataWebVitalsPageCallable(const Model::DescribeDataWebVitalsPageRequest& request);
 
                 /**
-                 *获取DescribeDataWebVitalsPage信息，用户核心活动信息
-页面加载性能之Web Vitals。性能关键点
-                 * @param req DescribeDataWebVitalsPageV2Request
-                 * @return DescribeDataWebVitalsPageV2Outcome
-                 */
-                DescribeDataWebVitalsPageV2Outcome DescribeDataWebVitalsPageV2(const Model::DescribeDataWebVitalsPageV2Request &request);
-                void DescribeDataWebVitalsPageV2Async(const Model::DescribeDataWebVitalsPageV2Request& request, const DescribeDataWebVitalsPageV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeDataWebVitalsPageV2OutcomeCallable DescribeDataWebVitalsPageV2Callable(const Model::DescribeDataWebVitalsPageV2Request& request);
-
-                /**
                  *获取首页错误信息
                  * @param req DescribeErrorRequest
                  * @return DescribeErrorOutcome
@@ -896,132 +598,6 @@ namespace TencentCloud
                 DescribeErrorOutcome DescribeError(const Model::DescribeErrorRequest &request);
                 void DescribeErrorAsync(const Model::DescribeErrorRequest& request, const DescribeErrorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeErrorOutcomeCallable DescribeErrorCallable(const Model::DescribeErrorRequest& request);
-
-                /**
-                 *获取异常问题详情数据
-                 * @param req DescribeExceptionDetailRequest
-                 * @return DescribeExceptionDetailOutcome
-                 */
-                DescribeExceptionDetailOutcome DescribeExceptionDetail(const Model::DescribeExceptionDetailRequest &request);
-                void DescribeExceptionDetailAsync(const Model::DescribeExceptionDetailRequest& request, const DescribeExceptionDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeExceptionDetailOutcomeCallable DescribeExceptionDetailCallable(const Model::DescribeExceptionDetailRequest& request);
-
-                /**
-                 *获取异常个例列表
-                 * @param req DescribeExceptionReportListRequest
-                 * @return DescribeExceptionReportListOutcome
-                 */
-                DescribeExceptionReportListOutcome DescribeExceptionReportList(const Model::DescribeExceptionReportListRequest &request);
-                void DescribeExceptionReportListAsync(const Model::DescribeExceptionReportListRequest& request, const DescribeExceptionReportListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeExceptionReportListOutcomeCallable DescribeExceptionReportListCallable(const Model::DescribeExceptionReportListRequest& request);
-
-                /**
-                 *获取FOOM内存分配问题详情数据
-                 * @param req DescribeFOOMMallocProblemDetailRequest
-                 * @return DescribeFOOMMallocProblemDetailOutcome
-                 */
-                DescribeFOOMMallocProblemDetailOutcome DescribeFOOMMallocProblemDetail(const Model::DescribeFOOMMallocProblemDetailRequest &request);
-                void DescribeFOOMMallocProblemDetailAsync(const Model::DescribeFOOMMallocProblemDetailRequest& request, const DescribeFOOMMallocProblemDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFOOMMallocProblemDetailOutcomeCallable DescribeFOOMMallocProblemDetailCallable(const Model::DescribeFOOMMallocProblemDetailRequest& request);
-
-                /**
-                 *获取FOOM内存分配问题列表数据
-                 * @param req DescribeFOOMMallocProblemListRequest
-                 * @return DescribeFOOMMallocProblemListOutcome
-                 */
-                DescribeFOOMMallocProblemListOutcome DescribeFOOMMallocProblemList(const Model::DescribeFOOMMallocProblemListRequest &request);
-                void DescribeFOOMMallocProblemListAsync(const Model::DescribeFOOMMallocProblemListRequest& request, const DescribeFOOMMallocProblemListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFOOMMallocProblemListOutcomeCallable DescribeFOOMMallocProblemListCallable(const Model::DescribeFOOMMallocProblemListRequest& request);
-
-                /**
-                 *获取FOOM内存分配问题上报列表
-                 * @param req DescribeFOOMMallocReportListRequest
-                 * @return DescribeFOOMMallocReportListOutcome
-                 */
-                DescribeFOOMMallocReportListOutcome DescribeFOOMMallocReportList(const Model::DescribeFOOMMallocReportListRequest &request);
-                void DescribeFOOMMallocReportListAsync(const Model::DescribeFOOMMallocReportListRequest& request, const DescribeFOOMMallocReportListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFOOMMallocReportListOutcomeCallable DescribeFOOMMallocReportListCallable(const Model::DescribeFOOMMallocReportListRequest& request);
-
-                /**
-                 *获取FOOM问题详情数据
-                 * @param req DescribeFOOMProblemDetailRequest
-                 * @return DescribeFOOMProblemDetailOutcome
-                 */
-                DescribeFOOMProblemDetailOutcome DescribeFOOMProblemDetail(const Model::DescribeFOOMProblemDetailRequest &request);
-                void DescribeFOOMProblemDetailAsync(const Model::DescribeFOOMProblemDetailRequest& request, const DescribeFOOMProblemDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFOOMProblemDetailOutcomeCallable DescribeFOOMProblemDetailCallable(const Model::DescribeFOOMProblemDetailRequest& request);
-
-                /**
-                 *获取FOOM问题列表数据
-                 * @param req DescribeFOOMProblemListRequest
-                 * @return DescribeFOOMProblemListOutcome
-                 */
-                DescribeFOOMProblemListOutcome DescribeFOOMProblemList(const Model::DescribeFOOMProblemListRequest &request);
-                void DescribeFOOMProblemListAsync(const Model::DescribeFOOMProblemListRequest& request, const DescribeFOOMProblemListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFOOMProblemListOutcomeCallable DescribeFOOMProblemListCallable(const Model::DescribeFOOMProblemListRequest& request);
-
-                /**
-                 *获取FOOM问题上报列表
-                 * @param req DescribeFOOMReportListRequest
-                 * @return DescribeFOOMReportListOutcome
-                 */
-                DescribeFOOMReportListOutcome DescribeFOOMReportList(const Model::DescribeFOOMReportListRequest &request);
-                void DescribeFOOMReportListAsync(const Model::DescribeFOOMReportListRequest& request, const DescribeFOOMReportListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFOOMReportListOutcomeCallable DescribeFOOMReportListCallable(const Model::DescribeFOOMReportListRequest& request);
-
-                /**
-                 *获取问题分布数据
-                 * @param req DescribeIssuesDistributionRequest
-                 * @return DescribeIssuesDistributionOutcome
-                 */
-                DescribeIssuesDistributionOutcome DescribeIssuesDistribution(const Model::DescribeIssuesDistributionRequest &request);
-                void DescribeIssuesDistributionAsync(const Model::DescribeIssuesDistributionRequest& request, const DescribeIssuesDistributionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeIssuesDistributionOutcomeCallable DescribeIssuesDistributionCallable(const Model::DescribeIssuesDistributionRequest& request);
-
-                /**
-                 *获取问题列表数据
-                 * @param req DescribeIssuesListRequest
-                 * @return DescribeIssuesListOutcome
-                 */
-                DescribeIssuesListOutcome DescribeIssuesList(const Model::DescribeIssuesListRequest &request);
-                void DescribeIssuesListAsync(const Model::DescribeIssuesListRequest& request, const DescribeIssuesListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeIssuesListOutcomeCallable DescribeIssuesListCallable(const Model::DescribeIssuesListRequest& request);
-
-                /**
-                 *获取问题趋势数据
-                 * @param req DescribeIssuesStatisticsTrendRequest
-                 * @return DescribeIssuesStatisticsTrendOutcome
-                 */
-                DescribeIssuesStatisticsTrendOutcome DescribeIssuesStatisticsTrend(const Model::DescribeIssuesStatisticsTrendRequest &request);
-                void DescribeIssuesStatisticsTrendAsync(const Model::DescribeIssuesStatisticsTrendRequest& request, const DescribeIssuesStatisticsTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeIssuesStatisticsTrendOutcomeCallable DescribeIssuesStatisticsTrendCallable(const Model::DescribeIssuesStatisticsTrendRequest& request);
-
-                /**
-                 *获取卡顿ANR问题用户详情
-                 * @param req DescribeLagANRProblemAccountDetailRequest
-                 * @return DescribeLagANRProblemAccountDetailOutcome
-                 */
-                DescribeLagANRProblemAccountDetailOutcome DescribeLagANRProblemAccountDetail(const Model::DescribeLagANRProblemAccountDetailRequest &request);
-                void DescribeLagANRProblemAccountDetailAsync(const Model::DescribeLagANRProblemAccountDetailRequest& request, const DescribeLagANRProblemAccountDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeLagANRProblemAccountDetailOutcomeCallable DescribeLagANRProblemAccountDetailCallable(const Model::DescribeLagANRProblemAccountDetailRequest& request);
-
-                /**
-                 *获取卡顿ANR问题用户列表
-                 * @param req DescribeLagANRProblemFeatureAccountsRequest
-                 * @return DescribeLagANRProblemFeatureAccountsOutcome
-                 */
-                DescribeLagANRProblemFeatureAccountsOutcome DescribeLagANRProblemFeatureAccounts(const Model::DescribeLagANRProblemFeatureAccountsRequest &request);
-                void DescribeLagANRProblemFeatureAccountsAsync(const Model::DescribeLagANRProblemFeatureAccountsRequest& request, const DescribeLagANRProblemFeatureAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeLagANRProblemFeatureAccountsOutcomeCallable DescribeLagANRProblemFeatureAccountsCallable(const Model::DescribeLagANRProblemFeatureAccountsRequest& request);
-
-                /**
-                 *获取卡顿ANR问题列表数据
-                 * @param req DescribeLagANRProblemListRequest
-                 * @return DescribeLagANRProblemListOutcome
-                 */
-                DescribeLagANRProblemListOutcome DescribeLagANRProblemList(const Model::DescribeLagANRProblemListRequest &request);
-                void DescribeLagANRProblemListAsync(const Model::DescribeLagANRProblemListRequest& request, const DescribeLagANRProblemListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeLagANRProblemListOutcomeCallable DescribeLagANRProblemListCallable(const Model::DescribeLagANRProblemListRequest& request);
 
                 /**
                  *获取应用上报抽样信息
@@ -1078,24 +654,6 @@ namespace TencentCloud
                 DescribeRumGroupLogOutcomeCallable DescribeRumGroupLogCallable(const Model::DescribeRumGroupLogRequest& request);
 
                 /**
-                 *根据label 聚合分析日志
-                 * @param req DescribeRumGroupLogV2Request
-                 * @return DescribeRumGroupLogV2Outcome
-                 */
-                DescribeRumGroupLogV2Outcome DescribeRumGroupLogV2(const Model::DescribeRumGroupLogV2Request &request);
-                void DescribeRumGroupLogV2Async(const Model::DescribeRumGroupLogV2Request& request, const DescribeRumGroupLogV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRumGroupLogV2OutcomeCallable DescribeRumGroupLogV2Callable(const Model::DescribeRumGroupLogV2Request& request);
-
-                /**
-                 *查询日志明细
-                 * @param req DescribeRumLogDetailsV2Request
-                 * @return DescribeRumLogDetailsV2Outcome
-                 */
-                DescribeRumLogDetailsV2Outcome DescribeRumLogDetailsV2(const Model::DescribeRumLogDetailsV2Request &request);
-                void DescribeRumLogDetailsV2Async(const Model::DescribeRumLogDetailsV2Request& request, const DescribeRumLogDetailsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRumLogDetailsV2OutcomeCallable DescribeRumLogDetailsV2Callable(const Model::DescribeRumLogDetailsV2Request& request);
-
-                /**
                  *获取项目下的日志列表（实例创建的项目下的日志列表）
                  * @param req DescribeRumLogExportRequest
                  * @return DescribeRumLogExportOutcome
@@ -1103,15 +661,6 @@ namespace TencentCloud
                 DescribeRumLogExportOutcome DescribeRumLogExport(const Model::DescribeRumLogExportRequest &request);
                 void DescribeRumLogExportAsync(const Model::DescribeRumLogExportRequest& request, const DescribeRumLogExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeRumLogExportOutcomeCallable DescribeRumLogExportCallable(const Model::DescribeRumLogExportRequest& request);
-
-                /**
-                 *创建日志导出
-                 * @param req DescribeRumLogExportV2Request
-                 * @return DescribeRumLogExportV2Outcome
-                 */
-                DescribeRumLogExportV2Outcome DescribeRumLogExportV2(const Model::DescribeRumLogExportV2Request &request);
-                void DescribeRumLogExportV2Async(const Model::DescribeRumLogExportV2Request& request, const DescribeRumLogExportV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRumLogExportV2OutcomeCallable DescribeRumLogExportV2Callable(const Model::DescribeRumLogExportV2Request& request);
 
                 /**
                  *获取项目下的日志导出列表
@@ -1123,15 +672,6 @@ namespace TencentCloud
                 DescribeRumLogExportsOutcomeCallable DescribeRumLogExportsCallable(const Model::DescribeRumLogExportsRequest& request);
 
                 /**
-                 *获取日志导出列表
-                 * @param req DescribeRumLogExportsV2Request
-                 * @return DescribeRumLogExportsV2Outcome
-                 */
-                DescribeRumLogExportsV2Outcome DescribeRumLogExportsV2(const Model::DescribeRumLogExportsV2Request &request);
-                void DescribeRumLogExportsV2Async(const Model::DescribeRumLogExportsV2Request& request, const DescribeRumLogExportsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRumLogExportsV2OutcomeCallable DescribeRumLogExportsV2Callable(const Model::DescribeRumLogExportsV2Request& request);
-
-                /**
                  *获取项目下的日志列表（实例创建的项目下的日志列表）
                  * @param req DescribeRumLogListRequest
                  * @return DescribeRumLogListOutcome
@@ -1139,15 +679,6 @@ namespace TencentCloud
                 DescribeRumLogListOutcome DescribeRumLogList(const Model::DescribeRumLogListRequest &request);
                 void DescribeRumLogListAsync(const Model::DescribeRumLogListRequest& request, const DescribeRumLogListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeRumLogListOutcomeCallable DescribeRumLogListCallable(const Model::DescribeRumLogListRequest& request);
-
-                /**
-                 *查询原始日志总量
-                 * @param req DescribeRumLogTotalV2Request
-                 * @return DescribeRumLogTotalV2Outcome
-                 */
-                DescribeRumLogTotalV2Outcome DescribeRumLogTotalV2(const Model::DescribeRumLogTotalV2Request &request);
-                void DescribeRumLogTotalV2Async(const Model::DescribeRumLogTotalV2Request& request, const DescribeRumLogTotalV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRumLogTotalV2OutcomeCallable DescribeRumLogTotalV2Callable(const Model::DescribeRumLogTotalV2Request& request);
 
                 /**
                  *获取项目下的日志列表，分钟级
@@ -1159,15 +690,6 @@ namespace TencentCloud
                 DescribeRumStatsLogListOutcomeCallable DescribeRumStatsLogListCallable(const Model::DescribeRumStatsLogListRequest& request);
 
                 /**
-                 *查询日志时间分布
-                 * @param req DescribeRumStatsLogListV2Request
-                 * @return DescribeRumStatsLogListV2Outcome
-                 */
-                DescribeRumStatsLogListV2Outcome DescribeRumStatsLogListV2(const Model::DescribeRumStatsLogListV2Request &request);
-                void DescribeRumStatsLogListV2Async(const Model::DescribeRumStatsLogListV2Request& request, const DescribeRumStatsLogListV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeRumStatsLogListV2OutcomeCallable DescribeRumStatsLogListV2Callable(const Model::DescribeRumStatsLogListV2Request& request);
-
-                /**
                  *获取首页分数列表
                  * @param req DescribeScoresRequest
                  * @return DescribeScoresOutcome
@@ -1175,15 +697,6 @@ namespace TencentCloud
                 DescribeScoresOutcome DescribeScores(const Model::DescribeScoresRequest &request);
                 void DescribeScoresAsync(const Model::DescribeScoresRequest& request, const DescribeScoresAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeScoresOutcomeCallable DescribeScoresCallable(const Model::DescribeScoresRequest& request);
-
-                /**
-                 *获取首页分数列表
-                 * @param req DescribeScoresV2Request
-                 * @return DescribeScoresV2Outcome
-                 */
-                DescribeScoresV2Outcome DescribeScoresV2(const Model::DescribeScoresV2Request &request);
-                void DescribeScoresV2Async(const Model::DescribeScoresV2Request& request, const DescribeScoresV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeScoresV2OutcomeCallable DescribeScoresV2Callable(const Model::DescribeScoresV2Request& request);
 
                 /**
                  *查询片区信息
@@ -1202,24 +715,6 @@ namespace TencentCloud
                 DescribeTawInstancesOutcome DescribeTawInstances(const Model::DescribeTawInstancesRequest &request);
                 void DescribeTawInstancesAsync(const Model::DescribeTawInstancesRequest& request, const DescribeTawInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeTawInstancesOutcomeCallable DescribeTawInstancesCallable(const Model::DescribeTawInstancesRequest& request);
-
-                /**
-                 *查询令牌
-                 * @param req DescribeTokenRequest
-                 * @return DescribeTokenOutcome
-                 */
-                DescribeTokenOutcome DescribeToken(const Model::DescribeTokenRequest &request);
-                void DescribeTokenAsync(const Model::DescribeTokenRequest& request, const DescribeTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeTokenOutcomeCallable DescribeTokenCallable(const Model::DescribeTokenRequest& request);
-
-                /**
-                 *查询top问题列表
-                 * @param req DescribeTopIssuesRequest
-                 * @return DescribeTopIssuesOutcome
-                 */
-                DescribeTopIssuesOutcome DescribeTopIssues(const Model::DescribeTopIssuesRequest &request);
-                void DescribeTopIssuesAsync(const Model::DescribeTopIssuesRequest& request, const DescribeTopIssuesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeTopIssuesOutcomeCallable DescribeTopIssuesCallable(const Model::DescribeTopIssuesRequest& request);
 
                 /**
                  *获取项目下的UV列表

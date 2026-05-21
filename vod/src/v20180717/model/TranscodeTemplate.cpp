@@ -31,12 +31,10 @@ TranscodeTemplate::TranscodeTemplate() :
     m_videoTemplateHasBeenSet(false),
     m_audioTemplateHasBeenSet(false),
     m_tEHDConfigHasBeenSet(false),
-    m_enhanceConfigHasBeenSet(false),
     m_containerTypeHasBeenSet(false),
     m_createTimeHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
-    m_segmentTypeHasBeenSet(false),
-    m_stdExtInfoHasBeenSet(false)
+    m_segmentTypeHasBeenSet(false)
 {
 }
 
@@ -166,23 +164,6 @@ CoreInternalOutcome TranscodeTemplate::Deserialize(const rapidjson::Value &value
         m_tEHDConfigHasBeenSet = true;
     }
 
-    if (value.HasMember("EnhanceConfig") && !value["EnhanceConfig"].IsNull())
-    {
-        if (!value["EnhanceConfig"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `TranscodeTemplate.EnhanceConfig` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_enhanceConfig.Deserialize(value["EnhanceConfig"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_enhanceConfigHasBeenSet = true;
-    }
-
     if (value.HasMember("ContainerType") && !value["ContainerType"].IsNull())
     {
         if (!value["ContainerType"].IsString())
@@ -221,16 +202,6 @@ CoreInternalOutcome TranscodeTemplate::Deserialize(const rapidjson::Value &value
         }
         m_segmentType = string(value["SegmentType"].GetString());
         m_segmentTypeHasBeenSet = true;
-    }
-
-    if (value.HasMember("StdExtInfo") && !value["StdExtInfo"].IsNull())
-    {
-        if (!value["StdExtInfo"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `TranscodeTemplate.StdExtInfo` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_stdExtInfo = string(value["StdExtInfo"].GetString());
-        m_stdExtInfoHasBeenSet = true;
     }
 
 
@@ -323,15 +294,6 @@ void TranscodeTemplate::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         m_tEHDConfig.ToJsonObject(value[key.c_str()], allocator);
     }
 
-    if (m_enhanceConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnhanceConfig";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_enhanceConfig.ToJsonObject(value[key.c_str()], allocator);
-    }
-
     if (m_containerTypeHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -362,14 +324,6 @@ void TranscodeTemplate::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "SegmentType";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_segmentType.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_stdExtInfoHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StdExtInfo";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_stdExtInfo.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -535,22 +489,6 @@ bool TranscodeTemplate::TEHDConfigHasBeenSet() const
     return m_tEHDConfigHasBeenSet;
 }
 
-EnhanceConfig TranscodeTemplate::GetEnhanceConfig() const
-{
-    return m_enhanceConfig;
-}
-
-void TranscodeTemplate::SetEnhanceConfig(const EnhanceConfig& _enhanceConfig)
-{
-    m_enhanceConfig = _enhanceConfig;
-    m_enhanceConfigHasBeenSet = true;
-}
-
-bool TranscodeTemplate::EnhanceConfigHasBeenSet() const
-{
-    return m_enhanceConfigHasBeenSet;
-}
-
 string TranscodeTemplate::GetContainerType() const
 {
     return m_containerType;
@@ -613,21 +551,5 @@ void TranscodeTemplate::SetSegmentType(const string& _segmentType)
 bool TranscodeTemplate::SegmentTypeHasBeenSet() const
 {
     return m_segmentTypeHasBeenSet;
-}
-
-string TranscodeTemplate::GetStdExtInfo() const
-{
-    return m_stdExtInfo;
-}
-
-void TranscodeTemplate::SetStdExtInfo(const string& _stdExtInfo)
-{
-    m_stdExtInfo = _stdExtInfo;
-    m_stdExtInfoHasBeenSet = true;
-}
-
-bool TranscodeTemplate::StdExtInfoHasBeenSet() const
-{
-    return m_stdExtInfoHasBeenSet;
 }
 

@@ -25,8 +25,7 @@ using namespace std;
 
 DescribeRecordingRulesResponse::DescribeRecordingRulesResponse() :
     m_totalCountHasBeenSet(false),
-    m_recordingRuleSetHasBeenSet(false),
-    m_totalRuleCountHasBeenSet(false)
+    m_recordingRuleSetHasBeenSet(false)
 {
 }
 
@@ -94,16 +93,6 @@ CoreInternalOutcome DescribeRecordingRulesResponse::Deserialize(const string &pa
         m_recordingRuleSetHasBeenSet = true;
     }
 
-    if (rsp.HasMember("TotalRuleCount") && !rsp["TotalRuleCount"].IsNull())
-    {
-        if (!rsp["TotalRuleCount"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TotalRuleCount` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_totalRuleCount = rsp["TotalRuleCount"].GetInt64();
-        m_totalRuleCountHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -137,14 +126,6 @@ string DescribeRecordingRulesResponse::ToJsonString() const
         }
     }
 
-    if (m_totalRuleCountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TotalRuleCount";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_totalRuleCount, allocator);
-    }
-
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
     iKey.SetString(key.c_str(), allocator);
@@ -175,16 +156,6 @@ vector<RecordingRuleSet> DescribeRecordingRulesResponse::GetRecordingRuleSet() c
 bool DescribeRecordingRulesResponse::RecordingRuleSetHasBeenSet() const
 {
     return m_recordingRuleSetHasBeenSet;
-}
-
-int64_t DescribeRecordingRulesResponse::GetTotalRuleCount() const
-{
-    return m_totalRuleCount;
-}
-
-bool DescribeRecordingRulesResponse::TotalRuleCountHasBeenSet() const
-{
-    return m_totalRuleCountHasBeenSet;
 }
 
 

@@ -35,7 +35,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 新建账号
+                * x08新创建的账号
                 */
                 class NewAccount : public AbstractModel
                 {
@@ -68,27 +68,6 @@ namespace TencentCloud
                     bool AccountNameHasBeenSet() const;
 
                     /**
-                     * 获取主机(%或ipv4地址)
-                     * @return Host 主机(%或ipv4地址)
-                     * 
-                     */
-                    std::string GetHost() const;
-
-                    /**
-                     * 设置主机(%或ipv4地址)
-                     * @param _host 主机(%或ipv4地址)
-                     * 
-                     */
-                    void SetHost(const std::string& _host);
-
-                    /**
-                     * 判断参数 Host 是否已赋值
-                     * @return Host 是否已赋值
-                     * 
-                     */
-                    bool HostHasBeenSet() const;
-
-                    /**
                      * 获取密码，密码长度范围为8到64个字符
                      * @return AccountPassword 密码，密码长度范围为8到64个字符
                      * 
@@ -110,25 +89,25 @@ namespace TencentCloud
                     bool AccountPasswordHasBeenSet() const;
 
                     /**
-                     * 获取是否开启密码轮转(0:关闭;1:开启)
-                     * @return PasswordRotation 是否开启密码轮转(0:关闭;1:开启)
+                     * 获取主机(%或ipv4地址)
+                     * @return Host 主机(%或ipv4地址)
                      * 
                      */
-                    int64_t GetPasswordRotation() const;
+                    std::string GetHost() const;
 
                     /**
-                     * 设置是否开启密码轮转(0:关闭;1:开启)
-                     * @param _passwordRotation 是否开启密码轮转(0:关闭;1:开启)
+                     * 设置主机(%或ipv4地址)
+                     * @param _host 主机(%或ipv4地址)
                      * 
                      */
-                    void SetPasswordRotation(const int64_t& _passwordRotation);
+                    void SetHost(const std::string& _host);
 
                     /**
-                     * 判断参数 PasswordRotation 是否已赋值
-                     * @return PasswordRotation 是否已赋值
+                     * 判断参数 Host 是否已赋值
+                     * @return Host 是否已赋值
                      * 
                      */
-                    bool PasswordRotationHasBeenSet() const;
+                    bool HostHasBeenSet() const;
 
                     /**
                      * 获取描述
@@ -181,22 +160,16 @@ namespace TencentCloud
                     bool m_accountNameHasBeenSet;
 
                     /**
-                     * 主机(%或ipv4地址)
-                     */
-                    std::string m_host;
-                    bool m_hostHasBeenSet;
-
-                    /**
                      * 密码，密码长度范围为8到64个字符
                      */
                     std::string m_accountPassword;
                     bool m_accountPasswordHasBeenSet;
 
                     /**
-                     * 是否开启密码轮转(0:关闭;1:开启)
+                     * 主机(%或ipv4地址)
                      */
-                    int64_t m_passwordRotation;
-                    bool m_passwordRotationHasBeenSet;
+                    std::string m_host;
+                    bool m_hostHasBeenSet;
 
                     /**
                      * 描述

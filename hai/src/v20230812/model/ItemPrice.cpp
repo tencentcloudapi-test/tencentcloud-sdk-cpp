@@ -25,9 +25,7 @@ ItemPrice::ItemPrice() :
     m_discountUnitPriceHasBeenSet(false),
     m_discountHasBeenSet(false),
     m_chargeUnitHasBeenSet(false),
-    m_amountHasBeenSet(false),
-    m_originPriceHasBeenSet(false),
-    m_discountPriceHasBeenSet(false)
+    m_amountHasBeenSet(false)
 {
 }
 
@@ -86,26 +84,6 @@ CoreInternalOutcome ItemPrice::Deserialize(const rapidjson::Value &value)
         m_amountHasBeenSet = true;
     }
 
-    if (value.HasMember("OriginPrice") && !value["OriginPrice"].IsNull())
-    {
-        if (!value["OriginPrice"].IsLosslessDouble())
-        {
-            return CoreInternalOutcome(Core::Error("response `ItemPrice.OriginPrice` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
-        }
-        m_originPrice = value["OriginPrice"].GetDouble();
-        m_originPriceHasBeenSet = true;
-    }
-
-    if (value.HasMember("DiscountPrice") && !value["DiscountPrice"].IsNull())
-    {
-        if (!value["DiscountPrice"].IsLosslessDouble())
-        {
-            return CoreInternalOutcome(Core::Error("response `ItemPrice.DiscountPrice` IsLosslessDouble=false incorrectly").SetRequestId(requestId));
-        }
-        m_discountPrice = value["DiscountPrice"].GetDouble();
-        m_discountPriceHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -151,22 +129,6 @@ void ItemPrice::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloc
         string key = "Amount";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_amount, allocator);
-    }
-
-    if (m_originPriceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "OriginPrice";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_originPrice, allocator);
-    }
-
-    if (m_discountPriceHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DiscountPrice";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_discountPrice, allocator);
     }
 
 }
@@ -250,37 +212,5 @@ void ItemPrice::SetAmount(const uint64_t& _amount)
 bool ItemPrice::AmountHasBeenSet() const
 {
     return m_amountHasBeenSet;
-}
-
-double ItemPrice::GetOriginPrice() const
-{
-    return m_originPrice;
-}
-
-void ItemPrice::SetOriginPrice(const double& _originPrice)
-{
-    m_originPrice = _originPrice;
-    m_originPriceHasBeenSet = true;
-}
-
-bool ItemPrice::OriginPriceHasBeenSet() const
-{
-    return m_originPriceHasBeenSet;
-}
-
-double ItemPrice::GetDiscountPrice() const
-{
-    return m_discountPrice;
-}
-
-void ItemPrice::SetDiscountPrice(const double& _discountPrice)
-{
-    m_discountPrice = _discountPrice;
-    m_discountPriceHasBeenSet = true;
-}
-
-bool ItemPrice::DiscountPriceHasBeenSet() const
-{
-    return m_discountPriceHasBeenSet;
 }
 

@@ -57,10 +57,9 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/SmartOptimizerChangeTablePolicy.h
   include/tencentcloud/dlc/v20210125/model/BatchSqlTask.h
   include/tencentcloud/dlc/v20210125/model/ScheduleElasticityConf.h
-  include/tencentcloud/dlc/v20210125/model/GroupInfo.h
+  include/tencentcloud/dlc/v20210125/model/CreateNotebookSessionRequest.h
   include/tencentcloud/dlc/v20210125/model/UnboundDatasourceHouseRequest.h
   include/tencentcloud/dlc/v20210125/model/DeleteUserVpcConnectionResponse.h
-  include/tencentcloud/dlc/v20210125/model/SetOptimizerPolicyRequest.h
   include/tencentcloud/dlc/v20210125/model/UpdateDataEngineRequest.h
   include/tencentcloud/dlc/v20210125/model/SmartOptimizerWrittenPolicy.h
   include/tencentcloud/dlc/v20210125/model/DescribeSparkAppJobsRequest.h
@@ -165,7 +164,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/Task.h
   include/tencentcloud/dlc/v20210125/model/DataEngineConfigInstanceInfo.h
   include/tencentcloud/dlc/v20210125/model/CrontabResumeSuspendStrategy.h
-  include/tencentcloud/dlc/v20210125/model/TableExpirationPolicy.h
   include/tencentcloud/dlc/v20210125/model/VpcInfo.h
   include/tencentcloud/dlc/v20210125/model/CustomConfig.h
   include/tencentcloud/dlc/v20210125/model/NotebookSessions.h
@@ -187,7 +185,7 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/CreateDataEngineResponse.h
   include/tencentcloud/dlc/v20210125/model/AssociateDatasourceHouseResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeDataEngineRequest.h
-  include/tencentcloud/dlc/v20210125/model/CreateNotebookSessionRequest.h
+  include/tencentcloud/dlc/v20210125/model/GroupInfo.h
   include/tencentcloud/dlc/v20210125/model/KerberosInfo.h
   include/tencentcloud/dlc/v20210125/model/AssociateDatasourceHouseRequest.h
   include/tencentcloud/dlc/v20210125/model/CreateDataEngineRequest.h
@@ -206,10 +204,8 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/GetOptimizerPolicyRequest.h
   include/tencentcloud/dlc/v20210125/model/Users.h
   include/tencentcloud/dlc/v20210125/model/DataEngineConfigPair.h
-  include/tencentcloud/dlc/v20210125/model/SortOrder.h
   include/tencentcloud/dlc/v20210125/model/SuspendResumeDataEngineResponse.h
   include/tencentcloud/dlc/v20210125/model/DatasourceConnectionLocation.h
-  include/tencentcloud/dlc/v20210125/model/DescribeTCLakeMetaInstanceRequest.h
   include/tencentcloud/dlc/v20210125/model/AttachUserPolicyRequest.h
   include/tencentcloud/dlc/v20210125/model/CancelTaskRequest.h
   include/tencentcloud/dlc/v20210125/model/TextFile.h
@@ -231,7 +227,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/CancelTaskResponse.h
   include/tencentcloud/dlc/v20210125/model/TableInfo.h
   include/tencentcloud/dlc/v20210125/model/DescribeSparkSessionBatchSQLResponse.h
-  include/tencentcloud/dlc/v20210125/model/DescribeResourceGroupUsageInfoResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeSparkSessionBatchSQLCostResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeTasksOverviewResponse.h
   include/tencentcloud/dlc/v20210125/model/KafkaInfo.h
@@ -258,7 +253,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/DataEngineInfo.h
   include/tencentcloud/dlc/v20210125/model/DescribeSessionImageVersionResponse.h
   include/tencentcloud/dlc/v20210125/model/LockMetaDataResponse.h
-  include/tencentcloud/dlc/v20210125/model/SetOptimizerPolicyResponse.h
   include/tencentcloud/dlc/v20210125/model/CreateUserRequest.h
   include/tencentcloud/dlc/v20210125/model/AlterDMSDatabaseRequest.h
   include/tencentcloud/dlc/v20210125/model/DescribeOtherCHDFSBindingListResponse.h
@@ -281,7 +275,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/DeleteDataEngineResponse.h
   include/tencentcloud/dlc/v20210125/model/CosPermission.h
   include/tencentcloud/dlc/v20210125/model/IpPortPair.h
-  include/tencentcloud/dlc/v20210125/model/PrestoMonitorMetrics.h
   include/tencentcloud/dlc/v20210125/model/DescribeTasksAnalysisResponse.h
   include/tencentcloud/dlc/v20210125/model/RestartDataEngineResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeNativeSparkSessionsResponse.h
@@ -295,7 +288,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/SpecInfo.h
   include/tencentcloud/dlc/v20210125/model/AssignMangedTablePropertiesRequest.h
   include/tencentcloud/dlc/v20210125/model/UserIdSetOfWorkGroupId.h
-  include/tencentcloud/dlc/v20210125/model/InitializeTCLakeRequest.h
   include/tencentcloud/dlc/v20210125/model/AlterDMSPartitionRequest.h
   include/tencentcloud/dlc/v20210125/model/ReportHeartbeatMetaDataResponse.h
   include/tencentcloud/dlc/v20210125/model/QueryInternalTableWarehouseResponse.h
@@ -317,7 +309,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/QueryResultRequest.h
   include/tencentcloud/dlc/v20210125/model/CheckDataEngineImageCanBeRollbackRequest.h
   include/tencentcloud/dlc/v20210125/model/CreateTaskRequest.h
-  include/tencentcloud/dlc/v20210125/model/SparkSessionInfo.h
   include/tencentcloud/dlc/v20210125/model/DescribeClusterMonitorInfosRequest.h
   include/tencentcloud/dlc/v20210125/model/CreateTableRequest.h
   include/tencentcloud/dlc/v20210125/model/DescribeStandardEngineResourceGroupsRequest.h
@@ -330,14 +321,13 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/DescribeViewsRequest.h
   include/tencentcloud/dlc/v20210125/model/StandardEngineResourceGroupInfo.h
   include/tencentcloud/dlc/v20210125/model/CreateStandardEngineResourceGroupResponse.h
-  include/tencentcloud/dlc/v20210125/model/CreateDatasourceConnectionRequest.h
   include/tencentcloud/dlc/v20210125/model/GrantDLCCatalogAccessRequest.h
   include/tencentcloud/dlc/v20210125/model/ReportHeartbeatMetaDataRequest.h
   include/tencentcloud/dlc/v20210125/model/DescribeEngineNetworksResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeNetworkConnectionsRequest.h
   include/tencentcloud/dlc/v20210125/model/CreateTcIcebergTableRequest.h
   include/tencentcloud/dlc/v20210125/model/AttachWorkGroupPolicyResponse.h
-  include/tencentcloud/dlc/v20210125/model/AddUsersToWorkGroupResponse.h
+  include/tencentcloud/dlc/v20210125/model/DescribeDMSTablesRequest.h
   include/tencentcloud/dlc/v20210125/model/LaunchStandardEngineResourceGroupsResponse.h
   include/tencentcloud/dlc/v20210125/model/UpdateNetworkConnectionResponse.h
   include/tencentcloud/dlc/v20210125/model/GenerateCreateMangedTableSqlResponse.h
@@ -380,7 +370,7 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/OtherDatasourceConnection.h
   include/tencentcloud/dlc/v20210125/model/TaskResultInfo.h
   include/tencentcloud/dlc/v20210125/model/DeleteThirdPartyAccessUserResponse.h
-  include/tencentcloud/dlc/v20210125/model/GPUInfo.h
+  include/tencentcloud/dlc/v20210125/model/AddUsersToWorkGroupResponse.h
   include/tencentcloud/dlc/v20210125/model/DataSourceInfo.h
   include/tencentcloud/dlc/v20210125/model/CreateTcIcebergTableResponse.h
   include/tencentcloud/dlc/v20210125/model/DeleteSparkAppResponse.h
@@ -408,7 +398,7 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/UserDetailInfo.h
   include/tencentcloud/dlc/v20210125/model/DescribeTaskResultResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeDatasourceConnectionResponse.h
-  include/tencentcloud/dlc/v20210125/model/CreateDatasourceConnectionResponse.h
+  include/tencentcloud/dlc/v20210125/model/PrestoMonitorMetrics.h
   include/tencentcloud/dlc/v20210125/model/DescribeNotebookSessionStatementRequest.h
   include/tencentcloud/dlc/v20210125/model/ModifyDataEngineDescriptionRequest.h
   include/tencentcloud/dlc/v20210125/model/UpdateNetworkConnectionRequest.h
@@ -424,7 +414,7 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/ModifyAdvancedStoreLocationResponse.h
   include/tencentcloud/dlc/v20210125/model/CreateTasksInOrderResponse.h
   include/tencentcloud/dlc/v20210125/model/TagInfo.h
-  include/tencentcloud/dlc/v20210125/model/DescribeDMSTablesRequest.h
+  include/tencentcloud/dlc/v20210125/model/SparkSessionInfo.h
   include/tencentcloud/dlc/v20210125/model/DeleteSparkAppRequest.h
   include/tencentcloud/dlc/v20210125/model/DescribeDLCCatalogAccessRequest.h
   include/tencentcloud/dlc/v20210125/model/DescribeStandardEngineResourceGroupsResponse.h
@@ -484,7 +474,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/TaskResponseInfo.h
   include/tencentcloud/dlc/v20210125/model/OperateEngineResourceGroupFailMessage.h
   include/tencentcloud/dlc/v20210125/model/DescribeStoreLocationResponse.h
-  include/tencentcloud/dlc/v20210125/model/DescribeTCLakeMetaInstanceResponse.h
   include/tencentcloud/dlc/v20210125/model/QueryTaskCostDetailResponse.h
   include/tencentcloud/dlc/v20210125/model/CheckLockMetaDataResponse.h
   include/tencentcloud/dlc/v20210125/model/NotebookSessionInfo.h
@@ -493,7 +482,6 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/CreateNotebookSessionStatementSupportBatchSQLResponse.h
   include/tencentcloud/dlc/v20210125/model/BindWorkGroupsToUserRequest.h
   include/tencentcloud/dlc/v20210125/model/Column.h
-  include/tencentcloud/dlc/v20210125/model/WrittenAdvancePolicy.h
   include/tencentcloud/dlc/v20210125/model/Filter.h
   include/tencentcloud/dlc/v20210125/model/DescribeLakeFsDirSummaryResponse.h
   include/tencentcloud/dlc/v20210125/model/DescribeUserVpcConnectionResponse.h
@@ -517,17 +505,14 @@ set(dlc_public_header_model
   include/tencentcloud/dlc/v20210125/model/LockComponentInfo.h
   include/tencentcloud/dlc/v20210125/model/DescribeWorkGroupsRequest.h
   include/tencentcloud/dlc/v20210125/model/LockMetaDataRequest.h
-  include/tencentcloud/dlc/v20210125/model/DescribeResourceGroupUsageInfoRequest.h
   include/tencentcloud/dlc/v20210125/model/DescribeSparkSessionBatchSQLCostRequest.h
   include/tencentcloud/dlc/v20210125/model/CreateNotebookSessionResponse.h
   include/tencentcloud/dlc/v20210125/model/DataMaskStrategyPolicy.h
   include/tencentcloud/dlc/v20210125/model/DescribeDataEngineResponse.h
   include/tencentcloud/dlc/v20210125/model/DataEngineScaleInfo.h
   include/tencentcloud/dlc/v20210125/model/DescribeDataEngineSessionParametersRequest.h
-  include/tencentcloud/dlc/v20210125/model/ResourceConf.h
   include/tencentcloud/dlc/v20210125/model/QueryTaskCostDetailRequest.h
   include/tencentcloud/dlc/v20210125/model/ModifyDataEngineDescriptionResponse.h
-  include/tencentcloud/dlc/v20210125/model/InitializeTCLakeResponse.h
   include/tencentcloud/dlc/v20210125/model/UpdateDataEngineConfigRequest.h
   include/tencentcloud/dlc/v20210125/model/DropDMSTableRequest.h
   include/tencentcloud/dlc/v20210125/model/CreateInternalTableResponse.h
@@ -586,10 +571,9 @@ set(dlc_src
   src/v20210125/model/SmartOptimizerChangeTablePolicy.cpp
   src/v20210125/model/BatchSqlTask.cpp
   src/v20210125/model/ScheduleElasticityConf.cpp
-  src/v20210125/model/GroupInfo.cpp
+  src/v20210125/model/CreateNotebookSessionRequest.cpp
   src/v20210125/model/UnboundDatasourceHouseRequest.cpp
   src/v20210125/model/DeleteUserVpcConnectionResponse.cpp
-  src/v20210125/model/SetOptimizerPolicyRequest.cpp
   src/v20210125/model/UpdateDataEngineRequest.cpp
   src/v20210125/model/SmartOptimizerWrittenPolicy.cpp
   src/v20210125/model/DescribeSparkAppJobsRequest.cpp
@@ -694,7 +678,6 @@ set(dlc_src
   src/v20210125/model/Task.cpp
   src/v20210125/model/DataEngineConfigInstanceInfo.cpp
   src/v20210125/model/CrontabResumeSuspendStrategy.cpp
-  src/v20210125/model/TableExpirationPolicy.cpp
   src/v20210125/model/VpcInfo.cpp
   src/v20210125/model/CustomConfig.cpp
   src/v20210125/model/NotebookSessions.cpp
@@ -716,7 +699,7 @@ set(dlc_src
   src/v20210125/model/CreateDataEngineResponse.cpp
   src/v20210125/model/AssociateDatasourceHouseResponse.cpp
   src/v20210125/model/DescribeDataEngineRequest.cpp
-  src/v20210125/model/CreateNotebookSessionRequest.cpp
+  src/v20210125/model/GroupInfo.cpp
   src/v20210125/model/KerberosInfo.cpp
   src/v20210125/model/AssociateDatasourceHouseRequest.cpp
   src/v20210125/model/CreateDataEngineRequest.cpp
@@ -735,10 +718,8 @@ set(dlc_src
   src/v20210125/model/GetOptimizerPolicyRequest.cpp
   src/v20210125/model/Users.cpp
   src/v20210125/model/DataEngineConfigPair.cpp
-  src/v20210125/model/SortOrder.cpp
   src/v20210125/model/SuspendResumeDataEngineResponse.cpp
   src/v20210125/model/DatasourceConnectionLocation.cpp
-  src/v20210125/model/DescribeTCLakeMetaInstanceRequest.cpp
   src/v20210125/model/AttachUserPolicyRequest.cpp
   src/v20210125/model/CancelTaskRequest.cpp
   src/v20210125/model/TextFile.cpp
@@ -760,7 +741,6 @@ set(dlc_src
   src/v20210125/model/CancelTaskResponse.cpp
   src/v20210125/model/TableInfo.cpp
   src/v20210125/model/DescribeSparkSessionBatchSQLResponse.cpp
-  src/v20210125/model/DescribeResourceGroupUsageInfoResponse.cpp
   src/v20210125/model/DescribeSparkSessionBatchSQLCostResponse.cpp
   src/v20210125/model/DescribeTasksOverviewResponse.cpp
   src/v20210125/model/KafkaInfo.cpp
@@ -787,7 +767,6 @@ set(dlc_src
   src/v20210125/model/DataEngineInfo.cpp
   src/v20210125/model/DescribeSessionImageVersionResponse.cpp
   src/v20210125/model/LockMetaDataResponse.cpp
-  src/v20210125/model/SetOptimizerPolicyResponse.cpp
   src/v20210125/model/CreateUserRequest.cpp
   src/v20210125/model/AlterDMSDatabaseRequest.cpp
   src/v20210125/model/DescribeOtherCHDFSBindingListResponse.cpp
@@ -810,7 +789,6 @@ set(dlc_src
   src/v20210125/model/DeleteDataEngineResponse.cpp
   src/v20210125/model/CosPermission.cpp
   src/v20210125/model/IpPortPair.cpp
-  src/v20210125/model/PrestoMonitorMetrics.cpp
   src/v20210125/model/DescribeTasksAnalysisResponse.cpp
   src/v20210125/model/RestartDataEngineResponse.cpp
   src/v20210125/model/DescribeNativeSparkSessionsResponse.cpp
@@ -824,7 +802,6 @@ set(dlc_src
   src/v20210125/model/SpecInfo.cpp
   src/v20210125/model/AssignMangedTablePropertiesRequest.cpp
   src/v20210125/model/UserIdSetOfWorkGroupId.cpp
-  src/v20210125/model/InitializeTCLakeRequest.cpp
   src/v20210125/model/AlterDMSPartitionRequest.cpp
   src/v20210125/model/ReportHeartbeatMetaDataResponse.cpp
   src/v20210125/model/QueryInternalTableWarehouseResponse.cpp
@@ -846,7 +823,6 @@ set(dlc_src
   src/v20210125/model/QueryResultRequest.cpp
   src/v20210125/model/CheckDataEngineImageCanBeRollbackRequest.cpp
   src/v20210125/model/CreateTaskRequest.cpp
-  src/v20210125/model/SparkSessionInfo.cpp
   src/v20210125/model/DescribeClusterMonitorInfosRequest.cpp
   src/v20210125/model/CreateTableRequest.cpp
   src/v20210125/model/DescribeStandardEngineResourceGroupsRequest.cpp
@@ -859,14 +835,13 @@ set(dlc_src
   src/v20210125/model/DescribeViewsRequest.cpp
   src/v20210125/model/StandardEngineResourceGroupInfo.cpp
   src/v20210125/model/CreateStandardEngineResourceGroupResponse.cpp
-  src/v20210125/model/CreateDatasourceConnectionRequest.cpp
   src/v20210125/model/GrantDLCCatalogAccessRequest.cpp
   src/v20210125/model/ReportHeartbeatMetaDataRequest.cpp
   src/v20210125/model/DescribeEngineNetworksResponse.cpp
   src/v20210125/model/DescribeNetworkConnectionsRequest.cpp
   src/v20210125/model/CreateTcIcebergTableRequest.cpp
   src/v20210125/model/AttachWorkGroupPolicyResponse.cpp
-  src/v20210125/model/AddUsersToWorkGroupResponse.cpp
+  src/v20210125/model/DescribeDMSTablesRequest.cpp
   src/v20210125/model/LaunchStandardEngineResourceGroupsResponse.cpp
   src/v20210125/model/UpdateNetworkConnectionResponse.cpp
   src/v20210125/model/GenerateCreateMangedTableSqlResponse.cpp
@@ -909,7 +884,7 @@ set(dlc_src
   src/v20210125/model/OtherDatasourceConnection.cpp
   src/v20210125/model/TaskResultInfo.cpp
   src/v20210125/model/DeleteThirdPartyAccessUserResponse.cpp
-  src/v20210125/model/GPUInfo.cpp
+  src/v20210125/model/AddUsersToWorkGroupResponse.cpp
   src/v20210125/model/DataSourceInfo.cpp
   src/v20210125/model/CreateTcIcebergTableResponse.cpp
   src/v20210125/model/DeleteSparkAppResponse.cpp
@@ -937,7 +912,7 @@ set(dlc_src
   src/v20210125/model/UserDetailInfo.cpp
   src/v20210125/model/DescribeTaskResultResponse.cpp
   src/v20210125/model/DescribeDatasourceConnectionResponse.cpp
-  src/v20210125/model/CreateDatasourceConnectionResponse.cpp
+  src/v20210125/model/PrestoMonitorMetrics.cpp
   src/v20210125/model/DescribeNotebookSessionStatementRequest.cpp
   src/v20210125/model/ModifyDataEngineDescriptionRequest.cpp
   src/v20210125/model/UpdateNetworkConnectionRequest.cpp
@@ -953,7 +928,7 @@ set(dlc_src
   src/v20210125/model/ModifyAdvancedStoreLocationResponse.cpp
   src/v20210125/model/CreateTasksInOrderResponse.cpp
   src/v20210125/model/TagInfo.cpp
-  src/v20210125/model/DescribeDMSTablesRequest.cpp
+  src/v20210125/model/SparkSessionInfo.cpp
   src/v20210125/model/DeleteSparkAppRequest.cpp
   src/v20210125/model/DescribeDLCCatalogAccessRequest.cpp
   src/v20210125/model/DescribeStandardEngineResourceGroupsResponse.cpp
@@ -1013,7 +988,6 @@ set(dlc_src
   src/v20210125/model/TaskResponseInfo.cpp
   src/v20210125/model/OperateEngineResourceGroupFailMessage.cpp
   src/v20210125/model/DescribeStoreLocationResponse.cpp
-  src/v20210125/model/DescribeTCLakeMetaInstanceResponse.cpp
   src/v20210125/model/QueryTaskCostDetailResponse.cpp
   src/v20210125/model/CheckLockMetaDataResponse.cpp
   src/v20210125/model/NotebookSessionInfo.cpp
@@ -1022,7 +996,6 @@ set(dlc_src
   src/v20210125/model/CreateNotebookSessionStatementSupportBatchSQLResponse.cpp
   src/v20210125/model/BindWorkGroupsToUserRequest.cpp
   src/v20210125/model/Column.cpp
-  src/v20210125/model/WrittenAdvancePolicy.cpp
   src/v20210125/model/Filter.cpp
   src/v20210125/model/DescribeLakeFsDirSummaryResponse.cpp
   src/v20210125/model/DescribeUserVpcConnectionResponse.cpp
@@ -1046,17 +1019,14 @@ set(dlc_src
   src/v20210125/model/LockComponentInfo.cpp
   src/v20210125/model/DescribeWorkGroupsRequest.cpp
   src/v20210125/model/LockMetaDataRequest.cpp
-  src/v20210125/model/DescribeResourceGroupUsageInfoRequest.cpp
   src/v20210125/model/DescribeSparkSessionBatchSQLCostRequest.cpp
   src/v20210125/model/CreateNotebookSessionResponse.cpp
   src/v20210125/model/DataMaskStrategyPolicy.cpp
   src/v20210125/model/DescribeDataEngineResponse.cpp
   src/v20210125/model/DataEngineScaleInfo.cpp
   src/v20210125/model/DescribeDataEngineSessionParametersRequest.cpp
-  src/v20210125/model/ResourceConf.cpp
   src/v20210125/model/QueryTaskCostDetailRequest.cpp
   src/v20210125/model/ModifyDataEngineDescriptionResponse.cpp
-  src/v20210125/model/InitializeTCLakeResponse.cpp
   src/v20210125/model/UpdateDataEngineConfigRequest.cpp
   src/v20210125/model/DropDMSTableRequest.cpp
   src/v20210125/model/CreateInternalTableResponse.cpp

@@ -24,8 +24,7 @@ using namespace std;
 
 CreateStaticStoreRequest::CreateStaticStoreRequest() :
     m_envIdHasBeenSet(false),
-    m_enableUnionHasBeenSet(false),
-    m_externalStorageHasBeenSet(false)
+    m_enableUnionHasBeenSet(false)
 {
 }
 
@@ -50,15 +49,6 @@ string CreateStaticStoreRequest::ToJsonString() const
         string key = "EnableUnion";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_enableUnion, allocator);
-    }
-
-    if (m_externalStorageHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExternalStorage";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_externalStorage.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -99,22 +89,6 @@ void CreateStaticStoreRequest::SetEnableUnion(const bool& _enableUnion)
 bool CreateStaticStoreRequest::EnableUnionHasBeenSet() const
 {
     return m_enableUnionHasBeenSet;
-}
-
-ExternalStorage CreateStaticStoreRequest::GetExternalStorage() const
-{
-    return m_externalStorage;
-}
-
-void CreateStaticStoreRequest::SetExternalStorage(const ExternalStorage& _externalStorage)
-{
-    m_externalStorage = _externalStorage;
-    m_externalStorageHasBeenSet = true;
-}
-
-bool CreateStaticStoreRequest::ExternalStorageHasBeenSet() const
-{
-    return m_externalStorageHasBeenSet;
 }
 
 

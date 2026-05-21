@@ -168,27 +168,6 @@ namespace TencentCloud
                      */
                     bool TrafficMarkingPolicyFlagHasBeenSet() const;
 
-                    /**
-                     * 获取是否切换为混合计费
-                     * @return MixedBillingFlag 是否切换为混合计费
-                     * 
-                     */
-                    bool GetMixedBillingFlag() const;
-
-                    /**
-                     * 设置是否切换为混合计费
-                     * @param _mixedBillingFlag 是否切换为混合计费
-                     * 
-                     */
-                    void SetMixedBillingFlag(const bool& _mixedBillingFlag);
-
-                    /**
-                     * 判断参数 MixedBillingFlag 是否已赋值
-                     * @return MixedBillingFlag 是否已赋值
-                     * 
-                     */
-                    bool MixedBillingFlagHasBeenSet() const;
-
                 private:
 
                     /**
@@ -226,12 +205,6 @@ namespace TencentCloud
                      */
                     bool m_trafficMarkingPolicyFlag;
                     bool m_trafficMarkingPolicyFlagHasBeenSet;
-
-                    /**
-                     * 是否切换为混合计费
-                     */
-                    bool m_mixedBillingFlag;
-                    bool m_mixedBillingFlagHasBeenSet;
 
                 };
             }

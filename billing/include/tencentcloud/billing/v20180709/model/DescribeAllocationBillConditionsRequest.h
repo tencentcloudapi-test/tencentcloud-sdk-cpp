@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>账单月份，格式为2024-02，不传默认当前月</p>
-                     * @return Month <p>账单月份，格式为2024-02，不传默认当前月</p>
+                     * 获取账单月份，格式为2024-02，不传默认当前月
+                     * @return Month 账单月份，格式为2024-02，不传默认当前月
                      * 
                      */
                     std::string GetMonth() const;
 
                     /**
-                     * 设置<p>账单月份，格式为2024-02，不传默认当前月</p>
-                     * @param _month <p>账单月份，格式为2024-02，不传默认当前月</p>
+                     * 设置账单月份，格式为2024-02，不传默认当前月
+                     * @param _month 账单月份，格式为2024-02，不传默认当前月
                      * 
                      */
                     void SetMonth(const std::string& _month);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool MonthHasBeenSet() const;
 
                     /**
-                     * 获取<p>分账单元唯一标识，用作筛选</p>
-                     * @return TreeNodeUniqKeys <p>分账单元唯一标识，用作筛选</p>
+                     * 获取分账单元唯一标识，用作筛选
+                     * @return TreeNodeUniqKeys 分账单元唯一标识，用作筛选
                      * 
                      */
                     std::vector<std::string> GetTreeNodeUniqKeys() const;
 
                     /**
-                     * 设置<p>分账单元唯一标识，用作筛选</p>
-                     * @param _treeNodeUniqKeys <p>分账单元唯一标识，用作筛选</p>
+                     * 设置分账单元唯一标识，用作筛选
+                     * @param _treeNodeUniqKeys 分账单元唯一标识，用作筛选
                      * 
                      */
                     void SetTreeNodeUniqKeys(const std::vector<std::string>& _treeNodeUniqKeys);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool TreeNodeUniqKeysHasBeenSet() const;
 
                     /**
-                     * 获取<p>日期</p>
-                     * @return BillDates <p>日期</p>
+                     * 获取日期
+                     * @return BillDates 日期
                      * 
                      */
                     std::vector<std::string> GetBillDates() const;
 
                     /**
-                     * 设置<p>日期</p>
-                     * @param _billDates <p>日期</p>
+                     * 设置日期
+                     * @param _billDates 日期
                      * 
                      */
                     void SetBillDates(const std::vector<std::string>& _billDates);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool BillDatesHasBeenSet() const;
 
                     /**
-                     * 获取<p>产品编码</p>
-                     * @return BusinessCodes <p>产品编码</p>
+                     * 获取产品编码
+                     * @return BusinessCodes 产品编码
                      * 
                      */
                     std::vector<std::string> GetBusinessCodes() const;
 
                     /**
-                     * 设置<p>产品编码</p>
-                     * @param _businessCodes <p>产品编码</p>
+                     * 设置产品编码
+                     * @param _businessCodes 产品编码
                      * 
                      */
                     void SetBusinessCodes(const std::vector<std::string>& _businessCodes);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool BusinessCodesHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用者UIN</p>
-                     * @return OwnerUins <p>使用者UIN</p>
+                     * 获取使用者UIN
+                     * @return OwnerUins 使用者UIN
                      * 
                      */
                     std::vector<std::string> GetOwnerUins() const;
 
                     /**
-                     * 设置<p>使用者UIN</p>
-                     * @param _ownerUins <p>使用者UIN</p>
+                     * 设置使用者UIN
+                     * @param _ownerUins 使用者UIN
                      * 
                      */
                     void SetOwnerUins(const std::vector<std::string>& _ownerUins);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool OwnerUinsHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作者UIN</p>
-                     * @return OperateUins <p>操作者UIN</p>
+                     * 获取操作者UIN
+                     * @return OperateUins 操作者UIN
                      * 
                      */
                     std::vector<std::string> GetOperateUins() const;
 
                     /**
-                     * 设置<p>操作者UIN</p>
-                     * @param _operateUins <p>操作者UIN</p>
+                     * 设置操作者UIN
+                     * @param _operateUins 操作者UIN
                      * 
                      */
                     void SetOperateUins(const std::vector<std::string>& _operateUins);
@@ -169,15 +169,15 @@ namespace TencentCloud
                     bool OperateUinsHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费模式编码</p>
-                     * @return PayModes <p>计费模式编码</p>
+                     * 获取计费模式编码
+                     * @return PayModes 计费模式编码
                      * 
                      */
                     std::vector<std::string> GetPayModes() const;
 
                     /**
-                     * 设置<p>计费模式编码</p>
-                     * @param _payModes <p>计费模式编码</p>
+                     * 设置计费模式编码
+                     * @param _payModes 计费模式编码
                      * 
                      */
                     void SetPayModes(const std::vector<std::string>& _payModes);
@@ -190,15 +190,15 @@ namespace TencentCloud
                     bool PayModesHasBeenSet() const;
 
                     /**
-                     * 获取<p>交易类型编码</p>
-                     * @return ActionTypes <p>交易类型编码</p>
+                     * 获取交易类型编码
+                     * @return ActionTypes 交易类型编码
                      * 
                      */
                     std::vector<std::string> GetActionTypes() const;
 
                     /**
-                     * 设置<p>交易类型编码</p>
-                     * @param _actionTypes <p>交易类型编码</p>
+                     * 设置交易类型编码
+                     * @param _actionTypes 交易类型编码
                      * 
                      */
                     void SetActionTypes(const std::vector<std::string>& _actionTypes);
@@ -211,15 +211,15 @@ namespace TencentCloud
                     bool ActionTypesHasBeenSet() const;
 
                     /**
-                     * 获取<p>子产品编码</p>
-                     * @return ProductCodes <p>子产品编码</p>
+                     * 获取子产品编码
+                     * @return ProductCodes 子产品编码
                      * 
                      */
                     std::vector<std::string> GetProductCodes() const;
 
                     /**
-                     * 设置<p>子产品编码</p>
-                     * @param _productCodes <p>子产品编码</p>
+                     * 设置子产品编码
+                     * @param _productCodes 子产品编码
                      * 
                      */
                     void SetProductCodes(const std::vector<std::string>& _productCodes);
@@ -232,15 +232,15 @@ namespace TencentCloud
                     bool ProductCodesHasBeenSet() const;
 
                     /**
-                     * 获取<p>地域ID</p>
-                     * @return RegionIds <p>地域ID</p>
+                     * 获取地域ID
+                     * @return RegionIds 地域ID
                      * 
                      */
                     std::vector<std::string> GetRegionIds() const;
 
                     /**
-                     * 设置<p>地域ID</p>
-                     * @param _regionIds <p>地域ID</p>
+                     * 设置地域ID
+                     * @param _regionIds 地域ID
                      * 
                      */
                     void SetRegionIds(const std::vector<std::string>& _regionIds);
@@ -253,15 +253,15 @@ namespace TencentCloud
                     bool RegionIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区ID</p>
-                     * @return ZoneIds <p>可用区ID</p>
+                     * 获取可用区ID
+                     * @return ZoneIds 可用区ID
                      * 
                      */
                     std::vector<std::string> GetZoneIds() const;
 
                     /**
-                     * 设置<p>可用区ID</p>
-                     * @param _zoneIds <p>可用区ID</p>
+                     * 设置可用区ID
+                     * @param _zoneIds 可用区ID
                      * 
                      */
                     void SetZoneIds(const std::vector<std::string>& _zoneIds);
@@ -274,15 +274,15 @@ namespace TencentCloud
                     bool ZoneIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例类型编码</p>
-                     * @return InstanceTypes <p>实例类型编码</p>
+                     * 获取实例类型编码
+                     * @return InstanceTypes 实例类型编码
                      * 
                      */
                     std::vector<std::string> GetInstanceTypes() const;
 
                     /**
-                     * 设置<p>实例类型编码</p>
-                     * @param _instanceTypes <p>实例类型编码</p>
+                     * 设置实例类型编码
+                     * @param _instanceTypes 实例类型编码
                      * 
                      */
                     void SetInstanceTypes(const std::vector<std::string>& _instanceTypes);
@@ -295,15 +295,15 @@ namespace TencentCloud
                     bool InstanceTypesHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签</p>
-                     * @return Tag <p>标签</p>
+                     * 获取标签
+                     * @return Tag 标签
                      * 
                      */
                     std::vector<std::string> GetTag() const;
 
                     /**
-                     * 设置<p>标签</p>
-                     * @param _tag <p>标签</p>
+                     * 设置标签
+                     * @param _tag 标签
                      * 
                      */
                     void SetTag(const std::vector<std::string>& _tag);
@@ -316,15 +316,15 @@ namespace TencentCloud
                     bool TagHasBeenSet() const;
 
                     /**
-                     * 获取<p>组件类型编码</p>
-                     * @return ComponentCodes <p>组件类型编码</p>
+                     * 获取组件类型编码
+                     * @return ComponentCodes 组件类型编码
                      * 
                      */
                     std::vector<std::string> GetComponentCodes() const;
 
                     /**
-                     * 设置<p>组件类型编码</p>
-                     * @param _componentCodes <p>组件类型编码</p>
+                     * 设置组件类型编码
+                     * @param _componentCodes 组件类型编码
                      * 
                      */
                     void SetComponentCodes(const std::vector<std::string>& _componentCodes);
@@ -337,15 +337,15 @@ namespace TencentCloud
                     bool ComponentCodesHasBeenSet() const;
 
                     /**
-                     * 获取<p>组件名称编码</p>
-                     * @return ItemCodes <p>组件名称编码</p>
+                     * 获取组件名称编码
+                     * @return ItemCodes 组件名称编码
                      * 
                      */
                     std::vector<std::string> GetItemCodes() const;
 
                     /**
-                     * 设置<p>组件名称编码</p>
-                     * @param _itemCodes <p>组件名称编码</p>
+                     * 设置组件名称编码
+                     * @param _itemCodes 组件名称编码
                      * 
                      */
                     void SetItemCodes(const std::vector<std::string>& _itemCodes);
@@ -358,15 +358,15 @@ namespace TencentCloud
                     bool ItemCodesHasBeenSet() const;
 
                     /**
-                     * 获取<p>模糊搜索条件</p>
-                     * @return SearchKey <p>模糊搜索条件</p>
+                     * 获取模糊搜索条件
+                     * @return SearchKey 模糊搜索条件
                      * 
                      */
                     std::string GetSearchKey() const;
 
                     /**
-                     * 设置<p>模糊搜索条件</p>
-                     * @param _searchKey <p>模糊搜索条件</p>
+                     * 设置模糊搜索条件
+                     * @param _searchKey 模糊搜索条件
                      * 
                      */
                     void SetSearchKey(const std::string& _searchKey);
@@ -379,15 +379,15 @@ namespace TencentCloud
                     bool SearchKeyHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目id</p>
-                     * @return ProjectIds <p>项目id</p>
+                     * 获取项目id
+                     * @return ProjectIds 项目id
                      * 
                      */
                     std::vector<uint64_t> GetProjectIds() const;
 
                     /**
-                     * 设置<p>项目id</p>
-                     * @param _projectIds <p>项目id</p>
+                     * 设置项目id
+                     * @param _projectIds 项目id
                      * 
                      */
                     void SetProjectIds(const std::vector<uint64_t>& _projectIds);
@@ -400,15 +400,15 @@ namespace TencentCloud
                     bool ProjectIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>费用归集类型</p><p>枚举值：</p><ul><li>0： 分摊</li><li>1： 归集</li><li>-1： 未分配</li></ul>
-                     * @return AllocationType <p>费用归集类型</p><p>枚举值：</p><ul><li>0： 分摊</li><li>1： 归集</li><li>-1： 未分配</li></ul>
+                     * 获取费用归集类型
+                     * @return AllocationType 费用归集类型
                      * 
                      */
                     std::vector<int64_t> GetAllocationType() const;
 
                     /**
-                     * 设置<p>费用归集类型</p><p>枚举值：</p><ul><li>0： 分摊</li><li>1： 归集</li><li>-1： 未分配</li></ul>
-                     * @param _allocationType <p>费用归集类型</p><p>枚举值：</p><ul><li>0： 分摊</li><li>1： 归集</li><li>-1： 未分配</li></ul>
+                     * 设置费用归集类型
+                     * @param _allocationType 费用归集类型
                      * 
                      */
                     void SetAllocationType(const std::vector<int64_t>& _allocationType);
@@ -423,109 +423,109 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>账单月份，格式为2024-02，不传默认当前月</p>
+                     * 账单月份，格式为2024-02，不传默认当前月
                      */
                     std::string m_month;
                     bool m_monthHasBeenSet;
 
                     /**
-                     * <p>分账单元唯一标识，用作筛选</p>
+                     * 分账单元唯一标识，用作筛选
                      */
                     std::vector<std::string> m_treeNodeUniqKeys;
                     bool m_treeNodeUniqKeysHasBeenSet;
 
                     /**
-                     * <p>日期</p>
+                     * 日期
                      */
                     std::vector<std::string> m_billDates;
                     bool m_billDatesHasBeenSet;
 
                     /**
-                     * <p>产品编码</p>
+                     * 产品编码
                      */
                     std::vector<std::string> m_businessCodes;
                     bool m_businessCodesHasBeenSet;
 
                     /**
-                     * <p>使用者UIN</p>
+                     * 使用者UIN
                      */
                     std::vector<std::string> m_ownerUins;
                     bool m_ownerUinsHasBeenSet;
 
                     /**
-                     * <p>操作者UIN</p>
+                     * 操作者UIN
                      */
                     std::vector<std::string> m_operateUins;
                     bool m_operateUinsHasBeenSet;
 
                     /**
-                     * <p>计费模式编码</p>
+                     * 计费模式编码
                      */
                     std::vector<std::string> m_payModes;
                     bool m_payModesHasBeenSet;
 
                     /**
-                     * <p>交易类型编码</p>
+                     * 交易类型编码
                      */
                     std::vector<std::string> m_actionTypes;
                     bool m_actionTypesHasBeenSet;
 
                     /**
-                     * <p>子产品编码</p>
+                     * 子产品编码
                      */
                     std::vector<std::string> m_productCodes;
                     bool m_productCodesHasBeenSet;
 
                     /**
-                     * <p>地域ID</p>
+                     * 地域ID
                      */
                     std::vector<std::string> m_regionIds;
                     bool m_regionIdsHasBeenSet;
 
                     /**
-                     * <p>可用区ID</p>
+                     * 可用区ID
                      */
                     std::vector<std::string> m_zoneIds;
                     bool m_zoneIdsHasBeenSet;
 
                     /**
-                     * <p>实例类型编码</p>
+                     * 实例类型编码
                      */
                     std::vector<std::string> m_instanceTypes;
                     bool m_instanceTypesHasBeenSet;
 
                     /**
-                     * <p>标签</p>
+                     * 标签
                      */
                     std::vector<std::string> m_tag;
                     bool m_tagHasBeenSet;
 
                     /**
-                     * <p>组件类型编码</p>
+                     * 组件类型编码
                      */
                     std::vector<std::string> m_componentCodes;
                     bool m_componentCodesHasBeenSet;
 
                     /**
-                     * <p>组件名称编码</p>
+                     * 组件名称编码
                      */
                     std::vector<std::string> m_itemCodes;
                     bool m_itemCodesHasBeenSet;
 
                     /**
-                     * <p>模糊搜索条件</p>
+                     * 模糊搜索条件
                      */
                     std::string m_searchKey;
                     bool m_searchKeyHasBeenSet;
 
                     /**
-                     * <p>项目id</p>
+                     * 项目id
                      */
                     std::vector<uint64_t> m_projectIds;
                     bool m_projectIdsHasBeenSet;
 
                     /**
-                     * <p>费用归集类型</p><p>枚举值：</p><ul><li>0： 分摊</li><li>1： 归集</li><li>-1： 未分配</li></ul>
+                     * 费用归集类型
                      */
                     std::vector<int64_t> m_allocationType;
                     bool m_allocationTypeHasBeenSet;

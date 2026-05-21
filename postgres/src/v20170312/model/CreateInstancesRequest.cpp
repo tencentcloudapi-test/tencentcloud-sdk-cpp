@@ -23,6 +23,7 @@ using namespace TencentCloud::Postgres::V20170312::Model;
 using namespace std;
 
 CreateInstancesRequest::CreateInstancesRequest() :
+    m_zoneHasBeenSet(false),
     m_specCodeHasBeenSet(false),
     m_storageHasBeenSet(false),
     m_instanceCountHasBeenSet(false),
@@ -30,7 +31,6 @@ CreateInstancesRequest::CreateInstancesRequest() :
     m_charsetHasBeenSet(false),
     m_adminNameHasBeenSet(false),
     m_adminPasswordHasBeenSet(false),
-    m_zoneHasBeenSet(false),
     m_dBMajorVersionHasBeenSet(false),
     m_dBVersionHasBeenSet(false),
     m_dBKernelVersionHasBeenSet(false),
@@ -54,8 +54,7 @@ CreateInstancesRequest::CreateInstancesRequest() :
     m_dBEngineConfigHasBeenSet(false),
     m_syncModeHasBeenSet(false),
     m_needSupportIpv6HasBeenSet(false),
-    m_deletionProtectionHasBeenSet(false),
-    m_storageTypeHasBeenSet(false)
+    m_deletionProtectionHasBeenSet(false)
 {
 }
 
@@ -65,6 +64,14 @@ string CreateInstancesRequest::ToJsonString() const
     d.SetObject();
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
+
+    if (m_zoneHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "Zone";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
+    }
 
     if (m_specCodeHasBeenSet)
     {
@@ -120,14 +127,6 @@ string CreateInstancesRequest::ToJsonString() const
         string key = "AdminPassword";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_adminPassword.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_zoneHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Zone";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_zone.c_str(), allocator).Move(), allocator);
     }
 
     if (m_dBMajorVersionHasBeenSet)
@@ -346,14 +345,6 @@ string CreateInstancesRequest::ToJsonString() const
         d.AddMember(iKey, m_deletionProtection, allocator);
     }
 
-    if (m_storageTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StorageType";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_storageType.c_str(), allocator).Move(), allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -361,6 +352,22 @@ string CreateInstancesRequest::ToJsonString() const
     return buffer.GetString();
 }
 
+
+string CreateInstancesRequest::GetZone() const
+{
+    return m_zone;
+}
+
+void CreateInstancesRequest::SetZone(const string& _zone)
+{
+    m_zone = _zone;
+    m_zoneHasBeenSet = true;
+}
+
+bool CreateInstancesRequest::ZoneHasBeenSet() const
+{
+    return m_zoneHasBeenSet;
+}
 
 string CreateInstancesRequest::GetSpecCode() const
 {
@@ -472,22 +479,6 @@ void CreateInstancesRequest::SetAdminPassword(const string& _adminPassword)
 bool CreateInstancesRequest::AdminPasswordHasBeenSet() const
 {
     return m_adminPasswordHasBeenSet;
-}
-
-string CreateInstancesRequest::GetZone() const
-{
-    return m_zone;
-}
-
-void CreateInstancesRequest::SetZone(const string& _zone)
-{
-    m_zone = _zone;
-    m_zoneHasBeenSet = true;
-}
-
-bool CreateInstancesRequest::ZoneHasBeenSet() const
-{
-    return m_zoneHasBeenSet;
 }
 
 string CreateInstancesRequest::GetDBMajorVersion() const
@@ -872,22 +863,6 @@ void CreateInstancesRequest::SetDeletionProtection(const bool& _deletionProtecti
 bool CreateInstancesRequest::DeletionProtectionHasBeenSet() const
 {
     return m_deletionProtectionHasBeenSet;
-}
-
-string CreateInstancesRequest::GetStorageType() const
-{
-    return m_storageType;
-}
-
-void CreateInstancesRequest::SetStorageType(const string& _storageType)
-{
-    m_storageType = _storageType;
-    m_storageTypeHasBeenSet = true;
-}
-
-bool CreateInstancesRequest::StorageTypeHasBeenSet() const
-{
-    return m_storageTypeHasBeenSet;
 }
 
 

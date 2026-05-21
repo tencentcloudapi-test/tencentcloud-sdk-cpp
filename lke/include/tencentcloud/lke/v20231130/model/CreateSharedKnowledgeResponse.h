@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>共享知识库业务ID</p>
-                     * @return KnowledgeBizId <p>共享知识库业务ID</p>
+                     * 获取共享知识库业务ID
+                     * @return KnowledgeBizId 共享知识库业务ID
                      * 
                      */
                     std::string GetKnowledgeBizId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>共享知识库业务ID</p>
+                     * 共享知识库业务ID
                      */
                     std::string m_knowledgeBizId;
                     bool m_knowledgeBizIdHasBeenSet;

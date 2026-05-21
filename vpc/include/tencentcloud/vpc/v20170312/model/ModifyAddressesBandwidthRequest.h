@@ -43,15 +43,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>EIP唯一标识ID列表，形如&#39;eip-xxxx&#39;，可以使用<a href="https://cloud.tencent.com/document/product/215/16702">DescribeAddresses</a>接口获取AddressId。</p>
-                     * @return AddressIds <p>EIP唯一标识ID列表，形如&#39;eip-xxxx&#39;，可以使用<a href="https://cloud.tencent.com/document/product/215/16702">DescribeAddresses</a>接口获取AddressId。</p>
+                     * 获取EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
+
+                     * @return AddressIds EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
+
                      * 
                      */
                     std::vector<std::string> GetAddressIds() const;
 
                     /**
-                     * 设置<p>EIP唯一标识ID列表，形如&#39;eip-xxxx&#39;，可以使用<a href="https://cloud.tencent.com/document/product/215/16702">DescribeAddresses</a>接口获取AddressId。</p>
-                     * @param _addressIds <p>EIP唯一标识ID列表，形如&#39;eip-xxxx&#39;，可以使用<a href="https://cloud.tencent.com/document/product/215/16702">DescribeAddresses</a>接口获取AddressId。</p>
+                     * 设置EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
+
+                     * @param _addressIds EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
+
                      * 
                      */
                     void SetAddressIds(const std::vector<std::string>& _addressIds);
@@ -64,15 +68,15 @@ namespace TencentCloud
                     bool AddressIdsHasBeenSet() const;
 
                     /**
-                     * 获取<p>调整带宽目标值，可调整的带宽上限值参考产品文档<a href="https://cloud.tencent.com/document/product/1199/48333">带宽上限</a>。</p>
-                     * @return InternetMaxBandwidthOut <p>调整带宽目标值，可调整的带宽上限值参考产品文档<a href="https://cloud.tencent.com/document/product/1199/48333">带宽上限</a>。</p>
+                     * 获取调整带宽目标值，可调整的带宽上限值参考产品文档[带宽上限](https://cloud.tencent.com/document/product/1199/48333)。
+                     * @return InternetMaxBandwidthOut 调整带宽目标值，可调整的带宽上限值参考产品文档[带宽上限](https://cloud.tencent.com/document/product/1199/48333)。
                      * 
                      */
                     int64_t GetInternetMaxBandwidthOut() const;
 
                     /**
-                     * 设置<p>调整带宽目标值，可调整的带宽上限值参考产品文档<a href="https://cloud.tencent.com/document/product/1199/48333">带宽上限</a>。</p>
-                     * @param _internetMaxBandwidthOut <p>调整带宽目标值，可调整的带宽上限值参考产品文档<a href="https://cloud.tencent.com/document/product/1199/48333">带宽上限</a>。</p>
+                     * 设置调整带宽目标值，可调整的带宽上限值参考产品文档[带宽上限](https://cloud.tencent.com/document/product/1199/48333)。
+                     * @param _internetMaxBandwidthOut 调整带宽目标值，可调整的带宽上限值参考产品文档[带宽上限](https://cloud.tencent.com/document/product/1199/48333)。
                      * 
                      */
                     void SetInternetMaxBandwidthOut(const int64_t& _internetMaxBandwidthOut);
@@ -85,15 +89,15 @@ namespace TencentCloud
                     bool InternetMaxBandwidthOutHasBeenSet() const;
 
                     /**
-                     * 获取<p>包月带宽起始时间(已废弃，输入无效)</p>
-                     * @return StartTime <p>包月带宽起始时间(已废弃，输入无效)</p>
+                     * 获取包月带宽起始时间(已废弃，输入无效)
+                     * @return StartTime 包月带宽起始时间(已废弃，输入无效)
                      * @deprecated
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置<p>包月带宽起始时间(已废弃，输入无效)</p>
-                     * @param _startTime <p>包月带宽起始时间(已废弃，输入无效)</p>
+                     * 设置包月带宽起始时间(已废弃，输入无效)
+                     * @param _startTime 包月带宽起始时间(已废弃，输入无效)
                      * @deprecated
                      */
                     void SetStartTime(const std::string& _startTime);
@@ -106,15 +110,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>包月带宽结束时间(已废弃，输入无效)</p>
-                     * @return EndTime <p>包月带宽结束时间(已废弃，输入无效)</p>
+                     * 获取包月带宽结束时间(已废弃，输入无效)
+                     * @return EndTime 包月带宽结束时间(已废弃，输入无效)
                      * @deprecated
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置<p>包月带宽结束时间(已废弃，输入无效)</p>
-                     * @param _endTime <p>包月带宽结束时间(已废弃，输入无效)</p>
+                     * 设置包月带宽结束时间(已废弃，输入无效)
+                     * @param _endTime 包月带宽结束时间(已废弃，输入无效)
                      * @deprecated
                      */
                     void SetEndTime(const std::string& _endTime);
@@ -129,25 +133,26 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>EIP唯一标识ID列表，形如&#39;eip-xxxx&#39;，可以使用<a href="https://cloud.tencent.com/document/product/215/16702">DescribeAddresses</a>接口获取AddressId。</p>
+                     * EIP唯一标识ID列表，形如'eip-xxxx'，可以使用[DescribeAddresses](https://cloud.tencent.com/document/product/215/16702)接口获取AddressId。
+
                      */
                     std::vector<std::string> m_addressIds;
                     bool m_addressIdsHasBeenSet;
 
                     /**
-                     * <p>调整带宽目标值，可调整的带宽上限值参考产品文档<a href="https://cloud.tencent.com/document/product/1199/48333">带宽上限</a>。</p>
+                     * 调整带宽目标值，可调整的带宽上限值参考产品文档[带宽上限](https://cloud.tencent.com/document/product/1199/48333)。
                      */
                     int64_t m_internetMaxBandwidthOut;
                     bool m_internetMaxBandwidthOutHasBeenSet;
 
                     /**
-                     * <p>包月带宽起始时间(已废弃，输入无效)</p>
+                     * 包月带宽起始时间(已废弃，输入无效)
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>包月带宽结束时间(已废弃，输入无效)</p>
+                     * 包月带宽结束时间(已废弃，输入无效)
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;

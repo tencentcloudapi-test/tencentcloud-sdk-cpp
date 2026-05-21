@@ -58,20 +58,6 @@ namespace TencentCloud
                      */
                     bool TrafficMirrorSetHasBeenSet() const;
 
-                    /**
-                     * 获取符合条件的对象数
-                     * @return TotalCount 符合条件的对象数
-                     * 
-                     */
-                    uint64_t GetTotalCount() const;
-
-                    /**
-                     * 判断参数 TotalCount 是否已赋值
-                     * @return TotalCount 是否已赋值
-                     * 
-                     */
-                    bool TotalCountHasBeenSet() const;
-
                 private:
 
                     /**
@@ -79,12 +65,6 @@ namespace TencentCloud
                      */
                     std::vector<TrafficMirror> m_trafficMirrorSet;
                     bool m_trafficMirrorSetHasBeenSet;
-
-                    /**
-                     * 符合条件的对象数
-                     */
-                    uint64_t m_totalCount;
-                    bool m_totalCountHasBeenSet;
 
                 };
             }

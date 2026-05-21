@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返回的实例详情结果对象</p>
-                     * @return Result <p>返回的实例详情结果对象</p>
+                     * 获取返回的实例详情结果对象
+                     * @return Result 返回的实例详情结果对象
                      * 
                      */
                     InstanceDetailResponse GetResult() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返回的实例详情结果对象</p>
+                     * 返回的实例详情结果对象
                      */
                     InstanceDetailResponse m_result;
                     bool m_resultHasBeenSet;

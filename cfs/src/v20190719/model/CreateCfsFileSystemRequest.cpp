@@ -32,7 +32,6 @@ CreateCfsFileSystemRequest::CreateCfsFileSystemRequest() :
     m_subnetIdHasBeenSet(false),
     m_mountIPHasBeenSet(false),
     m_fsNameHasBeenSet(false),
-    m_encryptedHasBeenSet(false),
     m_resourceTagsHasBeenSet(false),
     m_clientTokenHasBeenSet(false),
     m_ccnIdHasBeenSet(false),
@@ -123,14 +122,6 @@ string CreateCfsFileSystemRequest::ToJsonString() const
         string key = "FsName";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_fsName.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_encryptedHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Encrypted";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_encrypted, allocator);
     }
 
     if (m_resourceTagsHasBeenSet)
@@ -370,22 +361,6 @@ void CreateCfsFileSystemRequest::SetFsName(const string& _fsName)
 bool CreateCfsFileSystemRequest::FsNameHasBeenSet() const
 {
     return m_fsNameHasBeenSet;
-}
-
-bool CreateCfsFileSystemRequest::GetEncrypted() const
-{
-    return m_encrypted;
-}
-
-void CreateCfsFileSystemRequest::SetEncrypted(const bool& _encrypted)
-{
-    m_encrypted = _encrypted;
-    m_encryptedHasBeenSet = true;
-}
-
-bool CreateCfsFileSystemRequest::EncryptedHasBeenSet() const
-{
-    return m_encryptedHasBeenSet;
 }
 
 vector<TagInfo> CreateCfsFileSystemRequest::GetResourceTags() const

@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238</p>
-                     * @return BotBizId <p>应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238</p>
+                     * 获取应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238
+                     * @return BotBizId 应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238
                      * 
                      */
                     std::string GetBotBizId() const;
 
                     /**
-                     * 设置<p>应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238</p>
-                     * @param _botBizId <p>应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238</p>
+                     * 设置应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238
+                     * @param _botBizId 应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238
                      * 
                      */
                     void SetBotBizId(const std::string& _botBizId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool BotBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind</p>
-                     * @return FileType <p>文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind</p>
+                     * 获取文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
+                     * @return FileType 文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
                      * 
                      */
                     std::string GetFileType() const;
 
                     /**
-                     * 设置<p>文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind</p>
-                     * @param _fileType <p>文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind</p>
+                     * 设置文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
+                     * @param _fileType 文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
                      * 
                      */
                     void SetFileType(const std::string& _fileType);
@@ -85,15 +85,19 @@ namespace TencentCloud
                     bool FileTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false</p>
-                     * @return IsPublic <p>IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false</p>
+                     * 获取IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false
+
+                     * @return IsPublic IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false
+
                      * 
                      */
                     bool GetIsPublic() const;
 
                     /**
-                     * 设置<p>IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false</p>
-                     * @param _isPublic <p>IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false</p>
+                     * 设置IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false
+
+                     * @param _isPublic IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false
+
                      * 
                      */
                     void SetIsPublic(const bool& _isPublic);
@@ -106,15 +110,15 @@ namespace TencentCloud
                     bool IsPublicHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储类型: offline:离线文件，realtime:实时文件；为空默认为offline</p>
-                     * @return TypeKey <p>存储类型: offline:离线文件，realtime:实时文件；为空默认为offline</p>
+                     * 获取存储类型: offline:离线文件，realtime:实时文件；为空默认为offline
+                     * @return TypeKey 存储类型: offline:离线文件，realtime:实时文件；为空默认为offline
                      * 
                      */
                     std::string GetTypeKey() const;
 
                     /**
-                     * 设置<p>存储类型: offline:离线文件，realtime:实时文件；为空默认为offline</p>
-                     * @param _typeKey <p>存储类型: offline:离线文件，realtime:实时文件；为空默认为offline</p>
+                     * 设置存储类型: offline:离线文件，realtime:实时文件；为空默认为offline
+                     * @param _typeKey 存储类型: offline:离线文件，realtime:实时文件；为空默认为offline
                      * 
                      */
                     void SetTypeKey(const std::string& _typeKey);
@@ -129,25 +133,26 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238</p>
+                     * 应用ID，参数非必填不代表不需要填写，下面不同的参数组合会获取到不同的权限，具体请参考 https://cloud.tencent.com/document/product/1759/116238
                      */
                     std::string m_botBizId;
                     bool m_botBizIdHasBeenSet;
 
                     /**
-                     * <p>文件类型,正常的文件名类型后缀，支持 docx、doc、pdf、txt、md、wps、pages、html、mhtml、epub、xml、json、log、xlsx、xls、csv、tsv、numbers、pptx、ppt、ppsx、ppsm、key、png、jpg、jpeg、gif、bmp、tiff、webp、heif、heic、jp2、eps、icns、im、pcx、ppm、xbm、xmind</p>
+                     * 文件类型,正常的文件名类型后缀，例如 xlsx、pdf、 docx、png 等
                      */
                     std::string m_fileType;
                     bool m_fileTypeHasBeenSet;
 
                     /**
-                     * <p>IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false</p>
+                     * IsPublic用于上传文件或图片时选择场景，当上传对话端图片时IsPublic为true，上传文件（包括文档库文件/图片等和对话端文件）时IsPublic为false
+
                      */
                     bool m_isPublic;
                     bool m_isPublicHasBeenSet;
 
                     /**
-                     * <p>存储类型: offline:离线文件，realtime:实时文件；为空默认为offline</p>
+                     * 存储类型: offline:离线文件，realtime:实时文件；为空默认为offline
                      */
                     std::string m_typeKey;
                     bool m_typeKeyHasBeenSet;

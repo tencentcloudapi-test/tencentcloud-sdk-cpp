@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>关联产品的实例ID</p>
+                     * 获取关联产品的实例ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PeerId <p>关联产品的实例ID</p>
+                     * @return PeerId 关联产品的实例ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetPeerId() const;
 
                     /**
-                     * 设置<p>关联产品的实例ID</p>
+                     * 设置关联产品的实例ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _peerId <p>关联产品的实例ID</p>
+                     * @param _peerId 关联产品的实例ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool PeerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>关联关系状态：1（启用）、2（不启用）、3（已失效）</p>
+                     * 获取关联关系状态：1（启用）、2（不启用）、3（已失效）
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Status <p>关联关系状态：1（启用）、2（不启用）、3（已失效）</p>
+                     * @return Status 关联关系状态：1（启用）、2（不启用）、3（已失效）
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>关联关系状态：1（启用）、2（不启用）、3（已失效）</p>
+                     * 设置关联关系状态：1（启用）、2（不启用）、3（已失效）
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _status <p>关联关系状态：1（启用）、2（不启用）、3（已失效）</p>
+                     * @param _status 关联关系状态：1（启用）、2（不启用）、3（已失效）
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,15 +97,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>CKafka消息主题</p>
-                     * @return Topic <p>CKafka消息主题</p>
+                     * 获取CKafka消息主题
+                     * @return Topic CKafka消息主题
                      * 
                      */
                     std::string GetTopic() const;
 
                     /**
-                     * 设置<p>CKafka消息主题</p>
-                     * @param _topic <p>CKafka消息主题</p>
+                     * 设置CKafka消息主题
+                     * @param _topic CKafka消息主题
                      * 
                      */
                     void SetTopic(const std::string& _topic);
@@ -117,54 +117,27 @@ namespace TencentCloud
                      */
                     bool TopicHasBeenSet() const;
 
-                    /**
-                     * 获取<p>Ckafka消费主题</p><p>用于Kafka指标投递</p>
-                     * @return MetricTopic <p>Ckafka消费主题</p><p>用于Kafka指标投递</p>
-                     * 
-                     */
-                    std::string GetMetricTopic() const;
-
-                    /**
-                     * 设置<p>Ckafka消费主题</p><p>用于Kafka指标投递</p>
-                     * @param _metricTopic <p>Ckafka消费主题</p><p>用于Kafka指标投递</p>
-                     * 
-                     */
-                    void SetMetricTopic(const std::string& _metricTopic);
-
-                    /**
-                     * 判断参数 MetricTopic 是否已赋值
-                     * @return MetricTopic 是否已赋值
-                     * 
-                     */
-                    bool MetricTopicHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>关联产品的实例ID</p>
+                     * 关联产品的实例ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_peerId;
                     bool m_peerIdHasBeenSet;
 
                     /**
-                     * <p>关联关系状态：1（启用）、2（不启用）、3（已失效）</p>
+                     * 关联关系状态：1（启用）、2（不启用）、3（已失效）
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>CKafka消息主题</p>
+                     * CKafka消息主题
                      */
                     std::string m_topic;
                     bool m_topicHasBeenSet;
-
-                    /**
-                     * <p>Ckafka消费主题</p><p>用于Kafka指标投递</p>
-                     */
-                    std::string m_metricTopic;
-                    bool m_metricTopicHasBeenSet;
 
                 };
             }

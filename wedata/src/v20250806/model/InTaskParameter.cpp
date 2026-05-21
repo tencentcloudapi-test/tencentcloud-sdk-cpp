@@ -24,8 +24,7 @@ InTaskParameter::InTaskParameter() :
     m_paramKeyHasBeenSet(false),
     m_paramDescHasBeenSet(false),
     m_fromTaskIdHasBeenSet(false),
-    m_fromParamKeyHasBeenSet(false),
-    m_typeHasBeenSet(false)
+    m_fromParamKeyHasBeenSet(false)
 {
 }
 
@@ -74,16 +73,6 @@ CoreInternalOutcome InTaskParameter::Deserialize(const rapidjson::Value &value)
         m_fromParamKeyHasBeenSet = true;
     }
 
-    if (value.HasMember("Type") && !value["Type"].IsNull())
-    {
-        if (!value["Type"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `InTaskParameter.Type` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_type = string(value["Type"].GetString());
-        m_typeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -121,14 +110,6 @@ void InTaskParameter::ToJsonObject(rapidjson::Value &value, rapidjson::Document:
         string key = "FromParamKey";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_fromParamKey.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_typeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Type";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -196,21 +177,5 @@ void InTaskParameter::SetFromParamKey(const string& _fromParamKey)
 bool InTaskParameter::FromParamKeyHasBeenSet() const
 {
     return m_fromParamKeyHasBeenSet;
-}
-
-string InTaskParameter::GetType() const
-{
-    return m_type;
-}
-
-void InTaskParameter::SetType(const string& _type)
-{
-    m_type = _type;
-    m_typeHasBeenSet = true;
-}
-
-bool InTaskParameter::TypeHasBeenSet() const
-{
-    return m_typeHasBeenSet;
 }
 

@@ -44,15 +44,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>输入图 Base64 数据。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @return InputImage <p>输入图 Base64 数据。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 获取输入图 Base64 数据。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @return InputImage 输入图 Base64 数据。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     std::string GetInputImage() const;
 
                     /**
-                     * 设置<p>输入图 Base64 数据。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @param _inputImage <p>输入图 Base64 数据。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 设置输入图 Base64 数据。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @param _inputImage 输入图 Base64 数据。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     void SetInputImage(const std::string& _inputImage);
@@ -65,15 +73,23 @@ namespace TencentCloud
                     bool InputImageHasBeenSet() const;
 
                     /**
-                     * 获取<p>输入图 Url。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @return InputUrl <p>输入图 Url。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 获取输入图 Url。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @return InputUrl 输入图 Url。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     std::string GetInputUrl() const;
 
                     /**
-                     * 设置<p>输入图 Url。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @param _inputUrl <p>输入图 Url。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 设置输入图 Url。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @param _inputUrl 输入图 Url。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     void SetInputUrl(const std::string& _inputUrl);
@@ -86,15 +102,27 @@ namespace TencentCloud
                     bool InputUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>消除区域 Mask 图 Base64 数据。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
-                     * @return Mask <p>消除区域 Mask 图 Base64 数据。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
+                     * 获取消除区域 Mask 图 Base64 数据。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
+                     * @return Mask 消除区域 Mask 图 Base64 数据。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
                      * 
                      */
                     std::string GetMask() const;
 
                     /**
-                     * 设置<p>消除区域 Mask 图 Base64 数据。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
-                     * @param _mask <p>消除区域 Mask 图 Base64 数据。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
+                     * 设置消除区域 Mask 图 Base64 数据。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
+                     * @param _mask 消除区域 Mask 图 Base64 数据。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
                      * 
                      */
                     void SetMask(const std::string& _mask);
@@ -107,15 +135,27 @@ namespace TencentCloud
                     bool MaskHasBeenSet() const;
 
                     /**
-                     * 获取<p>消除区域 Mask 图 Url。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
-                     * @return MaskUrl <p>消除区域 Mask 图 Url。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
+                     * 获取消除区域 Mask 图 Url。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
+                     * @return MaskUrl 消除区域 Mask 图 Url。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
                      * 
                      */
                     std::string GetMaskUrl() const;
 
                     /**
-                     * 设置<p>消除区域 Mask 图 Url。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
-                     * @param _maskUrl <p>消除区域 Mask 图 Url。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
+                     * 设置消除区域 Mask 图 Url。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
+                     * @param _maskUrl 消除区域 Mask 图 Url。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
                      * 
                      */
                     void SetMaskUrl(const std::string& _maskUrl);
@@ -128,15 +168,15 @@ namespace TencentCloud
                     bool MaskUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。</p>
-                     * @return RspImgType <p>返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。</p>
+                     * 获取返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。
+                     * @return RspImgType 返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。
                      * 
                      */
                     std::string GetRspImgType() const;
 
                     /**
-                     * 设置<p>返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。</p>
-                     * @param _rspImgType <p>返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。</p>
+                     * 设置返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。
+                     * @param _rspImgType 返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。
                      * 
                      */
                     void SetRspImgType(const std::string& _rspImgType);
@@ -149,15 +189,31 @@ namespace TencentCloud
                     bool RspImgTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
-                     * @return LogoAdd <p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
+                     * 获取为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
+                     * @return LogoAdd 为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
                      * 
                      */
                     int64_t GetLogoAdd() const;
 
                     /**
-                     * 设置<p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
-                     * @param _logoAdd <p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
+                     * 设置为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
+                     * @param _logoAdd 为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
                      * 
                      */
                     void SetLogoAdd(const int64_t& _logoAdd);
@@ -170,15 +226,19 @@ namespace TencentCloud
                     bool LogoAddHasBeenSet() const;
 
                     /**
-                     * 获取<p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
-                     * @return LogoParam <p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
+                     * 获取标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
+                     * @return LogoParam 标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
                      * 
                      */
                     LogoParam GetLogoParam() const;
 
                     /**
-                     * 设置<p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
-                     * @param _logoParam <p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
+                     * 设置标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
+                     * @param _logoParam 标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
                      * 
                      */
                     void SetLogoParam(const LogoParam& _logoParam);
@@ -193,43 +253,58 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>输入图 Base64 数据。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 输入图 Base64 数据。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      */
                     std::string m_inputImage;
                     bool m_inputImageHasBeenSet;
 
                     /**
-                     * <p>输入图 Url。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 输入图 Url。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000，转成 Base64 字符串后小于 6MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      */
                     std::string m_inputUrl;
                     bool m_inputUrlHasBeenSet;
 
                     /**
-                     * <p>消除区域 Mask 图 Base64 数据。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
+                     * 消除区域 Mask 图 Base64 数据。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
                      */
                     std::string m_mask;
                     bool m_maskHasBeenSet;
 
                     /**
-                     * <p>消除区域 Mask 图 Url。<br>Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。<br>Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。</p>
+                     * 消除区域 Mask 图 Url。
+Mask 为单通道灰度图，待消除部分呈白色区域，原图保持部分呈黑色区域。
+Mask 的 Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：Mask 分辨率需要和输入原图保持一致，转成 Base64 字符串后小于 6MB。
                      */
                     std::string m_maskUrl;
                     bool m_maskUrlHasBeenSet;
 
                     /**
-                     * <p>返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。</p>
+                     * 返回图像方式（base64 或 url），二选一，默认为 base64。url 有效期为1小时。
                      */
                     std::string m_rspImgType;
                     bool m_rspImgTypeHasBeenSet;
 
                     /**
-                     * <p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
+                     * 为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
                      */
                     int64_t m_logoAdd;
                     bool m_logoAddHasBeenSet;
 
                     /**
-                     * <p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
+                     * 标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
                      */
                     LogoParam m_logoParam;
                     bool m_logoParamHasBeenSet;

@@ -32,8 +32,7 @@ TableQualityDetail::TableQualityDetail() :
     m_lastPeriodRatioHasBeenSet(false),
     m_dsEnvTypeHasBeenSet(false),
     m_schemaNameHasBeenSet(false),
-    m_ruleGroupTableIdHasBeenSet(false),
-    m_catalogNameHasBeenSet(false)
+    m_ruleGroupTableIdHasBeenSet(false)
 {
 }
 
@@ -162,16 +161,6 @@ CoreInternalOutcome TableQualityDetail::Deserialize(const rapidjson::Value &valu
         m_ruleGroupTableIdHasBeenSet = true;
     }
 
-    if (value.HasMember("CatalogName") && !value["CatalogName"].IsNull())
-    {
-        if (!value["CatalogName"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `TableQualityDetail.CatalogName` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_catalogName = string(value["CatalogName"].GetString());
-        m_catalogNameHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -273,14 +262,6 @@ void TableQualityDetail::ToJsonObject(rapidjson::Value &value, rapidjson::Docume
         string key = "RuleGroupTableId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_ruleGroupTableId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_catalogNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CatalogName";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_catalogName.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -476,21 +457,5 @@ void TableQualityDetail::SetRuleGroupTableId(const string& _ruleGroupTableId)
 bool TableQualityDetail::RuleGroupTableIdHasBeenSet() const
 {
     return m_ruleGroupTableIdHasBeenSet;
-}
-
-string TableQualityDetail::GetCatalogName() const
-{
-    return m_catalogName;
-}
-
-void TableQualityDetail::SetCatalogName(const string& _catalogName)
-{
-    m_catalogName = _catalogName;
-    m_catalogNameHasBeenSet = true;
-}
-
-bool TableQualityDetail::CatalogNameHasBeenSet() const
-{
-    return m_catalogNameHasBeenSet;
 }
 

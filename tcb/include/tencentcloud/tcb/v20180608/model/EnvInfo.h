@@ -54,15 +54,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>账户下该环境唯一标识</p>
-                     * @return EnvId <p>账户下该环境唯一标识</p>
+                     * 获取账户下该环境唯一标识
+                     * @return EnvId 账户下该环境唯一标识
                      * 
                      */
                     std::string GetEnvId() const;
 
                     /**
-                     * 设置<p>账户下该环境唯一标识</p>
-                     * @param _envId <p>账户下该环境唯一标识</p>
+                     * 设置账户下该环境唯一标识
+                     * @param _envId 账户下该环境唯一标识
                      * 
                      */
                     void SetEnvId(const std::string& _envId);
@@ -75,15 +75,23 @@ namespace TencentCloud
                     bool EnvIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境来源。包含以下取值：</p><li>miniapp：微信小程序</li><li>qcloud ：腾讯云</li>
-                     * @return Source <p>环境来源。包含以下取值：</p><li>miniapp：微信小程序</li><li>qcloud ：腾讯云</li>
+                     * 获取环境来源。包含以下取值：
+<li>miniapp：微信小程序</li>
+<li>qcloud ：腾讯云</li>
+                     * @return Source 环境来源。包含以下取值：
+<li>miniapp：微信小程序</li>
+<li>qcloud ：腾讯云</li>
                      * 
                      */
                     std::string GetSource() const;
 
                     /**
-                     * 设置<p>环境来源。包含以下取值：</p><li>miniapp：微信小程序</li><li>qcloud ：腾讯云</li>
-                     * @param _source <p>环境来源。包含以下取值：</p><li>miniapp：微信小程序</li><li>qcloud ：腾讯云</li>
+                     * 设置环境来源。包含以下取值：
+<li>miniapp：微信小程序</li>
+<li>qcloud ：腾讯云</li>
+                     * @param _source 环境来源。包含以下取值：
+<li>miniapp：微信小程序</li>
+<li>qcloud ：腾讯云</li>
                      * 
                      */
                     void SetSource(const std::string& _source);
@@ -96,15 +104,15 @@ namespace TencentCloud
                     bool SourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符</p>
-                     * @return Alias <p>环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符</p>
+                     * 获取环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符
+                     * @return Alias 环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符
                      * 
                      */
                     std::string GetAlias() const;
 
                     /**
-                     * 设置<p>环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符</p>
-                     * @param _alias <p>环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符</p>
+                     * 设置环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符
+                     * @param _alias 环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符
                      * 
                      */
                     void SetAlias(const std::string& _alias);
@@ -117,15 +125,15 @@ namespace TencentCloud
                     bool AliasHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间</p>
-                     * @return CreateTime <p>创建时间</p>
+                     * 获取创建时间
+                     * @return CreateTime 创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间</p>
-                     * @param _createTime <p>创建时间</p>
+                     * 设置创建时间
+                     * @param _createTime 创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -138,15 +146,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>最后修改时间</p>
-                     * @return UpdateTime <p>最后修改时间</p>
+                     * 获取最后修改时间
+                     * @return UpdateTime 最后修改时间
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>最后修改时间</p>
-                     * @param _updateTime <p>最后修改时间</p>
+                     * 设置最后修改时间
+                     * @param _updateTime 最后修改时间
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -159,15 +167,23 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境状态。包含以下取值：</p><li>NORMAL：正常可用</li><li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
-                     * @return Status <p>环境状态。包含以下取值：</p><li>NORMAL：正常可用</li><li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
+                     * 获取环境状态。包含以下取值：
+<li>NORMAL：正常可用</li>
+<li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
+                     * @return Status 环境状态。包含以下取值：
+<li>NORMAL：正常可用</li>
+<li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>环境状态。包含以下取值：</p><li>NORMAL：正常可用</li><li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
-                     * @param _status <p>环境状态。包含以下取值：</p><li>NORMAL：正常可用</li><li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
+                     * 设置环境状态。包含以下取值：
+<li>NORMAL：正常可用</li>
+<li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
+                     * @param _status 环境状态。包含以下取值：
+<li>NORMAL：正常可用</li>
+<li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -180,15 +196,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库列表</p>
-                     * @return Databases <p>数据库列表</p>
+                     * 获取数据库列表
+                     * @return Databases 数据库列表
                      * 
                      */
                     std::vector<DatabasesInfo> GetDatabases() const;
 
                     /**
-                     * 设置<p>数据库列表</p>
-                     * @param _databases <p>数据库列表</p>
+                     * 设置数据库列表
+                     * @param _databases 数据库列表
                      * 
                      */
                     void SetDatabases(const std::vector<DatabasesInfo>& _databases);
@@ -201,15 +217,15 @@ namespace TencentCloud
                     bool DatabasesHasBeenSet() const;
 
                     /**
-                     * 获取<p>存储列表</p>
-                     * @return Storages <p>存储列表</p>
+                     * 获取存储列表
+                     * @return Storages 存储列表
                      * 
                      */
                     std::vector<StorageInfo> GetStorages() const;
 
                     /**
-                     * 设置<p>存储列表</p>
-                     * @param _storages <p>存储列表</p>
+                     * 设置存储列表
+                     * @param _storages 存储列表
                      * 
                      */
                     void SetStorages(const std::vector<StorageInfo>& _storages);
@@ -222,15 +238,15 @@ namespace TencentCloud
                     bool StoragesHasBeenSet() const;
 
                     /**
-                     * 获取<p>函数列表</p>
-                     * @return Functions <p>函数列表</p>
+                     * 获取函数列表
+                     * @return Functions 函数列表
                      * 
                      */
                     std::vector<FunctionInfo> GetFunctions() const;
 
                     /**
-                     * 设置<p>函数列表</p>
-                     * @param _functions <p>函数列表</p>
+                     * 设置函数列表
+                     * @param _functions 函数列表
                      * 
                      */
                     void SetFunctions(const std::vector<FunctionInfo>& _functions);
@@ -243,15 +259,15 @@ namespace TencentCloud
                     bool FunctionsHasBeenSet() const;
 
                     /**
-                     * 获取<p>tcb产品套餐ID，参考DescribePackages接口的返回值。</p>
-                     * @return PackageId <p>tcb产品套餐ID，参考DescribePackages接口的返回值。</p>
+                     * 获取tcb产品套餐ID，参考DescribePackages接口的返回值。
+                     * @return PackageId tcb产品套餐ID，参考DescribePackages接口的返回值。
                      * 
                      */
                     std::string GetPackageId() const;
 
                     /**
-                     * 设置<p>tcb产品套餐ID，参考DescribePackages接口的返回值。</p>
-                     * @param _packageId <p>tcb产品套餐ID，参考DescribePackages接口的返回值。</p>
+                     * 设置tcb产品套餐ID，参考DescribePackages接口的返回值。
+                     * @param _packageId tcb产品套餐ID，参考DescribePackages接口的返回值。
                      * 
                      */
                     void SetPackageId(const std::string& _packageId);
@@ -264,15 +280,15 @@ namespace TencentCloud
                     bool PackageIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>套餐中文名称，参考DescribePackages接口的返回值。</p>
-                     * @return PackageName <p>套餐中文名称，参考DescribePackages接口的返回值。</p>
+                     * 获取套餐中文名称，参考DescribePackages接口的返回值。
+                     * @return PackageName 套餐中文名称，参考DescribePackages接口的返回值。
                      * 
                      */
                     std::string GetPackageName() const;
 
                     /**
-                     * 设置<p>套餐中文名称，参考DescribePackages接口的返回值。</p>
-                     * @param _packageName <p>套餐中文名称，参考DescribePackages接口的返回值。</p>
+                     * 设置套餐中文名称，参考DescribePackages接口的返回值。
+                     * @param _packageName 套餐中文名称，参考DescribePackages接口的返回值。
                      * 
                      */
                     void SetPackageName(const std::string& _packageName);
@@ -285,15 +301,15 @@ namespace TencentCloud
                     bool PackageNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>云日志服务列表</p>
-                     * @return LogServices <p>云日志服务列表</p>
+                     * 获取云日志服务列表
+                     * @return LogServices 云日志服务列表
                      * 
                      */
                     std::vector<LogServiceInfo> GetLogServices() const;
 
                     /**
-                     * 设置<p>云日志服务列表</p>
-                     * @param _logServices <p>云日志服务列表</p>
+                     * 设置云日志服务列表
+                     * @param _logServices 云日志服务列表
                      * 
                      */
                     void SetLogServices(const std::vector<LogServiceInfo>& _logServices);
@@ -306,15 +322,15 @@ namespace TencentCloud
                     bool LogServicesHasBeenSet() const;
 
                     /**
-                     * 获取<p>静态资源信息</p>
-                     * @return StaticStorages <p>静态资源信息</p>
+                     * 获取静态资源信息
+                     * @return StaticStorages 静态资源信息
                      * 
                      */
                     std::vector<StaticStorageInfo> GetStaticStorages() const;
 
                     /**
-                     * 设置<p>静态资源信息</p>
-                     * @param _staticStorages <p>静态资源信息</p>
+                     * 设置静态资源信息
+                     * @param _staticStorages 静态资源信息
                      * 
                      */
                     void SetStaticStorages(const std::vector<StaticStorageInfo>& _staticStorages);
@@ -327,15 +343,15 @@ namespace TencentCloud
                     bool StaticStoragesHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否到期自动降为免费版</p>
-                     * @return IsAutoDegrade <p>是否到期自动降为免费版</p>
+                     * 获取是否到期自动降为免费版
+                     * @return IsAutoDegrade 是否到期自动降为免费版
                      * 
                      */
                     bool GetIsAutoDegrade() const;
 
                     /**
-                     * 设置<p>是否到期自动降为免费版</p>
-                     * @param _isAutoDegrade <p>是否到期自动降为免费版</p>
+                     * 设置是否到期自动降为免费版
+                     * @param _isAutoDegrade 是否到期自动降为免费版
                      * 
                      */
                     void SetIsAutoDegrade(const bool& _isAutoDegrade);
@@ -348,15 +364,15 @@ namespace TencentCloud
                     bool IsAutoDegradeHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境渠道</p>
-                     * @return EnvChannel <p>环境渠道</p>
+                     * 获取环境渠道
+                     * @return EnvChannel 环境渠道
                      * 
                      */
                     std::string GetEnvChannel() const;
 
                     /**
-                     * 设置<p>环境渠道</p>
-                     * @param _envChannel <p>环境渠道</p>
+                     * 设置环境渠道
+                     * @param _envChannel 环境渠道
                      * 
                      */
                     void SetEnvChannel(const std::string& _envChannel);
@@ -369,15 +385,23 @@ namespace TencentCloud
                     bool EnvChannelHasBeenSet() const;
 
                     /**
-                     * 获取<p>支付方式。包含以下取值：</p><li> prepayment：预付费</li><li> postpaid：后付费</li>
-                     * @return PayMode <p>支付方式。包含以下取值：</p><li> prepayment：预付费</li><li> postpaid：后付费</li>
+                     * 获取支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+                     * @return PayMode 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
                      * 
                      */
                     std::string GetPayMode() const;
 
                     /**
-                     * 设置<p>支付方式。包含以下取值：</p><li> prepayment：预付费</li><li> postpaid：后付费</li>
-                     * @param _payMode <p>支付方式。包含以下取值：</p><li> prepayment：预付费</li><li> postpaid：后付费</li>
+                     * 设置支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
+                     * @param _payMode 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
                      * 
                      */
                     void SetPayMode(const std::string& _payMode);
@@ -390,15 +414,15 @@ namespace TencentCloud
                     bool PayModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否为默认环境</p>
-                     * @return IsDefault <p>是否为默认环境</p>
+                     * 获取是否为默认环境
+                     * @return IsDefault 是否为默认环境
                      * 
                      */
                     bool GetIsDefault() const;
 
                     /**
-                     * 设置<p>是否为默认环境</p>
-                     * @param _isDefault <p>是否为默认环境</p>
+                     * 设置是否为默认环境
+                     * @param _isDefault 是否为默认环境
                      * 
                      */
                     void SetIsDefault(const bool& _isDefault);
@@ -411,15 +435,15 @@ namespace TencentCloud
                     bool IsDefaultHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境所属地域</p>
-                     * @return Region <p>环境所属地域</p>
+                     * 获取环境所属地域
+                     * @return Region 环境所属地域
                      * 
                      */
                     std::string GetRegion() const;
 
                     /**
-                     * 设置<p>环境所属地域</p>
-                     * @param _region <p>环境所属地域</p>
+                     * 设置环境所属地域
+                     * @param _region 环境所属地域
                      * 
                      */
                     void SetRegion(const std::string& _region);
@@ -432,15 +456,15 @@ namespace TencentCloud
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境标签列表</p>
-                     * @return Tags <p>环境标签列表</p>
+                     * 获取环境标签列表
+                     * @return Tags 环境标签列表
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>环境标签列表</p>
-                     * @param _tags <p>环境标签列表</p>
+                     * 设置环境标签列表
+                     * @param _tags 环境标签列表
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -453,15 +477,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>自定义日志服务</p>
-                     * @return CustomLogServices <p>自定义日志服务</p>
+                     * 获取自定义日志服务
+                     * @return CustomLogServices 自定义日志服务
                      * 
                      */
                     std::vector<ClsInfo> GetCustomLogServices() const;
 
                     /**
-                     * 设置<p>自定义日志服务</p>
-                     * @param _customLogServices <p>自定义日志服务</p>
+                     * 设置自定义日志服务
+                     * @param _customLogServices 自定义日志服务
                      * 
                      */
                     void SetCustomLogServices(const std::vector<ClsInfo>& _customLogServices);
@@ -474,15 +498,15 @@ namespace TencentCloud
                     bool CustomLogServicesHasBeenSet() const;
 
                     /**
-                     * 获取<p>环境类型：baas, run, hoting, weda</p>
-                     * @return EnvType <p>环境类型：baas, run, hoting, weda</p>
+                     * 获取环境类型：baas, run, hoting, weda
+                     * @return EnvType 环境类型：baas, run, hoting, weda
                      * 
                      */
                     std::string GetEnvType() const;
 
                     /**
-                     * 设置<p>环境类型：baas, run, hoting, weda</p>
-                     * @param _envType <p>环境类型：baas, run, hoting, weda</p>
+                     * 设置环境类型：baas, run, hoting, weda
+                     * @param _envType 环境类型：baas, run, hoting, weda
                      * 
                      */
                     void SetEnvType(const std::string& _envType);
@@ -495,15 +519,15 @@ namespace TencentCloud
                     bool EnvTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否是dau新套餐</p>
-                     * @return IsDauPackage <p>是否是dau新套餐</p>
+                     * 获取是否是dau新套餐
+                     * @return IsDauPackage 是否是dau新套餐
                      * 
                      */
                     bool GetIsDauPackage() const;
 
                     /**
-                     * 设置<p>是否是dau新套餐</p>
-                     * @param _isDauPackage <p>是否是dau新套餐</p>
+                     * 设置是否是dau新套餐
+                     * @param _isDauPackage 是否是dau新套餐
                      * 
                      */
                     void SetIsDauPackage(const bool& _isDauPackage);
@@ -516,15 +540,15 @@ namespace TencentCloud
                     bool IsDauPackageHasBeenSet() const;
 
                     /**
-                     * 获取<p>套餐类型:空\baas\tcbr</p>
-                     * @return PackageType <p>套餐类型:空\baas\tcbr</p>
+                     * 获取套餐类型:空\baas\tcbr
+                     * @return PackageType 套餐类型:空\baas\tcbr
                      * 
                      */
                     std::string GetPackageType() const;
 
                     /**
-                     * 设置<p>套餐类型:空\baas\tcbr</p>
-                     * @param _packageType <p>套餐类型:空\baas\tcbr</p>
+                     * 设置套餐类型:空\baas\tcbr
+                     * @param _packageType 套餐类型:空\baas\tcbr
                      * 
                      */
                     void SetPackageType(const std::string& _packageType);
@@ -537,15 +561,15 @@ namespace TencentCloud
                     bool PackageTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>架构类型</p>
-                     * @return ArchitectureType <p>架构类型</p>
+                     * 获取架构类型
+                     * @return ArchitectureType 架构类型
                      * 
                      */
                     std::string GetArchitectureType() const;
 
                     /**
-                     * 设置<p>架构类型</p>
-                     * @param _architectureType <p>架构类型</p>
+                     * 设置架构类型
+                     * @param _architectureType 架构类型
                      * 
                      */
                     void SetArchitectureType(const std::string& _architectureType);
@@ -558,15 +582,15 @@ namespace TencentCloud
                     bool ArchitectureTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>回收标志，默认为空</p>
-                     * @return Recycle <p>回收标志，默认为空</p>
+                     * 获取回收标志，默认为空
+                     * @return Recycle 回收标志，默认为空
                      * 
                      */
                     std::string GetRecycle() const;
 
                     /**
-                     * 设置<p>回收标志，默认为空</p>
-                     * @param _recycle <p>回收标志，默认为空</p>
+                     * 设置回收标志，默认为空
+                     * @param _recycle 回收标志，默认为空
                      * 
                      */
                     void SetRecycle(const std::string& _recycle);
@@ -581,151 +605,157 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>账户下该环境唯一标识</p>
+                     * 账户下该环境唯一标识
                      */
                     std::string m_envId;
                     bool m_envIdHasBeenSet;
 
                     /**
-                     * <p>环境来源。包含以下取值：</p><li>miniapp：微信小程序</li><li>qcloud ：腾讯云</li>
+                     * 环境来源。包含以下取值：
+<li>miniapp：微信小程序</li>
+<li>qcloud ：腾讯云</li>
                      */
                     std::string m_source;
                     bool m_sourceHasBeenSet;
 
                     /**
-                     * <p>环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符</p>
+                     * 环境别名，要以a-z开头，不能包含 a-zA-z0-9- 以外的字符
                      */
                     std::string m_alias;
                     bool m_aliasHasBeenSet;
 
                     /**
-                     * <p>创建时间</p>
+                     * 创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>最后修改时间</p>
+                     * 最后修改时间
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>环境状态。包含以下取值：</p><li>NORMAL：正常可用</li><li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
+                     * 环境状态。包含以下取值：
+<li>NORMAL：正常可用</li>
+<li>UNAVAILABLE：服务不可用，可能是尚未初始化或者初始化过程中</li>
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>数据库列表</p>
+                     * 数据库列表
                      */
                     std::vector<DatabasesInfo> m_databases;
                     bool m_databasesHasBeenSet;
 
                     /**
-                     * <p>存储列表</p>
+                     * 存储列表
                      */
                     std::vector<StorageInfo> m_storages;
                     bool m_storagesHasBeenSet;
 
                     /**
-                     * <p>函数列表</p>
+                     * 函数列表
                      */
                     std::vector<FunctionInfo> m_functions;
                     bool m_functionsHasBeenSet;
 
                     /**
-                     * <p>tcb产品套餐ID，参考DescribePackages接口的返回值。</p>
+                     * tcb产品套餐ID，参考DescribePackages接口的返回值。
                      */
                     std::string m_packageId;
                     bool m_packageIdHasBeenSet;
 
                     /**
-                     * <p>套餐中文名称，参考DescribePackages接口的返回值。</p>
+                     * 套餐中文名称，参考DescribePackages接口的返回值。
                      */
                     std::string m_packageName;
                     bool m_packageNameHasBeenSet;
 
                     /**
-                     * <p>云日志服务列表</p>
+                     * 云日志服务列表
                      */
                     std::vector<LogServiceInfo> m_logServices;
                     bool m_logServicesHasBeenSet;
 
                     /**
-                     * <p>静态资源信息</p>
+                     * 静态资源信息
                      */
                     std::vector<StaticStorageInfo> m_staticStorages;
                     bool m_staticStoragesHasBeenSet;
 
                     /**
-                     * <p>是否到期自动降为免费版</p>
+                     * 是否到期自动降为免费版
                      */
                     bool m_isAutoDegrade;
                     bool m_isAutoDegradeHasBeenSet;
 
                     /**
-                     * <p>环境渠道</p>
+                     * 环境渠道
                      */
                     std::string m_envChannel;
                     bool m_envChannelHasBeenSet;
 
                     /**
-                     * <p>支付方式。包含以下取值：</p><li> prepayment：预付费</li><li> postpaid：后付费</li>
+                     * 支付方式。包含以下取值：
+<li> prepayment：预付费</li>
+<li> postpaid：后付费</li>
                      */
                     std::string m_payMode;
                     bool m_payModeHasBeenSet;
 
                     /**
-                     * <p>是否为默认环境</p>
+                     * 是否为默认环境
                      */
                     bool m_isDefault;
                     bool m_isDefaultHasBeenSet;
 
                     /**
-                     * <p>环境所属地域</p>
+                     * 环境所属地域
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * <p>环境标签列表</p>
+                     * 环境标签列表
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>自定义日志服务</p>
+                     * 自定义日志服务
                      */
                     std::vector<ClsInfo> m_customLogServices;
                     bool m_customLogServicesHasBeenSet;
 
                     /**
-                     * <p>环境类型：baas, run, hoting, weda</p>
+                     * 环境类型：baas, run, hoting, weda
                      */
                     std::string m_envType;
                     bool m_envTypeHasBeenSet;
 
                     /**
-                     * <p>是否是dau新套餐</p>
+                     * 是否是dau新套餐
                      */
                     bool m_isDauPackage;
                     bool m_isDauPackageHasBeenSet;
 
                     /**
-                     * <p>套餐类型:空\baas\tcbr</p>
+                     * 套餐类型:空\baas\tcbr
                      */
                     std::string m_packageType;
                     bool m_packageTypeHasBeenSet;
 
                     /**
-                     * <p>架构类型</p>
+                     * 架构类型
                      */
                     std::string m_architectureType;
                     bool m_architectureTypeHasBeenSet;
 
                     /**
-                     * <p>回收标志，默认为空</p>
+                     * 回收标志，默认为空
                      */
                     std::string m_recycle;
                     bool m_recycleHasBeenSet;

@@ -45,9 +45,9 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>数据源列表</p>
+                     * 获取数据源列表
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Data <p>数据源列表</p>
+                     * @return Data 数据源列表
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -63,7 +63,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>数据源列表</p>
+                     * 数据源列表
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     DataSource m_data;

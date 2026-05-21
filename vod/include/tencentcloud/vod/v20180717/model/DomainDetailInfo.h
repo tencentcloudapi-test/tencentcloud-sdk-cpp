@@ -53,15 +53,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>域名名称。</p>
-                     * @return Domain <p>域名名称。</p>
+                     * 获取域名名称。
+                     * @return Domain 域名名称。
                      * 
                      */
                     std::string GetDomain() const;
 
                     /**
-                     * 设置<p>域名名称。</p>
-                     * @param _domain <p>域名名称。</p>
+                     * 设置域名名称。
+                     * @param _domain 域名名称。
                      * 
                      */
                     void SetDomain(const std::string& _domain);
@@ -74,15 +74,15 @@ namespace TencentCloud
                     bool DomainHasBeenSet() const;
 
                     /**
-                     * 获取<p>加速地区信息。</p>
-                     * @return AccelerateAreaInfos <p>加速地区信息。</p>
+                     * 获取加速地区信息。
+                     * @return AccelerateAreaInfos 加速地区信息。
                      * 
                      */
                     std::vector<AccelerateAreaInfo> GetAccelerateAreaInfos() const;
 
                     /**
-                     * 设置<p>加速地区信息。</p>
-                     * @param _accelerateAreaInfos <p>加速地区信息。</p>
+                     * 设置加速地区信息。
+                     * @param _accelerateAreaInfos 加速地区信息。
                      * 
                      */
                     void SetAccelerateAreaInfos(const std::vector<AccelerateAreaInfo>& _accelerateAreaInfos);
@@ -95,15 +95,27 @@ namespace TencentCloud
                     bool AccelerateAreaInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署状态，取值有：</p><li>Online：上线；</li><li>Deploying：部署中；</li><li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
-                     * @return DeployStatus <p>部署状态，取值有：</p><li>Online：上线；</li><li>Deploying：部署中；</li><li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
+                     * 获取部署状态，取值有：
+<li>Online：上线；</li>
+<li>Deploying：部署中；</li>
+<li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
+                     * @return DeployStatus 部署状态，取值有：
+<li>Online：上线；</li>
+<li>Deploying：部署中；</li>
+<li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
                      * 
                      */
                     std::string GetDeployStatus() const;
 
                     /**
-                     * 设置<p>部署状态，取值有：</p><li>Online：上线；</li><li>Deploying：部署中；</li><li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
-                     * @param _deployStatus <p>部署状态，取值有：</p><li>Online：上线；</li><li>Deploying：部署中；</li><li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
+                     * 设置部署状态，取值有：
+<li>Online：上线；</li>
+<li>Deploying：部署中；</li>
+<li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
+                     * @param _deployStatus 部署状态，取值有：
+<li>Online：上线；</li>
+<li>Deploying：部署中；</li>
+<li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
                      * 
                      */
                     void SetDeployStatus(const std::string& _deployStatus);
@@ -116,15 +128,15 @@ namespace TencentCloud
                     bool DeployStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>HTTPS 配置信息。</p>
-                     * @return HTTPSConfig <p>HTTPS 配置信息。</p>
+                     * 获取HTTPS 配置信息。
+                     * @return HTTPSConfig HTTPS 配置信息。
                      * 
                      */
                     DomainHTTPSConfig GetHTTPSConfig() const;
 
                     /**
-                     * 设置<p>HTTPS 配置信息。</p>
-                     * @param _hTTPSConfig <p>HTTPS 配置信息。</p>
+                     * 设置HTTPS 配置信息。
+                     * @param _hTTPSConfig HTTPS 配置信息。
                      * 
                      */
                     void SetHTTPSConfig(const DomainHTTPSConfig& _hTTPSConfig);
@@ -137,15 +149,15 @@ namespace TencentCloud
                     bool HTTPSConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p><a href="https://cloud.tencent.com/document/product/266/14047">Key 防盗链</a>配置信息。</p>
-                     * @return UrlSignatureAuthPolicy <p><a href="https://cloud.tencent.com/document/product/266/14047">Key 防盗链</a>配置信息。</p>
+                     * 获取[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)配置信息。
+                     * @return UrlSignatureAuthPolicy [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)配置信息。
                      * 
                      */
                     UrlSignatureAuthPolicy GetUrlSignatureAuthPolicy() const;
 
                     /**
-                     * 设置<p><a href="https://cloud.tencent.com/document/product/266/14047">Key 防盗链</a>配置信息。</p>
-                     * @param _urlSignatureAuthPolicy <p><a href="https://cloud.tencent.com/document/product/266/14047">Key 防盗链</a>配置信息。</p>
+                     * 设置[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)配置信息。
+                     * @param _urlSignatureAuthPolicy [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)配置信息。
                      * 
                      */
                     void SetUrlSignatureAuthPolicy(const UrlSignatureAuthPolicy& _urlSignatureAuthPolicy);
@@ -158,15 +170,15 @@ namespace TencentCloud
                     bool UrlSignatureAuthPolicyHasBeenSet() const;
 
                     /**
-                     * 获取<p><a href="https://cloud.tencent.com/document/product/266/14046">Referer 防盗链</a>配置信息。</p>
-                     * @return RefererAuthPolicy <p><a href="https://cloud.tencent.com/document/product/266/14046">Referer 防盗链</a>配置信息。</p>
+                     * 获取[Referer 防盗链](https://cloud.tencent.com/document/product/266/14046)配置信息。
+                     * @return RefererAuthPolicy [Referer 防盗链](https://cloud.tencent.com/document/product/266/14046)配置信息。
                      * 
                      */
                     RefererAuthPolicy GetRefererAuthPolicy() const;
 
                     /**
-                     * 设置<p><a href="https://cloud.tencent.com/document/product/266/14046">Referer 防盗链</a>配置信息。</p>
-                     * @param _refererAuthPolicy <p><a href="https://cloud.tencent.com/document/product/266/14046">Referer 防盗链</a>配置信息。</p>
+                     * 设置[Referer 防盗链](https://cloud.tencent.com/document/product/266/14046)配置信息。
+                     * @param _refererAuthPolicy [Referer 防盗链](https://cloud.tencent.com/document/product/266/14046)配置信息。
                      * 
                      */
                     void SetRefererAuthPolicy(const RefererAuthPolicy& _refererAuthPolicy);
@@ -179,15 +191,19 @@ namespace TencentCloud
                     bool RefererAuthPolicyHasBeenSet() const;
 
                     /**
-                     * 获取<p>域名添加到腾讯云点播系统中的时间。<li>格式按照 ISO 8601标准表示，详见 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式说明</a>。</li></p>
-                     * @return CreateTime <p>域名添加到腾讯云点播系统中的时间。<li>格式按照 ISO 8601标准表示，详见 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式说明</a>。</li></p>
+                     * 获取域名添加到腾讯云点播系统中的时间。
+<li>格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。</li>
+                     * @return CreateTime 域名添加到腾讯云点播系统中的时间。
+<li>格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。</li>
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>域名添加到腾讯云点播系统中的时间。<li>格式按照 ISO 8601标准表示，详见 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式说明</a>。</li></p>
-                     * @param _createTime <p>域名添加到腾讯云点播系统中的时间。<li>格式按照 ISO 8601标准表示，详见 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式说明</a>。</li></p>
+                     * 设置域名添加到腾讯云点播系统中的时间。
+<li>格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。</li>
+                     * @param _createTime 域名添加到腾讯云点播系统中的时间。
+<li>格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。</li>
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -200,15 +216,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>域名 QUIC 配置信息。</p>
-                     * @return QUICConfig <p>域名 QUIC 配置信息。</p>
+                     * 获取域名 QUIC 配置信息。
+                     * @return QUICConfig 域名 QUIC 配置信息。
                      * 
                      */
                     DomainQUICConfig GetQUICConfig() const;
 
                     /**
-                     * 设置<p>域名 QUIC 配置信息。</p>
-                     * @param _qUICConfig <p>域名 QUIC 配置信息。</p>
+                     * 设置域名 QUIC 配置信息。
+                     * @param _qUICConfig 域名 QUIC 配置信息。
                      * 
                      */
                     void SetQUICConfig(const DomainQUICConfig& _qUICConfig);
@@ -221,15 +237,15 @@ namespace TencentCloud
                     bool QUICConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>IP 访问限制配置信息。</p>
-                     * @return IPFilterPolicy <p>IP 访问限制配置信息。</p>
+                     * 获取IP 访问限制配置信息。
+                     * @return IPFilterPolicy IP 访问限制配置信息。
                      * 
                      */
                     IPFilterPolicy GetIPFilterPolicy() const;
 
                     /**
-                     * 设置<p>IP 访问限制配置信息。</p>
-                     * @param _iPFilterPolicy <p>IP 访问限制配置信息。</p>
+                     * 设置IP 访问限制配置信息。
+                     * @param _iPFilterPolicy IP 访问限制配置信息。
                      * 
                      */
                     void SetIPFilterPolicy(const IPFilterPolicy& _iPFilterPolicy);
@@ -242,15 +258,15 @@ namespace TencentCloud
                     bool IPFilterPolicyHasBeenSet() const;
 
                     /**
-                     * 获取<p>域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li></p>
-                     * @return Type <p>域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li></p>
+                     * 获取域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li>
+                     * @return Type 域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li>
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li></p>
-                     * @param _type <p>域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li></p>
+                     * 设置域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li>
+                     * @param _type 域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li>
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -265,61 +281,65 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>域名名称。</p>
+                     * 域名名称。
                      */
                     std::string m_domain;
                     bool m_domainHasBeenSet;
 
                     /**
-                     * <p>加速地区信息。</p>
+                     * 加速地区信息。
                      */
                     std::vector<AccelerateAreaInfo> m_accelerateAreaInfos;
                     bool m_accelerateAreaInfosHasBeenSet;
 
                     /**
-                     * <p>部署状态，取值有：</p><li>Online：上线；</li><li>Deploying：部署中；</li><li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
+                     * 部署状态，取值有：
+<li>Online：上线；</li>
+<li>Deploying：部署中；</li>
+<li>Locked: 锁定中，出现该状态时，无法对该域名进行部署变更。</li>
                      */
                     std::string m_deployStatus;
                     bool m_deployStatusHasBeenSet;
 
                     /**
-                     * <p>HTTPS 配置信息。</p>
+                     * HTTPS 配置信息。
                      */
                     DomainHTTPSConfig m_hTTPSConfig;
                     bool m_hTTPSConfigHasBeenSet;
 
                     /**
-                     * <p><a href="https://cloud.tencent.com/document/product/266/14047">Key 防盗链</a>配置信息。</p>
+                     * [Key 防盗链](https://cloud.tencent.com/document/product/266/14047)配置信息。
                      */
                     UrlSignatureAuthPolicy m_urlSignatureAuthPolicy;
                     bool m_urlSignatureAuthPolicyHasBeenSet;
 
                     /**
-                     * <p><a href="https://cloud.tencent.com/document/product/266/14046">Referer 防盗链</a>配置信息。</p>
+                     * [Referer 防盗链](https://cloud.tencent.com/document/product/266/14046)配置信息。
                      */
                     RefererAuthPolicy m_refererAuthPolicy;
                     bool m_refererAuthPolicyHasBeenSet;
 
                     /**
-                     * <p>域名添加到腾讯云点播系统中的时间。<li>格式按照 ISO 8601标准表示，详见 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式说明</a>。</li></p>
+                     * 域名添加到腾讯云点播系统中的时间。
+<li>格式按照 ISO 8601标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。</li>
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>域名 QUIC 配置信息。</p>
+                     * 域名 QUIC 配置信息。
                      */
                     DomainQUICConfig m_qUICConfig;
                     bool m_qUICConfigHasBeenSet;
 
                     /**
-                     * <p>IP 访问限制配置信息。</p>
+                     * IP 访问限制配置信息。
                      */
                     IPFilterPolicy m_iPFilterPolicy;
                     bool m_iPFilterPolicyHasBeenSet;
 
                     /**
-                     * <p>域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li></p>
+                     * 域名类型，取值有： <li>VOD：使用 VOD 产品分发的域名；</li> <li>EdgeOne：使用 EdgeOne 产品分发的域名。</li>
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;

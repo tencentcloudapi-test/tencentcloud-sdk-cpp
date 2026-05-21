@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实体唯一ID</p>
-                     * @return ResourceUniqueId <p>实体唯一ID</p>
+                     * 获取实体唯一ID
+                     * @return ResourceUniqueId 实体唯一ID
                      * 
                      */
                     std::string GetResourceUniqueId() const;
 
                     /**
-                     * 设置<p>实体唯一ID</p>
-                     * @param _resourceUniqueId <p>实体唯一ID</p>
+                     * 设置实体唯一ID
+                     * @param _resourceUniqueId 实体唯一ID
                      * 
                      */
                     void SetResourceUniqueId(const std::string& _resourceUniqueId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool ResourceUniqueIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN</p>
-                     * @return ResourceType <p>实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN</p>
+                     * 获取实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN
+                     * @return ResourceType 实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN
                      * 
                      */
                     std::string GetResourceType() const;
 
                     /**
-                     * 设置<p>实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN</p>
-                     * @param _resourceType <p>实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN</p>
+                     * 设置实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN
+                     * @param _resourceType 实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN
                      * 
                      */
                     void SetResourceType(const std::string& _resourceType);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool ResourceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>血缘方向 INPUT｜OUTPUT</p>
-                     * @return Direction <p>血缘方向 INPUT｜OUTPUT</p>
+                     * 获取血缘方向 INPUT｜OUTPUT
+                     * @return Direction 血缘方向 INPUT｜OUTPUT
                      * 
                      */
                     std::string GetDirection() const;
 
                     /**
-                     * 设置<p>血缘方向 INPUT｜OUTPUT</p>
-                     * @param _direction <p>血缘方向 INPUT｜OUTPUT</p>
+                     * 设置血缘方向 INPUT｜OUTPUT
+                     * @param _direction 血缘方向 INPUT｜OUTPUT
                      * 
                      */
                     void SetDirection(const std::string& _direction);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool DirectionHasBeenSet() const;
 
                     /**
-                     * 获取<p>页码</p>
-                     * @return PageNumber <p>页码</p>
+                     * 获取页码
+                     * @return PageNumber 页码
                      * 
                      */
                     int64_t GetPageNumber() const;
 
                     /**
-                     * 设置<p>页码</p>
-                     * @param _pageNumber <p>页码</p>
+                     * 设置页码
+                     * @param _pageNumber 页码
                      * 
                      */
                     void SetPageNumber(const int64_t& _pageNumber);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>分页大小</p>
-                     * @return PageSize <p>分页大小</p>
+                     * 获取分页大小
+                     * @return PageSize 分页大小
                      * 
                      */
                     int64_t GetPageSize() const;
 
                     /**
-                     * 设置<p>分页大小</p>
-                     * @param _pageSize <p>分页大小</p>
+                     * 设置分页大小
+                     * @param _pageSize 分页大小
                      * 
                      */
                     void SetPageSize(const int64_t& _pageSize);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool PageSizeHasBeenSet() const;
 
                     /**
-                     * 获取<p>来源：WEDATA|THIRD 默认WEDATA</p>
-                     * @return Platform <p>来源：WEDATA|THIRD 默认WEDATA</p>
+                     * 获取来源：WEDATA|THIRD 默认WEDATA
+                     * @return Platform 来源：WEDATA|THIRD 默认WEDATA
                      * 
                      */
                     std::string GetPlatform() const;
 
                     /**
-                     * 设置<p>来源：WEDATA|THIRD 默认WEDATA</p>
-                     * @param _platform <p>来源：WEDATA|THIRD 默认WEDATA</p>
+                     * 设置来源：WEDATA|THIRD 默认WEDATA
+                     * @param _platform 来源：WEDATA|THIRD 默认WEDATA
                      * 
                      */
                     void SetPlatform(const std::string& _platform);
@@ -171,37 +171,37 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>实体唯一ID</p>
+                     * 实体唯一ID
                      */
                     std::string m_resourceUniqueId;
                     bool m_resourceUniqueIdHasBeenSet;
 
                     /**
-                     * <p>实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN</p>
+                     * 实体类型 TABLE|METRIC|MODEL|SERVICE|COLUMN
                      */
                     std::string m_resourceType;
                     bool m_resourceTypeHasBeenSet;
 
                     /**
-                     * <p>血缘方向 INPUT｜OUTPUT</p>
+                     * 血缘方向 INPUT｜OUTPUT
                      */
                     std::string m_direction;
                     bool m_directionHasBeenSet;
 
                     /**
-                     * <p>页码</p>
+                     * 页码
                      */
                     int64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * <p>分页大小</p>
+                     * 分页大小
                      */
                     int64_t m_pageSize;
                     bool m_pageSizeHasBeenSet;
 
                     /**
-                     * <p>来源：WEDATA|THIRD 默认WEDATA</p>
+                     * 来源：WEDATA|THIRD 默认WEDATA
                      */
                     std::string m_platform;
                     bool m_platformHasBeenSet;

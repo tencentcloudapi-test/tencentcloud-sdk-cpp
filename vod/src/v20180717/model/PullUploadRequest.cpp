@@ -36,8 +36,7 @@ PullUploadRequest::PullUploadRequest() :
     m_sessionContextHasBeenSet(false),
     m_sessionIdHasBeenSet(false),
     m_extInfoHasBeenSet(false),
-    m_sourceContextHasBeenSet(false),
-    m_mediaStoragePathHasBeenSet(false)
+    m_sourceContextHasBeenSet(false)
 {
 }
 
@@ -158,14 +157,6 @@ string PullUploadRequest::ToJsonString() const
         string key = "SourceContext";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_sourceContext.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_mediaStoragePathHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MediaStoragePath";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_mediaStoragePath.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -398,22 +389,6 @@ void PullUploadRequest::SetSourceContext(const string& _sourceContext)
 bool PullUploadRequest::SourceContextHasBeenSet() const
 {
     return m_sourceContextHasBeenSet;
-}
-
-string PullUploadRequest::GetMediaStoragePath() const
-{
-    return m_mediaStoragePath;
-}
-
-void PullUploadRequest::SetMediaStoragePath(const string& _mediaStoragePath)
-{
-    m_mediaStoragePath = _mediaStoragePath;
-    m_mediaStoragePathHasBeenSet = true;
-}
-
-bool PullUploadRequest::MediaStoragePathHasBeenSet() const
-{
-    return m_mediaStoragePathHasBeenSet;
 }
 
 

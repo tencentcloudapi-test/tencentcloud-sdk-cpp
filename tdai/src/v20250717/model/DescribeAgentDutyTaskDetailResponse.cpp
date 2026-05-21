@@ -23,8 +23,7 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Tdai::V20250717::Model;
 using namespace std;
 
-DescribeAgentDutyTaskDetailResponse::DescribeAgentDutyTaskDetailResponse() :
-    m_agentDutyTaskHasBeenSet(false)
+DescribeAgentDutyTaskDetailResponse::DescribeAgentDutyTaskDetailResponse()
 {
 }
 
@@ -62,23 +61,6 @@ CoreInternalOutcome DescribeAgentDutyTaskDetailResponse::Deserialize(const strin
     }
 
 
-    if (rsp.HasMember("AgentDutyTask") && !rsp["AgentDutyTask"].IsNull())
-    {
-        if (!rsp["AgentDutyTask"].IsObject())
-        {
-            return CoreInternalOutcome(Core::Error("response `AgentDutyTask` is not object type").SetRequestId(requestId));
-        }
-
-        CoreInternalOutcome outcome = m_agentDutyTask.Deserialize(rsp["AgentDutyTask"]);
-        if (!outcome.IsSuccess())
-        {
-            outcome.GetError().SetRequestId(requestId);
-            return outcome;
-        }
-
-        m_agentDutyTaskHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -88,15 +70,6 @@ string DescribeAgentDutyTaskDetailResponse::ToJsonString() const
     rapidjson::Document value;
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
-
-    if (m_agentDutyTaskHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AgentDutyTask";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_agentDutyTask.ToJsonObject(value[key.c_str()], allocator);
-    }
 
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
@@ -109,15 +82,5 @@ string DescribeAgentDutyTaskDetailResponse::ToJsonString() const
     return buffer.GetString();
 }
 
-
-AgentDutyTask DescribeAgentDutyTaskDetailResponse::GetAgentDutyTask() const
-{
-    return m_agentDutyTask;
-}
-
-bool DescribeAgentDutyTaskDetailResponse::AgentDutyTaskHasBeenSet() const
-{
-    return m_agentDutyTaskHasBeenSet;
-}
 
 

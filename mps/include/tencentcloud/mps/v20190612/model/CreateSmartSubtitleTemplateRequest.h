@@ -22,7 +22,6 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mps/v20190612/model/AsrHotWordsConfigure.h>
-#include <tencentcloud/mps/v20190612/model/SelectingSubtitleAreasConfig.h>
 
 
 namespace TencentCloud
@@ -45,15 +44,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>智能字幕模板名称<br>长度限制：64 个字符。</p>
-                     * @return Name <p>智能字幕模板名称<br>长度限制：64 个字符。</p>
+                     * 获取智能字幕模板名称
+长度限制：64 个字符。
+                     * @return Name 智能字幕模板名称
+长度限制：64 个字符。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>智能字幕模板名称<br>长度限制：64 个字符。</p>
-                     * @param _name <p>智能字幕模板名称<br>长度限制：64 个字符。</p>
+                     * 设置智能字幕模板名称
+长度限制：64 个字符。
+                     * @param _name 智能字幕模板名称
+长度限制：64 个字符。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -66,15 +69,123 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能字幕视频源语言</p><p>ASR识别和纯字幕翻译取值参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 识别支持语种</a></p><p>下面列举部分常用取值</p><p><code>auto</code>：自动识别，<code>zh</code>：简体中文，<code>en</code>：英语，<code>ja</code>：日语，<code>ko</code>：韩语，<code>zh-PY</code>：中英粤，<code>zh_medical</code>：中文医疗，<code>vi</code>：越南语，<code>ms</code>：马来语，<code>id</code>：印度尼西亚语，<code>fil</code>：菲律宾语，<code>th</code>：泰语，<code>pt</code>：葡萄牙语，<code>tr</code>：土耳其语，<code>ar</code>：阿拉伯语，<code>es</code>：西班牙语，<code>hi</code>：印地语，<code>fr</code>：法语，<code>de</code>：德语，<code>it</code>：意大利语，<code>zh_dialect</code>：中文方言，<code>zh_en</code>：中英，<code>yue</code>：粤语，<code>ru</code>：俄语，<code>prime_zh</code>：中英方言</p><p>OCR 识别仅支持以下取值：</p><p><code>zh_en</code>：中英<br><code>multi</code>：其他</p><p>不同取值支持的语种参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 识别支持语种</a></p>
-                     * @return VideoSrcLanguage <p>智能字幕视频源语言</p><p>ASR识别和纯字幕翻译取值参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 识别支持语种</a></p><p>下面列举部分常用取值</p><p><code>auto</code>：自动识别，<code>zh</code>：简体中文，<code>en</code>：英语，<code>ja</code>：日语，<code>ko</code>：韩语，<code>zh-PY</code>：中英粤，<code>zh_medical</code>：中文医疗，<code>vi</code>：越南语，<code>ms</code>：马来语，<code>id</code>：印度尼西亚语，<code>fil</code>：菲律宾语，<code>th</code>：泰语，<code>pt</code>：葡萄牙语，<code>tr</code>：土耳其语，<code>ar</code>：阿拉伯语，<code>es</code>：西班牙语，<code>hi</code>：印地语，<code>fr</code>：法语，<code>de</code>：德语，<code>it</code>：意大利语，<code>zh_dialect</code>：中文方言，<code>zh_en</code>：中英，<code>yue</code>：粤语，<code>ru</code>：俄语，<code>prime_zh</code>：中英方言</p><p>OCR 识别仅支持以下取值：</p><p><code>zh_en</code>：中英<br><code>multi</code>：其他</p><p>不同取值支持的语种参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 识别支持语种</a></p>
+                     * 获取智能字幕视频源语言
+当前支持以下语言：
+`zh`：简体中文
+`yue`：中文粵语
+`zh-PY`：中英粤
+`zh_medical`：中文医疗
+`zh_dialect`：中文方言
+`prime_zh`：中英方言
+`zh_en`：中英
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+`auto`：自动识别（仅在纯字幕翻译中支持）
+                     * @return VideoSrcLanguage 智能字幕视频源语言
+当前支持以下语言：
+`zh`：简体中文
+`yue`：中文粵语
+`zh-PY`：中英粤
+`zh_medical`：中文医疗
+`zh_dialect`：中文方言
+`prime_zh`：中英方言
+`zh_en`：中英
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+`auto`：自动识别（仅在纯字幕翻译中支持）
                      * 
                      */
                     std::string GetVideoSrcLanguage() const;
 
                     /**
-                     * 设置<p>智能字幕视频源语言</p><p>ASR识别和纯字幕翻译取值参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 识别支持语种</a></p><p>下面列举部分常用取值</p><p><code>auto</code>：自动识别，<code>zh</code>：简体中文，<code>en</code>：英语，<code>ja</code>：日语，<code>ko</code>：韩语，<code>zh-PY</code>：中英粤，<code>zh_medical</code>：中文医疗，<code>vi</code>：越南语，<code>ms</code>：马来语，<code>id</code>：印度尼西亚语，<code>fil</code>：菲律宾语，<code>th</code>：泰语，<code>pt</code>：葡萄牙语，<code>tr</code>：土耳其语，<code>ar</code>：阿拉伯语，<code>es</code>：西班牙语，<code>hi</code>：印地语，<code>fr</code>：法语，<code>de</code>：德语，<code>it</code>：意大利语，<code>zh_dialect</code>：中文方言，<code>zh_en</code>：中英，<code>yue</code>：粤语，<code>ru</code>：俄语，<code>prime_zh</code>：中英方言</p><p>OCR 识别仅支持以下取值：</p><p><code>zh_en</code>：中英<br><code>multi</code>：其他</p><p>不同取值支持的语种参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 识别支持语种</a></p>
-                     * @param _videoSrcLanguage <p>智能字幕视频源语言</p><p>ASR识别和纯字幕翻译取值参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 识别支持语种</a></p><p>下面列举部分常用取值</p><p><code>auto</code>：自动识别，<code>zh</code>：简体中文，<code>en</code>：英语，<code>ja</code>：日语，<code>ko</code>：韩语，<code>zh-PY</code>：中英粤，<code>zh_medical</code>：中文医疗，<code>vi</code>：越南语，<code>ms</code>：马来语，<code>id</code>：印度尼西亚语，<code>fil</code>：菲律宾语，<code>th</code>：泰语，<code>pt</code>：葡萄牙语，<code>tr</code>：土耳其语，<code>ar</code>：阿拉伯语，<code>es</code>：西班牙语，<code>hi</code>：印地语，<code>fr</code>：法语，<code>de</code>：德语，<code>it</code>：意大利语，<code>zh_dialect</code>：中文方言，<code>zh_en</code>：中英，<code>yue</code>：粤语，<code>ru</code>：俄语，<code>prime_zh</code>：中英方言</p><p>OCR 识别仅支持以下取值：</p><p><code>zh_en</code>：中英<br><code>multi</code>：其他</p><p>不同取值支持的语种参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 识别支持语种</a></p>
+                     * 设置智能字幕视频源语言
+当前支持以下语言：
+`zh`：简体中文
+`yue`：中文粵语
+`zh-PY`：中英粤
+`zh_medical`：中文医疗
+`zh_dialect`：中文方言
+`prime_zh`：中英方言
+`zh_en`：中英
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+`auto`：自动识别（仅在纯字幕翻译中支持）
+                     * @param _videoSrcLanguage 智能字幕视频源语言
+当前支持以下语言：
+`zh`：简体中文
+`yue`：中文粵语
+`zh-PY`：中英粤
+`zh_medical`：中文医疗
+`zh_dialect`：中文方言
+`prime_zh`：中英方言
+`zh_en`：中英
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+`auto`：自动识别（仅在纯字幕翻译中支持）
                      * 
                      */
                     void SetVideoSrcLanguage(const std::string& _videoSrcLanguage);
@@ -87,15 +198,35 @@ namespace TencentCloud
                     bool VideoSrcLanguageHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能字幕字幕语言类型<br>0: 源语言<br>1: 翻译语言<br>2: 源语言+翻译语言<br>当TranslateSwitch为OFF时仅支持取0<br>当TranslateSwitch为ON时仅支持取1或2</p>
-                     * @return SubtitleType <p>智能字幕字幕语言类型<br>0: 源语言<br>1: 翻译语言<br>2: 源语言+翻译语言<br>当TranslateSwitch为OFF时仅支持取0<br>当TranslateSwitch为ON时仅支持取1或2</p>
+                     * 获取智能字幕字幕语言类型
+0: 源语言
+1: 翻译语言
+2: 源语言+翻译语言
+当TranslateSwitch为OFF时仅支持取0
+当TranslateSwitch为ON时仅支持取1或2
+                     * @return SubtitleType 智能字幕字幕语言类型
+0: 源语言
+1: 翻译语言
+2: 源语言+翻译语言
+当TranslateSwitch为OFF时仅支持取0
+当TranslateSwitch为ON时仅支持取1或2
                      * 
                      */
                     int64_t GetSubtitleType() const;
 
                     /**
-                     * 设置<p>智能字幕字幕语言类型<br>0: 源语言<br>1: 翻译语言<br>2: 源语言+翻译语言<br>当TranslateSwitch为OFF时仅支持取0<br>当TranslateSwitch为ON时仅支持取1或2</p>
-                     * @param _subtitleType <p>智能字幕字幕语言类型<br>0: 源语言<br>1: 翻译语言<br>2: 源语言+翻译语言<br>当TranslateSwitch为OFF时仅支持取0<br>当TranslateSwitch为ON时仅支持取1或2</p>
+                     * 设置智能字幕字幕语言类型
+0: 源语言
+1: 翻译语言
+2: 源语言+翻译语言
+当TranslateSwitch为OFF时仅支持取0
+当TranslateSwitch为ON时仅支持取1或2
+                     * @param _subtitleType 智能字幕字幕语言类型
+0: 源语言
+1: 翻译语言
+2: 源语言+翻译语言
+当TranslateSwitch为OFF时仅支持取0
+当TranslateSwitch为ON时仅支持取1或2
                      * 
                      */
                     void SetSubtitleType(const int64_t& _subtitleType);
@@ -108,15 +239,19 @@ namespace TencentCloud
                     bool SubtitleTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能字幕模板描述信息<br>长度限制：256 个字符。</p>
-                     * @return Comment <p>智能字幕模板描述信息<br>长度限制：256 个字符。</p>
+                     * 获取智能字幕模板描述信息
+长度限制：256 个字符。
+                     * @return Comment 智能字幕模板描述信息
+长度限制：256 个字符。
                      * 
                      */
                     std::string GetComment() const;
 
                     /**
-                     * 设置<p>智能字幕模板描述信息<br>长度限制：256 个字符。</p>
-                     * @param _comment <p>智能字幕模板描述信息<br>长度限制：256 个字符。</p>
+                     * 设置智能字幕模板描述信息
+长度限制：256 个字符。
+                     * @param _comment 智能字幕模板描述信息
+长度限制：256 个字符。
                      * 
                      */
                     void SetComment(const std::string& _comment);
@@ -129,15 +264,63 @@ namespace TencentCloud
                     bool CommentHasBeenSet() const;
 
                     /**
-                     * 获取<p>智能字幕文件格式:</p><ul><li>ASR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li><li>不填或填空：不生成字幕文件</li></ul></li><li>纯字幕翻译处理类型下：<ul><li>original：与源文件一致</li><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li><li>OCR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li></ul><p><strong>注意</strong>：</p><ul><li>ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；</li><li>纯字幕翻译方式下，不允许传空或不传</li><li>OCR类型的任务，在开启压制时，允许不传或传空</li></ul>
-                     * @return SubtitleFormat <p>智能字幕文件格式:</p><ul><li>ASR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li><li>不填或填空：不生成字幕文件</li></ul></li><li>纯字幕翻译处理类型下：<ul><li>original：与源文件一致</li><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li><li>OCR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li></ul><p><strong>注意</strong>：</p><ul><li>ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；</li><li>纯字幕翻译方式下，不允许传空或不传</li><li>OCR类型的任务，在开启压制时，允许不传或传空</li></ul>
+                     * 获取智能字幕文件格式:
+- ASR识别翻译处理类型下：
+     - vtt: WebVTT 格式字幕
+     - srt: SRT 格式字幕
+     - 不填或填空：不生成字幕文件
+- 纯字幕翻译处理类型下：
+    - original：与源文件一致
+    - vtt: WebVTT 格式字幕
+    - srt: SRT 格式字幕
+
+**注意**：
+- ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；
+- 纯字幕翻译方式下，不允许传空或不传
+                     * @return SubtitleFormat 智能字幕文件格式:
+- ASR识别翻译处理类型下：
+     - vtt: WebVTT 格式字幕
+     - srt: SRT 格式字幕
+     - 不填或填空：不生成字幕文件
+- 纯字幕翻译处理类型下：
+    - original：与源文件一致
+    - vtt: WebVTT 格式字幕
+    - srt: SRT 格式字幕
+
+**注意**：
+- ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；
+- 纯字幕翻译方式下，不允许传空或不传
                      * 
                      */
                     std::string GetSubtitleFormat() const;
 
                     /**
-                     * 设置<p>智能字幕文件格式:</p><ul><li>ASR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li><li>不填或填空：不生成字幕文件</li></ul></li><li>纯字幕翻译处理类型下：<ul><li>original：与源文件一致</li><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li><li>OCR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li></ul><p><strong>注意</strong>：</p><ul><li>ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；</li><li>纯字幕翻译方式下，不允许传空或不传</li><li>OCR类型的任务，在开启压制时，允许不传或传空</li></ul>
-                     * @param _subtitleFormat <p>智能字幕文件格式:</p><ul><li>ASR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li><li>不填或填空：不生成字幕文件</li></ul></li><li>纯字幕翻译处理类型下：<ul><li>original：与源文件一致</li><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li><li>OCR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li></ul><p><strong>注意</strong>：</p><ul><li>ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；</li><li>纯字幕翻译方式下，不允许传空或不传</li><li>OCR类型的任务，在开启压制时，允许不传或传空</li></ul>
+                     * 设置智能字幕文件格式:
+- ASR识别翻译处理类型下：
+     - vtt: WebVTT 格式字幕
+     - srt: SRT 格式字幕
+     - 不填或填空：不生成字幕文件
+- 纯字幕翻译处理类型下：
+    - original：与源文件一致
+    - vtt: WebVTT 格式字幕
+    - srt: SRT 格式字幕
+
+**注意**：
+- ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；
+- 纯字幕翻译方式下，不允许传空或不传
+                     * @param _subtitleFormat 智能字幕文件格式:
+- ASR识别翻译处理类型下：
+     - vtt: WebVTT 格式字幕
+     - srt: SRT 格式字幕
+     - 不填或填空：不生成字幕文件
+- 纯字幕翻译处理类型下：
+    - original：与源文件一致
+    - vtt: WebVTT 格式字幕
+    - srt: SRT 格式字幕
+
+**注意**：
+- ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；
+- 纯字幕翻译方式下，不允许传空或不传
                      * 
                      */
                     void SetSubtitleFormat(const std::string& _subtitleFormat);
@@ -150,15 +333,15 @@ namespace TencentCloud
                     bool SubtitleFormatHasBeenSet() const;
 
                     /**
-                     * 获取<p>ASR热词库参数</p>
-                     * @return AsrHotWordsConfigure <p>ASR热词库参数</p>
+                     * 获取ASR热词库参数
+                     * @return AsrHotWordsConfigure ASR热词库参数
                      * 
                      */
                     AsrHotWordsConfigure GetAsrHotWordsConfigure() const;
 
                     /**
-                     * 设置<p>ASR热词库参数</p>
-                     * @param _asrHotWordsConfigure <p>ASR热词库参数</p>
+                     * 设置ASR热词库参数
+                     * @param _asrHotWordsConfigure ASR热词库参数
                      * 
                      */
                     void SetAsrHotWordsConfigure(const AsrHotWordsConfigure& _asrHotWordsConfigure);
@@ -171,15 +354,31 @@ namespace TencentCloud
                     bool AsrHotWordsConfigureHasBeenSet() const;
 
                     /**
-                     * 获取<p>字幕翻译开关<br><code>ON</code>: 开启翻译<br><code>OFF</code>: 关闭翻译</p><p><strong>注意</strong>：纯字幕翻译方式下，不传默认是打开的，不允许传空或<code>OFF</code>；</p>
-                     * @return TranslateSwitch <p>字幕翻译开关<br><code>ON</code>: 开启翻译<br><code>OFF</code>: 关闭翻译</p><p><strong>注意</strong>：纯字幕翻译方式下，不传默认是打开的，不允许传空或<code>OFF</code>；</p>
+                     * 获取字幕翻译开关
+`ON`: 开启翻译
+`OFF`: 关闭翻译
+
+**注意**：纯字幕翻译方式下，不传默认是打开的，不允许传空或`OFF`；
+                     * @return TranslateSwitch 字幕翻译开关
+`ON`: 开启翻译
+`OFF`: 关闭翻译
+
+**注意**：纯字幕翻译方式下，不传默认是打开的，不允许传空或`OFF`；
                      * 
                      */
                     std::string GetTranslateSwitch() const;
 
                     /**
-                     * 设置<p>字幕翻译开关<br><code>ON</code>: 开启翻译<br><code>OFF</code>: 关闭翻译</p><p><strong>注意</strong>：纯字幕翻译方式下，不传默认是打开的，不允许传空或<code>OFF</code>；</p>
-                     * @param _translateSwitch <p>字幕翻译开关<br><code>ON</code>: 开启翻译<br><code>OFF</code>: 关闭翻译</p><p><strong>注意</strong>：纯字幕翻译方式下，不传默认是打开的，不允许传空或<code>OFF</code>；</p>
+                     * 设置字幕翻译开关
+`ON`: 开启翻译
+`OFF`: 关闭翻译
+
+**注意**：纯字幕翻译方式下，不传默认是打开的，不允许传空或`OFF`；
+                     * @param _translateSwitch 字幕翻译开关
+`ON`: 开启翻译
+`OFF`: 关闭翻译
+
+**注意**：纯字幕翻译方式下，不传默认是打开的，不允许传空或`OFF`；
                      * 
                      */
                     void SetTranslateSwitch(const std::string& _translateSwitch);
@@ -192,15 +391,111 @@ namespace TencentCloud
                     bool TranslateSwitchHasBeenSet() const;
 
                     /**
-                     * 获取<p>字幕翻译目标语言当TranslateSwitch为ON的时候生效，翻译语言列表：</p><p>ASR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 翻译支持语种</a><br>OCR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 翻译支持语种</a></p><p><strong>注意</strong>：多语言方式，则使用 <code>/</code> 分割，如：<code>en/ja</code>，表示英语和日语。</p><p>部分常用语种示例：</p><p><code>ar</code>：阿拉伯语<br><code>en</code>：英语<br><code>fr</code>：法语<br><code>it</code>：意大利语<br><code>ja</code>：日语<br><code>ko</code>：韩语<br><code>ru</code>：俄语<br><code>th</code>：泰语<br><code>tr</code>：土耳其语<br><code>vi</code>：越南语<br><code>yue</code>：粤语<br><code>zh</code>：简体中文<br><code>zh-TW</code>：繁体中文</p>
-                     * @return TranslateDstLanguage <p>字幕翻译目标语言当TranslateSwitch为ON的时候生效，翻译语言列表：</p><p>ASR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 翻译支持语种</a><br>OCR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 翻译支持语种</a></p><p><strong>注意</strong>：多语言方式，则使用 <code>/</code> 分割，如：<code>en/ja</code>，表示英语和日语。</p><p>部分常用语种示例：</p><p><code>ar</code>：阿拉伯语<br><code>en</code>：英语<br><code>fr</code>：法语<br><code>it</code>：意大利语<br><code>ja</code>：日语<br><code>ko</code>：韩语<br><code>ru</code>：俄语<br><code>th</code>：泰语<br><code>tr</code>：土耳其语<br><code>vi</code>：越南语<br><code>yue</code>：粤语<br><code>zh</code>：简体中文<br><code>zh-TW</code>：繁体中文</p>
+                     * 获取字幕翻译目标语言，当TranslateSwitch为`ON`的时候生效
+当前支持以下语言：
+
+`zh`：简体中文
+`zh-TW`：繁体中文
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语 
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语 
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+
+**注意**：多语言方式，则使用 `/` 分割，如：`en/ja`，表示英语和日语。
+                     * @return TranslateDstLanguage 字幕翻译目标语言，当TranslateSwitch为`ON`的时候生效
+当前支持以下语言：
+
+`zh`：简体中文
+`zh-TW`：繁体中文
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语 
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语 
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+
+**注意**：多语言方式，则使用 `/` 分割，如：`en/ja`，表示英语和日语。
                      * 
                      */
                     std::string GetTranslateDstLanguage() const;
 
                     /**
-                     * 设置<p>字幕翻译目标语言当TranslateSwitch为ON的时候生效，翻译语言列表：</p><p>ASR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 翻译支持语种</a><br>OCR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 翻译支持语种</a></p><p><strong>注意</strong>：多语言方式，则使用 <code>/</code> 分割，如：<code>en/ja</code>，表示英语和日语。</p><p>部分常用语种示例：</p><p><code>ar</code>：阿拉伯语<br><code>en</code>：英语<br><code>fr</code>：法语<br><code>it</code>：意大利语<br><code>ja</code>：日语<br><code>ko</code>：韩语<br><code>ru</code>：俄语<br><code>th</code>：泰语<br><code>tr</code>：土耳其语<br><code>vi</code>：越南语<br><code>yue</code>：粤语<br><code>zh</code>：简体中文<br><code>zh-TW</code>：繁体中文</p>
-                     * @param _translateDstLanguage <p>字幕翻译目标语言当TranslateSwitch为ON的时候生效，翻译语言列表：</p><p>ASR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 翻译支持语种</a><br>OCR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 翻译支持语种</a></p><p><strong>注意</strong>：多语言方式，则使用 <code>/</code> 分割，如：<code>en/ja</code>，表示英语和日语。</p><p>部分常用语种示例：</p><p><code>ar</code>：阿拉伯语<br><code>en</code>：英语<br><code>fr</code>：法语<br><code>it</code>：意大利语<br><code>ja</code>：日语<br><code>ko</code>：韩语<br><code>ru</code>：俄语<br><code>th</code>：泰语<br><code>tr</code>：土耳其语<br><code>vi</code>：越南语<br><code>yue</code>：粤语<br><code>zh</code>：简体中文<br><code>zh-TW</code>：繁体中文</p>
+                     * 设置字幕翻译目标语言，当TranslateSwitch为`ON`的时候生效
+当前支持以下语言：
+
+`zh`：简体中文
+`zh-TW`：繁体中文
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语 
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语 
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+
+**注意**：多语言方式，则使用 `/` 分割，如：`en/ja`，表示英语和日语。
+                     * @param _translateDstLanguage 字幕翻译目标语言，当TranslateSwitch为`ON`的时候生效
+当前支持以下语言：
+
+`zh`：简体中文
+`zh-TW`：繁体中文
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语 
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语 
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+
+**注意**：多语言方式，则使用 `/` 分割，如：`en/ja`，表示英语和日语。
                      * 
                      */
                     void SetTranslateDstLanguage(const std::string& _translateDstLanguage);
@@ -213,15 +508,31 @@ namespace TencentCloud
                     bool TranslateDstLanguageHasBeenSet() const;
 
                     /**
-                     * 获取<p>字幕处理类型：</p><ul><li>0：ASR识别字幕</li><li>1：纯字幕翻译</li><li>2：OCR识别字幕</li></ul><p><strong>注意</strong>：不传的情况下默认类型为 ASR识别字幕</p>
-                     * @return ProcessType <p>字幕处理类型：</p><ul><li>0：ASR识别字幕</li><li>1：纯字幕翻译</li><li>2：OCR识别字幕</li></ul><p><strong>注意</strong>：不传的情况下默认类型为 ASR识别字幕</p>
+                     * 获取字幕处理类型：
+- 0：ASR识别字幕
+- 1：纯字幕翻译
+
+**注意**：不传的情况下默认类型为 ASR识别字幕
+                     * @return ProcessType 字幕处理类型：
+- 0：ASR识别字幕
+- 1：纯字幕翻译
+
+**注意**：不传的情况下默认类型为 ASR识别字幕
                      * 
                      */
                     uint64_t GetProcessType() const;
 
                     /**
-                     * 设置<p>字幕处理类型：</p><ul><li>0：ASR识别字幕</li><li>1：纯字幕翻译</li><li>2：OCR识别字幕</li></ul><p><strong>注意</strong>：不传的情况下默认类型为 ASR识别字幕</p>
-                     * @param _processType <p>字幕处理类型：</p><ul><li>0：ASR识别字幕</li><li>1：纯字幕翻译</li><li>2：OCR识别字幕</li></ul><p><strong>注意</strong>：不传的情况下默认类型为 ASR识别字幕</p>
+                     * 设置字幕处理类型：
+- 0：ASR识别字幕
+- 1：纯字幕翻译
+
+**注意**：不传的情况下默认类型为 ASR识别字幕
+                     * @param _processType 字幕处理类型：
+- 0：ASR识别字幕
+- 1：纯字幕翻译
+
+**注意**：不传的情况下默认类型为 ASR识别字幕
                      * 
                      */
                     void SetProcessType(const uint64_t& _processType);
@@ -233,169 +544,139 @@ namespace TencentCloud
                      */
                     bool ProcessTypeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>字幕OCR提取框选区域配置</p>
-                     * @return SelectingSubtitleAreasConfig <p>字幕OCR提取框选区域配置</p>
-                     * 
-                     */
-                    SelectingSubtitleAreasConfig GetSelectingSubtitleAreasConfig() const;
-
-                    /**
-                     * 设置<p>字幕OCR提取框选区域配置</p>
-                     * @param _selectingSubtitleAreasConfig <p>字幕OCR提取框选区域配置</p>
-                     * 
-                     */
-                    void SetSelectingSubtitleAreasConfig(const SelectingSubtitleAreasConfig& _selectingSubtitleAreasConfig);
-
-                    /**
-                     * 判断参数 SelectingSubtitleAreasConfig 是否已赋值
-                     * @return SelectingSubtitleAreasConfig 是否已赋值
-                     * 
-                     */
-                    bool SelectingSubtitleAreasConfigHasBeenSet() const;
-
-                    /**
-                     * 获取<p>压制模板id，只有ProcessType为0或2（任务类型为ASR或OCR）时才允许填写。开启多个翻译语言时，不允许填写。</p>
-                     * @return SubtitleEmbedId <p>压制模板id，只有ProcessType为0或2（任务类型为ASR或OCR）时才允许填写。开启多个翻译语言时，不允许填写。</p>
-                     * 
-                     */
-                    int64_t GetSubtitleEmbedId() const;
-
-                    /**
-                     * 设置<p>压制模板id，只有ProcessType为0或2（任务类型为ASR或OCR）时才允许填写。开启多个翻译语言时，不允许填写。</p>
-                     * @param _subtitleEmbedId <p>压制模板id，只有ProcessType为0或2（任务类型为ASR或OCR）时才允许填写。开启多个翻译语言时，不允许填写。</p>
-                     * 
-                     */
-                    void SetSubtitleEmbedId(const int64_t& _subtitleEmbedId);
-
-                    /**
-                     * 判断参数 SubtitleEmbedId 是否已赋值
-                     * @return SubtitleEmbedId 是否已赋值
-                     * 
-                     */
-                    bool SubtitleEmbedIdHasBeenSet() const;
-
-                    /**
-                     * 获取<p>说话人识别开关，可选值：<br>0：表示不开启说话人识别；<br>1：表示开启说话人识别；<br>默认不开启说话人识别。</p>
-                     * @return SpeakerMode <p>说话人识别开关，可选值：<br>0：表示不开启说话人识别；<br>1：表示开启说话人识别；<br>默认不开启说话人识别。</p>
-                     * 
-                     */
-                    int64_t GetSpeakerMode() const;
-
-                    /**
-                     * 设置<p>说话人识别开关，可选值：<br>0：表示不开启说话人识别；<br>1：表示开启说话人识别；<br>默认不开启说话人识别。</p>
-                     * @param _speakerMode <p>说话人识别开关，可选值：<br>0：表示不开启说话人识别；<br>1：表示开启说话人识别；<br>默认不开启说话人识别。</p>
-                     * 
-                     */
-                    void SetSpeakerMode(const int64_t& _speakerMode);
-
-                    /**
-                     * 判断参数 SpeakerMode 是否已赋值
-                     * @return SpeakerMode 是否已赋值
-                     * 
-                     */
-                    bool SpeakerModeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>说话人识别输出到字幕文件，可选值：<br>0：表示不输出到字幕文件；<br>1：表示输出到vtt字幕文件<br>注意：使用此参数SpeakerMode的值不能为0；<br>默认不输出到字幕文件。</p>
-                     * @return SpeakerLabel <p>说话人识别输出到字幕文件，可选值：<br>0：表示不输出到字幕文件；<br>1：表示输出到vtt字幕文件<br>注意：使用此参数SpeakerMode的值不能为0；<br>默认不输出到字幕文件。</p>
-                     * 
-                     */
-                    int64_t GetSpeakerLabel() const;
-
-                    /**
-                     * 设置<p>说话人识别输出到字幕文件，可选值：<br>0：表示不输出到字幕文件；<br>1：表示输出到vtt字幕文件<br>注意：使用此参数SpeakerMode的值不能为0；<br>默认不输出到字幕文件。</p>
-                     * @param _speakerLabel <p>说话人识别输出到字幕文件，可选值：<br>0：表示不输出到字幕文件；<br>1：表示输出到vtt字幕文件<br>注意：使用此参数SpeakerMode的值不能为0；<br>默认不输出到字幕文件。</p>
-                     * 
-                     */
-                    void SetSpeakerLabel(const int64_t& _speakerLabel);
-
-                    /**
-                     * 判断参数 SpeakerLabel 是否已赋值
-                     * @return SpeakerLabel 是否已赋值
-                     * 
-                     */
-                    bool SpeakerLabelHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>智能字幕模板名称<br>长度限制：64 个字符。</p>
+                     * 智能字幕模板名称
+长度限制：64 个字符。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>智能字幕视频源语言</p><p>ASR识别和纯字幕翻译取值参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 识别支持语种</a></p><p>下面列举部分常用取值</p><p><code>auto</code>：自动识别，<code>zh</code>：简体中文，<code>en</code>：英语，<code>ja</code>：日语，<code>ko</code>：韩语，<code>zh-PY</code>：中英粤，<code>zh_medical</code>：中文医疗，<code>vi</code>：越南语，<code>ms</code>：马来语，<code>id</code>：印度尼西亚语，<code>fil</code>：菲律宾语，<code>th</code>：泰语，<code>pt</code>：葡萄牙语，<code>tr</code>：土耳其语，<code>ar</code>：阿拉伯语，<code>es</code>：西班牙语，<code>hi</code>：印地语，<code>fr</code>：法语，<code>de</code>：德语，<code>it</code>：意大利语，<code>zh_dialect</code>：中文方言，<code>zh_en</code>：中英，<code>yue</code>：粤语，<code>ru</code>：俄语，<code>prime_zh</code>：中英方言</p><p>OCR 识别仅支持以下取值：</p><p><code>zh_en</code>：中英<br><code>multi</code>：其他</p><p>不同取值支持的语种参考文档：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 识别支持语种</a></p>
+                     * 智能字幕视频源语言
+当前支持以下语言：
+`zh`：简体中文
+`yue`：中文粵语
+`zh-PY`：中英粤
+`zh_medical`：中文医疗
+`zh_dialect`：中文方言
+`prime_zh`：中英方言
+`zh_en`：中英
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+`auto`：自动识别（仅在纯字幕翻译中支持）
                      */
                     std::string m_videoSrcLanguage;
                     bool m_videoSrcLanguageHasBeenSet;
 
                     /**
-                     * <p>智能字幕字幕语言类型<br>0: 源语言<br>1: 翻译语言<br>2: 源语言+翻译语言<br>当TranslateSwitch为OFF时仅支持取0<br>当TranslateSwitch为ON时仅支持取1或2</p>
+                     * 智能字幕字幕语言类型
+0: 源语言
+1: 翻译语言
+2: 源语言+翻译语言
+当TranslateSwitch为OFF时仅支持取0
+当TranslateSwitch为ON时仅支持取1或2
                      */
                     int64_t m_subtitleType;
                     bool m_subtitleTypeHasBeenSet;
 
                     /**
-                     * <p>智能字幕模板描述信息<br>长度限制：256 个字符。</p>
+                     * 智能字幕模板描述信息
+长度限制：256 个字符。
                      */
                     std::string m_comment;
                     bool m_commentHasBeenSet;
 
                     /**
-                     * <p>智能字幕文件格式:</p><ul><li>ASR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li><li>不填或填空：不生成字幕文件</li></ul></li><li>纯字幕翻译处理类型下：<ul><li>original：与源文件一致</li><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li><li>OCR识别翻译处理类型下：<ul><li>vtt: WebVTT 格式字幕</li><li>srt: SRT 格式字幕</li></ul></li></ul><p><strong>注意</strong>：</p><ul><li>ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；</li><li>纯字幕翻译方式下，不允许传空或不传</li><li>OCR类型的任务，在开启压制时，允许不传或传空</li></ul>
+                     * 智能字幕文件格式:
+- ASR识别翻译处理类型下：
+     - vtt: WebVTT 格式字幕
+     - srt: SRT 格式字幕
+     - 不填或填空：不生成字幕文件
+- 纯字幕翻译处理类型下：
+    - original：与源文件一致
+    - vtt: WebVTT 格式字幕
+    - srt: SRT 格式字幕
+
+**注意**：
+- ASR识别方式下，翻译大于等于2种语言时不允许传空或不传；
+- 纯字幕翻译方式下，不允许传空或不传
                      */
                     std::string m_subtitleFormat;
                     bool m_subtitleFormatHasBeenSet;
 
                     /**
-                     * <p>ASR热词库参数</p>
+                     * ASR热词库参数
                      */
                     AsrHotWordsConfigure m_asrHotWordsConfigure;
                     bool m_asrHotWordsConfigureHasBeenSet;
 
                     /**
-                     * <p>字幕翻译开关<br><code>ON</code>: 开启翻译<br><code>OFF</code>: 关闭翻译</p><p><strong>注意</strong>：纯字幕翻译方式下，不传默认是打开的，不允许传空或<code>OFF</code>；</p>
+                     * 字幕翻译开关
+`ON`: 开启翻译
+`OFF`: 关闭翻译
+
+**注意**：纯字幕翻译方式下，不传默认是打开的，不允许传空或`OFF`；
                      */
                     std::string m_translateSwitch;
                     bool m_translateSwitchHasBeenSet;
 
                     /**
-                     * <p>字幕翻译目标语言当TranslateSwitch为ON的时候生效，翻译语言列表：</p><p>ASR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#ASRlanguages">ASR 翻译支持语种</a><br>OCR 提取翻译参考语种列表：<a href="https://cloud.tencent.com/document/product/862/116243#OCRlanguages">OCR 翻译支持语种</a></p><p><strong>注意</strong>：多语言方式，则使用 <code>/</code> 分割，如：<code>en/ja</code>，表示英语和日语。</p><p>部分常用语种示例：</p><p><code>ar</code>：阿拉伯语<br><code>en</code>：英语<br><code>fr</code>：法语<br><code>it</code>：意大利语<br><code>ja</code>：日语<br><code>ko</code>：韩语<br><code>ru</code>：俄语<br><code>th</code>：泰语<br><code>tr</code>：土耳其语<br><code>vi</code>：越南语<br><code>yue</code>：粤语<br><code>zh</code>：简体中文<br><code>zh-TW</code>：繁体中文</p>
+                     * 字幕翻译目标语言，当TranslateSwitch为`ON`的时候生效
+当前支持以下语言：
+
+`zh`：简体中文
+`zh-TW`：繁体中文
+`en`：英语
+`ja`：日语
+`ko`：韩语
+`fr`：法语
+`es`：西班牙语 
+`it`：意大利语
+`de`：德语
+`tr`：土耳其语
+`ru`：俄语
+`pt`：葡萄牙语（巴西）
+`pt-PT`：葡萄牙语（葡萄牙）
+`vi`：越南语
+`id`：印度尼西亚语 
+`ms`：马来语
+`th`：泰语
+`ar`：阿拉伯语
+`hi`：印地语
+`fil`：菲律宾语
+
+**注意**：多语言方式，则使用 `/` 分割，如：`en/ja`，表示英语和日语。
                      */
                     std::string m_translateDstLanguage;
                     bool m_translateDstLanguageHasBeenSet;
 
                     /**
-                     * <p>字幕处理类型：</p><ul><li>0：ASR识别字幕</li><li>1：纯字幕翻译</li><li>2：OCR识别字幕</li></ul><p><strong>注意</strong>：不传的情况下默认类型为 ASR识别字幕</p>
+                     * 字幕处理类型：
+- 0：ASR识别字幕
+- 1：纯字幕翻译
+
+**注意**：不传的情况下默认类型为 ASR识别字幕
                      */
                     uint64_t m_processType;
                     bool m_processTypeHasBeenSet;
-
-                    /**
-                     * <p>字幕OCR提取框选区域配置</p>
-                     */
-                    SelectingSubtitleAreasConfig m_selectingSubtitleAreasConfig;
-                    bool m_selectingSubtitleAreasConfigHasBeenSet;
-
-                    /**
-                     * <p>压制模板id，只有ProcessType为0或2（任务类型为ASR或OCR）时才允许填写。开启多个翻译语言时，不允许填写。</p>
-                     */
-                    int64_t m_subtitleEmbedId;
-                    bool m_subtitleEmbedIdHasBeenSet;
-
-                    /**
-                     * <p>说话人识别开关，可选值：<br>0：表示不开启说话人识别；<br>1：表示开启说话人识别；<br>默认不开启说话人识别。</p>
-                     */
-                    int64_t m_speakerMode;
-                    bool m_speakerModeHasBeenSet;
-
-                    /**
-                     * <p>说话人识别输出到字幕文件，可选值：<br>0：表示不输出到字幕文件；<br>1：表示输出到vtt字幕文件<br>注意：使用此参数SpeakerMode的值不能为0；<br>默认不输出到字幕文件。</p>
-                     */
-                    int64_t m_speakerLabel;
-                    bool m_speakerLabelHasBeenSet;
 
                 };
             }

@@ -22,7 +22,6 @@ using namespace std;
 
 AdaptiveFrequencyControl::AdaptiveFrequencyControl() :
     m_enabledHasBeenSet(false),
-    m_idHasBeenSet(false),
     m_sensitivityHasBeenSet(false),
     m_actionHasBeenSet(false)
 {
@@ -41,16 +40,6 @@ CoreInternalOutcome AdaptiveFrequencyControl::Deserialize(const rapidjson::Value
         }
         m_enabled = string(value["Enabled"].GetString());
         m_enabledHasBeenSet = true;
-    }
-
-    if (value.HasMember("Id") && !value["Id"].IsNull())
-    {
-        if (!value["Id"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveFrequencyControl.Id` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_id = string(value["Id"].GetString());
-        m_idHasBeenSet = true;
     }
 
     if (value.HasMember("Sensitivity") && !value["Sensitivity"].IsNull())
@@ -95,14 +84,6 @@ void AdaptiveFrequencyControl::ToJsonObject(rapidjson::Value &value, rapidjson::
         value.AddMember(iKey, rapidjson::Value(m_enabled.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_idHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Id";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_id.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_sensitivityHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -137,22 +118,6 @@ void AdaptiveFrequencyControl::SetEnabled(const string& _enabled)
 bool AdaptiveFrequencyControl::EnabledHasBeenSet() const
 {
     return m_enabledHasBeenSet;
-}
-
-string AdaptiveFrequencyControl::GetId() const
-{
-    return m_id;
-}
-
-void AdaptiveFrequencyControl::SetId(const string& _id)
-{
-    m_id = _id;
-    m_idHasBeenSet = true;
-}
-
-bool AdaptiveFrequencyControl::IdHasBeenSet() const
-{
-    return m_idHasBeenSet;
 }
 
 string AdaptiveFrequencyControl::GetSensitivity() const

@@ -55,8 +55,6 @@
 #include <tencentcloud/cvm/v20170312/model/DeleteImagesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/DeleteInstancesActionTimerRequest.h>
 #include <tencentcloud/cvm/v20170312/model/DeleteInstancesActionTimerResponse.h>
-#include <tencentcloud/cvm/v20170312/model/DeleteInstancesDisasterRecoverGroupsRequest.h>
-#include <tencentcloud/cvm/v20170312/model/DeleteInstancesDisasterRecoverGroupsResponse.h>
 #include <tencentcloud/cvm/v20170312/model/DeleteKeyPairsRequest.h>
 #include <tencentcloud/cvm/v20170312/model/DeleteKeyPairsResponse.h>
 #include <tencentcloud/cvm/v20170312/model/DeleteLaunchTemplateRequest.h>
@@ -117,12 +115,6 @@
 #include <tencentcloud/cvm/v20170312/model/DescribeLaunchTemplatesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/DescribeRegionsRequest.h>
 #include <tencentcloud/cvm/v20170312/model/DescribeRegionsResponse.h>
-#include <tencentcloud/cvm/v20170312/model/DescribeResourcePoolPackInstancesRequest.h>
-#include <tencentcloud/cvm/v20170312/model/DescribeResourcePoolPackInstancesResponse.h>
-#include <tencentcloud/cvm/v20170312/model/DescribeResourcePoolPackTypeConfigsRequest.h>
-#include <tencentcloud/cvm/v20170312/model/DescribeResourcePoolPackTypeConfigsResponse.h>
-#include <tencentcloud/cvm/v20170312/model/DescribeResourcePoolPacksRequest.h>
-#include <tencentcloud/cvm/v20170312/model/DescribeResourcePoolPacksResponse.h>
 #include <tencentcloud/cvm/v20170312/model/DescribeTaskInfoRequest.h>
 #include <tencentcloud/cvm/v20170312/model/DescribeTaskInfoResponse.h>
 #include <tencentcloud/cvm/v20170312/model/DescribeZoneInstanceConfigInfosRequest.h>
@@ -145,8 +137,6 @@
 #include <tencentcloud/cvm/v20170312/model/ImportInstancesActionTimerResponse.h>
 #include <tencentcloud/cvm/v20170312/model/ImportKeyPairRequest.h>
 #include <tencentcloud/cvm/v20170312/model/ImportKeyPairResponse.h>
-#include <tencentcloud/cvm/v20170312/model/InquirePricePurchaseResourcePoolPacksRequest.h>
-#include <tencentcloud/cvm/v20170312/model/InquirePricePurchaseResourcePoolPacksResponse.h>
 #include <tencentcloud/cvm/v20170312/model/InquiryPriceModifyInstancesChargeTypeRequest.h>
 #include <tencentcloud/cvm/v20170312/model/InquiryPriceModifyInstancesChargeTypeResponse.h>
 #include <tencentcloud/cvm/v20170312/model/InquiryPriceRenewHostsRequest.h>
@@ -167,8 +157,6 @@
 #include <tencentcloud/cvm/v20170312/model/InquiryPriceTerminateInstancesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/ModifyChcAttributeRequest.h>
 #include <tencentcloud/cvm/v20170312/model/ModifyChcAttributeResponse.h>
-#include <tencentcloud/cvm/v20170312/model/ModifyChcNetworkModeRequest.h>
-#include <tencentcloud/cvm/v20170312/model/ModifyChcNetworkModeResponse.h>
 #include <tencentcloud/cvm/v20170312/model/ModifyDisasterRecoverGroupAttributeRequest.h>
 #include <tencentcloud/cvm/v20170312/model/ModifyDisasterRecoverGroupAttributeResponse.h>
 #include <tencentcloud/cvm/v20170312/model/ModifyHostsAttributeRequest.h>
@@ -199,8 +187,6 @@
 #include <tencentcloud/cvm/v20170312/model/ModifyLaunchTemplateDefaultVersionResponse.h>
 #include <tencentcloud/cvm/v20170312/model/ProgramFpgaImageRequest.h>
 #include <tencentcloud/cvm/v20170312/model/ProgramFpgaImageResponse.h>
-#include <tencentcloud/cvm/v20170312/model/PurchaseResourcePoolPacksRequest.h>
-#include <tencentcloud/cvm/v20170312/model/PurchaseResourcePoolPacksResponse.h>
 #include <tencentcloud/cvm/v20170312/model/RebootInstancesRequest.h>
 #include <tencentcloud/cvm/v20170312/model/RebootInstancesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/RemoveChcAssistVpcRequest.h>
@@ -233,8 +219,6 @@
 #include <tencentcloud/cvm/v20170312/model/SyncImagesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/TerminateInstancesRequest.h>
 #include <tencentcloud/cvm/v20170312/model/TerminateInstancesResponse.h>
-#include <tencentcloud/cvm/v20170312/model/TerminateResourcePoolPacksRequest.h>
-#include <tencentcloud/cvm/v20170312/model/TerminateResourcePoolPacksResponse.h>
 
 
 namespace TencentCloud
@@ -297,9 +281,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteInstancesActionTimerResponse> DeleteInstancesActionTimerOutcome;
                 typedef std::future<DeleteInstancesActionTimerOutcome> DeleteInstancesActionTimerOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::DeleteInstancesActionTimerRequest&, DeleteInstancesActionTimerOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteInstancesActionTimerAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteInstancesDisasterRecoverGroupsResponse> DeleteInstancesDisasterRecoverGroupsOutcome;
-                typedef std::future<DeleteInstancesDisasterRecoverGroupsOutcome> DeleteInstancesDisasterRecoverGroupsOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::DeleteInstancesDisasterRecoverGroupsRequest&, DeleteInstancesDisasterRecoverGroupsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteInstancesDisasterRecoverGroupsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteKeyPairsResponse> DeleteKeyPairsOutcome;
                 typedef std::future<DeleteKeyPairsOutcome> DeleteKeyPairsOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::DeleteKeyPairsRequest&, DeleteKeyPairsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteKeyPairsAsyncHandler;
@@ -390,15 +371,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeRegionsResponse> DescribeRegionsOutcome;
                 typedef std::future<DescribeRegionsOutcome> DescribeRegionsOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::DescribeRegionsRequest&, DescribeRegionsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeRegionsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeResourcePoolPackInstancesResponse> DescribeResourcePoolPackInstancesOutcome;
-                typedef std::future<DescribeResourcePoolPackInstancesOutcome> DescribeResourcePoolPackInstancesOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::DescribeResourcePoolPackInstancesRequest&, DescribeResourcePoolPackInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourcePoolPackInstancesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeResourcePoolPackTypeConfigsResponse> DescribeResourcePoolPackTypeConfigsOutcome;
-                typedef std::future<DescribeResourcePoolPackTypeConfigsOutcome> DescribeResourcePoolPackTypeConfigsOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::DescribeResourcePoolPackTypeConfigsRequest&, DescribeResourcePoolPackTypeConfigsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourcePoolPackTypeConfigsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeResourcePoolPacksResponse> DescribeResourcePoolPacksOutcome;
-                typedef std::future<DescribeResourcePoolPacksOutcome> DescribeResourcePoolPacksOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::DescribeResourcePoolPacksRequest&, DescribeResourcePoolPacksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeResourcePoolPacksAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTaskInfoResponse> DescribeTaskInfoOutcome;
                 typedef std::future<DescribeTaskInfoOutcome> DescribeTaskInfoOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::DescribeTaskInfoRequest&, DescribeTaskInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTaskInfoAsyncHandler;
@@ -432,9 +404,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ImportKeyPairResponse> ImportKeyPairOutcome;
                 typedef std::future<ImportKeyPairOutcome> ImportKeyPairOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::ImportKeyPairRequest&, ImportKeyPairOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ImportKeyPairAsyncHandler;
-                typedef Outcome<Core::Error, Model::InquirePricePurchaseResourcePoolPacksResponse> InquirePricePurchaseResourcePoolPacksOutcome;
-                typedef std::future<InquirePricePurchaseResourcePoolPacksOutcome> InquirePricePurchaseResourcePoolPacksOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::InquirePricePurchaseResourcePoolPacksRequest&, InquirePricePurchaseResourcePoolPacksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InquirePricePurchaseResourcePoolPacksAsyncHandler;
                 typedef Outcome<Core::Error, Model::InquiryPriceModifyInstancesChargeTypeResponse> InquiryPriceModifyInstancesChargeTypeOutcome;
                 typedef std::future<InquiryPriceModifyInstancesChargeTypeOutcome> InquiryPriceModifyInstancesChargeTypeOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::InquiryPriceModifyInstancesChargeTypeRequest&, InquiryPriceModifyInstancesChargeTypeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InquiryPriceModifyInstancesChargeTypeAsyncHandler;
@@ -465,9 +434,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyChcAttributeResponse> ModifyChcAttributeOutcome;
                 typedef std::future<ModifyChcAttributeOutcome> ModifyChcAttributeOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::ModifyChcAttributeRequest&, ModifyChcAttributeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyChcAttributeAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyChcNetworkModeResponse> ModifyChcNetworkModeOutcome;
-                typedef std::future<ModifyChcNetworkModeOutcome> ModifyChcNetworkModeOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::ModifyChcNetworkModeRequest&, ModifyChcNetworkModeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyChcNetworkModeAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyDisasterRecoverGroupAttributeResponse> ModifyDisasterRecoverGroupAttributeOutcome;
                 typedef std::future<ModifyDisasterRecoverGroupAttributeOutcome> ModifyDisasterRecoverGroupAttributeOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::ModifyDisasterRecoverGroupAttributeRequest&, ModifyDisasterRecoverGroupAttributeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDisasterRecoverGroupAttributeAsyncHandler;
@@ -513,9 +479,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ProgramFpgaImageResponse> ProgramFpgaImageOutcome;
                 typedef std::future<ProgramFpgaImageOutcome> ProgramFpgaImageOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::ProgramFpgaImageRequest&, ProgramFpgaImageOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ProgramFpgaImageAsyncHandler;
-                typedef Outcome<Core::Error, Model::PurchaseResourcePoolPacksResponse> PurchaseResourcePoolPacksOutcome;
-                typedef std::future<PurchaseResourcePoolPacksOutcome> PurchaseResourcePoolPacksOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::PurchaseResourcePoolPacksRequest&, PurchaseResourcePoolPacksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> PurchaseResourcePoolPacksAsyncHandler;
                 typedef Outcome<Core::Error, Model::RebootInstancesResponse> RebootInstancesOutcome;
                 typedef std::future<RebootInstancesOutcome> RebootInstancesOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::RebootInstancesRequest&, RebootInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RebootInstancesAsyncHandler;
@@ -564,9 +527,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::TerminateInstancesResponse> TerminateInstancesOutcome;
                 typedef std::future<TerminateInstancesOutcome> TerminateInstancesOutcomeCallable;
                 typedef std::function<void(const CvmClient*, const Model::TerminateInstancesRequest&, TerminateInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateInstancesAsyncHandler;
-                typedef Outcome<Core::Error, Model::TerminateResourcePoolPacksResponse> TerminateResourcePoolPacksOutcome;
-                typedef std::future<TerminateResourcePoolPacksOutcome> TerminateResourcePoolPacksOutcomeCallable;
-                typedef std::function<void(const CvmClient*, const Model::TerminateResourcePoolPacksRequest&, TerminateResourcePoolPacksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> TerminateResourcePoolPacksAsyncHandler;
 
 
 
@@ -599,7 +559,7 @@ namespace TencentCloud
 
                 /**
                  *本接口 (AssociateSecurityGroups) 用于绑定安全组到指定实例。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
 <dx-alert infotype="explain" title="">
 多个安全组绑定至实例后，将以绑定顺序作为优先级顺序依次匹配执行。如需调整安全组优先级，请参见 [调整安全组优先级](https://cloud.tencent.com/document/product/213/42842)。
 </dx-alert>
@@ -741,15 +701,6 @@ namespace TencentCloud
                 DeleteInstancesActionTimerOutcome DeleteInstancesActionTimer(const Model::DeleteInstancesActionTimerRequest &request);
                 void DeleteInstancesActionTimerAsync(const Model::DeleteInstancesActionTimerRequest& request, const DeleteInstancesActionTimerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteInstancesActionTimerOutcomeCallable DeleteInstancesActionTimerCallable(const Model::DeleteInstancesActionTimerRequest& request);
-
-                /**
-                 *本接口 (DeleteInstancesDisasterRecoverGroups) 用于将云服务器实例从指定的置放群组中批量移除。
-                 * @param req DeleteInstancesDisasterRecoverGroupsRequest
-                 * @return DeleteInstancesDisasterRecoverGroupsOutcome
-                 */
-                DeleteInstancesDisasterRecoverGroupsOutcome DeleteInstancesDisasterRecoverGroups(const Model::DeleteInstancesDisasterRecoverGroupsRequest &request);
-                void DeleteInstancesDisasterRecoverGroupsAsync(const Model::DeleteInstancesDisasterRecoverGroupsRequest& request, const DeleteInstancesDisasterRecoverGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteInstancesDisasterRecoverGroupsOutcomeCallable DeleteInstancesDisasterRecoverGroupsCallable(const Model::DeleteInstancesDisasterRecoverGroupsRequest& request);
 
                 /**
                  *本接口 (DeleteKeyPairs) 用于删除已在腾讯云托管的密钥对。
@@ -1064,33 +1015,6 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
                 DescribeRegionsOutcomeCallable DescribeRegionsCallable(const Model::DescribeRegionsRequest& request);
 
                 /**
-                 *本接口(DescribeResourcePoolPackInstances)用于查询指定实例资源池内已创建的实例列表及其物理拓扑信息。
-                 * @param req DescribeResourcePoolPackInstancesRequest
-                 * @return DescribeResourcePoolPackInstancesOutcome
-                 */
-                DescribeResourcePoolPackInstancesOutcome DescribeResourcePoolPackInstances(const Model::DescribeResourcePoolPackInstancesRequest &request);
-                void DescribeResourcePoolPackInstancesAsync(const Model::DescribeResourcePoolPackInstancesRequest& request, const DescribeResourcePoolPackInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeResourcePoolPackInstancesOutcomeCallable DescribeResourcePoolPackInstancesCallable(const Model::DescribeResourcePoolPackInstancesRequest& request);
-
-                /**
-                 *本接口(DescribeResourcePoolPackTypeConfigs)用于查询当前地域/可用区支持创建实例资源池的整机/半整机规格列表。
-                 * @param req DescribeResourcePoolPackTypeConfigsRequest
-                 * @return DescribeResourcePoolPackTypeConfigsOutcome
-                 */
-                DescribeResourcePoolPackTypeConfigsOutcome DescribeResourcePoolPackTypeConfigs(const Model::DescribeResourcePoolPackTypeConfigsRequest &request);
-                void DescribeResourcePoolPackTypeConfigsAsync(const Model::DescribeResourcePoolPackTypeConfigsRequest& request, const DescribeResourcePoolPackTypeConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeResourcePoolPackTypeConfigsOutcomeCallable DescribeResourcePoolPackTypeConfigsCallable(const Model::DescribeResourcePoolPackTypeConfigsRequest& request);
-
-                /**
-                 *本接口(DescribeResourcePoolPacks)用于查询用户已创建的实例资源池列表，包括资源池基本信息、剩余容量、底层物理拓扑信息等。
-                 * @param req DescribeResourcePoolPacksRequest
-                 * @return DescribeResourcePoolPacksOutcome
-                 */
-                DescribeResourcePoolPacksOutcome DescribeResourcePoolPacks(const Model::DescribeResourcePoolPacksRequest &request);
-                void DescribeResourcePoolPacksAsync(const Model::DescribeResourcePoolPacksRequest& request, const DescribeResourcePoolPacksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeResourcePoolPacksOutcomeCallable DescribeResourcePoolPacksCallable(const Model::DescribeResourcePoolPacksRequest& request);
-
-                /**
                  *本接口 (DescribeTaskInfo) 用于查询云服务器维修任务列表及详细信息。
 
 - 可以根据实例ID、实例名称或任务状态等信息来查询维修任务列表。过滤信息详情可参考入参说明。
@@ -1138,7 +1062,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
                 /**
                  *本接口 (DisassociateSecurityGroups) 用于解绑实例的指定安全组。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req DisassociateSecurityGroupsRequest
                  * @return DisassociateSecurityGroupsOutcome
                  */
@@ -1203,15 +1127,6 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
                 ImportKeyPairOutcome ImportKeyPair(const Model::ImportKeyPairRequest &request);
                 void ImportKeyPairAsync(const Model::ImportKeyPairRequest& request, const ImportKeyPairAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ImportKeyPairOutcomeCallable ImportKeyPairCallable(const Model::ImportKeyPairRequest& request);
-
-                /**
-                 *本接口(InquirePricePurchaseResourcePoolPacks)用于查询创建实例资源池的价格。
-                 * @param req InquirePricePurchaseResourcePoolPacksRequest
-                 * @return InquirePricePurchaseResourcePoolPacksOutcome
-                 */
-                InquirePricePurchaseResourcePoolPacksOutcome InquirePricePurchaseResourcePoolPacks(const Model::InquirePricePurchaseResourcePoolPacksRequest &request);
-                void InquirePricePurchaseResourcePoolPacksAsync(const Model::InquirePricePurchaseResourcePoolPacksRequest& request, const InquirePricePurchaseResourcePoolPacksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                InquirePricePurchaseResourcePoolPacksOutcomeCallable InquirePricePurchaseResourcePoolPacksCallable(const Model::InquirePricePurchaseResourcePoolPacksRequest& request);
 
                 /**
                  *本接口 (InquiryPriceModifyInstancesChargeType) 用于切换实例的计费模式询价。
@@ -1332,21 +1247,6 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
                 ModifyChcAttributeOutcomeCallable ModifyChcAttributeCallable(const Model::ModifyChcAttributeRequest& request);
 
                 /**
-                 *ModifyChcNetworkMode接口用于切换CHC物理服务器的网络模式，适用于客户使用自建pxe环境装机，调用此接口切换部署网络和业务网络。**调用此接口会影响到业务网络，请明确使用方法后再调用**。
-- 切换部署网络：传入参数NetworkMode=DEPLOY。只有当CHC服务器状态为“可生产”或“已生产”，并且配置了部署网络才可以切换，否则API直接报错。
-- 切换业务网络：传入参数NetworkMode=BUSINESS。只有当CHC服务器状态为“已生产”时才可以切换，否则API直接报错。
-
-切换网络模式是一个异步操作，可以通过DescribeChcHosts轮询查询设备的NetworkMode和操作状态来判断是否切换成功
-- 切换部署网络：chc物理服务器如下参数值为以下值是判断切换成功：NetworkMode=DEPLOY，LatestOperation=SwitchChcDeployNetwork, LatestOperationState=SUCCESS。
-- 切换业务网络：chc物理服务器如下参数值为以下值是判断切换成功：NetworkMode=BUSINESS，LatestOperation=SwitchChcBusinessNetwork, LatestOperationState=SUCCESS。
-                 * @param req ModifyChcNetworkModeRequest
-                 * @return ModifyChcNetworkModeOutcome
-                 */
-                ModifyChcNetworkModeOutcome ModifyChcNetworkMode(const Model::ModifyChcNetworkModeRequest &request);
-                void ModifyChcNetworkModeAsync(const Model::ModifyChcNetworkModeRequest& request, const ModifyChcNetworkModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyChcNetworkModeOutcomeCallable ModifyChcNetworkModeCallable(const Model::ModifyChcNetworkModeRequest& request);
-
-                /**
                  *本接口 (ModifyDisasterRecoverGroupAttribute)用于修改[分散置放群组](https://cloud.tencent.com/document/product/213/15486)属性。
                  * @param req ModifyDisasterRecoverGroupAttributeRequest
                  * @return ModifyDisasterRecoverGroupAttributeOutcome
@@ -1420,7 +1320,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * “实例名称”仅为方便用户自己管理之用，腾讯云并不以此名称作为在线支持或是进行实例管理操作的依据。
 * 支持批量操作。每次请求批量实例的上限为100。
 * 修改关联安全组时，子机原来关联的安全组会被解绑。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
 * 修改主机名后实例会立即重启，重启后新的主机名生效。
                  * @param req ModifyInstancesAttributeRequest
                  * @return ModifyInstancesAttributeOutcome
@@ -1433,7 +1333,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
                  *本接口 (ModifyInstancesChargeType) 用于切换实例的计费模式。
 
 * 关机不收费的实例、`批量计算型BC1`和`批量计算型BS1`机型族的实例、设置定时销毁的实例不支持该操作。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req ModifyInstancesChargeTypeRequest
                  * @return ModifyInstancesChargeTypeOutcome
                  */
@@ -1457,7 +1357,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 项目为一个虚拟概念，用户可以在一个账户下面建立多个项目，每个项目中管理不同的资源；将多个不同实例分属到不同项目中，后续使用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728)接口查询实例，项目ID可用于过滤结果。
 * 绑定负载均衡的实例不支持修改实例所属项目，请先使用[DeregisterInstancesFromLoadBalancer](https://cloud.tencent.com/document/api/214/1258)接口解绑负载均衡。
 * 支持批量操作。每次请求批量实例的上限为100。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req ModifyInstancesProjectRequest
                  * @return ModifyInstancesProjectOutcome
                  */
@@ -1470,7 +1370,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
 * 实例被标识为自动续费后，每次在实例到期时，会自动续费一个月。
 * 支持批量操作。每次请求批量实例的上限为100。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req ModifyInstancesRenewFlagRequest
                  * @return ModifyInstancesRenewFlagOutcome
                  */
@@ -1525,25 +1425,13 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
                 ProgramFpgaImageOutcomeCallable ProgramFpgaImageCallable(const Model::ProgramFpgaImageRequest& request);
 
                 /**
-                 *本接口(PurchaseResourcePoolPacks)用于创建一个或多个实例资源池，每个资源池绑定一个整机或半整机规格的物理资源容量。
-
-* 实例资源池为剩余容量按量付费模式，购买前请确保账户余额充足。
-* 本接口为异步接口，创建请求发送成功后会返回DedicatedResourcePackIds，此时创建任务并未完成。
-                 * @param req PurchaseResourcePoolPacksRequest
-                 * @return PurchaseResourcePoolPacksOutcome
-                 */
-                PurchaseResourcePoolPacksOutcome PurchaseResourcePoolPacks(const Model::PurchaseResourcePoolPacksRequest &request);
-                void PurchaseResourcePoolPacksAsync(const Model::PurchaseResourcePoolPacksRequest& request, const PurchaseResourcePoolPacksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                PurchaseResourcePoolPacksOutcomeCallable PurchaseResourcePoolPacksCallable(const Model::PurchaseResourcePoolPacksRequest& request);
-
-                /**
                  *本接口 (RebootInstances) 用于重启实例。
 
 * 只有状态为`RUNNING`的实例才可以进行此操作。
 * 接口调用成功时，实例会进入`REBOOTING`状态；重启实例成功时，实例会进入`RUNNING`状态。
 * 支持强制重启。强制重启的效果等同于关闭物理计算机的电源开关再重新启动。强制重启可能会导致数据丢失或文件系统损坏，请仅在服务器不能正常重启时使用。
 * 支持批量操作，每次请求批量实例的上限为100。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req RebootInstancesRequest
                  * @return RebootInstancesOutcome
                  */
@@ -1586,7 +1474,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
 * 只支持操作包年包月实例。
 * 续费时请确保账户余额充足。可通过[DescribeAccountBalance](https://cloud.tencent.com/document/product/555/20253)接口查询账户余额。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req RenewInstancesRequest
                  * @return RenewInstancesOutcome
                  */
@@ -1615,7 +1503,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 系统盘将会被格式化，并重置；请确保系统盘中无重要文件。
 * 密码不指定将会通过站内信下发随机密码。
 * 目前只支持[系统盘类型](https://cloud.tencent.com/document/api/213/9452#SystemDisk)是`CLOUD_BASIC`、`CLOUD_PREMIUM`、`CLOUD_SSD`、`CLOUD_BSSD`类型的实例使用该接口实现操作系统切换。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req ResetInstanceRequest
                  * @return ResetInstanceOutcome
                  */
@@ -1646,7 +1534,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 *如果是修改系统管理员密码：实例的操作系统不同，管理员账号也会不一样(`Windows`为`Administrator`，`Ubuntu`为`ubuntu`，其它系统为`root`)。
 * 重置处于运行中状态的实例密码，需要设置关机参数`ForceStop`为`TRUE`。如果没有显式指定强制关机参数，则只有处于关机状态的实例才允许执行重置密码操作。
 * 支持批量操作。将多个实例操作系统的密码重置为相同的密码。每次请求批量实例的上限为100。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
                  * @param req ResetInstancesPasswordRequest
                  * @return ResetInstancesPasswordOutcome
                  */
@@ -1659,7 +1547,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 
 * 目前只支持[系统盘类型](/document/api/213/9452#block_device)是CLOUD_BASIC、CLOUD_PREMIUM、CLOUD_SSD、CLOUD_BSSD类型的实例使用该接口进行机型调整。
 * 目前不支持[CDH](https://cloud.tencent.com/document/product/416)实例使用该接口调整机型。对于包年包月实例，使用该接口会涉及扣费，请确保账户余额充足。可通过[DescribeAccountBalance](https://cloud.tencent.com/document/product/555/20253)接口查询账户余额。
-* 本接口为异步接口，调整实例配置请求发送成功后会返回一个RequestId，此时操作并未立即完成。实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表调整实例配置操作成功。完成实例配置调整后，实例将自动显示为运行中，无需手动进行开机。
+* 本接口为异步接口，调整实例配置请求发送成功后会返回一个RequestId，此时操作并未立即完成。实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表调整实例配置操作成功。
                  * @param req ResetInstancesTypeRequest
                  * @return ResetInstancesTypeOutcome
                  */
@@ -1674,7 +1562,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 对于包年包月实例，使用该接口会涉及扣费，请确保账户余额充足。可通过[ DescribeAccountBalance ](https://cloud.tencent.com/document/product/555/20253)接口查询账户余额。
 * 目前只支持扩容一块数据盘。
 * 默认扩容方式为关机后扩容。
-* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
+* 实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表操作成功。
 * 如果是系统盘，目前只支持扩容，不支持缩容。
 *  如果是运行中的实例，必须指定ForceStop或ResizeOnline任意一个参数为true，否则操作失败。
                  * @param req ResizeInstanceDisksRequest
@@ -1705,7 +1593,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 只有状态为`STOPPED`的实例才可以进行此操作。
 * 接口调用成功时，实例会进入`STARTING`状态；启动实例成功时，实例会进入`RUNNING`状态。
 * 支持批量操作。每次请求批量实例的上限为100。
-* 本接口为异步接口，启动实例请求发送成功后会返回一个RequestId，此时操作并未立即完成。实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表启动实例操作成功。
+* 本接口为异步接口，启动实例请求发送成功后会返回一个RequestId，此时操作并未立即完成。实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表启动实例操作成功。
                  * @param req StartInstancesRequest
                  * @return StartInstancesOutcome
                  */
@@ -1720,7 +1608,7 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
 * 接口调用成功时，实例会进入`STOPPING`状态；关闭实例成功时，实例会进入`STOPPED`状态。
 * 支持强制关闭。强制关机的效果等同于关闭物理计算机的电源开关。强制关机可能会导致数据丢失或文件系统损坏，请仅在服务器不能正常关机时使用。
 * 支持批量操作。每次请求批量实例的上限为100。
-* 本接口为异步接口，关闭实例请求发送成功后会返回一个RequestId，此时操作并未立即完成。实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表关闭实例操作成功。
+* 本接口为异步接口，关闭实例请求发送成功后会返回一个RequestId，此时操作并未立即完成。实例操作结果可以通过调用 [DescribeInstances](https://cloud.tencent.com/document/api/213/15728#.E7.A4.BA.E4.BE.8B3-.E6.9F.A5.E8.AF.A2.E5.AE.9E.E4.BE.8B.E7.9A.84.E6.9C.80.E6.96.B0.E6.93.8D.E4.BD.9C.E6.83.85.E5.86.B5) 接口查询，如果实例的最新操作状态(LatestOperationState)为“SUCCESS”，则代表关闭实例操作成功。
                  * @param req StopInstancesRequest
                  * @return StopInstancesOutcome
                  */
@@ -1758,20 +1646,6 @@ https://img.qcloud.com/qcloud/app/active_vnc/index.html?InstanceVncUrl=wss%3A%2F
                 TerminateInstancesOutcome TerminateInstances(const Model::TerminateInstancesRequest &request);
                 void TerminateInstancesAsync(const Model::TerminateInstancesRequest& request, const TerminateInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 TerminateInstancesOutcomeCallable TerminateInstancesCallable(const Model::TerminateInstancesRequest& request);
-
-                /**
-                 *本接口(TerminateResourcePoolPacks)用于销毁指定的实例资源池。
-
-* 销毁资源池不会销毁池内已创建的实例。
-* 池内实例会从专属资源池解绑，转移至公共资源池，继续按原生命周期运行。
-* 转移后无法再查询底层物理拓扑信息。
-* 释放底层物理资源并删除资源池记录。
-                 * @param req TerminateResourcePoolPacksRequest
-                 * @return TerminateResourcePoolPacksOutcome
-                 */
-                TerminateResourcePoolPacksOutcome TerminateResourcePoolPacks(const Model::TerminateResourcePoolPacksRequest &request);
-                void TerminateResourcePoolPacksAsync(const Model::TerminateResourcePoolPacksRequest& request, const TerminateResourcePoolPacksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                TerminateResourcePoolPacksOutcomeCallable TerminateResourcePoolPacksCallable(const Model::TerminateResourcePoolPacksRequest& request);
 
             };
         }

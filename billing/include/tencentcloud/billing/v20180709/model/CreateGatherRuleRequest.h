@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>规则所属分账单元ID</p>
-                     * @return Id <p>规则所属分账单元ID</p>
+                     * 获取规则所属分账单元ID
+                     * @return Id 规则所属分账单元ID
                      * 
                      */
                     uint64_t GetId() const;
 
                     /**
-                     * 设置<p>规则所属分账单元ID</p>
-                     * @param _id <p>规则所属分账单元ID</p>
+                     * 设置规则所属分账单元ID
+                     * @param _id 规则所属分账单元ID
                      * 
                      */
                     void SetId(const uint64_t& _id);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>归集规则详情</p>
-                     * @return RuleList <p>归集规则详情</p>
+                     * 获取归集规则详情
+                     * @return RuleList 归集规则详情
                      * 
                      */
                     GatherRuleSummary GetRuleList() const;
 
                     /**
-                     * 设置<p>归集规则详情</p>
-                     * @param _ruleList <p>归集规则详情</p>
+                     * 设置归集规则详情
+                     * @param _ruleList 归集规则详情
                      * 
                      */
                     void SetRuleList(const GatherRuleSummary& _ruleList);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool RuleListHasBeenSet() const;
 
                     /**
-                     * 获取<p>月份，不传默认当前月</p>
-                     * @return Month <p>月份，不传默认当前月</p>
+                     * 获取月份，不传默认当前月
+                     * @return Month 月份，不传默认当前月
                      * 
                      */
                     std::string GetMonth() const;
 
                     /**
-                     * 设置<p>月份，不传默认当前月</p>
-                     * @param _month <p>月份，不传默认当前月</p>
+                     * 设置月份，不传默认当前月
+                     * @param _month 月份，不传默认当前月
                      * 
                      */
                     void SetMonth(const std::string& _month);
@@ -109,19 +109,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>规则所属分账单元ID</p>
+                     * 规则所属分账单元ID
                      */
                     uint64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>归集规则详情</p>
+                     * 归集规则详情
                      */
                     GatherRuleSummary m_ruleList;
                     bool m_ruleListHasBeenSet;
 
                     /**
-                     * <p>月份，不传默认当前月</p>
+                     * 月份，不传默认当前月
                      */
                     std::string m_month;
                     bool m_monthHasBeenSet;

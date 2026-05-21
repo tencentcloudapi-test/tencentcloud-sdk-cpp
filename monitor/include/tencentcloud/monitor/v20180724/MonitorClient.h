@@ -29,8 +29,6 @@
 #include <tencentcloud/monitor/v20180724/model/BindingPolicyObjectResponse.h>
 #include <tencentcloud/monitor/v20180724/model/BindingPolicyTagRequest.h>
 #include <tencentcloud/monitor/v20180724/model/BindingPolicyTagResponse.h>
-#include <tencentcloud/monitor/v20180724/model/CheckAddressByPrometheusRequest.h>
-#include <tencentcloud/monitor/v20180724/model/CheckAddressByPrometheusResponse.h>
 #include <tencentcloud/monitor/v20180724/model/CleanGrafanaInstanceRequest.h>
 #include <tencentcloud/monitor/v20180724/model/CleanGrafanaInstanceResponse.h>
 #include <tencentcloud/monitor/v20180724/model/CreateAlarmNoticeRequest.h>
@@ -79,6 +77,8 @@
 #include <tencentcloud/monitor/v20180724/model/CreateRecordingRuleResponse.h>
 #include <tencentcloud/monitor/v20180724/model/CreateSSOAccountRequest.h>
 #include <tencentcloud/monitor/v20180724/model/CreateSSOAccountResponse.h>
+#include <tencentcloud/monitor/v20180724/model/CreateServiceDiscoveryRequest.h>
+#include <tencentcloud/monitor/v20180724/model/CreateServiceDiscoveryResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DeleteAlarmNoticesRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DeleteAlarmNoticesResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DeleteAlarmPolicyRequest.h>
@@ -181,8 +181,6 @@
 #include <tencentcloud/monitor/v20180724/model/DescribeMonitorResourceInfoResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeMonitorTypesRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeMonitorTypesResponse.h>
-#include <tencentcloud/monitor/v20180724/model/DescribeNotificationContentTemplateSupportsRequest.h>
-#include <tencentcloud/monitor/v20180724/model/DescribeNotificationContentTemplateSupportsResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribePhoneAlarmFlowTotalCountRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DescribePhoneAlarmFlowTotalCountResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribePluginOverviewsRequest.h>
@@ -251,6 +249,8 @@
 #include <tencentcloud/monitor/v20180724/model/DescribeRemoteWritesResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeSSOAccountRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeSSOAccountResponse.h>
+#include <tencentcloud/monitor/v20180724/model/DescribeServiceDiscoveryRequest.h>
+#include <tencentcloud/monitor/v20180724/model/DescribeServiceDiscoveryResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeStatisticDataRequest.h>
 #include <tencentcloud/monitor/v20180724/model/DescribeStatisticDataResponse.h>
 #include <tencentcloud/monitor/v20180724/model/DestroyPrometheusInstanceRequest.h>
@@ -384,9 +384,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::BindingPolicyTagResponse> BindingPolicyTagOutcome;
                 typedef std::future<BindingPolicyTagOutcome> BindingPolicyTagOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::BindingPolicyTagRequest&, BindingPolicyTagOutcome, const std::shared_ptr<const AsyncCallerContext>&)> BindingPolicyTagAsyncHandler;
-                typedef Outcome<Core::Error, Model::CheckAddressByPrometheusResponse> CheckAddressByPrometheusOutcome;
-                typedef std::future<CheckAddressByPrometheusOutcome> CheckAddressByPrometheusOutcomeCallable;
-                typedef std::function<void(const MonitorClient*, const Model::CheckAddressByPrometheusRequest&, CheckAddressByPrometheusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CheckAddressByPrometheusAsyncHandler;
                 typedef Outcome<Core::Error, Model::CleanGrafanaInstanceResponse> CleanGrafanaInstanceOutcome;
                 typedef std::future<CleanGrafanaInstanceOutcome> CleanGrafanaInstanceOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::CleanGrafanaInstanceRequest&, CleanGrafanaInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CleanGrafanaInstanceAsyncHandler;
@@ -459,6 +456,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateSSOAccountResponse> CreateSSOAccountOutcome;
                 typedef std::future<CreateSSOAccountOutcome> CreateSSOAccountOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::CreateSSOAccountRequest&, CreateSSOAccountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateSSOAccountAsyncHandler;
+                typedef Outcome<Core::Error, Model::CreateServiceDiscoveryResponse> CreateServiceDiscoveryOutcome;
+                typedef std::future<CreateServiceDiscoveryOutcome> CreateServiceDiscoveryOutcomeCallable;
+                typedef std::function<void(const MonitorClient*, const Model::CreateServiceDiscoveryRequest&, CreateServiceDiscoveryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateServiceDiscoveryAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteAlarmNoticesResponse> DeleteAlarmNoticesOutcome;
                 typedef std::future<DeleteAlarmNoticesOutcome> DeleteAlarmNoticesOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DeleteAlarmNoticesRequest&, DeleteAlarmNoticesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAlarmNoticesAsyncHandler;
@@ -612,9 +612,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeMonitorTypesResponse> DescribeMonitorTypesOutcome;
                 typedef std::future<DescribeMonitorTypesOutcome> DescribeMonitorTypesOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DescribeMonitorTypesRequest&, DescribeMonitorTypesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeMonitorTypesAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeNotificationContentTemplateSupportsResponse> DescribeNotificationContentTemplateSupportsOutcome;
-                typedef std::future<DescribeNotificationContentTemplateSupportsOutcome> DescribeNotificationContentTemplateSupportsOutcomeCallable;
-                typedef std::function<void(const MonitorClient*, const Model::DescribeNotificationContentTemplateSupportsRequest&, DescribeNotificationContentTemplateSupportsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeNotificationContentTemplateSupportsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribePhoneAlarmFlowTotalCountResponse> DescribePhoneAlarmFlowTotalCountOutcome;
                 typedef std::future<DescribePhoneAlarmFlowTotalCountOutcome> DescribePhoneAlarmFlowTotalCountOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DescribePhoneAlarmFlowTotalCountRequest&, DescribePhoneAlarmFlowTotalCountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePhoneAlarmFlowTotalCountAsyncHandler;
@@ -717,6 +714,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeSSOAccountResponse> DescribeSSOAccountOutcome;
                 typedef std::future<DescribeSSOAccountOutcome> DescribeSSOAccountOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DescribeSSOAccountRequest&, DescribeSSOAccountOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSSOAccountAsyncHandler;
+                typedef Outcome<Core::Error, Model::DescribeServiceDiscoveryResponse> DescribeServiceDiscoveryOutcome;
+                typedef std::future<DescribeServiceDiscoveryOutcome> DescribeServiceDiscoveryOutcomeCallable;
+                typedef std::function<void(const MonitorClient*, const Model::DescribeServiceDiscoveryRequest&, DescribeServiceDiscoveryOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeServiceDiscoveryAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeStatisticDataResponse> DescribeStatisticDataOutcome;
                 typedef std::future<DescribeStatisticDataOutcome> DescribeStatisticDataOutcomeCallable;
                 typedef std::function<void(const MonitorClient*, const Model::DescribeStatisticDataRequest&, DescribeStatisticDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeStatisticDataAsyncHandler;
@@ -913,15 +913,6 @@ namespace TencentCloud
                 BindingPolicyTagOutcomeCallable BindingPolicyTagCallable(const Model::BindingPolicyTagRequest& request);
 
                 /**
-                 *检查用户地址联通性
-                 * @param req CheckAddressByPrometheusRequest
-                 * @return CheckAddressByPrometheusOutcome
-                 */
-                CheckAddressByPrometheusOutcome CheckAddressByPrometheus(const Model::CheckAddressByPrometheusRequest &request);
-                void CheckAddressByPrometheusAsync(const Model::CheckAddressByPrometheusRequest& request, const CheckAddressByPrometheusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CheckAddressByPrometheusOutcomeCallable CheckAddressByPrometheusCallable(const Model::CheckAddressByPrometheusRequest& request);
-
-                /**
                  *强制销毁 Grafana 实例
                  * @param req CleanGrafanaInstanceRequest
                  * @return CleanGrafanaInstanceOutcome
@@ -1080,9 +1071,7 @@ namespace TencentCloud
                 CreatePrometheusConfigOutcomeCallable CreatePrometheusConfigCallable(const Model::CreatePrometheusConfigRequest& request);
 
                 /**
-                 *之前TPS的接口，迁移后已经不需要该功能
-
-创建全局告警通知渠道。集群内创建的告警规则如果未配置告警通知渠道，默认走全局告警通知渠道（建议在控制台创建告警，集群内创建告警不易维护）
+                 *创建全局告警通知渠道。集群内创建的告警规则如果未配置告警通知渠道，默认走全局告警通知渠道（建议在控制台创建告警，集群内创建告警不易维护）
                  * @param req CreatePrometheusGlobalNotificationRequest
                  * @return CreatePrometheusGlobalNotificationOutcome
                  */
@@ -1143,6 +1132,17 @@ namespace TencentCloud
                 CreateSSOAccountOutcome CreateSSOAccount(const Model::CreateSSOAccountRequest &request);
                 void CreateSSOAccountAsync(const Model::CreateSSOAccountRequest& request, const CreateSSOAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateSSOAccountOutcomeCallable CreateSSOAccountCallable(const Model::CreateSSOAccountRequest& request);
+
+                /**
+                 *在腾讯云容器服务下创建 Prometheus 服务发现。
+<p>注意：前提条件，已经通过 Prometheus 控制台集成了对应的腾讯云容器服务，具体请参考
+<a href="https://cloud.tencent.com/document/product/248/48859" target="_blank">Agent 安装</a>。</p>
+                 * @param req CreateServiceDiscoveryRequest
+                 * @return CreateServiceDiscoveryOutcome
+                 */
+                CreateServiceDiscoveryOutcome CreateServiceDiscovery(const Model::CreateServiceDiscoveryRequest &request);
+                void CreateServiceDiscoveryAsync(const Model::CreateServiceDiscoveryRequest& request, const CreateServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                CreateServiceDiscoveryOutcomeCallable CreateServiceDiscoveryCallable(const Model::CreateServiceDiscoveryRequest& request);
 
                 /**
                  *删除告警通知模板
@@ -1217,9 +1217,7 @@ namespace TencentCloud
                 DeleteGrafanaNotificationChannelOutcomeCallable DeleteGrafanaNotificationChannelCallable(const Model::DeleteGrafanaNotificationChannelRequest& request);
 
                 /**
-                 *告警 1.0 API，不能再使用否则会导致后端数据不一致
-
-删除告警策略组
+                 *删除告警策略组
                  * @param req DeletePolicyGroupRequest
                  * @return DeletePolicyGroupOutcome
                  */
@@ -1610,15 +1608,6 @@ namespace TencentCloud
                 DescribeMonitorTypesOutcomeCallable DescribeMonitorTypesCallable(const Model::DescribeMonitorTypesRequest& request);
 
                 /**
-                 *查询告警通知内容模板支持的变量或者函数列表
-                 * @param req DescribeNotificationContentTemplateSupportsRequest
-                 * @return DescribeNotificationContentTemplateSupportsOutcome
-                 */
-                DescribeNotificationContentTemplateSupportsOutcome DescribeNotificationContentTemplateSupports(const Model::DescribeNotificationContentTemplateSupportsRequest &request);
-                void DescribeNotificationContentTemplateSupportsAsync(const Model::DescribeNotificationContentTemplateSupportsRequest& request, const DescribeNotificationContentTemplateSupportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeNotificationContentTemplateSupportsOutcomeCallable DescribeNotificationContentTemplateSupportsCallable(const Model::DescribeNotificationContentTemplateSupportsRequest& request);
-
-                /**
                  *查询周期内电话流水总数
                  * @param req DescribePhoneAlarmFlowTotalCountRequest
                  * @return DescribePhoneAlarmFlowTotalCountOutcome
@@ -1754,9 +1743,7 @@ namespace TencentCloud
                 DescribePrometheusGlobalConfigOutcomeCallable DescribePrometheusGlobalConfigCallable(const Model::DescribePrometheusGlobalConfigRequest& request);
 
                 /**
-                 *之前TPS的接口，迁移后已经不需要
-
-查询全局告警通知渠道
+                 *查询全局告警通知渠道
                  * @param req DescribePrometheusGlobalNotificationRequest
                  * @return DescribePrometheusGlobalNotificationOutcome
                  */
@@ -1931,6 +1918,17 @@ namespace TencentCloud
                 DescribeSSOAccountOutcomeCallable DescribeSSOAccountCallable(const Model::DescribeSSOAccountRequest& request);
 
                 /**
+                 *列出在腾讯云容器服务下创建的 Prometheus 服务发现。
+<p>注意：前提条件，已经通过 Prometheus 控制台集成了对应的腾讯云容器服务，具体请参考
+<a href="https://cloud.tencent.com/document/product/248/48859" target="_blank">Agent 安装</a>。</p>
+                 * @param req DescribeServiceDiscoveryRequest
+                 * @return DescribeServiceDiscoveryOutcome
+                 */
+                DescribeServiceDiscoveryOutcome DescribeServiceDiscovery(const Model::DescribeServiceDiscoveryRequest &request);
+                void DescribeServiceDiscoveryAsync(const Model::DescribeServiceDiscoveryRequest& request, const DescribeServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
+                DescribeServiceDiscoveryOutcomeCallable DescribeServiceDiscoveryCallable(const Model::DescribeServiceDiscoveryRequest& request);
+
+                /**
                  *根据维度条件查询监控数据
                  * @param req DescribeStatisticDataRequest
                  * @return DescribeStatisticDataOutcome
@@ -1976,21 +1974,7 @@ namespace TencentCloud
                 EnableSSOCamCheckOutcomeCallable EnableSSOCamCheckCallable(const Model::EnableSSOCamCheckRequest& request);
 
                 /**
-                 *Prometheus 内部只读动态 api 代理，支持以云api形式访问prometheus原生api
-支持以下api:
-
-| path | method | 用途 |
-| - | - | - |
-| /api/v1/query | GET, POST | 点查询 |
-| /api/v1/query_range | GET, POST |  范围查询 |
-| /api/v1/series | GET, POST | series列表查询 |
-| /api/v1/labels | GET, POST | label名查询 |
-| /api/v1/label/{label_name}/values | GET | label值查询 |
-| /api/v1/rules | GET | 告警，预聚合规则查询 |
-| /api/v1/user_limits | GET | prometheus实例限制查询 |
-| /alertmanager/api/v2/alerts/groups | GET | 当前告警信息查询 | 
-| /alertmanager/api/v2/silences | GET | 告警静默查询 |
-| /alertmanager/api/v2/silence/{id} | GET | 告警静默详情查询 |
+                 *Prometheus 内部动态 api 代理，仅内部使用
                  * @param req ExportPrometheusReadOnlyDynamicAPIRequest
                  * @return ExportPrometheusReadOnlyDynamicAPIOutcome
                  */
@@ -2001,8 +1985,10 @@ namespace TencentCloud
                 /**
                  *获取云产品的监控数据。此接口不适用于拉取容器服务监控数据，如需拉取容器服务监控数据，请使用[根据维度条件查询监控数据](https://cloud.tencent.com/document/product/248/51845)接口。
 传入产品的命名空间、对象维度描述和监控指标即可获得相应的监控数据。
-接口调用限制：单请求最多可支持批量拉取50个实例的监控数据，单请求的数据点数限制为7200个。
+接口调用限制：单请求最多可支持批量拉取10个实例的监控数据，单请求的数据点数限制为1440个。
 若您需要调用的指标、对象较多，可能存在因限频出现拉取失败的情况，建议尽量将请求按时间维度均摊。
+参数SpecifyStatistics目前可支持返回三种统计方式（avg，max，min），分别为二进制1，2，4。
+例子：3:avg+max，5:avg+min，6:max+min，7:avg+max+min
 拉取数据的粒度和统计方式的对应关系尽量在接入平台进行配置，如果没有配置对应统计方式，请提工单反馈。
 
 >?
@@ -2150,9 +2136,7 @@ namespace TencentCloud
                 ModifyPrometheusConfigOutcomeCallable ModifyPrometheusConfigCallable(const Model::ModifyPrometheusConfigRequest& request);
 
                 /**
-                 *之前TPS接口，迁移后不需要
-
-修改全局告警通知渠道
+                 *修改全局告警通知渠道
                  * @param req ModifyPrometheusGlobalNotificationRequest
                  * @return ModifyPrometheusGlobalNotificationOutcome
                  */

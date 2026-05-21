@@ -21,8 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/vcube/v20220410/model/Overview.h>
-#include <tencentcloud/vcube/v20220410/model/OverviewLicense.h>
 
 
 namespace TencentCloud
@@ -45,87 +43,7 @@ namespace TencentCloud
                     std::string ToJsonString() const;
 
 
-                    /**
-                     * 获取<p>临期license数量</p>
-                     * @return Count <p>临期license数量</p>
-                     * 
-                     */
-                    uint64_t GetCount() const;
-
-                    /**
-                     * 判断参数 Count 是否已赋值
-                     * @return Count 是否已赋值
-                     * 
-                     */
-                    bool CountHasBeenSet() const;
-
-                    /**
-                     * 获取<p>正式license总览统计数据</p>
-                     * @return Overview <p>正式license总览统计数据</p>
-                     * 
-                     */
-                    Overview GetOverview() const;
-
-                    /**
-                     * 判断参数 Overview 是否已赋值
-                     * @return Overview 是否已赋值
-                     * 
-                     */
-                    bool OverviewHasBeenSet() const;
-
-                    /**
-                     * 获取<p>临期license列表</p>
-                     * @return LicenseList <p>临期license列表</p>
-                     * 
-                     */
-                    std::vector<OverviewLicense> GetLicenseList() const;
-
-                    /**
-                     * 判断参数 LicenseList 是否已赋值
-                     * @return LicenseList 是否已赋值
-                     * 
-                     */
-                    bool LicenseListHasBeenSet() const;
-
-                    /**
-                     * 获取<p>测试license总览统计数据</p>
-                     * @return TrialOverview <p>测试license总览统计数据</p>
-                     * 
-                     */
-                    Overview GetTrialOverview() const;
-
-                    /**
-                     * 判断参数 TrialOverview 是否已赋值
-                     * @return TrialOverview 是否已赋值
-                     * 
-                     */
-                    bool TrialOverviewHasBeenSet() const;
-
                 private:
-
-                    /**
-                     * <p>临期license数量</p>
-                     */
-                    uint64_t m_count;
-                    bool m_countHasBeenSet;
-
-                    /**
-                     * <p>正式license总览统计数据</p>
-                     */
-                    Overview m_overview;
-                    bool m_overviewHasBeenSet;
-
-                    /**
-                     * <p>临期license列表</p>
-                     */
-                    std::vector<OverviewLicense> m_licenseList;
-                    bool m_licenseListHasBeenSet;
-
-                    /**
-                     * <p>测试license总览统计数据</p>
-                     */
-                    Overview m_trialOverview;
-                    bool m_trialOverviewHasBeenSet;
 
                 };
             }

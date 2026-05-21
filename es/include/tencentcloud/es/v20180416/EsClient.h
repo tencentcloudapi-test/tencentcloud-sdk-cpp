@@ -25,12 +25,8 @@
 #include <tencentcloud/core/AsyncCallerContext.h>
 #include <tencentcloud/es/v20180416/model/CheckMigrateIndexMetaDataRequest.h>
 #include <tencentcloud/es/v20180416/model/CheckMigrateIndexMetaDataResponse.h>
-#include <tencentcloud/es/v20180416/model/CreateAutoBackUpStrategyRequest.h>
-#include <tencentcloud/es/v20180416/model/CreateAutoBackUpStrategyResponse.h>
 #include <tencentcloud/es/v20180416/model/CreateClusterSnapshotRequest.h>
 #include <tencentcloud/es/v20180416/model/CreateClusterSnapshotResponse.h>
-#include <tencentcloud/es/v20180416/model/CreateCollectorRequest.h>
-#include <tencentcloud/es/v20180416/model/CreateCollectorResponse.h>
 #include <tencentcloud/es/v20180416/model/CreateCosMigrateToServerlessInstanceRequest.h>
 #include <tencentcloud/es/v20180416/model/CreateCosMigrateToServerlessInstanceResponse.h>
 #include <tencentcloud/es/v20180416/model/CreateIndexRequest.h>
@@ -43,8 +39,6 @@
 #include <tencentcloud/es/v20180416/model/CreateServerlessInstanceResponse.h>
 #include <tencentcloud/es/v20180416/model/CreateServerlessSpaceV2Request.h>
 #include <tencentcloud/es/v20180416/model/CreateServerlessSpaceV2Response.h>
-#include <tencentcloud/es/v20180416/model/DeleteAutoBackUpStrategyRequest.h>
-#include <tencentcloud/es/v20180416/model/DeleteAutoBackUpStrategyResponse.h>
 #include <tencentcloud/es/v20180416/model/DeleteClusterSnapshotRequest.h>
 #include <tencentcloud/es/v20180416/model/DeleteClusterSnapshotResponse.h>
 #include <tencentcloud/es/v20180416/model/DeleteIndexRequest.h>
@@ -59,8 +53,6 @@
 #include <tencentcloud/es/v20180416/model/DeleteServerlessInstanceResponse.h>
 #include <tencentcloud/es/v20180416/model/DeleteServerlessSpaceUserRequest.h>
 #include <tencentcloud/es/v20180416/model/DeleteServerlessSpaceUserResponse.h>
-#include <tencentcloud/es/v20180416/model/DescribeAutoBackUpStrategyRequest.h>
-#include <tencentcloud/es/v20180416/model/DescribeAutoBackUpStrategyResponse.h>
 #include <tencentcloud/es/v20180416/model/DescribeClusterSnapshotRequest.h>
 #include <tencentcloud/es/v20180416/model/DescribeClusterSnapshotResponse.h>
 #include <tencentcloud/es/v20180416/model/DescribeDiagnoseRequest.h>
@@ -113,18 +105,10 @@
 #include <tencentcloud/es/v20180416/model/InquirePriceRenewInstanceResponse.h>
 #include <tencentcloud/es/v20180416/model/InstallInstanceModelRequest.h>
 #include <tencentcloud/es/v20180416/model/InstallInstanceModelResponse.h>
-#include <tencentcloud/es/v20180416/model/ModifyAutoBackUpCommonInfoRequest.h>
-#include <tencentcloud/es/v20180416/model/ModifyAutoBackUpCommonInfoResponse.h>
-#include <tencentcloud/es/v20180416/model/ModifyAutoBackUpStrategyRequest.h>
-#include <tencentcloud/es/v20180416/model/ModifyAutoBackUpStrategyResponse.h>
 #include <tencentcloud/es/v20180416/model/ModifyEsVipSecurityGroupRequest.h>
 #include <tencentcloud/es/v20180416/model/ModifyEsVipSecurityGroupResponse.h>
 #include <tencentcloud/es/v20180416/model/QueryIpTraceLogRequest.h>
 #include <tencentcloud/es/v20180416/model/QueryIpTraceLogResponse.h>
-#include <tencentcloud/es/v20180416/model/RequestInstancesRequest.h>
-#include <tencentcloud/es/v20180416/model/RequestInstancesResponse.h>
-#include <tencentcloud/es/v20180416/model/RequestInstancesByGetRequest.h>
-#include <tencentcloud/es/v20180416/model/RequestInstancesByGetResponse.h>
 #include <tencentcloud/es/v20180416/model/RestartInstanceRequest.h>
 #include <tencentcloud/es/v20180416/model/RestartInstanceResponse.h>
 #include <tencentcloud/es/v20180416/model/RestartKibanaRequest.h>
@@ -186,15 +170,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CheckMigrateIndexMetaDataResponse> CheckMigrateIndexMetaDataOutcome;
                 typedef std::future<CheckMigrateIndexMetaDataOutcome> CheckMigrateIndexMetaDataOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::CheckMigrateIndexMetaDataRequest&, CheckMigrateIndexMetaDataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CheckMigrateIndexMetaDataAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateAutoBackUpStrategyResponse> CreateAutoBackUpStrategyOutcome;
-                typedef std::future<CreateAutoBackUpStrategyOutcome> CreateAutoBackUpStrategyOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::CreateAutoBackUpStrategyRequest&, CreateAutoBackUpStrategyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateAutoBackUpStrategyAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateClusterSnapshotResponse> CreateClusterSnapshotOutcome;
                 typedef std::future<CreateClusterSnapshotOutcome> CreateClusterSnapshotOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::CreateClusterSnapshotRequest&, CreateClusterSnapshotOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateClusterSnapshotAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateCollectorResponse> CreateCollectorOutcome;
-                typedef std::future<CreateCollectorOutcome> CreateCollectorOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::CreateCollectorRequest&, CreateCollectorOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCollectorAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateCosMigrateToServerlessInstanceResponse> CreateCosMigrateToServerlessInstanceOutcome;
                 typedef std::future<CreateCosMigrateToServerlessInstanceOutcome> CreateCosMigrateToServerlessInstanceOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::CreateCosMigrateToServerlessInstanceRequest&, CreateCosMigrateToServerlessInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateCosMigrateToServerlessInstanceAsyncHandler;
@@ -213,9 +191,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateServerlessSpaceV2Response> CreateServerlessSpaceV2Outcome;
                 typedef std::future<CreateServerlessSpaceV2Outcome> CreateServerlessSpaceV2OutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::CreateServerlessSpaceV2Request&, CreateServerlessSpaceV2Outcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateServerlessSpaceV2AsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteAutoBackUpStrategyResponse> DeleteAutoBackUpStrategyOutcome;
-                typedef std::future<DeleteAutoBackUpStrategyOutcome> DeleteAutoBackUpStrategyOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::DeleteAutoBackUpStrategyRequest&, DeleteAutoBackUpStrategyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteAutoBackUpStrategyAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteClusterSnapshotResponse> DeleteClusterSnapshotOutcome;
                 typedef std::future<DeleteClusterSnapshotOutcome> DeleteClusterSnapshotOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::DeleteClusterSnapshotRequest&, DeleteClusterSnapshotOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteClusterSnapshotAsyncHandler;
@@ -237,9 +212,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteServerlessSpaceUserResponse> DeleteServerlessSpaceUserOutcome;
                 typedef std::future<DeleteServerlessSpaceUserOutcome> DeleteServerlessSpaceUserOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::DeleteServerlessSpaceUserRequest&, DeleteServerlessSpaceUserOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteServerlessSpaceUserAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeAutoBackUpStrategyResponse> DescribeAutoBackUpStrategyOutcome;
-                typedef std::future<DescribeAutoBackUpStrategyOutcome> DescribeAutoBackUpStrategyOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::DescribeAutoBackUpStrategyRequest&, DescribeAutoBackUpStrategyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeAutoBackUpStrategyAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeClusterSnapshotResponse> DescribeClusterSnapshotOutcome;
                 typedef std::future<DescribeClusterSnapshotOutcome> DescribeClusterSnapshotOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::DescribeClusterSnapshotRequest&, DescribeClusterSnapshotOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeClusterSnapshotAsyncHandler;
@@ -318,24 +290,12 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::InstallInstanceModelResponse> InstallInstanceModelOutcome;
                 typedef std::future<InstallInstanceModelOutcome> InstallInstanceModelOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::InstallInstanceModelRequest&, InstallInstanceModelOutcome, const std::shared_ptr<const AsyncCallerContext>&)> InstallInstanceModelAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyAutoBackUpCommonInfoResponse> ModifyAutoBackUpCommonInfoOutcome;
-                typedef std::future<ModifyAutoBackUpCommonInfoOutcome> ModifyAutoBackUpCommonInfoOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::ModifyAutoBackUpCommonInfoRequest&, ModifyAutoBackUpCommonInfoOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAutoBackUpCommonInfoAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyAutoBackUpStrategyResponse> ModifyAutoBackUpStrategyOutcome;
-                typedef std::future<ModifyAutoBackUpStrategyOutcome> ModifyAutoBackUpStrategyOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::ModifyAutoBackUpStrategyRequest&, ModifyAutoBackUpStrategyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyAutoBackUpStrategyAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyEsVipSecurityGroupResponse> ModifyEsVipSecurityGroupOutcome;
                 typedef std::future<ModifyEsVipSecurityGroupOutcome> ModifyEsVipSecurityGroupOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::ModifyEsVipSecurityGroupRequest&, ModifyEsVipSecurityGroupOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyEsVipSecurityGroupAsyncHandler;
                 typedef Outcome<Core::Error, Model::QueryIpTraceLogResponse> QueryIpTraceLogOutcome;
                 typedef std::future<QueryIpTraceLogOutcome> QueryIpTraceLogOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::QueryIpTraceLogRequest&, QueryIpTraceLogOutcome, const std::shared_ptr<const AsyncCallerContext>&)> QueryIpTraceLogAsyncHandler;
-                typedef Outcome<Core::Error, Model::RequestInstancesResponse> RequestInstancesOutcome;
-                typedef std::future<RequestInstancesOutcome> RequestInstancesOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::RequestInstancesRequest&, RequestInstancesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RequestInstancesAsyncHandler;
-                typedef Outcome<Core::Error, Model::RequestInstancesByGetResponse> RequestInstancesByGetOutcome;
-                typedef std::future<RequestInstancesByGetOutcome> RequestInstancesByGetOutcomeCallable;
-                typedef std::function<void(const EsClient*, const Model::RequestInstancesByGetRequest&, RequestInstancesByGetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RequestInstancesByGetAsyncHandler;
                 typedef Outcome<Core::Error, Model::RestartInstanceResponse> RestartInstanceOutcome;
                 typedef std::future<RestartInstanceOutcome> RestartInstanceOutcomeCallable;
                 typedef std::function<void(const EsClient*, const Model::RestartInstanceRequest&, RestartInstanceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RestartInstanceAsyncHandler;
@@ -415,15 +375,6 @@ namespace TencentCloud
                 CheckMigrateIndexMetaDataOutcomeCallable CheckMigrateIndexMetaDataCallable(const Model::CheckMigrateIndexMetaDataRequest& request);
 
                 /**
-                 *新建自动备份快照策略
-                 * @param req CreateAutoBackUpStrategyRequest
-                 * @return CreateAutoBackUpStrategyOutcome
-                 */
-                CreateAutoBackUpStrategyOutcome CreateAutoBackUpStrategy(const Model::CreateAutoBackUpStrategyRequest &request);
-                void CreateAutoBackUpStrategyAsync(const Model::CreateAutoBackUpStrategyRequest& request, const CreateAutoBackUpStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateAutoBackUpStrategyOutcomeCallable CreateAutoBackUpStrategyCallable(const Model::CreateAutoBackUpStrategyRequest& request);
-
-                /**
                  *集群快照手动创建
                  * @param req CreateClusterSnapshotRequest
                  * @return CreateClusterSnapshotOutcome
@@ -431,15 +382,6 @@ namespace TencentCloud
                 CreateClusterSnapshotOutcome CreateClusterSnapshot(const Model::CreateClusterSnapshotRequest &request);
                 void CreateClusterSnapshotAsync(const Model::CreateClusterSnapshotRequest& request, const CreateClusterSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateClusterSnapshotOutcomeCallable CreateClusterSnapshotCallable(const Model::CreateClusterSnapshotRequest& request);
-
-                /**
-                 *用于创建Beats采集器
-                 * @param req CreateCollectorRequest
-                 * @return CreateCollectorOutcome
-                 */
-                CreateCollectorOutcome CreateCollector(const Model::CreateCollectorRequest &request);
-                void CreateCollectorAsync(const Model::CreateCollectorRequest& request, const CreateCollectorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateCollectorOutcomeCallable CreateCollectorCallable(const Model::CreateCollectorRequest& request);
 
                 /**
                  *cos迁移流程
@@ -494,15 +436,6 @@ namespace TencentCloud
                 CreateServerlessSpaceV2Outcome CreateServerlessSpaceV2(const Model::CreateServerlessSpaceV2Request &request);
                 void CreateServerlessSpaceV2Async(const Model::CreateServerlessSpaceV2Request& request, const CreateServerlessSpaceV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateServerlessSpaceV2OutcomeCallable CreateServerlessSpaceV2Callable(const Model::CreateServerlessSpaceV2Request& request);
-
-                /**
-                 *删除自动备份快照策略
-                 * @param req DeleteAutoBackUpStrategyRequest
-                 * @return DeleteAutoBackUpStrategyOutcome
-                 */
-                DeleteAutoBackUpStrategyOutcome DeleteAutoBackUpStrategy(const Model::DeleteAutoBackUpStrategyRequest &request);
-                void DeleteAutoBackUpStrategyAsync(const Model::DeleteAutoBackUpStrategyRequest& request, const DeleteAutoBackUpStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteAutoBackUpStrategyOutcomeCallable DeleteAutoBackUpStrategyCallable(const Model::DeleteAutoBackUpStrategyRequest& request);
 
                 /**
                  *删除快照仓库里备份的快照
@@ -566,15 +499,6 @@ namespace TencentCloud
                 DeleteServerlessSpaceUserOutcome DeleteServerlessSpaceUser(const Model::DeleteServerlessSpaceUserRequest &request);
                 void DeleteServerlessSpaceUserAsync(const Model::DeleteServerlessSpaceUserRequest& request, const DeleteServerlessSpaceUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteServerlessSpaceUserOutcomeCallable DeleteServerlessSpaceUserCallable(const Model::DeleteServerlessSpaceUserRequest& request);
-
-                /**
-                 *获取自动备份快照策略信息
-                 * @param req DescribeAutoBackUpStrategyRequest
-                 * @return DescribeAutoBackUpStrategyOutcome
-                 */
-                DescribeAutoBackUpStrategyOutcome DescribeAutoBackUpStrategy(const Model::DescribeAutoBackUpStrategyRequest &request);
-                void DescribeAutoBackUpStrategyAsync(const Model::DescribeAutoBackUpStrategyRequest& request, const DescribeAutoBackUpStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeAutoBackUpStrategyOutcomeCallable DescribeAutoBackUpStrategyCallable(const Model::DescribeAutoBackUpStrategyRequest& request);
 
                 /**
                  *获取快照备份列表
@@ -812,24 +736,6 @@ namespace TencentCloud
                 InstallInstanceModelOutcomeCallable InstallInstanceModelCallable(const Model::InstallInstanceModelRequest& request);
 
                 /**
-                 *修改自动备份快照策略公共信息
-                 * @param req ModifyAutoBackUpCommonInfoRequest
-                 * @return ModifyAutoBackUpCommonInfoOutcome
-                 */
-                ModifyAutoBackUpCommonInfoOutcome ModifyAutoBackUpCommonInfo(const Model::ModifyAutoBackUpCommonInfoRequest &request);
-                void ModifyAutoBackUpCommonInfoAsync(const Model::ModifyAutoBackUpCommonInfoRequest& request, const ModifyAutoBackUpCommonInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyAutoBackUpCommonInfoOutcomeCallable ModifyAutoBackUpCommonInfoCallable(const Model::ModifyAutoBackUpCommonInfoRequest& request);
-
-                /**
-                 *修改自动备份快照策略
-                 * @param req ModifyAutoBackUpStrategyRequest
-                 * @return ModifyAutoBackUpStrategyOutcome
-                 */
-                ModifyAutoBackUpStrategyOutcome ModifyAutoBackUpStrategy(const Model::ModifyAutoBackUpStrategyRequest &request);
-                void ModifyAutoBackUpStrategyAsync(const Model::ModifyAutoBackUpStrategyRequest& request, const ModifyAutoBackUpStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyAutoBackUpStrategyOutcomeCallable ModifyAutoBackUpStrategyCallable(const Model::ModifyAutoBackUpStrategyRequest& request);
-
-                /**
                  *修改绑定VIP的安全组，传安全组id列表
                  * @param req ModifyEsVipSecurityGroupRequest
                  * @return ModifyEsVipSecurityGroupOutcome
@@ -846,24 +752,6 @@ namespace TencentCloud
                 QueryIpTraceLogOutcome QueryIpTraceLog(const Model::QueryIpTraceLogRequest &request);
                 void QueryIpTraceLogAsync(const Model::QueryIpTraceLogRequest& request, const QueryIpTraceLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 QueryIpTraceLogOutcomeCallable QueryIpTraceLogCallable(const Model::QueryIpTraceLogRequest& request);
-
-                /**
-                 *请求集群实例
-                 * @param req RequestInstancesRequest
-                 * @return RequestInstancesOutcome
-                 */
-                RequestInstancesOutcome RequestInstances(const Model::RequestInstancesRequest &request);
-                void RequestInstancesAsync(const Model::RequestInstancesRequest& request, const RequestInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                RequestInstancesOutcomeCallable RequestInstancesCallable(const Model::RequestInstancesRequest& request);
-
-                /**
-                 *GET请求集群实例
-                 * @param req RequestInstancesByGetRequest
-                 * @return RequestInstancesByGetOutcome
-                 */
-                RequestInstancesByGetOutcome RequestInstancesByGet(const Model::RequestInstancesByGetRequest &request);
-                void RequestInstancesByGetAsync(const Model::RequestInstancesByGetRequest& request, const RequestInstancesByGetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                RequestInstancesByGetOutcomeCallable RequestInstancesByGetCallable(const Model::RequestInstancesByGetRequest& request);
 
                 /**
                  *重启ES集群实例(用于系统版本更新等操作)

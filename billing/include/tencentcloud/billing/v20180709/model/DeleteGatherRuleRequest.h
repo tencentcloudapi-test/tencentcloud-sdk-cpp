@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>所删除归集规则ID</p>
-                     * @return RuleId <p>所删除归集规则ID</p>
+                     * 获取所删除归集规则ID
+                     * @return RuleId 所删除归集规则ID
                      * 
                      */
                     uint64_t GetRuleId() const;
 
                     /**
-                     * 设置<p>所删除归集规则ID</p>
-                     * @param _ruleId <p>所删除归集规则ID</p>
+                     * 设置所删除归集规则ID
+                     * @param _ruleId 所删除归集规则ID
                      * 
                      */
                     void SetRuleId(const uint64_t& _ruleId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool RuleIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>月份，不传默认当前月</p>
-                     * @return Month <p>月份，不传默认当前月</p>
+                     * 获取月份，不传默认当前月
+                     * @return Month 月份，不传默认当前月
                      * 
                      */
                     std::string GetMonth() const;
 
                     /**
-                     * 设置<p>月份，不传默认当前月</p>
-                     * @param _month <p>月份，不传默认当前月</p>
+                     * 设置月份，不传默认当前月
+                     * @param _month 月份，不传默认当前月
                      * 
                      */
                     void SetMonth(const std::string& _month);
@@ -87,13 +87,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>所删除归集规则ID</p>
+                     * 所删除归集规则ID
                      */
                     uint64_t m_ruleId;
                     bool m_ruleIdHasBeenSet;
 
                     /**
-                     * <p>月份，不传默认当前月</p>
+                     * 月份，不传默认当前月
                      */
                     std::string m_month;
                     bool m_monthHasBeenSet;

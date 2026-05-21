@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/tdai/v20250717/model/AgentDutyTask.h>
 
 
 namespace TencentCloud
@@ -58,20 +57,6 @@ namespace TencentCloud
                      */
                     bool TotalCountHasBeenSet() const;
 
-                    /**
-                     * 获取任务详细信息
-                     * @return DutyTasks 任务详细信息
-                     * 
-                     */
-                    std::vector<AgentDutyTask> GetDutyTasks() const;
-
-                    /**
-                     * 判断参数 DutyTasks 是否已赋值
-                     * @return DutyTasks 是否已赋值
-                     * 
-                     */
-                    bool DutyTasksHasBeenSet() const;
-
                 private:
 
                     /**
@@ -79,12 +64,6 @@ namespace TencentCloud
                      */
                     int64_t m_totalCount;
                     bool m_totalCountHasBeenSet;
-
-                    /**
-                     * 任务详细信息
-                     */
-                    std::vector<AgentDutyTask> m_dutyTasks;
-                    bool m_dutyTasksHasBeenSet;
 
                 };
             }

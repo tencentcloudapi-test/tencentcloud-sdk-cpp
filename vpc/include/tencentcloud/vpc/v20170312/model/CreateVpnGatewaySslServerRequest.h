@@ -22,7 +22,6 @@
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/vpc/v20170312/model/Tag.h>
-#include <tencentcloud/vpc/v20170312/model/DnsServers.h>
 
 
 namespace TencentCloud
@@ -317,27 +316,6 @@ namespace TencentCloud
                      */
                     bool TagsHasBeenSet() const;
 
-                    /**
-                     * 获取DNS Server 地址
-                     * @return DnsServers DNS Server 地址
-                     * 
-                     */
-                    DnsServers GetDnsServers() const;
-
-                    /**
-                     * 设置DNS Server 地址
-                     * @param _dnsServers DNS Server 地址
-                     * 
-                     */
-                    void SetDnsServers(const DnsServers& _dnsServers);
-
-                    /**
-                     * 判断参数 DnsServers 是否已赋值
-                     * @return DnsServers 是否已赋值
-                     * 
-                     */
-                    bool DnsServersHasBeenSet() const;
-
                 private:
 
                     /**
@@ -417,12 +395,6 @@ namespace TencentCloud
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
-
-                    /**
-                     * DNS Server 地址
-                     */
-                    DnsServers m_dnsServers;
-                    bool m_dnsServersHasBeenSet;
 
                 };
             }

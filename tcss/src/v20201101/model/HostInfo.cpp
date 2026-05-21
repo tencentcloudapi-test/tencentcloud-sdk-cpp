@@ -41,12 +41,9 @@ HostInfo::HostInfo() :
     m_clusterIDHasBeenSet(false),
     m_clusterNameHasBeenSet(false),
     m_clusterAccessedStatusHasBeenSet(false),
-    m_clusterAccessedSubStatusHasBeenSet(false),
-    m_clusterAccessedErrorReasonHasBeenSet(false),
     m_chargeCoresCntHasBeenSet(false),
     m_defendStatusHasBeenSet(false),
-    m_coresCntHasBeenSet(false),
-    m_lastOnlineTimeHasBeenSet(false)
+    m_coresCntHasBeenSet(false)
 {
 }
 
@@ -272,26 +269,6 @@ CoreInternalOutcome HostInfo::Deserialize(const rapidjson::Value &value)
         m_clusterAccessedStatusHasBeenSet = true;
     }
 
-    if (value.HasMember("ClusterAccessedSubStatus") && !value["ClusterAccessedSubStatus"].IsNull())
-    {
-        if (!value["ClusterAccessedSubStatus"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `HostInfo.ClusterAccessedSubStatus` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_clusterAccessedSubStatus = string(value["ClusterAccessedSubStatus"].GetString());
-        m_clusterAccessedSubStatusHasBeenSet = true;
-    }
-
-    if (value.HasMember("ClusterAccessedErrorReason") && !value["ClusterAccessedErrorReason"].IsNull())
-    {
-        if (!value["ClusterAccessedErrorReason"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `HostInfo.ClusterAccessedErrorReason` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_clusterAccessedErrorReason = string(value["ClusterAccessedErrorReason"].GetString());
-        m_clusterAccessedErrorReasonHasBeenSet = true;
-    }
-
     if (value.HasMember("ChargeCoresCnt") && !value["ChargeCoresCnt"].IsNull())
     {
         if (!value["ChargeCoresCnt"].IsUint64())
@@ -320,16 +297,6 @@ CoreInternalOutcome HostInfo::Deserialize(const rapidjson::Value &value)
         }
         m_coresCnt = value["CoresCnt"].GetUint64();
         m_coresCntHasBeenSet = true;
-    }
-
-    if (value.HasMember("LastOnlineTime") && !value["LastOnlineTime"].IsNull())
-    {
-        if (!value["LastOnlineTime"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `HostInfo.LastOnlineTime` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_lastOnlineTime = string(value["LastOnlineTime"].GetString());
-        m_lastOnlineTimeHasBeenSet = true;
     }
 
 
@@ -507,22 +474,6 @@ void HostInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         value.AddMember(iKey, rapidjson::Value(m_clusterAccessedStatus.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_clusterAccessedSubStatusHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterAccessedSubStatus";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_clusterAccessedSubStatus.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_clusterAccessedErrorReasonHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ClusterAccessedErrorReason";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_clusterAccessedErrorReason.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_chargeCoresCntHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -545,14 +496,6 @@ void HostInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "CoresCnt";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_coresCnt, allocator);
-    }
-
-    if (m_lastOnlineTimeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "LastOnlineTime";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_lastOnlineTime.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -878,38 +821,6 @@ bool HostInfo::ClusterAccessedStatusHasBeenSet() const
     return m_clusterAccessedStatusHasBeenSet;
 }
 
-string HostInfo::GetClusterAccessedSubStatus() const
-{
-    return m_clusterAccessedSubStatus;
-}
-
-void HostInfo::SetClusterAccessedSubStatus(const string& _clusterAccessedSubStatus)
-{
-    m_clusterAccessedSubStatus = _clusterAccessedSubStatus;
-    m_clusterAccessedSubStatusHasBeenSet = true;
-}
-
-bool HostInfo::ClusterAccessedSubStatusHasBeenSet() const
-{
-    return m_clusterAccessedSubStatusHasBeenSet;
-}
-
-string HostInfo::GetClusterAccessedErrorReason() const
-{
-    return m_clusterAccessedErrorReason;
-}
-
-void HostInfo::SetClusterAccessedErrorReason(const string& _clusterAccessedErrorReason)
-{
-    m_clusterAccessedErrorReason = _clusterAccessedErrorReason;
-    m_clusterAccessedErrorReasonHasBeenSet = true;
-}
-
-bool HostInfo::ClusterAccessedErrorReasonHasBeenSet() const
-{
-    return m_clusterAccessedErrorReasonHasBeenSet;
-}
-
 uint64_t HostInfo::GetChargeCoresCnt() const
 {
     return m_chargeCoresCnt;
@@ -956,21 +867,5 @@ void HostInfo::SetCoresCnt(const uint64_t& _coresCnt)
 bool HostInfo::CoresCntHasBeenSet() const
 {
     return m_coresCntHasBeenSet;
-}
-
-string HostInfo::GetLastOnlineTime() const
-{
-    return m_lastOnlineTime;
-}
-
-void HostInfo::SetLastOnlineTime(const string& _lastOnlineTime)
-{
-    m_lastOnlineTime = _lastOnlineTime;
-    m_lastOnlineTimeHasBeenSet = true;
-}
-
-bool HostInfo::LastOnlineTimeHasBeenSet() const
-{
-    return m_lastOnlineTimeHasBeenSet;
 }
 

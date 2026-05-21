@@ -43,15 +43,19 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>从上一页的响应中获取的下一页的Token值。如果是第一次请求，设置为空。</p>
-                     * @return PaginationToken <p>从上一页的响应中获取的下一页的Token值。如果是第一次请求，设置为空。</p>
+                     * 获取从上一页的响应中获取的下一页的Token值。
+如果是第一次请求，设置为空。
+                     * @return PaginationToken 从上一页的响应中获取的下一页的Token值。
+如果是第一次请求，设置为空。
                      * 
                      */
                     std::string GetPaginationToken() const;
 
                     /**
-                     * 设置<p>从上一页的响应中获取的下一页的Token值。如果是第一次请求，设置为空。</p>
-                     * @param _paginationToken <p>从上一页的响应中获取的下一页的Token值。如果是第一次请求，设置为空。</p>
+                     * 设置从上一页的响应中获取的下一页的Token值。
+如果是第一次请求，设置为空。
+                     * @param _paginationToken 从上一页的响应中获取的下一页的Token值。
+如果是第一次请求，设置为空。
                      * 
                      */
                     void SetPaginationToken(const std::string& _paginationToken);
@@ -64,15 +68,19 @@ namespace TencentCloud
                     bool PaginationTokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>每一页返回的数据最大条数，最大1000。缺省值：50。</p>
-                     * @return MaxResults <p>每一页返回的数据最大条数，最大1000。缺省值：50。</p>
+                     * 获取每一页返回的数据最大条数，最大1000。
+缺省值：50。
+                     * @return MaxResults 每一页返回的数据最大条数，最大1000。
+缺省值：50。
                      * 
                      */
                     uint64_t GetMaxResults() const;
 
                     /**
-                     * 设置<p>每一页返回的数据最大条数，最大1000。缺省值：50。</p>
-                     * @param _maxResults <p>每一页返回的数据最大条数，最大1000。缺省值：50。</p>
+                     * 设置每一页返回的数据最大条数，最大1000。
+缺省值：50。
+                     * @param _maxResults 每一页返回的数据最大条数，最大1000。
+缺省值：50。
                      * 
                      */
                     void SetMaxResults(const uint64_t& _maxResults);
@@ -85,15 +93,15 @@ namespace TencentCloud
                     bool MaxResultsHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
-                     * @return Category <p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
+                     * 获取标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+                     * @return Category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
                      * 
                      */
                     std::string GetCategory() const;
 
                     /**
-                     * 设置<p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
-                     * @param _category <p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
+                     * 设置标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
+                     * @param _category 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
                      * 
                      */
                     void SetCategory(const std::string& _category);
@@ -108,19 +116,21 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>从上一页的响应中获取的下一页的Token值。如果是第一次请求，设置为空。</p>
+                     * 从上一页的响应中获取的下一页的Token值。
+如果是第一次请求，设置为空。
                      */
                     std::string m_paginationToken;
                     bool m_paginationTokenHasBeenSet;
 
                     /**
-                     * <p>每一页返回的数据最大条数，最大1000。缺省值：50。</p>
+                     * 每一页返回的数据最大条数，最大1000。
+缺省值：50。
                      */
                     uint64_t m_maxResults;
                     bool m_maxResultsHasBeenSet;
 
                     /**
-                     * <p>标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。</p>
+                     * 标签类型。取值： Custom：自定义标签。 System：系统标签。 All：全部标签。 默认值：All。
                      */
                     std::string m_category;
                     bool m_categoryHasBeenSet;

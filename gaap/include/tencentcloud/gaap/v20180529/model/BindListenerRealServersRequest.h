@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>监听器ID</p>
-                     * @return ListenerId <p>监听器ID</p>
+                     * 获取监听器ID
+                     * @return ListenerId 监听器ID
                      * 
                      */
                     std::string GetListenerId() const;
 
                     /**
-                     * 设置<p>监听器ID</p>
-                     * @param _listenerId <p>监听器ID</p>
+                     * 设置监听器ID
+                     * @param _listenerId 监听器ID
                      * 
                      */
                     void SetListenerId(const std::string& _listenerId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool ListenerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。</p>
-                     * @return RealServerBindSet <p>待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。</p>
+                     * 获取待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。
+                     * @return RealServerBindSet 待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。
                      * 
                      */
                     std::vector<RealServerBindSetReq> GetRealServerBindSet() const;
 
                     /**
-                     * 设置<p>待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。</p>
-                     * @param _realServerBindSet <p>待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。</p>
+                     * 设置待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。
+                     * @param _realServerBindSet 待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。
                      * 
                      */
                     void SetRealServerBindSet(const std::vector<RealServerBindSetReq>& _realServerBindSet);
@@ -88,13 +88,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>监听器ID</p>
+                     * 监听器ID
                      */
                     std::string m_listenerId;
                     bool m_listenerIdHasBeenSet;
 
                     /**
-                     * <p>待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。</p>
+                     * 待绑定源站列表。如果该监听器的源站调度策略是加权轮询，需要填写源站权重 RealServerWeight, 不填或者其他调度类型默认源站权重为1。
                      */
                     std::vector<RealServerBindSetReq> m_realServerBindSet;
                     bool m_realServerBindSetHasBeenSet;

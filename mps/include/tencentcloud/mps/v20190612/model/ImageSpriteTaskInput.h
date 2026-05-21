@@ -49,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>雪碧图模板 ID。</p>
-                     * @return Definition <p>雪碧图模板 ID。</p>
+                     * 获取雪碧图模板 ID。
+                     * @return Definition 雪碧图模板 ID。
                      * 
                      */
                     uint64_t GetDefinition() const;
 
                     /**
-                     * 设置<p>雪碧图模板 ID。</p>
-                     * @param _definition <p>雪碧图模板 ID。</p>
+                     * 设置雪碧图模板 ID。
+                     * @param _definition 雪碧图模板 ID。
                      * 
                      */
                     void SetDefinition(const uint64_t& _definition);
@@ -70,18 +70,18 @@ namespace TencentCloud
                     bool DefinitionHasBeenSet() const;
 
                     /**
-                     * 获取<p>截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。</p>
+                     * 获取截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return OutputStorage <p>截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。</p>
+                     * @return OutputStorage 截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     TaskOutputStorage GetOutputStorage() const;
 
                     /**
-                     * 设置<p>截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。</p>
+                     * 设置截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _outputStorage <p>截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。</p>
+                     * @param _outputStorage 截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -95,15 +95,43 @@ namespace TencentCloud
                     bool OutputStorageHasBeenSet() const;
 
                     /**
-                     * 获取<p>截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。<br>若需定义输出路径，路径需以<code>.{format}</code>结尾。变量名请参考 <a href="https://cloud.tencent.com/document/product/862/37039">文件名变量说明</a>。<br>相对路径示例：</p><li>文件名_{变量名}.{format}</li><li>文件名.{format}</li>绝对路径示例：<li>/自定义路径/文件名_{变量名}.{format}</li>如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}_{number}.{format}</code>。
-                     * @return OutputObjectPath <p>截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。<br>若需定义输出路径，路径需以<code>.{format}</code>结尾。变量名请参考 <a href="https://cloud.tencent.com/document/product/862/37039">文件名变量说明</a>。<br>相对路径示例：</p><li>文件名_{变量名}.{format}</li><li>文件名.{format}</li>绝对路径示例：<li>/自定义路径/文件名_{变量名}.{format}</li>如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}_{number}.{format}</code>。
+                     * 获取截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
+                     * @return OutputObjectPath 截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
                      * 
                      */
                     std::string GetOutputObjectPath() const;
 
                     /**
-                     * 设置<p>截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。<br>若需定义输出路径，路径需以<code>.{format}</code>结尾。变量名请参考 <a href="https://cloud.tencent.com/document/product/862/37039">文件名变量说明</a>。<br>相对路径示例：</p><li>文件名_{变量名}.{format}</li><li>文件名.{format}</li>绝对路径示例：<li>/自定义路径/文件名_{变量名}.{format}</li>如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}_{number}.{format}</code>。
-                     * @param _outputObjectPath <p>截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。<br>若需定义输出路径，路径需以<code>.{format}</code>结尾。变量名请参考 <a href="https://cloud.tencent.com/document/product/862/37039">文件名变量说明</a>。<br>相对路径示例：</p><li>文件名_{变量名}.{format}</li><li>文件名.{format}</li>绝对路径示例：<li>/自定义路径/文件名_{变量名}.{format}</li>如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}_{number}.{format}</code>。
+                     * 设置截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
+                     * @param _outputObjectPath 截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
                      * 
                      */
                     void SetOutputObjectPath(const std::string& _outputObjectPath);
@@ -116,15 +144,15 @@ namespace TencentCloud
                     bool OutputObjectPathHasBeenSet() const;
 
                     /**
-                     * 获取<p>截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}.{format}</code>。</p>
-                     * @return WebVttObjectName <p>截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}.{format}</code>。</p>
+                     * 获取截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
+                     * @return WebVttObjectName 截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
                      * 
                      */
                     std::string GetWebVttObjectName() const;
 
                     /**
-                     * 设置<p>截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}.{format}</code>。</p>
-                     * @param _webVttObjectName <p>截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}.{format}</code>。</p>
+                     * 设置截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
+                     * @param _webVttObjectName 截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
                      * 
                      */
                     void SetWebVttObjectName(const std::string& _webVttObjectName);
@@ -137,18 +165,18 @@ namespace TencentCloud
                     bool WebVttObjectNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>截取雪碧图后输出路径中的<code>{number}</code>变量的规则。</p>
+                     * 获取截取雪碧图后输出路径中的`{number}`变量的规则。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ObjectNumberFormat <p>截取雪碧图后输出路径中的<code>{number}</code>变量的规则。</p>
+                     * @return ObjectNumberFormat 截取雪碧图后输出路径中的`{number}`变量的规则。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     NumberFormat GetObjectNumberFormat() const;
 
                     /**
-                     * 设置<p>截取雪碧图后输出路径中的<code>{number}</code>变量的规则。</p>
+                     * 设置截取雪碧图后输出路径中的`{number}`变量的规则。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _objectNumberFormat <p>截取雪碧图后输出路径中的<code>{number}</code>变量的规则。</p>
+                     * @param _objectNumberFormat 截取雪碧图后输出路径中的`{number}`变量的规则。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -161,66 +189,46 @@ namespace TencentCloud
                      */
                     bool ObjectNumberFormatHasBeenSet() const;
 
-                    /**
-                     * 获取<p>扩展参数。</p>
-                     * @return ExtInfo <p>扩展参数。</p>
-                     * 
-                     */
-                    std::string GetExtInfo() const;
-
-                    /**
-                     * 设置<p>扩展参数。</p>
-                     * @param _extInfo <p>扩展参数。</p>
-                     * 
-                     */
-                    void SetExtInfo(const std::string& _extInfo);
-
-                    /**
-                     * 判断参数 ExtInfo 是否已赋值
-                     * @return ExtInfo 是否已赋值
-                     * 
-                     */
-                    bool ExtInfoHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>雪碧图模板 ID。</p>
+                     * 雪碧图模板 ID。
                      */
                     uint64_t m_definition;
                     bool m_definitionHasBeenSet;
 
                     /**
-                     * <p>截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。</p>
+                     * 截取雪碧图后文件的目标存储，不填则继承上层的 OutputStorage 值。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     TaskOutputStorage m_outputStorage;
                     bool m_outputStorageHasBeenSet;
 
                     /**
-                     * <p>截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。<br>若需定义输出路径，路径需以<code>.{format}</code>结尾。变量名请参考 <a href="https://cloud.tencent.com/document/product/862/37039">文件名变量说明</a>。<br>相对路径示例：</p><li>文件名_{变量名}.{format}</li><li>文件名.{format}</li>绝对路径示例：<li>/自定义路径/文件名_{变量名}.{format}</li>如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}_{number}.{format}</code>。
+                     * 截取雪碧图后，雪碧图图片文件的输出路径，可以为相对路径或者绝对路径。
+若需定义输出路径，路径需以`.{format}`结尾。变量名请参考 [文件名变量说明](https://cloud.tencent.com/document/product/862/37039)。
+相对路径示例：
+<li>文件名_{变量名}.{format}</li>
+<li>文件名.{format}</li>
+绝对路径示例：
+<li>/自定义路径/文件名_{变量名}.{format}</li>
+如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}_{number}.{format}`。
                      */
                     std::string m_outputObjectPath;
                     bool m_outputObjectPathHasBeenSet;
 
                     /**
-                     * <p>截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：<code>{inputName}_imageSprite_{definition}.{format}</code>。</p>
+                     * 截取雪碧图后，Web VTT 文件的输出路径，只能为相对路径。如果不填，则默认为相对路径：`{inputName}_imageSprite_{definition}.{format}`。
                      */
                     std::string m_webVttObjectName;
                     bool m_webVttObjectNameHasBeenSet;
 
                     /**
-                     * <p>截取雪碧图后输出路径中的<code>{number}</code>变量的规则。</p>
+                     * 截取雪碧图后输出路径中的`{number}`变量的规则。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     NumberFormat m_objectNumberFormat;
                     bool m_objectNumberFormatHasBeenSet;
-
-                    /**
-                     * <p>扩展参数。</p>
-                     */
-                    std::string m_extInfo;
-                    bool m_extInfoHasBeenSet;
 
                 };
             }

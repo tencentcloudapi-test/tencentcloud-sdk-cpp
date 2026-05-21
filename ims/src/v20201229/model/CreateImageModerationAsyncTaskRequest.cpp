@@ -31,10 +31,7 @@ CreateImageModerationAsyncTaskRequest::CreateImageModerationAsyncTaskRequest() :
     m_intervalHasBeenSet(false),
     m_maxFramesHasBeenSet(false),
     m_userHasBeenSet(false),
-    m_deviceHasBeenSet(false),
-    m_typeHasBeenSet(false),
-    m_fileUrlListHasBeenSet(false),
-    m_textContentHasBeenSet(false)
+    m_deviceHasBeenSet(false)
 {
 }
 
@@ -117,35 +114,6 @@ string CreateImageModerationAsyncTaskRequest::ToJsonString() const
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_device.ToJsonObject(d[key.c_str()], allocator);
-    }
-
-    if (m_typeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Type";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_type.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_fileUrlListHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FileUrlList";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_fileUrlList.begin(); itr != m_fileUrlList.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
-
-    if (m_textContentHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TextContent";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_textContent.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -298,54 +266,6 @@ void CreateImageModerationAsyncTaskRequest::SetDevice(const Device& _device)
 bool CreateImageModerationAsyncTaskRequest::DeviceHasBeenSet() const
 {
     return m_deviceHasBeenSet;
-}
-
-string CreateImageModerationAsyncTaskRequest::GetType() const
-{
-    return m_type;
-}
-
-void CreateImageModerationAsyncTaskRequest::SetType(const string& _type)
-{
-    m_type = _type;
-    m_typeHasBeenSet = true;
-}
-
-bool CreateImageModerationAsyncTaskRequest::TypeHasBeenSet() const
-{
-    return m_typeHasBeenSet;
-}
-
-vector<string> CreateImageModerationAsyncTaskRequest::GetFileUrlList() const
-{
-    return m_fileUrlList;
-}
-
-void CreateImageModerationAsyncTaskRequest::SetFileUrlList(const vector<string>& _fileUrlList)
-{
-    m_fileUrlList = _fileUrlList;
-    m_fileUrlListHasBeenSet = true;
-}
-
-bool CreateImageModerationAsyncTaskRequest::FileUrlListHasBeenSet() const
-{
-    return m_fileUrlListHasBeenSet;
-}
-
-string CreateImageModerationAsyncTaskRequest::GetTextContent() const
-{
-    return m_textContent;
-}
-
-void CreateImageModerationAsyncTaskRequest::SetTextContent(const string& _textContent)
-{
-    m_textContent = _textContent;
-    m_textContentHasBeenSet = true;
-}
-
-bool CreateImageModerationAsyncTaskRequest::TextContentHasBeenSet() const
-{
-    return m_textContentHasBeenSet;
 }
 
 

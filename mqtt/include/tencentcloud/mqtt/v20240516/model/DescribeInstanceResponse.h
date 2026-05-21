@@ -44,8 +44,14 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例类型<br>BASIC 基础版<br>PRO  专业版<br>PLATINUM 铂金版</p>
-                     * @return InstanceType <p>实例类型<br>BASIC 基础版<br>PRO  专业版<br>PLATINUM 铂金版</p>
+                     * 获取实例类型
+BASIC 基础版
+PRO  专业版
+PLATINUM 铂金版
+                     * @return InstanceType 实例类型
+BASIC 基础版
+PRO  专业版
+PLATINUM 铂金版
                      * 
                      */
                     std::string GetInstanceType() const;
@@ -58,8 +64,8 @@ namespace TencentCloud
                     bool InstanceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例ID</p>
-                     * @return InstanceId <p>实例ID</p>
+                     * 获取实例ID
+                     * @return InstanceId 实例ID
                      * 
                      */
                     std::string GetInstanceId() const;
@@ -72,8 +78,8 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例名称</p>
-                     * @return InstanceName <p>实例名称</p>
+                     * 获取实例名称
+                     * @return InstanceName 实例名称
                      * 
                      */
                     std::string GetInstanceName() const;
@@ -86,8 +92,8 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题数量</p>
-                     * @return TopicNum <p>主题数量</p>
+                     * 获取主题数量
+                     * @return TopicNum 主题数量
                      * 
                      */
                     int64_t GetTopicNum() const;
@@ -100,8 +106,8 @@ namespace TencentCloud
                     bool TopicNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例最大主题数量</p>
-                     * @return TopicNumLimit <p>实例最大主题数量</p>
+                     * 获取实例最大主题数量
+                     * @return TopicNumLimit 实例最大主题数量
                      * 
                      */
                     int64_t GetTopicNumLimit() const;
@@ -114,8 +120,8 @@ namespace TencentCloud
                     bool TopicNumLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>TPS限流值</p>
-                     * @return TpsLimit <p>TPS限流值</p>
+                     * 获取TPS限流值
+                     * @return TpsLimit TPS限流值
                      * 
                      */
                     int64_t GetTpsLimit() const;
@@ -128,8 +134,8 @@ namespace TencentCloud
                     bool TpsLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间，秒为单位</p>
-                     * @return CreatedTime <p>创建时间，秒为单位</p>
+                     * 获取创建时间，秒为单位
+                     * @return CreatedTime 创建时间，秒为单位
                      * 
                      */
                     int64_t GetCreatedTime() const;
@@ -142,8 +148,8 @@ namespace TencentCloud
                     bool CreatedTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>备注信息</p>
-                     * @return Remark <p>备注信息</p>
+                     * 获取备注信息
+                     * @return Remark 备注信息
                      * 
                      */
                     std::string GetRemark() const;
@@ -156,8 +162,8 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例状态， RUNNING, 运行中 MAINTAINING，维护中 ABNORMAL，异常 OVERDUE，欠费 DESTROYED，已删除 CREATING，创建中 MODIFYING，变配中 CREATE_FAILURE，创建失败 MODIFY_FAILURE，变配失败 DELETING，删除中</p>
-                     * @return InstanceStatus <p>实例状态， RUNNING, 运行中 MAINTAINING，维护中 ABNORMAL，异常 OVERDUE，欠费 DESTROYED，已删除 CREATING，创建中 MODIFYING，变配中 CREATE_FAILURE，创建失败 MODIFY_FAILURE，变配失败 DELETING，删除中</p>
+                     * 获取实例状态， RUNNING, 运行中 MAINTAINING，维护中 ABNORMAL，异常 OVERDUE，欠费 DESTROYED，已删除 CREATING，创建中 MODIFYING，变配中 CREATE_FAILURE，创建失败 MODIFY_FAILURE，变配失败 DELETING，删除中
+                     * @return InstanceStatus 实例状态， RUNNING, 运行中 MAINTAINING，维护中 ABNORMAL，异常 OVERDUE，欠费 DESTROYED，已删除 CREATING，创建中 MODIFYING，变配中 CREATE_FAILURE，创建失败 MODIFY_FAILURE，变配失败 DELETING，删除中
                      * 
                      */
                     std::string GetInstanceStatus() const;
@@ -170,8 +176,8 @@ namespace TencentCloud
                     bool InstanceStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例规格</p>
-                     * @return SkuCode <p>实例规格</p>
+                     * 获取实例规格
+                     * @return SkuCode 实例规格
                      * 
                      */
                     std::string GetSkuCode() const;
@@ -184,8 +190,8 @@ namespace TencentCloud
                     bool SkuCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>单客户端最大订阅数</p>
-                     * @return MaxSubscriptionPerClient <p>单客户端最大订阅数</p>
+                     * 获取单客户端最大订阅数
+                     * @return MaxSubscriptionPerClient 单客户端最大订阅数
                      * 
                      */
                     int64_t GetMaxSubscriptionPerClient() const;
@@ -198,8 +204,8 @@ namespace TencentCloud
                     bool MaxSubscriptionPerClientHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权规则条数</p>
-                     * @return AuthorizationPolicyLimit <p>授权规则条数</p>
+                     * 获取授权规则条数
+                     * @return AuthorizationPolicyLimit 授权规则条数
                      * 
                      */
                     int64_t GetAuthorizationPolicyLimit() const;
@@ -212,8 +218,8 @@ namespace TencentCloud
                     bool AuthorizationPolicyLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>客户端数量上限</p>
-                     * @return ClientNumLimit <p>客户端数量上限</p>
+                     * 获取客户端数量上限
+                     * @return ClientNumLimit 客户端数量上限
                      * 
                      */
                     int64_t GetClientNumLimit() const;
@@ -226,8 +232,12 @@ namespace TencentCloud
                     bool ClientNumLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>客户端证书注册方式：<br>JITP：自动注册<br>API：通过API手动注册</p>
-                     * @return DeviceCertificateProvisionType <p>客户端证书注册方式：<br>JITP：自动注册<br>API：通过API手动注册</p>
+                     * 获取客户端证书注册方式：
+JITP：自动注册
+API：通过API手动注册
+                     * @return DeviceCertificateProvisionType 客户端证书注册方式：
+JITP：自动注册
+API：通过API手动注册
                      * 
                      */
                     std::string GetDeviceCertificateProvisionType() const;
@@ -240,8 +250,8 @@ namespace TencentCloud
                     bool DeviceCertificateProvisionTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动注册设备证书时是否自动激活</p>
-                     * @return AutomaticActivation <p>自动注册设备证书时是否自动激活</p>
+                     * 获取自动注册设备证书时是否自动激活
+                     * @return AutomaticActivation 自动注册设备证书时是否自动激活
                      * 
                      */
                     bool GetAutomaticActivation() const;
@@ -254,8 +264,8 @@ namespace TencentCloud
                     bool AutomaticActivationHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否自动续费。仅包年包月集群生效。 1:自动续费 0:非自动续费</p>
-                     * @return RenewFlag <p>是否自动续费。仅包年包月集群生效。 1:自动续费 0:非自动续费</p>
+                     * 获取是否自动续费。仅包年包月集群生效。 1:自动续费 0:非自动续费
+                     * @return RenewFlag 是否自动续费。仅包年包月集群生效。 1:自动续费 0:非自动续费
                      * 
                      */
                     int64_t GetRenewFlag() const;
@@ -268,8 +278,8 @@ namespace TencentCloud
                     bool RenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>计费模式， POSTPAID，按量计费 PREPAID，包年包月</p>
-                     * @return PayMode <p>计费模式， POSTPAID，按量计费 PREPAID，包年包月</p>
+                     * 获取计费模式， POSTPAID，按量计费 PREPAID，包年包月
+                     * @return PayMode 计费模式， POSTPAID，按量计费 PREPAID，包年包月
                      * 
                      */
                     std::string GetPayMode() const;
@@ -282,8 +292,8 @@ namespace TencentCloud
                     bool PayModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>到期时间，毫秒级时间戳</p>
-                     * @return ExpiryTime <p>到期时间，毫秒级时间戳</p>
+                     * 获取到期时间，毫秒级时间戳
+                     * @return ExpiryTime 到期时间，毫秒级时间戳
                      * 
                      */
                     int64_t GetExpiryTime() const;
@@ -296,8 +306,8 @@ namespace TencentCloud
                     bool ExpiryTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>预销毁时间，毫秒级时间戳</p>
-                     * @return DestroyTime <p>预销毁时间，毫秒级时间戳</p>
+                     * 获取预销毁时间，毫秒级时间戳
+                     * @return DestroyTime 预销毁时间，毫秒级时间戳
                      * 
                      */
                     int64_t GetDestroyTime() const;
@@ -310,8 +320,8 @@ namespace TencentCloud
                     bool DestroyTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>TLS,单向认证    mTLS,双向认证    BYOC;一机一证</p>
-                     * @return X509Mode <p>TLS,单向认证    mTLS,双向认证    BYOC;一机一证</p>
+                     * 获取TLS,单向认证    mTLS,双向认证    BYOC;一机一证
+                     * @return X509Mode TLS,单向认证    mTLS,双向认证    BYOC;一机一证
                      * 
                      */
                     std::string GetX509Mode() const;
@@ -324,8 +334,8 @@ namespace TencentCloud
                     bool X509ModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>最大Ca配额</p>
-                     * @return MaxCaNum <p>最大Ca配额</p>
+                     * 获取最大Ca配额
+                     * @return MaxCaNum 最大Ca配额
                      * 
                      */
                     int64_t GetMaxCaNum() const;
@@ -338,8 +348,8 @@ namespace TencentCloud
                     bool MaxCaNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>证书注册码</p>
-                     * @return RegistrationCode <p>证书注册码</p>
+                     * 获取证书注册码
+                     * @return RegistrationCode 证书注册码
                      * 
                      */
                     std::string GetRegistrationCode() const;
@@ -352,8 +362,8 @@ namespace TencentCloud
                     bool RegistrationCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群最大订阅数</p>
-                     * @return MaxSubscription <p>集群最大订阅数</p>
+                     * 获取集群最大订阅数
+                     * @return MaxSubscription 集群最大订阅数
                      * 
                      */
                     int64_t GetMaxSubscription() const;
@@ -366,8 +376,8 @@ namespace TencentCloud
                     bool MaxSubscriptionHasBeenSet() const;
 
                     /**
-                     * 获取<p>授权策略开关</p>
-                     * @return AuthorizationPolicy <p>授权策略开关</p>
+                     * 获取授权策略开关
+                     * @return AuthorizationPolicy 授权策略开关
                      * 
                      */
                     bool GetAuthorizationPolicy() const;
@@ -380,8 +390,8 @@ namespace TencentCloud
                     bool AuthorizationPolicyHasBeenSet() const;
 
                     /**
-                     * 获取<p>共享订阅组数最大限制</p>
-                     * @return SharedSubscriptionGroupLimit <p>共享订阅组数最大限制</p>
+                     * 获取共享订阅组数最大限制
+                     * @return SharedSubscriptionGroupLimit 共享订阅组数最大限制
                      * 
                      */
                     int64_t GetSharedSubscriptionGroupLimit() const;
@@ -394,22 +404,22 @@ namespace TencentCloud
                     bool SharedSubscriptionGroupLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>单个共享订阅组TopicFilter数限制</p>
-                     * @return MaxTopicFilterPerSharedSubscriptionGroup <p>单个共享订阅组TopicFilter数限制</p>
-                     * @deprecated
+                     * 获取单个共享订阅组TopicFilter数限制
+                     * @return MaxTopicFilterPerSharedSubscriptionGroup 单个共享订阅组TopicFilter数限制
+                     * 
                      */
                     int64_t GetMaxTopicFilterPerSharedSubscriptionGroup() const;
 
                     /**
                      * 判断参数 MaxTopicFilterPerSharedSubscriptionGroup 是否已赋值
                      * @return MaxTopicFilterPerSharedSubscriptionGroup 是否已赋值
-                     * @deprecated
+                     * 
                      */
                     bool MaxTopicFilterPerSharedSubscriptionGroupHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动订阅规则条数限制</p>
-                     * @return AutoSubscriptionPolicyLimit <p>自动订阅规则条数限制</p>
+                     * 获取自动订阅规则条数限制
+                     * @return AutoSubscriptionPolicyLimit 自动订阅规则条数限制
                      * 
                      */
                     int64_t GetAutoSubscriptionPolicyLimit() const;
@@ -422,8 +432,8 @@ namespace TencentCloud
                     bool AutoSubscriptionPolicyLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>单条自动订阅规则TopicFilter数限制</p>
-                     * @return MaxTopicFilterPerAutoSubscriptionPolicy <p>单条自动订阅规则TopicFilter数限制</p>
+                     * 获取单条自动订阅规则TopicFilter数限制
+                     * @return MaxTopicFilterPerAutoSubscriptionPolicy 单条自动订阅规则TopicFilter数限制
                      * 
                      */
                     int64_t GetMaxTopicFilterPerAutoSubscriptionPolicy() const;
@@ -436,8 +446,8 @@ namespace TencentCloud
                     bool MaxTopicFilterPerAutoSubscriptionPolicyHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否使用默认的服务端证书</p>
-                     * @return UseDefaultServerCert <p>是否使用默认的服务端证书</p>
+                     * 获取是否使用默认的服务端证书
+                     * @return UseDefaultServerCert 是否使用默认的服务端证书
                      * 
                      */
                     bool GetUseDefaultServerCert() const;
@@ -450,8 +460,8 @@ namespace TencentCloud
                     bool UseDefaultServerCertHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务端CA最大数量</p>
-                     * @return TrustedCaLimit <p>服务端CA最大数量</p>
+                     * 获取服务端CA最大数量
+                     * @return TrustedCaLimit 服务端CA最大数量
                      * 
                      */
                     int64_t GetTrustedCaLimit() const;
@@ -464,8 +474,8 @@ namespace TencentCloud
                     bool TrustedCaLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务端证书最大数量</p>
-                     * @return ServerCertLimit <p>服务端证书最大数量</p>
+                     * 获取服务端证书最大数量
+                     * @return ServerCertLimit 服务端证书最大数量
                      * 
                      */
                     int64_t GetServerCertLimit() const;
@@ -478,8 +488,8 @@ namespace TencentCloud
                     bool ServerCertLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>topic前缀最大层级</p>
-                     * @return TopicPrefixSlashLimit <p>topic前缀最大层级</p>
+                     * 获取topic前缀最大层级
+                     * @return TopicPrefixSlashLimit topic前缀最大层级
                      * 
                      */
                     int64_t GetTopicPrefixSlashLimit() const;
@@ -492,8 +502,8 @@ namespace TencentCloud
                     bool TopicPrefixSlashLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>单客户端发送消息限速，单位 条/秒</p>
-                     * @return MessageRate <p>单客户端发送消息限速，单位 条/秒</p>
+                     * 获取单客户端发送消息限速，单位 条/秒
+                     * @return MessageRate 单客户端发送消息限速，单位 条/秒
                      * 
                      */
                     int64_t GetMessageRate() const;
@@ -506,8 +516,8 @@ namespace TencentCloud
                     bool MessageRateHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务端tls支持的协议，使用“,”分割。例如：TLSv1.3,TLSv1.2,TLSv1.1,TLSv1</p>
-                     * @return TransportLayerSecurity <p>服务端tls支持的协议，使用“,”分割。例如：TLSv1.3,TLSv1.2,TLSv1.1,TLSv1</p>
+                     * 获取服务端tls支持的协议，使用“,”分割。例如：TLSv1.3,TLSv1.2,TLSv1.1,TLSv1
+                     * @return TransportLayerSecurity 服务端tls支持的协议，使用“,”分割。例如：TLSv1.3,TLSv1.2,TLSv1.1,TLSv1
                      * 
                      */
                     std::string GetTransportLayerSecurity() const;
@@ -520,8 +530,8 @@ namespace TencentCloud
                     bool TransportLayerSecurityHasBeenSet() const;
 
                     /**
-                     * 获取<p>消息属性增强规则配额</p>
-                     * @return MessageEnrichmentRuleLimit <p>消息属性增强规则配额</p>
+                     * 获取消息属性增强规则配额
+                     * @return MessageEnrichmentRuleLimit 消息属性增强规则配额
                      * 
                      */
                     int64_t GetMessageEnrichmentRuleLimit() const;
@@ -533,237 +543,222 @@ namespace TencentCloud
                      */
                     bool MessageEnrichmentRuleLimitHasBeenSet() const;
 
-                    /**
-                     * 获取<p>封禁规则最大数量</p>
-                     * @return BlockRuleLimit <p>封禁规则最大数量</p>
-                     * 
-                     */
-                    int64_t GetBlockRuleLimit() const;
-
-                    /**
-                     * 判断参数 BlockRuleLimit 是否已赋值
-                     * @return BlockRuleLimit 是否已赋值
-                     * 
-                     */
-                    bool BlockRuleLimitHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>实例类型<br>BASIC 基础版<br>PRO  专业版<br>PLATINUM 铂金版</p>
+                     * 实例类型
+BASIC 基础版
+PRO  专业版
+PLATINUM 铂金版
                      */
                     std::string m_instanceType;
                     bool m_instanceTypeHasBeenSet;
 
                     /**
-                     * <p>实例ID</p>
+                     * 实例ID
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>实例名称</p>
+                     * 实例名称
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>主题数量</p>
+                     * 主题数量
                      */
                     int64_t m_topicNum;
                     bool m_topicNumHasBeenSet;
 
                     /**
-                     * <p>实例最大主题数量</p>
+                     * 实例最大主题数量
                      */
                     int64_t m_topicNumLimit;
                     bool m_topicNumLimitHasBeenSet;
 
                     /**
-                     * <p>TPS限流值</p>
+                     * TPS限流值
                      */
                     int64_t m_tpsLimit;
                     bool m_tpsLimitHasBeenSet;
 
                     /**
-                     * <p>创建时间，秒为单位</p>
+                     * 创建时间，秒为单位
                      */
                     int64_t m_createdTime;
                     bool m_createdTimeHasBeenSet;
 
                     /**
-                     * <p>备注信息</p>
+                     * 备注信息
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>实例状态， RUNNING, 运行中 MAINTAINING，维护中 ABNORMAL，异常 OVERDUE，欠费 DESTROYED，已删除 CREATING，创建中 MODIFYING，变配中 CREATE_FAILURE，创建失败 MODIFY_FAILURE，变配失败 DELETING，删除中</p>
+                     * 实例状态， RUNNING, 运行中 MAINTAINING，维护中 ABNORMAL，异常 OVERDUE，欠费 DESTROYED，已删除 CREATING，创建中 MODIFYING，变配中 CREATE_FAILURE，创建失败 MODIFY_FAILURE，变配失败 DELETING，删除中
                      */
                     std::string m_instanceStatus;
                     bool m_instanceStatusHasBeenSet;
 
                     /**
-                     * <p>实例规格</p>
+                     * 实例规格
                      */
                     std::string m_skuCode;
                     bool m_skuCodeHasBeenSet;
 
                     /**
-                     * <p>单客户端最大订阅数</p>
+                     * 单客户端最大订阅数
                      */
                     int64_t m_maxSubscriptionPerClient;
                     bool m_maxSubscriptionPerClientHasBeenSet;
 
                     /**
-                     * <p>授权规则条数</p>
+                     * 授权规则条数
                      */
                     int64_t m_authorizationPolicyLimit;
                     bool m_authorizationPolicyLimitHasBeenSet;
 
                     /**
-                     * <p>客户端数量上限</p>
+                     * 客户端数量上限
                      */
                     int64_t m_clientNumLimit;
                     bool m_clientNumLimitHasBeenSet;
 
                     /**
-                     * <p>客户端证书注册方式：<br>JITP：自动注册<br>API：通过API手动注册</p>
+                     * 客户端证书注册方式：
+JITP：自动注册
+API：通过API手动注册
                      */
                     std::string m_deviceCertificateProvisionType;
                     bool m_deviceCertificateProvisionTypeHasBeenSet;
 
                     /**
-                     * <p>自动注册设备证书时是否自动激活</p>
+                     * 自动注册设备证书时是否自动激活
                      */
                     bool m_automaticActivation;
                     bool m_automaticActivationHasBeenSet;
 
                     /**
-                     * <p>是否自动续费。仅包年包月集群生效。 1:自动续费 0:非自动续费</p>
+                     * 是否自动续费。仅包年包月集群生效。 1:自动续费 0:非自动续费
                      */
                     int64_t m_renewFlag;
                     bool m_renewFlagHasBeenSet;
 
                     /**
-                     * <p>计费模式， POSTPAID，按量计费 PREPAID，包年包月</p>
+                     * 计费模式， POSTPAID，按量计费 PREPAID，包年包月
                      */
                     std::string m_payMode;
                     bool m_payModeHasBeenSet;
 
                     /**
-                     * <p>到期时间，毫秒级时间戳</p>
+                     * 到期时间，毫秒级时间戳
                      */
                     int64_t m_expiryTime;
                     bool m_expiryTimeHasBeenSet;
 
                     /**
-                     * <p>预销毁时间，毫秒级时间戳</p>
+                     * 预销毁时间，毫秒级时间戳
                      */
                     int64_t m_destroyTime;
                     bool m_destroyTimeHasBeenSet;
 
                     /**
-                     * <p>TLS,单向认证    mTLS,双向认证    BYOC;一机一证</p>
+                     * TLS,单向认证    mTLS,双向认证    BYOC;一机一证
                      */
                     std::string m_x509Mode;
                     bool m_x509ModeHasBeenSet;
 
                     /**
-                     * <p>最大Ca配额</p>
+                     * 最大Ca配额
                      */
                     int64_t m_maxCaNum;
                     bool m_maxCaNumHasBeenSet;
 
                     /**
-                     * <p>证书注册码</p>
+                     * 证书注册码
                      */
                     std::string m_registrationCode;
                     bool m_registrationCodeHasBeenSet;
 
                     /**
-                     * <p>集群最大订阅数</p>
+                     * 集群最大订阅数
                      */
                     int64_t m_maxSubscription;
                     bool m_maxSubscriptionHasBeenSet;
 
                     /**
-                     * <p>授权策略开关</p>
+                     * 授权策略开关
                      */
                     bool m_authorizationPolicy;
                     bool m_authorizationPolicyHasBeenSet;
 
                     /**
-                     * <p>共享订阅组数最大限制</p>
+                     * 共享订阅组数最大限制
                      */
                     int64_t m_sharedSubscriptionGroupLimit;
                     bool m_sharedSubscriptionGroupLimitHasBeenSet;
 
                     /**
-                     * <p>单个共享订阅组TopicFilter数限制</p>
+                     * 单个共享订阅组TopicFilter数限制
                      */
                     int64_t m_maxTopicFilterPerSharedSubscriptionGroup;
                     bool m_maxTopicFilterPerSharedSubscriptionGroupHasBeenSet;
 
                     /**
-                     * <p>自动订阅规则条数限制</p>
+                     * 自动订阅规则条数限制
                      */
                     int64_t m_autoSubscriptionPolicyLimit;
                     bool m_autoSubscriptionPolicyLimitHasBeenSet;
 
                     /**
-                     * <p>单条自动订阅规则TopicFilter数限制</p>
+                     * 单条自动订阅规则TopicFilter数限制
                      */
                     int64_t m_maxTopicFilterPerAutoSubscriptionPolicy;
                     bool m_maxTopicFilterPerAutoSubscriptionPolicyHasBeenSet;
 
                     /**
-                     * <p>是否使用默认的服务端证书</p>
+                     * 是否使用默认的服务端证书
                      */
                     bool m_useDefaultServerCert;
                     bool m_useDefaultServerCertHasBeenSet;
 
                     /**
-                     * <p>服务端CA最大数量</p>
+                     * 服务端CA最大数量
                      */
                     int64_t m_trustedCaLimit;
                     bool m_trustedCaLimitHasBeenSet;
 
                     /**
-                     * <p>服务端证书最大数量</p>
+                     * 服务端证书最大数量
                      */
                     int64_t m_serverCertLimit;
                     bool m_serverCertLimitHasBeenSet;
 
                     /**
-                     * <p>topic前缀最大层级</p>
+                     * topic前缀最大层级
                      */
                     int64_t m_topicPrefixSlashLimit;
                     bool m_topicPrefixSlashLimitHasBeenSet;
 
                     /**
-                     * <p>单客户端发送消息限速，单位 条/秒</p>
+                     * 单客户端发送消息限速，单位 条/秒
                      */
                     int64_t m_messageRate;
                     bool m_messageRateHasBeenSet;
 
                     /**
-                     * <p>服务端tls支持的协议，使用“,”分割。例如：TLSv1.3,TLSv1.2,TLSv1.1,TLSv1</p>
+                     * 服务端tls支持的协议，使用“,”分割。例如：TLSv1.3,TLSv1.2,TLSv1.1,TLSv1
                      */
                     std::string m_transportLayerSecurity;
                     bool m_transportLayerSecurityHasBeenSet;
 
                     /**
-                     * <p>消息属性增强规则配额</p>
+                     * 消息属性增强规则配额
                      */
                     int64_t m_messageEnrichmentRuleLimit;
                     bool m_messageEnrichmentRuleLimitHasBeenSet;
-
-                    /**
-                     * <p>封禁规则最大数量</p>
-                     */
-                    int64_t m_blockRuleLimit;
-                    bool m_blockRuleLimitHasBeenSet;
 
                 };
             }

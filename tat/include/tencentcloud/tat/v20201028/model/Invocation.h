@@ -236,18 +236,14 @@ namespace TencentCloud
 
                     /**
                      * 获取执行活动结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
-注意：此字段可能返回 null，表示取不到有效值。
                      * @return EndTime 执行活动结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
-注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetEndTime() const;
 
                     /**
                      * 设置执行活动结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
-注意：此字段可能返回 null，表示取不到有效值。
                      * @param _endTime 执行活动结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
-注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetEndTime(const std::string& _endTime);
@@ -600,7 +596,6 @@ namespace TencentCloud
 
                     /**
                      * 执行活动结束时间。格式为：YYYY-MM-DDThh:mm:ssZ
-注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;

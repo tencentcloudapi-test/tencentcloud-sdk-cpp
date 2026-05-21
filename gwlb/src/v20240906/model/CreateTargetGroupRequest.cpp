@@ -33,6 +33,8 @@ CreateTargetGroupRequest::CreateTargetGroupRequest() :
     m_allDeadToAliveHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_forwardingModeHasBeenSet(false),
+    m_tcpIdleConnectTimeoutHasBeenSet(false),
+    m_othersIdleConnectTimeoutHasBeenSet(false),
     m_rescheduleUnbindRsHasBeenSet(false),
     m_rescheduleUnbindRsStartTimeHasBeenSet(false),
     m_rescheduleUnhealthyHasBeenSet(false),
@@ -140,6 +142,22 @@ string CreateTargetGroupRequest::ToJsonString() const
         string key = "ForwardingMode";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_forwardingMode.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_tcpIdleConnectTimeoutHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "TcpIdleConnectTimeout";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_tcpIdleConnectTimeout, allocator);
+    }
+
+    if (m_othersIdleConnectTimeoutHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "OthersIdleConnectTimeout";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, m_othersIdleConnectTimeout, allocator);
     }
 
     if (m_rescheduleUnbindRsHasBeenSet)
@@ -340,6 +358,38 @@ void CreateTargetGroupRequest::SetForwardingMode(const string& _forwardingMode)
 bool CreateTargetGroupRequest::ForwardingModeHasBeenSet() const
 {
     return m_forwardingModeHasBeenSet;
+}
+
+int64_t CreateTargetGroupRequest::GetTcpIdleConnectTimeout() const
+{
+    return m_tcpIdleConnectTimeout;
+}
+
+void CreateTargetGroupRequest::SetTcpIdleConnectTimeout(const int64_t& _tcpIdleConnectTimeout)
+{
+    m_tcpIdleConnectTimeout = _tcpIdleConnectTimeout;
+    m_tcpIdleConnectTimeoutHasBeenSet = true;
+}
+
+bool CreateTargetGroupRequest::TcpIdleConnectTimeoutHasBeenSet() const
+{
+    return m_tcpIdleConnectTimeoutHasBeenSet;
+}
+
+int64_t CreateTargetGroupRequest::GetOthersIdleConnectTimeout() const
+{
+    return m_othersIdleConnectTimeout;
+}
+
+void CreateTargetGroupRequest::SetOthersIdleConnectTimeout(const int64_t& _othersIdleConnectTimeout)
+{
+    m_othersIdleConnectTimeout = _othersIdleConnectTimeout;
+    m_othersIdleConnectTimeoutHasBeenSet = true;
+}
+
+bool CreateTargetGroupRequest::OthersIdleConnectTimeoutHasBeenSet() const
+{
+    return m_othersIdleConnectTimeoutHasBeenSet;
 }
 
 bool CreateTargetGroupRequest::GetRescheduleUnbindRs() const

@@ -23,7 +23,6 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tke/v20180525/model/AutoUpgradeClusterLevel.h>
 #include <tencentcloud/tke/v20180525/model/ClusterProperty.h>
-#include <tencentcloud/tke/v20180525/model/SecurityModeConfig.h>
 
 
 namespace TencentCloud
@@ -47,8 +46,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群所属项目</p>
-                     * @return ProjectId <p>集群所属项目</p>
+                     * 获取集群所属项目
+                     * @return ProjectId 集群所属项目
                      * 
                      */
                     int64_t GetProjectId() const;
@@ -61,8 +60,8 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群名称</p>
-                     * @return ClusterName <p>集群名称</p>
+                     * 获取集群名称
+                     * @return ClusterName 集群名称
                      * 
                      */
                     std::string GetClusterName() const;
@@ -75,8 +74,8 @@ namespace TencentCloud
                     bool ClusterNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群描述</p>
-                     * @return ClusterDesc <p>集群描述</p>
+                     * 获取集群描述
+                     * @return ClusterDesc 集群描述
                      * 
                      */
                     std::string GetClusterDesc() const;
@@ -89,8 +88,8 @@ namespace TencentCloud
                     bool ClusterDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群等级</p>
-                     * @return ClusterLevel <p>集群等级</p>
+                     * 获取集群等级
+                     * @return ClusterLevel 集群等级
                      * 
                      */
                     std::string GetClusterLevel() const;
@@ -103,8 +102,8 @@ namespace TencentCloud
                     bool ClusterLevelHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动变配集群等级</p>
-                     * @return AutoUpgradeClusterLevel <p>自动变配集群等级</p>
+                     * 获取自动变配集群等级
+                     * @return AutoUpgradeClusterLevel 自动变配集群等级
                      * 
                      */
                     AutoUpgradeClusterLevel GetAutoUpgradeClusterLevel() const;
@@ -117,8 +116,8 @@ namespace TencentCloud
                     bool AutoUpgradeClusterLevelHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启QGPU共享</p>
-                     * @return QGPUShareEnable <p>是否开启QGPU共享</p>
+                     * 获取是否开启QGPU共享
+                     * @return QGPUShareEnable 是否开启QGPU共享
                      * 
                      */
                     bool GetQGPUShareEnable() const;
@@ -131,8 +130,8 @@ namespace TencentCloud
                     bool QGPUShareEnableHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群属性</p>
-                     * @return ClusterProperty <p>集群属性</p>
+                     * 获取集群属性
+                     * @return ClusterProperty 集群属性
                      * 
                      */
                     ClusterProperty GetClusterProperty() const;
@@ -144,89 +143,49 @@ namespace TencentCloud
                      */
                     bool ClusterPropertyHasBeenSet() const;
 
-                    /**
-                     * 获取<p>集群是否启用高可用模式。用于指导跨可用区资源打散等高可用策略的执行</p>
-                     * @return IsHighAvailability <p>集群是否启用高可用模式。用于指导跨可用区资源打散等高可用策略的执行</p>
-                     * 
-                     */
-                    bool GetIsHighAvailability() const;
-
-                    /**
-                     * 判断参数 IsHighAvailability 是否已赋值
-                     * @return IsHighAvailability 是否已赋值
-                     * 
-                     */
-                    bool IsHighAvailabilityHasBeenSet() const;
-
-                    /**
-                     * 获取<p>集群安全模式配置</p>
-                     * @return SecurityModeConfig <p>集群安全模式配置</p>
-                     * 
-                     */
-                    SecurityModeConfig GetSecurityModeConfig() const;
-
-                    /**
-                     * 判断参数 SecurityModeConfig 是否已赋值
-                     * @return SecurityModeConfig 是否已赋值
-                     * 
-                     */
-                    bool SecurityModeConfigHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>集群所属项目</p>
+                     * 集群所属项目
                      */
                     int64_t m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>集群名称</p>
+                     * 集群名称
                      */
                     std::string m_clusterName;
                     bool m_clusterNameHasBeenSet;
 
                     /**
-                     * <p>集群描述</p>
+                     * 集群描述
                      */
                     std::string m_clusterDesc;
                     bool m_clusterDescHasBeenSet;
 
                     /**
-                     * <p>集群等级</p>
+                     * 集群等级
                      */
                     std::string m_clusterLevel;
                     bool m_clusterLevelHasBeenSet;
 
                     /**
-                     * <p>自动变配集群等级</p>
+                     * 自动变配集群等级
                      */
                     AutoUpgradeClusterLevel m_autoUpgradeClusterLevel;
                     bool m_autoUpgradeClusterLevelHasBeenSet;
 
                     /**
-                     * <p>是否开启QGPU共享</p>
+                     * 是否开启QGPU共享
                      */
                     bool m_qGPUShareEnable;
                     bool m_qGPUShareEnableHasBeenSet;
 
                     /**
-                     * <p>集群属性</p>
+                     * 集群属性
                      */
                     ClusterProperty m_clusterProperty;
                     bool m_clusterPropertyHasBeenSet;
-
-                    /**
-                     * <p>集群是否启用高可用模式。用于指导跨可用区资源打散等高可用策略的执行</p>
-                     */
-                    bool m_isHighAvailability;
-                    bool m_isHighAvailabilityHasBeenSet;
-
-                    /**
-                     * <p>集群安全模式配置</p>
-                     */
-                    SecurityModeConfig m_securityModeConfig;
-                    bool m_securityModeConfigHasBeenSet;
 
                 };
             }

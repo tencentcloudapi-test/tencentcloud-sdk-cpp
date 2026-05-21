@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>保护策略ID列表</p>
-                     * @return TaskPolicyIdList <p>保护策略ID列表</p>
+                     * 获取保护策略ID列表
+                     * @return TaskPolicyIdList 保护策略ID列表
                      * 
                      */
                     std::vector<std::string> GetTaskPolicyIdList() const;
 
                     /**
-                     * 设置<p>保护策略ID列表</p>
-                     * @param _taskPolicyIdList <p>保护策略ID列表</p>
+                     * 设置保护策略ID列表
+                     * @param _taskPolicyIdList 保护策略ID列表
                      * 
                      */
                     void SetTaskPolicyIdList(const std::vector<std::string>& _taskPolicyIdList);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TaskPolicyIdListHasBeenSet() const;
 
                     /**
-                     * 获取<p>保护策略状态</p><p>枚举值：</p><ul><li>已触发： 表示已触发护栏策略</li><li>未触发： 表示未触发护栏策略</li><li>已恢复： 表示护栏策略已恢复</li></ul>
-                     * @return TaskPolicyStatus <p>保护策略状态</p><p>枚举值：</p><ul><li>已触发： 表示已触发护栏策略</li><li>未触发： 表示未触发护栏策略</li><li>已恢复： 表示护栏策略已恢复</li></ul>
+                     * 获取保护策略状态
+                     * @return TaskPolicyStatus 保护策略状态
                      * 
                      */
                     std::string GetTaskPolicyStatus() const;
 
                     /**
-                     * 设置<p>保护策略状态</p><p>枚举值：</p><ul><li>已触发： 表示已触发护栏策略</li><li>未触发： 表示未触发护栏策略</li><li>已恢复： 表示护栏策略已恢复</li></ul>
-                     * @param _taskPolicyStatus <p>保护策略状态</p><p>枚举值：</p><ul><li>已触发： 表示已触发护栏策略</li><li>未触发： 表示未触发护栏策略</li><li>已恢复： 表示护栏策略已恢复</li></ul>
+                     * 设置保护策略状态
+                     * @param _taskPolicyStatus 保护策略状态
                      * 
                      */
                     void SetTaskPolicyStatus(const std::string& _taskPolicyStatus);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool TaskPolicyStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>策略规则</p>
-                     * @return TaskPolicyRule <p>策略规则</p>
+                     * 获取策略规则
+                     * @return TaskPolicyRule 策略规则
                      * 
                      */
                     std::string GetTaskPolicyRule() const;
 
                     /**
-                     * 设置<p>策略规则</p>
-                     * @param _taskPolicyRule <p>策略规则</p>
+                     * 设置策略规则
+                     * @param _taskPolicyRule 策略规则
                      * 
                      */
                     void SetTaskPolicyRule(const std::string& _taskPolicyRule);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool TaskPolicyRuleHasBeenSet() const;
 
                     /**
-                     * 获取<p>护栏策略生效处理策略 1:顺序执行，2:暂停</p>
-                     * @return TaskPolicyDealType <p>护栏策略生效处理策略 1:顺序执行，2:暂停</p>
+                     * 获取护栏策略生效处理策略 1:顺序执行，2:暂停
+                     * @return TaskPolicyDealType 护栏策略生效处理策略 1:顺序执行，2:暂停
                      * 
                      */
                     int64_t GetTaskPolicyDealType() const;
 
                     /**
-                     * 设置<p>护栏策略生效处理策略 1:顺序执行，2:暂停</p>
-                     * @param _taskPolicyDealType <p>护栏策略生效处理策略 1:顺序执行，2:暂停</p>
+                     * 设置护栏策略生效处理策略 1:顺序执行，2:暂停
+                     * @param _taskPolicyDealType 护栏策略生效处理策略 1:顺序执行，2:暂停
                      * 
                      */
                     void SetTaskPolicyDealType(const int64_t& _taskPolicyDealType);
@@ -133,25 +133,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>保护策略ID列表</p>
+                     * 保护策略ID列表
                      */
                     std::vector<std::string> m_taskPolicyIdList;
                     bool m_taskPolicyIdListHasBeenSet;
 
                     /**
-                     * <p>保护策略状态</p><p>枚举值：</p><ul><li>已触发： 表示已触发护栏策略</li><li>未触发： 表示未触发护栏策略</li><li>已恢复： 表示护栏策略已恢复</li></ul>
+                     * 保护策略状态
                      */
                     std::string m_taskPolicyStatus;
                     bool m_taskPolicyStatusHasBeenSet;
 
                     /**
-                     * <p>策略规则</p>
+                     * 策略规则
                      */
                     std::string m_taskPolicyRule;
                     bool m_taskPolicyRuleHasBeenSet;
 
                     /**
-                     * <p>护栏策略生效处理策略 1:顺序执行，2:暂停</p>
+                     * 护栏策略生效处理策略 1:顺序执行，2:暂停
                      */
                     int64_t m_taskPolicyDealType;
                     bool m_taskPolicyDealTypeHasBeenSet;

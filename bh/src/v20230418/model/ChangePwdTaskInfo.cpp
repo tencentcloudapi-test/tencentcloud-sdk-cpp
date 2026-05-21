@@ -42,8 +42,7 @@ ChangePwdTaskInfo::ChangePwdTaskInfo() :
     m_periodHasBeenSet(false),
     m_firstTimeHasBeenSet(false),
     m_nextTimeHasBeenSet(false),
-    m_lastTimeHasBeenSet(false),
-    m_statusHasBeenSet(false)
+    m_lastTimeHasBeenSet(false)
 {
 }
 
@@ -295,16 +294,6 @@ CoreInternalOutcome ChangePwdTaskInfo::Deserialize(const rapidjson::Value &value
         m_lastTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("Status") && !value["Status"].IsNull())
-    {
-        if (!value["Status"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `ChangePwdTaskInfo.Status` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_status = value["Status"].GetUint64();
-        m_statusHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -504,14 +493,6 @@ void ChangePwdTaskInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "LastTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_lastTime.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_statusHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Status";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_status, allocator);
     }
 
 }
@@ -867,21 +848,5 @@ void ChangePwdTaskInfo::SetLastTime(const string& _lastTime)
 bool ChangePwdTaskInfo::LastTimeHasBeenSet() const
 {
     return m_lastTimeHasBeenSet;
-}
-
-uint64_t ChangePwdTaskInfo::GetStatus() const
-{
-    return m_status;
-}
-
-void ChangePwdTaskInfo::SetStatus(const uint64_t& _status)
-{
-    m_status = _status;
-    m_statusHasBeenSet = true;
-}
-
-bool ChangePwdTaskInfo::StatusHasBeenSet() const
-{
-    return m_statusHasBeenSet;
 }
 

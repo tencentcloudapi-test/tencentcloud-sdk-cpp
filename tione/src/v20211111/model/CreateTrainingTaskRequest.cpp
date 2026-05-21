@@ -26,7 +26,6 @@ CreateTrainingTaskRequest::CreateTrainingTaskRequest() :
     m_nameHasBeenSet(false),
     m_chargeTypeHasBeenSet(false),
     m_resourceConfigInfosHasBeenSet(false),
-    m_tiProjectIdHasBeenSet(false),
     m_frameworkNameHasBeenSet(false),
     m_frameworkVersionHasBeenSet(false),
     m_frameworkEnvironmentHasBeenSet(false),
@@ -47,9 +46,7 @@ CreateTrainingTaskRequest::CreateTrainingTaskRequest() :
     m_dataSourceHasBeenSet(false),
     m_callbackUrlHasBeenSet(false),
     m_encodedStartCmdInfoHasBeenSet(false),
-    m_codeReposHasBeenSet(false),
-    m_exposeNetworkConfigHasBeenSet(false),
-    m_envsHasBeenSet(false)
+    m_codeReposHasBeenSet(false)
 {
 }
 
@@ -89,14 +86,6 @@ string CreateTrainingTaskRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_tiProjectIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TiProjectId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_tiProjectId.c_str(), allocator).Move(), allocator);
     }
 
     if (m_frameworkNameHasBeenSet)
@@ -294,30 +283,6 @@ string CreateTrainingTaskRequest::ToJsonString() const
         }
     }
 
-    if (m_exposeNetworkConfigHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ExposeNetworkConfig";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_exposeNetworkConfig.ToJsonObject(d[key.c_str()], allocator);
-    }
-
-    if (m_envsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Envs";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_envs.begin(); itr != m_envs.end(); ++itr, ++i)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(d[key.c_str()][i], allocator);
-        }
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -372,22 +337,6 @@ void CreateTrainingTaskRequest::SetResourceConfigInfos(const vector<ResourceConf
 bool CreateTrainingTaskRequest::ResourceConfigInfosHasBeenSet() const
 {
     return m_resourceConfigInfosHasBeenSet;
-}
-
-string CreateTrainingTaskRequest::GetTiProjectId() const
-{
-    return m_tiProjectId;
-}
-
-void CreateTrainingTaskRequest::SetTiProjectId(const string& _tiProjectId)
-{
-    m_tiProjectId = _tiProjectId;
-    m_tiProjectIdHasBeenSet = true;
-}
-
-bool CreateTrainingTaskRequest::TiProjectIdHasBeenSet() const
-{
-    return m_tiProjectIdHasBeenSet;
 }
 
 string CreateTrainingTaskRequest::GetFrameworkName() const
@@ -724,38 +673,6 @@ void CreateTrainingTaskRequest::SetCodeRepos(const vector<CodeRepoConfig>& _code
 bool CreateTrainingTaskRequest::CodeReposHasBeenSet() const
 {
     return m_codeReposHasBeenSet;
-}
-
-ExposeNetworkConfig CreateTrainingTaskRequest::GetExposeNetworkConfig() const
-{
-    return m_exposeNetworkConfig;
-}
-
-void CreateTrainingTaskRequest::SetExposeNetworkConfig(const ExposeNetworkConfig& _exposeNetworkConfig)
-{
-    m_exposeNetworkConfig = _exposeNetworkConfig;
-    m_exposeNetworkConfigHasBeenSet = true;
-}
-
-bool CreateTrainingTaskRequest::ExposeNetworkConfigHasBeenSet() const
-{
-    return m_exposeNetworkConfigHasBeenSet;
-}
-
-vector<EnvVar> CreateTrainingTaskRequest::GetEnvs() const
-{
-    return m_envs;
-}
-
-void CreateTrainingTaskRequest::SetEnvs(const vector<EnvVar>& _envs)
-{
-    m_envs = _envs;
-    m_envsHasBeenSet = true;
-}
-
-bool CreateTrainingTaskRequest::EnvsHasBeenSet() const
-{
-    return m_envsHasBeenSet;
 }
 
 

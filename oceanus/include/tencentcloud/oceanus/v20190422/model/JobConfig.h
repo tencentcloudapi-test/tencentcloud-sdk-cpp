@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -30,7 +31,6 @@
 #include <tencentcloud/oceanus/v20190422/model/ExpertModeConfiguration.h>
 #include <tencentcloud/oceanus/v20190422/model/TraceModeConfiguration.h>
 #include <tencentcloud/oceanus/v20190422/model/JobGraph.h>
-#include <tencentcloud/oceanus/v20190422/model/JobConfig.h>
 
 
 namespace TencentCloud
@@ -41,6 +41,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobConfig;
                 /**
                 * 作业配置详情
                 */
@@ -54,15 +55,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>作业Id</p>
-                     * @return JobId <p>作业Id</p>
+                     * 获取作业Id
+                     * @return JobId 作业Id
                      * 
                      */
                     std::string GetJobId() const;
 
                     /**
-                     * 设置<p>作业Id</p>
-                     * @param _jobId <p>作业Id</p>
+                     * 设置作业Id
+                     * @param _jobId 作业Id
                      * 
                      */
                     void SetJobId(const std::string& _jobId);
@@ -75,18 +76,18 @@ namespace TencentCloud
                     bool JobIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>主类</p>
+                     * 获取主类
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EntrypointClass <p>主类</p>
+                     * @return EntrypointClass 主类
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetEntrypointClass() const;
 
                     /**
-                     * 设置<p>主类</p>
+                     * 设置主类
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _entrypointClass <p>主类</p>
+                     * @param _entrypointClass 主类
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -100,18 +101,18 @@ namespace TencentCloud
                     bool EntrypointClassHasBeenSet() const;
 
                     /**
-                     * 获取<p>主类入参</p>
+                     * 获取主类入参
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ProgramArgs <p>主类入参</p>
+                     * @return ProgramArgs 主类入参
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetProgramArgs() const;
 
                     /**
-                     * 设置<p>主类入参</p>
+                     * 设置主类入参
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _programArgs <p>主类入参</p>
+                     * @param _programArgs 主类入参
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -125,18 +126,18 @@ namespace TencentCloud
                     bool ProgramArgsHasBeenSet() const;
 
                     /**
-                     * 获取<p>备注</p>
+                     * 获取备注
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Remark <p>备注</p>
+                     * @return Remark 备注
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置<p>备注</p>
+                     * 设置备注
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _remark <p>备注</p>
+                     * @param _remark 备注
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -150,15 +151,15 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>作业配置创建时间</p>
-                     * @return CreateTime <p>作业配置创建时间</p>
+                     * 获取作业配置创建时间
+                     * @return CreateTime 作业配置创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>作业配置创建时间</p>
-                     * @param _createTime <p>作业配置创建时间</p>
+                     * 设置作业配置创建时间
+                     * @param _createTime 作业配置创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -171,15 +172,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>作业配置的版本号</p>
-                     * @return Version <p>作业配置的版本号</p>
+                     * 获取作业配置的版本号
+                     * @return Version 作业配置的版本号
                      * 
                      */
                     int64_t GetVersion() const;
 
                     /**
-                     * 设置<p>作业配置的版本号</p>
-                     * @param _version <p>作业配置的版本号</p>
+                     * 设置作业配置的版本号
+                     * @param _version 作业配置的版本号
                      * 
                      */
                     void SetVersion(const int64_t& _version);
@@ -192,18 +193,18 @@ namespace TencentCloud
                     bool VersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>作业默认并行度</p>
+                     * 获取作业默认并行度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DefaultParallelism <p>作业默认并行度</p>
+                     * @return DefaultParallelism 作业默认并行度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetDefaultParallelism() const;
 
                     /**
-                     * 设置<p>作业默认并行度</p>
+                     * 设置作业默认并行度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _defaultParallelism <p>作业默认并行度</p>
+                     * @param _defaultParallelism 作业默认并行度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -217,18 +218,18 @@ namespace TencentCloud
                     bool DefaultParallelismHasBeenSet() const;
 
                     /**
-                     * 获取<p>系统参数</p>
+                     * 获取系统参数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Properties <p>系统参数</p>
+                     * @return Properties 系统参数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<Property> GetProperties() const;
 
                     /**
-                     * 设置<p>系统参数</p>
+                     * 设置系统参数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _properties <p>系统参数</p>
+                     * @param _properties 系统参数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -242,18 +243,18 @@ namespace TencentCloud
                     bool PropertiesHasBeenSet() const;
 
                     /**
-                     * 获取<p>引用资源</p>
+                     * 获取引用资源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ResourceRefDetails <p>引用资源</p>
+                     * @return ResourceRefDetails 引用资源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<ResourceRefDetail> GetResourceRefDetails() const;
 
                     /**
-                     * 设置<p>引用资源</p>
+                     * 设置引用资源
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _resourceRefDetails <p>引用资源</p>
+                     * @param _resourceRefDetails 引用资源
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -267,18 +268,18 @@ namespace TencentCloud
                     bool ResourceRefDetailsHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建者uin</p>
+                     * 获取创建者uin
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CreatorUin <p>创建者uin</p>
+                     * @return CreatorUin 创建者uin
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCreatorUin() const;
 
                     /**
-                     * 设置<p>创建者uin</p>
+                     * 设置创建者uin
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _creatorUin <p>创建者uin</p>
+                     * @param _creatorUin 创建者uin
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -292,18 +293,18 @@ namespace TencentCloud
                     bool CreatorUinHasBeenSet() const;
 
                     /**
-                     * 获取<p>作业配置上次启动时间</p>
+                     * 获取作业配置上次启动时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return UpdateTime <p>作业配置上次启动时间</p>
+                     * @return UpdateTime 作业配置上次启动时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>作业配置上次启动时间</p>
+                     * 设置作业配置上次启动时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _updateTime <p>作业配置上次启动时间</p>
+                     * @param _updateTime 作业配置上次启动时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -317,18 +318,18 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>作业绑定的存储桶</p>
+                     * 获取作业绑定的存储桶
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return COSBucket <p>作业绑定的存储桶</p>
+                     * @return COSBucket 作业绑定的存储桶
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetCOSBucket() const;
 
                     /**
-                     * 设置<p>作业绑定的存储桶</p>
+                     * 设置作业绑定的存储桶
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _cOSBucket <p>作业绑定的存储桶</p>
+                     * @param _cOSBucket 作业绑定的存储桶
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -342,18 +343,18 @@ namespace TencentCloud
                     bool COSBucketHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es</p>
+                     * 获取是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return LogCollect <p>是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es</p>
+                     * @return LogCollect 是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetLogCollect() const;
 
                     /**
-                     * 设置<p>是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es</p>
+                     * 设置是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _logCollect <p>是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es</p>
+                     * @param _logCollect 是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -367,18 +368,18 @@ namespace TencentCloud
                     bool LogCollectHasBeenSet() const;
 
                     /**
-                     * 获取<p>作业的最大并行度</p>
+                     * 获取作业的最大并行度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return MaxParallelism <p>作业的最大并行度</p>
+                     * @return MaxParallelism 作业的最大并行度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetMaxParallelism() const;
 
                     /**
-                     * 设置<p>作业的最大并行度</p>
+                     * 设置作业的最大并行度
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _maxParallelism <p>作业的最大并行度</p>
+                     * @param _maxParallelism 作业的最大并行度
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -392,18 +393,18 @@ namespace TencentCloud
                     bool MaxParallelismHasBeenSet() const;
 
                     /**
-                     * 获取<p>JobManager规格</p>
+                     * 获取JobManager规格
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return JobManagerSpec <p>JobManager规格</p>
+                     * @return JobManagerSpec JobManager规格
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetJobManagerSpec() const;
 
                     /**
-                     * 设置<p>JobManager规格</p>
+                     * 设置JobManager规格
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _jobManagerSpec <p>JobManager规格</p>
+                     * @param _jobManagerSpec JobManager规格
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -417,18 +418,18 @@ namespace TencentCloud
                     bool JobManagerSpecHasBeenSet() const;
 
                     /**
-                     * 获取<p>TaskManager规格</p>
+                     * 获取TaskManager规格
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskManagerSpec <p>TaskManager规格</p>
+                     * @return TaskManagerSpec TaskManager规格
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetTaskManagerSpec() const;
 
                     /**
-                     * 设置<p>TaskManager规格</p>
+                     * 设置TaskManager规格
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskManagerSpec <p>TaskManager规格</p>
+                     * @param _taskManagerSpec TaskManager规格
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -442,18 +443,18 @@ namespace TencentCloud
                     bool TaskManagerSpecHasBeenSet() const;
 
                     /**
-                     * 获取<p>CLS日志集ID</p>
+                     * 获取CLS日志集ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ClsLogsetId <p>CLS日志集ID</p>
+                     * @return ClsLogsetId CLS日志集ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetClsLogsetId() const;
 
                     /**
-                     * 设置<p>CLS日志集ID</p>
+                     * 设置CLS日志集ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _clsLogsetId <p>CLS日志集ID</p>
+                     * @param _clsLogsetId CLS日志集ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -467,18 +468,18 @@ namespace TencentCloud
                     bool ClsLogsetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>CLS日志主题ID</p>
+                     * 获取CLS日志主题ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ClsTopicId <p>CLS日志主题ID</p>
+                     * @return ClsTopicId CLS日志主题ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetClsTopicId() const;
 
                     /**
-                     * 设置<p>CLS日志主题ID</p>
+                     * 设置CLS日志主题ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _clsTopicId <p>CLS日志主题ID</p>
+                     * @param _clsTopicId CLS日志主题ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -492,18 +493,18 @@ namespace TencentCloud
                     bool ClsTopicIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>pyflink作业运行的python版本</p>
+                     * 获取pyflink作业运行的python版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PythonVersion <p>pyflink作业运行的python版本</p>
+                     * @return PythonVersion pyflink作业运行的python版本
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetPythonVersion() const;
 
                     /**
-                     * 设置<p>pyflink作业运行的python版本</p>
+                     * 设置pyflink作业运行的python版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _pythonVersion <p>pyflink作业运行的python版本</p>
+                     * @param _pythonVersion pyflink作业运行的python版本
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -517,18 +518,18 @@ namespace TencentCloud
                     bool PythonVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>Oceanus 平台恢复作业开关 1:开启 -1: 关闭</p>
+                     * 获取Oceanus 平台恢复作业开关 1:开启 -1: 关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AutoRecover <p>Oceanus 平台恢复作业开关 1:开启 -1: 关闭</p>
+                     * @return AutoRecover Oceanus 平台恢复作业开关 1:开启 -1: 关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetAutoRecover() const;
 
                     /**
-                     * 设置<p>Oceanus 平台恢复作业开关 1:开启 -1: 关闭</p>
+                     * 设置Oceanus 平台恢复作业开关 1:开启 -1: 关闭
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _autoRecover <p>Oceanus 平台恢复作业开关 1:开启 -1: 关闭</p>
+                     * @param _autoRecover Oceanus 平台恢复作业开关 1:开启 -1: 关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -542,18 +543,18 @@ namespace TencentCloud
                     bool AutoRecoverHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志级别</p>
+                     * 获取日志级别
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return LogLevel <p>日志级别</p>
+                     * @return LogLevel 日志级别
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetLogLevel() const;
 
                     /**
-                     * 设置<p>日志级别</p>
+                     * 设置日志级别
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _logLevel <p>日志级别</p>
+                     * @param _logLevel 日志级别
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -567,18 +568,18 @@ namespace TencentCloud
                     bool LogLevelHasBeenSet() const;
 
                     /**
-                     * 获取<p>类日志级别</p>
+                     * 获取类日志级别
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ClazzLevels <p>类日志级别</p>
+                     * @return ClazzLevels 类日志级别
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<ClazzLevel> GetClazzLevels() const;
 
                     /**
-                     * 设置<p>类日志级别</p>
+                     * 设置类日志级别
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _clazzLevels <p>类日志级别</p>
+                     * @param _clazzLevels 类日志级别
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -592,18 +593,18 @@ namespace TencentCloud
                     bool ClazzLevelsHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启专家模式</p>
+                     * 获取是否开启专家模式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ExpertModeOn <p>是否开启专家模式</p>
+                     * @return ExpertModeOn 是否开启专家模式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     bool GetExpertModeOn() const;
 
                     /**
-                     * 设置<p>是否开启专家模式</p>
+                     * 设置是否开启专家模式
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _expertModeOn <p>是否开启专家模式</p>
+                     * @param _expertModeOn 是否开启专家模式
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -617,18 +618,18 @@ namespace TencentCloud
                     bool ExpertModeOnHasBeenSet() const;
 
                     /**
-                     * 获取<p>专家模式的配置</p>
+                     * 获取专家模式的配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ExpertModeConfiguration <p>专家模式的配置</p>
+                     * @return ExpertModeConfiguration 专家模式的配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     ExpertModeConfiguration GetExpertModeConfiguration() const;
 
                     /**
-                     * 设置<p>专家模式的配置</p>
+                     * 设置专家模式的配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _expertModeConfiguration <p>专家模式的配置</p>
+                     * @param _expertModeConfiguration 专家模式的配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -642,18 +643,18 @@ namespace TencentCloud
                     bool ExpertModeConfigurationHasBeenSet() const;
 
                     /**
-                     * 获取<p>trace链路</p>
+                     * 获取trace链路
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TraceModeOn <p>trace链路</p>
+                     * @return TraceModeOn trace链路
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     bool GetTraceModeOn() const;
 
                     /**
-                     * 设置<p>trace链路</p>
+                     * 设置trace链路
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _traceModeOn <p>trace链路</p>
+                     * @param _traceModeOn trace链路
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -667,18 +668,18 @@ namespace TencentCloud
                     bool TraceModeOnHasBeenSet() const;
 
                     /**
-                     * 获取<p>trace链路配置</p>
+                     * 获取trace链路配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TraceModeConfiguration <p>trace链路配置</p>
+                     * @return TraceModeConfiguration trace链路配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     TraceModeConfiguration GetTraceModeConfiguration() const;
 
                     /**
-                     * 设置<p>trace链路配置</p>
+                     * 设置trace链路配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _traceModeConfiguration <p>trace链路配置</p>
+                     * @param _traceModeConfiguration trace链路配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -692,18 +693,18 @@ namespace TencentCloud
                     bool TraceModeConfigurationHasBeenSet() const;
 
                     /**
-                     * 获取<p>checkpoint保留个数</p>
+                     * 获取checkpoint保留个数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return CheckpointRetainedNum <p>checkpoint保留个数</p>
+                     * @return CheckpointRetainedNum checkpoint保留个数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetCheckpointRetainedNum() const;
 
                     /**
-                     * 设置<p>checkpoint保留个数</p>
+                     * 设置checkpoint保留个数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _checkpointRetainedNum <p>checkpoint保留个数</p>
+                     * @param _checkpointRetainedNum checkpoint保留个数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -717,18 +718,18 @@ namespace TencentCloud
                     bool CheckpointRetainedNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>算子拓扑图</p>
+                     * 获取算子拓扑图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return JobGraph <p>算子拓扑图</p>
+                     * @return JobGraph 算子拓扑图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     JobGraph GetJobGraph() const;
 
                     /**
-                     * 设置<p>算子拓扑图</p>
+                     * 设置算子拓扑图
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _jobGraph <p>算子拓扑图</p>
+                     * @param _jobGraph 算子拓扑图
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -742,18 +743,18 @@ namespace TencentCloud
                     bool JobGraphHasBeenSet() const;
 
                     /**
-                     * 获取<p>es索引</p>
+                     * 获取es索引
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EsServerlessIndex <p>es索引</p>
+                     * @return EsServerlessIndex es索引
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetEsServerlessIndex() const;
 
                     /**
-                     * 设置<p>es索引</p>
+                     * 设置es索引
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _esServerlessIndex <p>es索引</p>
+                     * @param _esServerlessIndex es索引
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -767,18 +768,18 @@ namespace TencentCloud
                     bool EsServerlessIndexHasBeenSet() const;
 
                     /**
-                     * 获取<p>es空间</p>
+                     * 获取es空间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EsServerlessSpace <p>es空间</p>
+                     * @return EsServerlessSpace es空间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetEsServerlessSpace() const;
 
                     /**
-                     * 设置<p>es空间</p>
+                     * 设置es空间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _esServerlessSpace <p>es空间</p>
+                     * @param _esServerlessSpace es空间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -792,18 +793,18 @@ namespace TencentCloud
                     bool EsServerlessSpaceHasBeenSet() const;
 
                     /**
-                     * 获取<p>es索引中文</p>
+                     * 获取es索引中文
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexName <p>es索引中文</p>
+                     * @return IndexName es索引中文
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIndexName() const;
 
                     /**
-                     * 设置<p>es索引中文</p>
+                     * 设置es索引中文
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexName <p>es索引中文</p>
+                     * @param _indexName es索引中文
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -817,18 +818,18 @@ namespace TencentCloud
                     bool IndexNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>es空间中文</p>
+                     * 获取es空间中文
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return WorkspaceName <p>es空间中文</p>
+                     * @return WorkspaceName es空间中文
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetWorkspaceName() const;
 
                     /**
-                     * 设置<p>es空间中文</p>
+                     * 设置es空间中文
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _workspaceName <p>es空间中文</p>
+                     * @param _workspaceName es空间中文
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -842,18 +843,18 @@ namespace TencentCloud
                     bool WorkspaceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>flink 版本</p>
+                     * 获取flink 版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FlinkVersion <p>flink 版本</p>
+                     * @return FlinkVersion flink 版本
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFlinkVersion() const;
 
                     /**
-                     * 设置<p>flink 版本</p>
+                     * 设置flink 版本
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _flinkVersion <p>flink 版本</p>
+                     * @param _flinkVersion flink 版本
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -867,39 +868,18 @@ namespace TencentCloud
                     bool FlinkVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>jdk版本</p>
-                     * @return JdkVersion <p>jdk版本</p>
-                     * 
-                     */
-                    std::string GetJdkVersion() const;
-
-                    /**
-                     * 设置<p>jdk版本</p>
-                     * @param _jdkVersion <p>jdk版本</p>
-                     * 
-                     */
-                    void SetJdkVersion(const std::string& _jdkVersion);
-
-                    /**
-                     * 判断参数 JdkVersion 是否已赋值
-                     * @return JdkVersion 是否已赋值
-                     * 
-                     */
-                    bool JdkVersionHasBeenSet() const;
-
-                    /**
-                     * 获取<p>jm使用cpu数目</p>
+                     * 获取jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return JobManagerCpu <p>jm使用cpu数目</p>
+                     * @return JobManagerCpu jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetJobManagerCpu() const;
 
                     /**
-                     * 设置<p>jm使用cpu数目</p>
+                     * 设置jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _jobManagerCpu <p>jm使用cpu数目</p>
+                     * @param _jobManagerCpu jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -913,18 +893,18 @@ namespace TencentCloud
                     bool JobManagerCpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>jm使用内存数目</p>
+                     * 获取jm使用内存数目
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return JobManagerMem <p>jm使用内存数目</p>
+                     * @return JobManagerMem jm使用内存数目
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetJobManagerMem() const;
 
                     /**
-                     * 设置<p>jm使用内存数目</p>
+                     * 设置jm使用内存数目
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _jobManagerMem <p>jm使用内存数目</p>
+                     * @param _jobManagerMem jm使用内存数目
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -938,18 +918,18 @@ namespace TencentCloud
                     bool JobManagerMemHasBeenSet() const;
 
                     /**
-                     * 获取<p>tm使用cpu数</p>
+                     * 获取tm使用cpu数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskManagerCpu <p>tm使用cpu数</p>
+                     * @return TaskManagerCpu tm使用cpu数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetTaskManagerCpu() const;
 
                     /**
-                     * 设置<p>tm使用cpu数</p>
+                     * 设置tm使用cpu数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskManagerCpu <p>tm使用cpu数</p>
+                     * @param _taskManagerCpu tm使用cpu数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -963,18 +943,18 @@ namespace TencentCloud
                     bool TaskManagerCpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>tm使用mem数</p>
+                     * 获取tm使用mem数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskManagerMem <p>tm使用mem数</p>
+                     * @return TaskManagerMem tm使用mem数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetTaskManagerMem() const;
 
                     /**
-                     * 设置<p>tm使用mem数</p>
+                     * 设置tm使用mem数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskManagerMem <p>tm使用mem数</p>
+                     * @param _taskManagerMem tm使用mem数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -988,22 +968,22 @@ namespace TencentCloud
                     bool TaskManagerMemHasBeenSet() const;
 
                     /**
-                     * 获取<p>运行中配置</p>
+                     * 获取运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return JobConfigItem <p>运行中配置</p>
+                     * @return JobConfigItem 运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    JobConfig GetJobConfigItem() const;
+                    std::shared_ptr<JobConfig> GetJobConfigItem() const;
 
                     /**
-                     * 设置<p>运行中配置</p>
+                     * 设置运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _jobConfigItem <p>运行中配置</p>
+                     * @param _jobConfigItem 运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetJobConfigItem(const JobConfig& _jobConfigItem);
+                    void SetJobConfigItem(const std::shared_ptr<JobConfig>& _jobConfigItem);
 
                     /**
                      * 判断参数 JobConfigItem 是否已赋值
@@ -1013,15 +993,15 @@ namespace TencentCloud
                     bool JobConfigItemHasBeenSet() const;
 
                     /**
-                     * 获取<p>checkpoint 超时时间</p>
-                     * @return CheckpointTimeoutSecond <p>checkpoint 超时时间</p>
+                     * 获取checkpoint 超时时间
+                     * @return CheckpointTimeoutSecond checkpoint 超时时间
                      * 
                      */
                     int64_t GetCheckpointTimeoutSecond() const;
 
                     /**
-                     * 设置<p>checkpoint 超时时间</p>
-                     * @param _checkpointTimeoutSecond <p>checkpoint 超时时间</p>
+                     * 设置checkpoint 超时时间
+                     * @param _checkpointTimeoutSecond checkpoint 超时时间
                      * 
                      */
                     void SetCheckpointTimeoutSecond(const int64_t& _checkpointTimeoutSecond);
@@ -1034,15 +1014,15 @@ namespace TencentCloud
                     bool CheckpointTimeoutSecondHasBeenSet() const;
 
                     /**
-                     * 获取<p>checkpoint 间隔时间</p>
-                     * @return CheckpointIntervalSecond <p>checkpoint 间隔时间</p>
+                     * 获取checkpoint 间隔时间
+                     * @return CheckpointIntervalSecond checkpoint 间隔时间
                      * 
                      */
                     int64_t GetCheckpointIntervalSecond() const;
 
                     /**
-                     * 设置<p>checkpoint 间隔时间</p>
-                     * @param _checkpointIntervalSecond <p>checkpoint 间隔时间</p>
+                     * 设置checkpoint 间隔时间
+                     * @param _checkpointIntervalSecond checkpoint 间隔时间
                      * 
                      */
                     void SetCheckpointIntervalSecond(const int64_t& _checkpointIntervalSecond);
@@ -1054,315 +1034,282 @@ namespace TencentCloud
                      */
                     bool CheckpointIntervalSecondHasBeenSet() const;
 
-                    /**
-                     * 获取<p>变量替换模式</p><p>枚举值：</p><ul><li>0： 表变量替换</li><li>1： 全局SQL变量替换</li></ul><p>默认值：0</p>
-                     * @return VariableReplaceMode <p>变量替换模式</p><p>枚举值：</p><ul><li>0： 表变量替换</li><li>1： 全局SQL变量替换</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    int64_t GetVariableReplaceMode() const;
-
-                    /**
-                     * 设置<p>变量替换模式</p><p>枚举值：</p><ul><li>0： 表变量替换</li><li>1： 全局SQL变量替换</li></ul><p>默认值：0</p>
-                     * @param _variableReplaceMode <p>变量替换模式</p><p>枚举值：</p><ul><li>0： 表变量替换</li><li>1： 全局SQL变量替换</li></ul><p>默认值：0</p>
-                     * 
-                     */
-                    void SetVariableReplaceMode(const int64_t& _variableReplaceMode);
-
-                    /**
-                     * 判断参数 VariableReplaceMode 是否已赋值
-                     * @return VariableReplaceMode 是否已赋值
-                     * 
-                     */
-                    bool VariableReplaceModeHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>作业Id</p>
+                     * 作业Id
                      */
                     std::string m_jobId;
                     bool m_jobIdHasBeenSet;
 
                     /**
-                     * <p>主类</p>
+                     * 主类
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_entrypointClass;
                     bool m_entrypointClassHasBeenSet;
 
                     /**
-                     * <p>主类入参</p>
+                     * 主类入参
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_programArgs;
                     bool m_programArgsHasBeenSet;
 
                     /**
-                     * <p>备注</p>
+                     * 备注
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>作业配置创建时间</p>
+                     * 作业配置创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>作业配置的版本号</p>
+                     * 作业配置的版本号
                      */
                     int64_t m_version;
                     bool m_versionHasBeenSet;
 
                     /**
-                     * <p>作业默认并行度</p>
+                     * 作业默认并行度
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_defaultParallelism;
                     bool m_defaultParallelismHasBeenSet;
 
                     /**
-                     * <p>系统参数</p>
+                     * 系统参数
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Property> m_properties;
                     bool m_propertiesHasBeenSet;
 
                     /**
-                     * <p>引用资源</p>
+                     * 引用资源
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ResourceRefDetail> m_resourceRefDetails;
                     bool m_resourceRefDetailsHasBeenSet;
 
                     /**
-                     * <p>创建者uin</p>
+                     * 创建者uin
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_creatorUin;
                     bool m_creatorUinHasBeenSet;
 
                     /**
-                     * <p>作业配置上次启动时间</p>
+                     * 作业配置上次启动时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>作业绑定的存储桶</p>
+                     * 作业绑定的存储桶
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_cOSBucket;
                     bool m_cOSBucketHasBeenSet;
 
                     /**
-                     * <p>是否启用日志收集，0-未启用，1-采集到cls，4-采集到cos，5-采集到es</p>
+                     * 是否启用日志收集，0-未启用，1-已启用，2-历史集群未设置日志集，3-历史集群已开启
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_logCollect;
                     bool m_logCollectHasBeenSet;
 
                     /**
-                     * <p>作业的最大并行度</p>
+                     * 作业的最大并行度
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_maxParallelism;
                     bool m_maxParallelismHasBeenSet;
 
                     /**
-                     * <p>JobManager规格</p>
+                     * JobManager规格
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_jobManagerSpec;
                     bool m_jobManagerSpecHasBeenSet;
 
                     /**
-                     * <p>TaskManager规格</p>
+                     * TaskManager规格
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_taskManagerSpec;
                     bool m_taskManagerSpecHasBeenSet;
 
                     /**
-                     * <p>CLS日志集ID</p>
+                     * CLS日志集ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clsLogsetId;
                     bool m_clsLogsetIdHasBeenSet;
 
                     /**
-                     * <p>CLS日志主题ID</p>
+                     * CLS日志主题ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_clsTopicId;
                     bool m_clsTopicIdHasBeenSet;
 
                     /**
-                     * <p>pyflink作业运行的python版本</p>
+                     * pyflink作业运行的python版本
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_pythonVersion;
                     bool m_pythonVersionHasBeenSet;
 
                     /**
-                     * <p>Oceanus 平台恢复作业开关 1:开启 -1: 关闭</p>
+                     * Oceanus 平台恢复作业开关 1:开启 -1: 关闭
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_autoRecover;
                     bool m_autoRecoverHasBeenSet;
 
                     /**
-                     * <p>日志级别</p>
+                     * 日志级别
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_logLevel;
                     bool m_logLevelHasBeenSet;
 
                     /**
-                     * <p>类日志级别</p>
+                     * 类日志级别
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<ClazzLevel> m_clazzLevels;
                     bool m_clazzLevelsHasBeenSet;
 
                     /**
-                     * <p>是否开启专家模式</p>
+                     * 是否开启专家模式
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_expertModeOn;
                     bool m_expertModeOnHasBeenSet;
 
                     /**
-                     * <p>专家模式的配置</p>
+                     * 专家模式的配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     ExpertModeConfiguration m_expertModeConfiguration;
                     bool m_expertModeConfigurationHasBeenSet;
 
                     /**
-                     * <p>trace链路</p>
+                     * trace链路
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_traceModeOn;
                     bool m_traceModeOnHasBeenSet;
 
                     /**
-                     * <p>trace链路配置</p>
+                     * trace链路配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     TraceModeConfiguration m_traceModeConfiguration;
                     bool m_traceModeConfigurationHasBeenSet;
 
                     /**
-                     * <p>checkpoint保留个数</p>
+                     * checkpoint保留个数
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_checkpointRetainedNum;
                     bool m_checkpointRetainedNumHasBeenSet;
 
                     /**
-                     * <p>算子拓扑图</p>
+                     * 算子拓扑图
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     JobGraph m_jobGraph;
                     bool m_jobGraphHasBeenSet;
 
                     /**
-                     * <p>es索引</p>
+                     * es索引
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_esServerlessIndex;
                     bool m_esServerlessIndexHasBeenSet;
 
                     /**
-                     * <p>es空间</p>
+                     * es空间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_esServerlessSpace;
                     bool m_esServerlessSpaceHasBeenSet;
 
                     /**
-                     * <p>es索引中文</p>
+                     * es索引中文
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_indexName;
                     bool m_indexNameHasBeenSet;
 
                     /**
-                     * <p>es空间中文</p>
+                     * es空间中文
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_workspaceName;
                     bool m_workspaceNameHasBeenSet;
 
                     /**
-                     * <p>flink 版本</p>
+                     * flink 版本
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_flinkVersion;
                     bool m_flinkVersionHasBeenSet;
 
                     /**
-                     * <p>jdk版本</p>
-                     */
-                    std::string m_jdkVersion;
-                    bool m_jdkVersionHasBeenSet;
-
-                    /**
-                     * <p>jm使用cpu数目</p>
+                     * jm使用cpu数目
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_jobManagerCpu;
                     bool m_jobManagerCpuHasBeenSet;
 
                     /**
-                     * <p>jm使用内存数目</p>
+                     * jm使用内存数目
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_jobManagerMem;
                     bool m_jobManagerMemHasBeenSet;
 
                     /**
-                     * <p>tm使用cpu数</p>
+                     * tm使用cpu数
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_taskManagerCpu;
                     bool m_taskManagerCpuHasBeenSet;
 
                     /**
-                     * <p>tm使用mem数</p>
+                     * tm使用mem数
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_taskManagerMem;
                     bool m_taskManagerMemHasBeenSet;
 
                     /**
-                     * <p>运行中配置</p>
+                     * 运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    JobConfig m_jobConfigItem;
+                    std::shared_ptr<JobConfig> m_jobConfigItem;
                     bool m_jobConfigItemHasBeenSet;
 
                     /**
-                     * <p>checkpoint 超时时间</p>
+                     * checkpoint 超时时间
                      */
                     int64_t m_checkpointTimeoutSecond;
                     bool m_checkpointTimeoutSecondHasBeenSet;
 
                     /**
-                     * <p>checkpoint 间隔时间</p>
+                     * checkpoint 间隔时间
                      */
                     int64_t m_checkpointIntervalSecond;
                     bool m_checkpointIntervalSecondHasBeenSet;
-
-                    /**
-                     * <p>变量替换模式</p><p>枚举值：</p><ul><li>0： 表变量替换</li><li>1： 全局SQL变量替换</li></ul><p>默认值：0</p>
-                     */
-                    int64_t m_variableReplaceMode;
-                    bool m_variableReplaceModeHasBeenSet;
 
                 };
             }

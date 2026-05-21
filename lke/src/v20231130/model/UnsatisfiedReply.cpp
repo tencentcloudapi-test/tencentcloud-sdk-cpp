@@ -30,8 +30,7 @@ UnsatisfiedReply::UnsatisfiedReply() :
     m_createTimeHasBeenSet(false),
     m_updateTimeHasBeenSet(false),
     m_operatorHasBeenSet(false),
-    m_feedbackContentHasBeenSet(false),
-    m_visitorHasBeenSet(false)
+    m_feedbackContentHasBeenSet(false)
 {
 }
 
@@ -143,16 +142,6 @@ CoreInternalOutcome UnsatisfiedReply::Deserialize(const rapidjson::Value &value)
         m_feedbackContentHasBeenSet = true;
     }
 
-    if (value.HasMember("Visitor") && !value["Visitor"].IsNull())
-    {
-        if (!value["Visitor"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `UnsatisfiedReply.Visitor` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_visitor = string(value["Visitor"].GetString());
-        m_visitorHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -243,14 +232,6 @@ void UnsatisfiedReply::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "FeedbackContent";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_feedbackContent.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_visitorHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Visitor";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_visitor.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -414,21 +395,5 @@ void UnsatisfiedReply::SetFeedbackContent(const string& _feedbackContent)
 bool UnsatisfiedReply::FeedbackContentHasBeenSet() const
 {
     return m_feedbackContentHasBeenSet;
-}
-
-string UnsatisfiedReply::GetVisitor() const
-{
-    return m_visitor;
-}
-
-void UnsatisfiedReply::SetVisitor(const string& _visitor)
-{
-    m_visitor = _visitor;
-    m_visitorHasBeenSet = true;
-}
-
-bool UnsatisfiedReply::VisitorHasBeenSet() const
-{
-    return m_visitorHasBeenSet;
 }
 

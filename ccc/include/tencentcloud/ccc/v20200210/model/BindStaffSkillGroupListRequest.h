@@ -86,27 +86,6 @@ namespace TencentCloud
                     bool StaffEmailHasBeenSet() const;
 
                     /**
-                     * 获取绑定技能组列表(必填)
-                     * @return StaffSkillGroupList 绑定技能组列表(必填)
-                     * 
-                     */
-                    std::vector<StaffSkillGroupList> GetStaffSkillGroupList() const;
-
-                    /**
-                     * 设置绑定技能组列表(必填)
-                     * @param _staffSkillGroupList 绑定技能组列表(必填)
-                     * 
-                     */
-                    void SetStaffSkillGroupList(const std::vector<StaffSkillGroupList>& _staffSkillGroupList);
-
-                    /**
-                     * 判断参数 StaffSkillGroupList 是否已赋值
-                     * @return StaffSkillGroupList 是否已赋值
-                     * 
-                     */
-                    bool StaffSkillGroupListHasBeenSet() const;
-
-                    /**
                      * 获取绑定技能组列表
                      * @return SkillGroupList 绑定技能组列表
                      * @deprecated
@@ -127,6 +106,27 @@ namespace TencentCloud
                      */
                     bool SkillGroupListHasBeenSet() const;
 
+                    /**
+                     * 获取绑定技能组列表(必填)
+                     * @return StaffSkillGroupList 绑定技能组列表(必填)
+                     * 
+                     */
+                    std::vector<StaffSkillGroupList> GetStaffSkillGroupList() const;
+
+                    /**
+                     * 设置绑定技能组列表(必填)
+                     * @param _staffSkillGroupList 绑定技能组列表(必填)
+                     * 
+                     */
+                    void SetStaffSkillGroupList(const std::vector<StaffSkillGroupList>& _staffSkillGroupList);
+
+                    /**
+                     * 判断参数 StaffSkillGroupList 是否已赋值
+                     * @return StaffSkillGroupList 是否已赋值
+                     * 
+                     */
+                    bool StaffSkillGroupListHasBeenSet() const;
+
                 private:
 
                     /**
@@ -142,16 +142,16 @@ namespace TencentCloud
                     bool m_staffEmailHasBeenSet;
 
                     /**
-                     * 绑定技能组列表(必填)
-                     */
-                    std::vector<StaffSkillGroupList> m_staffSkillGroupList;
-                    bool m_staffSkillGroupListHasBeenSet;
-
-                    /**
                      * 绑定技能组列表
                      */
                     std::vector<int64_t> m_skillGroupList;
                     bool m_skillGroupListHasBeenSet;
+
+                    /**
+                     * 绑定技能组列表(必填)
+                     */
+                    std::vector<StaffSkillGroupList> m_staffSkillGroupList;
+                    bool m_staffSkillGroupListHasBeenSet;
 
                 };
             }

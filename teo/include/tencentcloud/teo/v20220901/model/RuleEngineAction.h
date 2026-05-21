@@ -50,10 +50,8 @@
 #include <tencentcloud/teo/v20220901/model/ClientIPCountryParameters.h>
 #include <tencentcloud/teo/v20220901/model/UpstreamFollowRedirectParameters.h>
 #include <tencentcloud/teo/v20220901/model/UpstreamRequestParameters.h>
-#include <tencentcloud/teo/v20220901/model/ShieldParameters.h>
 #include <tencentcloud/teo/v20220901/model/TLSConfigParameters.h>
 #include <tencentcloud/teo/v20220901/model/ModifyOriginParameters.h>
-#include <tencentcloud/teo/v20220901/model/SiteFailoverParameters.h>
 #include <tencentcloud/teo/v20220901/model/HTTPUpstreamTimeoutParameters.h>
 #include <tencentcloud/teo/v20220901/model/HTTPResponseParameters.h>
 #include <tencentcloud/teo/v20220901/model/ErrorPageParameters.h>
@@ -114,10 +112,8 @@ namespace TencentCloud
 <li>ClientIPCountry：回源时携带客户端 IP 所属地域信息；</li>
 <li>UpstreamFollowRedirect：回源跟随重定向参数配置；</li>
 <li>UpstreamRequest：回源请求参数；</li>
-<li>Shield：源站卸载配置；</li>
 <li>TLSConfig：SSL/TLS 安全；</li>
 <li>ModifyOrigin：修改源站；</li>
-<li> SiteFailover：源站故障转移；</li>
 <li>HTTPUpstreamTimeout：七层回源超时配置；</li>
 <li>HttpResponse：HTTP 应答；</li>
 <li>ErrorPage：自定义错误页面；</li>
@@ -155,10 +151,8 @@ namespace TencentCloud
 <li>ClientIPCountry：回源时携带客户端 IP 所属地域信息；</li>
 <li>UpstreamFollowRedirect：回源跟随重定向参数配置；</li>
 <li>UpstreamRequest：回源请求参数；</li>
-<li>Shield：源站卸载配置；</li>
 <li>TLSConfig：SSL/TLS 安全；</li>
 <li>ModifyOrigin：修改源站；</li>
-<li> SiteFailover：源站故障转移；</li>
 <li>HTTPUpstreamTimeout：七层回源超时配置；</li>
 <li>HttpResponse：HTTP 应答；</li>
 <li>ErrorPage：自定义错误页面；</li>
@@ -201,10 +195,8 @@ namespace TencentCloud
 <li>ClientIPCountry：回源时携带客户端 IP 所属地域信息；</li>
 <li>UpstreamFollowRedirect：回源跟随重定向参数配置；</li>
 <li>UpstreamRequest：回源请求参数；</li>
-<li>Shield：源站卸载配置；</li>
 <li>TLSConfig：SSL/TLS 安全；</li>
 <li>ModifyOrigin：修改源站；</li>
-<li> SiteFailover：源站故障转移；</li>
 <li>HTTPUpstreamTimeout：七层回源超时配置；</li>
 <li>HttpResponse：HTTP 应答；</li>
 <li>ErrorPage：自定义错误页面；</li>
@@ -242,10 +234,8 @@ namespace TencentCloud
 <li>ClientIPCountry：回源时携带客户端 IP 所属地域信息；</li>
 <li>UpstreamFollowRedirect：回源跟随重定向参数配置；</li>
 <li>UpstreamRequest：回源请求参数；</li>
-<li>Shield：源站卸载配置；</li>
 <li>TLSConfig：SSL/TLS 安全；</li>
 <li>ModifyOrigin：修改源站；</li>
-<li> SiteFailover：源站故障转移；</li>
 <li>HTTPUpstreamTimeout：七层回源超时配置；</li>
 <li>HttpResponse：HTTP 应答；</li>
 <li>ErrorPage：自定义错误页面；</li>
@@ -918,31 +908,6 @@ namespace TencentCloud
                     bool UpstreamRequestParametersHasBeenSet() const;
 
                     /**
-                     * 获取源站卸载配置参数，当 Name 取值为 Shield 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ShieldParameters 源站卸载配置参数，当 Name 取值为 Shield 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    ShieldParameters GetShieldParameters() const;
-
-                    /**
-                     * 设置源站卸载配置参数，当 Name 取值为 Shield 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _shieldParameters 源站卸载配置参数，当 Name 取值为 Shield 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetShieldParameters(const ShieldParameters& _shieldParameters);
-
-                    /**
-                     * 判断参数 ShieldParameters 是否已赋值
-                     * @return ShieldParameters 是否已赋值
-                     * 
-                     */
-                    bool ShieldParametersHasBeenSet() const;
-
-                    /**
                      * 获取SSL/TLS 安全配置参数，当 Name 取值为 TLSConfig 时，该参数必填。
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return TLSConfigParameters SSL/TLS 安全配置参数，当 Name 取值为 TLSConfig 时，该参数必填。
@@ -991,31 +956,6 @@ namespace TencentCloud
                      * 
                      */
                     bool ModifyOriginParametersHasBeenSet() const;
-
-                    /**
-                     * 获取源站故障转移配置参数，当 Name 取值为 SiteFailover 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SiteFailoverParameters 源站故障转移配置参数，当 Name 取值为 SiteFailover 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    SiteFailoverParameters GetSiteFailoverParameters() const;
-
-                    /**
-                     * 设置源站故障转移配置参数，当 Name 取值为 SiteFailover 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _siteFailoverParameters 源站故障转移配置参数，当 Name 取值为 SiteFailover 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     * 
-                     */
-                    void SetSiteFailoverParameters(const SiteFailoverParameters& _siteFailoverParameters);
-
-                    /**
-                     * 判断参数 SiteFailoverParameters 是否已赋值
-                     * @return SiteFailoverParameters 是否已赋值
-                     * 
-                     */
-                    bool SiteFailoverParametersHasBeenSet() const;
 
                     /**
                      * 获取七层回源超时配置，当 Name 取值为 HTTPUpstreamTimeout 时，该参数必填。
@@ -1289,10 +1229,8 @@ namespace TencentCloud
 <li>ClientIPCountry：回源时携带客户端 IP 所属地域信息；</li>
 <li>UpstreamFollowRedirect：回源跟随重定向参数配置；</li>
 <li>UpstreamRequest：回源请求参数；</li>
-<li>Shield：源站卸载配置；</li>
 <li>TLSConfig：SSL/TLS 安全；</li>
 <li>ModifyOrigin：修改源站；</li>
-<li> SiteFailover：源站故障转移；</li>
 <li>HTTPUpstreamTimeout：七层回源超时配置；</li>
 <li>HttpResponse：HTTP 应答；</li>
 <li>ErrorPage：自定义错误页面；</li>
@@ -1490,13 +1428,6 @@ namespace TencentCloud
                     bool m_upstreamRequestParametersHasBeenSet;
 
                     /**
-                     * 源站卸载配置参数，当 Name 取值为 Shield 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    ShieldParameters m_shieldParameters;
-                    bool m_shieldParametersHasBeenSet;
-
-                    /**
                      * SSL/TLS 安全配置参数，当 Name 取值为 TLSConfig 时，该参数必填。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
@@ -1509,13 +1440,6 @@ namespace TencentCloud
                      */
                     ModifyOriginParameters m_modifyOriginParameters;
                     bool m_modifyOriginParametersHasBeenSet;
-
-                    /**
-                     * 源站故障转移配置参数，当 Name 取值为 SiteFailover 时，该参数必填。
-注意：此字段可能返回 null，表示取不到有效值。
-                     */
-                    SiteFailoverParameters m_siteFailoverParameters;
-                    bool m_siteFailoverParametersHasBeenSet;
 
                     /**
                      * 七层回源超时配置，当 Name 取值为 HTTPUpstreamTimeout 时，该参数必填。

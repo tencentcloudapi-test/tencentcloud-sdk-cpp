@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>文档数量</p>
-                     * @return Total <p>文档数量</p>
+                     * 获取文档数量
+                     * @return Total 文档数量
                      * 
                      */
                     std::string GetTotal() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>文档列表</p>
-                     * @return List <p>文档列表</p>
+                     * 获取文档列表
+                     * @return List 文档列表
                      * 
                      */
                     std::vector<ListDocItem> GetList() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>文档数量</p>
+                     * 文档数量
                      */
                     std::string m_total;
                     bool m_totalHasBeenSet;
 
                     /**
-                     * <p>文档列表</p>
+                     * 文档列表
                      */
                     std::vector<ListDocItem> m_list;
                     bool m_listHasBeenSet;

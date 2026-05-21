@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-                     * @return AppBizId 应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
+                     * 获取应用ID
+                     * @return AppBizId 应用ID
                      * 
                      */
                     std::string GetAppBizId() const;
 
                     /**
-                     * 设置应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
-                     * @param _appBizId 应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
+                     * 设置应用ID
+                     * @param _appBizId 应用ID
                      * 
                      */
                     void SetAppBizId(const std::string& _appBizId);
@@ -127,31 +127,10 @@ namespace TencentCloud
                      */
                     bool CustomVariablesHasBeenSet() const;
 
-                    /**
-                     * 获取用户ID
-                     * @return VisitorId 用户ID
-                     * 
-                     */
-                    std::string GetVisitorId() const;
-
-                    /**
-                     * 设置用户ID
-                     * @param _visitorId 用户ID
-                     * 
-                     */
-                    void SetVisitorId(const std::string& _visitorId);
-
-                    /**
-                     * 判断参数 VisitorId 是否已赋值
-                     * @return VisitorId 是否已赋值
-                     * 
-                     */
-                    bool VisitorIdHasBeenSet() const;
-
                 private:
 
                     /**
-                     * 应用ID, 获取方法参看如何获取 [BotBizId](https://cloud.tencent.com/document/product/1759/109469#4eecb8c1-6ce4-45f5-8fa2-b269449d8efa)
+                     * 应用ID
                      */
                     std::string m_appBizId;
                     bool m_appBizIdHasBeenSet;
@@ -173,12 +152,6 @@ namespace TencentCloud
                      */
                     std::vector<CustomVariable> m_customVariables;
                     bool m_customVariablesHasBeenSet;
-
-                    /**
-                     * 用户ID
-                     */
-                    std::string m_visitorId;
-                    bool m_visitorIdHasBeenSet;
 
                 };
             }

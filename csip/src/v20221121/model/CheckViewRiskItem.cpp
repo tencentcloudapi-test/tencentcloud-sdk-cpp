@@ -34,9 +34,7 @@ CheckViewRiskItem::CheckViewRiskItem() :
     m_riskCountHasBeenSet(false),
     m_assetTypeHasBeenSet(false),
     m_eventTypeHasBeenSet(false),
-    m_classifyHasBeenSet(false),
-    m_standardTermsHasBeenSet(false),
-    m_assetTypeIconURLHasBeenSet(false)
+    m_classifyHasBeenSet(false)
 {
 }
 
@@ -185,36 +183,6 @@ CoreInternalOutcome CheckViewRiskItem::Deserialize(const rapidjson::Value &value
         m_classifyHasBeenSet = true;
     }
 
-    if (value.HasMember("StandardTerms") && !value["StandardTerms"].IsNull())
-    {
-        if (!value["StandardTerms"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `CheckViewRiskItem.StandardTerms` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["StandardTerms"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            StandardTerm item;
-            CoreInternalOutcome outcome = item.Deserialize(*itr);
-            if (!outcome.IsSuccess())
-            {
-                outcome.GetError().SetRequestId(requestId);
-                return outcome;
-            }
-            m_standardTerms.push_back(item);
-        }
-        m_standardTermsHasBeenSet = true;
-    }
-
-    if (value.HasMember("AssetTypeIconURL") && !value["AssetTypeIconURL"].IsNull())
-    {
-        if (!value["AssetTypeIconURL"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CheckViewRiskItem.AssetTypeIconURL` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_assetTypeIconURL = string(value["AssetTypeIconURL"].GetString());
-        m_assetTypeIconURLHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -332,29 +300,6 @@ void CheckViewRiskItem::ToJsonObject(rapidjson::Value &value, rapidjson::Documen
         string key = "Classify";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_classify.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_standardTermsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "StandardTerms";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        int i=0;
-        for (auto itr = m_standardTerms.begin(); itr != m_standardTerms.end(); ++itr, ++i)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-            (*itr).ToJsonObject(value[key.c_str()][i], allocator);
-        }
-    }
-
-    if (m_assetTypeIconURLHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AssetTypeIconURL";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_assetTypeIconURL.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -582,37 +527,5 @@ void CheckViewRiskItem::SetClassify(const string& _classify)
 bool CheckViewRiskItem::ClassifyHasBeenSet() const
 {
     return m_classifyHasBeenSet;
-}
-
-vector<StandardTerm> CheckViewRiskItem::GetStandardTerms() const
-{
-    return m_standardTerms;
-}
-
-void CheckViewRiskItem::SetStandardTerms(const vector<StandardTerm>& _standardTerms)
-{
-    m_standardTerms = _standardTerms;
-    m_standardTermsHasBeenSet = true;
-}
-
-bool CheckViewRiskItem::StandardTermsHasBeenSet() const
-{
-    return m_standardTermsHasBeenSet;
-}
-
-string CheckViewRiskItem::GetAssetTypeIconURL() const
-{
-    return m_assetTypeIconURL;
-}
-
-void CheckViewRiskItem::SetAssetTypeIconURL(const string& _assetTypeIconURL)
-{
-    m_assetTypeIconURL = _assetTypeIconURL;
-    m_assetTypeIconURLHasBeenSet = true;
-}
-
-bool CheckViewRiskItem::AssetTypeIconURLHasBeenSet() const
-{
-    return m_assetTypeIconURLHasBeenSet;
 }
 

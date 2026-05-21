@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>不满意回复ID</p>
+                     * 获取不满意回复ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ReplyBizId <p>不满意回复ID</p>
+                     * @return ReplyBizId 不满意回复ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetReplyBizId() const;
 
                     /**
-                     * 设置<p>不满意回复ID</p>
+                     * 设置不满意回复ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _replyBizId <p>不满意回复ID</p>
+                     * @param _replyBizId 不满意回复ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool ReplyBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>消息记录ID</p>
+                     * 获取消息记录ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return RecordBizId <p>消息记录ID</p>
+                     * @return RecordBizId 消息记录ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetRecordBizId() const;
 
                     /**
-                     * 设置<p>消息记录ID</p>
+                     * 设置消息记录ID
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _recordBizId <p>消息记录ID</p>
+                     * @param _recordBizId 消息记录ID
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool RecordBizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>用户问题</p>
+                     * 获取用户问题
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Question <p>用户问题</p>
+                     * @return Question 用户问题
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetQuestion() const;
 
                     /**
-                     * 设置<p>用户问题</p>
+                     * 设置用户问题
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _question <p>用户问题</p>
+                     * @param _question 用户问题
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool QuestionHasBeenSet() const;
 
                     /**
-                     * 获取<p>问题回复</p>
+                     * 获取问题回复
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Answer <p>问题回复</p>
+                     * @return Answer 问题回复
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetAnswer() const;
 
                     /**
-                     * 设置<p>问题回复</p>
+                     * 设置问题回复
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _answer <p>问题回复</p>
+                     * @param _answer 问题回复
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -147,18 +147,18 @@ namespace TencentCloud
                     bool AnswerHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误类型</p>
+                     * 获取错误类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Reasons <p>错误类型</p>
+                     * @return Reasons 错误类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<std::string> GetReasons() const;
 
                     /**
-                     * 设置<p>错误类型</p>
+                     * 设置错误类型
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _reasons <p>错误类型</p>
+                     * @param _reasons 错误类型
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -172,18 +172,18 @@ namespace TencentCloud
                     bool ReasonsHasBeenSet() const;
 
                     /**
-                     * 获取<p>处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错</p>
+                     * 获取处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Status <p>处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错</p>
+                     * @return Status 处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetStatus() const;
 
                     /**
-                     * 设置<p>处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错</p>
+                     * 设置处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _status <p>处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错</p>
+                     * @param _status 处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -197,15 +197,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间，秒级时间戳</p>
-                     * @return CreateTime <p>创建时间，秒级时间戳</p>
+                     * 获取创建时间，秒级时间戳
+                     * @return CreateTime 创建时间，秒级时间戳
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间，秒级时间戳</p>
-                     * @param _createTime <p>创建时间，秒级时间戳</p>
+                     * 设置创建时间，秒级时间戳
+                     * @param _createTime 创建时间，秒级时间戳
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -218,15 +218,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>更新时间,秒级时间戳</p>
-                     * @return UpdateTime <p>更新时间,秒级时间戳</p>
+                     * 获取更新时间,秒级时间戳
+                     * @return UpdateTime 更新时间,秒级时间戳
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>更新时间,秒级时间戳</p>
-                     * @param _updateTime <p>更新时间,秒级时间戳</p>
+                     * 设置更新时间,秒级时间戳
+                     * @param _updateTime 更新时间,秒级时间戳
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -239,15 +239,15 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>操作人</p>
-                     * @return Operator <p>操作人</p>
+                     * 获取操作人
+                     * @return Operator 操作人
                      * 
                      */
                     std::string GetOperator() const;
 
                     /**
-                     * 设置<p>操作人</p>
-                     * @param _operator <p>操作人</p>
+                     * 设置操作人
+                     * @param _operator 操作人
                      * 
                      */
                     void SetOperator(const std::string& _operator);
@@ -260,15 +260,15 @@ namespace TencentCloud
                     bool OperatorHasBeenSet() const;
 
                     /**
-                     * 获取<p>自定义反馈</p>
-                     * @return FeedbackContent <p>自定义反馈</p>
+                     * 获取自定义反馈
+                     * @return FeedbackContent 自定义反馈
                      * 
                      */
                     std::string GetFeedbackContent() const;
 
                     /**
-                     * 设置<p>自定义反馈</p>
-                     * @param _feedbackContent <p>自定义反馈</p>
+                     * 设置自定义反馈
+                     * @param _feedbackContent 自定义反馈
                      * 
                      */
                     void SetFeedbackContent(const std::string& _feedbackContent);
@@ -280,100 +280,73 @@ namespace TencentCloud
                      */
                     bool FeedbackContentHasBeenSet() const;
 
-                    /**
-                     * 获取<p>用户</p>
-                     * @return Visitor <p>用户</p>
-                     * 
-                     */
-                    std::string GetVisitor() const;
-
-                    /**
-                     * 设置<p>用户</p>
-                     * @param _visitor <p>用户</p>
-                     * 
-                     */
-                    void SetVisitor(const std::string& _visitor);
-
-                    /**
-                     * 判断参数 Visitor 是否已赋值
-                     * @return Visitor 是否已赋值
-                     * 
-                     */
-                    bool VisitorHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>不满意回复ID</p>
+                     * 不满意回复ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_replyBizId;
                     bool m_replyBizIdHasBeenSet;
 
                     /**
-                     * <p>消息记录ID</p>
+                     * 消息记录ID
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_recordBizId;
                     bool m_recordBizIdHasBeenSet;
 
                     /**
-                     * <p>用户问题</p>
+                     * 用户问题
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_question;
                     bool m_questionHasBeenSet;
 
                     /**
-                     * <p>问题回复</p>
+                     * 问题回复
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_answer;
                     bool m_answerHasBeenSet;
 
                     /**
-                     * <p>错误类型</p>
+                     * 错误类型
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_reasons;
                     bool m_reasonsHasBeenSet;
 
                     /**
-                     * <p>处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错</p>
+                     * 处理状态，0：待处理，1：已拒答，2：已忽略，3：已纠错
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>创建时间，秒级时间戳</p>
+                     * 创建时间，秒级时间戳
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>更新时间,秒级时间戳</p>
+                     * 更新时间,秒级时间戳
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>操作人</p>
+                     * 操作人
                      */
                     std::string m_operator;
                     bool m_operatorHasBeenSet;
 
                     /**
-                     * <p>自定义反馈</p>
+                     * 自定义反馈
                      */
                     std::string m_feedbackContent;
                     bool m_feedbackContentHasBeenSet;
-
-                    /**
-                     * <p>用户</p>
-                     */
-                    std::string m_visitor;
-                    bool m_visitorHasBeenSet;
 
                 };
             }

@@ -44,8 +44,12 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>修改结果。</p><ul><li>true：成功</li><li>false：失败</li></ul>
-                     * @return Result <p>修改结果。</p><ul><li>true：成功</li><li>false：失败</li></ul>
+                     * 获取修改结果。
+- true：成功
+- false：失败
+                     * @return Result 修改结果。
+- true：成功
+- false：失败
                      * 
                      */
                     bool GetResult() const;
@@ -60,7 +64,9 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>修改结果。</p><ul><li>true：成功</li><li>false：失败</li></ul>
+                     * 修改结果。
+- true：成功
+- false：失败
                      */
                     bool m_result;
                     bool m_resultHasBeenSet;

@@ -633,69 +633,6 @@ namespace TencentCloud
                      */
                     bool AvailableVersionsHasBeenSet() const;
 
-                    /**
-                     * 获取网关可以升级的版本号列表
-                     * @return AvailableUpgradeVersions 网关可以升级的版本号列表
-                     * 
-                     */
-                    std::vector<std::string> GetAvailableUpgradeVersions() const;
-
-                    /**
-                     * 设置网关可以升级的版本号列表
-                     * @param _availableUpgradeVersions 网关可以升级的版本号列表
-                     * 
-                     */
-                    void SetAvailableUpgradeVersions(const std::vector<std::string>& _availableUpgradeVersions);
-
-                    /**
-                     * 判断参数 AvailableUpgradeVersions 是否已赋值
-                     * @return AvailableUpgradeVersions 是否已赋值
-                     * 
-                     */
-                    bool AvailableUpgradeVersionsHasBeenSet() const;
-
-                    /**
-                     * 获取是否提示可升级
-                     * @return AvailableUpgrade 是否提示可升级
-                     * 
-                     */
-                    bool GetAvailableUpgrade() const;
-
-                    /**
-                     * 设置是否提示可升级
-                     * @param _availableUpgrade 是否提示可升级
-                     * 
-                     */
-                    void SetAvailableUpgrade(const bool& _availableUpgrade);
-
-                    /**
-                     * 判断参数 AvailableUpgrade 是否已赋值
-                     * @return AvailableUpgrade 是否已赋值
-                     * 
-                     */
-                    bool AvailableUpgradeHasBeenSet() const;
-
-                    /**
-                     * 获取可回退的版本
-                     * @return AvailableRollbackVersion 可回退的版本
-                     * 
-                     */
-                    std::string GetAvailableRollbackVersion() const;
-
-                    /**
-                     * 设置可回退的版本
-                     * @param _availableRollbackVersion 可回退的版本
-                     * 
-                     */
-                    void SetAvailableRollbackVersion(const std::string& _availableRollbackVersion);
-
-                    /**
-                     * 判断参数 AvailableRollbackVersion 是否已赋值
-                     * @return AvailableRollbackVersion 是否已赋值
-                     * 
-                     */
-                    bool AvailableRollbackVersionHasBeenSet() const;
-
                 private:
 
                     /**
@@ -863,24 +800,6 @@ namespace TencentCloud
                      */
                     std::vector<std::string> m_availableVersions;
                     bool m_availableVersionsHasBeenSet;
-
-                    /**
-                     * 网关可以升级的版本号列表
-                     */
-                    std::vector<std::string> m_availableUpgradeVersions;
-                    bool m_availableUpgradeVersionsHasBeenSet;
-
-                    /**
-                     * 是否提示可升级
-                     */
-                    bool m_availableUpgrade;
-                    bool m_availableUpgradeHasBeenSet;
-
-                    /**
-                     * 可回退的版本
-                     */
-                    std::string m_availableRollbackVersion;
-                    bool m_availableRollbackVersionHasBeenSet;
 
                 };
             }

@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool NatGatewayIdHasBeenSet() const;
 
                     /**
-                     * 获取NAT网关的名称，形如：`test_nat`，边界值：[1,60] 字符。
-                     * @return NatGatewayName NAT网关的名称，形如：`test_nat`，边界值：[1,60] 字符。
+                     * 获取NAT网关的名称，形如：`test_nat`。
+                     * @return NatGatewayName NAT网关的名称，形如：`test_nat`。
                      * 
                      */
                     std::string GetNatGatewayName() const;
 
                     /**
-                     * 设置NAT网关的名称，形如：`test_nat`，边界值：[1,60] 字符。
-                     * @param _natGatewayName NAT网关的名称，形如：`test_nat`，边界值：[1,60] 字符。
+                     * 设置NAT网关的名称，形如：`test_nat`。
+                     * @param _natGatewayName NAT网关的名称，形如：`test_nat`。
                      * 
                      */
                     void SetNatGatewayName(const std::string& _natGatewayName);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool NatGatewayNameHasBeenSet() const;
 
                     /**
-                     * 获取NAT网关最大外网出带宽(单位:Mbps)，边界值：[0,50000]。
-                     * @return InternetMaxBandwidthOut NAT网关最大外网出带宽(单位:Mbps)，边界值：[0,50000]。
+                     * 获取NAT网关最大外网出带宽(单位:Mbps)。
+                     * @return InternetMaxBandwidthOut NAT网关最大外网出带宽(单位:Mbps)。
                      * 
                      */
                     uint64_t GetInternetMaxBandwidthOut() const;
 
                     /**
-                     * 设置NAT网关最大外网出带宽(单位:Mbps)，边界值：[0,50000]。
-                     * @param _internetMaxBandwidthOut NAT网关最大外网出带宽(单位:Mbps)，边界值：[0,50000]。
+                     * 设置NAT网关最大外网出带宽(单位:Mbps)。
+                     * @param _internetMaxBandwidthOut NAT网关最大外网出带宽(单位:Mbps)。
                      * 
                      */
                     void SetInternetMaxBandwidthOut(const uint64_t& _internetMaxBandwidthOut);
@@ -168,27 +168,6 @@ namespace TencentCloud
                      */
                     bool DeletionProtectionEnabledHasBeenSet() const;
 
-                    /**
-                     * 获取同一个内网地址通过NAT网关访问同一个目的IP时，是否使用固定的弹性公网IP。默认为true，使用固定IP；false代表使用随机IP。当前适用于标准型NAT网关。
-                     * @return PublicAddressAffinity 同一个内网地址通过NAT网关访问同一个目的IP时，是否使用固定的弹性公网IP。默认为true，使用固定IP；false代表使用随机IP。当前适用于标准型NAT网关。
-                     * 
-                     */
-                    bool GetPublicAddressAffinity() const;
-
-                    /**
-                     * 设置同一个内网地址通过NAT网关访问同一个目的IP时，是否使用固定的弹性公网IP。默认为true，使用固定IP；false代表使用随机IP。当前适用于标准型NAT网关。
-                     * @param _publicAddressAffinity 同一个内网地址通过NAT网关访问同一个目的IP时，是否使用固定的弹性公网IP。默认为true，使用固定IP；false代表使用随机IP。当前适用于标准型NAT网关。
-                     * 
-                     */
-                    void SetPublicAddressAffinity(const bool& _publicAddressAffinity);
-
-                    /**
-                     * 判断参数 PublicAddressAffinity 是否已赋值
-                     * @return PublicAddressAffinity 是否已赋值
-                     * 
-                     */
-                    bool PublicAddressAffinityHasBeenSet() const;
-
                 private:
 
                     /**
@@ -198,13 +177,13 @@ namespace TencentCloud
                     bool m_natGatewayIdHasBeenSet;
 
                     /**
-                     * NAT网关的名称，形如：`test_nat`，边界值：[1,60] 字符。
+                     * NAT网关的名称，形如：`test_nat`。
                      */
                     std::string m_natGatewayName;
                     bool m_natGatewayNameHasBeenSet;
 
                     /**
-                     * NAT网关最大外网出带宽(单位:Mbps)，边界值：[0,50000]。
+                     * NAT网关最大外网出带宽(单位:Mbps)。
                      */
                     uint64_t m_internetMaxBandwidthOut;
                     bool m_internetMaxBandwidthOutHasBeenSet;
@@ -226,12 +205,6 @@ namespace TencentCloud
                      */
                     bool m_deletionProtectionEnabled;
                     bool m_deletionProtectionEnabledHasBeenSet;
-
-                    /**
-                     * 同一个内网地址通过NAT网关访问同一个目的IP时，是否使用固定的弹性公网IP。默认为true，使用固定IP；false代表使用随机IP。当前适用于标准型NAT网关。
-                     */
-                    bool m_publicAddressAffinity;
-                    bool m_publicAddressAffinityHasBeenSet;
 
                 };
             }

@@ -32,8 +32,7 @@ ModifyAlarmNoticeRequest::ModifyAlarmNoticeRequest() :
     m_uRLNoticesHasBeenSet(false),
     m_cLSNoticesHasBeenSet(false),
     m_policyIdsHasBeenSet(false),
-    m_isLoginFreeHasBeenSet(false),
-    m_timeZoneNameHasBeenSet(false)
+    m_isLoginFreeHasBeenSet(false)
 {
 }
 
@@ -148,14 +147,6 @@ string ModifyAlarmNoticeRequest::ToJsonString() const
         string key = "IsLoginFree";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isLoginFree, allocator);
-    }
-
-    if (m_timeZoneNameHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TimeZoneName";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_timeZoneName.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -324,22 +315,6 @@ void ModifyAlarmNoticeRequest::SetIsLoginFree(const int64_t& _isLoginFree)
 bool ModifyAlarmNoticeRequest::IsLoginFreeHasBeenSet() const
 {
     return m_isLoginFreeHasBeenSet;
-}
-
-string ModifyAlarmNoticeRequest::GetTimeZoneName() const
-{
-    return m_timeZoneName;
-}
-
-void ModifyAlarmNoticeRequest::SetTimeZoneName(const string& _timeZoneName)
-{
-    m_timeZoneName = _timeZoneName;
-    m_timeZoneNameHasBeenSet = true;
-}
-
-bool ModifyAlarmNoticeRequest::TimeZoneNameHasBeenSet() const
-{
-    return m_timeZoneNameHasBeenSet;
 }
 
 

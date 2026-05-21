@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>应用用量统计数据</p>
-                     * @return Data <p>应用用量统计数据</p>
+                     * 获取应用用量统计数据
+                     * @return Data 应用用量统计数据
                      * 
                      */
                     DescribeAppStatisticsResp GetData() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>应用用量统计数据</p>
+                     * 应用用量统计数据
                      */
                     DescribeAppStatisticsResp m_data;
                     bool m_dataHasBeenSet;

@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返回结果</p>
-                     * @return Result <p>返回结果</p>
+                     * 获取返回结果
+                     * @return Result 返回结果
                      * 
                      */
                     CreateInstancePreResp GetResult() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返回结果</p>
+                     * 返回结果
                      */
                     CreateInstancePreResp m_result;
                     bool m_resultHasBeenSet;

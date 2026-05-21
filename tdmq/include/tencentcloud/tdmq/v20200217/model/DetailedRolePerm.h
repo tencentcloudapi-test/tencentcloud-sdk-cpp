@@ -110,27 +110,15 @@ namespace TencentCloud
                     bool PermReadHasBeenSet() const;
 
                     /**
-                     * 获取授权资源类型，枚举值如下：
-- Topic：主题维度
-- Group：消费组维度
-- Cluster：集群维度（默认值）
-                     * @return ResourceType 授权资源类型，枚举值如下：
-- Topic：主题维度
-- Group：消费组维度
-- Cluster：集群维度（默认值）
+                     * 获取授权资源类型（Topic:主题; Group:消费组）
+                     * @return ResourceType 授权资源类型（Topic:主题; Group:消费组）
                      * 
                      */
                     std::string GetResourceType() const;
 
                     /**
-                     * 设置授权资源类型，枚举值如下：
-- Topic：主题维度
-- Group：消费组维度
-- Cluster：集群维度（默认值）
-                     * @param _resourceType 授权资源类型，枚举值如下：
-- Topic：主题维度
-- Group：消费组维度
-- Cluster：集群维度（默认值）
+                     * 设置授权资源类型（Topic:主题; Group:消费组）
+                     * @param _resourceType 授权资源类型（Topic:主题; Group:消费组）
                      * 
                      */
                     void SetResourceType(const std::string& _resourceType);
@@ -184,10 +172,7 @@ namespace TencentCloud
                     bool m_permReadHasBeenSet;
 
                     /**
-                     * 授权资源类型，枚举值如下：
-- Topic：主题维度
-- Group：消费组维度
-- Cluster：集群维度（默认值）
+                     * 授权资源类型（Topic:主题; Group:消费组）
                      */
                     std::string m_resourceType;
                     bool m_resourceTypeHasBeenSet;

@@ -31,8 +31,7 @@ SecurityGroupPolicy::SecurityGroupPolicy() :
     m_addressTemplateHasBeenSet(false),
     m_actionHasBeenSet(false),
     m_policyDescriptionHasBeenSet(false),
-    m_modifyTimeHasBeenSet(false),
-    m_priorityHasBeenSet(false)
+    m_modifyTimeHasBeenSet(false)
 {
 }
 
@@ -165,16 +164,6 @@ CoreInternalOutcome SecurityGroupPolicy::Deserialize(const rapidjson::Value &val
         m_modifyTimeHasBeenSet = true;
     }
 
-    if (value.HasMember("Priority") && !value["Priority"].IsNull())
-    {
-        if (!value["Priority"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `SecurityGroupPolicy.Priority` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_priority = value["Priority"].GetInt64();
-        m_priorityHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -270,14 +259,6 @@ void SecurityGroupPolicy::ToJsonObject(rapidjson::Value &value, rapidjson::Docum
         string key = "ModifyTime";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_modifyTime.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_priorityHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Priority";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_priority, allocator);
     }
 
 }
@@ -457,21 +438,5 @@ void SecurityGroupPolicy::SetModifyTime(const string& _modifyTime)
 bool SecurityGroupPolicy::ModifyTimeHasBeenSet() const
 {
     return m_modifyTimeHasBeenSet;
-}
-
-int64_t SecurityGroupPolicy::GetPriority() const
-{
-    return m_priority;
-}
-
-void SecurityGroupPolicy::SetPriority(const int64_t& _priority)
-{
-    m_priority = _priority;
-    m_priorityHasBeenSet = true;
-}
-
-bool SecurityGroupPolicy::PriorityHasBeenSet() const
-{
-    return m_priorityHasBeenSet;
 }
 

@@ -44,8 +44,14 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>合同智能提取的任务ID列表，每个任务ID为32位字符串。<br>建议开发者保存此任务ID，后续查询合同智能提取详情需要此任务ID。</p><p>注意：<code>返回的索引和ResourceIds数组一致</code></p>
-                     * @return TaskIds <p>合同智能提取的任务ID列表，每个任务ID为32位字符串。<br>建议开发者保存此任务ID，后续查询合同智能提取详情需要此任务ID。</p><p>注意：<code>返回的索引和ResourceIds数组一致</code></p>
+                     * 获取合同智能提取的任务ID列表，每个任务ID为32位字符串。
+建议开发者保存此任务ID，后续查询合同智能提取详情需要此任务ID。
+
+注意：`返回的索引和ResourceIds数组一致`
+                     * @return TaskIds 合同智能提取的任务ID列表，每个任务ID为32位字符串。
+建议开发者保存此任务ID，后续查询合同智能提取详情需要此任务ID。
+
+注意：`返回的索引和ResourceIds数组一致`
                      * 
                      */
                     std::vector<std::string> GetTaskIds() const;
@@ -60,7 +66,10 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>合同智能提取的任务ID列表，每个任务ID为32位字符串。<br>建议开发者保存此任务ID，后续查询合同智能提取详情需要此任务ID。</p><p>注意：<code>返回的索引和ResourceIds数组一致</code></p>
+                     * 合同智能提取的任务ID列表，每个任务ID为32位字符串。
+建议开发者保存此任务ID，后续查询合同智能提取详情需要此任务ID。
+
+注意：`返回的索引和ResourceIds数组一致`
                      */
                     std::vector<std::string> m_taskIds;
                     bool m_taskIdsHasBeenSet;

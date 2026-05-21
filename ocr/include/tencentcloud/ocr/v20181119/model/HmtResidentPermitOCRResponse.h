@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>证件姓名</p>
-                     * @return Name <p>证件姓名</p>
+                     * 获取证件姓名
+                     * @return Name 证件姓名
                      * 
                      */
                     std::string GetName() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>性别</p>
-                     * @return Sex <p>性别</p>
+                     * 获取性别
+                     * @return Sex 性别
                      * 
                      */
                     std::string GetSex() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool SexHasBeenSet() const;
 
                     /**
-                     * 获取<p>出生日期</p>
-                     * @return Birth <p>出生日期</p>
+                     * 获取出生日期
+                     * @return Birth 出生日期
                      * 
                      */
                     std::string GetBirth() const;
@@ -87,8 +87,8 @@ namespace TencentCloud
                     bool BirthHasBeenSet() const;
 
                     /**
-                     * 获取<p>地址</p>
-                     * @return Address <p>地址</p>
+                     * 获取地址
+                     * @return Address 地址
                      * 
                      */
                     std::string GetAddress() const;
@@ -101,8 +101,8 @@ namespace TencentCloud
                     bool AddressHasBeenSet() const;
 
                     /**
-                     * 获取<p>身份证号</p>
-                     * @return IdCardNo <p>身份证号</p>
+                     * 获取身份证号
+                     * @return IdCardNo 身份证号
                      * 
                      */
                     std::string GetIdCardNo() const;
@@ -115,8 +115,10 @@ namespace TencentCloud
                     bool IdCardNoHasBeenSet() const;
 
                     /**
-                     * 获取<p>0-正面<br>1-反面</p>
-                     * @return CardType <p>0-正面<br>1-反面</p>
+                     * 获取0-正面
+1-反面
+                     * @return CardType 0-正面
+1-反面
                      * 
                      */
                     int64_t GetCardType() const;
@@ -129,8 +131,8 @@ namespace TencentCloud
                     bool CardTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>证件有效期限</p>
-                     * @return ValidDate <p>证件有效期限</p>
+                     * 获取证件有效期限
+                     * @return ValidDate 证件有效期限
                      * 
                      */
                     std::string GetValidDate() const;
@@ -143,8 +145,8 @@ namespace TencentCloud
                     bool ValidDateHasBeenSet() const;
 
                     /**
-                     * 获取<p>签发机关</p>
-                     * @return Authority <p>签发机关</p>
+                     * 获取签发机关
+                     * @return Authority 签发机关
                      * 
                      */
                     std::string GetAuthority() const;
@@ -157,8 +159,8 @@ namespace TencentCloud
                     bool AuthorityHasBeenSet() const;
 
                     /**
-                     * 获取<p>签发次数</p>
-                     * @return VisaNum <p>签发次数</p>
+                     * 获取签发次数
+                     * @return VisaNum 签发次数
                      * 
                      */
                     std::string GetVisaNum() const;
@@ -171,8 +173,8 @@ namespace TencentCloud
                     bool VisaNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>通行证号码</p>
-                     * @return PassNo <p>通行证号码</p>
+                     * 获取通行证号码
+                     * @return PassNo 通行证号码
                      * 
                      */
                     std::string GetPassNo() const;
@@ -185,8 +187,8 @@ namespace TencentCloud
                     bool PassNoHasBeenSet() const;
 
                     /**
-                     * 获取<p>头像和坐标信息</p>
-                     * @return PortraitImageInfo <p>头像和坐标信息</p>
+                     * 获取头像和坐标信息
+                     * @return PortraitImageInfo 头像和坐标信息
                      * 
                      */
                     PortraitImageInfo GetPortraitImageInfo() const;
@@ -201,67 +203,68 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>证件姓名</p>
+                     * 证件姓名
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>性别</p>
+                     * 性别
                      */
                     std::string m_sex;
                     bool m_sexHasBeenSet;
 
                     /**
-                     * <p>出生日期</p>
+                     * 出生日期
                      */
                     std::string m_birth;
                     bool m_birthHasBeenSet;
 
                     /**
-                     * <p>地址</p>
+                     * 地址
                      */
                     std::string m_address;
                     bool m_addressHasBeenSet;
 
                     /**
-                     * <p>身份证号</p>
+                     * 身份证号
                      */
                     std::string m_idCardNo;
                     bool m_idCardNoHasBeenSet;
 
                     /**
-                     * <p>0-正面<br>1-反面</p>
+                     * 0-正面
+1-反面
                      */
                     int64_t m_cardType;
                     bool m_cardTypeHasBeenSet;
 
                     /**
-                     * <p>证件有效期限</p>
+                     * 证件有效期限
                      */
                     std::string m_validDate;
                     bool m_validDateHasBeenSet;
 
                     /**
-                     * <p>签发机关</p>
+                     * 签发机关
                      */
                     std::string m_authority;
                     bool m_authorityHasBeenSet;
 
                     /**
-                     * <p>签发次数</p>
+                     * 签发次数
                      */
                     std::string m_visaNum;
                     bool m_visaNumHasBeenSet;
 
                     /**
-                     * <p>通行证号码</p>
+                     * 通行证号码
                      */
                     std::string m_passNo;
                     bool m_passNoHasBeenSet;
 
                     /**
-                     * <p>头像和坐标信息</p>
+                     * 头像和坐标信息
                      */
                     PortraitImageInfo m_portraitImageInfo;
                     bool m_portraitImageInfoHasBeenSet;

@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/mrs/v20200910/model/Coordinate.h>
-#include <tencentcloud/mrs/v20200910/model/ItemCoordinate.h>
 
 
 namespace TencentCloud
@@ -49,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>英文缩写</p>
-                     * @return Code <p>英文缩写</p>
+                     * 获取英文缩写
+                     * @return Code 英文缩写
                      * 
                      */
                     std::string GetCode() const;
 
                     /**
-                     * 设置<p>英文缩写</p>
-                     * @param _code <p>英文缩写</p>
+                     * 设置英文缩写
+                     * @param _code 英文缩写
                      * 
                      */
                     void SetCode(const std::string& _code);
@@ -70,15 +69,15 @@ namespace TencentCloud
                     bool CodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>标准缩写</p>
-                     * @return Scode <p>标准缩写</p>
+                     * 获取标准缩写
+                     * @return Scode 标准缩写
                      * 
                      */
                     std::string GetScode() const;
 
                     /**
-                     * 设置<p>标准缩写</p>
-                     * @param _scode <p>标准缩写</p>
+                     * 设置标准缩写
+                     * @param _scode 标准缩写
                      * 
                      */
                     void SetScode(const std::string& _scode);
@@ -91,15 +90,15 @@ namespace TencentCloud
                     bool ScodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目名称</p>
-                     * @return Name <p>项目名称</p>
+                     * 获取项目名称
+                     * @return Name 项目名称
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>项目名称</p>
-                     * @param _name <p>项目名称</p>
+                     * 设置项目名称
+                     * @param _name 项目名称
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -112,15 +111,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>标准名</p>
-                     * @return Sname <p>标准名</p>
+                     * 获取标准名
+                     * @return Sname 标准名
                      * 
                      */
                     std::string GetSname() const;
 
                     /**
-                     * 设置<p>标准名</p>
-                     * @param _sname <p>标准名</p>
+                     * 设置标准名
+                     * @param _sname 标准名
                      * 
                      */
                     void SetSname(const std::string& _sname);
@@ -133,15 +132,15 @@ namespace TencentCloud
                     bool SnameHasBeenSet() const;
 
                     /**
-                     * 获取<p>结果</p>
-                     * @return Result <p>结果</p>
+                     * 获取结果
+                     * @return Result 结果
                      * 
                      */
                     std::string GetResult() const;
 
                     /**
-                     * 设置<p>结果</p>
-                     * @param _result <p>结果</p>
+                     * 设置结果
+                     * @param _result 结果
                      * 
                      */
                     void SetResult(const std::string& _result);
@@ -154,15 +153,15 @@ namespace TencentCloud
                     bool ResultHasBeenSet() const;
 
                     /**
-                     * 获取<p>单位</p>
-                     * @return Unit <p>单位</p>
+                     * 获取单位
+                     * @return Unit 单位
                      * 
                      */
                     std::string GetUnit() const;
 
                     /**
-                     * 设置<p>单位</p>
-                     * @param _unit <p>单位</p>
+                     * 设置单位
+                     * @param _unit 单位
                      * 
                      */
                     void SetUnit(const std::string& _unit);
@@ -175,15 +174,15 @@ namespace TencentCloud
                     bool UnitHasBeenSet() const;
 
                     /**
-                     * 获取<p>参考范围</p>
-                     * @return Range <p>参考范围</p>
+                     * 获取参考范围
+                     * @return Range 参考范围
                      * 
                      */
                     std::string GetRange() const;
 
                     /**
-                     * 设置<p>参考范围</p>
-                     * @param _range <p>参考范围</p>
+                     * 设置参考范围
+                     * @param _range 参考范围
                      * 
                      */
                     void SetRange(const std::string& _range);
@@ -196,15 +195,15 @@ namespace TencentCloud
                     bool RangeHasBeenSet() const;
 
                     /**
-                     * 获取<p>上下箭头</p>
-                     * @return Arrow <p>上下箭头</p>
+                     * 获取上下箭头
+                     * @return Arrow 上下箭头
                      * 
                      */
                     std::string GetArrow() const;
 
                     /**
-                     * 设置<p>上下箭头</p>
-                     * @param _arrow <p>上下箭头</p>
+                     * 设置上下箭头
+                     * @param _arrow 上下箭头
                      * 
                      */
                     void SetArrow(const std::string& _arrow);
@@ -217,15 +216,15 @@ namespace TencentCloud
                     bool ArrowHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否正常</p>
-                     * @return Normal <p>是否正常</p>
+                     * 获取是否正常
+                     * @return Normal 是否正常
                      * 
                      */
                     bool GetNormal() const;
 
                     /**
-                     * 设置<p>是否正常</p>
-                     * @param _normal <p>是否正常</p>
+                     * 设置是否正常
+                     * @param _normal 是否正常
                      * 
                      */
                     void SetNormal(const bool& _normal);
@@ -238,15 +237,15 @@ namespace TencentCloud
                     bool NormalHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目原文</p>
-                     * @return ItemString <p>项目原文</p>
+                     * 获取项目原文
+                     * @return ItemString 项目原文
                      * 
                      */
                     std::string GetItemString() const;
 
                     /**
-                     * 设置<p>项目原文</p>
-                     * @param _itemString <p>项目原文</p>
+                     * 设置项目原文
+                     * @param _itemString 项目原文
                      * 
                      */
                     void SetItemString(const std::string& _itemString);
@@ -259,15 +258,15 @@ namespace TencentCloud
                     bool ItemStringHasBeenSet() const;
 
                     /**
-                     * 获取<p>指标项ID</p>
-                     * @return Id <p>指标项ID</p>
+                     * 获取指标项ID
+                     * @return Id 指标项ID
                      * 
                      */
                     int64_t GetId() const;
 
                     /**
-                     * 设置<p>指标项ID</p>
-                     * @param _id <p>指标项ID</p>
+                     * 设置指标项ID
+                     * @param _id 指标项ID
                      * 
                      */
                     void SetId(const int64_t& _id);
@@ -280,36 +279,36 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>指标项坐标位置</p>
-                     * @return Coords <p>指标项坐标位置</p>
-                     * @deprecated
+                     * 获取指标项坐标位置
+                     * @return Coords 指标项坐标位置
+                     * 
                      */
                     Coordinate GetCoords() const;
 
                     /**
-                     * 设置<p>指标项坐标位置</p>
-                     * @param _coords <p>指标项坐标位置</p>
-                     * @deprecated
+                     * 设置指标项坐标位置
+                     * @param _coords 指标项坐标位置
+                     * 
                      */
                     void SetCoords(const Coordinate& _coords);
 
                     /**
                      * 判断参数 Coords 是否已赋值
                      * @return Coords 是否已赋值
-                     * @deprecated
+                     * 
                      */
                     bool CoordsHasBeenSet() const;
 
                     /**
-                     * 获取<p>推测结果是否异常</p>
-                     * @return InferNormal <p>推测结果是否异常</p>
+                     * 获取推测结果是否异常
+                     * @return InferNormal 推测结果是否异常
                      * 
                      */
                     std::string GetInferNormal() const;
 
                     /**
-                     * 设置<p>推测结果是否异常</p>
-                     * @param _inferNormal <p>推测结果是否异常</p>
+                     * 设置推测结果是否异常
+                     * @param _inferNormal 推测结果是否异常
                      * 
                      */
                     void SetInferNormal(const std::string& _inferNormal);
@@ -322,15 +321,15 @@ namespace TencentCloud
                     bool InferNormalHasBeenSet() const;
 
                     /**
-                     * 获取<p>标本</p>
-                     * @return Sample <p>标本</p>
+                     * 获取标本
+                     * @return Sample 标本
                      * 
                      */
                     std::string GetSample() const;
 
                     /**
-                     * 设置<p>标本</p>
-                     * @param _sample <p>标本</p>
+                     * 设置标本
+                     * @param _sample 标本
                      * 
                      */
                     void SetSample(const std::string& _sample);
@@ -343,15 +342,15 @@ namespace TencentCloud
                     bool SampleHasBeenSet() const;
 
                     /**
-                     * 获取<p>检测方法</p>
-                     * @return Method <p>检测方法</p>
+                     * 获取检测方法
+                     * @return Method 检测方法
                      * 
                      */
                     std::string GetMethod() const;
 
                     /**
-                     * 设置<p>检测方法</p>
-                     * @param _method <p>检测方法</p>
+                     * 设置检测方法
+                     * @param _method 检测方法
                      * 
                      */
                     void SetMethod(const std::string& _method);
@@ -363,124 +362,97 @@ namespace TencentCloud
                      */
                     bool MethodHasBeenSet() const;
 
-                    /**
-                     * 获取<p>检验指标项坐标信息</p>
-                     * @return ItemCoords <p>检验指标项坐标信息</p>
-                     * 
-                     */
-                    ItemCoordinate GetItemCoords() const;
-
-                    /**
-                     * 设置<p>检验指标项坐标信息</p>
-                     * @param _itemCoords <p>检验指标项坐标信息</p>
-                     * 
-                     */
-                    void SetItemCoords(const ItemCoordinate& _itemCoords);
-
-                    /**
-                     * 判断参数 ItemCoords 是否已赋值
-                     * @return ItemCoords 是否已赋值
-                     * 
-                     */
-                    bool ItemCoordsHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>英文缩写</p>
+                     * 英文缩写
                      */
                     std::string m_code;
                     bool m_codeHasBeenSet;
 
                     /**
-                     * <p>标准缩写</p>
+                     * 标准缩写
                      */
                     std::string m_scode;
                     bool m_scodeHasBeenSet;
 
                     /**
-                     * <p>项目名称</p>
+                     * 项目名称
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>标准名</p>
+                     * 标准名
                      */
                     std::string m_sname;
                     bool m_snameHasBeenSet;
 
                     /**
-                     * <p>结果</p>
+                     * 结果
                      */
                     std::string m_result;
                     bool m_resultHasBeenSet;
 
                     /**
-                     * <p>单位</p>
+                     * 单位
                      */
                     std::string m_unit;
                     bool m_unitHasBeenSet;
 
                     /**
-                     * <p>参考范围</p>
+                     * 参考范围
                      */
                     std::string m_range;
                     bool m_rangeHasBeenSet;
 
                     /**
-                     * <p>上下箭头</p>
+                     * 上下箭头
                      */
                     std::string m_arrow;
                     bool m_arrowHasBeenSet;
 
                     /**
-                     * <p>是否正常</p>
+                     * 是否正常
                      */
                     bool m_normal;
                     bool m_normalHasBeenSet;
 
                     /**
-                     * <p>项目原文</p>
+                     * 项目原文
                      */
                     std::string m_itemString;
                     bool m_itemStringHasBeenSet;
 
                     /**
-                     * <p>指标项ID</p>
+                     * 指标项ID
                      */
                     int64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>指标项坐标位置</p>
+                     * 指标项坐标位置
                      */
                     Coordinate m_coords;
                     bool m_coordsHasBeenSet;
 
                     /**
-                     * <p>推测结果是否异常</p>
+                     * 推测结果是否异常
                      */
                     std::string m_inferNormal;
                     bool m_inferNormalHasBeenSet;
 
                     /**
-                     * <p>标本</p>
+                     * 标本
                      */
                     std::string m_sample;
                     bool m_sampleHasBeenSet;
 
                     /**
-                     * <p>检测方法</p>
+                     * 检测方法
                      */
                     std::string m_method;
                     bool m_methodHasBeenSet;
-
-                    /**
-                     * <p>检验指标项坐标信息</p>
-                     */
-                    ItemCoordinate m_itemCoords;
-                    bool m_itemCoordsHasBeenSet;
 
                 };
             }

@@ -40,7 +40,7 @@ namespace TencentCloud
             namespace Model
             {
                 /**
-                * 实例的描述信息
+                * 实例描述信息
                 */
                 class InstanceInfo : public AbstractModel
                 {
@@ -52,15 +52,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>集群实例ID, &quot;cdw-xxxx&quot; 字符串类型</p>
-                     * @return InstanceId <p>集群实例ID, &quot;cdw-xxxx&quot; 字符串类型</p>
+                     * 获取集群实例ID, "cdw-xxxx" 字符串类型
+                     * @return InstanceId 集群实例ID, "cdw-xxxx" 字符串类型
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>集群实例ID, &quot;cdw-xxxx&quot; 字符串类型</p>
-                     * @param _instanceId <p>集群实例ID, &quot;cdw-xxxx&quot; 字符串类型</p>
+                     * 设置集群实例ID, "cdw-xxxx" 字符串类型
+                     * @param _instanceId 集群实例ID, "cdw-xxxx" 字符串类型
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -73,15 +73,15 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群实例名称</p>
-                     * @return InstanceName <p>集群实例名称</p>
+                     * 获取集群实例名称
+                     * @return InstanceName 集群实例名称
                      * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
-                     * 设置<p>集群实例名称</p>
-                     * @param _instanceName <p>集群实例名称</p>
+                     * 设置集群实例名称
+                     * @param _instanceName 集群实例名称
                      * 
                      */
                     void SetInstanceName(const std::string& _instanceName);
@@ -94,15 +94,27 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态,<br>Init 创建中; Serving 运行中；<br>Deleted已销毁；Deleting 销毁中；<br>Modify 集群变更中；</p>
-                     * @return Status <p>状态,<br>Init 创建中; Serving 运行中；<br>Deleted已销毁；Deleting 销毁中；<br>Modify 集群变更中；</p>
+                     * 获取状态,
+Init 创建中; Serving 运行中； 
+Deleted已销毁；Deleting 销毁中；
+Modify 集群变更中；
+                     * @return Status 状态,
+Init 创建中; Serving 运行中； 
+Deleted已销毁；Deleting 销毁中；
+Modify 集群变更中；
                      * 
                      */
                     std::string GetStatus() const;
 
                     /**
-                     * 设置<p>状态,<br>Init 创建中; Serving 运行中；<br>Deleted已销毁；Deleting 销毁中；<br>Modify 集群变更中；</p>
-                     * @param _status <p>状态,<br>Init 创建中; Serving 运行中；<br>Deleted已销毁；Deleting 销毁中；<br>Modify 集群变更中；</p>
+                     * 设置状态,
+Init 创建中; Serving 运行中； 
+Deleted已销毁；Deleting 销毁中；
+Modify 集群变更中；
+                     * @param _status 状态,
+Init 创建中; Serving 运行中； 
+Deleted已销毁；Deleting 销毁中；
+Modify 集群变更中；
                      * 
                      */
                     void SetStatus(const std::string& _status);
@@ -115,15 +127,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>版本</p>
-                     * @return Version <p>版本</p>
+                     * 获取版本
+                     * @return Version 版本
                      * 
                      */
                     std::string GetVersion() const;
 
                     /**
-                     * 设置<p>版本</p>
-                     * @param _version <p>版本</p>
+                     * 设置版本
+                     * @param _version 版本
                      * 
                      */
                     void SetVersion(const std::string& _version);
@@ -136,15 +148,15 @@ namespace TencentCloud
                     bool VersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>地域, ap-guangzhou</p>
-                     * @return Region <p>地域, ap-guangzhou</p>
+                     * 获取地域, ap-guangzhou
+                     * @return Region 地域, ap-guangzhou
                      * 
                      */
                     std::string GetRegion() const;
 
                     /**
-                     * 设置<p>地域, ap-guangzhou</p>
-                     * @param _region <p>地域, ap-guangzhou</p>
+                     * 设置地域, ap-guangzhou
+                     * @param _region 地域, ap-guangzhou
                      * 
                      */
                     void SetRegion(const std::string& _region);
@@ -157,15 +169,15 @@ namespace TencentCloud
                     bool RegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区， ap-guangzhou-3</p>
-                     * @return Zone <p>可用区， ap-guangzhou-3</p>
+                     * 获取可用区， ap-guangzhou-3
+                     * @return Zone 可用区， ap-guangzhou-3
                      * 
                      */
                     std::string GetZone() const;
 
                     /**
-                     * 设置<p>可用区， ap-guangzhou-3</p>
-                     * @param _zone <p>可用区， ap-guangzhou-3</p>
+                     * 设置可用区， ap-guangzhou-3
+                     * @param _zone 可用区， ap-guangzhou-3
                      * 
                      */
                     void SetZone(const std::string& _zone);
@@ -178,15 +190,15 @@ namespace TencentCloud
                     bool ZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络名称</p>
-                     * @return VpcId <p>私有网络名称</p>
+                     * 获取私有网络名称
+                     * @return VpcId 私有网络名称
                      * 
                      */
                     std::string GetVpcId() const;
 
                     /**
-                     * 设置<p>私有网络名称</p>
-                     * @param _vpcId <p>私有网络名称</p>
+                     * 设置私有网络名称
+                     * @param _vpcId 私有网络名称
                      * 
                      */
                     void SetVpcId(const std::string& _vpcId);
@@ -199,15 +211,15 @@ namespace TencentCloud
                     bool VpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子网名称</p>
-                     * @return SubnetId <p>子网名称</p>
+                     * 获取子网名称
+                     * @return SubnetId 子网名称
                      * 
                      */
                     std::string GetSubnetId() const;
 
                     /**
-                     * 设置<p>子网名称</p>
-                     * @param _subnetId <p>子网名称</p>
+                     * 设置子网名称
+                     * @param _subnetId 子网名称
                      * 
                      */
                     void SetSubnetId(const std::string& _subnetId);
@@ -220,15 +232,15 @@ namespace TencentCloud
                     bool SubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>付费类型，&quot;hour&quot;, &quot;prepay&quot;</p>
-                     * @return PayMode <p>付费类型，&quot;hour&quot;, &quot;prepay&quot;</p>
+                     * 获取付费类型，"hour", "prepay"
+                     * @return PayMode 付费类型，"hour", "prepay"
                      * 
                      */
                     std::string GetPayMode() const;
 
                     /**
-                     * 设置<p>付费类型，&quot;hour&quot;, &quot;prepay&quot;</p>
-                     * @param _payMode <p>付费类型，&quot;hour&quot;, &quot;prepay&quot;</p>
+                     * 设置付费类型，"hour", "prepay"
+                     * @param _payMode 付费类型，"hour", "prepay"
                      * 
                      */
                     void SetPayMode(const std::string& _payMode);
@@ -241,15 +253,15 @@ namespace TencentCloud
                     bool PayModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>创建时间</p>
-                     * @return CreateTime <p>创建时间</p>
+                     * 获取创建时间
+                     * @return CreateTime 创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>创建时间</p>
-                     * @param _createTime <p>创建时间</p>
+                     * 设置创建时间
+                     * @param _createTime 创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -262,15 +274,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>过期时间</p>
-                     * @return ExpireTime <p>过期时间</p>
+                     * 获取过期时间
+                     * @return ExpireTime 过期时间
                      * 
                      */
                     std::string GetExpireTime() const;
 
                     /**
-                     * 设置<p>过期时间</p>
-                     * @param _expireTime <p>过期时间</p>
+                     * 设置过期时间
+                     * @param _expireTime 过期时间
                      * 
                      */
                     void SetExpireTime(const std::string& _expireTime);
@@ -283,15 +295,15 @@ namespace TencentCloud
                     bool ExpireTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据节点描述信息</p>
-                     * @return MasterSummary <p>数据节点描述信息</p>
+                     * 获取数据节点描述信息
+                     * @return MasterSummary 数据节点描述信息
                      * 
                      */
                     NodesSummary GetMasterSummary() const;
 
                     /**
-                     * 设置<p>数据节点描述信息</p>
-                     * @param _masterSummary <p>数据节点描述信息</p>
+                     * 设置数据节点描述信息
+                     * @param _masterSummary 数据节点描述信息
                      * 
                      */
                     void SetMasterSummary(const NodesSummary& _masterSummary);
@@ -304,15 +316,15 @@ namespace TencentCloud
                     bool MasterSummaryHasBeenSet() const;
 
                     /**
-                     * 获取<p>zookeeper节点描述信息</p>
-                     * @return CommonSummary <p>zookeeper节点描述信息</p>
+                     * 获取zookeeper节点描述信息
+                     * @return CommonSummary zookeeper节点描述信息
                      * 
                      */
                     NodesSummary GetCommonSummary() const;
 
                     /**
-                     * 设置<p>zookeeper节点描述信息</p>
-                     * @param _commonSummary <p>zookeeper节点描述信息</p>
+                     * 设置zookeeper节点描述信息
+                     * @param _commonSummary zookeeper节点描述信息
                      * 
                      */
                     void SetCommonSummary(const NodesSummary& _commonSummary);
@@ -325,15 +337,15 @@ namespace TencentCloud
                     bool CommonSummaryHasBeenSet() const;
 
                     /**
-                     * 获取<p>高可用,&quot;true&quot; &quot;false&quot;</p>
-                     * @return HA <p>高可用,&quot;true&quot; &quot;false&quot;</p>
+                     * 获取高可用,"true" "false"
+                     * @return HA 高可用,"true" "false"
                      * 
                      */
                     std::string GetHA() const;
 
                     /**
-                     * 设置<p>高可用,&quot;true&quot; &quot;false&quot;</p>
-                     * @param _hA <p>高可用,&quot;true&quot; &quot;false&quot;</p>
+                     * 设置高可用,"true" "false"
+                     * @param _hA 高可用,"true" "false"
                      * 
                      */
                     void SetHA(const std::string& _hA);
@@ -346,15 +358,15 @@ namespace TencentCloud
                     bool HAHasBeenSet() const;
 
                     /**
-                     * 获取<p>访问地址，例如 &quot;10.0.0.1:9000&quot;</p>
-                     * @return AccessInfo <p>访问地址，例如 &quot;10.0.0.1:9000&quot;</p>
+                     * 获取访问地址，例如 "10.0.0.1:9000"
+                     * @return AccessInfo 访问地址，例如 "10.0.0.1:9000"
                      * 
                      */
                     std::string GetAccessInfo() const;
 
                     /**
-                     * 设置<p>访问地址，例如 &quot;10.0.0.1:9000&quot;</p>
-                     * @param _accessInfo <p>访问地址，例如 &quot;10.0.0.1:9000&quot;</p>
+                     * 设置访问地址，例如 "10.0.0.1:9000"
+                     * @param _accessInfo 访问地址，例如 "10.0.0.1:9000"
                      * 
                      */
                     void SetAccessInfo(const std::string& _accessInfo);
@@ -367,15 +379,15 @@ namespace TencentCloud
                     bool AccessInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>记录ID，数值型</p>
-                     * @return Id <p>记录ID，数值型</p>
+                     * 获取记录ID，数值型
+                     * @return Id 记录ID，数值型
                      * 
                      */
                     int64_t GetId() const;
 
                     /**
-                     * 设置<p>记录ID，数值型</p>
-                     * @param _id <p>记录ID，数值型</p>
+                     * 设置记录ID，数值型
+                     * @param _id 记录ID，数值型
                      * 
                      */
                     void SetId(const int64_t& _id);
@@ -388,15 +400,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>regionId, 表示地域</p>
-                     * @return RegionId <p>regionId, 表示地域</p>
+                     * 获取regionId, 表示地域
+                     * @return RegionId regionId, 表示地域
                      * 
                      */
                     int64_t GetRegionId() const;
 
                     /**
-                     * 设置<p>regionId, 表示地域</p>
-                     * @param _regionId <p>regionId, 表示地域</p>
+                     * 设置regionId, 表示地域
+                     * @param _regionId regionId, 表示地域
                      * 
                      */
                     void SetRegionId(const int64_t& _regionId);
@@ -409,15 +421,15 @@ namespace TencentCloud
                     bool RegionIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区说明，例如 &quot;广州二区&quot;</p>
-                     * @return ZoneDesc <p>可用区说明，例如 &quot;广州二区&quot;</p>
+                     * 获取可用区说明，例如 "广州二区"
+                     * @return ZoneDesc 可用区说明，例如 "广州二区"
                      * 
                      */
                     std::string GetZoneDesc() const;
 
                     /**
-                     * 设置<p>可用区说明，例如 &quot;广州二区&quot;</p>
-                     * @param _zoneDesc <p>可用区说明，例如 &quot;广州二区&quot;</p>
+                     * 设置可用区说明，例如 "广州二区"
+                     * @param _zoneDesc 可用区说明，例如 "广州二区"
                      * 
                      */
                     void SetZoneDesc(const std::string& _zoneDesc);
@@ -430,15 +442,15 @@ namespace TencentCloud
                     bool ZoneDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>错误流程说明信息</p>
-                     * @return FlowMsg <p>错误流程说明信息</p>
+                     * 获取错误流程说明信息
+                     * @return FlowMsg 错误流程说明信息
                      * 
                      */
                     std::string GetFlowMsg() const;
 
                     /**
-                     * 设置<p>错误流程说明信息</p>
-                     * @param _flowMsg <p>错误流程说明信息</p>
+                     * 设置错误流程说明信息
+                     * @param _flowMsg 错误流程说明信息
                      * 
                      */
                     void SetFlowMsg(const std::string& _flowMsg);
@@ -451,15 +463,15 @@ namespace TencentCloud
                     bool FlowMsgHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态描述，例如“运行中”等</p>
-                     * @return StatusDesc <p>状态描述，例如“运行中”等</p>
+                     * 获取状态描述，例如“运行中”等
+                     * @return StatusDesc 状态描述，例如“运行中”等
                      * 
                      */
                     std::string GetStatusDesc() const;
 
                     /**
-                     * 设置<p>状态描述，例如“运行中”等</p>
-                     * @param _statusDesc <p>状态描述，例如“运行中”等</p>
+                     * 设置状态描述，例如“运行中”等
+                     * @param _statusDesc 状态描述，例如“运行中”等
                      * 
                      */
                     void SetStatusDesc(const std::string& _statusDesc);
@@ -472,15 +484,15 @@ namespace TencentCloud
                     bool StatusDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>自动续费标记</p>
-                     * @return RenewFlag <p>自动续费标记</p>
+                     * 获取自动续费标记
+                     * @return RenewFlag 自动续费标记
                      * 
                      */
                     bool GetRenewFlag() const;
 
                     /**
-                     * 设置<p>自动续费标记</p>
-                     * @param _renewFlag <p>自动续费标记</p>
+                     * 设置自动续费标记
+                     * @param _renewFlag 自动续费标记
                      * 
                      */
                     void SetRenewFlag(const bool& _renewFlag);
@@ -493,15 +505,15 @@ namespace TencentCloud
                     bool RenewFlagHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签列表</p>
-                     * @return Tags <p>标签列表</p>
+                     * 获取标签列表
+                     * @return Tags 标签列表
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>标签列表</p>
-                     * @param _tags <p>标签列表</p>
+                     * 设置标签列表
+                     * @param _tags 标签列表
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -514,15 +526,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>监控信息</p>
-                     * @return Monitor <p>监控信息</p>
+                     * 获取监控信息
+                     * @return Monitor 监控信息
                      * 
                      */
                     std::string GetMonitor() const;
 
                     /**
-                     * 设置<p>监控信息</p>
-                     * @param _monitor <p>监控信息</p>
+                     * 设置监控信息
+                     * @param _monitor 监控信息
                      * 
                      */
                     void SetMonitor(const std::string& _monitor);
@@ -535,15 +547,15 @@ namespace TencentCloud
                     bool MonitorHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开通日志</p>
-                     * @return HasClsTopic <p>是否开通日志</p>
+                     * 获取是否开通日志
+                     * @return HasClsTopic 是否开通日志
                      * 
                      */
                     bool GetHasClsTopic() const;
 
                     /**
-                     * 设置<p>是否开通日志</p>
-                     * @param _hasClsTopic <p>是否开通日志</p>
+                     * 设置是否开通日志
+                     * @param _hasClsTopic 是否开通日志
                      * 
                      */
                     void SetHasClsTopic(const bool& _hasClsTopic);
@@ -556,15 +568,15 @@ namespace TencentCloud
                     bool HasClsTopicHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志主题ID</p>
-                     * @return ClsTopicId <p>日志主题ID</p>
+                     * 获取日志主题ID
+                     * @return ClsTopicId 日志主题ID
                      * 
                      */
                     std::string GetClsTopicId() const;
 
                     /**
-                     * 设置<p>日志主题ID</p>
-                     * @param _clsTopicId <p>日志主题ID</p>
+                     * 设置日志主题ID
+                     * @param _clsTopicId 日志主题ID
                      * 
                      */
                     void SetClsTopicId(const std::string& _clsTopicId);
@@ -577,15 +589,15 @@ namespace TencentCloud
                     bool ClsTopicIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志集ID</p>
-                     * @return ClsLogSetId <p>日志集ID</p>
+                     * 获取日志集ID
+                     * @return ClsLogSetId 日志集ID
                      * 
                      */
                     std::string GetClsLogSetId() const;
 
                     /**
-                     * 设置<p>日志集ID</p>
-                     * @param _clsLogSetId <p>日志集ID</p>
+                     * 设置日志集ID
+                     * @param _clsLogSetId 日志集ID
                      * 
                      */
                     void SetClsLogSetId(const std::string& _clsLogSetId);
@@ -598,15 +610,15 @@ namespace TencentCloud
                     bool ClsLogSetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否支持xml配置管理</p>
-                     * @return EnableXMLConfig <p>是否支持xml配置管理</p>
+                     * 获取是否支持xml配置管理
+                     * @return EnableXMLConfig 是否支持xml配置管理
                      * 
                      */
                     int64_t GetEnableXMLConfig() const;
 
                     /**
-                     * 设置<p>是否支持xml配置管理</p>
-                     * @param _enableXMLConfig <p>是否支持xml配置管理</p>
+                     * 设置是否支持xml配置管理
+                     * @param _enableXMLConfig 是否支持xml配置管理
                      * 
                      */
                     void SetEnableXMLConfig(const int64_t& _enableXMLConfig);
@@ -619,15 +631,15 @@ namespace TencentCloud
                     bool EnableXMLConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>区域</p>
-                     * @return RegionDesc <p>区域</p>
+                     * 获取区域
+                     * @return RegionDesc 区域
                      * 
                      */
                     std::string GetRegionDesc() const;
 
                     /**
-                     * 设置<p>区域</p>
-                     * @param _regionDesc <p>区域</p>
+                     * 设置区域
+                     * @param _regionDesc 区域
                      * 
                      */
                     void SetRegionDesc(const std::string& _regionDesc);
@@ -640,15 +652,15 @@ namespace TencentCloud
                     bool RegionDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>弹性网卡地址</p>
-                     * @return Eip <p>弹性网卡地址</p>
+                     * 获取弹性网卡地址
+                     * @return Eip 弹性网卡地址
                      * 
                      */
                     std::string GetEip() const;
 
                     /**
-                     * 设置<p>弹性网卡地址</p>
-                     * @param _eip <p>弹性网卡地址</p>
+                     * 设置弹性网卡地址
+                     * @param _eip 弹性网卡地址
                      * 
                      */
                     void SetEip(const std::string& _eip);
@@ -661,15 +673,15 @@ namespace TencentCloud
                     bool EipHasBeenSet() const;
 
                     /**
-                     * 获取<p>冷热分层系数</p>
-                     * @return CosMoveFactor <p>冷热分层系数</p>
+                     * 获取冷热分层系数
+                     * @return CosMoveFactor 冷热分层系数
                      * 
                      */
                     int64_t GetCosMoveFactor() const;
 
                     /**
-                     * 设置<p>冷热分层系数</p>
-                     * @param _cosMoveFactor <p>冷热分层系数</p>
+                     * 设置冷热分层系数
+                     * @param _cosMoveFactor 冷热分层系数
                      * 
                      */
                     void SetCosMoveFactor(const int64_t& _cosMoveFactor);
@@ -682,15 +694,15 @@ namespace TencentCloud
                     bool CosMoveFactorHasBeenSet() const;
 
                     /**
-                     * 获取<p>external/local/yunti</p>
-                     * @return Kind <p>external/local/yunti</p>
+                     * 获取external/local/yunti
+                     * @return Kind external/local/yunti
                      * 
                      */
                     std::string GetKind() const;
 
                     /**
-                     * 设置<p>external/local/yunti</p>
-                     * @param _kind <p>external/local/yunti</p>
+                     * 设置external/local/yunti
+                     * @param _kind external/local/yunti
                      * 
                      */
                     void SetKind(const std::string& _kind);
@@ -703,15 +715,15 @@ namespace TencentCloud
                     bool KindHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否弹性ck</p>
-                     * @return IsElastic <p>是否弹性ck</p>
+                     * 获取是否弹性ck
+                     * @return IsElastic 是否弹性ck
                      * 
                      */
                     bool GetIsElastic() const;
 
                     /**
-                     * 设置<p>是否弹性ck</p>
-                     * @param _isElastic <p>是否弹性ck</p>
+                     * 设置是否弹性ck
+                     * @param _isElastic 是否弹性ck
                      * 
                      */
                     void SetIsElastic(const bool& _isElastic);
@@ -724,15 +736,15 @@ namespace TencentCloud
                     bool IsElasticHasBeenSet() const;
 
                     /**
-                     * 获取<p>集群详细状态</p>
-                     * @return InstanceStateInfo <p>集群详细状态</p>
+                     * 获取集群详细状态
+                     * @return InstanceStateInfo 集群详细状态
                      * 
                      */
                     InstanceStateInfo GetInstanceStateInfo() const;
 
                     /**
-                     * 设置<p>集群详细状态</p>
-                     * @param _instanceStateInfo <p>集群详细状态</p>
+                     * 设置集群详细状态
+                     * @param _instanceStateInfo 集群详细状态
                      * 
                      */
                     void SetInstanceStateInfo(const InstanceStateInfo& _instanceStateInfo);
@@ -745,15 +757,15 @@ namespace TencentCloud
                     bool InstanceStateInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>ZK高可用</p>
-                     * @return HAZk <p>ZK高可用</p>
+                     * 获取ZK高可用
+                     * @return HAZk ZK高可用
                      * 
                      */
                     bool GetHAZk() const;
 
                     /**
-                     * 设置<p>ZK高可用</p>
-                     * @param _hAZk <p>ZK高可用</p>
+                     * 设置ZK高可用
+                     * @param _hAZk ZK高可用
                      * 
                      */
                     void SetHAZk(const bool& _hAZk);
@@ -766,15 +778,15 @@ namespace TencentCloud
                     bool HAZkHasBeenSet() const;
 
                     /**
-                     * 获取<p>挂载盘,默认0:没有类型；1:裸盘;2:lvm</p>
-                     * @return MountDiskType <p>挂载盘,默认0:没有类型；1:裸盘;2:lvm</p>
+                     * 获取挂载盘,默认0:没有类型；1:裸盘;2:lvm
+                     * @return MountDiskType 挂载盘,默认0:没有类型；1:裸盘;2:lvm
                      * 
                      */
                     int64_t GetMountDiskType() const;
 
                     /**
-                     * 设置<p>挂载盘,默认0:没有类型；1:裸盘;2:lvm</p>
-                     * @param _mountDiskType <p>挂载盘,默认0:没有类型；1:裸盘;2:lvm</p>
+                     * 设置挂载盘,默认0:没有类型；1:裸盘;2:lvm
+                     * @param _mountDiskType 挂载盘,默认0:没有类型；1:裸盘;2:lvm
                      * 
                      */
                     void SetMountDiskType(const int64_t& _mountDiskType);
@@ -787,15 +799,15 @@ namespace TencentCloud
                     bool MountDiskTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>chproxy连接ip</p>
-                     * @return CHProxyVip <p>chproxy连接ip</p>
+                     * 获取chproxy连接ip
+                     * @return CHProxyVip chproxy连接ip
                      * 
                      */
                     std::string GetCHProxyVip() const;
 
                     /**
-                     * 设置<p>chproxy连接ip</p>
-                     * @param _cHProxyVip <p>chproxy连接ip</p>
+                     * 设置chproxy连接ip
+                     * @param _cHProxyVip chproxy连接ip
                      * 
                      */
                     void SetCHProxyVip(const std::string& _cHProxyVip);
@@ -808,15 +820,15 @@ namespace TencentCloud
                     bool CHProxyVipHasBeenSet() const;
 
                     /**
-                     * 获取<p>cos buket的名字</p>
-                     * @return CosBucketName <p>cos buket的名字</p>
+                     * 获取cos buket的名字
+                     * @return CosBucketName cos buket的名字
                      * 
                      */
                     std::string GetCosBucketName() const;
 
                     /**
-                     * 设置<p>cos buket的名字</p>
-                     * @param _cosBucketName <p>cos buket的名字</p>
+                     * 设置cos buket的名字
+                     * @param _cosBucketName cos buket的名字
                      * 
                      */
                     void SetCosBucketName(const std::string& _cosBucketName);
@@ -829,15 +841,15 @@ namespace TencentCloud
                     bool CosBucketNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否可以挂载云盘</p>
-                     * @return CanAttachCbs <p>是否可以挂载云盘</p>
+                     * 获取是否可以挂载云盘
+                     * @return CanAttachCbs 是否可以挂载云盘
                      * 
                      */
                     bool GetCanAttachCbs() const;
 
                     /**
-                     * 设置<p>是否可以挂载云盘</p>
-                     * @param _canAttachCbs <p>是否可以挂载云盘</p>
+                     * 设置是否可以挂载云盘
+                     * @param _canAttachCbs 是否可以挂载云盘
                      * 
                      */
                     void SetCanAttachCbs(const bool& _canAttachCbs);
@@ -850,15 +862,15 @@ namespace TencentCloud
                     bool CanAttachCbsHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否可以挂载云盘阵列</p>
-                     * @return CanAttachCbsLvm <p>是否可以挂载云盘阵列</p>
+                     * 获取是否可以挂载云盘阵列
+                     * @return CanAttachCbsLvm 是否可以挂载云盘阵列
                      * 
                      */
                     bool GetCanAttachCbsLvm() const;
 
                     /**
-                     * 设置<p>是否可以挂载云盘阵列</p>
-                     * @param _canAttachCbsLvm <p>是否可以挂载云盘阵列</p>
+                     * 设置是否可以挂载云盘阵列
+                     * @param _canAttachCbsLvm 是否可以挂载云盘阵列
                      * 
                      */
                     void SetCanAttachCbsLvm(const bool& _canAttachCbsLvm);
@@ -871,15 +883,15 @@ namespace TencentCloud
                     bool CanAttachCbsLvmHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否可以挂载cos</p>
-                     * @return CanAttachCos <p>是否可以挂载cos</p>
+                     * 获取是否可以挂载cos
+                     * @return CanAttachCos 是否可以挂载cos
                      * 
                      */
                     bool GetCanAttachCos() const;
 
                     /**
-                     * 设置<p>是否可以挂载cos</p>
-                     * @param _canAttachCos <p>是否可以挂载cos</p>
+                     * 设置是否可以挂载cos
+                     * @param _canAttachCos 是否可以挂载cos
                      * 
                      */
                     void SetCanAttachCos(const bool& _canAttachCos);
@@ -892,15 +904,15 @@ namespace TencentCloud
                     bool CanAttachCosHasBeenSet() const;
 
                     /**
-                     * 获取<p>服务信息</p>
-                     * @return Components <p>服务信息</p>
+                     * 获取服务信息
+                     * @return Components 服务信息
                      * 
                      */
                     std::vector<ServiceInfo> GetComponents() const;
 
                     /**
-                     * 设置<p>服务信息</p>
-                     * @param _components <p>服务信息</p>
+                     * 设置服务信息
+                     * @param _components 服务信息
                      * 
                      */
                     void SetComponents(const std::vector<ServiceInfo>& _components);
@@ -913,15 +925,15 @@ namespace TencentCloud
                     bool ComponentsHasBeenSet() const;
 
                     /**
-                     * 获取<p>可升级的内核版本</p>
-                     * @return UpgradeVersions <p>可升级的内核版本</p>
+                     * 获取可升级的内核版本
+                     * @return UpgradeVersions 可升级的内核版本
                      * 
                      */
                     std::string GetUpgradeVersions() const;
 
                     /**
-                     * 设置<p>可升级的内核版本</p>
-                     * @param _upgradeVersions <p>可升级的内核版本</p>
+                     * 设置可升级的内核版本
+                     * @param _upgradeVersions 可升级的内核版本
                      * 
                      */
                     void SetUpgradeVersions(const std::string& _upgradeVersions);
@@ -934,15 +946,15 @@ namespace TencentCloud
                     bool UpgradeVersionsHasBeenSet() const;
 
                     /**
-                     * 获取<p>ex-index</p>
-                     * @return EsIndexId <p>ex-index</p>
+                     * 获取ex-index
+                     * @return EsIndexId ex-index
                      * 
                      */
                     std::string GetEsIndexId() const;
 
                     /**
-                     * 设置<p>ex-index</p>
-                     * @param _esIndexId <p>ex-index</p>
+                     * 设置ex-index
+                     * @param _esIndexId ex-index
                      * 
                      */
                     void SetEsIndexId(const std::string& _esIndexId);
@@ -955,15 +967,15 @@ namespace TencentCloud
                     bool EsIndexIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>username</p>
-                     * @return EsIndexUsername <p>username</p>
+                     * 获取username
+                     * @return EsIndexUsername username
                      * 
                      */
                     std::string GetEsIndexUsername() const;
 
                     /**
-                     * 设置<p>username</p>
-                     * @param _esIndexUsername <p>username</p>
+                     * 设置username
+                     * @param _esIndexUsername username
                      * 
                      */
                     void SetEsIndexUsername(const std::string& _esIndexUsername);
@@ -976,15 +988,15 @@ namespace TencentCloud
                     bool EsIndexUsernameHasBeenSet() const;
 
                     /**
-                     * 获取<p>password</p>
-                     * @return EsIndexPassword <p>password</p>
+                     * 获取password
+                     * @return EsIndexPassword password
                      * 
                      */
                     std::string GetEsIndexPassword() const;
 
                     /**
-                     * 设置<p>password</p>
-                     * @param _esIndexPassword <p>password</p>
+                     * 设置password
+                     * @param _esIndexPassword password
                      * 
                      */
                     void SetEsIndexPassword(const std::string& _esIndexPassword);
@@ -997,15 +1009,15 @@ namespace TencentCloud
                     bool EsIndexPasswordHasBeenSet() const;
 
                     /**
-                     * 获取<p>true</p>
-                     * @return HasEsIndex <p>true</p>
+                     * 获取true
+                     * @return HasEsIndex true
                      * 
                      */
                     bool GetHasEsIndex() const;
 
                     /**
-                     * 设置<p>true</p>
-                     * @param _hasEsIndex <p>true</p>
+                     * 设置true
+                     * @param _hasEsIndex true
                      * 
                      */
                     void SetHasEsIndex(const bool& _hasEsIndex);
@@ -1018,15 +1030,15 @@ namespace TencentCloud
                     bool HasEsIndexHasBeenSet() const;
 
                     /**
-                     * 获取<p>true</p>
-                     * @return IsSecondaryZone <p>true</p>
+                     * 获取true
+                     * @return IsSecondaryZone true
                      * 
                      */
                     bool GetIsSecondaryZone() const;
 
                     /**
-                     * 设置<p>true</p>
-                     * @param _isSecondaryZone <p>true</p>
+                     * 设置true
+                     * @param _isSecondaryZone true
                      * 
                      */
                     void SetIsSecondaryZone(const bool& _isSecondaryZone);
@@ -1039,15 +1051,15 @@ namespace TencentCloud
                     bool IsSecondaryZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>desc</p>
-                     * @return SecondaryZoneInfo <p>desc</p>
+                     * 获取desc
+                     * @return SecondaryZoneInfo desc
                      * 
                      */
                     std::string GetSecondaryZoneInfo() const;
 
                     /**
-                     * 设置<p>desc</p>
-                     * @param _secondaryZoneInfo <p>desc</p>
+                     * 设置desc
+                     * @param _secondaryZoneInfo desc
                      * 
                      */
                     void SetSecondaryZoneInfo(const std::string& _secondaryZoneInfo);
@@ -1060,15 +1072,15 @@ namespace TencentCloud
                     bool SecondaryZoneInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否clickhouse-keeper</p>
-                     * @return ClickHouseKeeper <p>是否clickhouse-keeper</p>
+                     * 获取是否clickhouse-keeper
+                     * @return ClickHouseKeeper 是否clickhouse-keeper
                      * 
                      */
                     bool GetClickHouseKeeper() const;
 
                     /**
-                     * 设置<p>是否clickhouse-keeper</p>
-                     * @param _clickHouseKeeper <p>是否clickhouse-keeper</p>
+                     * 设置是否clickhouse-keeper
+                     * @param _clickHouseKeeper 是否clickhouse-keeper
                      * 
                      */
                     void SetClickHouseKeeper(const bool& _clickHouseKeeper);
@@ -1081,15 +1093,15 @@ namespace TencentCloud
                     bool ClickHouseKeeperHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例扩展信息</p>
-                     * @return Details <p>实例扩展信息</p>
+                     * 获取实例扩展信息
+                     * @return Details 实例扩展信息
                      * 
                      */
                     InstanceDetail GetDetails() const;
 
                     /**
-                     * 设置<p>实例扩展信息</p>
-                     * @param _details <p>实例扩展信息</p>
+                     * 设置实例扩展信息
+                     * @param _details 实例扩展信息
                      * 
                      */
                     void SetDetails(const InstanceDetail& _details);
@@ -1102,15 +1114,15 @@ namespace TencentCloud
                     bool DetailsHasBeenSet() const;
 
                     /**
-                     * 获取<p>安全组白名单</p>
-                     * @return IsWhiteSGs <p>安全组白名单</p>
+                     * 获取安全组白名单
+                     * @return IsWhiteSGs 安全组白名单
                      * 
                      */
                     bool GetIsWhiteSGs() const;
 
                     /**
-                     * 设置<p>安全组白名单</p>
-                     * @param _isWhiteSGs <p>安全组白名单</p>
+                     * 设置安全组白名单
+                     * @param _isWhiteSGs 安全组白名单
                      * 
                      */
                     void SetIsWhiteSGs(const bool& _isWhiteSGs);
@@ -1123,15 +1135,15 @@ namespace TencentCloud
                     bool IsWhiteSGsHasBeenSet() const;
 
                     /**
-                     * 获取<p>绑定的安全组</p>
-                     * @return BindSGs <p>绑定的安全组</p>
+                     * 获取绑定的安全组
+                     * @return BindSGs 绑定的安全组
                      * 
                      */
                     std::vector<std::string> GetBindSGs() const;
 
                     /**
-                     * 设置<p>绑定的安全组</p>
-                     * @param _bindSGs <p>绑定的安全组</p>
+                     * 设置绑定的安全组
+                     * @param _bindSGs 绑定的安全组
                      * 
                      */
                     void SetBindSGs(const std::vector<std::string>& _bindSGs);
@@ -1144,15 +1156,15 @@ namespace TencentCloud
                     bool BindSGsHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开启公网clb</p>
-                     * @return HasPublicCloudClb <p>是否开启公网clb</p>
+                     * 获取是否开启公网clb
+                     * @return HasPublicCloudClb 是否开启公网clb
                      * 
                      */
                     bool GetHasPublicCloudClb() const;
 
                     /**
-                     * 设置<p>是否开启公网clb</p>
-                     * @param _hasPublicCloudClb <p>是否开启公网clb</p>
+                     * 设置是否开启公网clb
+                     * @param _hasPublicCloudClb 是否开启公网clb
                      * 
                      */
                     void SetHasPublicCloudClb(const bool& _hasPublicCloudClb);
@@ -1165,15 +1177,15 @@ namespace TencentCloud
                     bool HasPublicCloudClbHasBeenSet() const;
 
                     /**
-                     * 获取<p>可升级的zk版本</p>
-                     * @return UpgradeZkVersions <p>可升级的zk版本</p>
+                     * 获取可升级的zk版本
+                     * @return UpgradeZkVersions 可升级的zk版本
                      * 
                      */
                     std::string GetUpgradeZkVersions() const;
 
                     /**
-                     * 设置<p>可升级的zk版本</p>
-                     * @param _upgradeZkVersions <p>可升级的zk版本</p>
+                     * 设置可升级的zk版本
+                     * @param _upgradeZkVersions 可升级的zk版本
                      * 
                      */
                     void SetUpgradeZkVersions(const std::string& _upgradeZkVersions);
@@ -1185,439 +1197,334 @@ namespace TencentCloud
                      */
                     bool UpgradeZkVersionsHasBeenSet() const;
 
-                    /**
-                     * 获取<p>是否显示rip</p>
-                     * @return ShowRip <p>是否显示rip</p>
-                     * 
-                     */
-                    std::string GetShowRip() const;
-
-                    /**
-                     * 设置<p>是否显示rip</p>
-                     * @param _showRip <p>是否显示rip</p>
-                     * 
-                     */
-                    void SetShowRip(const std::string& _showRip);
-
-                    /**
-                     * 判断参数 ShowRip 是否已赋值
-                     * @return ShowRip 是否已赋值
-                     * 
-                     */
-                    bool ShowRipHasBeenSet() const;
-
-                    /**
-                     * 获取<p>实例类型：标准型 standard，无keeper节点类型noKeeper；</p>
-                     * @return InstanceType <p>实例类型：标准型 standard，无keeper节点类型noKeeper；</p>
-                     * 
-                     */
-                    std::string GetInstanceType() const;
-
-                    /**
-                     * 设置<p>实例类型：标准型 standard，无keeper节点类型noKeeper；</p>
-                     * @param _instanceType <p>实例类型：标准型 standard，无keeper节点类型noKeeper；</p>
-                     * 
-                     */
-                    void SetInstanceType(const std::string& _instanceType);
-
-                    /**
-                     * 判断参数 InstanceType 是否已赋值
-                     * @return InstanceType 是否已赋值
-                     * 
-                     */
-                    bool InstanceTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>keyvalue视图</p>
-                     * @return EnableConfigKeyValue <p>keyvalue视图</p>
-                     * 
-                     */
-                    std::string GetEnableConfigKeyValue() const;
-
-                    /**
-                     * 设置<p>keyvalue视图</p>
-                     * @param _enableConfigKeyValue <p>keyvalue视图</p>
-                     * 
-                     */
-                    void SetEnableConfigKeyValue(const std::string& _enableConfigKeyValue);
-
-                    /**
-                     * 判断参数 EnableConfigKeyValue 是否已赋值
-                     * @return EnableConfigKeyValue 是否已赋值
-                     * 
-                     */
-                    bool EnableConfigKeyValueHasBeenSet() const;
-
-                    /**
-                     * 获取<p>实例是否开启HTTPS</p><p>枚举值：</p><ul><li>true： 已开启HTTPS</li><li>false： 未开启HTTPS</li></ul>
-                     * @return HttpsEnabled <p>实例是否开启HTTPS</p><p>枚举值：</p><ul><li>true： 已开启HTTPS</li><li>false： 未开启HTTPS</li></ul>
-                     * 
-                     */
-                    bool GetHttpsEnabled() const;
-
-                    /**
-                     * 设置<p>实例是否开启HTTPS</p><p>枚举值：</p><ul><li>true： 已开启HTTPS</li><li>false： 未开启HTTPS</li></ul>
-                     * @param _httpsEnabled <p>实例是否开启HTTPS</p><p>枚举值：</p><ul><li>true： 已开启HTTPS</li><li>false： 未开启HTTPS</li></ul>
-                     * 
-                     */
-                    void SetHttpsEnabled(const bool& _httpsEnabled);
-
-                    /**
-                     * 判断参数 HttpsEnabled 是否已赋值
-                     * @return HttpsEnabled 是否已赋值
-                     * 
-                     */
-                    bool HttpsEnabledHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>集群实例ID, &quot;cdw-xxxx&quot; 字符串类型</p>
+                     * 集群实例ID, "cdw-xxxx" 字符串类型
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>集群实例名称</p>
+                     * 集群实例名称
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>状态,<br>Init 创建中; Serving 运行中；<br>Deleted已销毁；Deleting 销毁中；<br>Modify 集群变更中；</p>
+                     * 状态,
+Init 创建中; Serving 运行中； 
+Deleted已销毁；Deleting 销毁中；
+Modify 集群变更中；
                      */
                     std::string m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>版本</p>
+                     * 版本
                      */
                     std::string m_version;
                     bool m_versionHasBeenSet;
 
                     /**
-                     * <p>地域, ap-guangzhou</p>
+                     * 地域, ap-guangzhou
                      */
                     std::string m_region;
                     bool m_regionHasBeenSet;
 
                     /**
-                     * <p>可用区， ap-guangzhou-3</p>
+                     * 可用区， ap-guangzhou-3
                      */
                     std::string m_zone;
                     bool m_zoneHasBeenSet;
 
                     /**
-                     * <p>私有网络名称</p>
+                     * 私有网络名称
                      */
                     std::string m_vpcId;
                     bool m_vpcIdHasBeenSet;
 
                     /**
-                     * <p>子网名称</p>
+                     * 子网名称
                      */
                     std::string m_subnetId;
                     bool m_subnetIdHasBeenSet;
 
                     /**
-                     * <p>付费类型，&quot;hour&quot;, &quot;prepay&quot;</p>
+                     * 付费类型，"hour", "prepay"
                      */
                     std::string m_payMode;
                     bool m_payModeHasBeenSet;
 
                     /**
-                     * <p>创建时间</p>
+                     * 创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>过期时间</p>
+                     * 过期时间
                      */
                     std::string m_expireTime;
                     bool m_expireTimeHasBeenSet;
 
                     /**
-                     * <p>数据节点描述信息</p>
+                     * 数据节点描述信息
                      */
                     NodesSummary m_masterSummary;
                     bool m_masterSummaryHasBeenSet;
 
                     /**
-                     * <p>zookeeper节点描述信息</p>
+                     * zookeeper节点描述信息
                      */
                     NodesSummary m_commonSummary;
                     bool m_commonSummaryHasBeenSet;
 
                     /**
-                     * <p>高可用,&quot;true&quot; &quot;false&quot;</p>
+                     * 高可用,"true" "false"
                      */
                     std::string m_hA;
                     bool m_hAHasBeenSet;
 
                     /**
-                     * <p>访问地址，例如 &quot;10.0.0.1:9000&quot;</p>
+                     * 访问地址，例如 "10.0.0.1:9000"
                      */
                     std::string m_accessInfo;
                     bool m_accessInfoHasBeenSet;
 
                     /**
-                     * <p>记录ID，数值型</p>
+                     * 记录ID，数值型
                      */
                     int64_t m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>regionId, 表示地域</p>
+                     * regionId, 表示地域
                      */
                     int64_t m_regionId;
                     bool m_regionIdHasBeenSet;
 
                     /**
-                     * <p>可用区说明，例如 &quot;广州二区&quot;</p>
+                     * 可用区说明，例如 "广州二区"
                      */
                     std::string m_zoneDesc;
                     bool m_zoneDescHasBeenSet;
 
                     /**
-                     * <p>错误流程说明信息</p>
+                     * 错误流程说明信息
                      */
                     std::string m_flowMsg;
                     bool m_flowMsgHasBeenSet;
 
                     /**
-                     * <p>状态描述，例如“运行中”等</p>
+                     * 状态描述，例如“运行中”等
                      */
                     std::string m_statusDesc;
                     bool m_statusDescHasBeenSet;
 
                     /**
-                     * <p>自动续费标记</p>
+                     * 自动续费标记
                      */
                     bool m_renewFlag;
                     bool m_renewFlagHasBeenSet;
 
                     /**
-                     * <p>标签列表</p>
+                     * 标签列表
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>监控信息</p>
+                     * 监控信息
                      */
                     std::string m_monitor;
                     bool m_monitorHasBeenSet;
 
                     /**
-                     * <p>是否开通日志</p>
+                     * 是否开通日志
                      */
                     bool m_hasClsTopic;
                     bool m_hasClsTopicHasBeenSet;
 
                     /**
-                     * <p>日志主题ID</p>
+                     * 日志主题ID
                      */
                     std::string m_clsTopicId;
                     bool m_clsTopicIdHasBeenSet;
 
                     /**
-                     * <p>日志集ID</p>
+                     * 日志集ID
                      */
                     std::string m_clsLogSetId;
                     bool m_clsLogSetIdHasBeenSet;
 
                     /**
-                     * <p>是否支持xml配置管理</p>
+                     * 是否支持xml配置管理
                      */
                     int64_t m_enableXMLConfig;
                     bool m_enableXMLConfigHasBeenSet;
 
                     /**
-                     * <p>区域</p>
+                     * 区域
                      */
                     std::string m_regionDesc;
                     bool m_regionDescHasBeenSet;
 
                     /**
-                     * <p>弹性网卡地址</p>
+                     * 弹性网卡地址
                      */
                     std::string m_eip;
                     bool m_eipHasBeenSet;
 
                     /**
-                     * <p>冷热分层系数</p>
+                     * 冷热分层系数
                      */
                     int64_t m_cosMoveFactor;
                     bool m_cosMoveFactorHasBeenSet;
 
                     /**
-                     * <p>external/local/yunti</p>
+                     * external/local/yunti
                      */
                     std::string m_kind;
                     bool m_kindHasBeenSet;
 
                     /**
-                     * <p>是否弹性ck</p>
+                     * 是否弹性ck
                      */
                     bool m_isElastic;
                     bool m_isElasticHasBeenSet;
 
                     /**
-                     * <p>集群详细状态</p>
+                     * 集群详细状态
                      */
                     InstanceStateInfo m_instanceStateInfo;
                     bool m_instanceStateInfoHasBeenSet;
 
                     /**
-                     * <p>ZK高可用</p>
+                     * ZK高可用
                      */
                     bool m_hAZk;
                     bool m_hAZkHasBeenSet;
 
                     /**
-                     * <p>挂载盘,默认0:没有类型；1:裸盘;2:lvm</p>
+                     * 挂载盘,默认0:没有类型；1:裸盘;2:lvm
                      */
                     int64_t m_mountDiskType;
                     bool m_mountDiskTypeHasBeenSet;
 
                     /**
-                     * <p>chproxy连接ip</p>
+                     * chproxy连接ip
                      */
                     std::string m_cHProxyVip;
                     bool m_cHProxyVipHasBeenSet;
 
                     /**
-                     * <p>cos buket的名字</p>
+                     * cos buket的名字
                      */
                     std::string m_cosBucketName;
                     bool m_cosBucketNameHasBeenSet;
 
                     /**
-                     * <p>是否可以挂载云盘</p>
+                     * 是否可以挂载云盘
                      */
                     bool m_canAttachCbs;
                     bool m_canAttachCbsHasBeenSet;
 
                     /**
-                     * <p>是否可以挂载云盘阵列</p>
+                     * 是否可以挂载云盘阵列
                      */
                     bool m_canAttachCbsLvm;
                     bool m_canAttachCbsLvmHasBeenSet;
 
                     /**
-                     * <p>是否可以挂载cos</p>
+                     * 是否可以挂载cos
                      */
                     bool m_canAttachCos;
                     bool m_canAttachCosHasBeenSet;
 
                     /**
-                     * <p>服务信息</p>
+                     * 服务信息
                      */
                     std::vector<ServiceInfo> m_components;
                     bool m_componentsHasBeenSet;
 
                     /**
-                     * <p>可升级的内核版本</p>
+                     * 可升级的内核版本
                      */
                     std::string m_upgradeVersions;
                     bool m_upgradeVersionsHasBeenSet;
 
                     /**
-                     * <p>ex-index</p>
+                     * ex-index
                      */
                     std::string m_esIndexId;
                     bool m_esIndexIdHasBeenSet;
 
                     /**
-                     * <p>username</p>
+                     * username
                      */
                     std::string m_esIndexUsername;
                     bool m_esIndexUsernameHasBeenSet;
 
                     /**
-                     * <p>password</p>
+                     * password
                      */
                     std::string m_esIndexPassword;
                     bool m_esIndexPasswordHasBeenSet;
 
                     /**
-                     * <p>true</p>
+                     * true
                      */
                     bool m_hasEsIndex;
                     bool m_hasEsIndexHasBeenSet;
 
                     /**
-                     * <p>true</p>
+                     * true
                      */
                     bool m_isSecondaryZone;
                     bool m_isSecondaryZoneHasBeenSet;
 
                     /**
-                     * <p>desc</p>
+                     * desc
                      */
                     std::string m_secondaryZoneInfo;
                     bool m_secondaryZoneInfoHasBeenSet;
 
                     /**
-                     * <p>是否clickhouse-keeper</p>
+                     * 是否clickhouse-keeper
                      */
                     bool m_clickHouseKeeper;
                     bool m_clickHouseKeeperHasBeenSet;
 
                     /**
-                     * <p>实例扩展信息</p>
+                     * 实例扩展信息
                      */
                     InstanceDetail m_details;
                     bool m_detailsHasBeenSet;
 
                     /**
-                     * <p>安全组白名单</p>
+                     * 安全组白名单
                      */
                     bool m_isWhiteSGs;
                     bool m_isWhiteSGsHasBeenSet;
 
                     /**
-                     * <p>绑定的安全组</p>
+                     * 绑定的安全组
                      */
                     std::vector<std::string> m_bindSGs;
                     bool m_bindSGsHasBeenSet;
 
                     /**
-                     * <p>是否开启公网clb</p>
+                     * 是否开启公网clb
                      */
                     bool m_hasPublicCloudClb;
                     bool m_hasPublicCloudClbHasBeenSet;
 
                     /**
-                     * <p>可升级的zk版本</p>
+                     * 可升级的zk版本
                      */
                     std::string m_upgradeZkVersions;
                     bool m_upgradeZkVersionsHasBeenSet;
-
-                    /**
-                     * <p>是否显示rip</p>
-                     */
-                    std::string m_showRip;
-                    bool m_showRipHasBeenSet;
-
-                    /**
-                     * <p>实例类型：标准型 standard，无keeper节点类型noKeeper；</p>
-                     */
-                    std::string m_instanceType;
-                    bool m_instanceTypeHasBeenSet;
-
-                    /**
-                     * <p>keyvalue视图</p>
-                     */
-                    std::string m_enableConfigKeyValue;
-                    bool m_enableConfigKeyValueHasBeenSet;
-
-                    /**
-                     * <p>实例是否开启HTTPS</p><p>枚举值：</p><ul><li>true： 已开启HTTPS</li><li>false： 未开启HTTPS</li></ul>
-                     */
-                    bool m_httpsEnabled;
-                    bool m_httpsEnabledHasBeenSet;
 
                 };
             }

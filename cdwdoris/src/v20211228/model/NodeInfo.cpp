@@ -32,8 +32,7 @@ NodeInfo::NodeInfo() :
     m_rIpHasBeenSet(false),
     m_computeGroupIdHasBeenSet(false),
     m_createTimeHasBeenSet(false),
-    m_virtualZoneHasBeenSet(false),
-    m_hasFDBHasBeenSet(false)
+    m_virtualZoneHasBeenSet(false)
 {
 }
 
@@ -162,16 +161,6 @@ CoreInternalOutcome NodeInfo::Deserialize(const rapidjson::Value &value)
         m_virtualZoneHasBeenSet = true;
     }
 
-    if (value.HasMember("HasFDB") && !value["HasFDB"].IsNull())
-    {
-        if (!value["HasFDB"].IsBool())
-        {
-            return CoreInternalOutcome(Core::Error("response `NodeInfo.HasFDB` IsBool=false incorrectly").SetRequestId(requestId));
-        }
-        m_hasFDB = value["HasFDB"].GetBool();
-        m_hasFDBHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -273,14 +262,6 @@ void NodeInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "VirtualZone";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_virtualZone.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_hasFDBHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "HasFDB";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_hasFDB, allocator);
     }
 
 }
@@ -476,21 +457,5 @@ void NodeInfo::SetVirtualZone(const string& _virtualZone)
 bool NodeInfo::VirtualZoneHasBeenSet() const
 {
     return m_virtualZoneHasBeenSet;
-}
-
-bool NodeInfo::GetHasFDB() const
-{
-    return m_hasFDB;
-}
-
-void NodeInfo::SetHasFDB(const bool& _hasFDB)
-{
-    m_hasFDB = _hasFDB;
-    m_hasFDBHasBeenSet = true;
-}
-
-bool NodeInfo::HasFDBHasBeenSet() const
-{
-    return m_hasFDBHasBeenSet;
 }
 

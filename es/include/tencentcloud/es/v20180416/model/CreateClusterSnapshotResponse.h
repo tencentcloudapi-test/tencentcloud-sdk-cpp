@@ -44,9 +44,9 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例名称</p>
+                     * 获取实例名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return InstanceId <p>实例名称</p>
+                     * @return InstanceId 实例名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -62,7 +62,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>实例名称</p>
+                     * 实例名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_instanceId;

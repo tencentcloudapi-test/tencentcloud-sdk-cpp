@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>置信度 0 ~100。</p>
-                     * @return Confidence <p>置信度 0 ~100。</p>
+                     * 获取置信度 0 ~100
+                     * @return Confidence 置信度 0 ~100
                      * 
                      */
                     int64_t GetConfidence() const;
 
                     /**
-                     * 设置<p>置信度 0 ~100。</p>
-                     * @param _confidence <p>置信度 0 ~100。</p>
+                     * 设置置信度 0 ~100
+                     * @param _confidence 置信度 0 ~100
                      * 
                      */
                     void SetConfidence(const int64_t& _confidence);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool ConfidenceHasBeenSet() const;
 
                     /**
-                     * 获取<p>候选字Character。</p>
-                     * @return Character <p>候选字Character。</p>
+                     * 获取候选字Character
+                     * @return Character 候选字Character
                      * 
                      */
                     std::string GetCharacter() const;
 
                     /**
-                     * 设置<p>候选字Character。</p>
-                     * @param _character <p>候选字Character。</p>
+                     * 设置候选字Character
+                     * @param _character 候选字Character
                      * 
                      */
                     void SetCharacter(const std::string& _character);
@@ -91,13 +91,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>置信度 0 ~100。</p>
+                     * 置信度 0 ~100
                      */
                     int64_t m_confidence;
                     bool m_confidenceHasBeenSet;
 
                     /**
-                     * <p>候选字Character。</p>
+                     * 候选字Character
                      */
                     std::string m_character;
                     bool m_characterHasBeenSet;

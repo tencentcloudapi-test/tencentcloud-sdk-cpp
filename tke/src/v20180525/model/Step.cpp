@@ -25,8 +25,7 @@ Step::Step() :
     m_startAtHasBeenSet(false),
     m_endAtHasBeenSet(false),
     m_statusHasBeenSet(false),
-    m_messageHasBeenSet(false),
-    m_detailHasBeenSet(false)
+    m_messageHasBeenSet(false)
 {
 }
 
@@ -85,16 +84,6 @@ CoreInternalOutcome Step::Deserialize(const rapidjson::Value &value)
         m_messageHasBeenSet = true;
     }
 
-    if (value.HasMember("Detail") && !value["Detail"].IsNull())
-    {
-        if (!value["Detail"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `Step.Detail` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_detail = string(value["Detail"].GetString());
-        m_detailHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -140,14 +129,6 @@ void Step::ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorT
         string key = "Message";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_message.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_detailHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Detail";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_detail.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -231,21 +212,5 @@ void Step::SetMessage(const string& _message)
 bool Step::MessageHasBeenSet() const
 {
     return m_messageHasBeenSet;
-}
-
-string Step::GetDetail() const
-{
-    return m_detail;
-}
-
-void Step::SetDetail(const string& _detail)
-{
-    m_detail = _detail;
-    m_detailHasBeenSet = true;
-}
-
-bool Step::DetailHasBeenSet() const
-{
-    return m_detailHasBeenSet;
 }
 

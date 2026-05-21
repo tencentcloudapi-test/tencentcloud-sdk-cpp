@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>订单号</p>
-                     * @return OrderId <p>订单号</p>
+                     * 获取订单号
+                     * @return OrderId 订单号
                      * 
                      */
                     std::string GetOrderId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>订单号</p>
+                     * 订单号
                      */
                     std::string m_orderId;
                     bool m_orderIdHasBeenSet;

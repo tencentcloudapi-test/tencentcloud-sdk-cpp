@@ -29,8 +29,7 @@ CreateAssetImageRegistryScanTaskRequest::CreateAssetImageRegistryScanTaskRequest
     m_idHasBeenSet(false),
     m_filtersHasBeenSet(false),
     m_excludeImageListHasBeenSet(false),
-    m_onlyScanLatestHasBeenSet(false),
-    m_timeoutHasBeenSet(false)
+    m_onlyScanLatestHasBeenSet(false)
 {
 }
 
@@ -124,14 +123,6 @@ string CreateAssetImageRegistryScanTaskRequest::ToJsonString() const
         string key = "OnlyScanLatest";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_onlyScanLatest, allocator);
-    }
-
-    if (m_timeoutHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Timeout";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_timeout, allocator);
     }
 
 
@@ -252,22 +243,6 @@ void CreateAssetImageRegistryScanTaskRequest::SetOnlyScanLatest(const bool& _onl
 bool CreateAssetImageRegistryScanTaskRequest::OnlyScanLatestHasBeenSet() const
 {
     return m_onlyScanLatestHasBeenSet;
-}
-
-uint64_t CreateAssetImageRegistryScanTaskRequest::GetTimeout() const
-{
-    return m_timeout;
-}
-
-void CreateAssetImageRegistryScanTaskRequest::SetTimeout(const uint64_t& _timeout)
-{
-    m_timeout = _timeout;
-    m_timeoutHasBeenSet = true;
-}
-
-bool CreateAssetImageRegistryScanTaskRequest::TimeoutHasBeenSet() const
-{
-    return m_timeoutHasBeenSet;
 }
 
 

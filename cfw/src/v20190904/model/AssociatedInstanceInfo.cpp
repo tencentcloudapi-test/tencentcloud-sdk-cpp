@@ -30,8 +30,7 @@ AssociatedInstanceInfo::AssociatedInstanceInfo() :
     m_ipHasBeenSet(false),
     m_securityGroupCountHasBeenSet(false),
     m_securityGroupRuleCountHasBeenSet(false),
-    m_cdbIdHasBeenSet(false),
-    m_tkeClusterIdHasBeenSet(false)
+    m_cdbIdHasBeenSet(false)
 {
 }
 
@@ -140,16 +139,6 @@ CoreInternalOutcome AssociatedInstanceInfo::Deserialize(const rapidjson::Value &
         m_cdbIdHasBeenSet = true;
     }
 
-    if (value.HasMember("TkeClusterId") && !value["TkeClusterId"].IsNull())
-    {
-        if (!value["TkeClusterId"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AssociatedInstanceInfo.TkeClusterId` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_tkeClusterId = string(value["TkeClusterId"].GetString());
-        m_tkeClusterIdHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -235,14 +224,6 @@ void AssociatedInstanceInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Do
         string key = "CdbId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_cdbId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_tkeClusterIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TkeClusterId";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_tkeClusterId.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -406,21 +387,5 @@ void AssociatedInstanceInfo::SetCdbId(const string& _cdbId)
 bool AssociatedInstanceInfo::CdbIdHasBeenSet() const
 {
     return m_cdbIdHasBeenSet;
-}
-
-string AssociatedInstanceInfo::GetTkeClusterId() const
-{
-    return m_tkeClusterId;
-}
-
-void AssociatedInstanceInfo::SetTkeClusterId(const string& _tkeClusterId)
-{
-    m_tkeClusterId = _tkeClusterId;
-    m_tkeClusterIdHasBeenSet = true;
-}
-
-bool AssociatedInstanceInfo::TkeClusterIdHasBeenSet() const
-{
-    return m_tkeClusterIdHasBeenSet;
 }
 

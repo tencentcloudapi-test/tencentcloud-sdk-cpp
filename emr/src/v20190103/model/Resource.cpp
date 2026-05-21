@@ -33,8 +33,7 @@ Resource::Resource() :
     m_instanceTypeHasBeenSet(false),
     m_localDiskNumHasBeenSet(false),
     m_diskNumHasBeenSet(false),
-    m_gpuDescHasBeenSet(false),
-    m_partitionNumberHasBeenSet(false)
+    m_gpuDescHasBeenSet(false)
 {
 }
 
@@ -193,16 +192,6 @@ CoreInternalOutcome Resource::Deserialize(const rapidjson::Value &value)
         m_gpuDescHasBeenSet = true;
     }
 
-    if (value.HasMember("PartitionNumber") && !value["PartitionNumber"].IsNull())
-    {
-        if (!value["PartitionNumber"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Resource.PartitionNumber` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_partitionNumber = value["PartitionNumber"].GetInt64();
-        m_partitionNumberHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -326,14 +315,6 @@ void Resource::ToJsonObject(rapidjson::Value &value, rapidjson::Document::Alloca
         string key = "GpuDesc";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_gpuDesc.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_partitionNumberHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PartitionNumber";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_partitionNumber, allocator);
     }
 
 }
@@ -545,21 +526,5 @@ void Resource::SetGpuDesc(const string& _gpuDesc)
 bool Resource::GpuDescHasBeenSet() const
 {
     return m_gpuDescHasBeenSet;
-}
-
-int64_t Resource::GetPartitionNumber() const
-{
-    return m_partitionNumber;
-}
-
-void Resource::SetPartitionNumber(const int64_t& _partitionNumber)
-{
-    m_partitionNumber = _partitionNumber;
-    m_partitionNumberHasBeenSet = true;
-}
-
-bool Resource::PartitionNumberHasBeenSet() const
-{
-    return m_partitionNumberHasBeenSet;
 }
 

@@ -44,15 +44,31 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>图片 base64 数据，base64 编码后大小不可超过5M。<br>jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>人员人脸总数量至少2张，不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。</p>
-                     * @return Images <p>图片 base64 数据，base64 编码后大小不可超过5M。<br>jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>人员人脸总数量至少2张，不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。</p>
+                     * 获取图片 base64 数据，base64 编码后大小不可超过5M。 
+jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+人员人脸总数量至少2张，不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+                     * @return Images 图片 base64 数据，base64 编码后大小不可超过5M。 
+jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+人员人脸总数量至少2张，不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
                      * 
                      */
                     std::vector<std::string> GetImages() const;
 
                     /**
-                     * 设置<p>图片 base64 数据，base64 编码后大小不可超过5M。<br>jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>人员人脸总数量至少2张，不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。</p>
-                     * @param _images <p>图片 base64 数据，base64 编码后大小不可超过5M。<br>jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>人员人脸总数量至少2张，不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。</p>
+                     * 设置图片 base64 数据，base64 编码后大小不可超过5M。 
+jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+人员人脸总数量至少2张，不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
+                     * @param _images 图片 base64 数据，base64 编码后大小不可超过5M。 
+jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+人员人脸总数量至少2张，不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
                      * 
                      */
                     void SetImages(const std::vector<std::string>& _images);
@@ -65,15 +81,35 @@ namespace TencentCloud
                     bool ImagesHasBeenSet() const;
 
                     /**
-                     * 获取<p>图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。<br>非腾讯云存储的Url速度和稳定性可能受一定影响。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。<br>人员人脸总数量不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。</p>
-                     * @return Urls <p>图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。<br>非腾讯云存储的Url速度和稳定性可能受一定影响。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。<br>人员人脸总数量不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。</p>
+                     * 获取图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
+非腾讯云存储的Url速度和稳定性可能受一定影响。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+人员人脸总数量不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。
+                     * @return Urls 图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
+非腾讯云存储的Url速度和稳定性可能受一定影响。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+人员人脸总数量不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。
                      * 
                      */
                     std::vector<std::string> GetUrls() const;
 
                     /**
-                     * 设置<p>图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。<br>非腾讯云存储的Url速度和稳定性可能受一定影响。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。<br>人员人脸总数量不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。</p>
-                     * @param _urls <p>图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。<br>非腾讯云存储的Url速度和稳定性可能受一定影响。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。<br>人员人脸总数量不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。</p>
+                     * 设置图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
+非腾讯云存储的Url速度和稳定性可能受一定影响。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+人员人脸总数量不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。
+                     * @param _urls 图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
+非腾讯云存储的Url速度和稳定性可能受一定影响。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+人员人脸总数量不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。
                      * 
                      */
                     void SetUrls(const std::vector<std::string>& _urls);
@@ -86,15 +122,15 @@ namespace TencentCloud
                     bool UrlsHasBeenSet() const;
 
                     /**
-                     * 获取<p>人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间</p>
-                     * @return GradientInfos <p>人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间</p>
+                     * 获取人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间
+                     * @return GradientInfos 人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间
                      * 
                      */
                     std::vector<GradientInfo> GetGradientInfos() const;
 
                     /**
-                     * 设置<p>人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间</p>
-                     * @param _gradientInfos <p>人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间</p>
+                     * 设置人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间
+                     * @param _gradientInfos 人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间
                      * 
                      */
                     void SetGradientInfos(const std::vector<GradientInfo>& _gradientInfos);
@@ -107,15 +143,15 @@ namespace TencentCloud
                     bool GradientInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>视频帧率，取值[1,25]。默认10</p>
-                     * @return Fps <p>视频帧率，取值[1,25]。默认10</p>
+                     * 获取视频帧率，取值[1,25]。默认10
+                     * @return Fps 视频帧率，取值[1,25]。默认10
                      * 
                      */
                     int64_t GetFps() const;
 
                     /**
-                     * 设置<p>视频帧率，取值[1,25]。默认10</p>
-                     * @param _fps <p>视频帧率，取值[1,25]。默认10</p>
+                     * 设置视频帧率，取值[1,25]。默认10
+                     * @param _fps 视频帧率，取值[1,25]。默认10
                      * 
                      */
                     void SetFps(const int64_t& _fps);
@@ -128,15 +164,15 @@ namespace TencentCloud
                     bool FpsHasBeenSet() const;
 
                     /**
-                     * 获取<p>视频类型，取值0。目前仅支持MP4格式，默认为MP4格式</p>
-                     * @return OutputType <p>视频类型，取值0。目前仅支持MP4格式，默认为MP4格式</p>
+                     * 获取视频类型，取值0。目前仅支持MP4格式，默认为MP4格式
+                     * @return OutputType 视频类型，取值0。目前仅支持MP4格式，默认为MP4格式
                      * 
                      */
                     int64_t GetOutputType() const;
 
                     /**
-                     * 设置<p>视频类型，取值0。目前仅支持MP4格式，默认为MP4格式</p>
-                     * @param _outputType <p>视频类型，取值0。目前仅支持MP4格式，默认为MP4格式</p>
+                     * 设置视频类型，取值0。目前仅支持MP4格式，默认为MP4格式
+                     * @param _outputType 视频类型，取值0。目前仅支持MP4格式，默认为MP4格式
                      * 
                      */
                     void SetOutputType(const int64_t& _outputType);
@@ -149,15 +185,15 @@ namespace TencentCloud
                     bool OutputTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>视频宽度，取值[128,1280]。<br>单位：px<br>默认值：720</p>
-                     * @return OutputWidth <p>视频宽度，取值[128,1280]。<br>单位：px<br>默认值：720</p>
+                     * 获取视频宽度，取值[128,1280]。默认值720
+                     * @return OutputWidth 视频宽度，取值[128,1280]。默认值720
                      * 
                      */
                     int64_t GetOutputWidth() const;
 
                     /**
-                     * 设置<p>视频宽度，取值[128,1280]。<br>单位：px<br>默认值：720</p>
-                     * @param _outputWidth <p>视频宽度，取值[128,1280]。<br>单位：px<br>默认值：720</p>
+                     * 设置视频宽度，取值[128,1280]。默认值720
+                     * @param _outputWidth 视频宽度，取值[128,1280]。默认值720
                      * 
                      */
                     void SetOutputWidth(const int64_t& _outputWidth);
@@ -170,15 +206,15 @@ namespace TencentCloud
                     bool OutputWidthHasBeenSet() const;
 
                     /**
-                     * 获取<p>视频高度，取值[128,1280]。<br>单位：px<br>默认值：1280</p>
-                     * @return OutputHeight <p>视频高度，取值[128,1280]。<br>单位：px<br>默认值：1280</p>
+                     * 获取视频高度，取值[128,1280]。默认值1280
+                     * @return OutputHeight 视频高度，取值[128,1280]。默认值1280
                      * 
                      */
                     int64_t GetOutputHeight() const;
 
                     /**
-                     * 设置<p>视频高度，取值[128,1280]。<br>单位：px<br>默认值：1280</p>
-                     * @param _outputHeight <p>视频高度，取值[128,1280]。<br>单位：px<br>默认值：1280</p>
+                     * 设置视频高度，取值[128,1280]。默认值1280
+                     * @param _outputHeight 视频高度，取值[128,1280]。默认值1280
                      * 
                      */
                     void SetOutputHeight(const int64_t& _outputHeight);
@@ -193,43 +229,52 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>图片 base64 数据，base64 编码后大小不可超过5M。<br>jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>人员人脸总数量至少2张，不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。</p>
+                     * 图片 base64 数据，base64 编码后大小不可超过5M。 
+jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+人员人脸总数量至少2张，不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。
                      */
                     std::vector<std::string> m_images;
                     bool m_imagesHasBeenSet;
 
                     /**
-                     * <p>图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。<br>Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。<br>非腾讯云存储的Url速度和稳定性可能受一定影响。<br>支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。<br>人员人脸总数量不可超过5张。<br>若图片中包含多张人脸，只选取其中人脸面积最大的人脸。</p>
+                     * 图片的 Url 。对应图片 base64 编码后大小不可超过5M。jpg格式长边像素不可超过4000，其他格式图片长边像素不可超2000。 
+Url、Image必须提供一个，如果都提供，只使用 Url。图片存储于腾讯云的Url可保障更高下载速度和稳定性，建议图片存储于腾讯云。 
+非腾讯云存储的Url速度和稳定性可能受一定影响。 
+支持PNG、JPG、JPEG、BMP，不支持 GIF 图片。 
+人员人脸总数量不可超过5张。 
+若图片中包含多张人脸，只选取其中人脸面积最大的人脸。
                      */
                     std::vector<std::string> m_urls;
                     bool m_urlsHasBeenSet;
 
                     /**
-                     * <p>人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间</p>
+                     * 人脸渐变参数。可调整每张图片的展示时长、人像渐变的最长时间
                      */
                     std::vector<GradientInfo> m_gradientInfos;
                     bool m_gradientInfosHasBeenSet;
 
                     /**
-                     * <p>视频帧率，取值[1,25]。默认10</p>
+                     * 视频帧率，取值[1,25]。默认10
                      */
                     int64_t m_fps;
                     bool m_fpsHasBeenSet;
 
                     /**
-                     * <p>视频类型，取值0。目前仅支持MP4格式，默认为MP4格式</p>
+                     * 视频类型，取值0。目前仅支持MP4格式，默认为MP4格式
                      */
                     int64_t m_outputType;
                     bool m_outputTypeHasBeenSet;
 
                     /**
-                     * <p>视频宽度，取值[128,1280]。<br>单位：px<br>默认值：720</p>
+                     * 视频宽度，取值[128,1280]。默认值720
                      */
                     int64_t m_outputWidth;
                     bool m_outputWidthHasBeenSet;
 
                     /**
-                     * <p>视频高度，取值[128,1280]。<br>单位：px<br>默认值：1280</p>
+                     * 视频高度，取值[128,1280]。默认值1280
                      */
                     int64_t m_outputHeight;
                     bool m_outputHeightHasBeenSet;

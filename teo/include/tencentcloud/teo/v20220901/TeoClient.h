@@ -57,8 +57,6 @@
 #include <tencentcloud/teo/v20220901/model/CreateCustomizeErrorPageResponse.h>
 #include <tencentcloud/teo/v20220901/model/CreateDnsRecordRequest.h>
 #include <tencentcloud/teo/v20220901/model/CreateDnsRecordResponse.h>
-#include <tencentcloud/teo/v20220901/model/CreateEdgeKVNamespaceRequest.h>
-#include <tencentcloud/teo/v20220901/model/CreateEdgeKVNamespaceResponse.h>
 #include <tencentcloud/teo/v20220901/model/CreateFunctionRequest.h>
 #include <tencentcloud/teo/v20220901/model/CreateFunctionResponse.h>
 #include <tencentcloud/teo/v20220901/model/CreateFunctionRuleRequest.h>
@@ -123,8 +121,6 @@
 #include <tencentcloud/teo/v20220901/model/DeleteCustomErrorPageResponse.h>
 #include <tencentcloud/teo/v20220901/model/DeleteDnsRecordsRequest.h>
 #include <tencentcloud/teo/v20220901/model/DeleteDnsRecordsResponse.h>
-#include <tencentcloud/teo/v20220901/model/DeleteEdgeKVNamespaceRequest.h>
-#include <tencentcloud/teo/v20220901/model/DeleteEdgeKVNamespaceResponse.h>
 #include <tencentcloud/teo/v20220901/model/DeleteFunctionRequest.h>
 #include <tencentcloud/teo/v20220901/model/DeleteFunctionResponse.h>
 #include <tencentcloud/teo/v20220901/model/DeleteFunctionRulesRequest.h>
@@ -201,12 +197,8 @@
 #include <tencentcloud/teo/v20220901/model/DescribeDeployHistoryResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeDnsRecordsRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribeDnsRecordsResponse.h>
-#include <tencentcloud/teo/v20220901/model/DescribeEdgeKVNamespacesRequest.h>
-#include <tencentcloud/teo/v20220901/model/DescribeEdgeKVNamespacesResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeEnvironmentsRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribeEnvironmentsResponse.h>
-#include <tencentcloud/teo/v20220901/model/DescribeFunctionComponentBindingsRequest.h>
-#include <tencentcloud/teo/v20220901/model/DescribeFunctionComponentBindingsResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeFunctionRulesRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribeFunctionRulesResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeFunctionRuntimeEnvironmentRequest.h>
@@ -255,8 +247,6 @@
 #include <tencentcloud/teo/v20220901/model/DescribeOverviewL7DataResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribePlansRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribePlansResponse.h>
-#include <tencentcloud/teo/v20220901/model/DescribePrefetchOriginLimitRequest.h>
-#include <tencentcloud/teo/v20220901/model/DescribePrefetchOriginLimitResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribePrefetchTasksRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribePrefetchTasksResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribePurgeTasksRequest.h>
@@ -285,8 +275,6 @@
 #include <tencentcloud/teo/v20220901/model/DescribeSecurityPolicyResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeSecurityTemplateBindingsRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribeSecurityTemplateBindingsResponse.h>
-#include <tencentcloud/teo/v20220901/model/DescribeSharedCNAMERequest.h>
-#include <tencentcloud/teo/v20220901/model/DescribeSharedCNAMEResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeTimingL4DataRequest.h>
 #include <tencentcloud/teo/v20220901/model/DescribeTimingL4DataResponse.h>
 #include <tencentcloud/teo/v20220901/model/DescribeTimingL7AnalysisDataRequest.h>
@@ -317,14 +305,6 @@
 #include <tencentcloud/teo/v20220901/model/DownloadL4LogsResponse.h>
 #include <tencentcloud/teo/v20220901/model/DownloadL7LogsRequest.h>
 #include <tencentcloud/teo/v20220901/model/DownloadL7LogsResponse.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVDeleteRequest.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVDeleteResponse.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVGetRequest.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVGetResponse.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVListRequest.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVListResponse.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVPutRequest.h>
-#include <tencentcloud/teo/v20220901/model/EdgeKVPutResponse.h>
 #include <tencentcloud/teo/v20220901/model/EnableOriginACLRequest.h>
 #include <tencentcloud/teo/v20220901/model/EnableOriginACLResponse.h>
 #include <tencentcloud/teo/v20220901/model/ExportZoneConfigRequest.h>
@@ -363,12 +343,8 @@
 #include <tencentcloud/teo/v20220901/model/ModifyDnsRecordsResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyDnsRecordsStatusRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyDnsRecordsStatusResponse.h>
-#include <tencentcloud/teo/v20220901/model/ModifyEdgeKVNamespaceRequest.h>
-#include <tencentcloud/teo/v20220901/model/ModifyEdgeKVNamespaceResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyFunctionRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyFunctionResponse.h>
-#include <tencentcloud/teo/v20220901/model/ModifyFunctionComponentBindingsRequest.h>
-#include <tencentcloud/teo/v20220901/model/ModifyFunctionComponentBindingsResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyFunctionRuleRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyFunctionRuleResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyFunctionRulePriorityRequest.h>
@@ -405,8 +381,6 @@
 #include <tencentcloud/teo/v20220901/model/ModifyOriginGroupResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyPlanRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyPlanResponse.h>
-#include <tencentcloud/teo/v20220901/model/ModifyPrefetchOriginLimitRequest.h>
-#include <tencentcloud/teo/v20220901/model/ModifyPrefetchOriginLimitResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyRealtimeLogDeliveryTaskRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyRealtimeLogDeliveryTaskResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyRuleRequest.h>
@@ -423,8 +397,6 @@
 #include <tencentcloud/teo/v20220901/model/ModifySecurityJSInjectionRuleResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifySecurityPolicyRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifySecurityPolicyResponse.h>
-#include <tencentcloud/teo/v20220901/model/ModifySharedCNAMERequest.h>
-#include <tencentcloud/teo/v20220901/model/ModifySharedCNAMEResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyWebSecurityTemplateRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyWebSecurityTemplateResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyZoneRequest.h>
@@ -433,8 +405,6 @@
 #include <tencentcloud/teo/v20220901/model/ModifyZoneSettingResponse.h>
 #include <tencentcloud/teo/v20220901/model/ModifyZoneStatusRequest.h>
 #include <tencentcloud/teo/v20220901/model/ModifyZoneStatusResponse.h>
-#include <tencentcloud/teo/v20220901/model/ModifyZoneWorkModeRequest.h>
-#include <tencentcloud/teo/v20220901/model/ModifyZoneWorkModeResponse.h>
 #include <tencentcloud/teo/v20220901/model/RefreshMultiPathGatewaySecretKeyRequest.h>
 #include <tencentcloud/teo/v20220901/model/RefreshMultiPathGatewaySecretKeyResponse.h>
 #include <tencentcloud/teo/v20220901/model/RenewPlanRequest.h>
@@ -508,9 +478,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::CreateDnsRecordResponse> CreateDnsRecordOutcome;
                 typedef std::future<CreateDnsRecordOutcome> CreateDnsRecordOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::CreateDnsRecordRequest&, CreateDnsRecordOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateDnsRecordAsyncHandler;
-                typedef Outcome<Core::Error, Model::CreateEdgeKVNamespaceResponse> CreateEdgeKVNamespaceOutcome;
-                typedef std::future<CreateEdgeKVNamespaceOutcome> CreateEdgeKVNamespaceOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::CreateEdgeKVNamespaceRequest&, CreateEdgeKVNamespaceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateEdgeKVNamespaceAsyncHandler;
                 typedef Outcome<Core::Error, Model::CreateFunctionResponse> CreateFunctionOutcome;
                 typedef std::future<CreateFunctionOutcome> CreateFunctionOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::CreateFunctionRequest&, CreateFunctionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CreateFunctionAsyncHandler;
@@ -607,9 +574,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DeleteDnsRecordsResponse> DeleteDnsRecordsOutcome;
                 typedef std::future<DeleteDnsRecordsOutcome> DeleteDnsRecordsOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DeleteDnsRecordsRequest&, DeleteDnsRecordsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteDnsRecordsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DeleteEdgeKVNamespaceResponse> DeleteEdgeKVNamespaceOutcome;
-                typedef std::future<DeleteEdgeKVNamespaceOutcome> DeleteEdgeKVNamespaceOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::DeleteEdgeKVNamespaceRequest&, DeleteEdgeKVNamespaceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteEdgeKVNamespaceAsyncHandler;
                 typedef Outcome<Core::Error, Model::DeleteFunctionResponse> DeleteFunctionOutcome;
                 typedef std::future<DeleteFunctionOutcome> DeleteFunctionOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DeleteFunctionRequest&, DeleteFunctionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DeleteFunctionAsyncHandler;
@@ -724,15 +688,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeDnsRecordsResponse> DescribeDnsRecordsOutcome;
                 typedef std::future<DescribeDnsRecordsOutcome> DescribeDnsRecordsOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribeDnsRecordsRequest&, DescribeDnsRecordsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeDnsRecordsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeEdgeKVNamespacesResponse> DescribeEdgeKVNamespacesOutcome;
-                typedef std::future<DescribeEdgeKVNamespacesOutcome> DescribeEdgeKVNamespacesOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::DescribeEdgeKVNamespacesRequest&, DescribeEdgeKVNamespacesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeEdgeKVNamespacesAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeEnvironmentsResponse> DescribeEnvironmentsOutcome;
                 typedef std::future<DescribeEnvironmentsOutcome> DescribeEnvironmentsOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribeEnvironmentsRequest&, DescribeEnvironmentsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeEnvironmentsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeFunctionComponentBindingsResponse> DescribeFunctionComponentBindingsOutcome;
-                typedef std::future<DescribeFunctionComponentBindingsOutcome> DescribeFunctionComponentBindingsOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::DescribeFunctionComponentBindingsRequest&, DescribeFunctionComponentBindingsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFunctionComponentBindingsAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeFunctionRulesResponse> DescribeFunctionRulesOutcome;
                 typedef std::future<DescribeFunctionRulesOutcome> DescribeFunctionRulesOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribeFunctionRulesRequest&, DescribeFunctionRulesOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeFunctionRulesAsyncHandler;
@@ -805,9 +763,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribePlansResponse> DescribePlansOutcome;
                 typedef std::future<DescribePlansOutcome> DescribePlansOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribePlansRequest&, DescribePlansOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePlansAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribePrefetchOriginLimitResponse> DescribePrefetchOriginLimitOutcome;
-                typedef std::future<DescribePrefetchOriginLimitOutcome> DescribePrefetchOriginLimitOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::DescribePrefetchOriginLimitRequest&, DescribePrefetchOriginLimitOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePrefetchOriginLimitAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribePrefetchTasksResponse> DescribePrefetchTasksOutcome;
                 typedef std::future<DescribePrefetchTasksOutcome> DescribePrefetchTasksOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribePrefetchTasksRequest&, DescribePrefetchTasksOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribePrefetchTasksAsyncHandler;
@@ -850,9 +805,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DescribeSecurityTemplateBindingsResponse> DescribeSecurityTemplateBindingsOutcome;
                 typedef std::future<DescribeSecurityTemplateBindingsOutcome> DescribeSecurityTemplateBindingsOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribeSecurityTemplateBindingsRequest&, DescribeSecurityTemplateBindingsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSecurityTemplateBindingsAsyncHandler;
-                typedef Outcome<Core::Error, Model::DescribeSharedCNAMEResponse> DescribeSharedCNAMEOutcome;
-                typedef std::future<DescribeSharedCNAMEOutcome> DescribeSharedCNAMEOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::DescribeSharedCNAMERequest&, DescribeSharedCNAMEOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeSharedCNAMEAsyncHandler;
                 typedef Outcome<Core::Error, Model::DescribeTimingL4DataResponse> DescribeTimingL4DataOutcome;
                 typedef std::future<DescribeTimingL4DataOutcome> DescribeTimingL4DataOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DescribeTimingL4DataRequest&, DescribeTimingL4DataOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DescribeTimingL4DataAsyncHandler;
@@ -898,18 +850,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::DownloadL7LogsResponse> DownloadL7LogsOutcome;
                 typedef std::future<DownloadL7LogsOutcome> DownloadL7LogsOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::DownloadL7LogsRequest&, DownloadL7LogsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> DownloadL7LogsAsyncHandler;
-                typedef Outcome<Core::Error, Model::EdgeKVDeleteResponse> EdgeKVDeleteOutcome;
-                typedef std::future<EdgeKVDeleteOutcome> EdgeKVDeleteOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::EdgeKVDeleteRequest&, EdgeKVDeleteOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EdgeKVDeleteAsyncHandler;
-                typedef Outcome<Core::Error, Model::EdgeKVGetResponse> EdgeKVGetOutcome;
-                typedef std::future<EdgeKVGetOutcome> EdgeKVGetOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::EdgeKVGetRequest&, EdgeKVGetOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EdgeKVGetAsyncHandler;
-                typedef Outcome<Core::Error, Model::EdgeKVListResponse> EdgeKVListOutcome;
-                typedef std::future<EdgeKVListOutcome> EdgeKVListOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::EdgeKVListRequest&, EdgeKVListOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EdgeKVListAsyncHandler;
-                typedef Outcome<Core::Error, Model::EdgeKVPutResponse> EdgeKVPutOutcome;
-                typedef std::future<EdgeKVPutOutcome> EdgeKVPutOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::EdgeKVPutRequest&, EdgeKVPutOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EdgeKVPutAsyncHandler;
                 typedef Outcome<Core::Error, Model::EnableOriginACLResponse> EnableOriginACLOutcome;
                 typedef std::future<EnableOriginACLOutcome> EnableOriginACLOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::EnableOriginACLRequest&, EnableOriginACLOutcome, const std::shared_ptr<const AsyncCallerContext>&)> EnableOriginACLAsyncHandler;
@@ -967,15 +907,9 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyDnsRecordsStatusResponse> ModifyDnsRecordsStatusOutcome;
                 typedef std::future<ModifyDnsRecordsStatusOutcome> ModifyDnsRecordsStatusOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyDnsRecordsStatusRequest&, ModifyDnsRecordsStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyDnsRecordsStatusAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyEdgeKVNamespaceResponse> ModifyEdgeKVNamespaceOutcome;
-                typedef std::future<ModifyEdgeKVNamespaceOutcome> ModifyEdgeKVNamespaceOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::ModifyEdgeKVNamespaceRequest&, ModifyEdgeKVNamespaceOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyEdgeKVNamespaceAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyFunctionResponse> ModifyFunctionOutcome;
                 typedef std::future<ModifyFunctionOutcome> ModifyFunctionOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyFunctionRequest&, ModifyFunctionOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyFunctionAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyFunctionComponentBindingsResponse> ModifyFunctionComponentBindingsOutcome;
-                typedef std::future<ModifyFunctionComponentBindingsOutcome> ModifyFunctionComponentBindingsOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::ModifyFunctionComponentBindingsRequest&, ModifyFunctionComponentBindingsOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyFunctionComponentBindingsAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyFunctionRuleResponse> ModifyFunctionRuleOutcome;
                 typedef std::future<ModifyFunctionRuleOutcome> ModifyFunctionRuleOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyFunctionRuleRequest&, ModifyFunctionRuleOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyFunctionRuleAsyncHandler;
@@ -1030,9 +964,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyPlanResponse> ModifyPlanOutcome;
                 typedef std::future<ModifyPlanOutcome> ModifyPlanOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyPlanRequest&, ModifyPlanOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyPlanAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyPrefetchOriginLimitResponse> ModifyPrefetchOriginLimitOutcome;
-                typedef std::future<ModifyPrefetchOriginLimitOutcome> ModifyPrefetchOriginLimitOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::ModifyPrefetchOriginLimitRequest&, ModifyPrefetchOriginLimitOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyPrefetchOriginLimitAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyRealtimeLogDeliveryTaskResponse> ModifyRealtimeLogDeliveryTaskOutcome;
                 typedef std::future<ModifyRealtimeLogDeliveryTaskOutcome> ModifyRealtimeLogDeliveryTaskOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyRealtimeLogDeliveryTaskRequest&, ModifyRealtimeLogDeliveryTaskOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyRealtimeLogDeliveryTaskAsyncHandler;
@@ -1057,9 +988,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifySecurityPolicyResponse> ModifySecurityPolicyOutcome;
                 typedef std::future<ModifySecurityPolicyOutcome> ModifySecurityPolicyOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifySecurityPolicyRequest&, ModifySecurityPolicyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifySecurityPolicyAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifySharedCNAMEResponse> ModifySharedCNAMEOutcome;
-                typedef std::future<ModifySharedCNAMEOutcome> ModifySharedCNAMEOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::ModifySharedCNAMERequest&, ModifySharedCNAMEOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifySharedCNAMEAsyncHandler;
                 typedef Outcome<Core::Error, Model::ModifyWebSecurityTemplateResponse> ModifyWebSecurityTemplateOutcome;
                 typedef std::future<ModifyWebSecurityTemplateOutcome> ModifyWebSecurityTemplateOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyWebSecurityTemplateRequest&, ModifyWebSecurityTemplateOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyWebSecurityTemplateAsyncHandler;
@@ -1072,9 +1000,6 @@ namespace TencentCloud
                 typedef Outcome<Core::Error, Model::ModifyZoneStatusResponse> ModifyZoneStatusOutcome;
                 typedef std::future<ModifyZoneStatusOutcome> ModifyZoneStatusOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::ModifyZoneStatusRequest&, ModifyZoneStatusOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyZoneStatusAsyncHandler;
-                typedef Outcome<Core::Error, Model::ModifyZoneWorkModeResponse> ModifyZoneWorkModeOutcome;
-                typedef std::future<ModifyZoneWorkModeOutcome> ModifyZoneWorkModeOutcomeCallable;
-                typedef std::function<void(const TeoClient*, const Model::ModifyZoneWorkModeRequest&, ModifyZoneWorkModeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> ModifyZoneWorkModeAsyncHandler;
                 typedef Outcome<Core::Error, Model::RefreshMultiPathGatewaySecretKeyResponse> RefreshMultiPathGatewaySecretKeyOutcome;
                 typedef std::future<RefreshMultiPathGatewaySecretKeyOutcome> RefreshMultiPathGatewaySecretKeyOutcomeCallable;
                 typedef std::function<void(const TeoClient*, const Model::RefreshMultiPathGatewaySecretKeyRequest&, RefreshMultiPathGatewaySecretKeyOutcome, const std::shared_ptr<const AsyncCallerContext>&)> RefreshMultiPathGatewaySecretKeyAsyncHandler;
@@ -1137,8 +1062,7 @@ namespace TencentCloud
                 BindZoneToPlanOutcomeCallable BindZoneToPlanCallable(const Model::BindZoneToPlanRequest& request);
 
                 /**
-                 *当站点接入类型为 CNAME 接入类型时，要求该站点下的所有接入域名必须按照 EdgeOne 分配的指定 CNAME 域名完成 CNAME 记录配置。
-您可以通过本接口获取 EdgeOne 为接入域名分配的指定 CNAME 域名，并且可以通过本接口完成对接入域名的 CNAME 配置状态的校验。
+                 *校验域名 CNAME 状态
                  * @param req CheckCnameStatusRequest
                  * @return CheckCnameStatusOutcome
                  */
@@ -1258,15 +1182,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 CreateDnsRecordOutcome CreateDnsRecord(const Model::CreateDnsRecordRequest &request);
                 void CreateDnsRecordAsync(const Model::CreateDnsRecordRequest& request, const CreateDnsRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 CreateDnsRecordOutcomeCallable CreateDnsRecordCallable(const Model::CreateDnsRecordRequest& request);
-
-                /**
-                 *本接口用于在指定站点下创建 KV 命名空间。
-                 * @param req CreateEdgeKVNamespaceRequest
-                 * @return CreateEdgeKVNamespaceOutcome
-                 */
-                CreateEdgeKVNamespaceOutcome CreateEdgeKVNamespace(const Model::CreateEdgeKVNamespaceRequest &request);
-                void CreateEdgeKVNamespaceAsync(const Model::CreateEdgeKVNamespaceRequest& request, const CreateEdgeKVNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CreateEdgeKVNamespaceOutcomeCallable CreateEdgeKVNamespaceCallable(const Model::CreateEdgeKVNamespaceRequest& request);
 
                 /**
                  *创建并部署边缘函数至 EdgeOne 的边缘节点。
@@ -1414,7 +1329,7 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
     - 一个推送至腾讯云  CLS 的任务，加上另一个推送至自定义 HTTP(S) 地址的任务；
     - 一个推送至腾讯云  CLS 的任务，加上另一个推送至 AWS S3 兼容对象存储的任务；
 - 当数据投递类型（LogType）为速率限制和 CC 攻击防护日志、托管规则日志、自定义规则日志、Bot 管理日志时，同一个实体在同种数据投递类型（LogType）和数据投递区域（Area）的组合下，只能被添加到一个实时日志投递任务中。
-- 当实时日志投递任务类型（TaskType）为 EdgeOne 日志分析（log_analysis）时，只支持数据投递类型（LogType）为站点加速日志（domain）或托管规则日志（web-attack）；在同一站点（ZoneId）、同一数据投递区域（Area）和数据的组合下，每种数据投递类型（LogType）只能添加一个推送至 EdgeOne 日志分析的实时日志投递任务。
+- 当实时日志投递任务类型（TaskType）为 EdgeOne 日志分析（log_analysis）时，只支持数据投递类型（LogType）为站点加速日志（domain）；在同一站点（ZoneId）和数据投递区域（Area）的组合下，只能添加一个推送至 EdgeOne 日志分析的实时日志投递任务；。
 
 建议先通过 [DescribeRealtimeLogDeliveryTasks](https://cloud.tencent.com/document/product/1552/104110)  接口根据实体查询实时日志投递任务列表，检查实体是否已经被添加到另一实时日志投递任务中。
                  * @param req CreateRealtimeLogDeliveryTaskRequest
@@ -1572,15 +1487,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 DeleteDnsRecordsOutcome DeleteDnsRecords(const Model::DeleteDnsRecordsRequest &request);
                 void DeleteDnsRecordsAsync(const Model::DeleteDnsRecordsRequest& request, const DeleteDnsRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DeleteDnsRecordsOutcomeCallable DeleteDnsRecordsCallable(const Model::DeleteDnsRecordsRequest& request);
-
-                /**
-                 *本接口用于删除指定的 KV 命名空间。删除后命名空间内的所有键值对数据将被清空且不可恢复。若命名空间正被边缘函数引用，需先解除绑定关系后方可删除。
-                 * @param req DeleteEdgeKVNamespaceRequest
-                 * @return DeleteEdgeKVNamespaceOutcome
-                 */
-                DeleteEdgeKVNamespaceOutcome DeleteEdgeKVNamespace(const Model::DeleteEdgeKVNamespaceRequest &request);
-                void DeleteEdgeKVNamespaceAsync(const Model::DeleteEdgeKVNamespaceRequest& request, const DeleteEdgeKVNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DeleteEdgeKVNamespaceOutcomeCallable DeleteEdgeKVNamespaceCallable(const Model::DeleteEdgeKVNamespaceRequest& request);
 
                 /**
                  *删除边缘函数，删除后函数无法恢复，关联的触发规则会一并删除。
@@ -1927,15 +1833,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 DescribeDnsRecordsOutcomeCallable DescribeDnsRecordsCallable(const Model::DescribeDnsRecordsRequest& request);
 
                 /**
-                 *查询指定站点下的 KV 命名空间列表，支持分页、排序和条件过滤。返回命名空间的基本信息、存储容量使用情况以及被引用关系。若查询不到数据，则返回空数组。
-                 * @param req DescribeEdgeKVNamespacesRequest
-                 * @return DescribeEdgeKVNamespacesOutcome
-                 */
-                DescribeEdgeKVNamespacesOutcome DescribeEdgeKVNamespaces(const Model::DescribeEdgeKVNamespacesRequest &request);
-                void DescribeEdgeKVNamespacesAsync(const Model::DescribeEdgeKVNamespacesRequest& request, const DescribeEdgeKVNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeEdgeKVNamespacesOutcomeCallable DescribeEdgeKVNamespacesCallable(const Model::DescribeEdgeKVNamespacesRequest& request);
-
-                /**
                  *在版本管理模式下，用于查询环境信息，可获取环境 ID、类型、当前生效版本等。版本管理功能内测中，当前仅白名单开放。
                  * @param req DescribeEnvironmentsRequest
                  * @return DescribeEnvironmentsOutcome
@@ -1943,15 +1840,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 DescribeEnvironmentsOutcome DescribeEnvironments(const Model::DescribeEnvironmentsRequest &request);
                 void DescribeEnvironmentsAsync(const Model::DescribeEnvironmentsRequest& request, const DescribeEnvironmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 DescribeEnvironmentsOutcomeCallable DescribeEnvironmentsCallable(const Model::DescribeEnvironmentsRequest& request);
-
-                /**
-                 *本接口用于查询指定边缘函数的组件绑定列表，支持分页和条件过滤，返回绑定的组件类型、变量名及配置参数等详细信息。当前支持的绑定组件类型为 KV 命名空间（kv_namespace）。
-                 * @param req DescribeFunctionComponentBindingsRequest
-                 * @return DescribeFunctionComponentBindingsOutcome
-                 */
-                DescribeFunctionComponentBindingsOutcome DescribeFunctionComponentBindings(const Model::DescribeFunctionComponentBindingsRequest &request);
-                void DescribeFunctionComponentBindingsAsync(const Model::DescribeFunctionComponentBindingsRequest& request, const DescribeFunctionComponentBindingsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeFunctionComponentBindingsOutcomeCallable DescribeFunctionComponentBindingsCallable(const Model::DescribeFunctionComponentBindingsRequest& request);
 
                 /**
                  *查询边缘函数触发规则列表，支持按照规则 ID、函数 ID、规则描述等条件进行过滤。
@@ -2172,15 +2060,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 DescribePlansOutcomeCallable DescribePlansCallable(const Model::DescribePlansRequest& request);
 
                 /**
-                 *本接口用于查询回源限速限制，该功能白名单内测中。
-                 * @param req DescribePrefetchOriginLimitRequest
-                 * @return DescribePrefetchOriginLimitOutcome
-                 */
-                DescribePrefetchOriginLimitOutcome DescribePrefetchOriginLimit(const Model::DescribePrefetchOriginLimitRequest &request);
-                void DescribePrefetchOriginLimitAsync(const Model::DescribePrefetchOriginLimitRequest& request, const DescribePrefetchOriginLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribePrefetchOriginLimitOutcomeCallable DescribePrefetchOriginLimitCallable(const Model::DescribePrefetchOriginLimitRequest& request);
-
-                /**
                  *DescribePrefetchTasks 用于查询预热任务提交历史记录及执行进度，通过 CreatePrefetchTasks 接口提交的任务可通过此接口进行查询。
                  * @param req DescribePrefetchTasksRequest
                  * @return DescribePrefetchTasksOutcome
@@ -2311,16 +2190,7 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 DescribeSecurityTemplateBindingsOutcomeCallable DescribeSecurityTemplateBindingsCallable(const Model::DescribeSecurityTemplateBindingsRequest& request);
 
                 /**
-                 *查询共享CNAME列表，支持模糊搜索、分页、排序等。
-                 * @param req DescribeSharedCNAMERequest
-                 * @return DescribeSharedCNAMEOutcome
-                 */
-                DescribeSharedCNAMEOutcome DescribeSharedCNAME(const Model::DescribeSharedCNAMERequest &request);
-                void DescribeSharedCNAMEAsync(const Model::DescribeSharedCNAMERequest& request, const DescribeSharedCNAMEAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                DescribeSharedCNAMEOutcomeCallable DescribeSharedCNAMECallable(const Model::DescribeSharedCNAMERequest& request);
-
-                /**
-                 *<p>本接口（<code>DescribeTimingL4Data</code>）用于查询四层时序数据列表。</p>
+                 *本接口（DescribeTimingL4Data）用于查询四层时序流量数据列表。
                  * @param req DescribeTimingL4DataRequest
                  * @return DescribeTimingL4DataOutcome
                  */
@@ -2351,7 +2221,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
 
                 /**
                  *本接口用以查询七层域名业务的回源时序数据。
-您可以选择通过指定查询维度 <code>DimensionName</code> 进行分组查询，返回多组时序数据，详细指引与使用限制请参考 [如何使用 API 实现单次调用中的分组查询](https://cloud.tencent.com/document/product/1552/127501)。
                  * @param req DescribeTimingL7OriginPullDataRequest
                  * @return DescribeTimingL7OriginPullDataOutcome
                  */
@@ -2469,43 +2338,7 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 DownloadL7LogsOutcomeCallable DownloadL7LogsCallable(const Model::DownloadL7LogsRequest& request);
 
                 /**
-                 *本接口用于删除指定命名空间中的一个或多个键值对数据，支持批量删除。删除后数据不可恢复。
-                 * @param req EdgeKVDeleteRequest
-                 * @return EdgeKVDeleteOutcome
-                 */
-                EdgeKVDeleteOutcome EdgeKVDelete(const Model::EdgeKVDeleteRequest &request);
-                void EdgeKVDeleteAsync(const Model::EdgeKVDeleteRequest& request, const EdgeKVDeleteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                EdgeKVDeleteOutcomeCallable EdgeKVDeleteCallable(const Model::EdgeKVDeleteRequest& request);
-
-                /**
-                 *本接口用于从指定命名空间中批量读取键的值，支持一次查询最多 20 个键。
-                 * @param req EdgeKVGetRequest
-                 * @return EdgeKVGetOutcome
-                 */
-                EdgeKVGetOutcome EdgeKVGet(const Model::EdgeKVGetRequest &request);
-                void EdgeKVGetAsync(const Model::EdgeKVGetRequest& request, const EdgeKVGetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                EdgeKVGetOutcomeCallable EdgeKVGetCallable(const Model::EdgeKVGetRequest& request);
-
-                /**
-                 *本接口用于列出指定命名空间下的所有键名，支持前缀过滤。通过 Cursor 实现游标遍历，返回下一个游标用于继续查询。适用于遍历命名空间中的所有键。
-                 * @param req EdgeKVListRequest
-                 * @return EdgeKVListOutcome
-                 */
-                EdgeKVListOutcome EdgeKVList(const Model::EdgeKVListRequest &request);
-                void EdgeKVListAsync(const Model::EdgeKVListRequest& request, const EdgeKVListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                EdgeKVListOutcomeCallable EdgeKVListCallable(const Model::EdgeKVListRequest& request);
-
-                /**
-                 *本接口用于向指定命名空间写入键值对数据，支持设置过期时间。若键已存在则覆盖原有值，若不存在则创建新键值对。
-                 * @param req EdgeKVPutRequest
-                 * @return EdgeKVPutOutcome
-                 */
-                EdgeKVPutOutcome EdgeKVPut(const Model::EdgeKVPutRequest &request);
-                void EdgeKVPutAsync(const Model::EdgeKVPutRequest& request, const EdgeKVPutAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                EdgeKVPutOutcomeCallable EdgeKVPutCallable(const Model::EdgeKVPutRequest& request);
-
-                /**
-                 *本接口用于站点首次开启源站防护，启用后 EdgeOne 将会使用特定的回源 IP 网段为七层加速域名/四层代理实例回源。单次支持提交的七层加速域名的数量最大为 200，四层代理实例的数量最大为 100，支持七层加速域名/四层代理实例混合提交，总实例个数最大为 200。如需要启用超过 200 个资源，可先通过指定资源的方式以最大数量启用，剩余资源通过 ModifyOriginACL 接口启用。后续新增七层加速域名/四层代理实例均请通过 ModifyOriginACL 接口配置。同时开启的时候对开白的账户支持选择其他回源 IP 网段版本，例如精简版，来达到使用更少的 IP 网段回源效果。
+                 *本接口用于站点首次开启源站防护，启用后 EdgeOne 将会使用特定的回源 IP 网段为七层加速域名/四层代理实例回源。单次支持提交的七层加速域名的数量最大为 200，四层代理实例的数量最大为 100，支持七层加速域名/四层代理实例混合提交，总实例个数最大为 200。如需要启用超过 200 个资源，可先通过指定资源的方式以最大数量启用，剩余资源通过 ModifyOriginACL 接口启用。后续新增七层加速域名/四层代理实例均请通过 ModifyOriginACL 接口配置。
 
 注意：
 - 调用本接口视为同意 [源站防护启用特别约定](https://cloud.tencent.com/document/product/1552/120141)；
@@ -2518,7 +2351,7 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 EnableOriginACLOutcomeCallable EnableOriginACLCallable(const Model::EnableOriginACLRequest& request);
 
                 /**
-                 *导出站点配置接口，本接口支持用户根据需要的配置项进行配置导出，导出的配置用于导入站点配置接口（ImportZoneConfig）进行配置导入。
+                 *导出站点配置接口，本接口支持用户根据需要的配置项进行配置导出，导出的配置用于导入站点配置接口（ImportZoneConfig）进行配置导入。该功能仅支持标准版和企业版套餐站点使用。
                  * @param req ExportZoneConfigRequest
                  * @return ExportZoneConfigOutcome
                  */
@@ -2687,15 +2520,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 ModifyDnsRecordsStatusOutcomeCallable ModifyDnsRecordsStatusCallable(const Model::ModifyDnsRecordsStatusRequest& request);
 
                 /**
-                 *本接口用于修改指定 KV 命名空间的属性信息，当前支持修改命名空间描述。
-                 * @param req ModifyEdgeKVNamespaceRequest
-                 * @return ModifyEdgeKVNamespaceOutcome
-                 */
-                ModifyEdgeKVNamespaceOutcome ModifyEdgeKVNamespace(const Model::ModifyEdgeKVNamespaceRequest &request);
-                void ModifyEdgeKVNamespaceAsync(const Model::ModifyEdgeKVNamespaceRequest& request, const ModifyEdgeKVNamespaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyEdgeKVNamespaceOutcomeCallable ModifyEdgeKVNamespaceCallable(const Model::ModifyEdgeKVNamespaceRequest& request);
-
-                /**
                  *修改边缘函数，支持修改函数的内容及描述信息，修改且重新部署后，函数立刻生效。
                  * @param req ModifyFunctionRequest
                  * @return ModifyFunctionOutcome
@@ -2703,15 +2527,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 ModifyFunctionOutcome ModifyFunction(const Model::ModifyFunctionRequest &request);
                 void ModifyFunctionAsync(const Model::ModifyFunctionRequest& request, const ModifyFunctionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyFunctionOutcomeCallable ModifyFunctionCallable(const Model::ModifyFunctionRequest& request);
-
-                /**
-                 *修改边缘函数与组件的绑定关系，支持绑定（bind）、覆盖绑定（bind-override）、解绑（unbind）和重置绑定（rebind）四种操作模式。通过指定操作类型和组件列表，可实现对函数组件绑定关系的管理。
-                 * @param req ModifyFunctionComponentBindingsRequest
-                 * @return ModifyFunctionComponentBindingsOutcome
-                 */
-                ModifyFunctionComponentBindingsOutcome ModifyFunctionComponentBindings(const Model::ModifyFunctionComponentBindingsRequest &request);
-                void ModifyFunctionComponentBindingsAsync(const Model::ModifyFunctionComponentBindingsRequest& request, const ModifyFunctionComponentBindingsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyFunctionComponentBindingsOutcomeCallable ModifyFunctionComponentBindingsCallable(const Model::ModifyFunctionComponentBindingsRequest& request);
 
                 /**
                  *修改边缘函数触发规则，支持修改规则条件、执行函数以及描述信息。您可以先通过 DescribeFunctionRules 接口来获取需要修改的规则的 RuleId，然后传入修改后的规则内容，原规则内容会被覆盖式更新。
@@ -2851,7 +2666,7 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 ModifyMultiPathGatewayStatusOutcomeCallable ModifyMultiPathGatewayStatusCallable(const Model::ModifyMultiPathGatewayStatusRequest& request);
 
                 /**
-                 *本接口用于对七层加速域名/四层代理实例启用/关闭特定回源 IP 网段回源。单次支持提交的七层加速域名的数量最大为 200，四层代理实例的数量最大为 100，支持七层加速域名/四层代理实例混合提交，总实例个数最大为 200。如需变更超过 200 个实例，请通过本接口分批提交。同时对于开白的客户支持切换到其他可用的源站防护 IP 网段版本，例如精简版，可以减少回源 IP 网段。
+                 *本接口用于对七层加速域名/四层代理实例启用/关闭特定回源 IP 网段回源。单次支持提交的七层加速域名的数量最大为 200，四层代理实例的数量最大为 100，支持七层加速域名/四层代理实例混合提交，总实例个数最大为 200。如需变更超过 200 个实例，请通过本接口分批提交。
                  * @param req ModifyOriginACLRequest
                  * @return ModifyOriginACLOutcome
                  */
@@ -2876,16 +2691,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 ModifyPlanOutcome ModifyPlan(const Model::ModifyPlanRequest &request);
                 void ModifyPlanAsync(const Model::ModifyPlanRequest& request, const ModifyPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyPlanOutcomeCallable ModifyPlanCallable(const Model::ModifyPlanRequest& request);
-
-                /**
-                 *本接口用于配置回源限速限制，该功能白名单内测中。
-可通过此接口创建、修改与删除预热回源限速限制，每个账号最多支持 100 条限制。
-                 * @param req ModifyPrefetchOriginLimitRequest
-                 * @return ModifyPrefetchOriginLimitOutcome
-                 */
-                ModifyPrefetchOriginLimitOutcome ModifyPrefetchOriginLimit(const Model::ModifyPrefetchOriginLimitRequest &request);
-                void ModifyPrefetchOriginLimitAsync(const Model::ModifyPrefetchOriginLimitRequest& request, const ModifyPrefetchOriginLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyPrefetchOriginLimitOutcomeCallable ModifyPrefetchOriginLimitCallable(const Model::ModifyPrefetchOriginLimitRequest& request);
 
                 /**
                  *通过本接口修改实时日志投递任务配置。本接口有如下限制：<li>不支持修改实时日志投递任务目的地类型（TaskType）；</li><li>不支持修改数据投递类型（LogType）</li><li>不支持修改数据投递区域（Area）</li><li>当原实时日志投递任务的目的地为腾讯云 CLS 时，不支持修改目的地详细配置，如日志集、日志主题。</li>
@@ -2961,15 +2766,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 ModifySecurityPolicyOutcomeCallable ModifySecurityPolicyCallable(const Model::ModifySecurityPolicyRequest& request);
 
                 /**
-                 *用于修改共享 CNAME。当前仅支持修改共享 CNAME 的描述和设置 IP SSL类型的共享CNAME关联IP SSL 域名，共享 CNAME 本身创建后不支持修改。该功能白名单内测中。
-                 * @param req ModifySharedCNAMERequest
-                 * @return ModifySharedCNAMEOutcome
-                 */
-                ModifySharedCNAMEOutcome ModifySharedCNAME(const Model::ModifySharedCNAMERequest &request);
-                void ModifySharedCNAMEAsync(const Model::ModifySharedCNAMERequest& request, const ModifySharedCNAMEAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifySharedCNAMEOutcomeCallable ModifySharedCNAMECallable(const Model::ModifySharedCNAMERequest& request);
-
-                /**
                  *修改安全策略配置模板
                  * @param req ModifyWebSecurityTemplateRequest
                  * @return ModifyWebSecurityTemplateOutcome
@@ -3004,15 +2800,6 @@ CNAME 模式接入时，若您未完成站点归属权校验，本接口将为�
                 ModifyZoneStatusOutcome ModifyZoneStatus(const Model::ModifyZoneStatusRequest &request);
                 void ModifyZoneStatusAsync(const Model::ModifyZoneStatusRequest& request, const ModifyZoneStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
                 ModifyZoneStatusOutcomeCallable ModifyZoneStatusCallable(const Model::ModifyZoneStatusRequest& request);
-
-                /**
-                 *本接口用于修改站点下各配置模块的工作模式。站点各配置模块可按照配置组维度开启「版本管理模式」或「即时生效模式」，详情请参考 [版本管理](https://cloud.tencent.com/document/product/1552/113690)。
-                 * @param req ModifyZoneWorkModeRequest
-                 * @return ModifyZoneWorkModeOutcome
-                 */
-                ModifyZoneWorkModeOutcome ModifyZoneWorkMode(const Model::ModifyZoneWorkModeRequest &request);
-                void ModifyZoneWorkModeAsync(const Model::ModifyZoneWorkModeRequest& request, const ModifyZoneWorkModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                ModifyZoneWorkModeOutcomeCallable ModifyZoneWorkModeCallable(const Model::ModifyZoneWorkModeRequest& request);
 
                 /**
                  *通过本接口刷新多通道安全加速网关的密钥。客户基于接入密钥签名接入多通道安全加速网关。每个站点下只有一个密钥，可用于接入该站点下的所有网关，刷新密钥后，原始密钥会失效。

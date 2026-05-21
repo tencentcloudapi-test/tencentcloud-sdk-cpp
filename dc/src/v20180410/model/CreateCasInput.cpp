@@ -29,8 +29,7 @@ CreateCasInput::CreateCasInput() :
     m_remarksHasBeenSet(false),
     m_arRegionHasBeenSet(false),
     m_idcPointTypeHasBeenSet(false),
-    m_bIapLinkProtectedHasBeenSet(false),
-    m_serviceTypeHasBeenSet(false)
+    m_bIapLinkProtectedHasBeenSet(false)
 {
 }
 
@@ -129,16 +128,6 @@ CoreInternalOutcome CreateCasInput::Deserialize(const rapidjson::Value &value)
         m_bIapLinkProtectedHasBeenSet = true;
     }
 
-    if (value.HasMember("ServiceType") && !value["ServiceType"].IsNull())
-    {
-        if (!value["ServiceType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `CreateCasInput.ServiceType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_serviceType = string(value["ServiceType"].GetString());
-        m_serviceTypeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -216,14 +205,6 @@ void CreateCasInput::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "BIapLinkProtected";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_bIapLinkProtected, allocator);
-    }
-
-    if (m_serviceTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ServiceType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_serviceType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -371,21 +352,5 @@ void CreateCasInput::SetBIapLinkProtected(const bool& _bIapLinkProtected)
 bool CreateCasInput::BIapLinkProtectedHasBeenSet() const
 {
     return m_bIapLinkProtectedHasBeenSet;
-}
-
-string CreateCasInput::GetServiceType() const
-{
-    return m_serviceType;
-}
-
-void CreateCasInput::SetServiceType(const string& _serviceType)
-{
-    m_serviceType = _serviceType;
-    m_serviceTypeHasBeenSet = true;
-}
-
-bool CreateCasInput::ServiceTypeHasBeenSet() const
-{
-    return m_serviceTypeHasBeenSet;
 }
 

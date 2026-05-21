@@ -24,8 +24,7 @@ AccessControlChildRuleInfo::AccessControlChildRuleInfo() :
     m_ruleModeHasBeenSet(false),
     m_processPathHasBeenSet(false),
     m_targetFilePathHasBeenSet(false),
-    m_ruleIdHasBeenSet(false),
-    m_cmdLineHasBeenSet(false)
+    m_ruleIdHasBeenSet(false)
 {
 }
 
@@ -74,16 +73,6 @@ CoreInternalOutcome AccessControlChildRuleInfo::Deserialize(const rapidjson::Val
         m_ruleIdHasBeenSet = true;
     }
 
-    if (value.HasMember("CmdLine") && !value["CmdLine"].IsNull())
-    {
-        if (!value["CmdLine"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AccessControlChildRuleInfo.CmdLine` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_cmdLine = string(value["CmdLine"].GetString());
-        m_cmdLineHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -121,14 +110,6 @@ void AccessControlChildRuleInfo::ToJsonObject(rapidjson::Value &value, rapidjson
         string key = "RuleId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_ruleId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_cmdLineHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "CmdLine";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_cmdLine.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -196,21 +177,5 @@ void AccessControlChildRuleInfo::SetRuleId(const string& _ruleId)
 bool AccessControlChildRuleInfo::RuleIdHasBeenSet() const
 {
     return m_ruleIdHasBeenSet;
-}
-
-string AccessControlChildRuleInfo::GetCmdLine() const
-{
-    return m_cmdLine;
-}
-
-void AccessControlChildRuleInfo::SetCmdLine(const string& _cmdLine)
-{
-    m_cmdLine = _cmdLine;
-    m_cmdLineHasBeenSet = true;
-}
-
-bool AccessControlChildRuleInfo::CmdLineHasBeenSet() const
-{
-    return m_cmdLineHasBeenSet;
 }
 

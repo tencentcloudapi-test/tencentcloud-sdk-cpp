@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>配置项名称</p>
-                     * @return ConfKey <p>配置项名称</p>
+                     * 获取配置项名称
+                     * @return ConfKey 配置项名称
                      * 
                      */
                     std::string GetConfKey() const;
 
                     /**
-                     * 设置<p>配置项名称</p>
-                     * @param _confKey <p>配置项名称</p>
+                     * 设置配置项名称
+                     * @param _confKey 配置项名称
                      * 
                      */
                     void SetConfKey(const std::string& _confKey);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool ConfKeyHasBeenSet() const;
 
                     /**
-                     * 获取<p>配置项内容</p>
-                     * @return ConfValue <p>配置项内容</p>
+                     * 获取配置项内容
+                     * @return ConfValue 配置项内容
                      * 
                      */
                     std::string GetConfValue() const;
 
                     /**
-                     * 设置<p>配置项内容</p>
-                     * @param _confValue <p>配置项内容</p>
+                     * 设置配置项内容
+                     * @param _confValue 配置项内容
                      * 
                      */
                     void SetConfValue(const std::string& _confValue);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool ConfValueHasBeenSet() const;
 
                     /**
-                     * 获取<p>默认值</p>
-                     * @return DefaultValue <p>默认值</p>
+                     * 获取默认值
+                     * @return DefaultValue 默认值
                      * 
                      */
                     std::string GetDefaultValue() const;
 
                     /**
-                     * 设置<p>默认值</p>
-                     * @param _defaultValue <p>默认值</p>
+                     * 设置默认值
+                     * @param _defaultValue 默认值
                      * 
                      */
                     void SetDefaultValue(const std::string& _defaultValue);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool DefaultValueHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否需要重启</p>
-                     * @return NeedRestart <p>是否需要重启</p>
+                     * 获取是否需要重启
+                     * @return NeedRestart 是否需要重启
                      * 
                      */
                     bool GetNeedRestart() const;
 
                     /**
-                     * 设置<p>是否需要重启</p>
-                     * @param _needRestart <p>是否需要重启</p>
+                     * 设置是否需要重启
+                     * @param _needRestart 是否需要重启
                      * 
                      */
                     void SetNeedRestart(const bool& _needRestart);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool NeedRestartHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否可编辑</p>
-                     * @return Editable <p>是否可编辑</p>
+                     * 获取是否可编辑
+                     * @return Editable 是否可编辑
                      * 
                      */
                     bool GetEditable() const;
 
                     /**
-                     * 设置<p>是否可编辑</p>
-                     * @param _editable <p>是否可编辑</p>
+                     * 设置是否可编辑
+                     * @param _editable 是否可编辑
                      * 
                      */
                     void SetEditable(const bool& _editable);
@@ -152,15 +152,15 @@ namespace TencentCloud
                     bool EditableHasBeenSet() const;
 
                     /**
-                     * 获取<p>配置项解释</p>
-                     * @return ConfDesc <p>配置项解释</p>
+                     * 获取配置项解释
+                     * @return ConfDesc 配置项解释
                      * 
                      */
                     std::string GetConfDesc() const;
 
                     /**
-                     * 设置<p>配置项解释</p>
-                     * @param _confDesc <p>配置项解释</p>
+                     * 设置配置项解释
+                     * @param _confDesc 配置项解释
                      * 
                      */
                     void SetConfDesc(const std::string& _confDesc);
@@ -173,15 +173,15 @@ namespace TencentCloud
                     bool ConfDescHasBeenSet() const;
 
                     /**
-                     * 获取<p>文件名称</p>
-                     * @return FileName <p>文件名称</p>
+                     * 获取文件名称
+                     * @return FileName 文件名称
                      * 
                      */
                     std::string GetFileName() const;
 
                     /**
-                     * 设置<p>文件名称</p>
-                     * @param _fileName <p>文件名称</p>
+                     * 设置文件名称
+                     * @param _fileName 文件名称
                      * 
                      */
                     void SetFileName(const std::string& _fileName);
@@ -194,15 +194,15 @@ namespace TencentCloud
                     bool FileNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>规则名称类型</p>
-                     * @return ModifyRuleType <p>规则名称类型</p>
+                     * 获取规则名称类型
+                     * @return ModifyRuleType 规则名称类型
                      * 
                      */
                     std::string GetModifyRuleType() const;
 
                     /**
-                     * 设置<p>规则名称类型</p>
-                     * @param _modifyRuleType <p>规则名称类型</p>
+                     * 设置规则名称类型
+                     * @param _modifyRuleType 规则名称类型
                      * 
                      */
                     void SetModifyRuleType(const std::string& _modifyRuleType);
@@ -215,15 +215,15 @@ namespace TencentCloud
                     bool ModifyRuleTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>规则名称内容</p>
-                     * @return ModifyRuleValue <p>规则名称内容</p>
+                     * 获取规则名称内容
+                     * @return ModifyRuleValue 规则名称内容
                      * 
                      */
                     std::string GetModifyRuleValue() const;
 
                     /**
-                     * 设置<p>规则名称内容</p>
-                     * @param _modifyRuleValue <p>规则名称内容</p>
+                     * 设置规则名称内容
+                     * @param _modifyRuleValue 规则名称内容
                      * 
                      */
                     void SetModifyRuleValue(const std::string& _modifyRuleValue);
@@ -236,15 +236,15 @@ namespace TencentCloud
                     bool ModifyRuleValueHasBeenSet() const;
 
                     /**
-                     * 获取<p>修改人的uin</p>
-                     * @return Uin <p>修改人的uin</p>
+                     * 获取修改人的uin
+                     * @return Uin 修改人的uin
                      * 
                      */
                     std::string GetUin() const;
 
                     /**
-                     * 设置<p>修改人的uin</p>
-                     * @param _uin <p>修改人的uin</p>
+                     * 设置修改人的uin
+                     * @param _uin 修改人的uin
                      * 
                      */
                     void SetUin(const std::string& _uin);
@@ -257,15 +257,15 @@ namespace TencentCloud
                     bool UinHasBeenSet() const;
 
                     /**
-                     * 获取<p>修改时间</p>
-                     * @return ModifyTime <p>修改时间</p>
+                     * 获取修改时间
+                     * @return ModifyTime 修改时间
                      * 
                      */
                     std::string GetModifyTime() const;
 
                     /**
-                     * 设置<p>修改时间</p>
-                     * @param _modifyTime <p>修改时间</p>
+                     * 设置修改时间
+                     * @param _modifyTime 修改时间
                      * 
                      */
                     void SetModifyTime(const std::string& _modifyTime);
@@ -277,154 +277,73 @@ namespace TencentCloud
                      */
                     bool ModifyTimeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>取值范围</p>
-                     * @return ValueRange <p>取值范围</p>
-                     * 
-                     */
-                    std::string GetValueRange() const;
-
-                    /**
-                     * 设置<p>取值范围</p>
-                     * @param _valueRange <p>取值范围</p>
-                     * 
-                     */
-                    void SetValueRange(const std::string& _valueRange);
-
-                    /**
-                     * 判断参数 ValueRange 是否已赋值
-                     * @return ValueRange 是否已赋值
-                     * 
-                     */
-                    bool ValueRangeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>标记异常</p>
-                     * @return AbnormalParam <p>标记异常</p>
-                     * 
-                     */
-                    std::string GetAbnormalParam() const;
-
-                    /**
-                     * 设置<p>标记异常</p>
-                     * @param _abnormalParam <p>标记异常</p>
-                     * 
-                     */
-                    void SetAbnormalParam(const std::string& _abnormalParam);
-
-                    /**
-                     * 判断参数 AbnormalParam 是否已赋值
-                     * @return AbnormalParam 是否已赋值
-                     * 
-                     */
-                    bool AbnormalParamHasBeenSet() const;
-
-                    /**
-                     * 获取<p>是否生效</p>
-                     * @return ConfigEffective <p>是否生效</p>
-                     * 
-                     */
-                    std::string GetConfigEffective() const;
-
-                    /**
-                     * 设置<p>是否生效</p>
-                     * @param _configEffective <p>是否生效</p>
-                     * 
-                     */
-                    void SetConfigEffective(const std::string& _configEffective);
-
-                    /**
-                     * 判断参数 ConfigEffective 是否已赋值
-                     * @return ConfigEffective 是否已赋值
-                     * 
-                     */
-                    bool ConfigEffectiveHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>配置项名称</p>
+                     * 配置项名称
                      */
                     std::string m_confKey;
                     bool m_confKeyHasBeenSet;
 
                     /**
-                     * <p>配置项内容</p>
+                     * 配置项内容
                      */
                     std::string m_confValue;
                     bool m_confValueHasBeenSet;
 
                     /**
-                     * <p>默认值</p>
+                     * 默认值
                      */
                     std::string m_defaultValue;
                     bool m_defaultValueHasBeenSet;
 
                     /**
-                     * <p>是否需要重启</p>
+                     * 是否需要重启
                      */
                     bool m_needRestart;
                     bool m_needRestartHasBeenSet;
 
                     /**
-                     * <p>是否可编辑</p>
+                     * 是否可编辑
                      */
                     bool m_editable;
                     bool m_editableHasBeenSet;
 
                     /**
-                     * <p>配置项解释</p>
+                     * 配置项解释
                      */
                     std::string m_confDesc;
                     bool m_confDescHasBeenSet;
 
                     /**
-                     * <p>文件名称</p>
+                     * 文件名称
                      */
                     std::string m_fileName;
                     bool m_fileNameHasBeenSet;
 
                     /**
-                     * <p>规则名称类型</p>
+                     * 规则名称类型
                      */
                     std::string m_modifyRuleType;
                     bool m_modifyRuleTypeHasBeenSet;
 
                     /**
-                     * <p>规则名称内容</p>
+                     * 规则名称内容
                      */
                     std::string m_modifyRuleValue;
                     bool m_modifyRuleValueHasBeenSet;
 
                     /**
-                     * <p>修改人的uin</p>
+                     * 修改人的uin
                      */
                     std::string m_uin;
                     bool m_uinHasBeenSet;
 
                     /**
-                     * <p>修改时间</p>
+                     * 修改时间
                      */
                     std::string m_modifyTime;
                     bool m_modifyTimeHasBeenSet;
-
-                    /**
-                     * <p>取值范围</p>
-                     */
-                    std::string m_valueRange;
-                    bool m_valueRangeHasBeenSet;
-
-                    /**
-                     * <p>标记异常</p>
-                     */
-                    std::string m_abnormalParam;
-                    bool m_abnormalParamHasBeenSet;
-
-                    /**
-                     * <p>是否生效</p>
-                     */
-                    std::string m_configEffective;
-                    bool m_configEffectiveHasBeenSet;
 
                 };
             }

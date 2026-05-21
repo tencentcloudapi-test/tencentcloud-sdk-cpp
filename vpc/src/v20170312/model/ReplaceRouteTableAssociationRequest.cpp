@@ -23,8 +23,8 @@ using namespace TencentCloud::Vpc::V20170312::Model;
 using namespace std;
 
 ReplaceRouteTableAssociationRequest::ReplaceRouteTableAssociationRequest() :
-    m_routeTableIdHasBeenSet(false),
-    m_subnetIdHasBeenSet(false)
+    m_subnetIdHasBeenSet(false),
+    m_routeTableIdHasBeenSet(false)
 {
 }
 
@@ -35,20 +35,20 @@ string ReplaceRouteTableAssociationRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_routeTableIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "RouteTableId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_routeTableId.c_str(), allocator).Move(), allocator);
-    }
-
     if (m_subnetIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
         string key = "SubnetId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_subnetId.c_str(), allocator).Move(), allocator);
+    }
+
+    if (m_routeTableIdHasBeenSet)
+    {
+        rapidjson::Value iKey(rapidjson::kStringType);
+        string key = "RouteTableId";
+        iKey.SetString(key.c_str(), allocator);
+        d.AddMember(iKey, rapidjson::Value(m_routeTableId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -58,22 +58,6 @@ string ReplaceRouteTableAssociationRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-string ReplaceRouteTableAssociationRequest::GetRouteTableId() const
-{
-    return m_routeTableId;
-}
-
-void ReplaceRouteTableAssociationRequest::SetRouteTableId(const string& _routeTableId)
-{
-    m_routeTableId = _routeTableId;
-    m_routeTableIdHasBeenSet = true;
-}
-
-bool ReplaceRouteTableAssociationRequest::RouteTableIdHasBeenSet() const
-{
-    return m_routeTableIdHasBeenSet;
-}
 
 string ReplaceRouteTableAssociationRequest::GetSubnetId() const
 {
@@ -89,6 +73,22 @@ void ReplaceRouteTableAssociationRequest::SetSubnetId(const string& _subnetId)
 bool ReplaceRouteTableAssociationRequest::SubnetIdHasBeenSet() const
 {
     return m_subnetIdHasBeenSet;
+}
+
+string ReplaceRouteTableAssociationRequest::GetRouteTableId() const
+{
+    return m_routeTableId;
+}
+
+void ReplaceRouteTableAssociationRequest::SetRouteTableId(const string& _routeTableId)
+{
+    m_routeTableId = _routeTableId;
+    m_routeTableIdHasBeenSet = true;
+}
+
+bool ReplaceRouteTableAssociationRequest::RouteTableIdHasBeenSet() const
+{
+    return m_routeTableIdHasBeenSet;
 }
 
 

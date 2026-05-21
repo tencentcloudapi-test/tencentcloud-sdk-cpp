@@ -23,7 +23,6 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/trtc/v20190722/model/Voice.h>
 #include <tencentcloud/trtc/v20190722/model/AudioFormat.h>
-#include <tencentcloud/trtc/v20190722/model/PronunciationDict.h>
 
 
 namespace TencentCloud
@@ -151,15 +150,15 @@ namespace TencentCloud
                     bool APIKeyHasBeenSet() const;
 
                     /**
-                     * 获取TTS的模型，当前固定为：flow_01_turbo
-                     * @return Model TTS的模型，当前固定为：flow_01_turbo
+                     * 获取TTS的模型：flow_01_turbo，flow_01_ex
+                     * @return Model TTS的模型：flow_01_turbo，flow_01_ex
                      * 
                      */
                     std::string GetModel() const;
 
                     /**
-                     * 设置TTS的模型，当前固定为：flow_01_turbo
-                     * @param _model TTS的模型，当前固定为：flow_01_turbo
+                     * 设置TTS的模型：flow_01_turbo，flow_01_ex
+                     * @param _model TTS的模型：flow_01_turbo，flow_01_ex
                      * 
                      */
                     void SetModel(const std::string& _model);
@@ -172,47 +171,15 @@ namespace TencentCloud
                     bool ModelHasBeenSet() const;
 
                     /**
-                     * 获取 需要合成的语言（ISO 639-1），默认自动识别，支持的语言如下：
-- zh（中文）
-- en（英文）
-- yue（粤语）
-- ja（日语）
-- ko（韩语）
-- ar（阿拉伯语）
-- id（印尼语）
-- th（泰语）
-                     * @return Language  需要合成的语言（ISO 639-1），默认自动识别，支持的语言如下：
-- zh（中文）
-- en（英文）
-- yue（粤语）
-- ja（日语）
-- ko（韩语）
-- ar（阿拉伯语）
-- id（印尼语）
-- th（泰语）
+                     * 获取语言参数，默认为空， 参考： (ISO 639-1) 
+                     * @return Language 语言参数，默认为空， 参考： (ISO 639-1) 
                      * 
                      */
                     std::string GetLanguage() const;
 
                     /**
-                     * 设置 需要合成的语言（ISO 639-1），默认自动识别，支持的语言如下：
-- zh（中文）
-- en（英文）
-- yue（粤语）
-- ja（日语）
-- ko（韩语）
-- ar（阿拉伯语）
-- id（印尼语）
-- th（泰语）
-                     * @param _language  需要合成的语言（ISO 639-1），默认自动识别，支持的语言如下：
-- zh（中文）
-- en（英文）
-- yue（粤语）
-- ja（日语）
-- ko（韩语）
-- ar（阿拉伯语）
-- id（印尼语）
-- th（泰语）
+                     * 设置语言参数，默认为空， 参考： (ISO 639-1) 
+                     * @param _language 语言参数，默认为空， 参考： (ISO 639-1) 
                      * 
                      */
                     void SetLanguage(const std::string& _language);
@@ -223,48 +190,6 @@ namespace TencentCloud
                      * 
                      */
                     bool LanguageHasBeenSet() const;
-
-                    /**
-                     * 获取多音字/生僻字发音纠正词典条目。指定特定词语在本次请求中使用的发音。
-                     * @return PronunciationDict 多音字/生僻字发音纠正词典条目。指定特定词语在本次请求中使用的发音。
-                     * 
-                     */
-                    std::vector<PronunciationDict> GetPronunciationDict() const;
-
-                    /**
-                     * 设置多音字/生僻字发音纠正词典条目。指定特定词语在本次请求中使用的发音。
-                     * @param _pronunciationDict 多音字/生僻字发音纠正词典条目。指定特定词语在本次请求中使用的发音。
-                     * 
-                     */
-                    void SetPronunciationDict(const std::vector<PronunciationDict>& _pronunciationDict);
-
-                    /**
-                     * 判断参数 PronunciationDict 是否已赋值
-                     * @return PronunciationDict 是否已赋值
-                     * 
-                     */
-                    bool PronunciationDictHasBeenSet() const;
-
-                    /**
-                     * 获取默认为0，0表示不生成字幕，1表示生成字幕
-                     * @return AlignmentMode 默认为0，0表示不生成字幕，1表示生成字幕
-                     * 
-                     */
-                    uint64_t GetAlignmentMode() const;
-
-                    /**
-                     * 设置默认为0，0表示不生成字幕，1表示生成字幕
-                     * @param _alignmentMode 默认为0，0表示不生成字幕，1表示生成字幕
-                     * 
-                     */
-                    void SetAlignmentMode(const uint64_t& _alignmentMode);
-
-                    /**
-                     * 判断参数 AlignmentMode 是否已赋值
-                     * @return AlignmentMode 是否已赋值
-                     * 
-                     */
-                    bool AlignmentModeHasBeenSet() const;
 
                 private:
 
@@ -299,36 +224,16 @@ namespace TencentCloud
                     bool m_aPIKeyHasBeenSet;
 
                     /**
-                     * TTS的模型，当前固定为：flow_01_turbo
+                     * TTS的模型：flow_01_turbo，flow_01_ex
                      */
                     std::string m_model;
                     bool m_modelHasBeenSet;
 
                     /**
-                     *  需要合成的语言（ISO 639-1），默认自动识别，支持的语言如下：
-- zh（中文）
-- en（英文）
-- yue（粤语）
-- ja（日语）
-- ko（韩语）
-- ar（阿拉伯语）
-- id（印尼语）
-- th（泰语）
+                     * 语言参数，默认为空， 参考： (ISO 639-1) 
                      */
                     std::string m_language;
                     bool m_languageHasBeenSet;
-
-                    /**
-                     * 多音字/生僻字发音纠正词典条目。指定特定词语在本次请求中使用的发音。
-                     */
-                    std::vector<PronunciationDict> m_pronunciationDict;
-                    bool m_pronunciationDictHasBeenSet;
-
-                    /**
-                     * 默认为0，0表示不生成字幕，1表示生成字幕
-                     */
-                    uint64_t m_alignmentMode;
-                    bool m_alignmentModeHasBeenSet;
 
                 };
             }

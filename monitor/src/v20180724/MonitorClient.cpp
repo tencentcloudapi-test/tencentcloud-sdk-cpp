@@ -190,56 +190,6 @@ MonitorClient::BindingPolicyTagOutcomeCallable MonitorClient::BindingPolicyTagCa
     return prom->get_future();
 }
 
-MonitorClient::CheckAddressByPrometheusOutcome MonitorClient::CheckAddressByPrometheus(const CheckAddressByPrometheusRequest &request)
-{
-    auto outcome = MakeRequest(request, "CheckAddressByPrometheus");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CheckAddressByPrometheusResponse rsp = CheckAddressByPrometheusResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CheckAddressByPrometheusOutcome(rsp);
-        else
-            return CheckAddressByPrometheusOutcome(o.GetError());
-    }
-    else
-    {
-        return CheckAddressByPrometheusOutcome(outcome.GetError());
-    }
-}
-
-void MonitorClient::CheckAddressByPrometheusAsync(const CheckAddressByPrometheusRequest& request, const CheckAddressByPrometheusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CheckAddressByPrometheusRequest&;
-    using Resp = CheckAddressByPrometheusResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CheckAddressByPrometheus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MonitorClient::CheckAddressByPrometheusOutcomeCallable MonitorClient::CheckAddressByPrometheusCallable(const CheckAddressByPrometheusRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CheckAddressByPrometheusOutcome>>();
-    CheckAddressByPrometheusAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CheckAddressByPrometheusRequest&,
-        CheckAddressByPrometheusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MonitorClient::CleanGrafanaInstanceOutcome MonitorClient::CleanGrafanaInstance(const CleanGrafanaInstanceRequest &request)
 {
     auto outcome = MakeRequest(request, "CleanGrafanaInstance");
@@ -1432,6 +1382,56 @@ MonitorClient::CreateSSOAccountOutcomeCallable MonitorClient::CreateSSOAccountCa
         const MonitorClient*,
         const CreateSSOAccountRequest&,
         CreateSSOAccountOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MonitorClient::CreateServiceDiscoveryOutcome MonitorClient::CreateServiceDiscovery(const CreateServiceDiscoveryRequest &request)
+{
+    auto outcome = MakeRequest(request, "CreateServiceDiscovery");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        CreateServiceDiscoveryResponse rsp = CreateServiceDiscoveryResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return CreateServiceDiscoveryOutcome(rsp);
+        else
+            return CreateServiceDiscoveryOutcome(o.GetError());
+    }
+    else
+    {
+        return CreateServiceDiscoveryOutcome(outcome.GetError());
+    }
+}
+
+void MonitorClient::CreateServiceDiscoveryAsync(const CreateServiceDiscoveryRequest& request, const CreateServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const CreateServiceDiscoveryRequest&;
+    using Resp = CreateServiceDiscoveryResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "CreateServiceDiscovery", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MonitorClient::CreateServiceDiscoveryOutcomeCallable MonitorClient::CreateServiceDiscoveryCallable(const CreateServiceDiscoveryRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<CreateServiceDiscoveryOutcome>>();
+    CreateServiceDiscoveryAsync(
+    request,
+    [prom](
+        const MonitorClient*,
+        const CreateServiceDiscoveryRequest&,
+        CreateServiceDiscoveryOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3990,56 +3990,6 @@ MonitorClient::DescribeMonitorTypesOutcomeCallable MonitorClient::DescribeMonito
     return prom->get_future();
 }
 
-MonitorClient::DescribeNotificationContentTemplateSupportsOutcome MonitorClient::DescribeNotificationContentTemplateSupports(const DescribeNotificationContentTemplateSupportsRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeNotificationContentTemplateSupports");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeNotificationContentTemplateSupportsResponse rsp = DescribeNotificationContentTemplateSupportsResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeNotificationContentTemplateSupportsOutcome(rsp);
-        else
-            return DescribeNotificationContentTemplateSupportsOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeNotificationContentTemplateSupportsOutcome(outcome.GetError());
-    }
-}
-
-void MonitorClient::DescribeNotificationContentTemplateSupportsAsync(const DescribeNotificationContentTemplateSupportsRequest& request, const DescribeNotificationContentTemplateSupportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeNotificationContentTemplateSupportsRequest&;
-    using Resp = DescribeNotificationContentTemplateSupportsResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotificationContentTemplateSupports", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-MonitorClient::DescribeNotificationContentTemplateSupportsOutcomeCallable MonitorClient::DescribeNotificationContentTemplateSupportsCallable(const DescribeNotificationContentTemplateSupportsRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeNotificationContentTemplateSupportsOutcome>>();
-    DescribeNotificationContentTemplateSupportsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeNotificationContentTemplateSupportsRequest&,
-        DescribeNotificationContentTemplateSupportsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 MonitorClient::DescribePhoneAlarmFlowTotalCountOutcome MonitorClient::DescribePhoneAlarmFlowTotalCount(const DescribePhoneAlarmFlowTotalCountRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribePhoneAlarmFlowTotalCount");
@@ -5732,6 +5682,56 @@ MonitorClient::DescribeSSOAccountOutcomeCallable MonitorClient::DescribeSSOAccou
         const MonitorClient*,
         const DescribeSSOAccountRequest&,
         DescribeSSOAccountOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
+}
+
+MonitorClient::DescribeServiceDiscoveryOutcome MonitorClient::DescribeServiceDiscovery(const DescribeServiceDiscoveryRequest &request)
+{
+    auto outcome = MakeRequest(request, "DescribeServiceDiscovery");
+    if (outcome.IsSuccess())
+    {
+        auto r = outcome.GetResult();
+        string payload = string(r.Body(), r.BodySize());
+        DescribeServiceDiscoveryResponse rsp = DescribeServiceDiscoveryResponse();
+        auto o = rsp.Deserialize(payload);
+        if (o.IsSuccess())
+            return DescribeServiceDiscoveryOutcome(rsp);
+        else
+            return DescribeServiceDiscoveryOutcome(o.GetError());
+    }
+    else
+    {
+        return DescribeServiceDiscoveryOutcome(outcome.GetError());
+    }
+}
+
+void MonitorClient::DescribeServiceDiscoveryAsync(const DescribeServiceDiscoveryRequest& request, const DescribeServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
+{
+    using Req = const DescribeServiceDiscoveryRequest&;
+    using Resp = DescribeServiceDiscoveryResponse;
+
+    DoRequestAsync<Req, Resp>(
+        "DescribeServiceDiscovery", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
+}
+
+MonitorClient::DescribeServiceDiscoveryOutcomeCallable MonitorClient::DescribeServiceDiscoveryCallable(const DescribeServiceDiscoveryRequest &request)
+{
+    const auto prom = std::make_shared<std::promise<DescribeServiceDiscoveryOutcome>>();
+    DescribeServiceDiscoveryAsync(
+    request,
+    [prom](
+        const MonitorClient*,
+        const DescribeServiceDiscoveryRequest&,
+        DescribeServiceDiscoveryOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

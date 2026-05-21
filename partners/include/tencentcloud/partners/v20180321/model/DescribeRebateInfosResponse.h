@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返佣信息列表</p>
-                     * @return RebateInfoSet <p>返佣信息列表</p>
+                     * 获取返佣信息列表
+                     * @return RebateInfoSet 返佣信息列表
                      * 
                      */
                     std::vector<RebateInfoElem> GetRebateInfoSet() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool RebateInfoSetHasBeenSet() const;
 
                     /**
-                     * 获取<p>符合查询条件返佣信息数目</p>
-                     * @return TotalCount <p>符合查询条件返佣信息数目</p>
+                     * 获取符合查询条件返佣信息数目
+                     * @return TotalCount 符合查询条件返佣信息数目
                      * 
                      */
                     uint64_t GetTotalCount() const;
@@ -75,13 +75,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返佣信息列表</p>
+                     * 返佣信息列表
                      */
                     std::vector<RebateInfoElem> m_rebateInfoSet;
                     bool m_rebateInfoSetHasBeenSet;
 
                     /**
-                     * <p>符合查询条件返佣信息数目</p>
+                     * 符合查询条件返佣信息数目
                      */
                     uint64_t m_totalCount;
                     bool m_totalCountHasBeenSet;

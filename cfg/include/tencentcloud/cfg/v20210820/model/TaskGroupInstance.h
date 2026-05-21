@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例ID</p>
-                     * @return TaskGroupInstanceId <p>实例ID</p>
+                     * 获取实例ID
+                     * @return TaskGroupInstanceId 实例ID
                      * 
                      */
                     int64_t GetTaskGroupInstanceId() const;
 
                     /**
-                     * 设置<p>实例ID</p>
-                     * @param _taskGroupInstanceId <p>实例ID</p>
+                     * 设置实例ID
+                     * @param _taskGroupInstanceId 实例ID
                      * 
                      */
                     void SetTaskGroupInstanceId(const int64_t& _taskGroupInstanceId);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例ID</p>
-                     * @return TaskGroupInstanceObjectId <p>实例ID</p>
+                     * 获取实例ID
+                     * @return TaskGroupInstanceObjectId 实例ID
                      * 
                      */
                     std::string GetTaskGroupInstanceObjectId() const;
 
                     /**
-                     * 设置<p>实例ID</p>
-                     * @param _taskGroupInstanceObjectId <p>实例ID</p>
+                     * 设置实例ID
+                     * @param _taskGroupInstanceObjectId 实例ID
                      * 
                      */
                     void SetTaskGroupInstanceObjectId(const std::string& _taskGroupInstanceObjectId);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceObjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例动作执行状态</p><p>枚举值：</p><ul><li>3001： 未开始</li><li>3002： 执行中</li><li>3003： 执行结束</li><li>3004： 准备中</li></ul>
-                     * @return TaskGroupInstanceStatus <p>实例动作执行状态</p><p>枚举值：</p><ul><li>3001： 未开始</li><li>3002： 执行中</li><li>3003： 执行结束</li><li>3004： 准备中</li></ul>
+                     * 获取实例动作执行状态
+                     * @return TaskGroupInstanceStatus 实例动作执行状态
                      * 
                      */
                     int64_t GetTaskGroupInstanceStatus() const;
 
                     /**
-                     * 设置<p>实例动作执行状态</p><p>枚举值：</p><ul><li>3001： 未开始</li><li>3002： 执行中</li><li>3003： 执行结束</li><li>3004： 准备中</li></ul>
-                     * @param _taskGroupInstanceStatus <p>实例动作执行状态</p><p>枚举值：</p><ul><li>3001： 未开始</li><li>3002： 执行中</li><li>3003： 执行结束</li><li>3004： 准备中</li></ul>
+                     * 设置实例动作执行状态
+                     * @param _taskGroupInstanceStatus 实例动作执行状态
                      * 
                      */
                     void SetTaskGroupInstanceStatus(const int64_t& _taskGroupInstanceStatus);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例创建时间</p>
-                     * @return TaskGroupInstanceCreateTime <p>实例创建时间</p>
+                     * 获取实例创建时间
+                     * @return TaskGroupInstanceCreateTime 实例创建时间
                      * 
                      */
                     std::string GetTaskGroupInstanceCreateTime() const;
 
                     /**
-                     * 设置<p>实例创建时间</p>
-                     * @param _taskGroupInstanceCreateTime <p>实例创建时间</p>
+                     * 设置实例创建时间
+                     * @param _taskGroupInstanceCreateTime 实例创建时间
                      * 
                      */
                     void SetTaskGroupInstanceCreateTime(const std::string& _taskGroupInstanceCreateTime);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceCreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例更新时间</p>
-                     * @return TaskGroupInstanceUpdateTime <p>实例更新时间</p>
+                     * 获取实例更新时间
+                     * @return TaskGroupInstanceUpdateTime 实例更新时间
                      * 
                      */
                     std::string GetTaskGroupInstanceUpdateTime() const;
 
                     /**
-                     * 设置<p>实例更新时间</p>
-                     * @param _taskGroupInstanceUpdateTime <p>实例更新时间</p>
+                     * 设置实例更新时间
+                     * @param _taskGroupInstanceUpdateTime 实例更新时间
                      * 
                      */
                     void SetTaskGroupInstanceUpdateTime(const std::string& _taskGroupInstanceUpdateTime);
@@ -152,15 +152,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceUpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
-                     * @return TaskGroupInstanceStatusType <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
+                     * 获取状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
+                     * @return TaskGroupInstanceStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
                      * 
                      */
                     int64_t GetTaskGroupInstanceStatusType() const;
 
                     /**
-                     * 设置<p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
-                     * @param _taskGroupInstanceStatusType <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
+                     * 设置状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
+                     * @param _taskGroupInstanceStatusType 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
                      * 
                      */
                     void SetTaskGroupInstanceStatusType(const int64_t& _taskGroupInstanceStatusType);
@@ -173,15 +173,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceStatusTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>执行开始时间</p>
-                     * @return TaskGroupInstanceStartTime <p>执行开始时间</p>
+                     * 获取执行开始时间
+                     * @return TaskGroupInstanceStartTime 执行开始时间
                      * 
                      */
                     std::string GetTaskGroupInstanceStartTime() const;
 
                     /**
-                     * 设置<p>执行开始时间</p>
-                     * @param _taskGroupInstanceStartTime <p>执行开始时间</p>
+                     * 设置执行开始时间
+                     * @param _taskGroupInstanceStartTime 执行开始时间
                      * 
                      */
                     void SetTaskGroupInstanceStartTime(const std::string& _taskGroupInstanceStartTime);
@@ -194,15 +194,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceStartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>执行结束时间</p>
-                     * @return TaskGroupInstanceEndTime <p>执行结束时间</p>
+                     * 获取执行结束时间
+                     * @return TaskGroupInstanceEndTime 执行结束时间
                      * 
                      */
                     std::string GetTaskGroupInstanceEndTime() const;
 
                     /**
-                     * 设置<p>执行结束时间</p>
-                     * @param _taskGroupInstanceEndTime <p>执行结束时间</p>
+                     * 设置执行结束时间
+                     * @param _taskGroupInstanceEndTime 执行结束时间
                      * 
                      */
                     void SetTaskGroupInstanceEndTime(const std::string& _taskGroupInstanceEndTime);
@@ -215,18 +215,18 @@ namespace TencentCloud
                     bool TaskGroupInstanceEndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例动作执行日志</p>
+                     * 获取实例动作执行日志
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TaskGroupInstanceExecuteLog <p>实例动作执行日志</p>
+                     * @return TaskGroupInstanceExecuteLog 实例动作执行日志
 注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
                     std::string GetTaskGroupInstanceExecuteLog() const;
 
                     /**
-                     * 设置<p>实例动作执行日志</p>
+                     * 设置实例动作执行日志
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _taskGroupInstanceExecuteLog <p>实例动作执行日志</p>
+                     * @param _taskGroupInstanceExecuteLog 实例动作执行日志
 注意：此字段可能返回 null，表示取不到有效值。
                      * @deprecated
                      */
@@ -240,15 +240,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceExecuteLogHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例是否可重试</p>
-                     * @return TaskGroupInstanceIsRedo <p>实例是否可重试</p>
+                     * 获取实例是否可重试
+                     * @return TaskGroupInstanceIsRedo 实例是否可重试
                      * 
                      */
                     bool GetTaskGroupInstanceIsRedo() const;
 
                     /**
-                     * 设置<p>实例是否可重试</p>
-                     * @param _taskGroupInstanceIsRedo <p>实例是否可重试</p>
+                     * 设置实例是否可重试
+                     * @param _taskGroupInstanceIsRedo 实例是否可重试
                      * 
                      */
                     void SetTaskGroupInstanceIsRedo(const bool& _taskGroupInstanceIsRedo);
@@ -261,15 +261,15 @@ namespace TencentCloud
                     bool TaskGroupInstanceIsRedoHasBeenSet() const;
 
                     /**
-                     * 获取<p>动作实例执行时间</p><p>单位：秒</p>
-                     * @return TaskGroupInstanceExecuteTime <p>动作实例执行时间</p><p>单位：秒</p>
+                     * 获取动作实例执行时间
+                     * @return TaskGroupInstanceExecuteTime 动作实例执行时间
                      * 
                      */
                     int64_t GetTaskGroupInstanceExecuteTime() const;
 
                     /**
-                     * 设置<p>动作实例执行时间</p><p>单位：秒</p>
-                     * @param _taskGroupInstanceExecuteTime <p>动作实例执行时间</p><p>单位：秒</p>
+                     * 设置动作实例执行时间
+                     * @param _taskGroupInstanceExecuteTime 动作实例执行时间
                      * 
                      */
                     void SetTaskGroupInstanceExecuteTime(const int64_t& _taskGroupInstanceExecuteTime);
@@ -284,68 +284,68 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>实例ID</p>
+                     * 实例ID
                      */
                     int64_t m_taskGroupInstanceId;
                     bool m_taskGroupInstanceIdHasBeenSet;
 
                     /**
-                     * <p>实例ID</p>
+                     * 实例ID
                      */
                     std::string m_taskGroupInstanceObjectId;
                     bool m_taskGroupInstanceObjectIdHasBeenSet;
 
                     /**
-                     * <p>实例动作执行状态</p><p>枚举值：</p><ul><li>3001： 未开始</li><li>3002： 执行中</li><li>3003： 执行结束</li><li>3004： 准备中</li></ul>
+                     * 实例动作执行状态
                      */
                     int64_t m_taskGroupInstanceStatus;
                     bool m_taskGroupInstanceStatusHasBeenSet;
 
                     /**
-                     * <p>实例创建时间</p>
+                     * 实例创建时间
                      */
                     std::string m_taskGroupInstanceCreateTime;
                     bool m_taskGroupInstanceCreateTimeHasBeenSet;
 
                     /**
-                     * <p>实例更新时间</p>
+                     * 实例更新时间
                      */
                     std::string m_taskGroupInstanceUpdateTime;
                     bool m_taskGroupInstanceUpdateTimeHasBeenSet;
 
                     /**
-                     * <p>状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过</p>
+                     * 状态类型: 0 -- 无状态，1 -- 成功，2-- 失败，3--终止，4--跳过
                      */
                     int64_t m_taskGroupInstanceStatusType;
                     bool m_taskGroupInstanceStatusTypeHasBeenSet;
 
                     /**
-                     * <p>执行开始时间</p>
+                     * 执行开始时间
                      */
                     std::string m_taskGroupInstanceStartTime;
                     bool m_taskGroupInstanceStartTimeHasBeenSet;
 
                     /**
-                     * <p>执行结束时间</p>
+                     * 执行结束时间
                      */
                     std::string m_taskGroupInstanceEndTime;
                     bool m_taskGroupInstanceEndTimeHasBeenSet;
 
                     /**
-                     * <p>实例动作执行日志</p>
+                     * 实例动作执行日志
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_taskGroupInstanceExecuteLog;
                     bool m_taskGroupInstanceExecuteLogHasBeenSet;
 
                     /**
-                     * <p>实例是否可重试</p>
+                     * 实例是否可重试
                      */
                     bool m_taskGroupInstanceIsRedo;
                     bool m_taskGroupInstanceIsRedoHasBeenSet;
 
                     /**
-                     * <p>动作实例执行时间</p><p>单位：秒</p>
+                     * 动作实例执行时间
                      */
                     int64_t m_taskGroupInstanceExecuteTime;
                     bool m_taskGroupInstanceExecuteTimeHasBeenSet;

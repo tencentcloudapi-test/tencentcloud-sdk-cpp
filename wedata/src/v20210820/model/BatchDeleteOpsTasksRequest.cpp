@@ -26,8 +26,7 @@ BatchDeleteOpsTasksRequest::BatchDeleteOpsTasksRequest() :
     m_taskIdListHasBeenSet(false),
     m_deleteModeHasBeenSet(false),
     m_enableNotifyHasBeenSet(false),
-    m_projectIdHasBeenSet(false),
-    m_deleteScriptHasBeenSet(false)
+    m_projectIdHasBeenSet(false)
 {
 }
 
@@ -73,14 +72,6 @@ string BatchDeleteOpsTasksRequest::ToJsonString() const
         string key = "ProjectId";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_projectId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_deleteScriptHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DeleteScript";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_deleteScript, allocator);
     }
 
 
@@ -153,22 +144,6 @@ void BatchDeleteOpsTasksRequest::SetProjectId(const string& _projectId)
 bool BatchDeleteOpsTasksRequest::ProjectIdHasBeenSet() const
 {
     return m_projectIdHasBeenSet;
-}
-
-bool BatchDeleteOpsTasksRequest::GetDeleteScript() const
-{
-    return m_deleteScript;
-}
-
-void BatchDeleteOpsTasksRequest::SetDeleteScript(const bool& _deleteScript)
-{
-    m_deleteScript = _deleteScript;
-    m_deleteScriptHasBeenSet = true;
-}
-
-bool BatchDeleteOpsTasksRequest::DeleteScriptHasBeenSet() const
-{
-    return m_deleteScriptHasBeenSet;
 }
 
 

@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>按帧标签起始的偏移时间。</p><p>单位：秒</p>
-                     * @return StartTimeOffset <p>按帧标签起始的偏移时间。</p><p>单位：秒</p>
+                     * 获取按帧标签起始的偏移时间。
+                     * @return StartTimeOffset 按帧标签起始的偏移时间。
                      * 
                      */
                     double GetStartTimeOffset() const;
 
                     /**
-                     * 设置<p>按帧标签起始的偏移时间。</p><p>单位：秒</p>
-                     * @param _startTimeOffset <p>按帧标签起始的偏移时间。</p><p>单位：秒</p>
+                     * 设置按帧标签起始的偏移时间。
+                     * @param _startTimeOffset 按帧标签起始的偏移时间。
                      * 
                      */
                     void SetStartTimeOffset(const double& _startTimeOffset);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool StartTimeOffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>按帧标签结束的偏移时间。</p><p>单位：秒</p>
-                     * @return EndTimeOffset <p>按帧标签结束的偏移时间。</p><p>单位：秒</p>
+                     * 获取按帧标签结束的偏移时间。
+                     * @return EndTimeOffset 按帧标签结束的偏移时间。
                      * 
                      */
                     double GetEndTimeOffset() const;
 
                     /**
-                     * 设置<p>按帧标签结束的偏移时间。</p><p>单位：秒</p>
-                     * @param _endTimeOffset <p>按帧标签结束的偏移时间。</p><p>单位：秒</p>
+                     * 设置按帧标签结束的偏移时间。
+                     * @param _endTimeOffset 按帧标签结束的偏移时间。
                      * 
                      */
                     void SetEndTimeOffset(const double& _endTimeOffset);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool EndTimeOffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>时间片段内的标签列表。</p>
-                     * @return TagSet <p>时间片段内的标签列表。</p>
+                     * 获取时间片段内的标签列表。
+                     * @return TagSet 时间片段内的标签列表。
                      * 
                      */
                     std::vector<MediaAiAnalysisFrameTagItem> GetTagSet() const;
 
                     /**
-                     * 设置<p>时间片段内的标签列表。</p>
-                     * @param _tagSet <p>时间片段内的标签列表。</p>
+                     * 设置时间片段内的标签列表。
+                     * @param _tagSet 时间片段内的标签列表。
                      * 
                      */
                     void SetTagSet(const std::vector<MediaAiAnalysisFrameTagItem>& _tagSet);
@@ -113,19 +113,19 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>按帧标签起始的偏移时间。</p><p>单位：秒</p>
+                     * 按帧标签起始的偏移时间。
                      */
                     double m_startTimeOffset;
                     bool m_startTimeOffsetHasBeenSet;
 
                     /**
-                     * <p>按帧标签结束的偏移时间。</p><p>单位：秒</p>
+                     * 按帧标签结束的偏移时间。
                      */
                     double m_endTimeOffset;
                     bool m_endTimeOffsetHasBeenSet;
 
                     /**
-                     * <p>时间片段内的标签列表。</p>
+                     * 时间片段内的标签列表。
                      */
                     std::vector<MediaAiAnalysisFrameTagItem> m_tagSet;
                     bool m_tagSetHasBeenSet;

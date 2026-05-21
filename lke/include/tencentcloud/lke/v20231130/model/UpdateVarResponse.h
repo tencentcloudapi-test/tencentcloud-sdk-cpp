@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>变量ID</p>
-                     * @return VarId <p>变量ID</p>
+                     * 获取变量ID
+                     * @return VarId 变量ID
                      * 
                      */
                     std::string GetVarId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>变量ID</p>
+                     * 变量ID
                      */
                     std::string m_varId;
                     bool m_varIdHasBeenSet;

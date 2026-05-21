@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>导播台ID。</p>
-                     * @return CasterId <p>导播台ID。</p>
+                     * 获取导播台ID。
+                     * @return CasterId 导播台ID。
                      * 
                      */
                     uint64_t GetCasterId() const;
 
                     /**
-                     * 设置<p>导播台ID。</p>
-                     * @param _casterId <p>导播台ID。</p>
+                     * 设置导播台ID。
+                     * @param _casterId 导播台ID。
                      * 
                      */
                     void SetCasterId(const uint64_t& _casterId);
@@ -64,15 +64,19 @@ namespace TencentCloud
                     bool CasterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>要删除的布局Index。注：待删除的Index对应的布局需存在。</p>
-                     * @return LayoutIndex <p>要删除的布局Index。注：待删除的Index对应的布局需存在。</p>
+                     * 获取要删除的布局Index。
+注：待删除的Index对应的布局需存在。
+                     * @return LayoutIndex 要删除的布局Index。
+注：待删除的Index对应的布局需存在。
                      * 
                      */
                     uint64_t GetLayoutIndex() const;
 
                     /**
-                     * 设置<p>要删除的布局Index。注：待删除的Index对应的布局需存在。</p>
-                     * @param _layoutIndex <p>要删除的布局Index。注：待删除的Index对应的布局需存在。</p>
+                     * 设置要删除的布局Index。
+注：待删除的Index对应的布局需存在。
+                     * @param _layoutIndex 要删除的布局Index。
+注：待删除的Index对应的布局需存在。
                      * 
                      */
                     void SetLayoutIndex(const uint64_t& _layoutIndex);
@@ -87,13 +91,14 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>导播台ID。</p>
+                     * 导播台ID。
                      */
                     uint64_t m_casterId;
                     bool m_casterIdHasBeenSet;
 
                     /**
-                     * <p>要删除的布局Index。注：待删除的Index对应的布局需存在。</p>
+                     * 要删除的布局Index。
+注：待删除的Index对应的布局需存在。
                      */
                     uint64_t m_layoutIndex;
                     bool m_layoutIndexHasBeenSet;

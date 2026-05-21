@@ -27,8 +27,7 @@ DescribeLogStorageConfigResponse::DescribeLogStorageConfigResponse() :
     m_typeHasBeenSet(false),
     m_periodHasBeenSet(false),
     m_periodModifyCountHasBeenSet(false),
-    m_granularityHasBeenSet(false),
-    m_msgLanguageHasBeenSet(false)
+    m_granularityHasBeenSet(false)
 {
 }
 
@@ -109,16 +108,6 @@ CoreInternalOutcome DescribeLogStorageConfigResponse::Deserialize(const string &
         m_granularityHasBeenSet = true;
     }
 
-    if (rsp.HasMember("MsgLanguage") && !rsp["MsgLanguage"].IsNull())
-    {
-        if (!rsp["MsgLanguage"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `MsgLanguage` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_msgLanguage = string(rsp["MsgLanguage"].GetString());
-        m_msgLanguageHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -164,14 +153,6 @@ string DescribeLogStorageConfigResponse::ToJsonString() const
         string key = "Granularity";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_granularity.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_msgLanguageHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MsgLanguage";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_msgLanguage.c_str(), allocator).Move(), allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -224,16 +205,6 @@ string DescribeLogStorageConfigResponse::GetGranularity() const
 bool DescribeLogStorageConfigResponse::GranularityHasBeenSet() const
 {
     return m_granularityHasBeenSet;
-}
-
-string DescribeLogStorageConfigResponse::GetMsgLanguage() const
-{
-    return m_msgLanguage;
-}
-
-bool DescribeLogStorageConfigResponse::MsgLanguageHasBeenSet() const
-{
-    return m_msgLanguageHasBeenSet;
 }
 
 

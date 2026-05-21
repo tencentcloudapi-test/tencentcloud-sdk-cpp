@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>列名称，不区分大小写，最大支持25个字符。</p>
-                     * @return Name <p>列名称，不区分大小写，最大支持25个字符。</p>
+                     * 获取列名称，不区分大小写，最大支持25个字符。
+                     * @return Name 列名称，不区分大小写，最大支持25个字符。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>列名称，不区分大小写，最大支持25个字符。</p>
-                     * @param _name <p>列名称，不区分大小写，最大支持25个字符。</p>
+                     * 设置列名称，不区分大小写，最大支持25个字符。
+                     * @param _name 列名称，不区分大小写，最大支持25个字符。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype</p>
-                     * @return Type <p>string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype</p>
+                     * 获取string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype
+                     * @return Type string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype</p>
-                     * @param _type <p>string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype</p>
+                     * 设置string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype
+                     * @param _type string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -90,18 +90,18 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>对该类的注释。</p>
+                     * 获取对该类的注释。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Comment <p>对该类的注释。</p>
+                     * @return Comment 对该类的注释。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetComment() const;
 
                     /**
-                     * 设置<p>对该类的注释。</p>
+                     * 设置对该类的注释。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _comment <p>对该类的注释。</p>
+                     * @param _comment 对该类的注释。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -115,15 +115,15 @@ namespace TencentCloud
                     bool CommentHasBeenSet() const;
 
                     /**
-                     * 获取<p>表示整个 numeric 的长度</p>
-                     * @return Precision <p>表示整个 numeric 的长度</p>
+                     * 获取表示整个 numeric 的长度
+                     * @return Precision 表示整个 numeric 的长度
                      * 
                      */
                     int64_t GetPrecision() const;
 
                     /**
-                     * 设置<p>表示整个 numeric 的长度</p>
-                     * @param _precision <p>表示整个 numeric 的长度</p>
+                     * 设置表示整个 numeric 的长度
+                     * @param _precision 表示整个 numeric 的长度
                      * 
                      */
                     void SetPrecision(const int64_t& _precision);
@@ -136,15 +136,15 @@ namespace TencentCloud
                     bool PrecisionHasBeenSet() const;
 
                     /**
-                     * 获取<p>表示小数部分的长度</p>
-                     * @return Scale <p>表示小数部分的长度</p>
+                     * 获取表示小数部分的长度
+                     * @return Scale 表示小数部分的长度
                      * 
                      */
                     int64_t GetScale() const;
 
                     /**
-                     * 设置<p>表示小数部分的长度</p>
-                     * @param _scale <p>表示小数部分的长度</p>
+                     * 设置表示小数部分的长度
+                     * @param _scale 表示小数部分的长度
                      * 
                      */
                     void SetScale(const int64_t& _scale);
@@ -157,15 +157,15 @@ namespace TencentCloud
                     bool ScaleHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否为null</p>
-                     * @return Nullable <p>是否为null</p>
+                     * 获取是否为null
+                     * @return Nullable 是否为null
                      * 
                      */
                     std::string GetNullable() const;
 
                     /**
-                     * 设置<p>是否为null</p>
-                     * @param _nullable <p>是否为null</p>
+                     * 设置是否为null
+                     * @param _nullable 是否为null
                      * 
                      */
                     void SetNullable(const std::string& _nullable);
@@ -178,15 +178,15 @@ namespace TencentCloud
                     bool NullableHasBeenSet() const;
 
                     /**
-                     * 获取<p>字段位置，小的在前</p>
-                     * @return Position <p>字段位置，小的在前</p>
+                     * 获取字段位置，小的在前
+                     * @return Position 字段位置，小的在前
                      * 
                      */
                     int64_t GetPosition() const;
 
                     /**
-                     * 设置<p>字段位置，小的在前</p>
-                     * @param _position <p>字段位置，小的在前</p>
+                     * 设置字段位置，小的在前
+                     * @param _position 字段位置，小的在前
                      * 
                      */
                     void SetPosition(const int64_t& _position);
@@ -199,15 +199,15 @@ namespace TencentCloud
                     bool PositionHasBeenSet() const;
 
                     /**
-                     * 获取<p>字段创建时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
-                     * @return CreateTime <p>字段创建时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
+                     * 获取字段创建时间
+                     * @return CreateTime 字段创建时间
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>字段创建时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
-                     * @param _createTime <p>字段创建时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
+                     * 设置字段创建时间
+                     * @param _createTime 字段创建时间
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -220,15 +220,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>字段修改时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
-                     * @return ModifiedTime <p>字段修改时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
+                     * 获取字段修改时间
+                     * @return ModifiedTime 字段修改时间
                      * 
                      */
                     std::string GetModifiedTime() const;
 
                     /**
-                     * 设置<p>字段修改时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
-                     * @param _modifiedTime <p>字段修改时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
+                     * 设置字段修改时间
+                     * @param _modifiedTime 字段修改时间
                      * 
                      */
                     void SetModifiedTime(const std::string& _modifiedTime);
@@ -241,15 +241,15 @@ namespace TencentCloud
                     bool ModifiedTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否为分区字段</p>
-                     * @return IsPartition <p>是否为分区字段</p>
+                     * 获取是否为分区字段
+                     * @return IsPartition 是否为分区字段
                      * 
                      */
                     bool GetIsPartition() const;
 
                     /**
-                     * 设置<p>是否为分区字段</p>
-                     * @param _isPartition <p>是否为分区字段</p>
+                     * 设置是否为分区字段
+                     * @param _isPartition 是否为分区字段
                      * 
                      */
                     void SetIsPartition(const bool& _isPartition);
@@ -262,18 +262,18 @@ namespace TencentCloud
                     bool IsPartitionHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据脱敏策略信息</p>
+                     * 获取数据脱敏策略信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DataMaskStrategyInfo <p>数据脱敏策略信息</p>
+                     * @return DataMaskStrategyInfo 数据脱敏策略信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     DataMaskStrategyInfo GetDataMaskStrategyInfo() const;
 
                     /**
-                     * 设置<p>数据脱敏策略信息</p>
+                     * 设置数据脱敏策略信息
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _dataMaskStrategyInfo <p>数据脱敏策略信息</p>
+                     * @param _dataMaskStrategyInfo 数据脱敏策略信息
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -286,102 +286,75 @@ namespace TencentCloud
                      */
                     bool DataMaskStrategyInfoHasBeenSet() const;
 
-                    /**
-                     * 获取<p>数据字段说明</p>
-                     * @return TypeText <p>数据字段说明</p>
-                     * 
-                     */
-                    std::string GetTypeText() const;
-
-                    /**
-                     * 设置<p>数据字段说明</p>
-                     * @param _typeText <p>数据字段说明</p>
-                     * 
-                     */
-                    void SetTypeText(const std::string& _typeText);
-
-                    /**
-                     * 判断参数 TypeText 是否已赋值
-                     * @return TypeText 是否已赋值
-                     * 
-                     */
-                    bool TypeTextHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>列名称，不区分大小写，最大支持25个字符。</p>
+                     * 列名称，不区分大小写，最大支持25个字符。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype</p>
+                     * string|tinyint|smallint|int|bigint|boolean|float|double|decimal|timestamp|date|binary|array|map|struct|uniontype
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>对该类的注释。</p>
+                     * 对该类的注释。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_comment;
                     bool m_commentHasBeenSet;
 
                     /**
-                     * <p>表示整个 numeric 的长度</p>
+                     * 表示整个 numeric 的长度
                      */
                     int64_t m_precision;
                     bool m_precisionHasBeenSet;
 
                     /**
-                     * <p>表示小数部分的长度</p>
+                     * 表示小数部分的长度
                      */
                     int64_t m_scale;
                     bool m_scaleHasBeenSet;
 
                     /**
-                     * <p>是否为null</p>
+                     * 是否为null
                      */
                     std::string m_nullable;
                     bool m_nullableHasBeenSet;
 
                     /**
-                     * <p>字段位置，小的在前</p>
+                     * 字段位置，小的在前
                      */
                     int64_t m_position;
                     bool m_positionHasBeenSet;
 
                     /**
-                     * <p>字段创建时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
+                     * 字段创建时间
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>字段修改时间</p><p>参数格式：YYYY-MM-DD hh:mm:ss</p>
+                     * 字段修改时间
                      */
                     std::string m_modifiedTime;
                     bool m_modifiedTimeHasBeenSet;
 
                     /**
-                     * <p>是否为分区字段</p>
+                     * 是否为分区字段
                      */
                     bool m_isPartition;
                     bool m_isPartitionHasBeenSet;
 
                     /**
-                     * <p>数据脱敏策略信息</p>
+                     * 数据脱敏策略信息
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     DataMaskStrategyInfo m_dataMaskStrategyInfo;
                     bool m_dataMaskStrategyInfoHasBeenSet;
-
-                    /**
-                     * <p>数据字段说明</p>
-                     */
-                    std::string m_typeText;
-                    bool m_typeTextHasBeenSet;
 
                 };
             }

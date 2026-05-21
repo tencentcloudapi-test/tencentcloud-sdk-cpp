@@ -23,10 +23,7 @@ using TencentCloud::CoreInternalOutcome;
 using namespace TencentCloud::Waf::V20180125::Model;
 using namespace std;
 
-ImportIpAccessControlResponse::ImportIpAccessControlResponse() :
-    m_successCountHasBeenSet(false),
-    m_totalCountHasBeenSet(false),
-    m_timestampHasBeenSet(false)
+ImportIpAccessControlResponse::ImportIpAccessControlResponse()
 {
 }
 
@@ -64,36 +61,6 @@ CoreInternalOutcome ImportIpAccessControlResponse::Deserialize(const string &pay
     }
 
 
-    if (rsp.HasMember("SuccessCount") && !rsp["SuccessCount"].IsNull())
-    {
-        if (!rsp["SuccessCount"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `SuccessCount` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_successCount = rsp["SuccessCount"].GetInt64();
-        m_successCountHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("TotalCount") && !rsp["TotalCount"].IsNull())
-    {
-        if (!rsp["TotalCount"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TotalCount` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_totalCount = rsp["TotalCount"].GetInt64();
-        m_totalCountHasBeenSet = true;
-    }
-
-    if (rsp.HasMember("Timestamp") && !rsp["Timestamp"].IsNull())
-    {
-        if (!rsp["Timestamp"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `Timestamp` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_timestamp = rsp["Timestamp"].GetInt64();
-        m_timestampHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -103,30 +70,6 @@ string ImportIpAccessControlResponse::ToJsonString() const
     rapidjson::Document value;
     value.SetObject();
     rapidjson::Document::AllocatorType& allocator = value.GetAllocator();
-
-    if (m_successCountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SuccessCount";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_successCount, allocator);
-    }
-
-    if (m_totalCountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TotalCount";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_totalCount, allocator);
-    }
-
-    if (m_timestampHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Timestamp";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_timestamp, allocator);
-    }
 
     rapidjson::Value iKey(rapidjson::kStringType);
     string key = "RequestId";
@@ -139,35 +82,5 @@ string ImportIpAccessControlResponse::ToJsonString() const
     return buffer.GetString();
 }
 
-
-int64_t ImportIpAccessControlResponse::GetSuccessCount() const
-{
-    return m_successCount;
-}
-
-bool ImportIpAccessControlResponse::SuccessCountHasBeenSet() const
-{
-    return m_successCountHasBeenSet;
-}
-
-int64_t ImportIpAccessControlResponse::GetTotalCount() const
-{
-    return m_totalCount;
-}
-
-bool ImportIpAccessControlResponse::TotalCountHasBeenSet() const
-{
-    return m_totalCountHasBeenSet;
-}
-
-int64_t ImportIpAccessControlResponse::GetTimestamp() const
-{
-    return m_timestamp;
-}
-
-bool ImportIpAccessControlResponse::TimestampHasBeenSet() const
-{
-    return m_timestampHasBeenSet;
-}
 
 

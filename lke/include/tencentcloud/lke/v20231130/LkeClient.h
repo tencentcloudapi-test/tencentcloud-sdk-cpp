@@ -23,8 +23,6 @@
 #include <tencentcloud/core/Credential.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
 #include <tencentcloud/core/AsyncCallerContext.h>
-#include <tencentcloud/lke/v20231130/model/CallbackWorkflowToolNodeRequest.h>
-#include <tencentcloud/lke/v20231130/model/CallbackWorkflowToolNodeResponse.h>
 #include <tencentcloud/lke/v20231130/model/CheckAttributeLabelExistRequest.h>
 #include <tencentcloud/lke/v20231130/model/CheckAttributeLabelExistResponse.h>
 #include <tencentcloud/lke/v20231130/model/CheckAttributeLabelReferRequest.h>
@@ -249,9 +247,6 @@ namespace TencentCloud
                 LkeClient(const Credential &credential, const std::string &region);
                 LkeClient(const Credential &credential, const std::string &region, const ClientProfile &profile);
 
-                typedef Outcome<Core::Error, Model::CallbackWorkflowToolNodeResponse> CallbackWorkflowToolNodeOutcome;
-                typedef std::future<CallbackWorkflowToolNodeOutcome> CallbackWorkflowToolNodeOutcomeCallable;
-                typedef std::function<void(const LkeClient*, const Model::CallbackWorkflowToolNodeRequest&, CallbackWorkflowToolNodeOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CallbackWorkflowToolNodeAsyncHandler;
                 typedef Outcome<Core::Error, Model::CheckAttributeLabelExistResponse> CheckAttributeLabelExistOutcome;
                 typedef std::future<CheckAttributeLabelExistOutcome> CheckAttributeLabelExistOutcomeCallable;
                 typedef std::function<void(const LkeClient*, const Model::CheckAttributeLabelExistRequest&, CheckAttributeLabelExistOutcome, const std::shared_ptr<const AsyncCallerContext>&)> CheckAttributeLabelExistAsyncHandler;
@@ -571,15 +566,6 @@ namespace TencentCloud
 
 
                 /**
-                 *工作流工具节点异步回调
-                 * @param req CallbackWorkflowToolNodeRequest
-                 * @return CallbackWorkflowToolNodeOutcome
-                 */
-                CallbackWorkflowToolNodeOutcome CallbackWorkflowToolNode(const Model::CallbackWorkflowToolNodeRequest &request);
-                void CallbackWorkflowToolNodeAsync(const Model::CallbackWorkflowToolNodeRequest& request, const CallbackWorkflowToolNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context = nullptr);
-                CallbackWorkflowToolNodeOutcomeCallable CallbackWorkflowToolNodeCallable(const Model::CallbackWorkflowToolNodeRequest& request);
-
-                /**
                  *检查属性下的标签名是否存在
                  * @param req CheckAttributeLabelExistRequest
                  * @return CheckAttributeLabelExistOutcome
@@ -626,9 +612,6 @@ namespace TencentCloud
 
                 /**
                  *录入问答
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
                  * @param req CreateQARequest
                  * @return CreateQAOutcome
                  */
@@ -638,10 +621,6 @@ namespace TencentCloud
 
                 /**
                  *创建QA分类
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
-单个知识库内支持创建的分类数量上限为 2000 个。
                  * @param req CreateQACateRequest
                  * @return CreateQACateOutcome
                  */
@@ -687,7 +666,7 @@ namespace TencentCloud
 
                 /**
                  *本接口用来创建工作流的异步运行实例，创建成功后工作流会在后台异步运行，接口返回工作流运行实例ID（WorkflowRunId）等信息。后面可通过调用DescribeWorkflowRun接口查工作流运行的详情。
-注意：工作流的异步运行是基于应用的，需要先把对应的应用配置成“单工作流模式”，才能创建成功。
+注意：工作流的异步运行是基于应用的，需要先把对应的应用配置成“单工作流模式”，并且打开“异步调用”的开关，才能创建成功。
                  * @param req CreateWorkflowRunRequest
                  * @return CreateWorkflowRunOutcome
                  */
@@ -993,7 +972,7 @@ namespace TencentCloud
                 DescribeWorkflowRunOutcomeCallable DescribeWorkflowRunCallable(const Model::DescribeWorkflowRunRequest& request);
 
                 /**
-                 *导出标签
+                 *导出属性标签
                  * @param req ExportAttributeLabelRequest
                  * @return ExportAttributeLabelOutcome
                  */
@@ -1003,9 +982,6 @@ namespace TencentCloud
 
                 /**
                  *导出QA列表
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
                  * @param req ExportQAListRequest
                  * @return ExportQAListOutcome
                  */
@@ -1015,9 +991,6 @@ namespace TencentCloud
 
                 /**
                  *导出不满意回复
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
                  * @param req ExportUnsatisfiedReplyRequest
                  * @return ExportUnsatisfiedReplyOutcome
                  */
@@ -1126,10 +1099,7 @@ namespace TencentCloud
                 GroupDocOutcomeCallable GroupDocCallable(const Model::GroupDocRequest& request);
 
                 /**
-                 *用户将多个问答批量的分类到知识库的具体分类
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
+                 *QA分组
                  * @param req GroupQARequest
                  * @return GroupQAOutcome
                  */
@@ -1220,9 +1190,6 @@ namespace TencentCloud
 
                 /**
                  *问答列表
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
                  * @param req ListQARequest
                  * @return ListQAOutcome
                  */
@@ -1232,9 +1199,6 @@ namespace TencentCloud
 
                 /**
                  *获取QA分类
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
                  * @param req ListQACateRequest
                  * @return ListQACateOutcome
                  */
@@ -1306,7 +1270,7 @@ namespace TencentCloud
                 ListReleaseQAPreviewOutcomeCallable ListReleaseQAPreviewCallable(const Model::ListReleaseQAPreviewRequest& request);
 
                 /**
-                 *获取文档下拉列表。
+                 *文档生成问答时，可通过该接口获得当前支持生成问答的文档列表，当前不支持xlsx、xls、csv格式的文档生成问答，且文档需处于待发布或已发布状态才可生成问答。
                  * @param req ListSelectDocRequest
                  * @return ListSelectDocOutcome
                  */
@@ -1546,9 +1510,6 @@ namespace TencentCloud
 
                 /**
                  *校验问答
-知识库相关背景知识介绍
-“知识库检索范围”文档：https://cloud.tencent.com/document/product/1759/112704
-“标签”文档：https://cloud.tencent.com/document/product/1759/112956
                  * @param req VerifyQARequest
                  * @return VerifyQAOutcome
                  */

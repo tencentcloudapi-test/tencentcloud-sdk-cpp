@@ -29,10 +29,8 @@ AdaptiveDynamicStreamingInfoItem::AdaptiveDynamicStreamingInfoItem() :
     m_digitalWatermarkTypeHasBeenSet(false),
     m_subStreamSetHasBeenSet(false),
     m_copyRightWatermarkTextHasBeenSet(false),
-    m_blindWatermarkDefinitionHasBeenSet(false),
     m_subtitleSetHasBeenSet(false),
-    m_defaultSubtitleIdHasBeenSet(false),
-    m_drmEncryptTypeHasBeenSet(false)
+    m_defaultSubtitleIdHasBeenSet(false)
 {
 }
 
@@ -131,16 +129,6 @@ CoreInternalOutcome AdaptiveDynamicStreamingInfoItem::Deserialize(const rapidjso
         m_copyRightWatermarkTextHasBeenSet = true;
     }
 
-    if (value.HasMember("BlindWatermarkDefinition") && !value["BlindWatermarkDefinition"].IsNull())
-    {
-        if (!value["BlindWatermarkDefinition"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveDynamicStreamingInfoItem.BlindWatermarkDefinition` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_blindWatermarkDefinition = value["BlindWatermarkDefinition"].GetInt64();
-        m_blindWatermarkDefinitionHasBeenSet = true;
-    }
-
     if (value.HasMember("SubtitleSet") && !value["SubtitleSet"].IsNull())
     {
         if (!value["SubtitleSet"].IsArray())
@@ -169,16 +157,6 @@ CoreInternalOutcome AdaptiveDynamicStreamingInfoItem::Deserialize(const rapidjso
         }
         m_defaultSubtitleId = string(value["DefaultSubtitleId"].GetString());
         m_defaultSubtitleIdHasBeenSet = true;
-    }
-
-    if (value.HasMember("DrmEncryptType") && !value["DrmEncryptType"].IsNull())
-    {
-        if (!value["DrmEncryptType"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `AdaptiveDynamicStreamingInfoItem.DrmEncryptType` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_drmEncryptType = string(value["DrmEncryptType"].GetString());
-        m_drmEncryptTypeHasBeenSet = true;
     }
 
 
@@ -259,14 +237,6 @@ void AdaptiveDynamicStreamingInfoItem::ToJsonObject(rapidjson::Value &value, rap
         value.AddMember(iKey, rapidjson::Value(m_copyRightWatermarkText.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_blindWatermarkDefinitionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "BlindWatermarkDefinition";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_blindWatermarkDefinition, allocator);
-    }
-
     if (m_subtitleSetHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -288,14 +258,6 @@ void AdaptiveDynamicStreamingInfoItem::ToJsonObject(rapidjson::Value &value, rap
         string key = "DefaultSubtitleId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_defaultSubtitleId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_drmEncryptTypeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "DrmEncryptType";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_drmEncryptType.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -429,22 +391,6 @@ bool AdaptiveDynamicStreamingInfoItem::CopyRightWatermarkTextHasBeenSet() const
     return m_copyRightWatermarkTextHasBeenSet;
 }
 
-int64_t AdaptiveDynamicStreamingInfoItem::GetBlindWatermarkDefinition() const
-{
-    return m_blindWatermarkDefinition;
-}
-
-void AdaptiveDynamicStreamingInfoItem::SetBlindWatermarkDefinition(const int64_t& _blindWatermarkDefinition)
-{
-    m_blindWatermarkDefinition = _blindWatermarkDefinition;
-    m_blindWatermarkDefinitionHasBeenSet = true;
-}
-
-bool AdaptiveDynamicStreamingInfoItem::BlindWatermarkDefinitionHasBeenSet() const
-{
-    return m_blindWatermarkDefinitionHasBeenSet;
-}
-
 vector<MediaSubtitleItem> AdaptiveDynamicStreamingInfoItem::GetSubtitleSet() const
 {
     return m_subtitleSet;
@@ -475,21 +421,5 @@ void AdaptiveDynamicStreamingInfoItem::SetDefaultSubtitleId(const string& _defau
 bool AdaptiveDynamicStreamingInfoItem::DefaultSubtitleIdHasBeenSet() const
 {
     return m_defaultSubtitleIdHasBeenSet;
-}
-
-string AdaptiveDynamicStreamingInfoItem::GetDrmEncryptType() const
-{
-    return m_drmEncryptType;
-}
-
-void AdaptiveDynamicStreamingInfoItem::SetDrmEncryptType(const string& _drmEncryptType)
-{
-    m_drmEncryptType = _drmEncryptType;
-    m_drmEncryptTypeHasBeenSet = true;
-}
-
-bool AdaptiveDynamicStreamingInfoItem::DrmEncryptTypeHasBeenSet() const
-{
-    return m_drmEncryptTypeHasBeenSet;
 }
 

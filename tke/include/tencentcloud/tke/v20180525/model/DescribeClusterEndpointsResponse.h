@@ -171,20 +171,6 @@ namespace TencentCloud
                      */
                     bool ClusterIntranetSubnetIdHasBeenSet() const;
 
-                    /**
-                     * 获取内网安全组
-                     * @return IntranetSecurityGroup 内网安全组
-                     * 
-                     */
-                    std::string GetIntranetSecurityGroup() const;
-
-                    /**
-                     * 判断参数 IntranetSecurityGroup 是否已赋值
-                     * @return IntranetSecurityGroup 是否已赋值
-                     * 
-                     */
-                    bool IntranetSecurityGroupHasBeenSet() const;
-
                 private:
 
                     /**
@@ -241,12 +227,6 @@ namespace TencentCloud
                      */
                     std::string m_clusterIntranetSubnetId;
                     bool m_clusterIntranetSubnetIdHasBeenSet;
-
-                    /**
-                     * 内网安全组
-                     */
-                    std::string m_intranetSecurityGroup;
-                    bool m_intranetSecurityGroupHasBeenSet;
 
                 };
             }

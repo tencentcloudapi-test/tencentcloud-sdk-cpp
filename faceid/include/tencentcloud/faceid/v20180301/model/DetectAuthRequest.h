@@ -159,27 +159,19 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取认证结束后重定向的回调链接地址，仅微信H5场景使用。
+                     * 获取认证结束后重定向的回调链接地址。
 - 最长长度1024位。
-- 默认值：[腾讯云人脸核身产品介绍页](URL Here)https://cloud.tencent.com/product/faceid?Is=sdk-topnav 
-
-                     * @return RedirectUrl 认证结束后重定向的回调链接地址，仅微信H5场景使用。
+                     * @return RedirectUrl 认证结束后重定向的回调链接地址。
 - 最长长度1024位。
-- 默认值：[腾讯云人脸核身产品介绍页](URL Here)https://cloud.tencent.com/product/faceid?Is=sdk-topnav 
-
                      * 
                      */
                     std::string GetRedirectUrl() const;
 
                     /**
-                     * 设置认证结束后重定向的回调链接地址，仅微信H5场景使用。
+                     * 设置认证结束后重定向的回调链接地址。
 - 最长长度1024位。
-- 默认值：[腾讯云人脸核身产品介绍页](URL Here)https://cloud.tencent.com/product/faceid?Is=sdk-topnav 
-
-                     * @param _redirectUrl 认证结束后重定向的回调链接地址，仅微信H5场景使用。
+                     * @param _redirectUrl 认证结束后重定向的回调链接地址。
 - 最长长度1024位。
-- 默认值：[腾讯云人脸核身产品介绍页](URL Here)https://cloud.tencent.com/product/faceid?Is=sdk-topnav 
-
                      * 
                      */
                     void SetRedirectUrl(const std::string& _redirectUrl);
@@ -412,10 +404,8 @@ namespace TencentCloud
                     bool m_nameHasBeenSet;
 
                     /**
-                     * 认证结束后重定向的回调链接地址，仅微信H5场景使用。
+                     * 认证结束后重定向的回调链接地址。
 - 最长长度1024位。
-- 默认值：[腾讯云人脸核身产品介绍页](URL Here)https://cloud.tencent.com/product/faceid?Is=sdk-topnav 
-
                      */
                     std::string m_redirectUrl;
                     bool m_redirectUrlHasBeenSet;

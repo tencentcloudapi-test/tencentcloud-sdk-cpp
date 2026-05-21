@@ -26,8 +26,7 @@ DescribeScoresRequest::DescribeScoresRequest() :
     m_endTimeHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_iDHasBeenSet(false),
-    m_isDemoHasBeenSet(false),
-    m_iDListHasBeenSet(false)
+    m_isDemoHasBeenSet(false)
 {
 }
 
@@ -68,19 +67,6 @@ string DescribeScoresRequest::ToJsonString() const
         string key = "IsDemo";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_isDemo, allocator);
-    }
-
-    if (m_iDListHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "IDList";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_iDList.begin(); itr != m_iDList.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetInt64(*itr), allocator);
-        }
     }
 
 
@@ -153,22 +139,6 @@ void DescribeScoresRequest::SetIsDemo(const int64_t& _isDemo)
 bool DescribeScoresRequest::IsDemoHasBeenSet() const
 {
     return m_isDemoHasBeenSet;
-}
-
-vector<int64_t> DescribeScoresRequest::GetIDList() const
-{
-    return m_iDList;
-}
-
-void DescribeScoresRequest::SetIDList(const vector<int64_t>& _iDList)
-{
-    m_iDList = _iDList;
-    m_iDListHasBeenSet = true;
-}
-
-bool DescribeScoresRequest::IDListHasBeenSet() const
-{
-    return m_iDListHasBeenSet;
 }
 
 

@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>过滤器的名称</p>
-                     * @return Name <p>过滤器的名称</p>
+                     * 获取过滤器的名称
+                     * @return Name 过滤器的名称
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>过滤器的名称</p>
-                     * @param _name <p>过滤器的名称</p>
+                     * 设置过滤器的名称
+                     * @param _name 过滤器的名称
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>过滤器的值数组</p>
-                     * @return Values <p>过滤器的值数组</p>
+                     * 获取过滤器的值数组
+                     * @return Values 过滤器的值数组
                      * 
                      */
                     std::vector<std::string> GetValues() const;
 
                     /**
-                     * 设置<p>过滤器的值数组</p>
-                     * @param _values <p>过滤器的值数组</p>
+                     * 设置过滤器的值数组
+                     * @param _values 过滤器的值数组
                      * 
                      */
                     void SetValues(const std::vector<std::string>& _values);
@@ -91,13 +91,13 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>过滤器的名称</p>
+                     * 过滤器的名称
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>过滤器的值数组</p>
+                     * 过滤器的值数组
                      */
                     std::vector<std::string> m_values;
                     bool m_valuesHasBeenSet;

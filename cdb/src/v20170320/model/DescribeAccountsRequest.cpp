@@ -28,8 +28,7 @@ DescribeAccountsRequest::DescribeAccountsRequest() :
     m_limitHasBeenSet(false),
     m_accountRegexpHasBeenSet(false),
     m_sortByHasBeenSet(false),
-    m_orderByHasBeenSet(false),
-    m_hostRegexpHasBeenSet(false)
+    m_orderByHasBeenSet(false)
 {
 }
 
@@ -86,14 +85,6 @@ string DescribeAccountsRequest::ToJsonString() const
         string key = "OrderBy";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_orderBy.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_hostRegexpHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "HostRegexp";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_hostRegexp.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -198,22 +189,6 @@ void DescribeAccountsRequest::SetOrderBy(const string& _orderBy)
 bool DescribeAccountsRequest::OrderByHasBeenSet() const
 {
     return m_orderByHasBeenSet;
-}
-
-string DescribeAccountsRequest::GetHostRegexp() const
-{
-    return m_hostRegexp;
-}
-
-void DescribeAccountsRequest::SetHostRegexp(const string& _hostRegexp)
-{
-    m_hostRegexp = _hostRegexp;
-    m_hostRegexpHasBeenSet = true;
-}
-
-bool DescribeAccountsRequest::HostRegexpHasBeenSet() const
-{
-    return m_hostRegexpHasBeenSet;
 }
 
 

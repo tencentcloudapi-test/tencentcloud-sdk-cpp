@@ -27,7 +27,6 @@
 #include <tencentcloud/emr/v20190103/model/Tag.h>
 #include <tencentcloud/emr/v20190103/model/LoginSettings.h>
 #include <tencentcloud/emr/v20190103/model/ExternalService.h>
-#include <tencentcloud/emr/v20190103/model/ContainerExtraConf.h>
 
 
 namespace TencentCloud
@@ -50,15 +49,23 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>实例名称。</p><li>长度限制为6-36个字符。</li><li>只允许包含中文、字母、数字、-、_。</li>
-                     * @return InstanceName <p>实例名称。</p><li>长度限制为6-36个字符。</li><li>只允许包含中文、字母、数字、-、_。</li>
+                     * 获取实例名称。
+<li>长度限制为6-36个字符。</li>
+<li>只允许包含中文、字母、数字、-、_。</li>
+                     * @return InstanceName 实例名称。
+<li>长度限制为6-36个字符。</li>
+<li>只允许包含中文、字母、数字、-、_。</li>
                      * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
-                     * 设置<p>实例名称。</p><li>长度限制为6-36个字符。</li><li>只允许包含中文、字母、数字、-、_。</li>
-                     * @param _instanceName <p>实例名称。</p><li>长度限制为6-36个字符。</li><li>只允许包含中文、字母、数字、-、_。</li>
+                     * 设置实例名称。
+<li>长度限制为6-36个字符。</li>
+<li>只允许包含中文、字母、数字、-、_。</li>
+                     * @param _instanceName 实例名称。
+<li>长度限制为6-36个字符。</li>
+<li>只允许包含中文、字母、数字、-、_。</li>
                      * 
                      */
                     void SetInstanceName(const std::string& _instanceName);
@@ -71,15 +78,19 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>容器集群类型，取值范围</p><li>EMR容器集群实例: EMR-TKE</li>
-                     * @return ClusterClass <p>容器集群类型，取值范围</p><li>EMR容器集群实例: EMR-TKE</li>
+                     * 获取容器集群类型，取值范围
+<li>EMR容器集群实例: EMR-TKE</li>
+                     * @return ClusterClass 容器集群类型，取值范围
+<li>EMR容器集群实例: EMR-TKE</li>
                      * 
                      */
                     std::string GetClusterClass() const;
 
                     /**
-                     * 设置<p>容器集群类型，取值范围</p><li>EMR容器集群实例: EMR-TKE</li>
-                     * @param _clusterClass <p>容器集群类型，取值范围</p><li>EMR容器集群实例: EMR-TKE</li>
+                     * 设置容器集群类型，取值范围
+<li>EMR容器集群实例: EMR-TKE</li>
+                     * @param _clusterClass 容器集群类型，取值范围
+<li>EMR容器集群实例: EMR-TKE</li>
                      * 
                      */
                     void SetClusterClass(const std::string& _clusterClass);
@@ -92,15 +103,19 @@ namespace TencentCloud
                     bool ClusterClassHasBeenSet() const;
 
                     /**
-                     * 获取<p>部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：<a href="https://cloud.tencent.com/document/product/589/20279">组件版本</a> ；</p>
-                     * @return Software <p>部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：<a href="https://cloud.tencent.com/document/product/589/20279">组件版本</a> ；</p>
+                     * 获取部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+
+                     * @return Software 部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+
                      * 
                      */
                     std::vector<std::string> GetSoftware() const;
 
                     /**
-                     * 设置<p>部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：<a href="https://cloud.tencent.com/document/product/589/20279">组件版本</a> ；</p>
-                     * @param _software <p>部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：<a href="https://cloud.tencent.com/document/product/589/20279">组件版本</a> ；</p>
+                     * 设置部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+
+                     * @param _software 部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+
                      * 
                      */
                     void SetSoftware(const std::vector<std::string>& _software);
@@ -113,15 +128,19 @@ namespace TencentCloud
                     bool SoftwareHasBeenSet() const;
 
                     /**
-                     * 获取<p>容器平台类型，取值范围</p><li>EMR容器集群实例: tke</li>
-                     * @return PlatFormType <p>容器平台类型，取值范围</p><li>EMR容器集群实例: tke</li>
+                     * 获取容器平台类型，取值范围
+<li>EMR容器集群实例: tke</li>
+                     * @return PlatFormType 容器平台类型，取值范围
+<li>EMR容器集群实例: tke</li>
                      * 
                      */
                     std::string GetPlatFormType() const;
 
                     /**
-                     * 设置<p>容器平台类型，取值范围</p><li>EMR容器集群实例: tke</li>
-                     * @param _platFormType <p>容器平台类型，取值范围</p><li>EMR容器集群实例: tke</li>
+                     * 设置容器平台类型，取值范围
+<li>EMR容器集群实例: tke</li>
+                     * @param _platFormType 容器平台类型，取值范围
+<li>EMR容器集群实例: tke</li>
                      * 
                      */
                     void SetPlatFormType(const std::string& _platFormType);
@@ -134,15 +153,15 @@ namespace TencentCloud
                     bool PlatFormTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>cos存储桶</p>
-                     * @return CosBucket <p>cos存储桶</p>
+                     * 获取cos存储桶
+                     * @return CosBucket cos存储桶
                      * 
                      */
                     std::string GetCosBucket() const;
 
                     /**
-                     * 设置<p>cos存储桶</p>
-                     * @param _cosBucket <p>cos存储桶</p>
+                     * 设置cos存储桶
+                     * @param _cosBucket cos存储桶
                      * 
                      */
                     void SetCosBucket(const std::string& _cosBucket);
@@ -155,15 +174,15 @@ namespace TencentCloud
                     bool CosBucketHasBeenSet() const;
 
                     /**
-                     * 获取<p>容器集群id</p>
-                     * @return EksClusterId <p>容器集群id</p>
+                     * 获取容器集群id
+                     * @return EksClusterId 容器集群id
                      * 
                      */
                     std::string GetEksClusterId() const;
 
                     /**
-                     * 设置<p>容器集群id</p>
-                     * @param _eksClusterId <p>容器集群id</p>
+                     * 设置容器集群id
+                     * @param _eksClusterId 容器集群id
                      * 
                      */
                     void SetEksClusterId(const std::string& _eksClusterId);
@@ -176,15 +195,27 @@ namespace TencentCloud
                     bool EksClusterIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>产品Id，不同产品ID表示不同的EMR产品版本。取值范围：</p><li>60:表示EMR-TKE-V1.1.0</li><li>55:表示EMR-TKE-V1.0.1</li><li>52:表示EMR-TKE-V1.0.0</li>
-                     * @return ProductId <p>产品Id，不同产品ID表示不同的EMR产品版本。取值范围：</p><li>60:表示EMR-TKE-V1.1.0</li><li>55:表示EMR-TKE-V1.0.1</li><li>52:表示EMR-TKE-V1.0.0</li>
+                     * 获取产品Id，不同产品ID表示不同的EMR产品版本。取值范围：
+<li>60:表示EMR-TKE-V1.1.0</li>
+<li>55:表示EMR-TKE-V1.0.1</li>
+<li>52:表示EMR-TKE-V1.0.0</li>
+                     * @return ProductId 产品Id，不同产品ID表示不同的EMR产品版本。取值范围：
+<li>60:表示EMR-TKE-V1.1.0</li>
+<li>55:表示EMR-TKE-V1.0.1</li>
+<li>52:表示EMR-TKE-V1.0.0</li>
                      * 
                      */
                     int64_t GetProductId() const;
 
                     /**
-                     * 设置<p>产品Id，不同产品ID表示不同的EMR产品版本。取值范围：</p><li>60:表示EMR-TKE-V1.1.0</li><li>55:表示EMR-TKE-V1.0.1</li><li>52:表示EMR-TKE-V1.0.0</li>
-                     * @param _productId <p>产品Id，不同产品ID表示不同的EMR产品版本。取值范围：</p><li>60:表示EMR-TKE-V1.1.0</li><li>55:表示EMR-TKE-V1.0.1</li><li>52:表示EMR-TKE-V1.0.0</li>
+                     * 设置产品Id，不同产品ID表示不同的EMR产品版本。取值范围：
+<li>60:表示EMR-TKE-V1.1.0</li>
+<li>55:表示EMR-TKE-V1.0.1</li>
+<li>52:表示EMR-TKE-V1.0.0</li>
+                     * @param _productId 产品Id，不同产品ID表示不同的EMR产品版本。取值范围：
+<li>60:表示EMR-TKE-V1.1.0</li>
+<li>55:表示EMR-TKE-V1.0.1</li>
+<li>52:表示EMR-TKE-V1.0.0</li>
                      * 
                      */
                     void SetProductId(const int64_t& _productId);
@@ -197,15 +228,19 @@ namespace TencentCloud
                     bool ProductIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280<br>示例值：a9a90aa6fae36063280</p>
-                     * @return ClientToken <p>客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280<br>示例值：a9a90aa6fae36063280</p>
+                     * 获取客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280
+示例值：a9a90aa6fae36063280
+                     * @return ClientToken 客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280
+示例值：a9a90aa6fae36063280
                      * 
                      */
                     std::string GetClientToken() const;
 
                     /**
-                     * 设置<p>客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280<br>示例值：a9a90aa6fae36063280</p>
-                     * @param _clientToken <p>客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280<br>示例值：a9a90aa6fae36063280</p>
+                     * 设置客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280
+示例值：a9a90aa6fae36063280
+                     * @param _clientToken 客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280
+示例值：a9a90aa6fae36063280
                      * 
                      */
                     void SetClientToken(const std::string& _clientToken);
@@ -218,15 +253,15 @@ namespace TencentCloud
                     bool ClientTokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。</p>
-                     * @return VPCSettings <p>私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。</p>
+                     * 获取私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。
+                     * @return VPCSettings 私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。
                      * 
                      */
                     VPCSettings GetVPCSettings() const;
 
                     /**
-                     * 设置<p>私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。</p>
-                     * @param _vPCSettings <p>私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。</p>
+                     * 设置私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。
+                     * @param _vPCSettings 私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。
                      * 
                      */
                     void SetVPCSettings(const VPCSettings& _vPCSettings);
@@ -239,15 +274,15 @@ namespace TencentCloud
                     bool VPCSettingsHasBeenSet() const;
 
                     /**
-                     * 获取<p>所有组件角色及其对应的Pod资源请求信息</p>
-                     * @return CloudResources <p>所有组件角色及其对应的Pod资源请求信息</p>
+                     * 获取所有组件角色及其对应的Pod资源请求信息
+                     * @return CloudResources 所有组件角色及其对应的Pod资源请求信息
                      * 
                      */
                     std::vector<CloudResource> GetCloudResources() const;
 
                     /**
-                     * 设置<p>所有组件角色及其对应的Pod资源请求信息</p>
-                     * @param _cloudResources <p>所有组件角色及其对应的Pod资源请求信息</p>
+                     * 设置所有组件角色及其对应的Pod资源请求信息
+                     * @param _cloudResources 所有组件角色及其对应的Pod资源请求信息
                      * 
                      */
                     void SetCloudResources(const std::vector<CloudResource>& _cloudResources);
@@ -260,15 +295,15 @@ namespace TencentCloud
                     bool CloudResourcesHasBeenSet() const;
 
                     /**
-                     * 获取<p>安全组Id，为空默认创建新的安全组</p>
-                     * @return SgId <p>安全组Id，为空默认创建新的安全组</p>
+                     * 获取安全组Id，为空默认创建新的安全组
+                     * @return SgId 安全组Id，为空默认创建新的安全组
                      * 
                      */
                     std::string GetSgId() const;
 
                     /**
-                     * 设置<p>安全组Id，为空默认创建新的安全组</p>
-                     * @param _sgId <p>安全组Id，为空默认创建新的安全组</p>
+                     * 设置安全组Id，为空默认创建新的安全组
+                     * @param _sgId 安全组Id，为空默认创建新的安全组
                      * 
                      */
                     void SetSgId(const std::string& _sgId);
@@ -281,15 +316,27 @@ namespace TencentCloud
                     bool SgIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>元数据库信息<br>MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填<br>当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId<br>当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass</p>
-                     * @return MetaDBInfo <p>元数据库信息<br>MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填<br>当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId<br>当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass</p>
+                     * 获取元数据库信息
+MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填
+当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId
+当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass
+                     * @return MetaDBInfo 元数据库信息
+MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填
+当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId
+当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass
                      * 
                      */
                     CustomMetaDBInfo GetMetaDBInfo() const;
 
                     /**
-                     * 设置<p>元数据库信息<br>MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填<br>当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId<br>当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass</p>
-                     * @param _metaDBInfo <p>元数据库信息<br>MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填<br>当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId<br>当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass</p>
+                     * 设置元数据库信息
+MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填
+当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId
+当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass
+                     * @param _metaDBInfo 元数据库信息
+MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填
+当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId
+当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass
                      * 
                      */
                     void SetMetaDBInfo(const CustomMetaDBInfo& _metaDBInfo);
@@ -302,15 +349,15 @@ namespace TencentCloud
                     bool MetaDBInfoHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签信息</p>
-                     * @return Tags <p>标签信息</p>
+                     * 获取标签信息
+                     * @return Tags 标签信息
                      * 
                      */
                     std::vector<Tag> GetTags() const;
 
                     /**
-                     * 设置<p>标签信息</p>
-                     * @param _tags <p>标签信息</p>
+                     * 设置标签信息
+                     * @param _tags 标签信息
                      * 
                      */
                     void SetTags(const std::vector<Tag>& _tags);
@@ -323,15 +370,15 @@ namespace TencentCloud
                     bool TagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>登录密码，LoginSettings中的Password字段</p>
-                     * @return LoginSettings <p>登录密码，LoginSettings中的Password字段</p>
+                     * 获取登录密码，LoginSettings中的Password字段
+                     * @return LoginSettings 登录密码，LoginSettings中的Password字段
                      * 
                      */
                     LoginSettings GetLoginSettings() const;
 
                     /**
-                     * 设置<p>登录密码，LoginSettings中的Password字段</p>
-                     * @param _loginSettings <p>登录密码，LoginSettings中的Password字段</p>
+                     * 设置登录密码，LoginSettings中的Password字段
+                     * @param _loginSettings 登录密码，LoginSettings中的Password字段
                      * 
                      */
                     void SetLoginSettings(const LoginSettings& _loginSettings);
@@ -344,15 +391,15 @@ namespace TencentCloud
                     bool LoginSettingsHasBeenSet() const;
 
                     /**
-                     * 获取<p>共享服务信息</p>
-                     * @return ExternalService <p>共享服务信息</p>
+                     * 获取共享服务信息
+                     * @return ExternalService 共享服务信息
                      * 
                      */
                     std::vector<ExternalService> GetExternalService() const;
 
                     /**
-                     * 设置<p>共享服务信息</p>
-                     * @param _externalService <p>共享服务信息</p>
+                     * 设置共享服务信息
+                     * @param _externalService 共享服务信息
                      * 
                      */
                     void SetExternalService(const std::vector<ExternalService>& _externalService);
@@ -365,15 +412,15 @@ namespace TencentCloud
                     bool ExternalServiceHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区id</p>
-                     * @return ZoneId <p>可用区id</p>
+                     * 获取可用区id
+                     * @return ZoneId 可用区id
                      * 
                      */
                     int64_t GetZoneId() const;
 
                     /**
-                     * 设置<p>可用区id</p>
-                     * @param _zoneId <p>可用区id</p>
+                     * 设置可用区id
+                     * @param _zoneId 可用区id
                      * 
                      */
                     void SetZoneId(const int64_t& _zoneId);
@@ -386,15 +433,15 @@ namespace TencentCloud
                     bool ZoneIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据库版本</p>
-                     * @return DefaultMetaVersion <p>数据库版本</p>
+                     * 获取数据库版本
+                     * @return DefaultMetaVersion 数据库版本
                      * 
                      */
                     std::string GetDefaultMetaVersion() const;
 
                     /**
-                     * 设置<p>数据库版本</p>
-                     * @param _defaultMetaVersion <p>数据库版本</p>
+                     * 设置数据库版本
+                     * @param _defaultMetaVersion 数据库版本
                      * 
                      */
                     void SetDefaultMetaVersion(const std::string& _defaultMetaVersion);
@@ -407,15 +454,15 @@ namespace TencentCloud
                     bool DefaultMetaVersionHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否开通审计</p>
-                     * @return NeedCdbAudit <p>是否开通审计</p>
+                     * 获取是否开通审计
+                     * @return NeedCdbAudit 是否开通审计
                      * 
                      */
                     int64_t GetNeedCdbAudit() const;
 
                     /**
-                     * 设置<p>是否开通审计</p>
-                     * @param _needCdbAudit <p>是否开通审计</p>
+                     * 设置是否开通审计
+                     * @param _needCdbAudit 是否开通审计
                      * 
                      */
                     void SetNeedCdbAudit(const int64_t& _needCdbAudit);
@@ -427,169 +474,127 @@ namespace TencentCloud
                      */
                     bool NeedCdbAuditHasBeenSet() const;
 
-                    /**
-                     * 获取<p>安全组来源IP</p>
-                     * @return SgIP <p>安全组来源IP</p>
-                     * 
-                     */
-                    std::string GetSgIP() const;
-
-                    /**
-                     * 设置<p>安全组来源IP</p>
-                     * @param _sgIP <p>安全组来源IP</p>
-                     * 
-                     */
-                    void SetSgIP(const std::string& _sgIP);
-
-                    /**
-                     * 判断参数 SgIP 是否已赋值
-                     * @return SgIP 是否已赋值
-                     * 
-                     */
-                    bool SgIPHasBeenSet() const;
-
-                    /**
-                     * 获取<p>额外容器相关配置</p>
-                     * @return ContainerExtraConf <p>额外容器相关配置</p>
-                     * 
-                     */
-                    ContainerExtraConf GetContainerExtraConf() const;
-
-                    /**
-                     * 设置<p>额外容器相关配置</p>
-                     * @param _containerExtraConf <p>额外容器相关配置</p>
-                     * 
-                     */
-                    void SetContainerExtraConf(const ContainerExtraConf& _containerExtraConf);
-
-                    /**
-                     * 判断参数 ContainerExtraConf 是否已赋值
-                     * @return ContainerExtraConf 是否已赋值
-                     * 
-                     */
-                    bool ContainerExtraConfHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>实例名称。</p><li>长度限制为6-36个字符。</li><li>只允许包含中文、字母、数字、-、_。</li>
+                     * 实例名称。
+<li>长度限制为6-36个字符。</li>
+<li>只允许包含中文、字母、数字、-、_。</li>
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>容器集群类型，取值范围</p><li>EMR容器集群实例: EMR-TKE</li>
+                     * 容器集群类型，取值范围
+<li>EMR容器集群实例: EMR-TKE</li>
                      */
                     std::string m_clusterClass;
                     bool m_clusterClassHasBeenSet;
 
                     /**
-                     * <p>部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：<a href="https://cloud.tencent.com/document/product/589/20279">组件版本</a> ；</p>
+                     * 部署的组件列表，不同的EMR产品ID（ProductId：具体含义参考入参ProductId字段）对应不同可选组件列表，不同产品版本可选组件列表查询：[组件版本](https://cloud.tencent.com/document/product/589/20279) ；
+
                      */
                     std::vector<std::string> m_software;
                     bool m_softwareHasBeenSet;
 
                     /**
-                     * <p>容器平台类型，取值范围</p><li>EMR容器集群实例: tke</li>
+                     * 容器平台类型，取值范围
+<li>EMR容器集群实例: tke</li>
                      */
                     std::string m_platFormType;
                     bool m_platFormTypeHasBeenSet;
 
                     /**
-                     * <p>cos存储桶</p>
+                     * cos存储桶
                      */
                     std::string m_cosBucket;
                     bool m_cosBucketHasBeenSet;
 
                     /**
-                     * <p>容器集群id</p>
+                     * 容器集群id
                      */
                     std::string m_eksClusterId;
                     bool m_eksClusterIdHasBeenSet;
 
                     /**
-                     * <p>产品Id，不同产品ID表示不同的EMR产品版本。取值范围：</p><li>60:表示EMR-TKE-V1.1.0</li><li>55:表示EMR-TKE-V1.0.1</li><li>52:表示EMR-TKE-V1.0.0</li>
+                     * 产品Id，不同产品ID表示不同的EMR产品版本。取值范围：
+<li>60:表示EMR-TKE-V1.1.0</li>
+<li>55:表示EMR-TKE-V1.0.1</li>
+<li>52:表示EMR-TKE-V1.0.0</li>
                      */
                     int64_t m_productId;
                     bool m_productIdHasBeenSet;
 
                     /**
-                     * <p>客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280<br>示例值：a9a90aa6fae36063280</p>
+                     * 客户端token，唯一随机标识，时效5分钟，需要调用者指定 防止客户端重新创建资源，小于等于64个字符，例如 a9a90aa6fae36063280
+示例值：a9a90aa6fae36063280
                      */
                     std::string m_clientToken;
                     bool m_clientTokenHasBeenSet;
 
                     /**
-                     * <p>私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。</p>
+                     * 私有网络相关信息配置。通过该参数可以指定私有网络的ID，子网ID等信息。
                      */
                     VPCSettings m_vPCSettings;
                     bool m_vPCSettingsHasBeenSet;
 
                     /**
-                     * <p>所有组件角色及其对应的Pod资源请求信息</p>
+                     * 所有组件角色及其对应的Pod资源请求信息
                      */
                     std::vector<CloudResource> m_cloudResources;
                     bool m_cloudResourcesHasBeenSet;
 
                     /**
-                     * <p>安全组Id，为空默认创建新的安全组</p>
+                     * 安全组Id，为空默认创建新的安全组
                      */
                     std::string m_sgId;
                     bool m_sgIdHasBeenSet;
 
                     /**
-                     * <p>元数据库信息<br>MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填<br>当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId<br>当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass</p>
+                     * 元数据库信息
+MetaDB信息，当MetaType选择EMR_NEW_META时，MetaDataJdbcUrl MetaDataUser MetaDataPass UnifyMetaInstanceId不用填
+当MetaType选择EMR_EXIT_META时，填写UnifyMetaInstanceId
+当MetaType选择USER_CUSTOM_META时，填写MetaDataJdbcUrl MetaDataUser MetaDataPass
                      */
                     CustomMetaDBInfo m_metaDBInfo;
                     bool m_metaDBInfoHasBeenSet;
 
                     /**
-                     * <p>标签信息</p>
+                     * 标签信息
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
 
                     /**
-                     * <p>登录密码，LoginSettings中的Password字段</p>
+                     * 登录密码，LoginSettings中的Password字段
                      */
                     LoginSettings m_loginSettings;
                     bool m_loginSettingsHasBeenSet;
 
                     /**
-                     * <p>共享服务信息</p>
+                     * 共享服务信息
                      */
                     std::vector<ExternalService> m_externalService;
                     bool m_externalServiceHasBeenSet;
 
                     /**
-                     * <p>可用区id</p>
+                     * 可用区id
                      */
                     int64_t m_zoneId;
                     bool m_zoneIdHasBeenSet;
 
                     /**
-                     * <p>数据库版本</p>
+                     * 数据库版本
                      */
                     std::string m_defaultMetaVersion;
                     bool m_defaultMetaVersionHasBeenSet;
 
                     /**
-                     * <p>是否开通审计</p>
+                     * 是否开通审计
                      */
                     int64_t m_needCdbAudit;
                     bool m_needCdbAuditHasBeenSet;
-
-                    /**
-                     * <p>安全组来源IP</p>
-                     */
-                    std::string m_sgIP;
-                    bool m_sgIPHasBeenSet;
-
-                    /**
-                     * <p>额外容器相关配置</p>
-                     */
-                    ContainerExtraConf m_containerExtraConf;
-                    bool m_containerExtraConfHasBeenSet;
 
                 };
             }

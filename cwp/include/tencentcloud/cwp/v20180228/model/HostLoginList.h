@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cwp/v20180228/model/MachineExtraInfo.h>
-#include <tencentcloud/cwp/v20180228/model/IPAnalyse.h>
 
 
 namespace TencentCloud
@@ -526,27 +525,6 @@ XTI - 威胁情报
                      */
                     bool PortHasBeenSet() const;
 
-                    /**
-                     * 获取ip分析
-                     * @return IPAnalyse ip分析
-                     * 
-                     */
-                    IPAnalyse GetIPAnalyse() const;
-
-                    /**
-                     * 设置ip分析
-                     * @param _iPAnalyse ip分析
-                     * 
-                     */
-                    void SetIPAnalyse(const IPAnalyse& _iPAnalyse);
-
-                    /**
-                     * 判断参数 IPAnalyse 是否已赋值
-                     * @return IPAnalyse 是否已赋值
-                     * 
-                     */
-                    bool IPAnalyseHasBeenSet() const;
-
                 private:
 
                     /**
@@ -684,12 +662,6 @@ XTI - 威胁情报
                      */
                     int64_t m_port;
                     bool m_portHasBeenSet;
-
-                    /**
-                     * ip分析
-                     */
-                    IPAnalyse m_iPAnalyse;
-                    bool m_iPAnalyseHasBeenSet;
 
                 };
             }

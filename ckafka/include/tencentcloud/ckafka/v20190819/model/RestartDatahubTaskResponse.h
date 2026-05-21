@@ -45,9 +45,9 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务id</p>
+                     * 获取任务id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Result <p>任务id</p>
+                     * @return Result 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -63,7 +63,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>任务id</p>
+                     * 任务id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     DatahubTaskIdRes m_result;

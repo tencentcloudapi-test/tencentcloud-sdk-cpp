@@ -27,10 +27,7 @@ ModifyKnowledgeBaseRequest::ModifyKnowledgeBaseRequest() :
     m_operateTypeHasBeenSet(false),
     m_knowledgeBaseIdHasBeenSet(false),
     m_knowledgeBaseNameHasBeenSet(false),
-    m_knowledgeBaseDescHasBeenSet(false),
-    m_useScopeHasBeenSet(false),
-    m_authorityUinsHasBeenSet(false),
-    m_configHasBeenSet(false)
+    m_knowledgeBaseDescHasBeenSet(false)
 {
 }
 
@@ -79,36 +76,6 @@ string ModifyKnowledgeBaseRequest::ToJsonString() const
         string key = "KnowledgeBaseDesc";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_knowledgeBaseDesc.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_useScopeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UseScope";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_useScope, allocator);
-    }
-
-    if (m_authorityUinsHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "AuthorityUins";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_authorityUins.begin(); itr != m_authorityUins.end(); ++itr)
-        {
-            d[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
-    }
-
-    if (m_configHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Config";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
-        m_config.ToJsonObject(d[key.c_str()], allocator);
     }
 
 
@@ -197,54 +164,6 @@ void ModifyKnowledgeBaseRequest::SetKnowledgeBaseDesc(const string& _knowledgeBa
 bool ModifyKnowledgeBaseRequest::KnowledgeBaseDescHasBeenSet() const
 {
     return m_knowledgeBaseDescHasBeenSet;
-}
-
-int64_t ModifyKnowledgeBaseRequest::GetUseScope() const
-{
-    return m_useScope;
-}
-
-void ModifyKnowledgeBaseRequest::SetUseScope(const int64_t& _useScope)
-{
-    m_useScope = _useScope;
-    m_useScopeHasBeenSet = true;
-}
-
-bool ModifyKnowledgeBaseRequest::UseScopeHasBeenSet() const
-{
-    return m_useScopeHasBeenSet;
-}
-
-vector<string> ModifyKnowledgeBaseRequest::GetAuthorityUins() const
-{
-    return m_authorityUins;
-}
-
-void ModifyKnowledgeBaseRequest::SetAuthorityUins(const vector<string>& _authorityUins)
-{
-    m_authorityUins = _authorityUins;
-    m_authorityUinsHasBeenSet = true;
-}
-
-bool ModifyKnowledgeBaseRequest::AuthorityUinsHasBeenSet() const
-{
-    return m_authorityUinsHasBeenSet;
-}
-
-KnowledgeTaskConfig ModifyKnowledgeBaseRequest::GetConfig() const
-{
-    return m_config;
-}
-
-void ModifyKnowledgeBaseRequest::SetConfig(const KnowledgeTaskConfig& _config)
-{
-    m_config = _config;
-    m_configHasBeenSet = true;
-}
-
-bool ModifyKnowledgeBaseRequest::ConfigHasBeenSet() const
-{
-    return m_configHasBeenSet;
 }
 
 

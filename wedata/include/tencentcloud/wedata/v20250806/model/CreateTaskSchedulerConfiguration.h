@@ -52,15 +52,59 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>周期类型：默认为 DAY_CYCLE</p><p>支持的类型为 </p><ul><li>ONEOFF_CYCLE: 一次性</li><li>YEAR_CYCLE: 年</li><li>MONTH_CYCLE: 月</li><li>WEEK_CYCLE: 周</li><li>DAY_CYCLE: 天</li><li>HOUR_CYCLE: 小时</li><li>MINUTE_CYCLE: 分钟</li><li>CRONTAB_CYCLE: crontab表达式类型</li></ul>
-                     * @return CycleType <p>周期类型：默认为 DAY_CYCLE</p><p>支持的类型为 </p><ul><li>ONEOFF_CYCLE: 一次性</li><li>YEAR_CYCLE: 年</li><li>MONTH_CYCLE: 月</li><li>WEEK_CYCLE: 周</li><li>DAY_CYCLE: 天</li><li>HOUR_CYCLE: 小时</li><li>MINUTE_CYCLE: 分钟</li><li>CRONTAB_CYCLE: crontab表达式类型</li></ul>
+                     * 获取周期类型：默认为 DAY_CYCLE
+
+支持的类型为 
+
+* ONEOFF_CYCLE: 一次性
+* YEAR_CYCLE: 年
+* MONTH_CYCLE: 月
+* WEEK_CYCLE: 周
+* DAY_CYCLE: 天
+* HOUR_CYCLE: 小时
+* MINUTE_CYCLE: 分钟
+* CRONTAB_CYCLE: crontab表达式类型
+                     * @return CycleType 周期类型：默认为 DAY_CYCLE
+
+支持的类型为 
+
+* ONEOFF_CYCLE: 一次性
+* YEAR_CYCLE: 年
+* MONTH_CYCLE: 月
+* WEEK_CYCLE: 周
+* DAY_CYCLE: 天
+* HOUR_CYCLE: 小时
+* MINUTE_CYCLE: 分钟
+* CRONTAB_CYCLE: crontab表达式类型
                      * 
                      */
                     std::string GetCycleType() const;
 
                     /**
-                     * 设置<p>周期类型：默认为 DAY_CYCLE</p><p>支持的类型为 </p><ul><li>ONEOFF_CYCLE: 一次性</li><li>YEAR_CYCLE: 年</li><li>MONTH_CYCLE: 月</li><li>WEEK_CYCLE: 周</li><li>DAY_CYCLE: 天</li><li>HOUR_CYCLE: 小时</li><li>MINUTE_CYCLE: 分钟</li><li>CRONTAB_CYCLE: crontab表达式类型</li></ul>
-                     * @param _cycleType <p>周期类型：默认为 DAY_CYCLE</p><p>支持的类型为 </p><ul><li>ONEOFF_CYCLE: 一次性</li><li>YEAR_CYCLE: 年</li><li>MONTH_CYCLE: 月</li><li>WEEK_CYCLE: 周</li><li>DAY_CYCLE: 天</li><li>HOUR_CYCLE: 小时</li><li>MINUTE_CYCLE: 分钟</li><li>CRONTAB_CYCLE: crontab表达式类型</li></ul>
+                     * 设置周期类型：默认为 DAY_CYCLE
+
+支持的类型为 
+
+* ONEOFF_CYCLE: 一次性
+* YEAR_CYCLE: 年
+* MONTH_CYCLE: 月
+* WEEK_CYCLE: 周
+* DAY_CYCLE: 天
+* HOUR_CYCLE: 小时
+* MINUTE_CYCLE: 分钟
+* CRONTAB_CYCLE: crontab表达式类型
+                     * @param _cycleType 周期类型：默认为 DAY_CYCLE
+
+支持的类型为 
+
+* ONEOFF_CYCLE: 一次性
+* YEAR_CYCLE: 年
+* MONTH_CYCLE: 月
+* WEEK_CYCLE: 周
+* DAY_CYCLE: 天
+* HOUR_CYCLE: 小时
+* MINUTE_CYCLE: 分钟
+* CRONTAB_CYCLE: crontab表达式类型
                      * 
                      */
                     void SetCycleType(const std::string& _cycleType);
@@ -73,15 +117,15 @@ namespace TencentCloud
                     bool CycleTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>时区，默认为 UTC+8</p>
-                     * @return ScheduleTimeZone <p>时区，默认为 UTC+8</p>
+                     * 获取时区，默认为 UTC+8
+                     * @return ScheduleTimeZone 时区，默认为 UTC+8
                      * 
                      */
                     std::string GetScheduleTimeZone() const;
 
                     /**
-                     * 设置<p>时区，默认为 UTC+8</p>
-                     * @param _scheduleTimeZone <p>时区，默认为 UTC+8</p>
+                     * 设置时区，默认为 UTC+8
+                     * @param _scheduleTimeZone 时区，默认为 UTC+8
                      * 
                      */
                     void SetScheduleTimeZone(const std::string& _scheduleTimeZone);
@@ -94,15 +138,15 @@ namespace TencentCloud
                     bool ScheduleTimeZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>Cron表达式，默认为 0 0 0 * * ? *</p>
-                     * @return CrontabExpression <p>Cron表达式，默认为 0 0 0 * * ? *</p>
+                     * 获取Cron表达式，默认为 0 0 0 * * ? * 
+                     * @return CrontabExpression Cron表达式，默认为 0 0 0 * * ? * 
                      * 
                      */
                     std::string GetCrontabExpression() const;
 
                     /**
-                     * 设置<p>Cron表达式，默认为 0 0 0 * * ? *</p>
-                     * @param _crontabExpression <p>Cron表达式，默认为 0 0 0 * * ? *</p>
+                     * 设置Cron表达式，默认为 0 0 0 * * ? * 
+                     * @param _crontabExpression Cron表达式，默认为 0 0 0 * * ? * 
                      * 
                      */
                     void SetCrontabExpression(const std::string& _crontabExpression);
@@ -115,15 +159,15 @@ namespace TencentCloud
                     bool CrontabExpressionHasBeenSet() const;
 
                     /**
-                     * 获取<p>生效日期，默认为当前日期的 00:00:00</p>
-                     * @return StartTime <p>生效日期，默认为当前日期的 00:00:00</p>
+                     * 获取生效日期，默认为当前日期的 00:00:00
+                     * @return StartTime 生效日期，默认为当前日期的 00:00:00
                      * 
                      */
                     std::string GetStartTime() const;
 
                     /**
-                     * 设置<p>生效日期，默认为当前日期的 00:00:00</p>
-                     * @param _startTime <p>生效日期，默认为当前日期的 00:00:00</p>
+                     * 设置生效日期，默认为当前日期的 00:00:00
+                     * @param _startTime 生效日期，默认为当前日期的 00:00:00
                      * 
                      */
                     void SetStartTime(const std::string& _startTime);
@@ -136,15 +180,15 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>结束日期，默认为 2099-12-31 23:59:59</p>
-                     * @return EndTime <p>结束日期，默认为 2099-12-31 23:59:59</p>
+                     * 获取结束日期，默认为 2099-12-31 23:59:59
+                     * @return EndTime 结束日期，默认为 2099-12-31 23:59:59
                      * 
                      */
                     std::string GetEndTime() const;
 
                     /**
-                     * 设置<p>结束日期，默认为 2099-12-31 23:59:59</p>
-                     * @param _endTime <p>结束日期，默认为 2099-12-31 23:59:59</p>
+                     * 设置结束日期，默认为 2099-12-31 23:59:59
+                     * @param _endTime 结束日期，默认为 2099-12-31 23:59:59
                      * 
                      */
                     void SetEndTime(const std::string& _endTime);
@@ -157,15 +201,15 @@ namespace TencentCloud
                     bool EndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>执行时间 左闭区间，默认 00:00</p>
-                     * @return ExecutionStartTime <p>执行时间 左闭区间，默认 00:00</p>
+                     * 获取执行时间 左闭区间，默认 00:00
+                     * @return ExecutionStartTime 执行时间 左闭区间，默认 00:00
                      * 
                      */
                     std::string GetExecutionStartTime() const;
 
                     /**
-                     * 设置<p>执行时间 左闭区间，默认 00:00</p>
-                     * @param _executionStartTime <p>执行时间 左闭区间，默认 00:00</p>
+                     * 设置执行时间 左闭区间，默认 00:00
+                     * @param _executionStartTime 执行时间 左闭区间，默认 00:00
                      * 
                      */
                     void SetExecutionStartTime(const std::string& _executionStartTime);
@@ -178,15 +222,15 @@ namespace TencentCloud
                     bool ExecutionStartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>执行时间 右闭区间，默认 23:59</p>
-                     * @return ExecutionEndTime <p>执行时间 右闭区间，默认 23:59</p>
+                     * 获取执行时间 右闭区间，默认 23:59
+                     * @return ExecutionEndTime 执行时间 右闭区间，默认 23:59
                      * 
                      */
                     std::string GetExecutionEndTime() const;
 
                     /**
-                     * 设置<p>执行时间 右闭区间，默认 23:59</p>
-                     * @param _executionEndTime <p>执行时间 右闭区间，默认 23:59</p>
+                     * 设置执行时间 右闭区间，默认 23:59
+                     * @param _executionEndTime 执行时间 右闭区间，默认 23:59
                      * 
                      */
                     void SetExecutionEndTime(const std::string& _executionEndTime);
@@ -199,15 +243,36 @@ namespace TencentCloud
                     bool ExecutionEndTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0</p>
-                     * @return CalendarOpen <p>日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0</p>
+                     * 获取调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @return ScheduleRunType 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * 
+                     */
+                    std::string GetScheduleRunType() const;
+
+                    /**
+                     * 设置调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * @param _scheduleRunType 调度类型: 0 正常调度 1 空跑调度，默认为 0
+                     * 
+                     */
+                    void SetScheduleRunType(const std::string& _scheduleRunType);
+
+                    /**
+                     * 判断参数 ScheduleRunType 是否已赋值
+                     * @return ScheduleRunType 是否已赋值
+                     * 
+                     */
+                    bool ScheduleRunTypeHasBeenSet() const;
+
+                    /**
+                     * 获取日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
+                     * @return CalendarOpen 日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
                      * 
                      */
                     std::string GetCalendarOpen() const;
 
                     /**
-                     * 设置<p>日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0</p>
-                     * @param _calendarOpen <p>日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0</p>
+                     * 设置日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
+                     * @param _calendarOpen 日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
                      * 
                      */
                     void SetCalendarOpen(const std::string& _calendarOpen);
@@ -220,15 +285,15 @@ namespace TencentCloud
                     bool CalendarOpenHasBeenSet() const;
 
                     /**
-                     * 获取<p>日历调度 日历 ID</p>
-                     * @return CalendarId <p>日历调度 日历 ID</p>
+                     * 获取日历调度 日历 ID
+                     * @return CalendarId 日历调度 日历 ID
                      * 
                      */
                     std::string GetCalendarId() const;
 
                     /**
-                     * 设置<p>日历调度 日历 ID</p>
-                     * @param _calendarId <p>日历调度 日历 ID</p>
+                     * 设置日历调度 日历 ID
+                     * @param _calendarId 日历调度 日历 ID
                      * 
                      */
                     void SetCalendarId(const std::string& _calendarId);
@@ -241,15 +306,15 @@ namespace TencentCloud
                     bool CalendarIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)</p>
-                     * @return SelfDepend <p>自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)</p>
+                     * 获取自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)
+                     * @return SelfDepend 自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)
                      * 
                      */
                     std::string GetSelfDepend() const;
 
                     /**
-                     * 设置<p>自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)</p>
-                     * @param _selfDepend <p>自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)</p>
+                     * 设置自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)
+                     * @param _selfDepend 自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)
                      * 
                      */
                     void SetSelfDepend(const std::string& _selfDepend);
@@ -262,15 +327,15 @@ namespace TencentCloud
                     bool SelfDependHasBeenSet() const;
 
                     /**
-                     * 获取<p>上游依赖数组</p>
-                     * @return UpstreamDependencyConfigList <p>上游依赖数组</p>
+                     * 获取上游依赖数组
+                     * @return UpstreamDependencyConfigList 上游依赖数组
                      * 
                      */
                     std::vector<DependencyTaskBrief> GetUpstreamDependencyConfigList() const;
 
                     /**
-                     * 设置<p>上游依赖数组</p>
-                     * @param _upstreamDependencyConfigList <p>上游依赖数组</p>
+                     * 设置上游依赖数组
+                     * @param _upstreamDependencyConfigList 上游依赖数组
                      * 
                      */
                     void SetUpstreamDependencyConfigList(const std::vector<DependencyTaskBrief>& _upstreamDependencyConfigList);
@@ -283,15 +348,15 @@ namespace TencentCloud
                     bool UpstreamDependencyConfigListHasBeenSet() const;
 
                     /**
-                     * 获取<p>事件数组</p>
-                     * @return EventListenerList <p>事件数组</p>
+                     * 获取事件数组
+                     * @return EventListenerList 事件数组
                      * 
                      */
                     std::vector<EventListener> GetEventListenerList() const;
 
                     /**
-                     * 设置<p>事件数组</p>
-                     * @param _eventListenerList <p>事件数组</p>
+                     * 设置事件数组
+                     * @param _eventListenerList 事件数组
                      * 
                      */
                     void SetEventListenerList(const std::vector<EventListener>& _eventListenerList);
@@ -304,15 +369,120 @@ namespace TencentCloud
                     bool EventListenerListHasBeenSet() const;
 
                     /**
-                     * 获取<p>重跑&amp;补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;</p>
-                     * @return AllowRedoType <p>重跑&amp;补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;</p>
+                     * 获取任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @return RunPriority 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * 
+                     */
+                    std::string GetRunPriority() const;
+
+                    /**
+                     * 设置任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * @param _runPriority 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
+                     * 
+                     */
+                    void SetRunPriority(const std::string& _runPriority);
+
+                    /**
+                     * 判断参数 RunPriority 是否已赋值
+                     * @return RunPriority 是否已赋值
+                     * 
+                     */
+                    bool RunPriorityHasBeenSet() const;
+
+                    /**
+                     * 获取重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @return RetryWait 重试策略 重试等待时间,单位分钟: 默认: 5
+                     * 
+                     */
+                    std::string GetRetryWait() const;
+
+                    /**
+                     * 设置重试策略 重试等待时间,单位分钟: 默认: 5
+                     * @param _retryWait 重试策略 重试等待时间,单位分钟: 默认: 5
+                     * 
+                     */
+                    void SetRetryWait(const std::string& _retryWait);
+
+                    /**
+                     * 判断参数 RetryWait 是否已赋值
+                     * @return RetryWait 是否已赋值
+                     * 
+                     */
+                    bool RetryWaitHasBeenSet() const;
+
+                    /**
+                     * 获取重试策略 最大尝试次数, 默认: 4
+                     * @return MaxRetryAttempts 重试策略 最大尝试次数, 默认: 4
+                     * 
+                     */
+                    std::string GetMaxRetryAttempts() const;
+
+                    /**
+                     * 设置重试策略 最大尝试次数, 默认: 4
+                     * @param _maxRetryAttempts 重试策略 最大尝试次数, 默认: 4
+                     * 
+                     */
+                    void SetMaxRetryAttempts(const std::string& _maxRetryAttempts);
+
+                    /**
+                     * 判断参数 MaxRetryAttempts 是否已赋值
+                     * @return MaxRetryAttempts 是否已赋值
+                     * 
+                     */
+                    bool MaxRetryAttemptsHasBeenSet() const;
+
+                    /**
+                     * 获取超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @return ExecutionTTL 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    std::string GetExecutionTTL() const;
+
+                    /**
+                     * 设置超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * @param _executionTTL 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    void SetExecutionTTL(const std::string& _executionTTL);
+
+                    /**
+                     * 判断参数 ExecutionTTL 是否已赋值
+                     * @return ExecutionTTL 是否已赋值
+                     * 
+                     */
+                    bool ExecutionTTLHasBeenSet() const;
+
+                    /**
+                     * 获取超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @return WaitExecutionTotalTTL 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    std::string GetWaitExecutionTotalTTL() const;
+
+                    /**
+                     * 设置超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * @param _waitExecutionTotalTTL 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
+                     * 
+                     */
+                    void SetWaitExecutionTotalTTL(const std::string& _waitExecutionTotalTTL);
+
+                    /**
+                     * 判断参数 WaitExecutionTotalTTL 是否已赋值
+                     * @return WaitExecutionTotalTTL 是否已赋值
+                     * 
+                     */
+                    bool WaitExecutionTotalTTLHasBeenSet() const;
+
+                    /**
+                     * 获取重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
+                     * @return AllowRedoType 重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
                      * 
                      */
                     std::string GetAllowRedoType() const;
 
                     /**
-                     * 设置<p>重跑&amp;补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;</p>
-                     * @param _allowRedoType <p>重跑&amp;补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;</p>
+                     * 设置重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
+                     * @param _allowRedoType 重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
                      * 
                      */
                     void SetAllowRedoType(const std::string& _allowRedoType);
@@ -325,15 +495,15 @@ namespace TencentCloud
                     bool AllowRedoTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>输出参数数组</p>
-                     * @return ParamTaskOutList <p>输出参数数组</p>
+                     * 获取输出参数数组
+                     * @return ParamTaskOutList 输出参数数组
                      * 
                      */
                     std::vector<OutTaskParameter> GetParamTaskOutList() const;
 
                     /**
-                     * 设置<p>输出参数数组</p>
-                     * @param _paramTaskOutList <p>输出参数数组</p>
+                     * 设置输出参数数组
+                     * @param _paramTaskOutList 输出参数数组
                      * 
                      */
                     void SetParamTaskOutList(const std::vector<OutTaskParameter>& _paramTaskOutList);
@@ -346,15 +516,15 @@ namespace TencentCloud
                     bool ParamTaskOutListHasBeenSet() const;
 
                     /**
-                     * 获取<p>输入参数数组</p>
-                     * @return ParamTaskInList <p>输入参数数组</p>
+                     * 获取输入参数数组
+                     * @return ParamTaskInList 输入参数数组
                      * 
                      */
                     std::vector<InTaskParameter> GetParamTaskInList() const;
 
                     /**
-                     * 设置<p>输入参数数组</p>
-                     * @param _paramTaskInList <p>输入参数数组</p>
+                     * 设置输入参数数组
+                     * @param _paramTaskInList 输入参数数组
                      * 
                      */
                     void SetParamTaskInList(const std::vector<InTaskParameter>& _paramTaskInList);
@@ -367,15 +537,15 @@ namespace TencentCloud
                     bool ParamTaskInListHasBeenSet() const;
 
                     /**
-                     * 获取<p>产出登记</p>
-                     * @return TaskOutputRegistryList <p>产出登记</p>
+                     * 获取产出登记
+                     * @return TaskOutputRegistryList 产出登记
                      * 
                      */
                     std::vector<TaskDataRegistry> GetTaskOutputRegistryList() const;
 
                     /**
-                     * 设置<p>产出登记</p>
-                     * @param _taskOutputRegistryList <p>产出登记</p>
+                     * 设置产出登记
+                     * @param _taskOutputRegistryList 产出登记
                      * 
                      */
                     void SetTaskOutputRegistryList(const std::vector<TaskDataRegistry>& _taskOutputRegistryList);
@@ -388,15 +558,23 @@ namespace TencentCloud
                     bool TaskOutputRegistryListHasBeenSet() const;
 
                     /**
-                     * 获取<p><strong>实例生成策略</strong></p><ul><li>T_PLUS_0: T+0生成,默认策略</li><li>T_PLUS_1: T+1生成</li></ul>
-                     * @return InitStrategy <p><strong>实例生成策略</strong></p><ul><li>T_PLUS_0: T+0生成,默认策略</li><li>T_PLUS_1: T+1生成</li></ul>
+                     * 获取**实例生成策略**
+* T_PLUS_0: T+0生成,默认策略
+* T_PLUS_1: T+1生成
+                     * @return InitStrategy **实例生成策略**
+* T_PLUS_0: T+0生成,默认策略
+* T_PLUS_1: T+1生成
                      * 
                      */
                     std::string GetInitStrategy() const;
 
                     /**
-                     * 设置<p><strong>实例生成策略</strong></p><ul><li>T_PLUS_0: T+0生成,默认策略</li><li>T_PLUS_1: T+1生成</li></ul>
-                     * @param _initStrategy <p><strong>实例生成策略</strong></p><ul><li>T_PLUS_0: T+0生成,默认策略</li><li>T_PLUS_1: T+1生成</li></ul>
+                     * 设置**实例生成策略**
+* T_PLUS_0: T+0生成,默认策略
+* T_PLUS_1: T+1生成
+                     * @param _initStrategy **实例生成策略**
+* T_PLUS_0: T+0生成,默认策略
+* T_PLUS_1: T+1生成
                      * 
                      */
                     void SetInitStrategy(const std::string& _initStrategy);
@@ -408,487 +586,158 @@ namespace TencentCloud
                      */
                     bool InitStrategyHasBeenSet() const;
 
-                    /**
-                     * 获取<p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * @return ScheduleRunType <p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * @deprecated
-                     */
-                    std::string GetScheduleRunType() const;
-
-                    /**
-                     * 设置<p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * @param _scheduleRunType <p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * @deprecated
-                     */
-                    void SetScheduleRunType(const std::string& _scheduleRunType);
-
-                    /**
-                     * 判断参数 ScheduleRunType 是否已赋值
-                     * @return ScheduleRunType 是否已赋值
-                     * @deprecated
-                     */
-                    bool ScheduleRunTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * @return RunPriority <p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * @deprecated
-                     */
-                    std::string GetRunPriority() const;
-
-                    /**
-                     * 设置<p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * @param _runPriority <p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * @deprecated
-                     */
-                    void SetRunPriority(const std::string& _runPriority);
-
-                    /**
-                     * 判断参数 RunPriority 是否已赋值
-                     * @return RunPriority 是否已赋值
-                     * @deprecated
-                     */
-                    bool RunPriorityHasBeenSet() const;
-
-                    /**
-                     * 获取<p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * @return RetryWait <p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * @deprecated
-                     */
-                    std::string GetRetryWait() const;
-
-                    /**
-                     * 设置<p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * @param _retryWait <p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * @deprecated
-                     */
-                    void SetRetryWait(const std::string& _retryWait);
-
-                    /**
-                     * 判断参数 RetryWait 是否已赋值
-                     * @return RetryWait 是否已赋值
-                     * @deprecated
-                     */
-                    bool RetryWaitHasBeenSet() const;
-
-                    /**
-                     * 获取<p>重试策略 最大尝试次数, 默认: 4</p>
-                     * @return MaxRetryAttempts <p>重试策略 最大尝试次数, 默认: 4</p>
-                     * @deprecated
-                     */
-                    std::string GetMaxRetryAttempts() const;
-
-                    /**
-                     * 设置<p>重试策略 最大尝试次数, 默认: 4</p>
-                     * @param _maxRetryAttempts <p>重试策略 最大尝试次数, 默认: 4</p>
-                     * @deprecated
-                     */
-                    void SetMaxRetryAttempts(const std::string& _maxRetryAttempts);
-
-                    /**
-                     * 判断参数 MaxRetryAttempts 是否已赋值
-                     * @return MaxRetryAttempts 是否已赋值
-                     * @deprecated
-                     */
-                    bool MaxRetryAttemptsHasBeenSet() const;
-
-                    /**
-                     * 获取<p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * @return ExecutionTTL <p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * @deprecated
-                     */
-                    std::string GetExecutionTTL() const;
-
-                    /**
-                     * 设置<p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * @param _executionTTL <p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * @deprecated
-                     */
-                    void SetExecutionTTL(const std::string& _executionTTL);
-
-                    /**
-                     * 判断参数 ExecutionTTL 是否已赋值
-                     * @return ExecutionTTL 是否已赋值
-                     * @deprecated
-                     */
-                    bool ExecutionTTLHasBeenSet() const;
-
-                    /**
-                     * 获取<p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * @return WaitExecutionTotalTTL <p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * @deprecated
-                     */
-                    std::string GetWaitExecutionTotalTTL() const;
-
-                    /**
-                     * 设置<p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * @param _waitExecutionTotalTTL <p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * @deprecated
-                     */
-                    void SetWaitExecutionTotalTTL(const std::string& _waitExecutionTotalTTL);
-
-                    /**
-                     * 判断参数 WaitExecutionTotalTTL 是否已赋值
-                     * @return WaitExecutionTotalTTL 是否已赋值
-                     * @deprecated
-                     */
-                    bool WaitExecutionTotalTTLHasBeenSet() const;
-
-                    /**
-                     * 获取<p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * @return ScheduleType <p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * 
-                     */
-                    int64_t GetScheduleType() const;
-
-                    /**
-                     * 设置<p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * @param _scheduleType <p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
-                     * 
-                     */
-                    void SetScheduleType(const int64_t& _scheduleType);
-
-                    /**
-                     * 判断参数 ScheduleType 是否已赋值
-                     * @return ScheduleType 是否已赋值
-                     * 
-                     */
-                    bool ScheduleTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * @return RunPriorityType <p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * 
-                     */
-                    int64_t GetRunPriorityType() const;
-
-                    /**
-                     * 设置<p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * @param _runPriorityType <p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
-                     * 
-                     */
-                    void SetRunPriorityType(const int64_t& _runPriorityType);
-
-                    /**
-                     * 判断参数 RunPriorityType 是否已赋值
-                     * @return RunPriorityType 是否已赋值
-                     * 
-                     */
-                    bool RunPriorityTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * @return RetryWaitMinute <p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * 
-                     */
-                    int64_t GetRetryWaitMinute() const;
-
-                    /**
-                     * 设置<p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * @param _retryWaitMinute <p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
-                     * 
-                     */
-                    void SetRetryWaitMinute(const int64_t& _retryWaitMinute);
-
-                    /**
-                     * 判断参数 RetryWaitMinute 是否已赋值
-                     * @return RetryWaitMinute 是否已赋值
-                     * 
-                     */
-                    bool RetryWaitMinuteHasBeenSet() const;
-
-                    /**
-                     * 获取<p>重试策略 最大尝试次数, 默认: 4</p>
-                     * @return MaxRetryNumber <p>重试策略 最大尝试次数, 默认: 4</p>
-                     * 
-                     */
-                    int64_t GetMaxRetryNumber() const;
-
-                    /**
-                     * 设置<p>重试策略 最大尝试次数, 默认: 4</p>
-                     * @param _maxRetryNumber <p>重试策略 最大尝试次数, 默认: 4</p>
-                     * 
-                     */
-                    void SetMaxRetryNumber(const int64_t& _maxRetryNumber);
-
-                    /**
-                     * 判断参数 MaxRetryNumber 是否已赋值
-                     * @return MaxRetryNumber 是否已赋值
-                     * 
-                     */
-                    bool MaxRetryNumberHasBeenSet() const;
-
-                    /**
-                     * 获取<p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * @return ExecutionTTLMinute <p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * 
-                     */
-                    int64_t GetExecutionTTLMinute() const;
-
-                    /**
-                     * 设置<p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * @param _executionTTLMinute <p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
-                     * 
-                     */
-                    void SetExecutionTTLMinute(const int64_t& _executionTTLMinute);
-
-                    /**
-                     * 判断参数 ExecutionTTLMinute 是否已赋值
-                     * @return ExecutionTTLMinute 是否已赋值
-                     * 
-                     */
-                    bool ExecutionTTLMinuteHasBeenSet() const;
-
-                    /**
-                     * 获取<p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * @return WaitExecutionTotalTTLMinute <p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * 
-                     */
-                    int64_t GetWaitExecutionTotalTTLMinute() const;
-
-                    /**
-                     * 设置<p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * @param _waitExecutionTotalTTLMinute <p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     * 
-                     */
-                    void SetWaitExecutionTotalTTLMinute(const int64_t& _waitExecutionTotalTTLMinute);
-
-                    /**
-                     * 判断参数 WaitExecutionTotalTTLMinute 是否已赋值
-                     * @return WaitExecutionTotalTTLMinute 是否已赋值
-                     * 
-                     */
-                    bool WaitExecutionTotalTTLMinuteHasBeenSet() const;
-
-                    /**
-                     * 获取<ul><li>任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置</li><li>ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败</li><li>ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行</li><li>ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功</li><li>ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行</li><li>ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行</li><li>ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行</li><li>ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行</li><li>ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游</li><li>NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败</li><li>ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行</li><li>NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行</li><li>ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行</li></ul>
-                     * @return DependencyTriggerPolicy <ul><li>任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置</li><li>ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败</li><li>ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行</li><li>ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功</li><li>ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行</li><li>ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行</li><li>ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行</li><li>ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行</li><li>ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游</li><li>NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败</li><li>ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行</li><li>NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行</li><li>ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行</li></ul>
-                     * 
-                     */
-                    std::string GetDependencyTriggerPolicy() const;
-
-                    /**
-                     * 设置<ul><li>任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置</li><li>ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败</li><li>ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行</li><li>ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功</li><li>ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行</li><li>ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行</li><li>ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行</li><li>ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行</li><li>ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游</li><li>NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败</li><li>ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行</li><li>NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行</li><li>ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行</li></ul>
-                     * @param _dependencyTriggerPolicy <ul><li>任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置</li><li>ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败</li><li>ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行</li><li>ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功</li><li>ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行</li><li>ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行</li><li>ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行</li><li>ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行</li><li>ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游</li><li>NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败</li><li>ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行</li><li>NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行</li><li>ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行</li></ul>
-                     * 
-                     */
-                    void SetDependencyTriggerPolicy(const std::string& _dependencyTriggerPolicy);
-
-                    /**
-                     * 判断参数 DependencyTriggerPolicy 是否已赋值
-                     * @return DependencyTriggerPolicy 是否已赋值
-                     * 
-                     */
-                    bool DependencyTriggerPolicyHasBeenSet() const;
-
-                    /**
-                     * 获取<p>是否允许下游依赖 1允许 0不允许</p><p>取值范围：[0, 1]</p><p>默认值：1</p>
-                     * @return AllowDownstreamDependency <p>是否允许下游依赖 1允许 0不允许</p><p>取值范围：[0, 1]</p><p>默认值：1</p>
-                     * @deprecated
-                     */
-                    int64_t GetAllowDownstreamDependency() const;
-
-                    /**
-                     * 设置<p>是否允许下游依赖 1允许 0不允许</p><p>取值范围：[0, 1]</p><p>默认值：1</p>
-                     * @param _allowDownstreamDependency <p>是否允许下游依赖 1允许 0不允许</p><p>取值范围：[0, 1]</p><p>默认值：1</p>
-                     * @deprecated
-                     */
-                    void SetAllowDownstreamDependency(const int64_t& _allowDownstreamDependency);
-
-                    /**
-                     * 判断参数 AllowDownstreamDependency 是否已赋值
-                     * @return AllowDownstreamDependency 是否已赋值
-                     * @deprecated
-                     */
-                    bool AllowDownstreamDependencyHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>周期类型：默认为 DAY_CYCLE</p><p>支持的类型为 </p><ul><li>ONEOFF_CYCLE: 一次性</li><li>YEAR_CYCLE: 年</li><li>MONTH_CYCLE: 月</li><li>WEEK_CYCLE: 周</li><li>DAY_CYCLE: 天</li><li>HOUR_CYCLE: 小时</li><li>MINUTE_CYCLE: 分钟</li><li>CRONTAB_CYCLE: crontab表达式类型</li></ul>
+                     * 周期类型：默认为 DAY_CYCLE
+
+支持的类型为 
+
+* ONEOFF_CYCLE: 一次性
+* YEAR_CYCLE: 年
+* MONTH_CYCLE: 月
+* WEEK_CYCLE: 周
+* DAY_CYCLE: 天
+* HOUR_CYCLE: 小时
+* MINUTE_CYCLE: 分钟
+* CRONTAB_CYCLE: crontab表达式类型
                      */
                     std::string m_cycleType;
                     bool m_cycleTypeHasBeenSet;
 
                     /**
-                     * <p>时区，默认为 UTC+8</p>
+                     * 时区，默认为 UTC+8
                      */
                     std::string m_scheduleTimeZone;
                     bool m_scheduleTimeZoneHasBeenSet;
 
                     /**
-                     * <p>Cron表达式，默认为 0 0 0 * * ? *</p>
+                     * Cron表达式，默认为 0 0 0 * * ? * 
                      */
                     std::string m_crontabExpression;
                     bool m_crontabExpressionHasBeenSet;
 
                     /**
-                     * <p>生效日期，默认为当前日期的 00:00:00</p>
+                     * 生效日期，默认为当前日期的 00:00:00
                      */
                     std::string m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>结束日期，默认为 2099-12-31 23:59:59</p>
+                     * 结束日期，默认为 2099-12-31 23:59:59
                      */
                     std::string m_endTime;
                     bool m_endTimeHasBeenSet;
 
                     /**
-                     * <p>执行时间 左闭区间，默认 00:00</p>
+                     * 执行时间 左闭区间，默认 00:00
                      */
                     std::string m_executionStartTime;
                     bool m_executionStartTimeHasBeenSet;
 
                     /**
-                     * <p>执行时间 右闭区间，默认 23:59</p>
+                     * 执行时间 右闭区间，默认 23:59
                      */
                     std::string m_executionEndTime;
                     bool m_executionEndTimeHasBeenSet;
 
                     /**
-                     * <p>日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0</p>
-                     */
-                    std::string m_calendarOpen;
-                    bool m_calendarOpenHasBeenSet;
-
-                    /**
-                     * <p>日历调度 日历 ID</p>
-                     */
-                    std::string m_calendarId;
-                    bool m_calendarIdHasBeenSet;
-
-                    /**
-                     * <p>自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)</p>
-                     */
-                    std::string m_selfDepend;
-                    bool m_selfDependHasBeenSet;
-
-                    /**
-                     * <p>上游依赖数组</p>
-                     */
-                    std::vector<DependencyTaskBrief> m_upstreamDependencyConfigList;
-                    bool m_upstreamDependencyConfigListHasBeenSet;
-
-                    /**
-                     * <p>事件数组</p>
-                     */
-                    std::vector<EventListener> m_eventListenerList;
-                    bool m_eventListenerListHasBeenSet;
-
-                    /**
-                     * <p>重跑&amp;补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;</p>
-                     */
-                    std::string m_allowRedoType;
-                    bool m_allowRedoTypeHasBeenSet;
-
-                    /**
-                     * <p>输出参数数组</p>
-                     */
-                    std::vector<OutTaskParameter> m_paramTaskOutList;
-                    bool m_paramTaskOutListHasBeenSet;
-
-                    /**
-                     * <p>输入参数数组</p>
-                     */
-                    std::vector<InTaskParameter> m_paramTaskInList;
-                    bool m_paramTaskInListHasBeenSet;
-
-                    /**
-                     * <p>产出登记</p>
-                     */
-                    std::vector<TaskDataRegistry> m_taskOutputRegistryList;
-                    bool m_taskOutputRegistryListHasBeenSet;
-
-                    /**
-                     * <p><strong>实例生成策略</strong></p><ul><li>T_PLUS_0: T+0生成,默认策略</li><li>T_PLUS_1: T+1生成</li></ul>
-                     */
-                    std::string m_initStrategy;
-                    bool m_initStrategyHasBeenSet;
-
-                    /**
-                     * <p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
+                     * 调度类型: 0 正常调度 1 空跑调度，默认为 0
                      */
                     std::string m_scheduleRunType;
                     bool m_scheduleRunTypeHasBeenSet;
 
                     /**
-                     * <p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
+                     * 日历调度 取值为 0 和 1， 1为打开，0为关闭，默认为0
+                     */
+                    std::string m_calendarOpen;
+                    bool m_calendarOpenHasBeenSet;
+
+                    /**
+                     * 日历调度 日历 ID
+                     */
+                    std::string m_calendarId;
+                    bool m_calendarIdHasBeenSet;
+
+                    /**
+                     * 自依赖, 默认值 serial, 取值为：parallel(并行), serial(串行), orderly(有序)
+                     */
+                    std::string m_selfDepend;
+                    bool m_selfDependHasBeenSet;
+
+                    /**
+                     * 上游依赖数组
+                     */
+                    std::vector<DependencyTaskBrief> m_upstreamDependencyConfigList;
+                    bool m_upstreamDependencyConfigListHasBeenSet;
+
+                    /**
+                     * 事件数组
+                     */
+                    std::vector<EventListener> m_eventListenerList;
+                    bool m_eventListenerListHasBeenSet;
+
+                    /**
+                     * 任务调度优先级 运行优先级 4高 5中 6低 , 默认:6
                      */
                     std::string m_runPriority;
                     bool m_runPriorityHasBeenSet;
 
                     /**
-                     * <p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
+                     * 重试策略 重试等待时间,单位分钟: 默认: 5
                      */
                     std::string m_retryWait;
                     bool m_retryWaitHasBeenSet;
 
                     /**
-                     * <p>重试策略 最大尝试次数, 默认: 4</p>
+                     * 重试策略 最大尝试次数, 默认: 4
                      */
                     std::string m_maxRetryAttempts;
                     bool m_maxRetryAttemptsHasBeenSet;
 
                     /**
-                     * <p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
+                     * 超时处理策略 运行耗时超时（单位：分钟）默认为 -1
                      */
                     std::string m_executionTTL;
                     bool m_executionTTLHasBeenSet;
 
                     /**
-                     * <p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
+                     * 超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1
                      */
                     std::string m_waitExecutionTotalTTL;
                     bool m_waitExecutionTotalTTLHasBeenSet;
 
                     /**
-                     * <p>调度类型: 0 正常调度 1 空跑调度，默认为 0</p>
+                     * 重跑&补录配置, 默认为 ALL; , ALL 运行成功或失败后皆可重跑或补录, FAILURE 运行成功后不可重跑或补录，运行失败后可重跑或补录, NONE 运行成功或失败后皆不可重跑或补录;
                      */
-                    int64_t m_scheduleType;
-                    bool m_scheduleTypeHasBeenSet;
+                    std::string m_allowRedoType;
+                    bool m_allowRedoTypeHasBeenSet;
 
                     /**
-                     * <p>任务调度优先级 运行优先级 4高 5中 6低 , 默认:6</p>
+                     * 输出参数数组
                      */
-                    int64_t m_runPriorityType;
-                    bool m_runPriorityTypeHasBeenSet;
+                    std::vector<OutTaskParameter> m_paramTaskOutList;
+                    bool m_paramTaskOutListHasBeenSet;
 
                     /**
-                     * <p>重试策略 重试等待时间,单位分钟: 默认: 5</p>
+                     * 输入参数数组
                      */
-                    int64_t m_retryWaitMinute;
-                    bool m_retryWaitMinuteHasBeenSet;
+                    std::vector<InTaskParameter> m_paramTaskInList;
+                    bool m_paramTaskInListHasBeenSet;
 
                     /**
-                     * <p>重试策略 最大尝试次数, 默认: 4</p>
+                     * 产出登记
                      */
-                    int64_t m_maxRetryNumber;
-                    bool m_maxRetryNumberHasBeenSet;
+                    std::vector<TaskDataRegistry> m_taskOutputRegistryList;
+                    bool m_taskOutputRegistryListHasBeenSet;
 
                     /**
-                     * <p>超时处理策略 运行耗时超时（单位：分钟）默认为 -1</p>
+                     * **实例生成策略**
+* T_PLUS_0: T+0生成,默认策略
+* T_PLUS_1: T+1生成
                      */
-                    int64_t m_executionTTLMinute;
-                    bool m_executionTTLMinuteHasBeenSet;
-
-                    /**
-                     * <p>超时处理策略 等待总时长耗时超时（单位：分钟）默认为 -1</p>
-                     */
-                    int64_t m_waitExecutionTotalTTLMinute;
-                    bool m_waitExecutionTotalTTLMinuteHasBeenSet;
-
-                    /**
-                     * <ul><li>任务依赖运行条件，默认为ALL_SUCCESS，暂时只支持工作流调度项目下配置</li><li>ALL_SUCCESS： 全部成功：所有上游依赖任务都达到终态时，进行依赖判断，如果上游全部都成功，则依赖判断成功，否则如果上游有一个跳过运行，则标记为跳过运行，其余情况标记为上游失败</li><li>ALL_FAILED：全部失败：所有上游依赖任务都达到终态时，进行依赖判断，如果上游状态都是失败或者上游失败，则依赖判断成功，否则就标记为跳过运行</li><li>ALL_DONE：全部完成：所有上游依赖任务都达到终态时，进行依赖判断，直接是依赖判断成功</li><li>ALL_DONE_AT_LEAST_ONE_SUCCESS：上游全部完成至少一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个成功，则依赖判断成功，否则就是跳过运行</li><li>ALL_SKIPPED：上游全部都跳过: 所有上游依赖任务都达到终态时，进行依赖判断，所有的上游都是跳过状态才算依赖判断成功，否则当前节点就是跳过运行</li><li>ONE_FAILED：至少一个失败: 上游只要有一个失败了，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有失败，则跳过运行</li><li>ONE_SUCCESS：至少一个成功：上游只要有一个成功，就进行依赖判断，且依赖判断成功，如果上游全部完成但是没有成功，则跳过运行</li><li>ONE_DONE：至少一个完成：上游只要有一个完成了，就进行依赖判断，且依赖判断成功，否则还是等待上游</li><li>NONE_FAILED：上游全部完成，没有失败: 所有上游依赖任务都达到终态时，进行依赖判断，如果上游都是成功或者跳过运行，则依赖判断成功，否则标记为上游失败</li><li>ALL_DONE_NONE_FAILED_AT_LEAST_ONE_SUCCESS：上游全部完成，没有失败，至少有一个成功: 所有上游依赖任务都达到终态时，进行依赖判断，上游没有一个失败且至少有一个成功的情况下，依赖判断成功，否则就是跳过运行</li><li>NONE_SKIPPED：上游全部完成，没有跳过运行: 所有上游依赖任务都达到终态时，进行依赖判断, 如果上游状态全部都是成功、失败、上游失败状态，则依赖判断成功，否则为跳过运行</li><li>ALL_DONE_AT_LEAST_ONE_FAILED：上游全部完成至少一个失败: 所有上游依赖任务都达到终态时，进行依赖判断，至少有一个失败，则依赖判断成功，否则就是跳过运行</li></ul>
-                     */
-                    std::string m_dependencyTriggerPolicy;
-                    bool m_dependencyTriggerPolicyHasBeenSet;
-
-                    /**
-                     * <p>是否允许下游依赖 1允许 0不允许</p><p>取值范围：[0, 1]</p><p>默认值：1</p>
-                     */
-                    int64_t m_allowDownstreamDependency;
-                    bool m_allowDownstreamDependencyHasBeenSet;
+                    std::string m_initStrategy;
+                    bool m_initStrategyHasBeenSet;
 
                 };
             }

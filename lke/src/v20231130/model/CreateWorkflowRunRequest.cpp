@@ -26,8 +26,7 @@ CreateWorkflowRunRequest::CreateWorkflowRunRequest() :
     m_appBizIdHasBeenSet(false),
     m_runEnvHasBeenSet(false),
     m_queryHasBeenSet(false),
-    m_customVariablesHasBeenSet(false),
-    m_visitorIdHasBeenSet(false)
+    m_customVariablesHasBeenSet(false)
 {
 }
 
@@ -75,14 +74,6 @@ string CreateWorkflowRunRequest::ToJsonString() const
             d[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(d[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_visitorIdHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "VisitorId";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_visitorId.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -155,22 +146,6 @@ void CreateWorkflowRunRequest::SetCustomVariables(const vector<CustomVariable>& 
 bool CreateWorkflowRunRequest::CustomVariablesHasBeenSet() const
 {
     return m_customVariablesHasBeenSet;
-}
-
-string CreateWorkflowRunRequest::GetVisitorId() const
-{
-    return m_visitorId;
-}
-
-void CreateWorkflowRunRequest::SetVisitorId(const string& _visitorId)
-{
-    m_visitorId = _visitorId;
-    m_visitorIdHasBeenSet = true;
-}
-
-bool CreateWorkflowRunRequest::VisitorIdHasBeenSet() const
-{
-    return m_visitorIdHasBeenSet;
 }
 
 

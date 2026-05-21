@@ -31,8 +31,7 @@ DescribeAutoCalloutTaskResponse::DescribeAutoCalloutTaskResponse() :
     m_callersHasBeenSet(false),
     m_calleesHasBeenSet(false),
     m_ivrIdHasBeenSet(false),
-    m_stateHasBeenSet(false),
-    m_maxRingTimeoutSecondHasBeenSet(false)
+    m_stateHasBeenSet(false)
 {
 }
 
@@ -163,16 +162,6 @@ CoreInternalOutcome DescribeAutoCalloutTaskResponse::Deserialize(const string &p
         m_stateHasBeenSet = true;
     }
 
-    if (rsp.HasMember("MaxRingTimeoutSecond") && !rsp["MaxRingTimeoutSecond"].IsNull())
-    {
-        if (!rsp["MaxRingTimeoutSecond"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `MaxRingTimeoutSecond` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_maxRingTimeoutSecond = rsp["MaxRingTimeoutSecond"].GetInt64();
-        m_maxRingTimeoutSecondHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -257,14 +246,6 @@ string DescribeAutoCalloutTaskResponse::ToJsonString() const
         string key = "State";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_state, allocator);
-    }
-
-    if (m_maxRingTimeoutSecondHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MaxRingTimeoutSecond";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_maxRingTimeoutSecond, allocator);
     }
 
     rapidjson::Value iKey(rapidjson::kStringType);
@@ -357,16 +338,6 @@ uint64_t DescribeAutoCalloutTaskResponse::GetState() const
 bool DescribeAutoCalloutTaskResponse::StateHasBeenSet() const
 {
     return m_stateHasBeenSet;
-}
-
-int64_t DescribeAutoCalloutTaskResponse::GetMaxRingTimeoutSecond() const
-{
-    return m_maxRingTimeoutSecond;
-}
-
-bool DescribeAutoCalloutTaskResponse::MaxRingTimeoutSecondHasBeenSet() const
-{
-    return m_maxRingTimeoutSecondHasBeenSet;
 }
 
 

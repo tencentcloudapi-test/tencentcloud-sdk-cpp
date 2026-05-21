@@ -45,15 +45,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>克隆源实例 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/15872">DescribeDBInstances</a> 接口获取。</p>
-                     * @return InstanceId <p>克隆源实例 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/15872">DescribeDBInstances</a> 接口获取。</p>
+                     * 获取克隆源实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/api/236/15872) 接口获取。
+                     * @return InstanceId 克隆源实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/api/236/15872) 接口获取。
                      * 
                      */
                     std::string GetInstanceId() const;
 
                     /**
-                     * 设置<p>克隆源实例 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/15872">DescribeDBInstances</a> 接口获取。</p>
-                     * @param _instanceId <p>克隆源实例 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/15872">DescribeDBInstances</a> 接口获取。</p>
+                     * 设置克隆源实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/api/236/15872) 接口获取。
+                     * @param _instanceId 克隆源实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/api/236/15872) 接口获取。
                      * 
                      */
                     void SetInstanceId(const std::string& _instanceId);
@@ -66,15 +66,19 @@ namespace TencentCloud
                     bool InstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。<br>说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。</p>
-                     * @return SpecifiedRollbackTime <p>如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。<br>说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。</p>
+                     * 获取如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
+                     * @return SpecifiedRollbackTime 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
                      * 
                      */
                     std::string GetSpecifiedRollbackTime() const;
 
                     /**
-                     * 设置<p>如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。<br>说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。</p>
-                     * @param _specifiedRollbackTime <p>如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。<br>说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。</p>
+                     * 设置如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
+                     * @param _specifiedRollbackTime 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
                      * 
                      */
                     void SetSpecifiedRollbackTime(const std::string& _specifiedRollbackTime);
@@ -87,15 +91,19 @@ namespace TencentCloud
                     bool SpecifiedRollbackTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 <a href="/document/api/236/15842">查询数据备份文件列表</a>。<br>说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、云盘版实例，备份文件为快照备份。</p>
-                     * @return SpecifiedBackupId <p>如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 <a href="/document/api/236/15842">查询数据备份文件列表</a>。<br>说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、云盘版实例，备份文件为快照备份。</p>
+                     * 获取如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
+                     * @return SpecifiedBackupId 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
                      * 
                      */
                     int64_t GetSpecifiedBackupId() const;
 
                     /**
-                     * 设置<p>如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 <a href="/document/api/236/15842">查询数据备份文件列表</a>。<br>说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、云盘版实例，备份文件为快照备份。</p>
-                     * @param _specifiedBackupId <p>如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 <a href="/document/api/236/15842">查询数据备份文件列表</a>。<br>说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、云盘版实例，备份文件为快照备份。</p>
+                     * 设置如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
+                     * @param _specifiedBackupId 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
                      * 
                      */
                     void SetSpecifiedBackupId(const int64_t& _specifiedBackupId);
@@ -108,15 +116,15 @@ namespace TencentCloud
                     bool SpecifiedBackupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络 ID，请使用 <a href="/document/api/215/15778">查询私有网络列表</a>。</p>
-                     * @return UniqVpcId <p>私有网络 ID，请使用 <a href="/document/api/215/15778">查询私有网络列表</a>。</p>
+                     * 获取私有网络 ID，请使用 [查询私有网络列表](/document/api/215/15778)。
+                     * @return UniqVpcId 私有网络 ID，请使用 [查询私有网络列表](/document/api/215/15778)。
                      * 
                      */
                     std::string GetUniqVpcId() const;
 
                     /**
-                     * 设置<p>私有网络 ID，请使用 <a href="/document/api/215/15778">查询私有网络列表</a>。</p>
-                     * @param _uniqVpcId <p>私有网络 ID，请使用 <a href="/document/api/215/15778">查询私有网络列表</a>。</p>
+                     * 设置私有网络 ID，请使用 [查询私有网络列表](/document/api/215/15778)。
+                     * @param _uniqVpcId 私有网络 ID，请使用 [查询私有网络列表](/document/api/215/15778)。
                      * 
                      */
                     void SetUniqVpcId(const std::string& _uniqVpcId);
@@ -129,15 +137,15 @@ namespace TencentCloud
                     bool UniqVpcIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 <a href="/document/api/215/15784">查询子网列表</a>。</p>
-                     * @return UniqSubnetId <p>私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 <a href="/document/api/215/15784">查询子网列表</a>。</p>
+                     * 获取私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
+                     * @return UniqSubnetId 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
                      * 
                      */
                     std::string GetUniqSubnetId() const;
 
                     /**
-                     * 设置<p>私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 <a href="/document/api/215/15784">查询子网列表</a>。</p>
-                     * @param _uniqSubnetId <p>私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 <a href="/document/api/215/15784">查询子网列表</a>。</p>
+                     * 设置私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
+                     * @param _uniqSubnetId 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
                      * 
                      */
                     void SetUniqSubnetId(const std::string& _uniqSubnetId);
@@ -150,15 +158,15 @@ namespace TencentCloud
                     bool UniqSubnetIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。</p>
-                     * @return Memory <p>实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 获取实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。
+                     * @return Memory 实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。
                      * 
                      */
                     int64_t GetMemory() const;
 
                     /**
-                     * 设置<p>实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。</p>
-                     * @param _memory <p>实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 设置实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。
+                     * @param _memory 实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。
                      * 
                      */
                     void SetMemory(const int64_t& _memory);
@@ -171,15 +179,15 @@ namespace TencentCloud
                     bool MemoryHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。</p>
-                     * @return Volume <p>实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 获取实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。
+                     * @return Volume 实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。
                      * 
                      */
                     int64_t GetVolume() const;
 
                     /**
-                     * 设置<p>实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。</p>
-                     * @param _volume <p>实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 设置实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。
+                     * @param _volume 实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。
                      * 
                      */
                     void SetVolume(const int64_t& _volume);
@@ -192,15 +200,15 @@ namespace TencentCloud
                     bool VolumeHasBeenSet() const;
 
                     /**
-                     * 获取<p>新产生的克隆实例名称。支持输入最大60个字符。</p>
-                     * @return InstanceName <p>新产生的克隆实例名称。支持输入最大60个字符。</p>
+                     * 获取新产生的克隆实例名称。支持输入最大60个字符。
+                     * @return InstanceName 新产生的克隆实例名称。支持输入最大60个字符。
                      * 
                      */
                     std::string GetInstanceName() const;
 
                     /**
-                     * 设置<p>新产生的克隆实例名称。支持输入最大60个字符。</p>
-                     * @param _instanceName <p>新产生的克隆实例名称。支持输入最大60个字符。</p>
+                     * 设置新产生的克隆实例名称。支持输入最大60个字符。
+                     * @param _instanceName 新产生的克隆实例名称。支持输入最大60个字符。
                      * 
                      */
                     void SetInstanceName(const std::string& _instanceName);
@@ -213,15 +221,15 @@ namespace TencentCloud
                     bool InstanceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>安全组参数，可使用 <a href="https://cloud.tencent.com/document/api/236/15850">查询项目安全组信息</a> 接口查询某个项目的安全组详情。</p>
-                     * @return SecurityGroup <p>安全组参数，可使用 <a href="https://cloud.tencent.com/document/api/236/15850">查询项目安全组信息</a> 接口查询某个项目的安全组详情。</p>
+                     * 获取安全组参数，可使用 [查询项目安全组信息](https://cloud.tencent.com/document/api/236/15850) 接口查询某个项目的安全组详情。
+                     * @return SecurityGroup 安全组参数，可使用 [查询项目安全组信息](https://cloud.tencent.com/document/api/236/15850) 接口查询某个项目的安全组详情。
                      * 
                      */
                     std::vector<std::string> GetSecurityGroup() const;
 
                     /**
-                     * 设置<p>安全组参数，可使用 <a href="https://cloud.tencent.com/document/api/236/15850">查询项目安全组信息</a> 接口查询某个项目的安全组详情。</p>
-                     * @param _securityGroup <p>安全组参数，可使用 <a href="https://cloud.tencent.com/document/api/236/15850">查询项目安全组信息</a> 接口查询某个项目的安全组详情。</p>
+                     * 设置安全组参数，可使用 [查询项目安全组信息](https://cloud.tencent.com/document/api/236/15850) 接口查询某个项目的安全组详情。
+                     * @param _securityGroup 安全组参数，可使用 [查询项目安全组信息](https://cloud.tencent.com/document/api/236/15850) 接口查询某个项目的安全组详情。
                      * 
                      */
                     void SetSecurityGroup(const std::vector<std::string>& _securityGroup);
@@ -234,15 +242,15 @@ namespace TencentCloud
                     bool SecurityGroupHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例标签信息。</p>
-                     * @return ResourceTags <p>实例标签信息。</p>
+                     * 获取实例标签信息。
+                     * @return ResourceTags 实例标签信息。
                      * 
                      */
                     std::vector<TagInfo> GetResourceTags() const;
 
                     /**
-                     * 设置<p>实例标签信息。</p>
-                     * @param _resourceTags <p>实例标签信息。</p>
+                     * 设置实例标签信息。
+                     * @param _resourceTags 实例标签信息。
                      * 
                      */
                     void SetResourceTags(const std::vector<TagInfo>& _resourceTags);
@@ -255,15 +263,15 @@ namespace TencentCloud
                     bool ResourceTagsHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。</p>
-                     * @return Cpu <p>实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 获取实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。
+                     * @return Cpu 实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。
                      * 
                      */
                     int64_t GetCpu() const;
 
                     /**
-                     * 设置<p>实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。</p>
-                     * @param _cpu <p>实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 设置实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。
+                     * @param _cpu 实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。
                      * 
                      */
                     void SetCpu(const int64_t& _cpu);
@@ -276,15 +284,15 @@ namespace TencentCloud
                     bool CpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。</p>
-                     * @return ProtectMode <p>数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。</p>
+                     * 获取数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。
+                     * @return ProtectMode 数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。
                      * 
                      */
                     int64_t GetProtectMode() const;
 
                     /**
-                     * 设置<p>数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。</p>
-                     * @param _protectMode <p>数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。</p>
+                     * 设置数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。
+                     * @param _protectMode 数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。
                      * 
                      */
                     void SetProtectMode(const int64_t& _protectMode);
@@ -297,15 +305,15 @@ namespace TencentCloud
                     bool ProtectModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。</p>
-                     * @return DeployMode <p>多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。</p>
+                     * 获取多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。
+                     * @return DeployMode 多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。
                      * 
                      */
                     int64_t GetDeployMode() const;
 
                     /**
-                     * 设置<p>多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。</p>
-                     * @param _deployMode <p>多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。</p>
+                     * 设置多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。
+                     * @param _deployMode 多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。
                      * 
                      */
                     void SetDeployMode(const int64_t& _deployMode);
@@ -318,15 +326,15 @@ namespace TencentCloud
                     bool DeployModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @return SlaveZone <p>新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。</p>
+                     * 获取新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。
+                     * @return SlaveZone 新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。
                      * 
                      */
                     std::string GetSlaveZone() const;
 
                     /**
-                     * 设置<p>新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @param _slaveZone <p>新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。</p>
+                     * 设置新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。
+                     * @param _slaveZone 新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。
                      * 
                      */
                     void SetSlaveZone(const std::string& _slaveZone);
@@ -339,15 +347,15 @@ namespace TencentCloud
                     bool SlaveZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。</p>
-                     * @return BackupZone <p>备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。</p>
+                     * 获取备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。
+                     * @return BackupZone 备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。
                      * 
                      */
                     std::string GetBackupZone() const;
 
                     /**
-                     * 设置<p>备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。</p>
-                     * @param _backupZone <p>备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。</p>
+                     * 设置备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。
+                     * @param _backupZone 备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。
                      * 
                      */
                     void SetBackupZone(const std::string& _backupZone);
@@ -360,15 +368,15 @@ namespace TencentCloud
                     bool BackupZoneHasBeenSet() const;
 
                     /**
-                     * 获取<p>克隆实例类型。支持值包括：&quot;UNIVERSAL&quot; - 通用型实例，&quot;EXCLUSIVE&quot; - 独享型实例，&quot;CLOUD_NATIVE_CLUSTER&quot; - 云盘版标准型，&quot;CLOUD_NATIVE_CLUSTER_EXCLUSIVE&quot; - 云盘版加强型。不指定则默认为通用型。</p>
-                     * @return DeviceType <p>克隆实例类型。支持值包括：&quot;UNIVERSAL&quot; - 通用型实例，&quot;EXCLUSIVE&quot; - 独享型实例，&quot;CLOUD_NATIVE_CLUSTER&quot; - 云盘版标准型，&quot;CLOUD_NATIVE_CLUSTER_EXCLUSIVE&quot; - 云盘版加强型。不指定则默认为通用型。</p>
+                     * 获取克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
+                     * @return DeviceType 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
                      * 
                      */
                     std::string GetDeviceType() const;
 
                     /**
-                     * 设置<p>克隆实例类型。支持值包括：&quot;UNIVERSAL&quot; - 通用型实例，&quot;EXCLUSIVE&quot; - 独享型实例，&quot;CLOUD_NATIVE_CLUSTER&quot; - 云盘版标准型，&quot;CLOUD_NATIVE_CLUSTER_EXCLUSIVE&quot; - 云盘版加强型。不指定则默认为通用型。</p>
-                     * @param _deviceType <p>克隆实例类型。支持值包括：&quot;UNIVERSAL&quot; - 通用型实例，&quot;EXCLUSIVE&quot; - 独享型实例，&quot;CLOUD_NATIVE_CLUSTER&quot; - 云盘版标准型，&quot;CLOUD_NATIVE_CLUSTER_EXCLUSIVE&quot; - 云盘版加强型。不指定则默认为通用型。</p>
+                     * 设置克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
+                     * @param _deviceType 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
                      * 
                      */
                     void SetDeviceType(const std::string& _deviceType);
@@ -381,15 +389,15 @@ namespace TencentCloud
                     bool DeviceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。</p>
-                     * @return InstanceNodes <p>新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。</p>
+                     * 获取新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。
+                     * @return InstanceNodes 新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。
                      * 
                      */
                     int64_t GetInstanceNodes() const;
 
                     /**
-                     * 设置<p>新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。</p>
-                     * @param _instanceNodes <p>新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。</p>
+                     * 设置新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。
+                     * @param _instanceNodes 新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。
                      * 
                      */
                     void SetInstanceNodes(const int64_t& _instanceNodes);
@@ -402,15 +410,15 @@ namespace TencentCloud
                     bool InstanceNodesHasBeenSet() const;
 
                     /**
-                     * 获取<p>置放群组 ID。</p>
-                     * @return DeployGroupId <p>置放群组 ID。</p>
+                     * 获取置放群组 ID。
+                     * @return DeployGroupId 置放群组 ID。
                      * 
                      */
                     std::string GetDeployGroupId() const;
 
                     /**
-                     * 设置<p>置放群组 ID。</p>
-                     * @param _deployGroupId <p>置放群组 ID。</p>
+                     * 设置置放群组 ID。
+                     * @param _deployGroupId 置放群组 ID。
                      * 
                      */
                     void SetDeployGroupId(const std::string& _deployGroupId);
@@ -423,15 +431,15 @@ namespace TencentCloud
                     bool DeployGroupIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。</p>
-                     * @return DryRun <p>是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。</p>
+                     * 获取是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。
+                     * @return DryRun 是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。
                      * 
                      */
                     bool GetDryRun() const;
 
                     /**
-                     * 设置<p>是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。</p>
-                     * @param _dryRun <p>是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。</p>
+                     * 设置是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。
+                     * @param _dryRun 是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。
                      * 
                      */
                     void SetDryRun(const bool& _dryRun);
@@ -444,15 +452,15 @@ namespace TencentCloud
                     bool DryRunHasBeenSet() const;
 
                     /**
-                     * 获取<p>金融围拢 ID 。</p>
-                     * @return CageId <p>金融围拢 ID 。</p>
+                     * 获取金融围拢 ID 。
+                     * @return CageId 金融围拢 ID 。
                      * 
                      */
                     std::string GetCageId() const;
 
                     /**
-                     * 设置<p>金融围拢 ID 。</p>
-                     * @param _cageId <p>金融围拢 ID 。</p>
+                     * 设置金融围拢 ID 。
+                     * @param _cageId 金融围拢 ID 。
                      * 
                      */
                     void SetCageId(const std::string& _cageId);
@@ -465,15 +473,15 @@ namespace TencentCloud
                     bool CageIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>项目ID，默认项目ID0</p>
-                     * @return ProjectId <p>项目ID，默认项目ID0</p>
+                     * 获取项目ID，默认项目ID0
+                     * @return ProjectId 项目ID，默认项目ID0
                      * 
                      */
                     uint64_t GetProjectId() const;
 
                     /**
-                     * 设置<p>项目ID，默认项目ID0</p>
-                     * @param _projectId <p>项目ID，默认项目ID0</p>
+                     * 设置项目ID，默认项目ID0
+                     * @param _projectId 项目ID，默认项目ID0
                      * 
                      */
                     void SetProjectId(const uint64_t& _projectId);
@@ -486,15 +494,15 @@ namespace TencentCloud
                     bool ProjectIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费</p>
-                     * @return PayType <p>付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费</p>
+                     * 获取付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
+                     * @return PayType 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
                      * 
                      */
                     std::string GetPayType() const;
 
                     /**
-                     * 设置<p>付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费</p>
-                     * @param _payType <p>付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费</p>
+                     * 设置付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
+                     * @param _payType 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
                      * 
                      */
                     void SetPayType(const std::string& _payType);
@@ -507,15 +515,15 @@ namespace TencentCloud
                     bool PayTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。</p>
-                     * @return Period <p>实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。</p>
+                     * 获取实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+                     * @return Period 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
                      * 
                      */
                     int64_t GetPeriod() const;
 
                     /**
-                     * 设置<p>实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。</p>
-                     * @param _period <p>实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。</p>
+                     * 设置实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
+                     * @param _period 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
                      * 
                      */
                     void SetPeriod(const int64_t& _period);
@@ -528,15 +536,15 @@ namespace TencentCloud
                     bool PeriodHasBeenSet() const;
 
                     /**
-                     * 获取<p>云盘版节点拓扑配置。</p>
-                     * @return ClusterTopology <p>云盘版节点拓扑配置。</p>
+                     * 获取集群版节点拓扑配置。
+                     * @return ClusterTopology 集群版节点拓扑配置。
                      * 
                      */
                     ClusterTopology GetClusterTopology() const;
 
                     /**
-                     * 设置<p>云盘版节点拓扑配置。</p>
-                     * @param _clusterTopology <p>云盘版节点拓扑配置。</p>
+                     * 设置集群版节点拓扑配置。
+                     * @param _clusterTopology 集群版节点拓扑配置。
                      * 
                      */
                     void SetClusterTopology(const ClusterTopology& _clusterTopology);
@@ -549,15 +557,15 @@ namespace TencentCloud
                     bool ClusterTopologyHasBeenSet() const;
 
                     /**
-                     * 获取<p>原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou</p>
-                     * @return SrcRegion <p>原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou</p>
+                     * 获取原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou
+                     * @return SrcRegion 原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou
                      * 
                      */
                     std::string GetSrcRegion() const;
 
                     /**
-                     * 设置<p>原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou</p>
-                     * @param _srcRegion <p>原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou</p>
+                     * 设置原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou
+                     * @param _srcRegion 原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou
                      * 
                      */
                     void SetSrcRegion(const std::string& _srcRegion);
@@ -570,15 +578,15 @@ namespace TencentCloud
                     bool SrcRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>异地数据备份id</p>
-                     * @return SpecifiedSubBackupId <p>异地数据备份id</p>
+                     * 获取异地数据备份id
+                     * @return SpecifiedSubBackupId 异地数据备份id
                      * 
                      */
                     int64_t GetSpecifiedSubBackupId() const;
 
                     /**
-                     * 设置<p>异地数据备份id</p>
-                     * @param _specifiedSubBackupId <p>异地数据备份id</p>
+                     * 设置异地数据备份id
+                     * @param _specifiedSubBackupId 异地数据备份id
                      * 
                      */
                     void SetSpecifiedSubBackupId(const int64_t& _specifiedSubBackupId);
@@ -590,217 +598,165 @@ namespace TencentCloud
                      */
                     bool SpecifiedSubBackupIdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @return MasterZone <p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @deprecated
-                     */
-                    std::string GetMasterZone() const;
-
-                    /**
-                     * 设置<p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @param _masterZone <p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @deprecated
-                     */
-                    void SetMasterZone(const std::string& _masterZone);
-
-                    /**
-                     * 判断参数 MasterZone 是否已赋值
-                     * @return MasterZone 是否已赋值
-                     * @deprecated
-                     */
-                    bool MasterZoneHasBeenSet() const;
-
-                    /**
-                     * 获取<p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @return Zone <p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * 
-                     */
-                    std::string GetZone() const;
-
-                    /**
-                     * 设置<p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * @param _zone <p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     * 
-                     */
-                    void SetZone(const std::string& _zone);
-
-                    /**
-                     * 判断参数 Zone 是否已赋值
-                     * @return Zone 是否已赋值
-                     * 
-                     */
-                    bool ZoneHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>克隆源实例 ID。可通过 <a href="https://cloud.tencent.com/document/api/236/15872">DescribeDBInstances</a> 接口获取。</p>
+                     * 克隆源实例 ID。可通过 [DescribeDBInstances](https://cloud.tencent.com/document/api/236/15872) 接口获取。
                      */
                     std::string m_instanceId;
                     bool m_instanceIdHasBeenSet;
 
                     /**
-                     * <p>如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。<br>说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。</p>
+                     * 如果需要克隆实例回档到指定时间，则指定该值。时间格式为：yyyy-mm-dd hh:mm:ss。
+说明：此参数和 SpecifiedBackupId 参数需要2选1进行设置。
                      */
                     std::string m_specifiedRollbackTime;
                     bool m_specifiedRollbackTimeHasBeenSet;
 
                     /**
-                     * <p>如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 <a href="/document/api/236/15842">查询数据备份文件列表</a>。<br>说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、云盘版实例，备份文件为快照备份。</p>
+                     * 如果需要克隆实例回档到指定备份集，则指定该值为备份文件的 Id。请使用 [查询数据备份文件列表](/document/api/236/15842)。
+说明：如果是克隆双节点、三节点实例，备份文件为物理备份，如果是克隆单节点、集群版实例，备份文件为快照备份。
                      */
                     int64_t m_specifiedBackupId;
                     bool m_specifiedBackupIdHasBeenSet;
 
                     /**
-                     * <p>私有网络 ID，请使用 <a href="/document/api/215/15778">查询私有网络列表</a>。</p>
+                     * 私有网络 ID，请使用 [查询私有网络列表](/document/api/215/15778)。
                      */
                     std::string m_uniqVpcId;
                     bool m_uniqVpcIdHasBeenSet;
 
                     /**
-                     * <p>私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 <a href="/document/api/215/15784">查询子网列表</a>。</p>
+                     * 私有网络下的子网 ID，如果设置了 UniqVpcId，则 UniqSubnetId 必填，请使用 [查询子网列表](/document/api/215/15784)。
                      */
                     std::string m_uniqSubnetId;
                     bool m_uniqSubnetIdHasBeenSet;
 
                     /**
-                     * <p>实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 实例内存大小，单位：MB，需要不低于克隆源实例，默认和源实例相同。
                      */
                     int64_t m_memory;
                     bool m_memoryHasBeenSet;
 
                     /**
-                     * <p>实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 实例硬盘大小，单位：GB，需要不低于克隆源实例，默认和源实例相同。
                      */
                     int64_t m_volume;
                     bool m_volumeHasBeenSet;
 
                     /**
-                     * <p>新产生的克隆实例名称。支持输入最大60个字符。</p>
+                     * 新产生的克隆实例名称。支持输入最大60个字符。
                      */
                     std::string m_instanceName;
                     bool m_instanceNameHasBeenSet;
 
                     /**
-                     * <p>安全组参数，可使用 <a href="https://cloud.tencent.com/document/api/236/15850">查询项目安全组信息</a> 接口查询某个项目的安全组详情。</p>
+                     * 安全组参数，可使用 [查询项目安全组信息](https://cloud.tencent.com/document/api/236/15850) 接口查询某个项目的安全组详情。
                      */
                     std::vector<std::string> m_securityGroup;
                     bool m_securityGroupHasBeenSet;
 
                     /**
-                     * <p>实例标签信息。</p>
+                     * 实例标签信息。
                      */
                     std::vector<TagInfo> m_resourceTags;
                     bool m_resourceTagsHasBeenSet;
 
                     /**
-                     * <p>实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。</p>
+                     * 实例Cpu核数，需要不低于克隆源实例，默认和源实例相同。
                      */
                     int64_t m_cpu;
                     bool m_cpuHasBeenSet;
 
                     /**
-                     * <p>数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。</p>
+                     * 数据复制方式，默认为 0，支持值包括：0 - 表示异步复制，1 - 表示半同步复制，2 - 表示强同步复制。
                      */
                     int64_t m_protectMode;
                     bool m_protectModeHasBeenSet;
 
                     /**
-                     * <p>多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。</p>
+                     * 多可用区域，默认为 0，支持值包括：0 - 表示单可用区，1 - 表示多可用区。
                      */
                     int64_t m_deployMode;
                     bool m_deployModeHasBeenSet;
 
                     /**
-                     * <p>新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。</p>
+                     * 新产生的克隆实例备库 1 的可用区信息，默认同源实例 Zone 的值。
                      */
                     std::string m_slaveZone;
                     bool m_slaveZoneHasBeenSet;
 
                     /**
-                     * <p>备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。</p>
+                     * 备库 2 的可用区信息，默认为空，克隆强同步主实例时可指定该参数。
                      */
                     std::string m_backupZone;
                     bool m_backupZoneHasBeenSet;
 
                     /**
-                     * <p>克隆实例类型。支持值包括：&quot;UNIVERSAL&quot; - 通用型实例，&quot;EXCLUSIVE&quot; - 独享型实例，&quot;CLOUD_NATIVE_CLUSTER&quot; - 云盘版标准型，&quot;CLOUD_NATIVE_CLUSTER_EXCLUSIVE&quot; - 云盘版加强型。不指定则默认为通用型。</p>
+                     * 克隆实例类型。支持值包括："UNIVERSAL" - 通用型实例，"EXCLUSIVE" - 独享型实例，"CLOUD_NATIVE_CLUSTER" - 集群版标准型，"CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 集群版加强型。不指定则默认为通用型。
                      */
                     std::string m_deviceType;
                     bool m_deviceTypeHasBeenSet;
 
                     /**
-                     * <p>新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。</p>
+                     * 新克隆实例节点数。如果需要克隆出三节点实例， 请将该值设置为3 或指定 BackupZone 参数。如果需要克隆出两节点实例，请将该值设置为2。默认克隆出两节点实例。
                      */
                     int64_t m_instanceNodes;
                     bool m_instanceNodesHasBeenSet;
 
                     /**
-                     * <p>置放群组 ID。</p>
+                     * 置放群组 ID。
                      */
                     std::string m_deployGroupId;
                     bool m_deployGroupIdHasBeenSet;
 
                     /**
-                     * <p>是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。</p>
+                     * 是否只预检此次请求。true：发送检查请求，不会创建实例。检查项包括是否填写了必需参数，请求格式，业务限制等。如果检查不通过，则返回对应错误码；如果检查通过，则返回RequestId.默认为false：发送正常请求，通过检查后直接创建实例。
                      */
                     bool m_dryRun;
                     bool m_dryRunHasBeenSet;
 
                     /**
-                     * <p>金融围拢 ID 。</p>
+                     * 金融围拢 ID 。
                      */
                     std::string m_cageId;
                     bool m_cageIdHasBeenSet;
 
                     /**
-                     * <p>项目ID，默认项目ID0</p>
+                     * 项目ID，默认项目ID0
                      */
                     uint64_t m_projectId;
                     bool m_projectIdHasBeenSet;
 
                     /**
-                     * <p>付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费</p>
+                     * 付费类型，PRE_PAID：包年包月，USED_PAID：按量计费。默认为按量计费
                      */
                     std::string m_payType;
                     bool m_payTypeHasBeenSet;
 
                     /**
-                     * <p>实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。</p>
+                     * 实例时长，PayType为PRE_PAID时必传，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
                      */
                     int64_t m_period;
                     bool m_periodHasBeenSet;
 
                     /**
-                     * <p>云盘版节点拓扑配置。</p>
+                     * 集群版节点拓扑配置。
                      */
                     ClusterTopology m_clusterTopology;
                     bool m_clusterTopologyHasBeenSet;
 
                     /**
-                     * <p>原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou</p>
+                     * 原实例所在地域名，当传入异地备份时为必选项，例：ap-guangzhou
                      */
                     std::string m_srcRegion;
                     bool m_srcRegionHasBeenSet;
 
                     /**
-                     * <p>异地数据备份id</p>
+                     * 异地数据备份id
                      */
                     int64_t m_specifiedSubBackupId;
                     bool m_specifiedSubBackupIdHasBeenSet;
-
-                    /**
-                     * <p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     */
-                    std::string m_masterZone;
-                    bool m_masterZoneHasBeenSet;
-
-                    /**
-                     * <p>新产生的克隆实例主库的可用区信息，默认同源实例 Zone 的值。</p>
-                     */
-                    std::string m_zone;
-                    bool m_zoneHasBeenSet;
 
                 };
             }

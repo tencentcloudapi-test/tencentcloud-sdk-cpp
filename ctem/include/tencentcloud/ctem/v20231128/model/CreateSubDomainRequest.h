@@ -43,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>企业Id</p>
-                     * @return CustomerId <p>企业Id</p>
+                     * 获取企业Id
+                     * @return CustomerId 企业Id
                      * 
                      */
                     int64_t GetCustomerId() const;
 
                     /**
-                     * 设置<p>企业Id</p>
-                     * @param _customerId <p>企业Id</p>
+                     * 设置企业Id
+                     * @param _customerId 企业Id
                      * 
                      */
                     void SetCustomerId(const int64_t& _customerId);
@@ -64,15 +64,15 @@ namespace TencentCloud
                     bool CustomerIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>子域名</p>
-                     * @return SubDomain <p>子域名</p>
+                     * 获取子域名
+                     * @return SubDomain 子域名
                      * 
                      */
                     std::string GetSubDomain() const;
 
                     /**
-                     * 设置<p>子域名</p>
-                     * @param _subDomain <p>子域名</p>
+                     * 设置子域名
+                     * @param _subDomain 子域名
                      * 
                      */
                     void SetSubDomain(const std::string& _subDomain);
@@ -85,15 +85,15 @@ namespace TencentCloud
                     bool SubDomainHasBeenSet() const;
 
                     /**
-                     * 获取<p>Ip</p>
-                     * @return Ip <p>Ip</p>
+                     * 获取Ip
+                     * @return Ip Ip
                      * 
                      */
                     std::string GetIp() const;
 
                     /**
-                     * 设置<p>Ip</p>
-                     * @param _ip <p>Ip</p>
+                     * 设置Ip
+                     * @param _ip Ip
                      * 
                      */
                     void SetIp(const std::string& _ip);
@@ -106,15 +106,15 @@ namespace TencentCloud
                     bool IpHasBeenSet() const;
 
                     /**
-                     * 获取<p>国家</p>
-                     * @return Country <p>国家</p>
+                     * 获取国家
+                     * @return Country 国家
                      * 
                      */
                     std::string GetCountry() const;
 
                     /**
-                     * 设置<p>国家</p>
-                     * @param _country <p>国家</p>
+                     * 设置国家
+                     * @param _country 国家
                      * 
                      */
                     void SetCountry(const std::string& _country);
@@ -127,15 +127,15 @@ namespace TencentCloud
                     bool CountryHasBeenSet() const;
 
                     /**
-                     * 获取<p>省</p>
-                     * @return Province <p>省</p>
+                     * 获取省
+                     * @return Province 省
                      * 
                      */
                     std::string GetProvince() const;
 
                     /**
-                     * 设置<p>省</p>
-                     * @param _province <p>省</p>
+                     * 设置省
+                     * @param _province 省
                      * 
                      */
                     void SetProvince(const std::string& _province);
@@ -148,15 +148,15 @@ namespace TencentCloud
                     bool ProvinceHasBeenSet() const;
 
                     /**
-                     * 获取<p>城市</p>
-                     * @return City <p>城市</p>
+                     * 获取城市
+                     * @return City 城市
                      * 
                      */
                     std::string GetCity() const;
 
                     /**
-                     * 设置<p>城市</p>
-                     * @param _city <p>城市</p>
+                     * 设置城市
+                     * @param _city 城市
                      * 
                      */
                     void SetCity(const std::string& _city);
@@ -169,15 +169,15 @@ namespace TencentCloud
                     bool CityHasBeenSet() const;
 
                     /**
-                     * 获取<p>Isp</p>
-                     * @return Isp <p>Isp</p>
+                     * 获取Isp
+                     * @return Isp Isp
                      * 
                      */
                     std::string GetIsp() const;
 
                     /**
-                     * 设置<p>Isp</p>
-                     * @param _isp <p>Isp</p>
+                     * 设置Isp
+                     * @param _isp Isp
                      * 
                      */
                     void SetIsp(const std::string& _isp);
@@ -190,15 +190,15 @@ namespace TencentCloud
                     bool IspHasBeenSet() const;
 
                     /**
-                     * 获取<p>子公司</p>
-                     * @return EnterpriseUid <p>子公司</p>
+                     * 获取子公司
+                     * @return EnterpriseUid 子公司
                      * 
                      */
                     std::string GetEnterpriseUid() const;
 
                     /**
-                     * 设置<p>子公司</p>
-                     * @param _enterpriseUid <p>子公司</p>
+                     * 设置子公司
+                     * @param _enterpriseUid 子公司
                      * 
                      */
                     void SetEnterpriseUid(const std::string& _enterpriseUid);
@@ -210,109 +210,55 @@ namespace TencentCloud
                      */
                     bool EnterpriseUidHasBeenSet() const;
 
-                    /**
-                     * 获取<p>DNS解析类型。A、AAAA、CNAME等</p>
-                     * @return DnsType <p>DNS解析类型。A、AAAA、CNAME等</p>
-                     * 
-                     */
-                    std::string GetDnsType() const;
-
-                    /**
-                     * 设置<p>DNS解析类型。A、AAAA、CNAME等</p>
-                     * @param _dnsType <p>DNS解析类型。A、AAAA、CNAME等</p>
-                     * 
-                     */
-                    void SetDnsType(const std::string& _dnsType);
-
-                    /**
-                     * 判断参数 DnsType 是否已赋值
-                     * @return DnsType 是否已赋值
-                     * 
-                     */
-                    bool DnsTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>DNS解析值。域名或者ip</p>
-                     * @return DnsValue <p>DNS解析值。域名或者ip</p>
-                     * 
-                     */
-                    std::string GetDnsValue() const;
-
-                    /**
-                     * 设置<p>DNS解析值。域名或者ip</p>
-                     * @param _dnsValue <p>DNS解析值。域名或者ip</p>
-                     * 
-                     */
-                    void SetDnsValue(const std::string& _dnsValue);
-
-                    /**
-                     * 判断参数 DnsValue 是否已赋值
-                     * @return DnsValue 是否已赋值
-                     * 
-                     */
-                    bool DnsValueHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>企业Id</p>
+                     * 企业Id
                      */
                     int64_t m_customerId;
                     bool m_customerIdHasBeenSet;
 
                     /**
-                     * <p>子域名</p>
+                     * 子域名
                      */
                     std::string m_subDomain;
                     bool m_subDomainHasBeenSet;
 
                     /**
-                     * <p>Ip</p>
+                     * Ip
                      */
                     std::string m_ip;
                     bool m_ipHasBeenSet;
 
                     /**
-                     * <p>国家</p>
+                     * 国家
                      */
                     std::string m_country;
                     bool m_countryHasBeenSet;
 
                     /**
-                     * <p>省</p>
+                     * 省
                      */
                     std::string m_province;
                     bool m_provinceHasBeenSet;
 
                     /**
-                     * <p>城市</p>
+                     * 城市
                      */
                     std::string m_city;
                     bool m_cityHasBeenSet;
 
                     /**
-                     * <p>Isp</p>
+                     * Isp
                      */
                     std::string m_isp;
                     bool m_ispHasBeenSet;
 
                     /**
-                     * <p>子公司</p>
+                     * 子公司
                      */
                     std::string m_enterpriseUid;
                     bool m_enterpriseUidHasBeenSet;
-
-                    /**
-                     * <p>DNS解析类型。A、AAAA、CNAME等</p>
-                     */
-                    std::string m_dnsType;
-                    bool m_dnsTypeHasBeenSet;
-
-                    /**
-                     * <p>DNS解析值。域名或者ip</p>
-                     */
-                    std::string m_dnsValue;
-                    bool m_dnsValueHasBeenSet;
 
                 };
             }

@@ -28,8 +28,7 @@ ModifyEventConfigRequest::ModifyEventConfigRequest() :
     m_notificationUrlHasBeenSet(false),
     m_uploadMediaCompleteEventSwitchHasBeenSet(false),
     m_deleteMediaCompleteEventSwitchHasBeenSet(false),
-    m_persistenceCompleteEventSwitchHasBeenSet(false),
-    m_signKeyHasBeenSet(false)
+    m_persistenceCompleteEventSwitchHasBeenSet(false)
 {
 }
 
@@ -86,14 +85,6 @@ string ModifyEventConfigRequest::ToJsonString() const
         string key = "PersistenceCompleteEventSwitch";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, rapidjson::Value(m_persistenceCompleteEventSwitch.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_signKeyHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SignKey";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_signKey.c_str(), allocator).Move(), allocator);
     }
 
 
@@ -198,22 +189,6 @@ void ModifyEventConfigRequest::SetPersistenceCompleteEventSwitch(const string& _
 bool ModifyEventConfigRequest::PersistenceCompleteEventSwitchHasBeenSet() const
 {
     return m_persistenceCompleteEventSwitchHasBeenSet;
-}
-
-string ModifyEventConfigRequest::GetSignKey() const
-{
-    return m_signKey;
-}
-
-void ModifyEventConfigRequest::SetSignKey(const string& _signKey)
-{
-    m_signKey = _signKey;
-    m_signKeyHasBeenSet = true;
-}
-
-bool ModifyEventConfigRequest::SignKeyHasBeenSet() const
-{
-    return m_signKeyHasBeenSet;
 }
 
 

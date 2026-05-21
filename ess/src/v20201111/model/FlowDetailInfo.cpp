@@ -32,8 +32,7 @@ FlowDetailInfo::FlowDetailInfo() :
     m_ccInfosHasBeenSet(false),
     m_creatorHasBeenSet(false),
     m_userFlowTypeHasBeenSet(false),
-    m_templateIdHasBeenSet(false),
-    m_flowRemarksHasBeenSet(false)
+    m_templateIdHasBeenSet(false)
 {
 }
 
@@ -189,19 +188,6 @@ CoreInternalOutcome FlowDetailInfo::Deserialize(const rapidjson::Value &value)
         m_templateIdHasBeenSet = true;
     }
 
-    if (value.HasMember("FlowRemarks") && !value["FlowRemarks"].IsNull())
-    {
-        if (!value["FlowRemarks"].IsArray())
-            return CoreInternalOutcome(Core::Error("response `FlowDetailInfo.FlowRemarks` is not array type"));
-
-        const rapidjson::Value &tmpValue = value["FlowRemarks"];
-        for (rapidjson::Value::ConstValueIterator itr = tmpValue.Begin(); itr != tmpValue.End(); ++itr)
-        {
-            m_flowRemarks.push_back((*itr).GetString());
-        }
-        m_flowRemarksHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -318,19 +304,6 @@ void FlowDetailInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document::
         string key = "TemplateId";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(m_templateId.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_flowRemarksHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "FlowRemarks";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(rapidjson::kArrayType).Move(), allocator);
-
-        for (auto itr = m_flowRemarks.begin(); itr != m_flowRemarks.end(); ++itr)
-        {
-            value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
-        }
     }
 
 }
@@ -526,21 +499,5 @@ void FlowDetailInfo::SetTemplateId(const string& _templateId)
 bool FlowDetailInfo::TemplateIdHasBeenSet() const
 {
     return m_templateIdHasBeenSet;
-}
-
-vector<string> FlowDetailInfo::GetFlowRemarks() const
-{
-    return m_flowRemarks;
-}
-
-void FlowDetailInfo::SetFlowRemarks(const vector<string>& _flowRemarks)
-{
-    m_flowRemarks = _flowRemarks;
-    m_flowRemarksHasBeenSet = true;
-}
-
-bool FlowDetailInfo::FlowRemarksHasBeenSet() const
-{
-    return m_flowRemarksHasBeenSet;
 }
 

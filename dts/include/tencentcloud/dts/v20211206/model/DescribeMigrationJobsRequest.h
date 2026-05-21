@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>数据迁移任务ID，如：dts-amm1jw5q</p>
-                     * @return JobId <p>数据迁移任务ID，如：dts-amm1jw5q</p>
+                     * 获取数据迁移任务ID，如：dts-amm1jw5q
+                     * @return JobId 数据迁移任务ID，如：dts-amm1jw5q
                      * 
                      */
                     std::string GetJobId() const;
 
                     /**
-                     * 设置<p>数据迁移任务ID，如：dts-amm1jw5q</p>
-                     * @param _jobId <p>数据迁移任务ID，如：dts-amm1jw5q</p>
+                     * 设置数据迁移任务ID，如：dts-amm1jw5q
+                     * @param _jobId 数据迁移任务ID，如：dts-amm1jw5q
                      * 
                      */
                     void SetJobId(const std::string& _jobId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool JobIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据迁移任务名称</p>
-                     * @return JobName <p>数据迁移任务名称</p>
+                     * 获取数据迁移任务名称
+                     * @return JobName 数据迁移任务名称
                      * 
                      */
                     std::string GetJobName() const;
 
                     /**
-                     * 设置<p>数据迁移任务名称</p>
-                     * @param _jobName <p>数据迁移任务名称</p>
+                     * 设置数据迁移任务名称
+                     * @param _jobName 数据迁移任务名称
                      * 
                      */
                     void SetJobName(const std::string& _jobName);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool JobNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)</p>
-                     * @return Status <p>数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)</p>
+                     * 获取数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+                     * @return Status 数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
                      * 
                      */
                     std::vector<std::string> GetStatus() const;
 
                     /**
-                     * 设置<p>数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)</p>
-                     * @param _status <p>数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)</p>
+                     * 设置数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
+                     * @param _status 数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
                      * 
                      */
                     void SetStatus(const std::vector<std::string>& _status);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool StatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>源实例ID，格式如：cdb-c1nl9rpv</p>
-                     * @return SrcInstanceId <p>源实例ID，格式如：cdb-c1nl9rpv</p>
+                     * 获取源实例ID，格式如：cdb-c1nl9rpv
+                     * @return SrcInstanceId 源实例ID，格式如：cdb-c1nl9rpv
                      * 
                      */
                     std::string GetSrcInstanceId() const;
 
                     /**
-                     * 设置<p>源实例ID，格式如：cdb-c1nl9rpv</p>
-                     * @param _srcInstanceId <p>源实例ID，格式如：cdb-c1nl9rpv</p>
+                     * 设置源实例ID，格式如：cdb-c1nl9rpv
+                     * @param _srcInstanceId 源实例ID，格式如：cdb-c1nl9rpv
                      * 
                      */
                     void SetSrcInstanceId(const std::string& _srcInstanceId);
@@ -128,15 +128,15 @@ namespace TencentCloud
                     bool SrcInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>源实例地域，如：ap-guangzhou</p>
-                     * @return SrcRegion <p>源实例地域，如：ap-guangzhou</p>
+                     * 获取源实例地域，如：ap-guangzhou
+                     * @return SrcRegion 源实例地域，如：ap-guangzhou
                      * 
                      */
                     std::string GetSrcRegion() const;
 
                     /**
-                     * 设置<p>源实例地域，如：ap-guangzhou</p>
-                     * @param _srcRegion <p>源实例地域，如：ap-guangzhou</p>
+                     * 设置源实例地域，如：ap-guangzhou
+                     * @param _srcRegion 源实例地域，如：ap-guangzhou
                      * 
                      */
                     void SetSrcRegion(const std::string& _srcRegion);
@@ -149,15 +149,15 @@ namespace TencentCloud
                     bool SrcRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
-                     * @return SrcDatabaseType <p>源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
+                     * 获取源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
+                     * @return SrcDatabaseType 源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
                      * 
                      */
                     std::vector<std::string> GetSrcDatabaseType() const;
 
                     /**
-                     * 设置<p>源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
-                     * @param _srcDatabaseType <p>源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
+                     * 设置源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
+                     * @param _srcDatabaseType 源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
                      * 
                      */
                     void SetSrcDatabaseType(const std::vector<std::string>& _srcDatabaseType);
@@ -170,15 +170,15 @@ namespace TencentCloud
                     bool SrcDatabaseTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
-                     * @return SrcAccessType <p>源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
+                     * 获取源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
+                     * @return SrcAccessType 源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
                      * 
                      */
                     std::vector<std::string> GetSrcAccessType() const;
 
                     /**
-                     * 设置<p>源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
-                     * @param _srcAccessType <p>源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
+                     * 设置源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
+                     * @param _srcAccessType 源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
                      * 
                      */
                     void SetSrcAccessType(const std::vector<std::string>& _srcAccessType);
@@ -191,15 +191,15 @@ namespace TencentCloud
                     bool SrcAccessTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标实例ID，格式如：cdb-c1nl9rpv</p>
-                     * @return DstInstanceId <p>目标实例ID，格式如：cdb-c1nl9rpv</p>
+                     * 获取目标实例ID，格式如：cdb-c1nl9rpv
+                     * @return DstInstanceId 目标实例ID，格式如：cdb-c1nl9rpv
                      * 
                      */
                     std::string GetDstInstanceId() const;
 
                     /**
-                     * 设置<p>目标实例ID，格式如：cdb-c1nl9rpv</p>
-                     * @param _dstInstanceId <p>目标实例ID，格式如：cdb-c1nl9rpv</p>
+                     * 设置目标实例ID，格式如：cdb-c1nl9rpv
+                     * @param _dstInstanceId 目标实例ID，格式如：cdb-c1nl9rpv
                      * 
                      */
                     void SetDstInstanceId(const std::string& _dstInstanceId);
@@ -212,15 +212,15 @@ namespace TencentCloud
                     bool DstInstanceIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标实例地域，如：ap-guangzhou</p>
-                     * @return DstRegion <p>目标实例地域，如：ap-guangzhou</p>
+                     * 获取目标实例地域，如：ap-guangzhou
+                     * @return DstRegion 目标实例地域，如：ap-guangzhou
                      * 
                      */
                     std::string GetDstRegion() const;
 
                     /**
-                     * 设置<p>目标实例地域，如：ap-guangzhou</p>
-                     * @param _dstRegion <p>目标实例地域，如：ap-guangzhou</p>
+                     * 设置目标实例地域，如：ap-guangzhou
+                     * @param _dstRegion 目标实例地域，如：ap-guangzhou
                      * 
                      */
                     void SetDstRegion(const std::string& _dstRegion);
@@ -233,15 +233,15 @@ namespace TencentCloud
                     bool DstRegionHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
-                     * @return DstDatabaseType <p>目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
+                     * 获取目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
+                     * @return DstDatabaseType 目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
                      * 
                      */
                     std::vector<std::string> GetDstDatabaseType() const;
 
                     /**
-                     * 设置<p>目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
-                     * @param _dstDatabaseType <p>目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
+                     * 设置目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
+                     * @param _dstDatabaseType 目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
                      * 
                      */
                     void SetDstDatabaseType(const std::vector<std::string>& _dstDatabaseType);
@@ -254,15 +254,15 @@ namespace TencentCloud
                     bool DstDatabaseTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
-                     * @return DstAccessType <p>目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
+                     * 获取目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
+                     * @return DstAccessType 目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
                      * 
                      */
                     std::vector<std::string> GetDstAccessType() const;
 
                     /**
-                     * 设置<p>目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
-                     * @param _dstAccessType <p>目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
+                     * 设置目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
+                     * @param _dstAccessType 目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
                      * 
                      */
                     void SetDstAccessType(const std::vector<std::string>& _dstAccessType);
@@ -275,15 +275,15 @@ namespace TencentCloud
                     bool DstAccessTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务运行模式，值包括：immediate(立即运行)，timed(定时运行)</p>
-                     * @return RunMode <p>任务运行模式，值包括：immediate(立即运行)，timed(定时运行)</p>
+                     * 获取任务运行模式，值包括：immediate(立即运行)，timed(定时运行)
+                     * @return RunMode 任务运行模式，值包括：immediate(立即运行)，timed(定时运行)
                      * 
                      */
                     std::string GetRunMode() const;
 
                     /**
-                     * 设置<p>任务运行模式，值包括：immediate(立即运行)，timed(定时运行)</p>
-                     * @param _runMode <p>任务运行模式，值包括：immediate(立即运行)，timed(定时运行)</p>
+                     * 设置任务运行模式，值包括：immediate(立即运行)，timed(定时运行)
+                     * @param _runMode 任务运行模式，值包括：immediate(立即运行)，timed(定时运行)
                      * 
                      */
                     void SetRunMode(const std::string& _runMode);
@@ -296,15 +296,15 @@ namespace TencentCloud
                     bool RunModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序方式，可能取值为asc、desc，默认按照创建时间倒序</p>
-                     * @return OrderSeq <p>排序方式，可能取值为asc、desc，默认按照创建时间倒序</p>
+                     * 获取排序方式，可能取值为asc、desc，默认按照创建时间倒序
+                     * @return OrderSeq 排序方式，可能取值为asc、desc，默认按照创建时间倒序
                      * 
                      */
                     std::string GetOrderSeq() const;
 
                     /**
-                     * 设置<p>排序方式，可能取值为asc、desc，默认按照创建时间倒序</p>
-                     * @param _orderSeq <p>排序方式，可能取值为asc、desc，默认按照创建时间倒序</p>
+                     * 设置排序方式，可能取值为asc、desc，默认按照创建时间倒序
+                     * @param _orderSeq 排序方式，可能取值为asc、desc，默认按照创建时间倒序
                      * 
                      */
                     void SetOrderSeq(const std::string& _orderSeq);
@@ -317,15 +317,15 @@ namespace TencentCloud
                     bool OrderSeqHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回实例数量，默认20，有效区间[1,100]</p>
-                     * @return Limit <p>返回实例数量，默认20，有效区间[1,100]</p>
+                     * 获取返回实例数量，默认20，有效区间[1,100]
+                     * @return Limit 返回实例数量，默认20，有效区间[1,100]
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置<p>返回实例数量，默认20，有效区间[1,100]</p>
-                     * @param _limit <p>返回实例数量，默认20，有效区间[1,100]</p>
+                     * 设置返回实例数量，默认20，有效区间[1,100]
+                     * @param _limit 返回实例数量，默认20，有效区间[1,100]
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -338,15 +338,15 @@ namespace TencentCloud
                     bool LimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>偏移量，默认为0</p>
-                     * @return Offset <p>偏移量，默认为0</p>
+                     * 获取偏移量，默认为0
+                     * @return Offset 偏移量，默认为0
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>偏移量，默认为0</p>
-                     * @param _offset <p>偏移量，默认为0</p>
+                     * 设置偏移量，默认为0
+                     * @param _offset 偏移量，默认为0
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -359,15 +359,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>标签过滤</p>
-                     * @return TagFilters <p>标签过滤</p>
+                     * 获取标签过滤
+                     * @return TagFilters 标签过滤
                      * 
                      */
                     std::vector<TagFilter> GetTagFilters() const;
 
                     /**
-                     * 设置<p>标签过滤</p>
-                     * @param _tagFilters <p>标签过滤</p>
+                     * 设置标签过滤
+                     * @param _tagFilters 标签过滤
                      * 
                      */
                     void SetTagFilters(const std::vector<TagFilter>& _tagFilters);
@@ -382,97 +382,97 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>数据迁移任务ID，如：dts-amm1jw5q</p>
+                     * 数据迁移任务ID，如：dts-amm1jw5q
                      */
                     std::string m_jobId;
                     bool m_jobIdHasBeenSet;
 
                     /**
-                     * <p>数据迁移任务名称</p>
+                     * 数据迁移任务名称
                      */
                     std::string m_jobName;
                     bool m_jobNameHasBeenSet;
 
                     /**
-                     * <p>数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)</p>
+                     * 数据迁移任务状态，可取值包括：created(创建完成)、checking(校验中)、checkPass(校验通过)、checkNotPass(校验不通过)、readyRun(准备运行)、running(任务运行中)、readyComplete(准备完成)、success(任务成功)、failed(任务失败)、stopping(中止中)、completing(完成中)
                      */
                     std::vector<std::string> m_status;
                     bool m_statusHasBeenSet;
 
                     /**
-                     * <p>源实例ID，格式如：cdb-c1nl9rpv</p>
+                     * 源实例ID，格式如：cdb-c1nl9rpv
                      */
                     std::string m_srcInstanceId;
                     bool m_srcInstanceIdHasBeenSet;
 
                     /**
-                     * <p>源实例地域，如：ap-guangzhou</p>
+                     * 源实例地域，如：ap-guangzhou
                      */
                     std::string m_srcRegion;
                     bool m_srcRegionHasBeenSet;
 
                     /**
-                     * <p>源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
+                     * 源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
                      */
                     std::vector<std::string> m_srcDatabaseType;
                     bool m_srcDatabaseTypeHasBeenSet;
 
                     /**
-                     * <p>源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
+                     * 源实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
                      */
                     std::vector<std::string> m_srcAccessType;
                     bool m_srcAccessTypeHasBeenSet;
 
                     /**
-                     * <p>目标实例ID，格式如：cdb-c1nl9rpv</p>
+                     * 目标实例ID，格式如：cdb-c1nl9rpv
                      */
                     std::string m_dstInstanceId;
                     bool m_dstInstanceIdHasBeenSet;
 
                     /**
-                     * <p>目标实例地域，如：ap-guangzhou</p>
+                     * 目标实例地域，如：ap-guangzhou
                      */
                     std::string m_dstRegion;
                     bool m_dstRegionHasBeenSet;
 
                     /**
-                     * <p>目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql</p>
+                     * 目标源实例数据库类型，如：sqlserver,mysql,mongodb,redis,tendis,keewidb,clickhouse,cynosdbmysql,percona,tdsqlpercona,mariadb,tdsqlmysql,postgresql
                      */
                     std::vector<std::string> m_dstDatabaseType;
                     bool m_dstDatabaseTypeHasBeenSet;
 
                     /**
-                     * <p>目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)</p>
+                     * 目标实例接入类型，值包括：extranet(外网)、vpncloud(云vpn接入的实例)、dcg(专线接入的实例)、ccn(云联网接入的实例)、cdb(云上cdb实例)、cvm(cvm自建实例)
                      */
                     std::vector<std::string> m_dstAccessType;
                     bool m_dstAccessTypeHasBeenSet;
 
                     /**
-                     * <p>任务运行模式，值包括：immediate(立即运行)，timed(定时运行)</p>
+                     * 任务运行模式，值包括：immediate(立即运行)，timed(定时运行)
                      */
                     std::string m_runMode;
                     bool m_runModeHasBeenSet;
 
                     /**
-                     * <p>排序方式，可能取值为asc、desc，默认按照创建时间倒序</p>
+                     * 排序方式，可能取值为asc、desc，默认按照创建时间倒序
                      */
                     std::string m_orderSeq;
                     bool m_orderSeqHasBeenSet;
 
                     /**
-                     * <p>返回实例数量，默认20，有效区间[1,100]</p>
+                     * 返回实例数量，默认20，有效区间[1,100]
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
 
                     /**
-                     * <p>偏移量，默认为0</p>
+                     * 偏移量，默认为0
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>标签过滤</p>
+                     * 标签过滤
                      */
                     std::vector<TagFilter> m_tagFilters;
                     bool m_tagFiltersHasBeenSet;

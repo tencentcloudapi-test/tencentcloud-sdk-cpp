@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>是否为自建集群</p>
-                     * @return SelfBuilt <p>是否为自建集群</p>
+                     * 获取是否为自建集群
+                     * @return SelfBuilt 是否为自建集群
                      * 
                      */
                     bool GetSelfBuilt() const;
 
                     /**
-                     * 设置<p>是否为自建集群</p>
-                     * @param _selfBuilt <p>是否为自建集群</p>
+                     * 设置是否为自建集群
+                     * @param _selfBuilt 是否为自建集群
                      * 
                      */
                     void SetSelfBuilt(const bool& _selfBuilt);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool SelfBuiltHasBeenSet() const;
 
                     /**
-                     * 获取<p>ckafka集群实例Id</p>
-                     * @return Resource <p>ckafka集群实例Id</p>
+                     * 获取ckafka集群实例Id
+                     * @return Resource ckafka集群实例Id
                      * 
                      */
                     std::string GetResource() const;
 
                     /**
-                     * 设置<p>ckafka集群实例Id</p>
-                     * @param _resource <p>ckafka集群实例Id</p>
+                     * 设置ckafka集群实例Id
+                     * @param _resource ckafka集群实例Id
                      * 
                      */
                     void SetResource(const std::string& _resource);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool ResourceHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题名，多个以“,”分隔</p>
-                     * @return Topic <p>主题名，多个以“,”分隔</p>
+                     * 获取主题名，多个以“,”分隔
+                     * @return Topic 主题名，多个以“,”分隔
                      * 
                      */
                     std::string GetTopic() const;
 
                     /**
-                     * 设置<p>主题名，多个以“,”分隔</p>
-                     * @param _topic <p>主题名，多个以“,”分隔</p>
+                     * 设置主题名，多个以“,”分隔
+                     * @param _topic 主题名，多个以“,”分隔
                      * 
                      */
                     void SetTopic(const std::string& _topic);
@@ -111,18 +111,18 @@ namespace TencentCloud
                     bool TopicHasBeenSet() const;
 
                     /**
-                     * 获取<p>Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp</p>
+                     * 获取Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return OffsetType <p>Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp</p>
+                     * @return OffsetType Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetOffsetType() const;
 
                     /**
-                     * 设置<p>Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp</p>
+                     * 设置Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _offsetType <p>Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp</p>
+                     * @param _offsetType Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -136,18 +136,18 @@ namespace TencentCloud
                     bool OffsetTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>Offset类型为timestamp时必传，传时间戳，精确到秒</p>
+                     * 获取Offset类型为timestamp时必传，传时间戳，精确到秒
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return StartTime <p>Offset类型为timestamp时必传，传时间戳，精确到秒</p>
+                     * @return StartTime Offset类型为timestamp时必传，传时间戳，精确到秒
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     uint64_t GetStartTime() const;
 
                     /**
-                     * 设置<p>Offset类型为timestamp时必传，传时间戳，精确到秒</p>
+                     * 设置Offset类型为timestamp时必传，传时间戳，精确到秒
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _startTime <p>Offset类型为timestamp时必传，传时间戳，精确到秒</p>
+                     * @param _startTime Offset类型为timestamp时必传，传时间戳，精确到秒
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -161,18 +161,18 @@ namespace TencentCloud
                     bool StartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>实例资源名称</p>
+                     * 获取实例资源名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ResourceName <p>实例资源名称</p>
+                     * @return ResourceName 实例资源名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetResourceName() const;
 
                     /**
-                     * 设置<p>实例资源名称</p>
+                     * 设置实例资源名称
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _resourceName <p>实例资源名称</p>
+                     * @param _resourceName 实例资源名称
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -186,18 +186,18 @@ namespace TencentCloud
                     bool ResourceNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>可用区</p>
+                     * 获取可用区
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ZoneId <p>可用区</p>
+                     * @return ZoneId 可用区
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetZoneId() const;
 
                     /**
-                     * 设置<p>可用区</p>
+                     * 设置可用区
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _zoneId <p>可用区</p>
+                     * @param _zoneId 可用区
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -211,18 +211,18 @@ namespace TencentCloud
                     bool ZoneIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>主题Id</p>
+                     * 获取主题Id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TopicId <p>主题Id</p>
+                     * @return TopicId 主题Id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetTopicId() const;
 
                     /**
-                     * 设置<p>主题Id</p>
+                     * 设置主题Id
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _topicId <p>主题Id</p>
+                     * @param _topicId 主题Id
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -236,18 +236,18 @@ namespace TencentCloud
                     bool TopicIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>Topic的分区数</p>
+                     * 获取Topic的分区数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PartitionNum <p>Topic的分区数</p>
+                     * @return PartitionNum Topic的分区数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetPartitionNum() const;
 
                     /**
-                     * 设置<p>Topic的分区数</p>
+                     * 设置Topic的分区数
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _partitionNum <p>Topic的分区数</p>
+                     * @param _partitionNum Topic的分区数
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -261,18 +261,18 @@ namespace TencentCloud
                     bool PartitionNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>启用容错实例/开启死信队列</p>
+                     * 获取启用容错实例/开启死信队列
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return EnableToleration <p>启用容错实例/开启死信队列</p>
+                     * @return EnableToleration 启用容错实例/开启死信队列
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     bool GetEnableToleration() const;
 
                     /**
-                     * 设置<p>启用容错实例/开启死信队列</p>
+                     * 设置启用容错实例/开启死信队列
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _enableToleration <p>启用容错实例/开启死信队列</p>
+                     * @param _enableToleration 启用容错实例/开启死信队列
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -286,15 +286,15 @@ namespace TencentCloud
                     bool EnableTolerationHasBeenSet() const;
 
                     /**
-                     * 获取<p>Qps 限制</p>
-                     * @return QpsLimit <p>Qps 限制</p>
+                     * 获取Qps 限制
+                     * @return QpsLimit Qps 限制
                      * 
                      */
                     uint64_t GetQpsLimit() const;
 
                     /**
-                     * 设置<p>Qps 限制</p>
-                     * @param _qpsLimit <p>Qps 限制</p>
+                     * 设置Qps 限制
+                     * @param _qpsLimit Qps 限制
                      * 
                      */
                     void SetQpsLimit(const uint64_t& _qpsLimit);
@@ -307,18 +307,18 @@ namespace TencentCloud
                     bool QpsLimitHasBeenSet() const;
 
                     /**
-                     * 获取<p>Table到Topic的路由，「分发到多个topic」开关打开时必传</p>
+                     * 获取Table到Topic的路由，「分发到多个topic」开关打开时必传
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return TableMappings <p>Table到Topic的路由，「分发到多个topic」开关打开时必传</p>
+                     * @return TableMappings Table到Topic的路由，「分发到多个topic」开关打开时必传
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<TableMapping> GetTableMappings() const;
 
                     /**
-                     * 设置<p>Table到Topic的路由，「分发到多个topic」开关打开时必传</p>
+                     * 设置Table到Topic的路由，「分发到多个topic」开关打开时必传
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _tableMappings <p>Table到Topic的路由，「分发到多个topic」开关打开时必传</p>
+                     * @param _tableMappings Table到Topic的路由，「分发到多个topic」开关打开时必传
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -332,15 +332,15 @@ namespace TencentCloud
                     bool TableMappingsHasBeenSet() const;
 
                     /**
-                     * 获取<p>「分发到多个topic」开关，默认为false</p>
-                     * @return UseTableMapping <p>「分发到多个topic」开关，默认为false</p>
+                     * 获取「分发到多个topic」开关，默认为false
+                     * @return UseTableMapping 「分发到多个topic」开关，默认为false
                      * 
                      */
                     bool GetUseTableMapping() const;
 
                     /**
-                     * 设置<p>「分发到多个topic」开关，默认为false</p>
-                     * @param _useTableMapping <p>「分发到多个topic」开关，默认为false</p>
+                     * 设置「分发到多个topic」开关，默认为false
+                     * @param _useTableMapping 「分发到多个topic」开关，默认为false
                      * 
                      */
                     void SetUseTableMapping(const bool& _useTableMapping);
@@ -353,15 +353,15 @@ namespace TencentCloud
                     bool UseTableMappingHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）</p>
-                     * @return UseAutoCreateTopic <p>使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）</p>
+                     * 获取使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）
+                     * @return UseAutoCreateTopic 使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）
                      * 
                      */
                     bool GetUseAutoCreateTopic() const;
 
                     /**
-                     * 设置<p>使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）</p>
-                     * @param _useAutoCreateTopic <p>使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）</p>
+                     * 设置使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）
+                     * @param _useAutoCreateTopic 使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）
                      * 
                      */
                     void SetUseAutoCreateTopic(const bool& _useAutoCreateTopic);
@@ -374,15 +374,15 @@ namespace TencentCloud
                     bool UseAutoCreateTopicHasBeenSet() const;
 
                     /**
-                     * 获取<p>写入Topic时是否进行压缩，不开启填&quot;none&quot;，开启的话，填写&quot;open&quot;。</p>
-                     * @return CompressionType <p>写入Topic时是否进行压缩，不开启填&quot;none&quot;，开启的话，填写&quot;open&quot;。</p>
+                     * 获取写入Topic时是否进行压缩，不开启填"none"，开启的话，填写"open"。
+                     * @return CompressionType 写入Topic时是否进行压缩，不开启填"none"，开启的话，填写"open"。
                      * 
                      */
                     std::string GetCompressionType() const;
 
                     /**
-                     * 设置<p>写入Topic时是否进行压缩，不开启填&quot;none&quot;，开启的话，填写&quot;open&quot;。</p>
-                     * @param _compressionType <p>写入Topic时是否进行压缩，不开启填&quot;none&quot;，开启的话，填写&quot;open&quot;。</p>
+                     * 设置写入Topic时是否进行压缩，不开启填"none"，开启的话，填写"open"。
+                     * @param _compressionType 写入Topic时是否进行压缩，不开启填"none"，开启的话，填写"open"。
                      * 
                      */
                     void SetCompressionType(const std::string& _compressionType);
@@ -395,15 +395,15 @@ namespace TencentCloud
                     bool CompressionTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)</p>
-                     * @return MsgMultiple <p>源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)</p>
+                     * 获取源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+                     * @return MsgMultiple 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
                      * 
                      */
                     int64_t GetMsgMultiple() const;
 
                     /**
-                     * 设置<p>源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)</p>
-                     * @param _msgMultiple <p>源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)</p>
+                     * 设置源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
+                     * @param _msgMultiple 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
                      * 
                      */
                     void SetMsgMultiple(const int64_t& _msgMultiple);
@@ -416,15 +416,15 @@ namespace TencentCloud
                     bool MsgMultipleHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写&quot;META_SYNC_INSTANCE_TYPE&quot;, 同步元数据及全部topic内消息的填写&quot;META_AND_DATA_SYNC_INSTANCE_TYPE&quot;; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写&quot;DATA_SYNC_TYPE&quot;</p>
-                     * @return ConnectorSyncType <p>数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写&quot;META_SYNC_INSTANCE_TYPE&quot;, 同步元数据及全部topic内消息的填写&quot;META_AND_DATA_SYNC_INSTANCE_TYPE&quot;; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写&quot;DATA_SYNC_TYPE&quot;</p>
+                     * 获取数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+                     * @return ConnectorSyncType 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
                      * 
                      */
                     std::string GetConnectorSyncType() const;
 
                     /**
-                     * 设置<p>数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写&quot;META_SYNC_INSTANCE_TYPE&quot;, 同步元数据及全部topic内消息的填写&quot;META_AND_DATA_SYNC_INSTANCE_TYPE&quot;; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写&quot;DATA_SYNC_TYPE&quot;</p>
-                     * @param _connectorSyncType <p>数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写&quot;META_SYNC_INSTANCE_TYPE&quot;, 同步元数据及全部topic内消息的填写&quot;META_AND_DATA_SYNC_INSTANCE_TYPE&quot;; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写&quot;DATA_SYNC_TYPE&quot;</p>
+                     * 设置数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
+                     * @param _connectorSyncType 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
                      * 
                      */
                     void SetConnectorSyncType(const std::string& _connectorSyncType);
@@ -437,15 +437,15 @@ namespace TencentCloud
                     bool ConnectorSyncTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false</p>
-                     * @return KeepPartition <p>数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false</p>
+                     * 获取数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+                     * @return KeepPartition 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
                      * 
                      */
                     bool GetKeepPartition() const;
 
                     /**
-                     * 设置<p>数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false</p>
-                     * @param _keepPartition <p>数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false</p>
+                     * 设置数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
+                     * @param _keepPartition 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
                      * 
                      */
                     void SetKeepPartition(const bool& _keepPartition);
@@ -458,15 +458,15 @@ namespace TencentCloud
                     bool KeepPartitionHasBeenSet() const;
 
                     /**
-                     * 获取<p>正则匹配Topic列表</p>
-                     * @return TopicRegularExpression <p>正则匹配Topic列表</p>
+                     * 获取正则匹配Topic列表
+                     * @return TopicRegularExpression 正则匹配Topic列表
                      * 
                      */
                     std::string GetTopicRegularExpression() const;
 
                     /**
-                     * 设置<p>正则匹配Topic列表</p>
-                     * @param _topicRegularExpression <p>正则匹配Topic列表</p>
+                     * 设置正则匹配Topic列表
+                     * @param _topicRegularExpression 正则匹配Topic列表
                      * 
                      */
                     void SetTopicRegularExpression(const std::string& _topicRegularExpression);
@@ -479,15 +479,15 @@ namespace TencentCloud
                     bool TopicRegularExpressionHasBeenSet() const;
 
                     /**
-                     * 获取<p>Topic 前缀</p>
-                     * @return Prefix <p>Topic 前缀</p>
+                     * 获取Topic 前缀
+                     * @return Prefix Topic 前缀
                      * 
                      */
                     std::string GetPrefix() const;
 
                     /**
-                     * 设置<p>Topic 前缀</p>
-                     * @param _prefix <p>Topic 前缀</p>
+                     * 设置Topic 前缀
+                     * @param _prefix Topic 前缀
                      * 
                      */
                     void SetPrefix(const std::string& _prefix);
@@ -500,15 +500,15 @@ namespace TencentCloud
                     bool PrefixHasBeenSet() const;
 
                     /**
-                     * 获取<p>Topic前缀分隔符</p>
-                     * @return Separator <p>Topic前缀分隔符</p>
+                     * 获取Topic前缀分隔符
+                     * @return Separator Topic前缀分隔符
                      * 
                      */
                     std::string GetSeparator() const;
 
                     /**
-                     * 设置<p>Topic前缀分隔符</p>
-                     * @param _separator <p>Topic前缀分隔符</p>
+                     * 设置Topic前缀分隔符
+                     * @param _separator Topic前缀分隔符
                      * 
                      */
                     void SetSeparator(const std::string& _separator);
@@ -520,168 +520,141 @@ namespace TencentCloud
                      */
                     bool SeparatorHasBeenSet() const;
 
-                    /**
-                     * 获取<p>多选topic列表</p>
-                     * @return TopicList <p>多选topic列表</p>
-                     * 
-                     */
-                    std::vector<std::string> GetTopicList() const;
-
-                    /**
-                     * 设置<p>多选topic列表</p>
-                     * @param _topicList <p>多选topic列表</p>
-                     * 
-                     */
-                    void SetTopicList(const std::vector<std::string>& _topicList);
-
-                    /**
-                     * 判断参数 TopicList 是否已赋值
-                     * @return TopicList 是否已赋值
-                     * 
-                     */
-                    bool TopicListHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>是否为自建集群</p>
+                     * 是否为自建集群
                      */
                     bool m_selfBuilt;
                     bool m_selfBuiltHasBeenSet;
 
                     /**
-                     * <p>ckafka集群实例Id</p>
+                     * ckafka集群实例Id
                      */
                     std::string m_resource;
                     bool m_resourceHasBeenSet;
 
                     /**
-                     * <p>主题名，多个以“,”分隔</p>
+                     * 主题名，多个以“,”分隔
                      */
                     std::string m_topic;
                     bool m_topicHasBeenSet;
 
                     /**
-                     * <p>Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp</p>
+                     * Offset类型，最开始位置earliest，最新位置latest，时间点位置timestamp
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_offsetType;
                     bool m_offsetTypeHasBeenSet;
 
                     /**
-                     * <p>Offset类型为timestamp时必传，传时间戳，精确到秒</p>
+                     * Offset类型为timestamp时必传，传时间戳，精确到秒
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     uint64_t m_startTime;
                     bool m_startTimeHasBeenSet;
 
                     /**
-                     * <p>实例资源名称</p>
+                     * 实例资源名称
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_resourceName;
                     bool m_resourceNameHasBeenSet;
 
                     /**
-                     * <p>可用区</p>
+                     * 可用区
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_zoneId;
                     bool m_zoneIdHasBeenSet;
 
                     /**
-                     * <p>主题Id</p>
+                     * 主题Id
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_topicId;
                     bool m_topicIdHasBeenSet;
 
                     /**
-                     * <p>Topic的分区数</p>
+                     * Topic的分区数
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_partitionNum;
                     bool m_partitionNumHasBeenSet;
 
                     /**
-                     * <p>启用容错实例/开启死信队列</p>
+                     * 启用容错实例/开启死信队列
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     bool m_enableToleration;
                     bool m_enableTolerationHasBeenSet;
 
                     /**
-                     * <p>Qps 限制</p>
+                     * Qps 限制
                      */
                     uint64_t m_qpsLimit;
                     bool m_qpsLimitHasBeenSet;
 
                     /**
-                     * <p>Table到Topic的路由，「分发到多个topic」开关打开时必传</p>
+                     * Table到Topic的路由，「分发到多个topic」开关打开时必传
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<TableMapping> m_tableMappings;
                     bool m_tableMappingsHasBeenSet;
 
                     /**
-                     * <p>「分发到多个topic」开关，默认为false</p>
+                     * 「分发到多个topic」开关，默认为false
                      */
                     bool m_useTableMapping;
                     bool m_useTableMappingHasBeenSet;
 
                     /**
-                     * <p>使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）</p>
+                     * 使用的Topic是否需要自动创建（目前只支持SOURCE流入任务，如果不使用分发到多个topic，需要在Topic字段填写需要自动创建的topic名）
                      */
                     bool m_useAutoCreateTopic;
                     bool m_useAutoCreateTopicHasBeenSet;
 
                     /**
-                     * <p>写入Topic时是否进行压缩，不开启填&quot;none&quot;，开启的话，填写&quot;open&quot;。</p>
+                     * 写入Topic时是否进行压缩，不开启填"none"，开启的话，填写"open"。
                      */
                     std::string m_compressionType;
                     bool m_compressionTypeHasBeenSet;
 
                     /**
-                     * <p>源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)</p>
+                     * 源topic消息1条扩增成msgMultiple条写入目标topic(该参数目前只有ckafka流入ckafka适用)
                      */
                     int64_t m_msgMultiple;
                     bool m_msgMultipleHasBeenSet;
 
                     /**
-                     * <p>数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写&quot;META_SYNC_INSTANCE_TYPE&quot;, 同步元数据及全部topic内消息的填写&quot;META_AND_DATA_SYNC_INSTANCE_TYPE&quot;; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写&quot;DATA_SYNC_TYPE&quot;</p>
+                     * 数据同步专用参数, 正常数据处理可为空, 实例级别同步: 仅同步元数据填写"META_SYNC_INSTANCE_TYPE", 同步元数据及全部topic内消息的填写"META_AND_DATA_SYNC_INSTANCE_TYPE"; topic级别同步: 选中的源和目标topic中的消息(需要目标实例也包含该topic)填写"DATA_SYNC_TYPE"
                      */
                     std::string m_connectorSyncType;
                     bool m_connectorSyncTypeHasBeenSet;
 
                     /**
-                     * <p>数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false</p>
+                     * 数据同步专用参数, 当通过时,希望下游的消息写入分区与上游的一致,则填true,但下游分区小于上游时,会报错; 不需要一致则为false, 默认为false
                      */
                     bool m_keepPartition;
                     bool m_keepPartitionHasBeenSet;
 
                     /**
-                     * <p>正则匹配Topic列表</p>
+                     * 正则匹配Topic列表
                      */
                     std::string m_topicRegularExpression;
                     bool m_topicRegularExpressionHasBeenSet;
 
                     /**
-                     * <p>Topic 前缀</p>
+                     * Topic 前缀
                      */
                     std::string m_prefix;
                     bool m_prefixHasBeenSet;
 
                     /**
-                     * <p>Topic前缀分隔符</p>
+                     * Topic前缀分隔符
                      */
                     std::string m_separator;
                     bool m_separatorHasBeenSet;
-
-                    /**
-                     * <p>多选topic列表</p>
-                     */
-                    std::vector<std::string> m_topicList;
-                    bool m_topicListHasBeenSet;
 
                 };
             }

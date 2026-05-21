@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>创建的用户信息</p>
-                     * @return User <p>创建的用户信息</p>
+                     * 获取创建的用户信息
+                     * @return User 创建的用户信息
                      * 
                      */
                     User GetUser() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>创建的用户信息</p>
+                     * 创建的用户信息
                      */
                     User m_user;
                     bool m_userHasBeenSet;

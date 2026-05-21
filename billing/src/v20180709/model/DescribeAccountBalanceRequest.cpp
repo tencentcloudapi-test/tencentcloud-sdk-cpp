@@ -22,8 +22,7 @@
 using namespace TencentCloud::Billing::V20180709::Model;
 using namespace std;
 
-DescribeAccountBalanceRequest::DescribeAccountBalanceRequest() :
-    m_tempCreditHasBeenSet(false)
+DescribeAccountBalanceRequest::DescribeAccountBalanceRequest()
 {
 }
 
@@ -34,14 +33,6 @@ string DescribeAccountBalanceRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_tempCreditHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "TempCredit";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_tempCredit, allocator);
-    }
-
 
     rapidjson::StringBuffer buffer;
     rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
@@ -49,21 +40,5 @@ string DescribeAccountBalanceRequest::ToJsonString() const
     return buffer.GetString();
 }
 
-
-bool DescribeAccountBalanceRequest::GetTempCredit() const
-{
-    return m_tempCredit;
-}
-
-void DescribeAccountBalanceRequest::SetTempCredit(const bool& _tempCredit)
-{
-    m_tempCredit = _tempCredit;
-    m_tempCreditHasBeenSet = true;
-}
-
-bool DescribeAccountBalanceRequest::TempCreditHasBeenSet() const
-{
-    return m_tempCreditHasBeenSet;
-}
 
 

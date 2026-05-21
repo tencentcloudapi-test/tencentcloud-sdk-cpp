@@ -44,8 +44,10 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>电子印章ID，为32位字符串。<br>建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。</p>
-                     * @return SealId <p>电子印章ID，为32位字符串。<br>建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。</p>
+                     * 获取电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
+                     * @return SealId 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
                      * 
                      */
                     std::string GetSealId() const;
@@ -58,8 +60,12 @@ namespace TencentCloud
                     bool SealIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>电子印章预览链接地址，地址默认失效时间为24小时。</p><p>注:<code>图片上传生成的电子印章无预览链接地址</code></p>
-                     * @return ImageUrl <p>电子印章预览链接地址，地址默认失效时间为24小时。</p><p>注:<code>图片上传生成的电子印章无预览链接地址</code></p>
+                     * 获取电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
+                     * @return ImageUrl 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
                      * 
                      */
                     std::string GetImageUrl() const;
@@ -72,8 +78,8 @@ namespace TencentCloud
                     bool ImageUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>人脸验证操作人链接，用法可以参考&quot;<a href="https://qian.tencent.com/developers/company/openwxminiprogram/">跳转电子签小程序配置</a>&quot;，默认为空。</p>
-                     * @return SealOperatorVerifyPath <p>人脸验证操作人链接，用法可以参考&quot;<a href="https://qian.tencent.com/developers/company/openwxminiprogram/">跳转电子签小程序配置</a>&quot;，默认为空。</p>
+                     * 获取人脸验证操作人链接，用法可以参考"[跳转电子签小程序配置](https://qian.tencent.com/developers/company/openwxminiprogram/)"，默认为空。
+                     * @return SealOperatorVerifyPath 人脸验证操作人链接，用法可以参考"[跳转电子签小程序配置](https://qian.tencent.com/developers/company/openwxminiprogram/)"，默认为空。
                      * 
                      */
                     std::string GetSealOperatorVerifyPath() const;
@@ -86,8 +92,8 @@ namespace TencentCloud
                     bool SealOperatorVerifyPathHasBeenSet() const;
 
                     /**
-                     * 获取<p>人脸验证操作人二维码链接，扫码后会跳转到腾讯电子签小程序进行人脸验证，默认为空。</p>
-                     * @return SealOperatorVerifyQrcodeUrl <p>人脸验证操作人二维码链接，扫码后会跳转到腾讯电子签小程序进行人脸验证，默认为空。</p>
+                     * 获取人脸验证操作人二维码链接，扫码后会跳转到腾讯电子签小程序进行人脸验证，默认为空。
+                     * @return SealOperatorVerifyQrcodeUrl 人脸验证操作人二维码链接，扫码后会跳转到腾讯电子签小程序进行人脸验证，默认为空。
                      * 
                      */
                     std::string GetSealOperatorVerifyQrcodeUrl() const;
@@ -99,71 +105,34 @@ namespace TencentCloud
                      */
                     bool SealOperatorVerifyQrcodeUrlHasBeenSet() const;
 
-                    /**
-                     * 获取<p>创建印章预览逻辑，返回的是印章加盖在示例文件上的效果图片链接。链接有效期为90天。</p>
-                     * @return PreviewFileUrl <p>创建印章预览逻辑，返回的是印章加盖在示例文件上的效果图片链接。链接有效期为90天。</p>
-                     * 
-                     */
-                    std::string GetPreviewFileUrl() const;
-
-                    /**
-                     * 判断参数 PreviewFileUrl 是否已赋值
-                     * @return PreviewFileUrl 是否已赋值
-                     * 
-                     */
-                    bool PreviewFileUrlHasBeenSet() const;
-
-                    /**
-                     * 获取<p>创建印章预览逻辑，返回的是印章加盖在示例文件上的效果PDF文件链接。链接有效期为90天。</p>
-                     * @return PreviewPdfUrl <p>创建印章预览逻辑，返回的是印章加盖在示例文件上的效果PDF文件链接。链接有效期为90天。</p>
-                     * 
-                     */
-                    std::string GetPreviewPdfUrl() const;
-
-                    /**
-                     * 判断参数 PreviewPdfUrl 是否已赋值
-                     * @return PreviewPdfUrl 是否已赋值
-                     * 
-                     */
-                    bool PreviewPdfUrlHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>电子印章ID，为32位字符串。<br>建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。</p>
+                     * 电子印章ID，为32位字符串。
+建议开发者保留此印章ID，后续指定签署区印章或者操作印章需此印章ID。
                      */
                     std::string m_sealId;
                     bool m_sealIdHasBeenSet;
 
                     /**
-                     * <p>电子印章预览链接地址，地址默认失效时间为24小时。</p><p>注:<code>图片上传生成的电子印章无预览链接地址</code></p>
+                     * 电子印章预览链接地址，地址默认失效时间为24小时。
+
+注:`图片上传生成的电子印章无预览链接地址`
                      */
                     std::string m_imageUrl;
                     bool m_imageUrlHasBeenSet;
 
                     /**
-                     * <p>人脸验证操作人链接，用法可以参考&quot;<a href="https://qian.tencent.com/developers/company/openwxminiprogram/">跳转电子签小程序配置</a>&quot;，默认为空。</p>
+                     * 人脸验证操作人链接，用法可以参考"[跳转电子签小程序配置](https://qian.tencent.com/developers/company/openwxminiprogram/)"，默认为空。
                      */
                     std::string m_sealOperatorVerifyPath;
                     bool m_sealOperatorVerifyPathHasBeenSet;
 
                     /**
-                     * <p>人脸验证操作人二维码链接，扫码后会跳转到腾讯电子签小程序进行人脸验证，默认为空。</p>
+                     * 人脸验证操作人二维码链接，扫码后会跳转到腾讯电子签小程序进行人脸验证，默认为空。
                      */
                     std::string m_sealOperatorVerifyQrcodeUrl;
                     bool m_sealOperatorVerifyQrcodeUrlHasBeenSet;
-
-                    /**
-                     * <p>创建印章预览逻辑，返回的是印章加盖在示例文件上的效果图片链接。链接有效期为90天。</p>
-                     */
-                    std::string m_previewFileUrl;
-                    bool m_previewFileUrlHasBeenSet;
-
-                    /**
-                     * <p>创建印章预览逻辑，返回的是印章加盖在示例文件上的效果PDF文件链接。链接有效期为90天。</p>
-                     */
-                    std::string m_previewPdfUrl;
-                    bool m_previewPdfUrlHasBeenSet;
 
                 };
             }

@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取命名空间，4.x 通用集群命名空间固定为: tdmq_default
-                     * @return EnvironmentId 命名空间，4.x 通用集群命名空间固定为: tdmq_default
+                     * 获取命名空间
+                     * @return EnvironmentId 命名空间
                      * 
                      */
                     std::string GetEnvironmentId() const;
 
                     /**
-                     * 设置命名空间，4.x 通用集群命名空间固定为: tdmq_default
-                     * @param _environmentId 命名空间，4.x 通用集群命名空间固定为: tdmq_default
+                     * 设置命名空间
+                     * @param _environmentId 命名空间
                      * 
                      */
                     void SetEnvironmentId(const std::string& _environmentId);
@@ -151,7 +151,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * 命名空间，4.x 通用集群命名空间固定为: tdmq_default
+                     * 命名空间
                      */
                     std::string m_environmentId;
                     bool m_environmentIdHasBeenSet;

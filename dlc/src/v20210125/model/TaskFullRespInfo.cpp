@@ -88,10 +88,7 @@ TaskFullRespInfo::TaskFullRespInfo() :
     m_jobTimeSumHasBeenSet(false),
     m_launchTimeHasBeenSet(false),
     m_gpuDriverSizeHasBeenSet(false),
-    m_gpuExecutorSizeHasBeenSet(false),
-    m_shuffleWriteBytesSumHasBeenSet(false),
-    m_activeCoreHasBeenSet(false),
-    m_queueTimeHasBeenSet(false)
+    m_gpuExecutorSizeHasBeenSet(false)
 {
 }
 
@@ -801,36 +798,6 @@ CoreInternalOutcome TaskFullRespInfo::Deserialize(const rapidjson::Value &value)
         m_gpuExecutorSizeHasBeenSet = true;
     }
 
-    if (value.HasMember("ShuffleWriteBytesSum") && !value["ShuffleWriteBytesSum"].IsNull())
-    {
-        if (!value["ShuffleWriteBytesSum"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TaskFullRespInfo.ShuffleWriteBytesSum` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_shuffleWriteBytesSum = value["ShuffleWriteBytesSum"].GetInt64();
-        m_shuffleWriteBytesSumHasBeenSet = true;
-    }
-
-    if (value.HasMember("ActiveCore") && !value["ActiveCore"].IsNull())
-    {
-        if (!value["ActiveCore"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TaskFullRespInfo.ActiveCore` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_activeCore = value["ActiveCore"].GetInt64();
-        m_activeCoreHasBeenSet = true;
-    }
-
-    if (value.HasMember("QueueTime") && !value["QueueTime"].IsNull())
-    {
-        if (!value["QueueTime"].IsInt64())
-        {
-            return CoreInternalOutcome(Core::Error("response `TaskFullRespInfo.QueueTime` IsInt64=false incorrectly").SetRequestId(requestId));
-        }
-        m_queueTime = value["QueueTime"].GetInt64();
-        m_queueTimeHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -1383,30 +1350,6 @@ void TaskFullRespInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         string key = "GpuExecutorSize";
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, m_gpuExecutorSize, allocator);
-    }
-
-    if (m_shuffleWriteBytesSumHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ShuffleWriteBytesSum";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_shuffleWriteBytesSum, allocator);
-    }
-
-    if (m_activeCoreHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ActiveCore";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_activeCore, allocator);
-    }
-
-    if (m_queueTimeHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "QueueTime";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_queueTime, allocator);
     }
 
 }
@@ -2498,53 +2441,5 @@ void TaskFullRespInfo::SetGpuExecutorSize(const int64_t& _gpuExecutorSize)
 bool TaskFullRespInfo::GpuExecutorSizeHasBeenSet() const
 {
     return m_gpuExecutorSizeHasBeenSet;
-}
-
-int64_t TaskFullRespInfo::GetShuffleWriteBytesSum() const
-{
-    return m_shuffleWriteBytesSum;
-}
-
-void TaskFullRespInfo::SetShuffleWriteBytesSum(const int64_t& _shuffleWriteBytesSum)
-{
-    m_shuffleWriteBytesSum = _shuffleWriteBytesSum;
-    m_shuffleWriteBytesSumHasBeenSet = true;
-}
-
-bool TaskFullRespInfo::ShuffleWriteBytesSumHasBeenSet() const
-{
-    return m_shuffleWriteBytesSumHasBeenSet;
-}
-
-int64_t TaskFullRespInfo::GetActiveCore() const
-{
-    return m_activeCore;
-}
-
-void TaskFullRespInfo::SetActiveCore(const int64_t& _activeCore)
-{
-    m_activeCore = _activeCore;
-    m_activeCoreHasBeenSet = true;
-}
-
-bool TaskFullRespInfo::ActiveCoreHasBeenSet() const
-{
-    return m_activeCoreHasBeenSet;
-}
-
-int64_t TaskFullRespInfo::GetQueueTime() const
-{
-    return m_queueTime;
-}
-
-void TaskFullRespInfo::SetQueueTime(const int64_t& _queueTime)
-{
-    m_queueTime = _queueTime;
-    m_queueTimeHasBeenSet = true;
-}
-
-bool TaskFullRespInfo::QueueTimeHasBeenSet() const
-{
-    return m_queueTimeHasBeenSet;
 }
 

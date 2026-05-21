@@ -23,9 +23,8 @@ using namespace TencentCloud::Vod::V20180717::Model;
 using namespace std;
 
 ReviewImageRequest::ReviewImageRequest() :
-    m_definitionHasBeenSet(false),
     m_fileIdHasBeenSet(false),
-    m_mediaStoragePathHasBeenSet(false),
+    m_definitionHasBeenSet(false),
     m_subAppIdHasBeenSet(false)
 {
 }
@@ -37,14 +36,6 @@ string ReviewImageRequest::ToJsonString() const
     rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 
 
-    if (m_definitionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "Definition";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_definition, allocator);
-    }
-
     if (m_fileIdHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
@@ -53,12 +44,12 @@ string ReviewImageRequest::ToJsonString() const
         d.AddMember(iKey, rapidjson::Value(m_fileId.c_str(), allocator).Move(), allocator);
     }
 
-    if (m_mediaStoragePathHasBeenSet)
+    if (m_definitionHasBeenSet)
     {
         rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MediaStoragePath";
+        string key = "Definition";
         iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_mediaStoragePath.c_str(), allocator).Move(), allocator);
+        d.AddMember(iKey, m_definition, allocator);
     }
 
     if (m_subAppIdHasBeenSet)
@@ -77,22 +68,6 @@ string ReviewImageRequest::ToJsonString() const
 }
 
 
-uint64_t ReviewImageRequest::GetDefinition() const
-{
-    return m_definition;
-}
-
-void ReviewImageRequest::SetDefinition(const uint64_t& _definition)
-{
-    m_definition = _definition;
-    m_definitionHasBeenSet = true;
-}
-
-bool ReviewImageRequest::DefinitionHasBeenSet() const
-{
-    return m_definitionHasBeenSet;
-}
-
 string ReviewImageRequest::GetFileId() const
 {
     return m_fileId;
@@ -109,20 +84,20 @@ bool ReviewImageRequest::FileIdHasBeenSet() const
     return m_fileIdHasBeenSet;
 }
 
-string ReviewImageRequest::GetMediaStoragePath() const
+uint64_t ReviewImageRequest::GetDefinition() const
 {
-    return m_mediaStoragePath;
+    return m_definition;
 }
 
-void ReviewImageRequest::SetMediaStoragePath(const string& _mediaStoragePath)
+void ReviewImageRequest::SetDefinition(const uint64_t& _definition)
 {
-    m_mediaStoragePath = _mediaStoragePath;
-    m_mediaStoragePathHasBeenSet = true;
+    m_definition = _definition;
+    m_definitionHasBeenSet = true;
 }
 
-bool ReviewImageRequest::MediaStoragePathHasBeenSet() const
+bool ReviewImageRequest::DefinitionHasBeenSet() const
 {
-    return m_mediaStoragePathHasBeenSet;
+    return m_definitionHasBeenSet;
 }
 
 uint64_t ReviewImageRequest::GetSubAppId() const

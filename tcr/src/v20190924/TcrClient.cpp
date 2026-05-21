@@ -290,56 +290,6 @@ TcrClient::CreateApplicationTriggerPersonalOutcomeCallable TcrClient::CreateAppl
     return prom->get_future();
 }
 
-TcrClient::CreateGCJobOutcome TcrClient::CreateGCJob(const CreateGCJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "CreateGCJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        CreateGCJobResponse rsp = CreateGCJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return CreateGCJobOutcome(rsp);
-        else
-            return CreateGCJobOutcome(o.GetError());
-    }
-    else
-    {
-        return CreateGCJobOutcome(outcome.GetError());
-    }
-}
-
-void TcrClient::CreateGCJobAsync(const CreateGCJobRequest& request, const CreateGCJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const CreateGCJobRequest&;
-    using Resp = CreateGCJobResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "CreateGCJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcrClient::CreateGCJobOutcomeCallable TcrClient::CreateGCJobCallable(const CreateGCJobRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<CreateGCJobOutcome>>();
-    CreateGCJobAsync(
-    request,
-    [prom](
-        const TcrClient*,
-        const CreateGCJobRequest&,
-        CreateGCJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TcrClient::CreateImageAccelerationServiceOutcome TcrClient::CreateImageAccelerationService(const CreateImageAccelerationServiceRequest &request)
 {
     auto outcome = MakeRequest(request, "CreateImageAccelerationService");
@@ -2032,56 +1982,6 @@ TcrClient::DeleteReplicationInstanceOutcomeCallable TcrClient::DeleteReplication
         const TcrClient*,
         const DeleteReplicationInstanceRequest&,
         DeleteReplicationInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcrClient::DeleteReplicationRuleOutcome TcrClient::DeleteReplicationRule(const DeleteReplicationRuleRequest &request)
-{
-    auto outcome = MakeRequest(request, "DeleteReplicationRule");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DeleteReplicationRuleResponse rsp = DeleteReplicationRuleResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DeleteReplicationRuleOutcome(rsp);
-        else
-            return DeleteReplicationRuleOutcome(o.GetError());
-    }
-    else
-    {
-        return DeleteReplicationRuleOutcome(outcome.GetError());
-    }
-}
-
-void TcrClient::DeleteReplicationRuleAsync(const DeleteReplicationRuleRequest& request, const DeleteReplicationRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DeleteReplicationRuleRequest&;
-    using Resp = DeleteReplicationRuleResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DeleteReplicationRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcrClient::DeleteReplicationRuleOutcomeCallable TcrClient::DeleteReplicationRuleCallable(const DeleteReplicationRuleRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DeleteReplicationRuleOutcome>>();
-    DeleteReplicationRuleAsync(
-    request,
-    [prom](
-        const TcrClient*,
-        const DeleteReplicationRuleRequest&,
-        DeleteReplicationRuleOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {
@@ -3840,56 +3740,6 @@ TcrClient::DescribeReplicationInstancesOutcomeCallable TcrClient::DescribeReplic
     return prom->get_future();
 }
 
-TcrClient::DescribeReplicationPoliciesOutcome TcrClient::DescribeReplicationPolicies(const DescribeReplicationPoliciesRequest &request)
-{
-    auto outcome = MakeRequest(request, "DescribeReplicationPolicies");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        DescribeReplicationPoliciesResponse rsp = DescribeReplicationPoliciesResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return DescribeReplicationPoliciesOutcome(rsp);
-        else
-            return DescribeReplicationPoliciesOutcome(o.GetError());
-    }
-    else
-    {
-        return DescribeReplicationPoliciesOutcome(outcome.GetError());
-    }
-}
-
-void TcrClient::DescribeReplicationPoliciesAsync(const DescribeReplicationPoliciesRequest& request, const DescribeReplicationPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const DescribeReplicationPoliciesRequest&;
-    using Resp = DescribeReplicationPoliciesResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "DescribeReplicationPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcrClient::DescribeReplicationPoliciesOutcomeCallable TcrClient::DescribeReplicationPoliciesCallable(const DescribeReplicationPoliciesRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<DescribeReplicationPoliciesOutcome>>();
-    DescribeReplicationPoliciesAsync(
-    request,
-    [prom](
-        const TcrClient*,
-        const DescribeReplicationPoliciesRequest&,
-        DescribeReplicationPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TcrClient::DescribeRepositoriesOutcome TcrClient::DescribeRepositories(const DescribeRepositoriesRequest &request)
 {
     auto outcome = MakeRequest(request, "DescribeRepositories");
@@ -4990,56 +4840,6 @@ TcrClient::ModifyInstanceOutcomeCallable TcrClient::ModifyInstanceCallable(const
     return prom->get_future();
 }
 
-TcrClient::ModifyInstanceStorageOutcome TcrClient::ModifyInstanceStorage(const ModifyInstanceStorageRequest &request)
-{
-    auto outcome = MakeRequest(request, "ModifyInstanceStorage");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        ModifyInstanceStorageResponse rsp = ModifyInstanceStorageResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return ModifyInstanceStorageOutcome(rsp);
-        else
-            return ModifyInstanceStorageOutcome(o.GetError());
-    }
-    else
-    {
-        return ModifyInstanceStorageOutcome(outcome.GetError());
-    }
-}
-
-void TcrClient::ModifyInstanceStorageAsync(const ModifyInstanceStorageRequest& request, const ModifyInstanceStorageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const ModifyInstanceStorageRequest&;
-    using Resp = ModifyInstanceStorageResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceStorage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcrClient::ModifyInstanceStorageOutcomeCallable TcrClient::ModifyInstanceStorageCallable(const ModifyInstanceStorageRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<ModifyInstanceStorageOutcome>>();
-    ModifyInstanceStorageAsync(
-    request,
-    [prom](
-        const TcrClient*,
-        const ModifyInstanceStorageRequest&,
-        ModifyInstanceStorageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
 TcrClient::ModifyInstanceTokenOutcome TcrClient::ModifyInstanceToken(const ModifyInstanceTokenRequest &request)
 {
     auto outcome = MakeRequest(request, "ModifyInstanceToken");
@@ -5632,56 +5432,6 @@ TcrClient::RenewInstanceOutcomeCallable TcrClient::RenewInstanceCallable(const R
         const TcrClient*,
         const RenewInstanceRequest&,
         RenewInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
-}
-
-TcrClient::TerminateGCJobOutcome TcrClient::TerminateGCJob(const TerminateGCJobRequest &request)
-{
-    auto outcome = MakeRequest(request, "TerminateGCJob");
-    if (outcome.IsSuccess())
-    {
-        auto r = outcome.GetResult();
-        string payload = string(r.Body(), r.BodySize());
-        TerminateGCJobResponse rsp = TerminateGCJobResponse();
-        auto o = rsp.Deserialize(payload);
-        if (o.IsSuccess())
-            return TerminateGCJobOutcome(rsp);
-        else
-            return TerminateGCJobOutcome(o.GetError());
-    }
-    else
-    {
-        return TerminateGCJobOutcome(outcome.GetError());
-    }
-}
-
-void TcrClient::TerminateGCJobAsync(const TerminateGCJobRequest& request, const TerminateGCJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
-{
-    using Req = const TerminateGCJobRequest&;
-    using Resp = TerminateGCJobResponse;
-
-    DoRequestAsync<Req, Resp>(
-        "TerminateGCJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
-}
-
-TcrClient::TerminateGCJobOutcomeCallable TcrClient::TerminateGCJobCallable(const TerminateGCJobRequest &request)
-{
-    const auto prom = std::make_shared<std::promise<TerminateGCJobOutcome>>();
-    TerminateGCJobAsync(
-    request,
-    [prom](
-        const TcrClient*,
-        const TerminateGCJobRequest&,
-        TerminateGCJobOutcome resp,
         const std::shared_ptr<const AsyncCallerContext>&
     )
     {

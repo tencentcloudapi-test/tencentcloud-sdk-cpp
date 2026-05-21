@@ -47,15 +47,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>任务Id</p>
-                     * @return Id <p>任务Id</p>
+                     * 获取任务Id
+                     * @return Id 任务Id
                      * 
                      */
                     std::string GetId() const;
 
                     /**
-                     * 设置<p>任务Id</p>
-                     * @param _id <p>任务Id</p>
+                     * 设置任务Id
+                     * @param _id 任务Id
                      * 
                      */
                     void SetId(const std::string& _id);
@@ -68,15 +68,15 @@ namespace TencentCloud
                     bool IdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务创建时间，毫秒时间戳</p>
-                     * @return InstanceStartTime <p>任务创建时间，毫秒时间戳</p>
+                     * 获取任务创建时间，毫秒时间戳
+                     * @return InstanceStartTime 任务创建时间，毫秒时间戳
                      * 
                      */
                     int64_t GetInstanceStartTime() const;
 
                     /**
-                     * 设置<p>任务创建时间，毫秒时间戳</p>
-                     * @param _instanceStartTime <p>任务创建时间，毫秒时间戳</p>
+                     * 设置任务创建时间，毫秒时间戳
+                     * @param _instanceStartTime 任务创建时间，毫秒时间戳
                      * 
                      */
                     void SetInstanceStartTime(const int64_t& _instanceStartTime);
@@ -89,15 +89,15 @@ namespace TencentCloud
                     bool InstanceStartTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务结束时间，毫秒时间戳</p>
-                     * @return InstanceCompleteTime <p>任务结束时间，毫秒时间戳</p>
+                     * 获取任务结束时间，毫秒时间戳
+                     * @return InstanceCompleteTime 任务结束时间，毫秒时间戳
                      * 
                      */
                     int64_t GetInstanceCompleteTime() const;
 
                     /**
-                     * 设置<p>任务结束时间，毫秒时间戳</p>
-                     * @param _instanceCompleteTime <p>任务结束时间，毫秒时间戳</p>
+                     * 设置任务结束时间，毫秒时间戳
+                     * @param _instanceCompleteTime 任务结束时间，毫秒时间戳
                      * 
                      */
                     void SetInstanceCompleteTime(const int64_t& _instanceCompleteTime);
@@ -110,15 +110,15 @@ namespace TencentCloud
                     bool InstanceCompleteTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。</p>
-                     * @return State <p>任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。</p>
+                     * 获取任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。
+                     * @return State 任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。
                      * 
                      */
                     int64_t GetState() const;
 
                     /**
-                     * 设置<p>任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。</p>
-                     * @param _state <p>任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。</p>
+                     * 设置任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。
+                     * @param _state 任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。
                      * 
                      */
                     void SetState(const int64_t& _state);
@@ -131,15 +131,15 @@ namespace TencentCloud
                     bool StateHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务SQL语句</p>
-                     * @return SQL <p>任务SQL语句</p>
+                     * 获取任务SQL语句
+                     * @return SQL 任务SQL语句
                      * 
                      */
                     std::string GetSQL() const;
 
                     /**
-                     * 设置<p>任务SQL语句</p>
-                     * @param _sQL <p>任务SQL语句</p>
+                     * 设置任务SQL语句
+                     * @param _sQL 任务SQL语句
                      * 
                      */
                     void SetSQL(const std::string& _sQL);
@@ -152,15 +152,15 @@ namespace TencentCloud
                     bool SQLHasBeenSet() const;
 
                     /**
-                     * 获取<p>计算资源名字</p>
-                     * @return DataEngineName <p>计算资源名字</p>
+                     * 获取计算资源名字
+                     * @return DataEngineName 计算资源名字
                      * 
                      */
                     std::string GetDataEngineName() const;
 
                     /**
-                     * 设置<p>计算资源名字</p>
-                     * @param _dataEngineName <p>计算资源名字</p>
+                     * 设置计算资源名字
+                     * @param _dataEngineName 计算资源名字
                      * 
                      */
                     void SetDataEngineName(const std::string& _dataEngineName);
@@ -173,15 +173,19 @@ namespace TencentCloud
                     bool DataEngineNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。<br>具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。</p>
-                     * @return JobTimeSum <p>单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。<br>具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。</p>
+                     * 获取单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。
+具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。
+                     * @return JobTimeSum 单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。
+具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。
                      * 
                      */
                     int64_t GetJobTimeSum() const;
 
                     /**
-                     * 设置<p>单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。<br>具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。</p>
-                     * @param _jobTimeSum <p>单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。<br>具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。</p>
+                     * 设置单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。
+具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。
+                     * @param _jobTimeSum 单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。
+具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。
                      * 
                      */
                     void SetJobTimeSum(const int64_t& _jobTimeSum);
@@ -194,15 +198,15 @@ namespace TencentCloud
                     bool JobTimeSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和</p>
-                     * @return TaskTimeSum <p>单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和</p>
+                     * 获取单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和
+                     * @return TaskTimeSum 单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和
                      * 
                      */
                     int64_t GetTaskTimeSum() const;
 
                     /**
-                     * 设置<p>单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和</p>
-                     * @param _taskTimeSum <p>单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和</p>
+                     * 设置单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和
+                     * @param _taskTimeSum 单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和
                      * 
                      */
                     void SetTaskTimeSum(const int64_t& _taskTimeSum);
@@ -215,15 +219,15 @@ namespace TencentCloud
                     bool TaskTimeSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据扫描总行数</p>
-                     * @return InputRecordsSum <p>数据扫描总行数</p>
+                     * 获取数据扫描总行数
+                     * @return InputRecordsSum 数据扫描总行数
                      * 
                      */
                     int64_t GetInputRecordsSum() const;
 
                     /**
-                     * 设置<p>数据扫描总行数</p>
-                     * @param _inputRecordsSum <p>数据扫描总行数</p>
+                     * 设置数据扫描总行数
+                     * @param _inputRecordsSum 数据扫描总行数
                      * 
                      */
                     void SetInputRecordsSum(const int64_t& _inputRecordsSum);
@@ -236,15 +240,15 @@ namespace TencentCloud
                     bool InputRecordsSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据扫描总 bytes</p>
-                     * @return InputBytesSum <p>数据扫描总 bytes</p>
+                     * 获取数据扫描总 bytes
+                     * @return InputBytesSum 数据扫描总 bytes
                      * 
                      */
                     int64_t GetInputBytesSum() const;
 
                     /**
-                     * 设置<p>数据扫描总 bytes</p>
-                     * @param _inputBytesSum <p>数据扫描总 bytes</p>
+                     * 设置数据扫描总 bytes
+                     * @param _inputBytesSum 数据扫描总 bytes
                      * 
                      */
                     void SetInputBytesSum(const int64_t& _inputBytesSum);
@@ -257,15 +261,15 @@ namespace TencentCloud
                     bool InputBytesSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>输出总行数</p>
-                     * @return OutputRecordsSum <p>输出总行数</p>
+                     * 获取输出总行数
+                     * @return OutputRecordsSum 输出总行数
                      * 
                      */
                     int64_t GetOutputRecordsSum() const;
 
                     /**
-                     * 设置<p>输出总行数</p>
-                     * @param _outputRecordsSum <p>输出总行数</p>
+                     * 设置输出总行数
+                     * @param _outputRecordsSum 输出总行数
                      * 
                      */
                     void SetOutputRecordsSum(const int64_t& _outputRecordsSum);
@@ -278,15 +282,15 @@ namespace TencentCloud
                     bool OutputRecordsSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>输出总 bytes</p>
-                     * @return OutputBytesSum <p>输出总 bytes</p>
+                     * 获取输出总 bytes
+                     * @return OutputBytesSum 输出总 bytes
                      * 
                      */
                     int64_t GetOutputBytesSum() const;
 
                     /**
-                     * 设置<p>输出总 bytes</p>
-                     * @param _outputBytesSum <p>输出总 bytes</p>
+                     * 设置输出总 bytes
+                     * @param _outputBytesSum 输出总 bytes
                      * 
                      */
                     void SetOutputBytesSum(const int64_t& _outputBytesSum);
@@ -299,15 +303,15 @@ namespace TencentCloud
                     bool OutputBytesSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>shuffle read 总 bytes</p>
-                     * @return ShuffleReadBytesSum <p>shuffle read 总 bytes</p>
+                     * 获取shuffle read 总 bytes
+                     * @return ShuffleReadBytesSum shuffle read 总 bytes
                      * 
                      */
                     int64_t GetShuffleReadBytesSum() const;
 
                     /**
-                     * 设置<p>shuffle read 总 bytes</p>
-                     * @param _shuffleReadBytesSum <p>shuffle read 总 bytes</p>
+                     * 设置shuffle read 总 bytes
+                     * @param _shuffleReadBytesSum shuffle read 总 bytes
                      * 
                      */
                     void SetShuffleReadBytesSum(const int64_t& _shuffleReadBytesSum);
@@ -320,15 +324,15 @@ namespace TencentCloud
                     bool ShuffleReadBytesSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>shuffle read 总行数</p>
-                     * @return ShuffleReadRecordsSum <p>shuffle read 总行数</p>
+                     * 获取shuffle read 总行数
+                     * @return ShuffleReadRecordsSum shuffle read 总行数
                      * 
                      */
                     int64_t GetShuffleReadRecordsSum() const;
 
                     /**
-                     * 设置<p>shuffle read 总行数</p>
-                     * @param _shuffleReadRecordsSum <p>shuffle read 总行数</p>
+                     * 设置shuffle read 总行数
+                     * @param _shuffleReadRecordsSum shuffle read 总行数
                      * 
                      */
                     void SetShuffleReadRecordsSum(const int64_t& _shuffleReadRecordsSum);
@@ -341,15 +345,15 @@ namespace TencentCloud
                     bool ShuffleReadRecordsSumHasBeenSet() const;
 
                     /**
-                     * 获取<p>洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）</p>
-                     * @return AnalysisStatus <p>洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）</p>
+                     * 获取洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）
+                     * @return AnalysisStatus 洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）
                      * 
                      */
                     std::string GetAnalysisStatus() const;
 
                     /**
-                     * 设置<p>洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）</p>
-                     * @param _analysisStatus <p>洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）</p>
+                     * 设置洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）
+                     * @param _analysisStatus 洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）
                      * 
                      */
                     void SetAnalysisStatus(const std::string& _analysisStatus);
@@ -362,15 +366,15 @@ namespace TencentCloud
                     bool AnalysisStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务输出文件总数</p>
-                     * @return OutputFilesNum <p>任务输出文件总数</p>
+                     * 获取任务输出文件总数
+                     * @return OutputFilesNum 任务输出文件总数
                      * 
                      */
                     int64_t GetOutputFilesNum() const;
 
                     /**
-                     * 设置<p>任务输出文件总数</p>
-                     * @param _outputFilesNum <p>任务输出文件总数</p>
+                     * 设置任务输出文件总数
+                     * @param _outputFilesNum 任务输出文件总数
                      * 
                      */
                     void SetOutputFilesNum(const int64_t& _outputFilesNum);
@@ -383,15 +387,15 @@ namespace TencentCloud
                     bool OutputFilesNumHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务输出小文件总数</p>
-                     * @return OutputSmallFilesNum <p>任务输出小文件总数</p>
+                     * 获取任务输出小文件总数
+                     * @return OutputSmallFilesNum 任务输出小文件总数
                      * 
                      */
                     int64_t GetOutputSmallFilesNum() const;
 
                     /**
-                     * 设置<p>任务输出小文件总数</p>
-                     * @param _outputSmallFilesNum <p>任务输出小文件总数</p>
+                     * 设置任务输出小文件总数
+                     * @param _outputSmallFilesNum 任务输出小文件总数
                      * 
                      */
                     void SetOutputSmallFilesNum(const int64_t& _outputSmallFilesNum);
@@ -403,136 +407,110 @@ namespace TencentCloud
                      */
                     bool OutputSmallFilesNumHasBeenSet() const;
 
-                    /**
-                     * 获取<p>shuffle write 总 Bytes 大小</p><p>单位：Bytes</p><p>默认值：无</p>
-                     * @return ShuffleWriteBytesSum <p>shuffle write 总 Bytes 大小</p><p>单位：Bytes</p><p>默认值：无</p>
-                     * 
-                     */
-                    int64_t GetShuffleWriteBytesSum() const;
-
-                    /**
-                     * 设置<p>shuffle write 总 Bytes 大小</p><p>单位：Bytes</p><p>默认值：无</p>
-                     * @param _shuffleWriteBytesSum <p>shuffle write 总 Bytes 大小</p><p>单位：Bytes</p><p>默认值：无</p>
-                     * 
-                     */
-                    void SetShuffleWriteBytesSum(const int64_t& _shuffleWriteBytesSum);
-
-                    /**
-                     * 判断参数 ShuffleWriteBytesSum 是否已赋值
-                     * @return ShuffleWriteBytesSum 是否已赋值
-                     * 
-                     */
-                    bool ShuffleWriteBytesSumHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>任务Id</p>
+                     * 任务Id
                      */
                     std::string m_id;
                     bool m_idHasBeenSet;
 
                     /**
-                     * <p>任务创建时间，毫秒时间戳</p>
+                     * 任务创建时间，毫秒时间戳
                      */
                     int64_t m_instanceStartTime;
                     bool m_instanceStartTimeHasBeenSet;
 
                     /**
-                     * <p>任务结束时间，毫秒时间戳</p>
+                     * 任务结束时间，毫秒时间戳
                      */
                     int64_t m_instanceCompleteTime;
                     bool m_instanceCompleteTimeHasBeenSet;
 
                     /**
-                     * <p>任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。</p>
+                     * 任务状态：0 初始化， 1 执行中， 2 执行成功，3 数据写入中，4 排队中。-1 执行失败，-3 已取消。
                      */
                     int64_t m_state;
                     bool m_stateHasBeenSet;
 
                     /**
-                     * <p>任务SQL语句</p>
+                     * 任务SQL语句
                      */
                     std::string m_sQL;
                     bool m_sQLHasBeenSet;
 
                     /**
-                     * <p>计算资源名字</p>
+                     * 计算资源名字
                      */
                     std::string m_dataEngineName;
                     bool m_dataEngineNameHasBeenSet;
 
                     /**
-                     * <p>单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。<br>具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。</p>
+                     * 单位毫秒，引擎内执行耗时, 反映真正用于计算所需的耗时，即从  Spark 任务第一个 Task  开始执行到任务结束之间的耗时。
+具体的：会统计任务的每个 Spark Stage 第一个 Task 到最后一个 Task 完成时长之和，不包含任务开始的排队耗时（即剔除从任务提交到 Spark Task 开始执行之间的调度等其他耗时），也不包含任务执行过程中多个 Spark Stage 之间因 executor 资源不足而等待执行 Task 所消耗的时间。
                      */
                     int64_t m_jobTimeSum;
                     bool m_jobTimeSumHasBeenSet;
 
                     /**
-                     * <p>单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和</p>
+                     * 单位秒，累计 CPU* 秒 ( 累计 CPU * 时 = 累计 CPU* 秒/ 3600)，统计参与计算所用 Spark Executor 每个 core 的 CPU 执行时长总和
                      */
                     int64_t m_taskTimeSum;
                     bool m_taskTimeSumHasBeenSet;
 
                     /**
-                     * <p>数据扫描总行数</p>
+                     * 数据扫描总行数
                      */
                     int64_t m_inputRecordsSum;
                     bool m_inputRecordsSumHasBeenSet;
 
                     /**
-                     * <p>数据扫描总 bytes</p>
+                     * 数据扫描总 bytes
                      */
                     int64_t m_inputBytesSum;
                     bool m_inputBytesSumHasBeenSet;
 
                     /**
-                     * <p>输出总行数</p>
+                     * 输出总行数
                      */
                     int64_t m_outputRecordsSum;
                     bool m_outputRecordsSumHasBeenSet;
 
                     /**
-                     * <p>输出总 bytes</p>
+                     * 输出总 bytes
                      */
                     int64_t m_outputBytesSum;
                     bool m_outputBytesSumHasBeenSet;
 
                     /**
-                     * <p>shuffle read 总 bytes</p>
+                     * shuffle read 总 bytes
                      */
                     int64_t m_shuffleReadBytesSum;
                     bool m_shuffleReadBytesSumHasBeenSet;
 
                     /**
-                     * <p>shuffle read 总行数</p>
+                     * shuffle read 总行数
                      */
                     int64_t m_shuffleReadRecordsSum;
                     bool m_shuffleReadRecordsSumHasBeenSet;
 
                     /**
-                     * <p>洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）</p>
+                     * 洞察结果类型分类，一个 json 数组，有如下几种类型：SPARK-StageScheduleDelay（资源抢占）, SPARK-ShuffleFailure（Shuffle异常）, SPARK-SlowTask（慢task）, SPARK-DataSkew（数据倾斜）, SPARK-InsufficientResource（磁盘或内存不足）
                      */
                     std::string m_analysisStatus;
                     bool m_analysisStatusHasBeenSet;
 
                     /**
-                     * <p>任务输出文件总数</p>
+                     * 任务输出文件总数
                      */
                     int64_t m_outputFilesNum;
                     bool m_outputFilesNumHasBeenSet;
 
                     /**
-                     * <p>任务输出小文件总数</p>
+                     * 任务输出小文件总数
                      */
                     int64_t m_outputSmallFilesNum;
                     bool m_outputSmallFilesNumHasBeenSet;
-
-                    /**
-                     * <p>shuffle write 总 Bytes 大小</p><p>单位：Bytes</p><p>默认值：无</p>
-                     */
-                    int64_t m_shuffleWriteBytesSum;
-                    bool m_shuffleWriteBytesSumHasBeenSet;
 
                 };
             }

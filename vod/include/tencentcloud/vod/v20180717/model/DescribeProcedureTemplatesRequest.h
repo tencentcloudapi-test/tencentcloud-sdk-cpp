@@ -21,7 +21,6 @@
 #include <vector>
 #include <map>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/vod/v20180717/model/SortBy.h>
 
 
 namespace TencentCloud
@@ -44,15 +43,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
-                     * @return SubAppId <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+                     * 获取<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @return SubAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
                      * 
                      */
                     uint64_t GetSubAppId() const;
 
                     /**
-                     * 设置<p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
-                     * @param _subAppId <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+                     * 设置<b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
+                     * @param _subAppId <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
                      * 
                      */
                     void SetSubAppId(const uint64_t& _subAppId);
@@ -65,15 +64,15 @@ namespace TencentCloud
                     bool SubAppIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务流模板名字过滤条件，数组长度限制：100。</p>
-                     * @return Names <p>任务流模板名字过滤条件，数组长度限制：100。</p>
+                     * 获取任务流模板名字过滤条件，数组长度限制：100。
+                     * @return Names 任务流模板名字过滤条件，数组长度限制：100。
                      * 
                      */
                     std::vector<std::string> GetNames() const;
 
                     /**
-                     * 设置<p>任务流模板名字过滤条件，数组长度限制：100。</p>
-                     * @param _names <p>任务流模板名字过滤条件，数组长度限制：100。</p>
+                     * 设置任务流模板名字过滤条件，数组长度限制：100。
+                     * @param _names 任务流模板名字过滤条件，数组长度限制：100。
                      * 
                      */
                     void SetNames(const std::vector<std::string>& _names);
@@ -86,15 +85,23 @@ namespace TencentCloud
                     bool NamesHasBeenSet() const;
 
                     /**
-                     * 获取<p>任务流模板类型过滤条件，可选值：</p><li>Preset：系统预置任务流模板；</li><li>Custom：用户自定义任务流模板。</li>
-                     * @return Type <p>任务流模板类型过滤条件，可选值：</p><li>Preset：系统预置任务流模板；</li><li>Custom：用户自定义任务流模板。</li>
+                     * 获取任务流模板类型过滤条件，可选值：
+<li>Preset：系统预置任务流模板；</li>
+<li>Custom：用户自定义任务流模板。</li>
+                     * @return Type 任务流模板类型过滤条件，可选值：
+<li>Preset：系统预置任务流模板；</li>
+<li>Custom：用户自定义任务流模板。</li>
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>任务流模板类型过滤条件，可选值：</p><li>Preset：系统预置任务流模板；</li><li>Custom：用户自定义任务流模板。</li>
-                     * @param _type <p>任务流模板类型过滤条件，可选值：</p><li>Preset：系统预置任务流模板；</li><li>Custom：用户自定义任务流模板。</li>
+                     * 设置任务流模板类型过滤条件，可选值：
+<li>Preset：系统预置任务流模板；</li>
+<li>Custom：用户自定义任务流模板。</li>
+                     * @param _type 任务流模板类型过滤条件，可选值：
+<li>Preset：系统预置任务流模板；</li>
+<li>Custom：用户自定义任务流模板。</li>
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -107,15 +114,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>分页偏移量，默认值：0。</p>
-                     * @return Offset <p>分页偏移量，默认值：0。</p>
+                     * 获取分页偏移量，默认值：0。
+                     * @return Offset 分页偏移量，默认值：0。
                      * 
                      */
                     uint64_t GetOffset() const;
 
                     /**
-                     * 设置<p>分页偏移量，默认值：0。</p>
-                     * @param _offset <p>分页偏移量，默认值：0。</p>
+                     * 设置分页偏移量，默认值：0。
+                     * @param _offset 分页偏移量，默认值：0。
                      * 
                      */
                     void SetOffset(const uint64_t& _offset);
@@ -128,15 +135,15 @@ namespace TencentCloud
                     bool OffsetHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回记录条数，默认值：10，最大值：100。</p>
-                     * @return Limit <p>返回记录条数，默认值：10，最大值：100。</p>
+                     * 获取返回记录条数，默认值：10，最大值：100。
+                     * @return Limit 返回记录条数，默认值：10，最大值：100。
                      * 
                      */
                     uint64_t GetLimit() const;
 
                     /**
-                     * 设置<p>返回记录条数，默认值：10，最大值：100。</p>
-                     * @param _limit <p>返回记录条数，默认值：10，最大值：100。</p>
+                     * 设置返回记录条数，默认值：10，最大值：100。
+                     * @param _limit 返回记录条数，默认值：10，最大值：100。
                      * 
                      */
                     void SetLimit(const uint64_t& _limit);
@@ -148,64 +155,39 @@ namespace TencentCloud
                      */
                     bool LimitHasBeenSet() const;
 
-                    /**
-                     * 获取<p>指定字段对返回结果进行生序或者降序Sort.Field 目前只支持 CreateTime 。Sort.Order 为 desc（降序）或者 asc（升序）</p><p>入参限制：当前仅支持排序字段为CreateTime</p>
-                     * @return SortBy <p>指定字段对返回结果进行生序或者降序Sort.Field 目前只支持 CreateTime 。Sort.Order 为 desc（降序）或者 asc（升序）</p><p>入参限制：当前仅支持排序字段为CreateTime</p>
-                     * 
-                     */
-                    std::vector<SortBy> GetSortBy() const;
-
-                    /**
-                     * 设置<p>指定字段对返回结果进行生序或者降序Sort.Field 目前只支持 CreateTime 。Sort.Order 为 desc（降序）或者 asc（升序）</p><p>入参限制：当前仅支持排序字段为CreateTime</p>
-                     * @param _sortBy <p>指定字段对返回结果进行生序或者降序Sort.Field 目前只支持 CreateTime 。Sort.Order 为 desc（降序）或者 asc（升序）</p><p>入参限制：当前仅支持排序字段为CreateTime</p>
-                     * 
-                     */
-                    void SetSortBy(const std::vector<SortBy>& _sortBy);
-
-                    /**
-                     * 判断参数 SortBy 是否已赋值
-                     * @return SortBy 是否已赋值
-                     * 
-                     */
-                    bool SortByHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p><b>点播<a href="/document/product/266/14574">应用</a> ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b></p>
+                     * <b>点播[应用](/document/product/266/14574) ID。从2023年12月25日起开通点播的客户，如访问点播应用中的资源（无论是默认应用还是新创建的应用），必须将该字段填写为应用 ID。</b>
                      */
                     uint64_t m_subAppId;
                     bool m_subAppIdHasBeenSet;
 
                     /**
-                     * <p>任务流模板名字过滤条件，数组长度限制：100。</p>
+                     * 任务流模板名字过滤条件，数组长度限制：100。
                      */
                     std::vector<std::string> m_names;
                     bool m_namesHasBeenSet;
 
                     /**
-                     * <p>任务流模板类型过滤条件，可选值：</p><li>Preset：系统预置任务流模板；</li><li>Custom：用户自定义任务流模板。</li>
+                     * 任务流模板类型过滤条件，可选值：
+<li>Preset：系统预置任务流模板；</li>
+<li>Custom：用户自定义任务流模板。</li>
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>分页偏移量，默认值：0。</p>
+                     * 分页偏移量，默认值：0。
                      */
                     uint64_t m_offset;
                     bool m_offsetHasBeenSet;
 
                     /**
-                     * <p>返回记录条数，默认值：10，最大值：100。</p>
+                     * 返回记录条数，默认值：10，最大值：100。
                      */
                     uint64_t m_limit;
                     bool m_limitHasBeenSet;
-
-                    /**
-                     * <p>指定字段对返回结果进行生序或者降序Sort.Field 目前只支持 CreateTime 。Sort.Order 为 desc（降序）或者 asc（升序）</p><p>入参限制：当前仅支持排序字段为CreateTime</p>
-                     */
-                    std::vector<SortBy> m_sortBy;
-                    bool m_sortByHasBeenSet;
 
                 };
             }

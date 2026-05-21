@@ -44,15 +44,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>进行中的任务taskid（StartRecord接口返回）。</p>
-                     * @return TaskId <p>进行中的任务taskid（StartRecord接口返回）。</p>
+                     * 获取进行中的任务taskid（StartRecord接口返回）。
+                     * @return TaskId 进行中的任务taskid（StartRecord接口返回）。
                      * 
                      */
                     uint64_t GetTaskId() const;
 
                     /**
-                     * 设置<p>进行中的任务taskid（StartRecord接口返回）。</p>
-                     * @param _taskId <p>进行中的任务taskid（StartRecord接口返回）。</p>
+                     * 设置进行中的任务taskid（StartRecord接口返回）。
+                     * @param _taskId 进行中的任务taskid（StartRecord接口返回）。
                      * 
                      */
                     void SetTaskId(const uint64_t& _taskId);
@@ -65,15 +65,15 @@ namespace TencentCloud
                     bool TaskIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>录制类型：1代表单流 2代表混流 3代表单流和混流。</p>
-                     * @return RecordMode <p>录制类型：1代表单流 2代表混流 3代表单流和混流。</p>
+                     * 获取录制类型：1代表单流 2代表混流 3代表单流和混流。
+                     * @return RecordMode 录制类型：1代表单流 2代表混流 3代表单流和混流。
                      * 
                      */
                     uint64_t GetRecordMode() const;
 
                     /**
-                     * 设置<p>录制类型：1代表单流 2代表混流 3代表单流和混流。</p>
-                     * @param _recordMode <p>录制类型：1代表单流 2代表混流 3代表单流和混流。</p>
+                     * 设置录制类型：1代表单流 2代表混流 3代表单流和混流。
+                     * @param _recordMode 录制类型：1代表单流 2代表混流 3代表单流和混流。
                      * 
                      */
                     void SetRecordMode(const uint64_t& _recordMode);
@@ -86,15 +86,15 @@ namespace TencentCloud
                     bool RecordModeHasBeenSet() const;
 
                     /**
-                     * 获取<p>应用ID。</p>
-                     * @return BizId <p>应用ID。</p>
+                     * 获取应用ID。
+                     * @return BizId 应用ID。
                      * 
                      */
                     uint64_t GetBizId() const;
 
                     /**
-                     * 设置<p>应用ID。</p>
-                     * @param _bizId <p>应用ID。</p>
+                     * 设置应用ID。
+                     * @param _bizId 应用ID。
                      * 
                      */
                     void SetBizId(const uint64_t& _bizId);
@@ -107,15 +107,15 @@ namespace TencentCloud
                     bool BizIdHasBeenSet() const;
 
                     /**
-                     * 获取<p>指定订阅流白名单或者黑名单。</p>
-                     * @return SubscribeRecordUserIds <p>指定订阅流白名单或者黑名单。</p>
+                     * 获取指定订阅流白名单或者黑名单。
+                     * @return SubscribeRecordUserIds 指定订阅流白名单或者黑名单。
                      * 
                      */
                     SubscribeRecordUserIds GetSubscribeRecordUserIds() const;
 
                     /**
-                     * 设置<p>指定订阅流白名单或者黑名单。</p>
-                     * @param _subscribeRecordUserIds <p>指定订阅流白名单或者黑名单。</p>
+                     * 设置指定订阅流白名单或者黑名单。
+                     * @param _subscribeRecordUserIds 指定订阅流白名单或者黑名单。
                      * 
                      */
                     void SetSubscribeRecordUserIds(const SubscribeRecordUserIds& _subscribeRecordUserIds);
@@ -130,25 +130,25 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>进行中的任务taskid（StartRecord接口返回）。</p>
+                     * 进行中的任务taskid（StartRecord接口返回）。
                      */
                     uint64_t m_taskId;
                     bool m_taskIdHasBeenSet;
 
                     /**
-                     * <p>录制类型：1代表单流 2代表混流 3代表单流和混流。</p>
+                     * 录制类型：1代表单流 2代表混流 3代表单流和混流。
                      */
                     uint64_t m_recordMode;
                     bool m_recordModeHasBeenSet;
 
                     /**
-                     * <p>应用ID。</p>
+                     * 应用ID。
                      */
                     uint64_t m_bizId;
                     bool m_bizIdHasBeenSet;
 
                     /**
-                     * <p>指定订阅流白名单或者黑名单。</p>
+                     * 指定订阅流白名单或者黑名单。
                      */
                     SubscribeRecordUserIds m_subscribeRecordUserIds;
                     bool m_subscribeRecordUserIdsHasBeenSet;

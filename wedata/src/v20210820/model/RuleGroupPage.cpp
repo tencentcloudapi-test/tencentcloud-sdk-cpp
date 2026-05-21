@@ -22,8 +22,7 @@ using namespace std;
 
 RuleGroupPage::RuleGroupPage() :
     m_totalCountHasBeenSet(false),
-    m_itemsHasBeenSet(false),
-    m_monitorEnabledCountHasBeenSet(false)
+    m_itemsHasBeenSet(false)
 {
 }
 
@@ -62,16 +61,6 @@ CoreInternalOutcome RuleGroupPage::Deserialize(const rapidjson::Value &value)
         m_itemsHasBeenSet = true;
     }
 
-    if (value.HasMember("MonitorEnabledCount") && !value["MonitorEnabledCount"].IsNull())
-    {
-        if (!value["MonitorEnabledCount"].IsUint64())
-        {
-            return CoreInternalOutcome(Core::Error("response `RuleGroupPage.MonitorEnabledCount` IsUint64=false incorrectly").SetRequestId(requestId));
-        }
-        m_monitorEnabledCount = value["MonitorEnabledCount"].GetUint64();
-        m_monitorEnabledCountHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -100,14 +89,6 @@ void RuleGroupPage::ToJsonObject(rapidjson::Value &value, rapidjson::Document::A
             value[key.c_str()].PushBack(rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
             (*itr).ToJsonObject(value[key.c_str()][i], allocator);
         }
-    }
-
-    if (m_monitorEnabledCountHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "MonitorEnabledCount";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, m_monitorEnabledCount, allocator);
     }
 
 }
@@ -143,21 +124,5 @@ void RuleGroupPage::SetItems(const vector<RuleGroup>& _items)
 bool RuleGroupPage::ItemsHasBeenSet() const
 {
     return m_itemsHasBeenSet;
-}
-
-uint64_t RuleGroupPage::GetMonitorEnabledCount() const
-{
-    return m_monitorEnabledCount;
-}
-
-void RuleGroupPage::SetMonitorEnabledCount(const uint64_t& _monitorEnabledCount)
-{
-    m_monitorEnabledCount = _monitorEnabledCount;
-    m_monitorEnabledCountHasBeenSet = true;
-}
-
-bool RuleGroupPage::MonitorEnabledCountHasBeenSet() const
-{
-    return m_monitorEnabledCountHasBeenSet;
 }
 

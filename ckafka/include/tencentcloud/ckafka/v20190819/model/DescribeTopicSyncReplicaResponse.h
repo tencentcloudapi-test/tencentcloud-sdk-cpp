@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>返回topic 副本详情</p>
-                     * @return Result <p>返回topic 副本详情</p>
+                     * 获取返回topic 副本详情
+                     * @return Result 返回topic 副本详情
                      * 
                      */
                     TopicInSyncReplicaResult GetResult() const;
@@ -61,7 +61,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>返回topic 副本详情</p>
+                     * 返回topic 副本详情
                      */
                     TopicInSyncReplicaResult m_result;
                     bool m_resultHasBeenSet;

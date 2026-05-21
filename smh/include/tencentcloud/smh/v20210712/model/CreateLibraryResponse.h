@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>媒体库 ID</p>
-                     * @return LibraryId <p>媒体库 ID</p>
+                     * 获取媒体库 ID
+                     * @return LibraryId 媒体库 ID
                      * 
                      */
                     std::string GetLibraryId() const;
@@ -57,33 +57,13 @@ namespace TencentCloud
                      */
                     bool LibraryIdHasBeenSet() const;
 
-                    /**
-                     * 获取<p>用于访问 SMH 的域名</p>
-                     * @return AccessDomain <p>用于访问 SMH 的域名</p>
-                     * 
-                     */
-                    std::string GetAccessDomain() const;
-
-                    /**
-                     * 判断参数 AccessDomain 是否已赋值
-                     * @return AccessDomain 是否已赋值
-                     * 
-                     */
-                    bool AccessDomainHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>媒体库 ID</p>
+                     * 媒体库 ID
                      */
                     std::string m_libraryId;
                     bool m_libraryIdHasBeenSet;
-
-                    /**
-                     * <p>用于访问 SMH 的域名</p>
-                     */
-                    std::string m_accessDomain;
-                    bool m_accessDomainHasBeenSet;
 
                 };
             }

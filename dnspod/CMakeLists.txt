@@ -20,7 +20,7 @@ set(dnspod_public_header
 
 set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/CreateRecordRequest.h
-  include/tencentcloud/dnspod/v20210323/model/DescribeDomainListRequest.h
+  include/tencentcloud/dnspod/v20210323/model/DescribeRecordFilterListResponse.h
   include/tencentcloud/dnspod/v20210323/model/CreateSubdomainValidateTXTValueRequest.h
   include/tencentcloud/dnspod/v20210323/model/CreateTXTRecordResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeBatchTaskDetail.h
@@ -89,10 +89,9 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/ModifyDomainOwnerRequest.h
   include/tencentcloud/dnspod/v20210323/model/DescribeSubdomainAnalyticsResponse.h
   include/tencentcloud/dnspod/v20210323/model/DeleteRecordBatchDetail.h
-  include/tencentcloud/dnspod/v20210323/model/ModifyPackageDomainResponse.h
   include/tencentcloud/dnspod/v20210323/model/DomainShareInfo.h
   include/tencentcloud/dnspod/v20210323/model/DescribeSnapshotConfigRequest.h
-  include/tencentcloud/dnspod/v20210323/model/ModifyRecordBatchV3Request.h
+  include/tencentcloud/dnspod/v20210323/model/VasListItem.h
   include/tencentcloud/dnspod/v20210323/model/LineInfo.h
   include/tencentcloud/dnspod/v20210323/model/DeleteLineGroupResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeRecordLineListRequest.h
@@ -109,7 +108,6 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/ModifyDomainStatusResponse.h
   include/tencentcloud/dnspod/v20210323/model/AddRecordBatch.h
   include/tencentcloud/dnspod/v20210323/model/DescribeRecordRequest.h
-  include/tencentcloud/dnspod/v20210323/model/ModifyRecordBatchV3Response.h
   include/tencentcloud/dnspod/v20210323/model/CreateDomainGroupResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeSubdomainAnalyticsRequest.h
   include/tencentcloud/dnspod/v20210323/model/DeleteRecordRequest.h
@@ -150,7 +148,6 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/ModifyRecordBatchResponse.h
   include/tencentcloud/dnspod/v20210323/model/CheckSnapshotRollbackRequest.h
   include/tencentcloud/dnspod/v20210323/model/CheckSnapshotRollbackResponse.h
-  include/tencentcloud/dnspod/v20210323/model/CreateAndPayDealResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeRecordTypeRequest.h
   include/tencentcloud/dnspod/v20210323/model/DeleteDomainCustomLineResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeSnapshotRollbackTaskResponse.h
@@ -164,7 +161,6 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/ModifyDomainRecursiveStatusBatchRequest.h
   include/tencentcloud/dnspod/v20210323/model/CustomLineInfo.h
   include/tencentcloud/dnspod/v20210323/model/ModifyRecordBatchDetail.h
-  include/tencentcloud/dnspod/v20210323/model/ModifyRecordItem.h
   include/tencentcloud/dnspod/v20210323/model/DescribeSnapshotRollbackResultRequest.h
   include/tencentcloud/dnspod/v20210323/model/DescribeDomainShareUserListRequest.h
   include/tencentcloud/dnspod/v20210323/model/DeleteDomainBatchDetail.h
@@ -191,7 +187,6 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/DeleteSnapshotResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeDomainPurviewResponse.h
   include/tencentcloud/dnspod/v20210323/model/Deals.h
-  include/tencentcloud/dnspod/v20210323/model/VasListItem.h
   include/tencentcloud/dnspod/v20210323/model/ModifySubdomainStatusResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeSubdomainValidateStatusResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeDomainAnalyticsResponse.h
@@ -206,7 +201,6 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/DescribeSubdomainValidateStatusRequest.h
   include/tencentcloud/dnspod/v20210323/model/CreateDomainGroupRequest.h
   include/tencentcloud/dnspod/v20210323/model/CreateSnapshotRequest.h
-  include/tencentcloud/dnspod/v20210323/model/ModifyPackageDomainRequest.h
   include/tencentcloud/dnspod/v20210323/model/DeleteDomainResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeRecordSnapshotRollbackResultResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeVasListResponse.h
@@ -229,13 +223,13 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/DescribeRecordExistExceptDefaultNSRequest.h
   include/tencentcloud/dnspod/v20210323/model/ModifyDomainCNAMESpeedupStatusBatchResponse.h
   include/tencentcloud/dnspod/v20210323/model/ModifySnapshotConfigResponse.h
-  include/tencentcloud/dnspod/v20210323/model/DescribeRecordFilterListResponse.h
+  include/tencentcloud/dnspod/v20210323/model/RollbackRecordSnapshotResponse.h
   include/tencentcloud/dnspod/v20210323/model/DescribeUserDetailRequest.h
   include/tencentcloud/dnspod/v20210323/model/ResolveCountAliasItem.h
   include/tencentcloud/dnspod/v20210323/model/DescribeFileInfoByJobIdResponse.h
   include/tencentcloud/dnspod/v20210323/model/ModifyDomainStatusRequest.h
   include/tencentcloud/dnspod/v20210323/model/ModifyRecordRemarkResponse.h
-  include/tencentcloud/dnspod/v20210323/model/CreateAndPayDealRequest.h
+  include/tencentcloud/dnspod/v20210323/model/DescribeDomainListRequest.h
   include/tencentcloud/dnspod/v20210323/model/DomainCreateInfo.h
   include/tencentcloud/dnspod/v20210323/model/DescribeDomainCustomLineListResponse.h
   include/tencentcloud/dnspod/v20210323/model/ModifyRecordRemarkRequest.h
@@ -249,7 +243,6 @@ set(dnspod_public_header_model
   include/tencentcloud/dnspod/v20210323/model/DescribeRecordListResponse.h
   include/tencentcloud/dnspod/v20210323/model/CreateLineGroupRequest.h
   include/tencentcloud/dnspod/v20210323/model/CreateDomainCustomLineRequest.h
-  include/tencentcloud/dnspod/v20210323/model/RollbackRecordSnapshotResponse.h
   include/tencentcloud/dnspod/v20210323/model/LineItem.h
   include/tencentcloud/dnspod/v20210323/model/CreateDealResponse.h
   include/tencentcloud/dnspod/v20210323/model/ResolveCountInfo.h
@@ -279,7 +272,7 @@ set(dnspod_public_header_model
 set(dnspod_src
   src/v20210323/DnspodClient.cpp
   src/v20210323/model/CreateRecordRequest.cpp
-  src/v20210323/model/DescribeDomainListRequest.cpp
+  src/v20210323/model/DescribeRecordFilterListResponse.cpp
   src/v20210323/model/CreateSubdomainValidateTXTValueRequest.cpp
   src/v20210323/model/CreateTXTRecordResponse.cpp
   src/v20210323/model/DescribeBatchTaskDetail.cpp
@@ -348,10 +341,9 @@ set(dnspod_src
   src/v20210323/model/ModifyDomainOwnerRequest.cpp
   src/v20210323/model/DescribeSubdomainAnalyticsResponse.cpp
   src/v20210323/model/DeleteRecordBatchDetail.cpp
-  src/v20210323/model/ModifyPackageDomainResponse.cpp
   src/v20210323/model/DomainShareInfo.cpp
   src/v20210323/model/DescribeSnapshotConfigRequest.cpp
-  src/v20210323/model/ModifyRecordBatchV3Request.cpp
+  src/v20210323/model/VasListItem.cpp
   src/v20210323/model/LineInfo.cpp
   src/v20210323/model/DeleteLineGroupResponse.cpp
   src/v20210323/model/DescribeRecordLineListRequest.cpp
@@ -368,7 +360,6 @@ set(dnspod_src
   src/v20210323/model/ModifyDomainStatusResponse.cpp
   src/v20210323/model/AddRecordBatch.cpp
   src/v20210323/model/DescribeRecordRequest.cpp
-  src/v20210323/model/ModifyRecordBatchV3Response.cpp
   src/v20210323/model/CreateDomainGroupResponse.cpp
   src/v20210323/model/DescribeSubdomainAnalyticsRequest.cpp
   src/v20210323/model/DeleteRecordRequest.cpp
@@ -409,7 +400,6 @@ set(dnspod_src
   src/v20210323/model/ModifyRecordBatchResponse.cpp
   src/v20210323/model/CheckSnapshotRollbackRequest.cpp
   src/v20210323/model/CheckSnapshotRollbackResponse.cpp
-  src/v20210323/model/CreateAndPayDealResponse.cpp
   src/v20210323/model/DescribeRecordTypeRequest.cpp
   src/v20210323/model/DeleteDomainCustomLineResponse.cpp
   src/v20210323/model/DescribeSnapshotRollbackTaskResponse.cpp
@@ -423,7 +413,6 @@ set(dnspod_src
   src/v20210323/model/ModifyDomainRecursiveStatusBatchRequest.cpp
   src/v20210323/model/CustomLineInfo.cpp
   src/v20210323/model/ModifyRecordBatchDetail.cpp
-  src/v20210323/model/ModifyRecordItem.cpp
   src/v20210323/model/DescribeSnapshotRollbackResultRequest.cpp
   src/v20210323/model/DescribeDomainShareUserListRequest.cpp
   src/v20210323/model/DeleteDomainBatchDetail.cpp
@@ -450,7 +439,6 @@ set(dnspod_src
   src/v20210323/model/DeleteSnapshotResponse.cpp
   src/v20210323/model/DescribeDomainPurviewResponse.cpp
   src/v20210323/model/Deals.cpp
-  src/v20210323/model/VasListItem.cpp
   src/v20210323/model/ModifySubdomainStatusResponse.cpp
   src/v20210323/model/DescribeSubdomainValidateStatusResponse.cpp
   src/v20210323/model/DescribeDomainAnalyticsResponse.cpp
@@ -465,7 +453,6 @@ set(dnspod_src
   src/v20210323/model/DescribeSubdomainValidateStatusRequest.cpp
   src/v20210323/model/CreateDomainGroupRequest.cpp
   src/v20210323/model/CreateSnapshotRequest.cpp
-  src/v20210323/model/ModifyPackageDomainRequest.cpp
   src/v20210323/model/DeleteDomainResponse.cpp
   src/v20210323/model/DescribeRecordSnapshotRollbackResultResponse.cpp
   src/v20210323/model/DescribeVasListResponse.cpp
@@ -488,13 +475,13 @@ set(dnspod_src
   src/v20210323/model/DescribeRecordExistExceptDefaultNSRequest.cpp
   src/v20210323/model/ModifyDomainCNAMESpeedupStatusBatchResponse.cpp
   src/v20210323/model/ModifySnapshotConfigResponse.cpp
-  src/v20210323/model/DescribeRecordFilterListResponse.cpp
+  src/v20210323/model/RollbackRecordSnapshotResponse.cpp
   src/v20210323/model/DescribeUserDetailRequest.cpp
   src/v20210323/model/ResolveCountAliasItem.cpp
   src/v20210323/model/DescribeFileInfoByJobIdResponse.cpp
   src/v20210323/model/ModifyDomainStatusRequest.cpp
   src/v20210323/model/ModifyRecordRemarkResponse.cpp
-  src/v20210323/model/CreateAndPayDealRequest.cpp
+  src/v20210323/model/DescribeDomainListRequest.cpp
   src/v20210323/model/DomainCreateInfo.cpp
   src/v20210323/model/DescribeDomainCustomLineListResponse.cpp
   src/v20210323/model/ModifyRecordRemarkRequest.cpp
@@ -508,7 +495,6 @@ set(dnspod_src
   src/v20210323/model/DescribeRecordListResponse.cpp
   src/v20210323/model/CreateLineGroupRequest.cpp
   src/v20210323/model/CreateDomainCustomLineRequest.cpp
-  src/v20210323/model/RollbackRecordSnapshotResponse.cpp
   src/v20210323/model/LineItem.cpp
   src/v20210323/model/CreateDealResponse.cpp
   src/v20210323/model/ResolveCountInfo.cpp

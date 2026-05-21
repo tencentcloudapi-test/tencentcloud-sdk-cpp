@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>转自适应码流模板唯一标识。</p>
-                     * @return Definition <p>转自适应码流模板唯一标识。</p>
+                     * 获取转自适应码流模板唯一标识。
+                     * @return Definition 转自适应码流模板唯一标识。
                      * 
                      */
                     uint64_t GetDefinition() const;
 
                     /**
-                     * 设置<p>转自适应码流模板唯一标识。</p>
-                     * @param _definition <p>转自适应码流模板唯一标识。</p>
+                     * 设置转自适应码流模板唯一标识。
+                     * @param _definition 转自适应码流模板唯一标识。
                      * 
                      */
                     void SetDefinition(const uint64_t& _definition);
@@ -69,15 +69,23 @@ namespace TencentCloud
                     bool DefinitionHasBeenSet() const;
 
                     /**
-                     * 获取<p>模板类型，取值范围：</p><li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>
-                     * @return Type <p>模板类型，取值范围：</p><li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>
+                     * 获取模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+                     * @return Type 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>模板类型，取值范围：</p><li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>
-                     * @param _type <p>模板类型，取值范围：</p><li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>
+                     * 设置模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
+                     * @param _type 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -90,15 +98,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>转自适应码流模板名称。</p>
-                     * @return Name <p>转自适应码流模板名称。</p>
+                     * 获取转自适应码流模板名称。
+                     * @return Name 转自适应码流模板名称。
                      * 
                      */
                     std::string GetName() const;
 
                     /**
-                     * 设置<p>转自适应码流模板名称。</p>
-                     * @param _name <p>转自适应码流模板名称。</p>
+                     * 设置转自适应码流模板名称。
+                     * @param _name 转自适应码流模板名称。
                      * 
                      */
                     void SetName(const std::string& _name);
@@ -111,15 +119,15 @@ namespace TencentCloud
                     bool NameHasBeenSet() const;
 
                     /**
-                     * 获取<p>转自适应码流模板描述信息。</p>
-                     * @return Comment <p>转自适应码流模板描述信息。</p>
+                     * 获取转自适应码流模板描述信息。
+                     * @return Comment 转自适应码流模板描述信息。
                      * 
                      */
                     std::string GetComment() const;
 
                     /**
-                     * 设置<p>转自适应码流模板描述信息。</p>
-                     * @param _comment <p>转自适应码流模板描述信息。</p>
+                     * 设置转自适应码流模板描述信息。
+                     * @param _comment 转自适应码流模板描述信息。
                      * 
                      */
                     void SetComment(const std::string& _comment);
@@ -132,15 +140,19 @@ namespace TencentCloud
                     bool CommentHasBeenSet() const;
 
                     /**
-                     * 获取<p>自适应转码格式，取值范围：</p><li>HLS。</li>
-                     * @return Format <p>自适应转码格式，取值范围：</p><li>HLS。</li>
+                     * 获取自适应转码格式，取值范围：
+<li>HLS。</li>
+                     * @return Format 自适应转码格式，取值范围：
+<li>HLS。</li>
                      * 
                      */
                     std::string GetFormat() const;
 
                     /**
-                     * 设置<p>自适应转码格式，取值范围：</p><li>HLS。</li>
-                     * @param _format <p>自适应转码格式，取值范围：</p><li>HLS。</li>
+                     * 设置自适应转码格式，取值范围：
+<li>HLS。</li>
+                     * @param _format 自适应转码格式，取值范围：
+<li>HLS。</li>
                      * 
                      */
                     void SetFormat(const std::string& _format);
@@ -153,15 +165,31 @@ namespace TencentCloud
                     bool FormatHasBeenSet() const;
 
                     /**
-                     * 获取<p>DRM 类型，取值范围：</p><li>SimpleAES</li><li>Widevine</li><li>FairPlay</li><li>Widevine+FairPlay</li>如果取值为空字符串，代表不对视频做 DRM 保护。
-                     * @return DrmType <p>DRM 类型，取值范围：</p><li>SimpleAES</li><li>Widevine</li><li>FairPlay</li><li>Widevine+FairPlay</li>如果取值为空字符串，代表不对视频做 DRM 保护。
+                     * 获取DRM 类型，取值范围：
+<li>SimpleAES</li>
+<li>Widevine</li>
+<li>FairPlay</li>
+如果取值为空字符串，代表不对视频做 DRM 保护。
+                     * @return DrmType DRM 类型，取值范围：
+<li>SimpleAES</li>
+<li>Widevine</li>
+<li>FairPlay</li>
+如果取值为空字符串，代表不对视频做 DRM 保护。
                      * 
                      */
                     std::string GetDrmType() const;
 
                     /**
-                     * 设置<p>DRM 类型，取值范围：</p><li>SimpleAES</li><li>Widevine</li><li>FairPlay</li><li>Widevine+FairPlay</li>如果取值为空字符串，代表不对视频做 DRM 保护。
-                     * @param _drmType <p>DRM 类型，取值范围：</p><li>SimpleAES</li><li>Widevine</li><li>FairPlay</li><li>Widevine+FairPlay</li>如果取值为空字符串，代表不对视频做 DRM 保护。
+                     * 设置DRM 类型，取值范围：
+<li>SimpleAES</li>
+<li>Widevine</li>
+<li>FairPlay</li>
+如果取值为空字符串，代表不对视频做 DRM 保护。
+                     * @param _drmType DRM 类型，取值范围：
+<li>SimpleAES</li>
+<li>Widevine</li>
+<li>FairPlay</li>
+如果取值为空字符串，代表不对视频做 DRM 保护。
                      * 
                      */
                     void SetDrmType(const std::string& _drmType);
@@ -174,15 +202,27 @@ namespace TencentCloud
                     bool DrmTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>DRM 的密钥提供商，取值范围：</p><li>SDMC：华曦达；</li><li>VOD：云点播。</li>默认值为 VOD 。<p>华曦达服务后续逐步下线，请使用VOD DRM加密服务。</p>
-                     * @return DrmKeyProvider <p>DRM 的密钥提供商，取值范围：</p><li>SDMC：华曦达；</li><li>VOD：云点播。</li>默认值为 VOD 。<p>华曦达服务后续逐步下线，请使用VOD DRM加密服务。</p>
+                     * 获取DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
+                     * @return DrmKeyProvider DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
                      * 
                      */
                     std::string GetDrmKeyProvider() const;
 
                     /**
-                     * 设置<p>DRM 的密钥提供商，取值范围：</p><li>SDMC：华曦达；</li><li>VOD：云点播。</li>默认值为 VOD 。<p>华曦达服务后续逐步下线，请使用VOD DRM加密服务。</p>
-                     * @param _drmKeyProvider <p>DRM 的密钥提供商，取值范围：</p><li>SDMC：华曦达；</li><li>VOD：云点播。</li>默认值为 VOD 。<p>华曦达服务后续逐步下线，请使用VOD DRM加密服务。</p>
+                     * 设置DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
+                     * @param _drmKeyProvider DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
                      * 
                      */
                     void SetDrmKeyProvider(const std::string& _drmKeyProvider);
@@ -195,36 +235,15 @@ namespace TencentCloud
                     bool DrmKeyProviderHasBeenSet() const;
 
                     /**
-                     * 获取<p>DRM的加密类型，取值范围：{&quot;cbcs&quot;, &quot;cenc&quot;}</p>
-                     * @return DrmEncryptType <p>DRM的加密类型，取值范围：{&quot;cbcs&quot;, &quot;cenc&quot;}</p>
-                     * 
-                     */
-                    std::string GetDrmEncryptType() const;
-
-                    /**
-                     * 设置<p>DRM的加密类型，取值范围：{&quot;cbcs&quot;, &quot;cenc&quot;}</p>
-                     * @param _drmEncryptType <p>DRM的加密类型，取值范围：{&quot;cbcs&quot;, &quot;cenc&quot;}</p>
-                     * 
-                     */
-                    void SetDrmEncryptType(const std::string& _drmEncryptType);
-
-                    /**
-                     * 判断参数 DrmEncryptType 是否已赋值
-                     * @return DrmEncryptType 是否已赋值
-                     * 
-                     */
-                    bool DrmEncryptTypeHasBeenSet() const;
-
-                    /**
-                     * 获取<p>自适应转码输入流参数信息，最多输入10路流。</p>
-                     * @return StreamInfos <p>自适应转码输入流参数信息，最多输入10路流。</p>
+                     * 获取自适应转码输入流参数信息，最多输入10路流。
+                     * @return StreamInfos 自适应转码输入流参数信息，最多输入10路流。
                      * 
                      */
                     std::vector<AdaptiveStreamTemplate> GetStreamInfos() const;
 
                     /**
-                     * 设置<p>自适应转码输入流参数信息，最多输入10路流。</p>
-                     * @param _streamInfos <p>自适应转码输入流参数信息，最多输入10路流。</p>
+                     * 设置自适应转码输入流参数信息，最多输入10路流。
+                     * @param _streamInfos 自适应转码输入流参数信息，最多输入10路流。
                      * 
                      */
                     void SetStreamInfos(const std::vector<AdaptiveStreamTemplate>& _streamInfos);
@@ -237,15 +256,23 @@ namespace TencentCloud
                     bool StreamInfosHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否禁止视频低码率转高码率，取值范围：</p><li>0：否，</li><li>1：是。</li>
-                     * @return DisableHigherVideoBitrate <p>是否禁止视频低码率转高码率，取值范围：</p><li>0：否，</li><li>1：是。</li>
+                     * 获取是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+                     * @return DisableHigherVideoBitrate 是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
                      * 
                      */
                     uint64_t GetDisableHigherVideoBitrate() const;
 
                     /**
-                     * 设置<p>是否禁止视频低码率转高码率，取值范围：</p><li>0：否，</li><li>1：是。</li>
-                     * @param _disableHigherVideoBitrate <p>是否禁止视频低码率转高码率，取值范围：</p><li>0：否，</li><li>1：是。</li>
+                     * 设置是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+                     * @param _disableHigherVideoBitrate 是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
                      * 
                      */
                     void SetDisableHigherVideoBitrate(const uint64_t& _disableHigherVideoBitrate);
@@ -258,15 +285,23 @@ namespace TencentCloud
                     bool DisableHigherVideoBitrateHasBeenSet() const;
 
                     /**
-                     * 获取<p>是否禁止视频分辨率转高分辨率，取值范围：</p><li>0：否，</li><li>1：是。</li>
-                     * @return DisableHigherVideoResolution <p>是否禁止视频分辨率转高分辨率，取值范围：</p><li>0：否，</li><li>1：是。</li>
+                     * 获取是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+                     * @return DisableHigherVideoResolution 是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
                      * 
                      */
                     uint64_t GetDisableHigherVideoResolution() const;
 
                     /**
-                     * 设置<p>是否禁止视频分辨率转高分辨率，取值范围：</p><li>0：否，</li><li>1：是。</li>
-                     * @param _disableHigherVideoResolution <p>是否禁止视频分辨率转高分辨率，取值范围：</p><li>0：否，</li><li>1：是。</li>
+                     * 设置是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
+                     * @param _disableHigherVideoResolution 是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
                      * 
                      */
                     void SetDisableHigherVideoResolution(const uint64_t& _disableHigherVideoResolution);
@@ -279,15 +314,15 @@ namespace TencentCloud
                     bool DisableHigherVideoResolutionHasBeenSet() const;
 
                     /**
-                     * 获取<p>模板创建时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
-                     * @return CreateTime <p>模板创建时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
+                     * 获取模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @return CreateTime 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * 
                      */
                     std::string GetCreateTime() const;
 
                     /**
-                     * 设置<p>模板创建时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
-                     * @param _createTime <p>模板创建时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
+                     * 设置模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @param _createTime 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * 
                      */
                     void SetCreateTime(const std::string& _createTime);
@@ -300,15 +335,15 @@ namespace TencentCloud
                     bool CreateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>模板最后修改时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
-                     * @return UpdateTime <p>模板最后修改时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
+                     * 获取模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @return UpdateTime 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * 
                      */
                     std::string GetUpdateTime() const;
 
                     /**
-                     * 设置<p>模板最后修改时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
-                     * @param _updateTime <p>模板最后修改时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
+                     * 设置模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
+                     * @param _updateTime 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      * 
                      */
                     void SetUpdateTime(const std::string& _updateTime);
@@ -321,15 +356,15 @@ namespace TencentCloud
                     bool UpdateTimeHasBeenSet() const;
 
                     /**
-                     * 获取<p>切片类型，仅当 Format 为 HLS 时有效。</p>
-                     * @return SegmentType <p>切片类型，仅当 Format 为 HLS 时有效。</p>
+                     * 获取切片类型，仅当 Format 为 HLS 时有效。
+                     * @return SegmentType 切片类型，仅当 Format 为 HLS 时有效。
                      * 
                      */
                     std::string GetSegmentType() const;
 
                     /**
-                     * 设置<p>切片类型，仅当 Format 为 HLS 时有效。</p>
-                     * @param _segmentType <p>切片类型，仅当 Format 为 HLS 时有效。</p>
+                     * 设置切片类型，仅当 Format 为 HLS 时有效。
+                     * @param _segmentType 切片类型，仅当 Format 为 HLS 时有效。
                      * 
                      */
                     void SetSegmentType(const std::string& _segmentType);
@@ -344,85 +379,93 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>转自适应码流模板唯一标识。</p>
+                     * 转自适应码流模板唯一标识。
                      */
                     uint64_t m_definition;
                     bool m_definitionHasBeenSet;
 
                     /**
-                     * <p>模板类型，取值范围：</p><li>Preset：系统预置模板；</li><li>Custom：用户自定义模板。</li>
+                     * 模板类型，取值范围：
+<li>Preset：系统预置模板；</li>
+<li>Custom：用户自定义模板。</li>
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>转自适应码流模板名称。</p>
+                     * 转自适应码流模板名称。
                      */
                     std::string m_name;
                     bool m_nameHasBeenSet;
 
                     /**
-                     * <p>转自适应码流模板描述信息。</p>
+                     * 转自适应码流模板描述信息。
                      */
                     std::string m_comment;
                     bool m_commentHasBeenSet;
 
                     /**
-                     * <p>自适应转码格式，取值范围：</p><li>HLS。</li>
+                     * 自适应转码格式，取值范围：
+<li>HLS。</li>
                      */
                     std::string m_format;
                     bool m_formatHasBeenSet;
 
                     /**
-                     * <p>DRM 类型，取值范围：</p><li>SimpleAES</li><li>Widevine</li><li>FairPlay</li><li>Widevine+FairPlay</li>如果取值为空字符串，代表不对视频做 DRM 保护。
+                     * DRM 类型，取值范围：
+<li>SimpleAES</li>
+<li>Widevine</li>
+<li>FairPlay</li>
+如果取值为空字符串，代表不对视频做 DRM 保护。
                      */
                     std::string m_drmType;
                     bool m_drmTypeHasBeenSet;
 
                     /**
-                     * <p>DRM 的密钥提供商，取值范围：</p><li>SDMC：华曦达；</li><li>VOD：云点播。</li>默认值为 VOD 。<p>华曦达服务后续逐步下线，请使用VOD DRM加密服务。</p>
+                     * DRM 的密钥提供商，取值范围：
+<li>SDMC：华曦达；</li>
+<li>VOD：云点播。</li>
+默认值为 VOD 。
                      */
                     std::string m_drmKeyProvider;
                     bool m_drmKeyProviderHasBeenSet;
 
                     /**
-                     * <p>DRM的加密类型，取值范围：{&quot;cbcs&quot;, &quot;cenc&quot;}</p>
-                     */
-                    std::string m_drmEncryptType;
-                    bool m_drmEncryptTypeHasBeenSet;
-
-                    /**
-                     * <p>自适应转码输入流参数信息，最多输入10路流。</p>
+                     * 自适应转码输入流参数信息，最多输入10路流。
                      */
                     std::vector<AdaptiveStreamTemplate> m_streamInfos;
                     bool m_streamInfosHasBeenSet;
 
                     /**
-                     * <p>是否禁止视频低码率转高码率，取值范围：</p><li>0：否，</li><li>1：是。</li>
+                     * 是否禁止视频低码率转高码率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
                      */
                     uint64_t m_disableHigherVideoBitrate;
                     bool m_disableHigherVideoBitrateHasBeenSet;
 
                     /**
-                     * <p>是否禁止视频分辨率转高分辨率，取值范围：</p><li>0：否，</li><li>1：是。</li>
+                     * 是否禁止视频分辨率转高分辨率，取值范围：
+<li>0：否，</li>
+<li>1：是。</li>
                      */
                     uint64_t m_disableHigherVideoResolution;
                     bool m_disableHigherVideoResolutionHasBeenSet;
 
                     /**
-                     * <p>模板创建时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
+                     * 模板创建时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      */
                     std::string m_createTime;
                     bool m_createTimeHasBeenSet;
 
                     /**
-                     * <p>模板最后修改时间，使用 <a href="https://cloud.tencent.com/document/product/266/11732#I">ISO 日期格式</a>。</p>
+                     * 模板最后修改时间，使用 [ISO 日期格式](https://cloud.tencent.com/document/product/266/11732#I)。
                      */
                     std::string m_updateTime;
                     bool m_updateTimeHasBeenSet;
 
                     /**
-                     * <p>切片类型，仅当 Format 为 HLS 时有效。</p>
+                     * 切片类型，仅当 Format 为 HLS 时有效。
                      */
                     std::string m_segmentType;
                     bool m_segmentTypeHasBeenSet;

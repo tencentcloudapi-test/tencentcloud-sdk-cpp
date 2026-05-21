@@ -47,11 +47,7 @@ CreateClusterRequest::CreateClusterRequest() :
     m_nodeMarksHasBeenSet(false),
     m_loadBalancerIdHasBeenSet(false),
     m_defaultMetaVersionHasBeenSet(false),
-    m_needCdbAuditHasBeenSet(false),
-    m_sgIPHasBeenSet(false),
-    m_partitionNumberHasBeenSet(false),
-    m_webUiVersionHasBeenSet(false),
-    m_enableCbsSysEncryptFlagHasBeenSet(false)
+    m_needCdbAuditHasBeenSet(false)
 {
 }
 
@@ -309,38 +305,6 @@ string CreateClusterRequest::ToJsonString() const
         string key = "NeedCdbAudit";
         iKey.SetString(key.c_str(), allocator);
         d.AddMember(iKey, m_needCdbAudit, allocator);
-    }
-
-    if (m_sgIPHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "SgIP";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, rapidjson::Value(m_sgIP.c_str(), allocator).Move(), allocator);
-    }
-
-    if (m_partitionNumberHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "PartitionNumber";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_partitionNumber, allocator);
-    }
-
-    if (m_webUiVersionHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "WebUiVersion";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_webUiVersion, allocator);
-    }
-
-    if (m_enableCbsSysEncryptFlagHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "EnableCbsSysEncryptFlag";
-        iKey.SetString(key.c_str(), allocator);
-        d.AddMember(iKey, m_enableCbsSysEncryptFlag, allocator);
     }
 
 
@@ -749,70 +713,6 @@ void CreateClusterRequest::SetNeedCdbAudit(const int64_t& _needCdbAudit)
 bool CreateClusterRequest::NeedCdbAuditHasBeenSet() const
 {
     return m_needCdbAuditHasBeenSet;
-}
-
-string CreateClusterRequest::GetSgIP() const
-{
-    return m_sgIP;
-}
-
-void CreateClusterRequest::SetSgIP(const string& _sgIP)
-{
-    m_sgIP = _sgIP;
-    m_sgIPHasBeenSet = true;
-}
-
-bool CreateClusterRequest::SgIPHasBeenSet() const
-{
-    return m_sgIPHasBeenSet;
-}
-
-int64_t CreateClusterRequest::GetPartitionNumber() const
-{
-    return m_partitionNumber;
-}
-
-void CreateClusterRequest::SetPartitionNumber(const int64_t& _partitionNumber)
-{
-    m_partitionNumber = _partitionNumber;
-    m_partitionNumberHasBeenSet = true;
-}
-
-bool CreateClusterRequest::PartitionNumberHasBeenSet() const
-{
-    return m_partitionNumberHasBeenSet;
-}
-
-int64_t CreateClusterRequest::GetWebUiVersion() const
-{
-    return m_webUiVersion;
-}
-
-void CreateClusterRequest::SetWebUiVersion(const int64_t& _webUiVersion)
-{
-    m_webUiVersion = _webUiVersion;
-    m_webUiVersionHasBeenSet = true;
-}
-
-bool CreateClusterRequest::WebUiVersionHasBeenSet() const
-{
-    return m_webUiVersionHasBeenSet;
-}
-
-bool CreateClusterRequest::GetEnableCbsSysEncryptFlag() const
-{
-    return m_enableCbsSysEncryptFlag;
-}
-
-void CreateClusterRequest::SetEnableCbsSysEncryptFlag(const bool& _enableCbsSysEncryptFlag)
-{
-    m_enableCbsSysEncryptFlag = _enableCbsSysEncryptFlag;
-    m_enableCbsSysEncryptFlagHasBeenSet = true;
-}
-
-bool CreateClusterRequest::EnableCbsSysEncryptFlagHasBeenSet() const
-{
-    return m_enableCbsSysEncryptFlagHasBeenSet;
 }
 
 

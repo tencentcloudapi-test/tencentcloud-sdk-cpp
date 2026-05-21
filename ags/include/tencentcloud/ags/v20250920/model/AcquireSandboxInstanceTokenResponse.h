@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>访问Token</p>
-                     * @return Token <p>访问Token</p>
+                     * 获取访问Token
+                     * @return Token 访问Token
                      * 
                      */
                     std::string GetToken() const;
@@ -58,8 +58,8 @@ namespace TencentCloud
                     bool TokenHasBeenSet() const;
 
                     /**
-                     * 获取<p>过期时间</p>
-                     * @return ExpiresAt <p>过期时间</p>
+                     * 获取过期时间
+                     * @return ExpiresAt 过期时间
                      * 
                      */
                     std::string GetExpiresAt() const;
@@ -71,39 +71,19 @@ namespace TencentCloud
                      */
                     bool ExpiresAtHasBeenSet() const;
 
-                    /**
-                     * 获取<p>非管控面（envd）的访问Token</p>
-                     * @return TrafficToken <p>非管控面（envd）的访问Token</p>
-                     * 
-                     */
-                    std::string GetTrafficToken() const;
-
-                    /**
-                     * 判断参数 TrafficToken 是否已赋值
-                     * @return TrafficToken 是否已赋值
-                     * 
-                     */
-                    bool TrafficTokenHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>访问Token</p>
+                     * 访问Token
                      */
                     std::string m_token;
                     bool m_tokenHasBeenSet;
 
                     /**
-                     * <p>过期时间</p>
+                     * 过期时间
                      */
                     std::string m_expiresAt;
                     bool m_expiresAtHasBeenSet;
-
-                    /**
-                     * <p>非管控面（envd）的访问Token</p>
-                     */
-                    std::string m_trafficToken;
-                    bool m_trafficTokenHasBeenSet;
 
                 };
             }

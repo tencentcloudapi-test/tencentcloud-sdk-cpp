@@ -48,15 +48,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>规格</p>
-                     * @return InstanceType <p>规格</p>
+                     * 获取规格
+                     * @return InstanceType 规格
                      * 
                      */
                     std::string GetInstanceType() const;
 
                     /**
-                     * 设置<p>规格</p>
-                     * @param _instanceType <p>规格</p>
+                     * 设置规格
+                     * @param _instanceType 规格
                      * 
                      */
                     void SetInstanceType(const std::string& _instanceType);
@@ -69,15 +69,15 @@ namespace TencentCloud
                     bool InstanceTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>4</p>
-                     * @return Cpu <p>4</p>
+                     * 获取4
+                     * @return Cpu 4
                      * 
                      */
                     int64_t GetCpu() const;
 
                     /**
-                     * 设置<p>4</p>
-                     * @param _cpu <p>4</p>
+                     * 设置4
+                     * @param _cpu 4
                      * 
                      */
                     void SetCpu(const int64_t& _cpu);
@@ -90,15 +90,15 @@ namespace TencentCloud
                     bool CpuHasBeenSet() const;
 
                     /**
-                     * 获取<p>8，单位G</p>
-                     * @return Memory <p>8，单位G</p>
+                     * 获取8，单位G
+                     * @return Memory 8，单位G
                      * 
                      */
                     int64_t GetMemory() const;
 
                     /**
-                     * 设置<p>8，单位G</p>
-                     * @param _memory <p>8，单位G</p>
+                     * 设置8，单位G
+                     * @param _memory 8，单位G
                      * 
                      */
                     void SetMemory(const int64_t& _memory);
@@ -111,15 +111,15 @@ namespace TencentCloud
                     bool MemoryHasBeenSet() const;
 
                     /**
-                     * 获取<p>排序，越小排的越前</p>
-                     * @return Order <p>排序，越小排的越前</p>
+                     * 获取排序，越小排的越前
+                     * @return Order 排序，越小排的越前
                      * 
                      */
                     int64_t GetOrder() const;
 
                     /**
-                     * 设置<p>排序，越小排的越前</p>
-                     * @param _order <p>排序，越小排的越前</p>
+                     * 设置排序，越小排的越前
+                     * @param _order 排序，越小排的越前
                      * 
                      */
                     void SetOrder(const int64_t& _order);
@@ -132,15 +132,15 @@ namespace TencentCloud
                     bool OrderHasBeenSet() const;
 
                     /**
-                     * 获取<p>数量</p>
-                     * @return Num <p>数量</p>
+                     * 获取数量
+                     * @return Num 数量
                      * 
                      */
                     int64_t GetNum() const;
 
                     /**
-                     * 设置<p>数量</p>
-                     * @param _num <p>数量</p>
+                     * 设置数量
+                     * @param _num 数量
                      * 
                      */
                     void SetNum(const int64_t& _num);
@@ -153,15 +153,15 @@ namespace TencentCloud
                     bool NumHasBeenSet() const;
 
                     /**
-                     * 获取<p>售罄原因</p>
-                     * @return SellOutReason <p>售罄原因</p>
+                     * 获取售罄原因
+                     * @return SellOutReason 售罄原因
                      * 
                      */
                     std::string GetSellOutReason() const;
 
                     /**
-                     * 设置<p>售罄原因</p>
-                     * @param _sellOutReason <p>售罄原因</p>
+                     * 设置售罄原因
+                     * @param _sellOutReason 售罄原因
                      * 
                      */
                     void SetSellOutReason(const std::string& _sellOutReason);
@@ -174,18 +174,18 @@ namespace TencentCloud
                     bool SellOutReasonHasBeenSet() const;
 
                     /**
-                     * 获取<p>系统盘</p>
+                     * 获取系统盘
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return SystemDisk <p>系统盘</p>
+                     * @return SystemDisk 系统盘
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<NodeSpecDisk> GetSystemDisk() const;
 
                     /**
-                     * 设置<p>系统盘</p>
+                     * 设置系统盘
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _systemDisk <p>系统盘</p>
+                     * @param _systemDisk 系统盘
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -199,18 +199,18 @@ namespace TencentCloud
                     bool SystemDiskHasBeenSet() const;
 
                     /**
-                     * 获取<p>数据盘</p>
+                     * 获取数据盘
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return DataDisk <p>数据盘</p>
+                     * @return DataDisk 数据盘
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<NodeSpecDisk> GetDataDisk() const;
 
                     /**
-                     * 设置<p>数据盘</p>
+                     * 设置数据盘
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _dataDisk <p>数据盘</p>
+                     * @param _dataDisk 数据盘
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -224,18 +224,18 @@ namespace TencentCloud
                     bool DataDiskHasBeenSet() const;
 
                     /**
-                     * 获取<p>本地数据盘</p>
+                     * 获取本地数据盘
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return LocalDataDisk <p>本地数据盘</p>
+                     * @return LocalDataDisk 本地数据盘
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<NodeSpecDisk> GetLocalDataDisk() const;
 
                     /**
-                     * 设置<p>本地数据盘</p>
+                     * 设置本地数据盘
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _localDataDisk <p>本地数据盘</p>
+                     * @param _localDataDisk 本地数据盘
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -249,15 +249,15 @@ namespace TencentCloud
                     bool LocalDataDiskHasBeenSet() const;
 
                     /**
-                     * 获取<p>售罄原因</p>
-                     * @return SoldOutReason <p>售罄原因</p>
+                     * 获取售罄原因
+                     * @return SoldOutReason 售罄原因
                      * 
                      */
                     std::string GetSoldOutReason() const;
 
                     /**
-                     * 设置<p>售罄原因</p>
-                     * @param _soldOutReason <p>售罄原因</p>
+                     * 设置售罄原因
+                     * @param _soldOutReason 售罄原因
                      * 
                      */
                     void SetSoldOutReason(const std::string& _soldOutReason);
@@ -270,15 +270,15 @@ namespace TencentCloud
                     bool SoldOutReasonHasBeenSet() const;
 
                     /**
-                     * 获取<p>机型类别</p>
-                     * @return InstanceFamily <p>机型类别</p>
+                     * 获取机型类别
+                     * @return InstanceFamily 机型类别
                      * 
                      */
                     std::string GetInstanceFamily() const;
 
                     /**
-                     * 设置<p>机型类别</p>
-                     * @param _instanceFamily <p>机型类别</p>
+                     * 设置机型类别
+                     * @param _instanceFamily 机型类别
                      * 
                      */
                     void SetInstanceFamily(const std::string& _instanceFamily);
@@ -291,15 +291,15 @@ namespace TencentCloud
                     bool InstanceFamilyHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点名称</p>
-                     * @return NodeName <p>节点名称</p>
+                     * 获取节点名称
+                     * @return NodeName 节点名称
                      * 
                      */
                     std::string GetNodeName() const;
 
                     /**
-                     * 设置<p>节点名称</p>
-                     * @param _nodeName <p>节点名称</p>
+                     * 设置节点名称
+                     * @param _nodeName 节点名称
                      * 
                      */
                     void SetNodeName(const std::string& _nodeName);
@@ -312,15 +312,15 @@ namespace TencentCloud
                     bool NodeNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>节点类型</p>
-                     * @return NodeType <p>节点类型</p>
+                     * 获取节点类型
+                     * @return NodeType 节点类型
                      * 
                      */
                     std::string GetNodeType() const;
 
                     /**
-                     * 设置<p>节点类型</p>
-                     * @param _nodeType <p>节点类型</p>
+                     * 设置节点类型
+                     * @param _nodeType 节点类型
                      * 
                      */
                     void SetNodeType(const std::string& _nodeType);
@@ -333,15 +333,15 @@ namespace TencentCloud
                     bool NodeTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>类别</p>
-                     * @return Type <p>类别</p>
+                     * 获取类别
+                     * @return Type 类别
                      * 
                      */
                     std::string GetType() const;
 
                     /**
-                     * 设置<p>类别</p>
-                     * @param _type <p>类别</p>
+                     * 设置类别
+                     * @param _type 类别
                      * 
                      */
                     void SetType(const std::string& _type);
@@ -354,15 +354,15 @@ namespace TencentCloud
                     bool TypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>类别名称</p>
-                     * @return TypeName <p>类别名称</p>
+                     * 获取类别名称
+                     * @return TypeName 类别名称
                      * 
                      */
                     std::string GetTypeName() const;
 
                     /**
-                     * 设置<p>类别名称</p>
-                     * @param _typeName <p>类别名称</p>
+                     * 设置类别名称
+                     * @param _typeName 类别名称
                      * 
                      */
                     void SetTypeName(const std::string& _typeName);
@@ -375,15 +375,15 @@ namespace TencentCloud
                     bool TypeNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>类别分类</p>
-                     * @return FamilyName <p>类别分类</p>
+                     * 获取类别分类
+                     * @return FamilyName 类别分类
                      * 
                      */
                     std::string GetFamilyName() const;
 
                     /**
-                     * 设置<p>类别分类</p>
-                     * @param _familyName <p>类别分类</p>
+                     * 设置类别分类
+                     * @param _familyName 类别分类
                      * 
                      */
                     void SetFamilyName(const std::string& _familyName);
@@ -396,15 +396,15 @@ namespace TencentCloud
                     bool FamilyNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>cpu类型</p>
-                     * @return CpuType <p>cpu类型</p>
+                     * 获取cpu类型
+                     * @return CpuType cpu类型
                      * 
                      */
                     std::string GetCpuType() const;
 
                     /**
-                     * 设置<p>cpu类型</p>
-                     * @param _cpuType <p>cpu类型</p>
+                     * 设置cpu类型
+                     * @param _cpuType cpu类型
                      * 
                      */
                     void SetCpuType(const std::string& _cpuType);
@@ -417,15 +417,15 @@ namespace TencentCloud
                     bool CpuTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>售罄 RunOut、库存少 Less、充足 Enough</p>
-                     * @return Remark <p>售罄 RunOut、库存少 Less、充足 Enough</p>
+                     * 获取售罄 RunOut、库存少 Less、充足 Enough
+                     * @return Remark 售罄 RunOut、库存少 Less、充足 Enough
                      * 
                      */
                     std::string GetRemark() const;
 
                     /**
-                     * 设置<p>售罄 RunOut、库存少 Less、充足 Enough</p>
-                     * @param _remark <p>售罄 RunOut、库存少 Less、充足 Enough</p>
+                     * 设置售罄 RunOut、库存少 Less、充足 Enough
+                     * @param _remark 售罄 RunOut、库存少 Less、充足 Enough
                      * 
                      */
                     void SetRemark(const std::string& _remark);
@@ -438,15 +438,15 @@ namespace TencentCloud
                     bool RemarkHasBeenSet() const;
 
                     /**
-                     * 获取<p>原价</p>
-                     * @return OriginPrice <p>原价</p>
+                     * 获取原价
+                     * @return OriginPrice 原价
                      * 
                      */
                     double GetOriginPrice() const;
 
                     /**
-                     * 设置<p>原价</p>
-                     * @param _originPrice <p>原价</p>
+                     * 设置原价
+                     * @param _originPrice 原价
                      * 
                      */
                     void SetOriginPrice(const double& _originPrice);
@@ -459,18 +459,18 @@ namespace TencentCloud
                     bool OriginPriceHasBeenSet() const;
 
                     /**
-                     * 获取<p>包销计费机型支持的购买时长</p>
+                     * 获取包销计费机型支持的购买时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return PrepaidUnderwritePeriods <p>包销计费机型支持的购买时长</p>
+                     * @return PrepaidUnderwritePeriods 包销计费机型支持的购买时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::vector<int64_t> GetPrepaidUnderwritePeriods() const;
 
                     /**
-                     * 设置<p>包销计费机型支持的购买时长</p>
+                     * 设置包销计费机型支持的购买时长
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _prepaidUnderwritePeriods <p>包销计费机型支持的购买时长</p>
+                     * @param _prepaidUnderwritePeriods 包销计费机型支持的购买时长
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -484,15 +484,15 @@ namespace TencentCloud
                     bool PrepaidUnderwritePeriodsHasBeenSet() const;
 
                     /**
-                     * 获取<p>GPU信息</p>
-                     * @return GpuDesc <p>GPU信息</p>
+                     * 获取GPU信息
+                     * @return GpuDesc GPU信息
                      * 
                      */
                     std::string GetGpuDesc() const;
 
                     /**
-                     * 设置<p>GPU信息</p>
-                     * @param _gpuDesc <p>GPU信息</p>
+                     * 设置GPU信息
+                     * @param _gpuDesc GPU信息
                      * 
                      */
                     void SetGpuDesc(const std::string& _gpuDesc);
@@ -504,191 +504,137 @@ namespace TencentCloud
                      */
                     bool GpuDescHasBeenSet() const;
 
-                    /**
-                     * 获取<p>配额数量</p>
-                     * @return QuotaNum <p>配额数量</p>
-                     * 
-                     */
-                    int64_t GetQuotaNum() const;
-
-                    /**
-                     * 设置<p>配额数量</p>
-                     * @param _quotaNum <p>配额数量</p>
-                     * 
-                     */
-                    void SetQuotaNum(const int64_t& _quotaNum);
-
-                    /**
-                     * 判断参数 QuotaNum 是否已赋值
-                     * @return QuotaNum 是否已赋值
-                     * 
-                     */
-                    bool QuotaNumHasBeenSet() const;
-
-                    /**
-                     * 获取<p>配额单位</p>
-                     * @return QuotaUnit <p>配额单位</p>
-                     * 
-                     */
-                    std::string GetQuotaUnit() const;
-
-                    /**
-                     * 设置<p>配额单位</p>
-                     * @param _quotaUnit <p>配额单位</p>
-                     * 
-                     */
-                    void SetQuotaUnit(const std::string& _quotaUnit);
-
-                    /**
-                     * 判断参数 QuotaUnit 是否已赋值
-                     * @return QuotaUnit 是否已赋值
-                     * 
-                     */
-                    bool QuotaUnitHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>规格</p>
+                     * 规格
                      */
                     std::string m_instanceType;
                     bool m_instanceTypeHasBeenSet;
 
                     /**
-                     * <p>4</p>
+                     * 4
                      */
                     int64_t m_cpu;
                     bool m_cpuHasBeenSet;
 
                     /**
-                     * <p>8，单位G</p>
+                     * 8，单位G
                      */
                     int64_t m_memory;
                     bool m_memoryHasBeenSet;
 
                     /**
-                     * <p>排序，越小排的越前</p>
+                     * 排序，越小排的越前
                      */
                     int64_t m_order;
                     bool m_orderHasBeenSet;
 
                     /**
-                     * <p>数量</p>
+                     * 数量
                      */
                     int64_t m_num;
                     bool m_numHasBeenSet;
 
                     /**
-                     * <p>售罄原因</p>
+                     * 售罄原因
                      */
                     std::string m_sellOutReason;
                     bool m_sellOutReasonHasBeenSet;
 
                     /**
-                     * <p>系统盘</p>
+                     * 系统盘
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<NodeSpecDisk> m_systemDisk;
                     bool m_systemDiskHasBeenSet;
 
                     /**
-                     * <p>数据盘</p>
+                     * 数据盘
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<NodeSpecDisk> m_dataDisk;
                     bool m_dataDiskHasBeenSet;
 
                     /**
-                     * <p>本地数据盘</p>
+                     * 本地数据盘
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<NodeSpecDisk> m_localDataDisk;
                     bool m_localDataDiskHasBeenSet;
 
                     /**
-                     * <p>售罄原因</p>
+                     * 售罄原因
                      */
                     std::string m_soldOutReason;
                     bool m_soldOutReasonHasBeenSet;
 
                     /**
-                     * <p>机型类别</p>
+                     * 机型类别
                      */
                     std::string m_instanceFamily;
                     bool m_instanceFamilyHasBeenSet;
 
                     /**
-                     * <p>节点名称</p>
+                     * 节点名称
                      */
                     std::string m_nodeName;
                     bool m_nodeNameHasBeenSet;
 
                     /**
-                     * <p>节点类型</p>
+                     * 节点类型
                      */
                     std::string m_nodeType;
                     bool m_nodeTypeHasBeenSet;
 
                     /**
-                     * <p>类别</p>
+                     * 类别
                      */
                     std::string m_type;
                     bool m_typeHasBeenSet;
 
                     /**
-                     * <p>类别名称</p>
+                     * 类别名称
                      */
                     std::string m_typeName;
                     bool m_typeNameHasBeenSet;
 
                     /**
-                     * <p>类别分类</p>
+                     * 类别分类
                      */
                     std::string m_familyName;
                     bool m_familyNameHasBeenSet;
 
                     /**
-                     * <p>cpu类型</p>
+                     * cpu类型
                      */
                     std::string m_cpuType;
                     bool m_cpuTypeHasBeenSet;
 
                     /**
-                     * <p>售罄 RunOut、库存少 Less、充足 Enough</p>
+                     * 售罄 RunOut、库存少 Less、充足 Enough
                      */
                     std::string m_remark;
                     bool m_remarkHasBeenSet;
 
                     /**
-                     * <p>原价</p>
+                     * 原价
                      */
                     double m_originPrice;
                     bool m_originPriceHasBeenSet;
 
                     /**
-                     * <p>包销计费机型支持的购买时长</p>
+                     * 包销计费机型支持的购买时长
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<int64_t> m_prepaidUnderwritePeriods;
                     bool m_prepaidUnderwritePeriodsHasBeenSet;
 
                     /**
-                     * <p>GPU信息</p>
+                     * GPU信息
                      */
                     std::string m_gpuDesc;
                     bool m_gpuDescHasBeenSet;
-
-                    /**
-                     * <p>配额数量</p>
-                     */
-                    int64_t m_quotaNum;
-                    bool m_quotaNumHasBeenSet;
-
-                    /**
-                     * <p>配额单位</p>
-                     */
-                    std::string m_quotaUnit;
-                    bool m_quotaUnitHasBeenSet;
 
                 };
             }

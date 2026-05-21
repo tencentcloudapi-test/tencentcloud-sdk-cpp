@@ -44,8 +44,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>记录ID</p>
-                     * @return RecordId <p>记录ID</p>
+                     * 获取记录ID
+                     * @return RecordId 记录ID
                      * 
                      */
                     uint64_t GetRecordId() const;
@@ -60,7 +60,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>记录ID</p>
+                     * 记录ID
                      */
                     uint64_t m_recordId;
                     bool m_recordIdHasBeenSet;

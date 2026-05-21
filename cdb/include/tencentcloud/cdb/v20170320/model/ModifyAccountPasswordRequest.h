@@ -106,27 +106,6 @@ namespace TencentCloud
                      */
                     bool AccountsHasBeenSet() const;
 
-                    /**
-                     * 获取该字段已废弃。
-                     * @return SkipValidatePassword 该字段已废弃。
-                     * @deprecated
-                     */
-                    bool GetSkipValidatePassword() const;
-
-                    /**
-                     * 设置该字段已废弃。
-                     * @param _skipValidatePassword 该字段已废弃。
-                     * @deprecated
-                     */
-                    void SetSkipValidatePassword(const bool& _skipValidatePassword);
-
-                    /**
-                     * 判断参数 SkipValidatePassword 是否已赋值
-                     * @return SkipValidatePassword 是否已赋值
-                     * @deprecated
-                     */
-                    bool SkipValidatePasswordHasBeenSet() const;
-
                 private:
 
                     /**
@@ -146,12 +125,6 @@ namespace TencentCloud
                      */
                     std::vector<Account> m_accounts;
                     bool m_accountsHasBeenSet;
-
-                    /**
-                     * 该字段已废弃。
-                     */
-                    bool m_skipValidatePassword;
-                    bool m_skipValidatePasswordHasBeenSet;
 
                 };
             }

@@ -139,31 +139,6 @@ namespace TencentCloud
                     bool SubtitleFileInputHasBeenSet() const;
 
                     /**
-                     * 获取压制字幕字体文件的输入信息，目前仅支持url和cos。都填时url优先于cos。填了FontFileInput时FontFileInput优先于FontType
-
-                     * @return FontFileInput 压制字幕字体文件的输入信息，目前仅支持url和cos。都填时url优先于cos。填了FontFileInput时FontFileInput优先于FontType
-
-                     * 
-                     */
-                    MediaInputInfo GetFontFileInput() const;
-
-                    /**
-                     * 设置压制字幕字体文件的输入信息，目前仅支持url和cos。都填时url优先于cos。填了FontFileInput时FontFileInput优先于FontType
-
-                     * @param _fontFileInput 压制字幕字体文件的输入信息，目前仅支持url和cos。都填时url优先于cos。填了FontFileInput时FontFileInput优先于FontType
-
-                     * 
-                     */
-                    void SetFontFileInput(const MediaInputInfo& _fontFileInput);
-
-                    /**
-                     * 判断参数 FontFileInput 是否已赋值
-                     * @return FontFileInput 是否已赋值
-                     * 
-                     */
-                    bool FontFileInputHasBeenSet() const;
-
-                    /**
                      * 获取字体类型，支持：
 <li>hei.ttf：黑体</li>
 <li>song.ttf：宋体</li>
@@ -182,26 +157,7 @@ namespace TencentCloud
 <li>korean.ttf：韩语</li>
 <li>japanese.ttf：日语</li>
 <li>thai.ttf：泰语</li>
-<li>roboto.ttf：Roboto</li>
-<li>notosans.ttf：NotoSans</li>
-<li>notosansthai.ttf：泰语NotoSansThai</li>
-<li>sarabun.ttf：泰语Sarabun</li>
-<li>kanit.ttf：泰语Kanit</li>
-<li>charmonman.ttf：泰语Charmonman</li>
-<li>notonaskharabic.ttf：阿拉伯语NotoNaskhArabic</li>
-<li>notosansdevanagari.ttf：印度语NotoSansDevanagari</li>
-<li>notosanstc.ttf：粤语思源黑体NotoSansTC</li>
-<li>notosanskr.ttf：韩语NotoSansKR</li>
-<li>gothica1.ttf：韩语GothicA1</li>
-<li>nanummyeongjo.ttf：韩语NanumMyeongjo</li>
-<li>notosansjp.ttf：日语NotoSansJP</li>
-<li>notoserifjp.ttf：日语NotoSerifJP</li>
-<li>shipporimincho.ttf：日语ShipporiMincho</li>
-默认：hei.ttf 黑体。
-<br>注意：
-<li>楷体推荐使用kai.ttf</li>
-<li>填了FontFileInput时FontFileInput优先</li>
-
+默认：hei.ttf 黑体。注意：楷体推荐使用kai.ttf
 注意：此字段可能返回 null，表示取不到有效值。
                      * @return FontType 字体类型，支持：
 <li>hei.ttf：黑体</li>
@@ -221,26 +177,7 @@ namespace TencentCloud
 <li>korean.ttf：韩语</li>
 <li>japanese.ttf：日语</li>
 <li>thai.ttf：泰语</li>
-<li>roboto.ttf：Roboto</li>
-<li>notosans.ttf：NotoSans</li>
-<li>notosansthai.ttf：泰语NotoSansThai</li>
-<li>sarabun.ttf：泰语Sarabun</li>
-<li>kanit.ttf：泰语Kanit</li>
-<li>charmonman.ttf：泰语Charmonman</li>
-<li>notonaskharabic.ttf：阿拉伯语NotoNaskhArabic</li>
-<li>notosansdevanagari.ttf：印度语NotoSansDevanagari</li>
-<li>notosanstc.ttf：粤语思源黑体NotoSansTC</li>
-<li>notosanskr.ttf：韩语NotoSansKR</li>
-<li>gothica1.ttf：韩语GothicA1</li>
-<li>nanummyeongjo.ttf：韩语NanumMyeongjo</li>
-<li>notosansjp.ttf：日语NotoSansJP</li>
-<li>notoserifjp.ttf：日语NotoSerifJP</li>
-<li>shipporimincho.ttf：日语ShipporiMincho</li>
-默认：hei.ttf 黑体。
-<br>注意：
-<li>楷体推荐使用kai.ttf</li>
-<li>填了FontFileInput时FontFileInput优先</li>
-
+默认：hei.ttf 黑体。注意：楷体推荐使用kai.ttf
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -265,26 +202,7 @@ namespace TencentCloud
 <li>korean.ttf：韩语</li>
 <li>japanese.ttf：日语</li>
 <li>thai.ttf：泰语</li>
-<li>roboto.ttf：Roboto</li>
-<li>notosans.ttf：NotoSans</li>
-<li>notosansthai.ttf：泰语NotoSansThai</li>
-<li>sarabun.ttf：泰语Sarabun</li>
-<li>kanit.ttf：泰语Kanit</li>
-<li>charmonman.ttf：泰语Charmonman</li>
-<li>notonaskharabic.ttf：阿拉伯语NotoNaskhArabic</li>
-<li>notosansdevanagari.ttf：印度语NotoSansDevanagari</li>
-<li>notosanstc.ttf：粤语思源黑体NotoSansTC</li>
-<li>notosanskr.ttf：韩语NotoSansKR</li>
-<li>gothica1.ttf：韩语GothicA1</li>
-<li>nanummyeongjo.ttf：韩语NanumMyeongjo</li>
-<li>notosansjp.ttf：日语NotoSansJP</li>
-<li>notoserifjp.ttf：日语NotoSerifJP</li>
-<li>shipporimincho.ttf：日语ShipporiMincho</li>
-默认：hei.ttf 黑体。
-<br>注意：
-<li>楷体推荐使用kai.ttf</li>
-<li>填了FontFileInput时FontFileInput优先</li>
-
+默认：hei.ttf 黑体。注意：楷体推荐使用kai.ttf
 注意：此字段可能返回 null，表示取不到有效值。
                      * @param _fontType 字体类型，支持：
 <li>hei.ttf：黑体</li>
@@ -304,26 +222,7 @@ namespace TencentCloud
 <li>korean.ttf：韩语</li>
 <li>japanese.ttf：日语</li>
 <li>thai.ttf：泰语</li>
-<li>roboto.ttf：Roboto</li>
-<li>notosans.ttf：NotoSans</li>
-<li>notosansthai.ttf：泰语NotoSansThai</li>
-<li>sarabun.ttf：泰语Sarabun</li>
-<li>kanit.ttf：泰语Kanit</li>
-<li>charmonman.ttf：泰语Charmonman</li>
-<li>notonaskharabic.ttf：阿拉伯语NotoNaskhArabic</li>
-<li>notosansdevanagari.ttf：印度语NotoSansDevanagari</li>
-<li>notosanstc.ttf：粤语思源黑体NotoSansTC</li>
-<li>notosanskr.ttf：韩语NotoSansKR</li>
-<li>gothica1.ttf：韩语GothicA1</li>
-<li>nanummyeongjo.ttf：韩语NanumMyeongjo</li>
-<li>notosansjp.ttf：日语NotoSansJP</li>
-<li>notoserifjp.ttf：日语NotoSerifJP</li>
-<li>shipporimincho.ttf：日语ShipporiMincho</li>
-默认：hei.ttf 黑体。
-<br>注意：
-<li>楷体推荐使用kai.ttf</li>
-<li>填了FontFileInput时FontFileInput优先</li>
-
+默认：hei.ttf 黑体。注意：楷体推荐使用kai.ttf
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -337,42 +236,22 @@ namespace TencentCloud
                     bool FontTypeHasBeenSet() const;
 
                     /**
-                     * 获取字体大小，不指定则以字幕文件中为准。支持像素和百分比格式：
-
-- 像素：Npx，N范围：(0,4096]。
-- 百分百：N%，N范围：(0,100]；例如10%表示字幕字体大小=10%*源视频高度。
-
-不填且字幕文件无设置时，默认源视频高度的5%。
-
+                     * 获取字体大小，格式：Npx，N 为数值，不指定则以字幕文件中为准。
+默认源视频高度的5%。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return FontSize 字体大小，不指定则以字幕文件中为准。支持像素和百分比格式：
-
-- 像素：Npx，N范围：(0,4096]。
-- 百分百：N%，N范围：(0,100]；例如10%表示字幕字体大小=10%*源视频高度。
-
-不填且字幕文件无设置时，默认源视频高度的5%。
-
+                     * @return FontSize 字体大小，格式：Npx，N 为数值，不指定则以字幕文件中为准。
+默认源视频高度的5%。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetFontSize() const;
 
                     /**
-                     * 设置字体大小，不指定则以字幕文件中为准。支持像素和百分比格式：
-
-- 像素：Npx，N范围：(0,4096]。
-- 百分百：N%，N范围：(0,100]；例如10%表示字幕字体大小=10%*源视频高度。
-
-不填且字幕文件无设置时，默认源视频高度的5%。
-
+                     * 设置字体大小，格式：Npx，N 为数值，不指定则以字幕文件中为准。
+默认源视频高度的5%。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _fontSize 字体大小，不指定则以字幕文件中为准。支持像素和百分比格式：
-
-- 像素：Npx，N范围：(0,4096]。
-- 百分百：N%，N范围：(0,100]；例如10%表示字幕字体大小=10%*源视频高度。
-
-不填且字幕文件无设置时，默认源视频高度的5%。
-
+                     * @param _fontSize 字体大小，格式：Npx，N 为数值，不指定则以字幕文件中为准。
+默认源视频高度的5%。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -562,16 +441,12 @@ namespace TencentCloud
                     bool BoardYHasBeenSet() const;
 
                     /**
-                     * 获取底板的宽度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认源视频宽像素的90%。
+                     * 获取底板的宽度，单位为像素，取值范围：[0,4096]。
+默认源视频宽像素的90%。
 
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return BoardWidth 底板的宽度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认源视频宽像素的90%。
+                     * @return BoardWidth 底板的宽度，单位为像素，取值范围：[0,4096]。
+默认源视频宽像素的90%。
 
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
@@ -579,16 +454,12 @@ namespace TencentCloud
                     int64_t GetBoardWidth() const;
 
                     /**
-                     * 设置底板的宽度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认源视频宽像素的90%。
+                     * 设置底板的宽度，单位为像素，取值范围：[0,4096]。
+默认源视频宽像素的90%。
 
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _boardWidth 底板的宽度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认源视频宽像素的90%。
+                     * @param _boardWidth 底板的宽度，单位为像素，取值范围：[0,4096]。
+默认源视频宽像素的90%。
 
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
@@ -603,34 +474,22 @@ namespace TencentCloud
                     bool BoardWidthHasBeenSet() const;
 
                     /**
-                     * 获取底板的高度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认为源视频高像素的15%。
-
+                     * 获取底板的高度。单位为像素，取值范围：[0,4096]。
+默认为源视频高像素的15%。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return BoardHeight 底板的高度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认为源视频高像素的15%。
-
+                     * @return BoardHeight 底板的高度。单位为像素，取值范围：[0,4096]。
+默认为源视频高像素的15%。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetBoardHeight() const;
 
                     /**
-                     * 设置底板的高度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认为源视频高像素的15%。
-
+                     * 设置底板的高度。单位为像素，取值范围：[0,4096]。
+默认为源视频高像素的15%。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _boardHeight 底板的高度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认为源视频高像素的15%。
-
+                     * @param _boardHeight 底板的高度。单位为像素，取值范围：[0,4096]。
+默认为源视频高像素的15%。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -710,31 +569,19 @@ namespace TencentCloud
                     bool BoardAlphaHasBeenSet() const;
 
                     /**
-                     * 获取描边宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认源视频高度的0.3%。
-
-                     * @return OutlineWidth 描边宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认源视频高度的0.3%。
-
+                     * 获取描边宽度
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return OutlineWidth 描边宽度
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetOutlineWidth() const;
 
                     /**
-                     * 设置描边宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认源视频高度的0.3%。
-
-                     * @param _outlineWidth 描边宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认源视频高度的0.3%。
-
+                     * 设置描边宽度
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _outlineWidth 描边宽度
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetOutlineWidth(const double& _outlineWidth);
@@ -747,19 +594,19 @@ namespace TencentCloud
                     bool OutlineWidthHasBeenSet() const;
 
                     /**
-                     * 获取描边颜色。6位16进制RGB。不填默认黑色。
-
-                     * @return OutlineColor 描边颜色。6位16进制RGB。不填默认黑色。
-
+                     * 获取描边颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return OutlineColor 描边颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetOutlineColor() const;
 
                     /**
-                     * 设置描边颜色。6位16进制RGB。不填默认黑色。
-
-                     * @param _outlineColor 描边颜色。6位16进制RGB。不填默认黑色。
-
+                     * 设置描边颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _outlineColor 描边颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetOutlineColor(const std::string& _outlineColor);
@@ -772,19 +619,19 @@ namespace TencentCloud
                     bool OutlineColorHasBeenSet() const;
 
                     /**
-                     * 获取描边透明度。(0，1] 正浮点数。不填默认1，完全不透明
-
-                     * @return OutlineAlpha 描边透明度。(0，1] 正浮点数。不填默认1，完全不透明
-
+                     * 获取描边透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return OutlineAlpha 描边透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetOutlineAlpha() const;
 
                     /**
-                     * 设置描边透明度。(0，1] 正浮点数。不填默认1，完全不透明
-
-                     * @param _outlineAlpha 描边透明度。(0，1] 正浮点数。不填默认1，完全不透明
-
+                     * 设置描边透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _outlineAlpha 描边透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetOutlineAlpha(const double& _outlineAlpha);
@@ -797,31 +644,19 @@ namespace TencentCloud
                     bool OutlineAlphaHasBeenSet() const;
 
                     /**
-                     * 获取阴影宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认无阴影。
-
-                     * @return ShadowWidth 阴影宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认无阴影。
-
+                     * 获取阴影宽度。浮点数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ShadowWidth 阴影宽度。浮点数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetShadowWidth() const;
 
                     /**
-                     * 设置阴影宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认无阴影。
-
-                     * @param _shadowWidth 阴影宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认无阴影。
-
+                     * 设置阴影宽度。浮点数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _shadowWidth 阴影宽度。浮点数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetShadowWidth(const double& _shadowWidth);
@@ -834,19 +669,19 @@ namespace TencentCloud
                     bool ShadowWidthHasBeenSet() const;
 
                     /**
-                     * 获取阴影颜色。6位16进制RGB。不填默认黑色（有设置阴影的情况下）
-
-                     * @return ShadowColor 阴影颜色。6位16进制RGB。不填默认黑色（有设置阴影的情况下）
-
+                     * 获取阴影颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ShadowColor 阴影颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetShadowColor() const;
 
                     /**
-                     * 设置阴影颜色。6位16进制RGB。不填默认黑色（有设置阴影的情况下）
-
-                     * @param _shadowColor 阴影颜色。6位16进制RGB。不填默认黑色（有设置阴影的情况下）
-
+                     * 设置阴影颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _shadowColor 阴影颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetShadowColor(const std::string& _shadowColor);
@@ -859,19 +694,19 @@ namespace TencentCloud
                     bool ShadowColorHasBeenSet() const;
 
                     /**
-                     * 获取阴影透明度。(0，1] 正浮点数。不填默认1，完全不透明（有设置阴影的情况下）
-
-                     * @return ShadowAlpha 阴影透明度。(0，1] 正浮点数。不填默认1，完全不透明（有设置阴影的情况下）
-
+                     * 获取阴影透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return ShadowAlpha 阴影透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     double GetShadowAlpha() const;
 
                     /**
-                     * 设置阴影透明度。(0，1] 正浮点数。不填默认1，完全不透明（有设置阴影的情况下）
-
-                     * @param _shadowAlpha 阴影透明度。(0，1] 正浮点数。不填默认1，完全不透明（有设置阴影的情况下）
-
+                     * 设置阴影透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _shadowAlpha 阴影透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetShadowAlpha(const double& _shadowAlpha);
@@ -884,27 +719,19 @@ namespace TencentCloud
                     bool ShadowAlphaHasBeenSet() const;
 
                     /**
-                     * 获取行间距。正整数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。不填默认0。
-
-                     * @return LineSpacing 行间距。正整数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。不填默认0。
-
+                     * 获取行间距。正整数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return LineSpacing 行间距。正整数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetLineSpacing() const;
 
                     /**
-                     * 设置行间距。正整数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。不填默认0。
-
-                     * @param _lineSpacing 行间距。正整数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。不填默认0。
-
+                     * 设置行间距。正整数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _lineSpacing 行间距。正整数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetLineSpacing(const int64_t& _lineSpacing);
@@ -917,19 +744,19 @@ namespace TencentCloud
                     bool LineSpacingHasBeenSet() const;
 
                     /**
-                     * 获取对齐方式，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。不填默认底部对齐。
-
-                     * @return Alignment 对齐方式，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。不填默认底部对齐。
-
+                     * 获取对齐方式，，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @return Alignment 对齐方式，，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetAlignment() const;
 
                     /**
-                     * 设置对齐方式，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。不填默认底部对齐。
-
-                     * @param _alignment 对齐方式，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。不填默认底部对齐。
-
+                     * 设置对齐方式，，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。
+注意：此字段可能返回 null，表示取不到有效值。
+                     * @param _alignment 对齐方式，，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。
+注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     void SetAlignment(const std::string& _alignment);
@@ -940,131 +767,6 @@ namespace TencentCloud
                      * 
                      */
                     bool AlignmentHasBeenSet() const;
-
-                    /**
-                     * 获取默认0。为1时BoardWidth代表百分之几，以视频宽为基准
-
-                     * @return BoardWidthUnit 默认0。为1时BoardWidth代表百分之几，以视频宽为基准
-
-                     * 
-                     */
-                    int64_t GetBoardWidthUnit() const;
-
-                    /**
-                     * 设置默认0。为1时BoardWidth代表百分之几，以视频宽为基准
-
-                     * @param _boardWidthUnit 默认0。为1时BoardWidth代表百分之几，以视频宽为基准
-
-                     * 
-                     */
-                    void SetBoardWidthUnit(const int64_t& _boardWidthUnit);
-
-                    /**
-                     * 判断参数 BoardWidthUnit 是否已赋值
-                     * @return BoardWidthUnit 是否已赋值
-                     * 
-                     */
-                    bool BoardWidthUnitHasBeenSet() const;
-
-                    /**
-                     * 获取默认0。为1时BoardHeight代表百分之几，以视频高为基准
-
-                     * @return BoardHeightUnit 默认0。为1时BoardHeight代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    int64_t GetBoardHeightUnit() const;
-
-                    /**
-                     * 设置默认0。为1时BoardHeight代表百分之几，以视频高为基准
-
-                     * @param _boardHeightUnit 默认0。为1时BoardHeight代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    void SetBoardHeightUnit(const int64_t& _boardHeightUnit);
-
-                    /**
-                     * 判断参数 BoardHeightUnit 是否已赋值
-                     * @return BoardHeightUnit 是否已赋值
-                     * 
-                     */
-                    bool BoardHeightUnitHasBeenSet() const;
-
-                    /**
-                     * 获取默认0。为1时OutlineWidth代表百分之几，以视频高为基准
-
-                     * @return OutlineWidthUnit 默认0。为1时OutlineWidth代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    int64_t GetOutlineWidthUnit() const;
-
-                    /**
-                     * 设置默认0。为1时OutlineWidth代表百分之几，以视频高为基准
-
-                     * @param _outlineWidthUnit 默认0。为1时OutlineWidth代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    void SetOutlineWidthUnit(const int64_t& _outlineWidthUnit);
-
-                    /**
-                     * 判断参数 OutlineWidthUnit 是否已赋值
-                     * @return OutlineWidthUnit 是否已赋值
-                     * 
-                     */
-                    bool OutlineWidthUnitHasBeenSet() const;
-
-                    /**
-                     * 获取默认0。为1时ShadowWidth代表百分之几，以视频高为基准
-
-                     * @return ShadowWidthUnit 默认0。为1时ShadowWidth代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    int64_t GetShadowWidthUnit() const;
-
-                    /**
-                     * 设置默认0。为1时ShadowWidth代表百分之几，以视频高为基准
-
-                     * @param _shadowWidthUnit 默认0。为1时ShadowWidth代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    void SetShadowWidthUnit(const int64_t& _shadowWidthUnit);
-
-                    /**
-                     * 判断参数 ShadowWidthUnit 是否已赋值
-                     * @return ShadowWidthUnit 是否已赋值
-                     * 
-                     */
-                    bool ShadowWidthUnitHasBeenSet() const;
-
-                    /**
-                     * 获取默认0。为1时LineSpacing代表百分之几，以视频高为基准
-
-                     * @return LineSpacingUnit 默认0。为1时LineSpacing代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    int64_t GetLineSpacingUnit() const;
-
-                    /**
-                     * 设置默认0。为1时LineSpacing代表百分之几，以视频高为基准
-
-                     * @param _lineSpacingUnit 默认0。为1时LineSpacing代表百分之几，以视频高为基准
-
-                     * 
-                     */
-                    void SetLineSpacingUnit(const int64_t& _lineSpacingUnit);
-
-                    /**
-                     * 判断参数 LineSpacingUnit 是否已赋值
-                     * @return LineSpacingUnit 是否已赋值
-                     * 
-                     */
-                    bool LineSpacingUnitHasBeenSet() const;
 
                 private:
 
@@ -1094,13 +796,6 @@ namespace TencentCloud
                     bool m_subtitleFileInputHasBeenSet;
 
                     /**
-                     * 压制字幕字体文件的输入信息，目前仅支持url和cos。都填时url优先于cos。填了FontFileInput时FontFileInput优先于FontType
-
-                     */
-                    MediaInputInfo m_fontFileInput;
-                    bool m_fontFileInputHasBeenSet;
-
-                    /**
                      * 字体类型，支持：
 <li>hei.ttf：黑体</li>
 <li>song.ttf：宋体</li>
@@ -1119,39 +814,15 @@ namespace TencentCloud
 <li>korean.ttf：韩语</li>
 <li>japanese.ttf：日语</li>
 <li>thai.ttf：泰语</li>
-<li>roboto.ttf：Roboto</li>
-<li>notosans.ttf：NotoSans</li>
-<li>notosansthai.ttf：泰语NotoSansThai</li>
-<li>sarabun.ttf：泰语Sarabun</li>
-<li>kanit.ttf：泰语Kanit</li>
-<li>charmonman.ttf：泰语Charmonman</li>
-<li>notonaskharabic.ttf：阿拉伯语NotoNaskhArabic</li>
-<li>notosansdevanagari.ttf：印度语NotoSansDevanagari</li>
-<li>notosanstc.ttf：粤语思源黑体NotoSansTC</li>
-<li>notosanskr.ttf：韩语NotoSansKR</li>
-<li>gothica1.ttf：韩语GothicA1</li>
-<li>nanummyeongjo.ttf：韩语NanumMyeongjo</li>
-<li>notosansjp.ttf：日语NotoSansJP</li>
-<li>notoserifjp.ttf：日语NotoSerifJP</li>
-<li>shipporimincho.ttf：日语ShipporiMincho</li>
-默认：hei.ttf 黑体。
-<br>注意：
-<li>楷体推荐使用kai.ttf</li>
-<li>填了FontFileInput时FontFileInput优先</li>
-
+默认：hei.ttf 黑体。注意：楷体推荐使用kai.ttf
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_fontType;
                     bool m_fontTypeHasBeenSet;
 
                     /**
-                     * 字体大小，不指定则以字幕文件中为准。支持像素和百分比格式：
-
-- 像素：Npx，N范围：(0,4096]。
-- 百分百：N%，N范围：(0,100]；例如10%表示字幕字体大小=10%*源视频高度。
-
-不填且字幕文件无设置时，默认源视频高度的5%。
-
+                     * 字体大小，格式：Npx，N 为数值，不指定则以字幕文件中为准。
+默认源视频高度的5%。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_fontSize;
@@ -1205,10 +876,8 @@ namespace TencentCloud
                     bool m_boardYHasBeenSet;
 
                     /**
-                     * 底板的宽度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认源视频宽像素的90%。
+                     * 底板的宽度，单位为像素，取值范围：[0,4096]。
+默认源视频宽像素的90%。
 
 注意：此字段可能返回 null，表示取不到有效值。
                      */
@@ -1216,11 +885,8 @@ namespace TencentCloud
                     bool m_boardWidthHasBeenSet;
 
                     /**
-                     * 底板的高度，正整数。
-- 代表像素时，取值范围：[0,4096]。
-- 代表百分数时，[0, 100]。
-开启底板且不填此值时，默认为源视频高像素的15%。
-
+                     * 底板的高度。单位为像素，取值范围：[0,4096]。
+默认为源视频高像素的15%。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_boardHeight;
@@ -1245,103 +911,60 @@ namespace TencentCloud
                     bool m_boardAlphaHasBeenSet;
 
                     /**
-                     * 描边宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认源视频高度的0.3%。
-
+                     * 描边宽度
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_outlineWidth;
                     bool m_outlineWidthHasBeenSet;
 
                     /**
-                     * 描边颜色。6位16进制RGB。不填默认黑色。
-
+                     * 描边颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_outlineColor;
                     bool m_outlineColorHasBeenSet;
 
                     /**
-                     * 描边透明度。(0，1] 正浮点数。不填默认1，完全不透明
-
+                     * 描边透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_outlineAlpha;
                     bool m_outlineAlphaHasBeenSet;
 
                     /**
-                     * 阴影宽度。浮点数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。
-不填默认无阴影。
-
+                     * 阴影宽度。浮点数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_shadowWidth;
                     bool m_shadowWidthHasBeenSet;
 
                     /**
-                     * 阴影颜色。6位16进制RGB。不填默认黑色（有设置阴影的情况下）
-
+                     * 阴影颜色。6位16进制RGB
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_shadowColor;
                     bool m_shadowColorHasBeenSet;
 
                     /**
-                     * 阴影透明度。(0，1] 正浮点数。不填默认1，完全不透明（有设置阴影的情况下）
-
+                     * 阴影透明度。(0，1] 正浮点数
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     double m_shadowAlpha;
                     bool m_shadowAlphaHasBeenSet;
 
                     /**
-                     * 行间距。正整数。
-- 代表像素值时， [0, 1000]。
-- 代表百分数时，[0, 100]。不填默认0。
-
+                     * 行间距。正整数  [0, 1000]
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_lineSpacing;
                     bool m_lineSpacingHasBeenSet;
 
                     /**
-                     * 对齐方式，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。不填默认底部对齐。
-
+                     * 对齐方式，，取值：top: 顶部对齐，字幕顶部按位置固定，底部随行数变化。bottom: 底部对齐，字幕底部按位置固定，顶部随行数变化。
+注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_alignment;
                     bool m_alignmentHasBeenSet;
-
-                    /**
-                     * 默认0。为1时BoardWidth代表百分之几，以视频宽为基准
-
-                     */
-                    int64_t m_boardWidthUnit;
-                    bool m_boardWidthUnitHasBeenSet;
-
-                    /**
-                     * 默认0。为1时BoardHeight代表百分之几，以视频高为基准
-
-                     */
-                    int64_t m_boardHeightUnit;
-                    bool m_boardHeightUnitHasBeenSet;
-
-                    /**
-                     * 默认0。为1时OutlineWidth代表百分之几，以视频高为基准
-
-                     */
-                    int64_t m_outlineWidthUnit;
-                    bool m_outlineWidthUnitHasBeenSet;
-
-                    /**
-                     * 默认0。为1时ShadowWidth代表百分之几，以视频高为基准
-
-                     */
-                    int64_t m_shadowWidthUnit;
-                    bool m_shadowWidthUnitHasBeenSet;
-
-                    /**
-                     * 默认0。为1时LineSpacing代表百分之几，以视频高为基准
-
-                     */
-                    int64_t m_lineSpacingUnit;
-                    bool m_lineSpacingUnitHasBeenSet;
 
                 };
             }

@@ -47,18 +47,18 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>后备索引名</p>
+                     * 获取后备索引名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexName <p>后备索引名</p>
+                     * @return IndexName 后备索引名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIndexName() const;
 
                     /**
-                     * 设置<p>后备索引名</p>
+                     * 设置后备索引名
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexName <p>后备索引名</p>
+                     * @param _indexName 后备索引名
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -72,18 +72,18 @@ namespace TencentCloud
                     bool IndexNameHasBeenSet() const;
 
                     /**
-                     * 获取<p>后备索引状态</p>
+                     * 获取后备索引状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexStatus <p>后备索引状态</p>
+                     * @return IndexStatus 后备索引状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIndexStatus() const;
 
                     /**
-                     * 设置<p>后备索引状态</p>
+                     * 设置后备索引状态
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexStatus <p>后备索引状态</p>
+                     * @param _indexStatus 后备索引状态
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -97,18 +97,18 @@ namespace TencentCloud
                     bool IndexStatusHasBeenSet() const;
 
                     /**
-                     * 获取<p>后备索引存储大小</p>
+                     * 获取后备索引存储大小
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexStorage <p>后备索引存储大小</p>
+                     * @return IndexStorage 后备索引存储大小
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     int64_t GetIndexStorage() const;
 
                     /**
-                     * 设置<p>后备索引存储大小</p>
+                     * 设置后备索引存储大小
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexStorage <p>后备索引存储大小</p>
+                     * @param _indexStorage 后备索引存储大小
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,18 +122,18 @@ namespace TencentCloud
                     bool IndexStorageHasBeenSet() const;
 
                     /**
-                     * 获取<p>后备索引当前生命周期</p>
+                     * 获取后备索引当前生命周期
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexPhrase <p>后备索引当前生命周期</p>
+                     * @return IndexPhrase 后备索引当前生命周期
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIndexPhrase() const;
 
                     /**
-                     * 设置<p>后备索引当前生命周期</p>
+                     * 设置后备索引当前生命周期
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexPhrase <p>后备索引当前生命周期</p>
+                     * @param _indexPhrase 后备索引当前生命周期
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -147,18 +147,18 @@ namespace TencentCloud
                     bool IndexPhraseHasBeenSet() const;
 
                     /**
-                     * 获取<p>后备索引创建时间</p>
+                     * 获取后备索引创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return IndexCreateTime <p>后备索引创建时间</p>
+                     * @return IndexCreateTime 后备索引创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
                     std::string GetIndexCreateTime() const;
 
                     /**
-                     * 设置<p>后备索引创建时间</p>
+                     * 设置后备索引创建时间
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @param _indexCreateTime <p>后备索引创建时间</p>
+                     * @param _indexCreateTime 后备索引创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -171,69 +171,42 @@ namespace TencentCloud
                      */
                     bool IndexCreateTimeHasBeenSet() const;
 
-                    /**
-                     * 获取<p>索引Uuid</p>
-                     * @return IndexUuid <p>索引Uuid</p>
-                     * 
-                     */
-                    std::string GetIndexUuid() const;
-
-                    /**
-                     * 设置<p>索引Uuid</p>
-                     * @param _indexUuid <p>索引Uuid</p>
-                     * 
-                     */
-                    void SetIndexUuid(const std::string& _indexUuid);
-
-                    /**
-                     * 判断参数 IndexUuid 是否已赋值
-                     * @return IndexUuid 是否已赋值
-                     * 
-                     */
-                    bool IndexUuidHasBeenSet() const;
-
                 private:
 
                     /**
-                     * <p>后备索引名</p>
+                     * 后备索引名
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_indexName;
                     bool m_indexNameHasBeenSet;
 
                     /**
-                     * <p>后备索引状态</p>
+                     * 后备索引状态
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_indexStatus;
                     bool m_indexStatusHasBeenSet;
 
                     /**
-                     * <p>后备索引存储大小</p>
+                     * 后备索引存储大小
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     int64_t m_indexStorage;
                     bool m_indexStorageHasBeenSet;
 
                     /**
-                     * <p>后备索引当前生命周期</p>
+                     * 后备索引当前生命周期
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_indexPhrase;
                     bool m_indexPhraseHasBeenSet;
 
                     /**
-                     * <p>后备索引创建时间</p>
+                     * 后备索引创建时间
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::string m_indexCreateTime;
                     bool m_indexCreateTimeHasBeenSet;
-
-                    /**
-                     * <p>索引Uuid</p>
-                     */
-                    std::string m_indexUuid;
-                    bool m_indexUuidHasBeenSet;
 
                 };
             }

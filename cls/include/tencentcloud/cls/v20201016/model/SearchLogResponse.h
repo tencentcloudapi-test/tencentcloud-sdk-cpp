@@ -48,8 +48,12 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
-                     * @return Context <p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
+                     * 获取透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。
+注意：
+* 仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context
+                     * @return Context 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。
+注意：
+* 仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context
                      * 
                      */
                     std::string GetContext() const;
@@ -62,8 +66,10 @@ namespace TencentCloud
                     bool ContextHasBeenSet() const;
 
                     /**
-                     * 获取<p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
-                     * @return ListOver <p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
+                     * 获取符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志
+注意：仅当检索分析语句(Query)不包含SQL时有效
+                     * @return ListOver 符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志
+注意：仅当检索分析语句(Query)不包含SQL时有效
                      * 
                      */
                     bool GetListOver() const;
@@ -76,8 +82,8 @@ namespace TencentCloud
                     bool ListOverHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回的是否为统计分析（即SQL）结果</p>
-                     * @return Analysis <p>返回的是否为统计分析（即SQL）结果</p>
+                     * 获取返回的是否为统计分析（即SQL）结果
+                     * @return Analysis 返回的是否为统计分析（即SQL）结果
                      * 
                      */
                     bool GetAnalysis() const;
@@ -90,9 +96,9 @@ namespace TencentCloud
                     bool AnalysisHasBeenSet() const;
 
                     /**
-                     * 获取<p>匹配检索条件的原始日志</p>
+                     * 获取匹配检索条件的原始日志
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Results <p>匹配检索条件的原始日志</p>
+                     * @return Results 匹配检索条件的原始日志
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -106,9 +112,11 @@ namespace TencentCloud
                     bool ResultsHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
+                     * 获取日志统计分析结果的列名
+当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return ColNames <p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
+                     * @return ColNames 日志统计分析结果的列名
+当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -122,9 +130,11 @@ namespace TencentCloud
                     bool ColNamesHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
+                     * 获取日志统计分析结果
+当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AnalysisResults <p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
+                     * @return AnalysisResults 日志统计分析结果
+当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -138,9 +148,11 @@ namespace TencentCloud
                     bool AnalysisResultsHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+                     * 获取日志统计分析结果
+当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return AnalysisRecords <p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+                     * @return AnalysisRecords 日志统计分析结果
+当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -154,9 +166,11 @@ namespace TencentCloud
                     bool AnalysisRecordsHasBeenSet() const;
 
                     /**
-                     * 获取<p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+                     * 获取日志统计分析结果的列属性
+当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Columns <p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+                     * @return Columns 日志统计分析结果的列属性
+当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -170,8 +184,8 @@ namespace TencentCloud
                     bool ColumnsHasBeenSet() const;
 
                     /**
-                     * 获取<p>本次统计分析使用的采样率</p>
-                     * @return SamplingRate <p>本次统计分析使用的采样率</p>
+                     * 获取本次统计分析使用的采样率
+                     * @return SamplingRate 本次统计分析使用的采样率
                      * 
                      */
                     double GetSamplingRate() const;
@@ -184,9 +198,9 @@ namespace TencentCloud
                     bool SamplingRateHasBeenSet() const;
 
                     /**
-                     * 获取<p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+                     * 获取使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Topics <p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+                     * @return Topics 使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -202,66 +216,73 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。<br>注意：</p><ul><li>仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context</li></ul>
+                     * 透传本次接口返回的Context值，可获取后续更多日志，过期时间1小时。
+注意：
+* 仅适用于单日志主题检索，检索多个日志主题时，请使用Topics中的Context
                      */
                     std::string m_context;
                     bool m_contextHasBeenSet;
 
                     /**
-                     * <p>符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志<br>注意：仅当检索分析语句(Query)不包含SQL时有效</p>
+                     * 符合检索条件的日志是否已全部返回，如未全部返回可使用Context参数获取后续更多日志
+注意：仅当检索分析语句(Query)不包含SQL时有效
                      */
                     bool m_listOver;
                     bool m_listOverHasBeenSet;
 
                     /**
-                     * <p>返回的是否为统计分析（即SQL）结果</p>
+                     * 返回的是否为统计分析（即SQL）结果
                      */
                     bool m_analysis;
                     bool m_analysisHasBeenSet;
 
                     /**
-                     * <p>匹配检索条件的原始日志</p>
+                     * 匹配检索条件的原始日志
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<LogInfo> m_results;
                     bool m_resultsHasBeenSet;
 
                     /**
-                     * <p>日志统计分析结果的列名<br>当UseNewAnalysis为false时生效</p>
+                     * 日志统计分析结果的列名
+当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_colNames;
                     bool m_colNamesHasBeenSet;
 
                     /**
-                     * <p>日志统计分析结果<br>当UseNewAnalysis为false时生效</p>
+                     * 日志统计分析结果
+当UseNewAnalysis为false时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<LogItems> m_analysisResults;
                     bool m_analysisResultsHasBeenSet;
 
                     /**
-                     * <p>日志统计分析结果<br>当UseNewAnalysis为true时生效</p>
+                     * 日志统计分析结果
+当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<std::string> m_analysisRecords;
                     bool m_analysisRecordsHasBeenSet;
 
                     /**
-                     * <p>日志统计分析结果的列属性<br>当UseNewAnalysis为true时生效</p>
+                     * 日志统计分析结果的列属性
+当UseNewAnalysis为true时生效
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     std::vector<Column> m_columns;
                     bool m_columnsHasBeenSet;
 
                     /**
-                     * <p>本次统计分析使用的采样率</p>
+                     * 本次统计分析使用的采样率
                      */
                     double m_samplingRate;
                     bool m_samplingRateHasBeenSet;
 
                     /**
-                     * <p>使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。</p>
+                     * 使用多日志主题检索时，各个日志主题的基本信息，例如报错信息。
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     SearchLogTopics m_topics;

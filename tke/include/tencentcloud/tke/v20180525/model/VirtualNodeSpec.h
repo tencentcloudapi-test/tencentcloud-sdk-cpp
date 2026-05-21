@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/tke/v20180525/model/Tag.h>
-#include <tencentcloud/tke/v20180525/model/SuperNodeResource.h>
 
 
 namespace TencentCloud
@@ -111,27 +110,6 @@ namespace TencentCloud
                      */
                     bool TagsHasBeenSet() const;
 
-                    /**
-                     * 获取按量配额
-                     * @return Quota 按量配额
-                     * 
-                     */
-                    SuperNodeResource GetQuota() const;
-
-                    /**
-                     * 设置按量配额
-                     * @param _quota 按量配额
-                     * 
-                     */
-                    void SetQuota(const SuperNodeResource& _quota);
-
-                    /**
-                     * 判断参数 Quota 是否已赋值
-                     * @return Quota 是否已赋值
-                     * 
-                     */
-                    bool QuotaHasBeenSet() const;
-
                 private:
 
                     /**
@@ -151,12 +129,6 @@ namespace TencentCloud
                      */
                     std::vector<Tag> m_tags;
                     bool m_tagsHasBeenSet;
-
-                    /**
-                     * 按量配额
-                     */
-                    SuperNodeResource m_quota;
-                    bool m_quotaHasBeenSet;
 
                 };
             }

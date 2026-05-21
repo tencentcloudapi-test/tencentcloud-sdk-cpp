@@ -48,8 +48,7 @@ FlowApproverInfo::FlowApproverInfo() :
     m_signTypeSelectorHasBeenSet(false),
     m_componentsHasBeenSet(false),
     m_intentionHasBeenSet(false),
-    m_signEndpointsHasBeenSet(false),
-    m_approverEmailHasBeenSet(false)
+    m_signEndpointsHasBeenSet(false)
 {
 }
 
@@ -394,16 +393,6 @@ CoreInternalOutcome FlowApproverInfo::Deserialize(const rapidjson::Value &value)
         m_signEndpointsHasBeenSet = true;
     }
 
-    if (value.HasMember("ApproverEmail") && !value["ApproverEmail"].IsNull())
-    {
-        if (!value["ApproverEmail"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `FlowApproverInfo.ApproverEmail` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_approverEmail = string(value["ApproverEmail"].GetString());
-        m_approverEmailHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -676,14 +665,6 @@ void FlowApproverInfo::ToJsonObject(rapidjson::Value &value, rapidjson::Document
         {
             value[key.c_str()].PushBack(rapidjson::Value().SetString((*itr).c_str(), allocator), allocator);
         }
-    }
-
-    if (m_approverEmailHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "ApproverEmail";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_approverEmail.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -1135,21 +1116,5 @@ void FlowApproverInfo::SetSignEndpoints(const vector<string>& _signEndpoints)
 bool FlowApproverInfo::SignEndpointsHasBeenSet() const
 {
     return m_signEndpointsHasBeenSet;
-}
-
-string FlowApproverInfo::GetApproverEmail() const
-{
-    return m_approverEmail;
-}
-
-void FlowApproverInfo::SetApproverEmail(const string& _approverEmail)
-{
-    m_approverEmail = _approverEmail;
-    m_approverEmailHasBeenSet = true;
-}
-
-bool FlowApproverInfo::ApproverEmailHasBeenSet() const
-{
-    return m_approverEmailHasBeenSet;
 }
 

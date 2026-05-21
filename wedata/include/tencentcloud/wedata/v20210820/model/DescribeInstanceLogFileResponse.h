@@ -45,9 +45,9 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>下载文件详情</p>
+                     * 获取下载文件详情
 注意：此字段可能返回 null，表示取不到有效值。
-                     * @return Data <p>下载文件详情</p>
+                     * @return Data 下载文件详情
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
@@ -63,7 +63,7 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>下载文件详情</p>
+                     * 下载文件详情
 注意：此字段可能返回 null，表示取不到有效值。
                      */
                     InstanceDownloadLogInfo m_data;

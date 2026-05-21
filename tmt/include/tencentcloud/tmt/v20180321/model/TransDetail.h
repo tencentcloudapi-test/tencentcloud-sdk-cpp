@@ -49,15 +49,15 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>当前行的原文本</p>
-                     * @return SourceLineText <p>当前行的原文本</p>
+                     * 获取当前行的原文本
+                     * @return SourceLineText 当前行的原文本
                      * 
                      */
                     std::string GetSourceLineText() const;
 
                     /**
-                     * 设置<p>当前行的原文本</p>
-                     * @param _sourceLineText <p>当前行的原文本</p>
+                     * 设置当前行的原文本
+                     * @param _sourceLineText 当前行的原文本
                      * 
                      */
                     void SetSourceLineText(const std::string& _sourceLineText);
@@ -70,15 +70,15 @@ namespace TencentCloud
                     bool SourceLineTextHasBeenSet() const;
 
                     /**
-                     * 获取<p>当前行的译文</p>
-                     * @return TargetLineText <p>当前行的译文</p>
+                     * 获取当前行的译文
+                     * @return TargetLineText 当前行的译文
                      * 
                      */
                     std::string GetTargetLineText() const;
 
                     /**
-                     * 设置<p>当前行的译文</p>
-                     * @param _targetLineText <p>当前行的译文</p>
+                     * 设置当前行的译文
+                     * @param _targetLineText 当前行的译文
                      * 
                      */
                     void SetTargetLineText(const std::string& _targetLineText);
@@ -91,15 +91,15 @@ namespace TencentCloud
                     bool TargetLineTextHasBeenSet() const;
 
                     /**
-                     * 获取<p>段落文本框位置</p>
-                     * @return BoundingBox <p>段落文本框位置</p>
+                     * 获取段落文本框位置
+                     * @return BoundingBox 段落文本框位置
                      * 
                      */
                     BoundingBox GetBoundingBox() const;
 
                     /**
-                     * 设置<p>段落文本框位置</p>
-                     * @param _boundingBox <p>段落文本框位置</p>
+                     * 设置段落文本框位置
+                     * @param _boundingBox 段落文本框位置
                      * 
                      */
                     void SetBoundingBox(const BoundingBox& _boundingBox);
@@ -112,15 +112,15 @@ namespace TencentCloud
                     bool BoundingBoxHasBeenSet() const;
 
                     /**
-                     * 获取<p>行数</p>
-                     * @return LinesCount <p>行数</p>
+                     * 获取行数
+                     * @return LinesCount 行数
                      * 
                      */
                     int64_t GetLinesCount() const;
 
                     /**
-                     * 设置<p>行数</p>
-                     * @param _linesCount <p>行数</p>
+                     * 设置行数
+                     * @param _linesCount 行数
                      * 
                      */
                     void SetLinesCount(const int64_t& _linesCount);
@@ -133,15 +133,15 @@ namespace TencentCloud
                     bool LinesCountHasBeenSet() const;
 
                     /**
-                     * 获取<p>行高</p><p>单位：px</p>
-                     * @return LineHeight <p>行高</p><p>单位：px</p>
+                     * 获取行高
+                     * @return LineHeight 行高
                      * 
                      */
                     int64_t GetLineHeight() const;
 
                     /**
-                     * 设置<p>行高</p><p>单位：px</p>
-                     * @param _lineHeight <p>行高</p><p>单位：px</p>
+                     * 设置行高
+                     * @param _lineHeight 行高
                      * 
                      */
                     void SetLineHeight(const int64_t& _lineHeight);
@@ -154,15 +154,15 @@ namespace TencentCloud
                     bool LineHeightHasBeenSet() const;
 
                     /**
-                     * 获取<p>正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。</p>
-                     * @return SpamCode <p>正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。</p>
+                     * 获取正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。
+                     * @return SpamCode 正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。
                      * 
                      */
                     int64_t GetSpamCode() const;
 
                     /**
-                     * 设置<p>正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。</p>
-                     * @param _spamCode <p>正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。</p>
+                     * 设置正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。
+                     * @param _spamCode 正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。
                      * 
                      */
                     void SetSpamCode(const int64_t& _spamCode);
@@ -175,15 +175,15 @@ namespace TencentCloud
                     bool SpamCodeHasBeenSet() const;
 
                     /**
-                     * 获取<p>段落文本旋转信息，只在valid为true时表示坐标有效</p>
-                     * @return RotateParagraphRect <p>段落文本旋转信息，只在valid为true时表示坐标有效</p>
+                     * 获取段落文本旋转信息，只在valid为true时表示坐标有效
+                     * @return RotateParagraphRect 段落文本旋转信息，只在valid为true时表示坐标有效
                      * 
                      */
                     RotateParagraphRect GetRotateParagraphRect() const;
 
                     /**
-                     * 设置<p>段落文本旋转信息，只在valid为true时表示坐标有效</p>
-                     * @param _rotateParagraphRect <p>段落文本旋转信息，只在valid为true时表示坐标有效</p>
+                     * 设置段落文本旋转信息，只在valid为true时表示坐标有效
+                     * @param _rotateParagraphRect 段落文本旋转信息，只在valid为true时表示坐标有效
                      * 
                      */
                     void SetRotateParagraphRect(const RotateParagraphRect& _rotateParagraphRect);
@@ -198,43 +198,43 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>当前行的原文本</p>
+                     * 当前行的原文本
                      */
                     std::string m_sourceLineText;
                     bool m_sourceLineTextHasBeenSet;
 
                     /**
-                     * <p>当前行的译文</p>
+                     * 当前行的译文
                      */
                     std::string m_targetLineText;
                     bool m_targetLineTextHasBeenSet;
 
                     /**
-                     * <p>段落文本框位置</p>
+                     * 段落文本框位置
                      */
                     BoundingBox m_boundingBox;
                     bool m_boundingBoxHasBeenSet;
 
                     /**
-                     * <p>行数</p>
+                     * 行数
                      */
                     int64_t m_linesCount;
                     bool m_linesCountHasBeenSet;
 
                     /**
-                     * <p>行高</p><p>单位：px</p>
+                     * 行高
                      */
                     int64_t m_lineHeight;
                     bool m_lineHeightHasBeenSet;
 
                     /**
-                     * <p>正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。</p>
+                     * 正常段落spam_code字段为0；如果存在spam_code字段且值大于0（1: 命中垃圾检查；2: 命中安全策略；3: 其他。），则命中安全检查被过滤。
                      */
                     int64_t m_spamCode;
                     bool m_spamCodeHasBeenSet;
 
                     /**
-                     * <p>段落文本旋转信息，只在valid为true时表示坐标有效</p>
+                     * 段落文本旋转信息，只在valid为true时表示坐标有效
                      */
                     RotateParagraphRect m_rotateParagraphRect;
                     bool m_rotateParagraphRectHasBeenSet;

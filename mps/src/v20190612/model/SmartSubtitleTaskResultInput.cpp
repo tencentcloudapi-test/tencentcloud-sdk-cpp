@@ -22,8 +22,7 @@ using namespace std;
 
 SmartSubtitleTaskResultInput::SmartSubtitleTaskResultInput() :
     m_definitionHasBeenSet(false),
-    m_rawParameterHasBeenSet(false),
-    m_userExtParaHasBeenSet(false)
+    m_rawParameterHasBeenSet(false)
 {
 }
 
@@ -59,16 +58,6 @@ CoreInternalOutcome SmartSubtitleTaskResultInput::Deserialize(const rapidjson::V
         m_rawParameterHasBeenSet = true;
     }
 
-    if (value.HasMember("UserExtPara") && !value["UserExtPara"].IsNull())
-    {
-        if (!value["UserExtPara"].IsString())
-        {
-            return CoreInternalOutcome(Core::Error("response `SmartSubtitleTaskResultInput.UserExtPara` IsString=false incorrectly").SetRequestId(requestId));
-        }
-        m_userExtPara = string(value["UserExtPara"].GetString());
-        m_userExtParaHasBeenSet = true;
-    }
-
 
     return CoreInternalOutcome(true);
 }
@@ -91,14 +80,6 @@ void SmartSubtitleTaskResultInput::ToJsonObject(rapidjson::Value &value, rapidjs
         iKey.SetString(key.c_str(), allocator);
         value.AddMember(iKey, rapidjson::Value(rapidjson::kObjectType).Move(), allocator);
         m_rawParameter.ToJsonObject(value[key.c_str()], allocator);
-    }
-
-    if (m_userExtParaHasBeenSet)
-    {
-        rapidjson::Value iKey(rapidjson::kStringType);
-        string key = "UserExtPara";
-        iKey.SetString(key.c_str(), allocator);
-        value.AddMember(iKey, rapidjson::Value(m_userExtPara.c_str(), allocator).Move(), allocator);
     }
 
 }
@@ -134,21 +115,5 @@ void SmartSubtitleTaskResultInput::SetRawParameter(const RawSmartSubtitleParamet
 bool SmartSubtitleTaskResultInput::RawParameterHasBeenSet() const
 {
     return m_rawParameterHasBeenSet;
-}
-
-string SmartSubtitleTaskResultInput::GetUserExtPara() const
-{
-    return m_userExtPara;
-}
-
-void SmartSubtitleTaskResultInput::SetUserExtPara(const string& _userExtPara)
-{
-    m_userExtPara = _userExtPara;
-    m_userExtParaHasBeenSet = true;
-}
-
-bool SmartSubtitleTaskResultInput::UserExtParaHasBeenSet() const
-{
-    return m_userExtParaHasBeenSet;
 }
 

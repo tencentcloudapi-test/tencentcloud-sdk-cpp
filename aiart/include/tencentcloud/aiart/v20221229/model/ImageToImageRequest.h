@@ -45,15 +45,27 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>输入图 Base64 数据。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @return InputImage <p>输入图 Base64 数据。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 获取输入图 Base64 数据。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @return InputImage 输入图 Base64 数据。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     std::string GetInputImage() const;
 
                     /**
-                     * 设置<p>输入图 Base64 数据。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @param _inputImage <p>输入图 Base64 数据。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 设置输入图 Base64 数据。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @param _inputImage 输入图 Base64 数据。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     void SetInputImage(const std::string& _inputImage);
@@ -66,15 +78,27 @@ namespace TencentCloud
                     bool InputImageHasBeenSet() const;
 
                     /**
-                     * 获取<p>输入图 Url。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @return InputUrl <p>输入图 Url。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 获取输入图 Url。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @return InputUrl 输入图 Url。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     std::string GetInputUrl() const;
 
                     /**
-                     * 设置<p>输入图 Url。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
-                     * @param _inputUrl <p>输入图 Url。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 设置输入图 Url。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
+                     * @param _inputUrl 输入图 Url。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      * 
                      */
                     void SetInputUrl(const std::string& _inputUrl);
@@ -87,15 +111,23 @@ namespace TencentCloud
                     bool InputUrlHasBeenSet() const;
 
                     /**
-                     * 获取<p>文本描述。<br>用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。<br>推荐使用中文。最多支持256个 utf-8 字符。</p>
-                     * @return Prompt <p>文本描述。<br>用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。<br>推荐使用中文。最多支持256个 utf-8 字符。</p>
+                     * 获取文本描述。
+用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。
+推荐使用中文。最多支持256个 utf-8 字符。
+                     * @return Prompt 文本描述。
+用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。
+推荐使用中文。最多支持256个 utf-8 字符。
                      * 
                      */
                     std::string GetPrompt() const;
 
                     /**
-                     * 设置<p>文本描述。<br>用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。<br>推荐使用中文。最多支持256个 utf-8 字符。</p>
-                     * @param _prompt <p>文本描述。<br>用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。<br>推荐使用中文。最多支持256个 utf-8 字符。</p>
+                     * 设置文本描述。
+用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。
+推荐使用中文。最多支持256个 utf-8 字符。
+                     * @param _prompt 文本描述。
+用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。
+推荐使用中文。最多支持256个 utf-8 字符。
                      * 
                      */
                     void SetPrompt(const std::string& _prompt);
@@ -108,15 +140,23 @@ namespace TencentCloud
                     bool PromptHasBeenSet() const;
 
                     /**
-                     * 获取<p>反向文本描述。<br>用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。<br>推荐使用中文。最多可传256个 utf-8 字符。</p>
-                     * @return NegativePrompt <p>反向文本描述。<br>用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。<br>推荐使用中文。最多可传256个 utf-8 字符。</p>
+                     * 获取反向文本描述。
+用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。
+推荐使用中文。最多可传256个 utf-8 字符。
+                     * @return NegativePrompt 反向文本描述。
+用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。
+推荐使用中文。最多可传256个 utf-8 字符。
                      * 
                      */
                     std::string GetNegativePrompt() const;
 
                     /**
-                     * 设置<p>反向文本描述。<br>用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。<br>推荐使用中文。最多可传256个 utf-8 字符。</p>
-                     * @param _negativePrompt <p>反向文本描述。<br>用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。<br>推荐使用中文。最多可传256个 utf-8 字符。</p>
+                     * 设置反向文本描述。
+用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。
+推荐使用中文。最多可传256个 utf-8 字符。
+                     * @param _negativePrompt 反向文本描述。
+用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。
+推荐使用中文。最多可传256个 utf-8 字符。
                      * 
                      */
                     void SetNegativePrompt(const std::string& _negativePrompt);
@@ -129,15 +169,23 @@ namespace TencentCloud
                     bool NegativePromptHasBeenSet() const;
 
                     /**
-                     * 获取<p>绘画风格。<br>请在  <a href="https://cloud.tencent.com/document/product/1668/86250">图像风格化风格列表</a> 中选择期望的风格，传入风格编号。<br>推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。</p>
-                     * @return Styles <p>绘画风格。<br>请在  <a href="https://cloud.tencent.com/document/product/1668/86250">图像风格化风格列表</a> 中选择期望的风格，传入风格编号。<br>推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。</p>
+                     * 获取绘画风格。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
+                     * @return Styles 绘画风格。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
                      * 
                      */
                     std::vector<std::string> GetStyles() const;
 
                     /**
-                     * 设置<p>绘画风格。<br>请在  <a href="https://cloud.tencent.com/document/product/1668/86250">图像风格化风格列表</a> 中选择期望的风格，传入风格编号。<br>推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。</p>
-                     * @param _styles <p>绘画风格。<br>请在  <a href="https://cloud.tencent.com/document/product/1668/86250">图像风格化风格列表</a> 中选择期望的风格，传入风格编号。<br>推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。</p>
+                     * 设置绘画风格。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
+                     * @param _styles 绘画风格。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
                      * 
                      */
                     void SetStyles(const std::vector<std::string>& _styles);
@@ -150,15 +198,23 @@ namespace TencentCloud
                     bool StylesHasBeenSet() const;
 
                     /**
-                     * 获取<p>生成图结果的配置，包括输出图片分辨率和尺寸等。<br>支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。<br>不传默认使用origin。<br>单位为 px。</p>
-                     * @return ResultConfig <p>生成图结果的配置，包括输出图片分辨率和尺寸等。<br>支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。<br>不传默认使用origin。<br>单位为 px。</p>
+                     * 获取生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
+                     * @return ResultConfig 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
                      * 
                      */
                     ResultConfig GetResultConfig() const;
 
                     /**
-                     * 设置<p>生成图结果的配置，包括输出图片分辨率和尺寸等。<br>支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。<br>不传默认使用origin。<br>单位为 px。</p>
-                     * @param _resultConfig <p>生成图结果的配置，包括输出图片分辨率和尺寸等。<br>支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。<br>不传默认使用origin。<br>单位为 px。</p>
+                     * 设置生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
+                     * @param _resultConfig 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
                      * 
                      */
                     void SetResultConfig(const ResultConfig& _resultConfig);
@@ -171,15 +227,31 @@ namespace TencentCloud
                     bool ResultConfigHasBeenSet() const;
 
                     /**
-                     * 获取<p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
-                     * @return LogoAdd <p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
+                     * 获取为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
+                     * @return LogoAdd 为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
                      * 
                      */
                     int64_t GetLogoAdd() const;
 
                     /**
-                     * 设置<p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
-                     * @param _logoAdd <p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
+                     * 设置为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
+                     * @param _logoAdd 为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
                      * 
                      */
                     void SetLogoAdd(const int64_t& _logoAdd);
@@ -192,15 +264,19 @@ namespace TencentCloud
                     bool LogoAddHasBeenSet() const;
 
                     /**
-                     * 获取<p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
-                     * @return LogoParam <p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
+                     * 获取标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
+                     * @return LogoParam 标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
                      * 
                      */
                     LogoParam GetLogoParam() const;
 
                     /**
-                     * 设置<p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
-                     * @param _logoParam <p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
+                     * 设置标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
+                     * @param _logoParam 标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
                      * 
                      */
                     void SetLogoParam(const LogoParam& _logoParam);
@@ -213,15 +289,23 @@ namespace TencentCloud
                     bool LogoParamHasBeenSet() const;
 
                     /**
-                     * 获取<p>生成自由度。<br>Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。<br>推荐的取值范围为0.6 - 0.8。</p>
-                     * @return Strength <p>生成自由度。<br>Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。<br>推荐的取值范围为0.6 - 0.8。</p>
+                     * 获取生成自由度。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
+                     * @return Strength 生成自由度。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
                      * 
                      */
                     double GetStrength() const;
 
                     /**
-                     * 设置<p>生成自由度。<br>Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。<br>推荐的取值范围为0.6 - 0.8。</p>
-                     * @param _strength <p>生成自由度。<br>Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。<br>推荐的取值范围为0.6 - 0.8。</p>
+                     * 设置生成自由度。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
+                     * @param _strength 生成自由度。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
                      * 
                      */
                     void SetStrength(const double& _strength);
@@ -234,15 +318,15 @@ namespace TencentCloud
                     bool StrengthHasBeenSet() const;
 
                     /**
-                     * 获取<p>返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。</p>
-                     * @return RspImgType <p>返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。</p>
+                     * 获取返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。
+                     * @return RspImgType 返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。
                      * 
                      */
                     std::string GetRspImgType() const;
 
                     /**
-                     * 设置<p>返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。</p>
-                     * @param _rspImgType <p>返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。</p>
+                     * 设置返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。
+                     * @param _rspImgType 返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。
                      * 
                      */
                     void SetRspImgType(const std::string& _rspImgType);
@@ -255,15 +339,27 @@ namespace TencentCloud
                     bool RspImgTypeHasBeenSet() const;
 
                     /**
-                     * 获取<p>画质增强开关，默认关闭。<br>1：开启<br>0：关闭<br>开启后将增强图像的画质清晰度，生成耗时有所增加。</p>
-                     * @return EnhanceImage <p>画质增强开关，默认关闭。<br>1：开启<br>0：关闭<br>开启后将增强图像的画质清晰度，生成耗时有所增加。</p>
+                     * 获取画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
+                     * @return EnhanceImage 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
                      * 
                      */
                     int64_t GetEnhanceImage() const;
 
                     /**
-                     * 设置<p>画质增强开关，默认关闭。<br>1：开启<br>0：关闭<br>开启后将增强图像的画质清晰度，生成耗时有所增加。</p>
-                     * @param _enhanceImage <p>画质增强开关，默认关闭。<br>1：开启<br>0：关闭<br>开启后将增强图像的画质清晰度，生成耗时有所增加。</p>
+                     * 设置画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
+                     * @param _enhanceImage 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
                      * 
                      */
                     void SetEnhanceImage(const int64_t& _enhanceImage);
@@ -276,15 +372,19 @@ namespace TencentCloud
                     bool EnhanceImageHasBeenSet() const;
 
                     /**
-                     * 获取<p>细节优化的面部数量上限，支持0 ~ 6，默认为0。<br>若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。</p>
-                     * @return RestoreFace <p>细节优化的面部数量上限，支持0 ~ 6，默认为0。<br>若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。</p>
+                     * 获取细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
+                     * @return RestoreFace 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
                      * 
                      */
                     int64_t GetRestoreFace() const;
 
                     /**
-                     * 设置<p>细节优化的面部数量上限，支持0 ~ 6，默认为0。<br>若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。</p>
-                     * @param _restoreFace <p>细节优化的面部数量上限，支持0 ~ 6，默认为0。<br>若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。</p>
+                     * 设置细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
+                     * @param _restoreFace 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
                      * 
                      */
                     void SetRestoreFace(const int64_t& _restoreFace);
@@ -299,73 +399,98 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>输入图 Base64 数据。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 输入图 Base64 数据。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      */
                     std::string m_inputImage;
                     bool m_inputImageHasBeenSet;
 
                     /**
-                     * <p>输入图 Url。<br>算法将根据输入的图片，结合文本描述智能生成与之相关的图像。<br>Base64 和 Url 必须提供一个，如果都提供以 Url 为准。<br>图片限制：单边分辨率小于5000px且大于50px，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。</p>
+                     * 输入图 Url。
+算法将根据输入的图片，结合文本描述智能生成与之相关的图像。
+Base64 和 Url 必须提供一个，如果都提供以 Url 为准。
+图片限制：单边分辨率小于5000且大于50，转成 Base64 字符串后小于 8MB，格式支持 jpg、jpeg、png、bmp、tiff、webp。
                      */
                     std::string m_inputUrl;
                     bool m_inputUrlHasBeenSet;
 
                     /**
-                     * <p>文本描述。<br>用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。<br>推荐使用中文。最多支持256个 utf-8 字符。</p>
+                     * 文本描述。
+用于在输入图的基础上引导生成图效果，增加生成结果中出现描述内容的可能。
+推荐使用中文。最多支持256个 utf-8 字符。
                      */
                     std::string m_prompt;
                     bool m_promptHasBeenSet;
 
                     /**
-                     * <p>反向文本描述。<br>用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。<br>推荐使用中文。最多可传256个 utf-8 字符。</p>
+                     * 反向文本描述。
+用于一定程度上从反面引导模型生成的走向，减少生成结果中出现描述内容的可能，但不能完全杜绝。
+推荐使用中文。最多可传256个 utf-8 字符。
                      */
                     std::string m_negativePrompt;
                     bool m_negativePromptHasBeenSet;
 
                     /**
-                     * <p>绘画风格。<br>请在  <a href="https://cloud.tencent.com/document/product/1668/86250">图像风格化风格列表</a> 中选择期望的风格，传入风格编号。<br>推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。</p>
+                     * 绘画风格。
+请在  [图像风格化风格列表](https://cloud.tencent.com/document/product/1668/86250) 中选择期望的风格，传入风格编号。
+推荐使用且只使用一种风格。不传默认使用201（日系动漫风格）。
                      */
                     std::vector<std::string> m_styles;
                     bool m_stylesHasBeenSet;
 
                     /**
-                     * <p>生成图结果的配置，包括输出图片分辨率和尺寸等。<br>支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。<br>不传默认使用origin。<br>单位为 px。</p>
+                     * 生成图结果的配置，包括输出图片分辨率和尺寸等。
+支持生成以下分辨率的图片：origin（与输入图分辨率一致，长边最高为2000，超出将做等比例缩小）、768:768（1:1）、768:1024（3:4）、1024:768（4:3）。
+不传默认使用origin。
                      */
                     ResultConfig m_resultConfig;
                     bool m_resultConfigHasBeenSet;
 
                     /**
-                     * <p>为生成结果图添加标识的开关，默认为1。<br>1：添加标识。<br>0：不添加标识。<br>其他数值：默认按1处理。<br>建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。</p>
+                     * 为生成结果图添加标识的开关，默认为1。
+1：添加标识。
+0：不添加标识。
+其他数值：默认按1处理。
+建议您使用显著标识来提示结果图使用了 AI 绘画技术，是 AI 生成的图片。
                      */
                     int64_t m_logoAdd;
                     bool m_logoAddHasBeenSet;
 
                     /**
-                     * <p>标识内容设置。<br>默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。</p>
+                     * 标识内容设置。
+默认在生成结果图右下角添加“图片由 AI 生成”字样，您可根据自身需要替换为其他的标识图片。
                      */
                     LogoParam m_logoParam;
                     bool m_logoParamHasBeenSet;
 
                     /**
-                     * <p>生成自由度。<br>Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。<br>推荐的取值范围为0.6 - 0.8。</p>
+                     * 生成自由度。
+Strength 值越小，生成图和原图越接近，取值范围(0, 1]，不传使用模型内置的默认值。
+推荐的取值范围为0.6 - 0.8。
                      */
                     double m_strength;
                     bool m_strengthHasBeenSet;
 
                     /**
-                     * <p>返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。</p>
+                     * 返回图像方式（base64 或 url) ，二选一，默认为 base64。url 有效期为1小时。
                      */
                     std::string m_rspImgType;
                     bool m_rspImgTypeHasBeenSet;
 
                     /**
-                     * <p>画质增强开关，默认关闭。<br>1：开启<br>0：关闭<br>开启后将增强图像的画质清晰度，生成耗时有所增加。</p>
+                     * 画质增强开关，默认关闭。
+1：开启
+0：关闭
+开启后将增强图像的画质清晰度，生成耗时有所增加。
                      */
                     int64_t m_enhanceImage;
                     bool m_enhanceImageHasBeenSet;
 
                     /**
-                     * <p>细节优化的面部数量上限，支持0 ~ 6，默认为0。<br>若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。</p>
+                     * 细节优化的面部数量上限，支持0 ~ 6，默认为0。
+若上传大于0的值，将以此为上限对每张图片中面积占比较小的面部进行细节修复，生成耗时根据实际优化的面部个数有所增加。
                      */
                     int64_t m_restoreFace;
                     bool m_restoreFaceHasBeenSet;

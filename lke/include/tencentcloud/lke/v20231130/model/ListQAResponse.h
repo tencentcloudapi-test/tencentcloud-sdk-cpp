@@ -45,8 +45,8 @@ namespace TencentCloud
 
 
                     /**
-                     * 获取<p>问答数量</p>
-                     * @return Total <p>问答数量</p>
+                     * 获取问答数量
+                     * @return Total 问答数量
                      * 
                      */
                     std::string GetTotal() const;
@@ -59,8 +59,8 @@ namespace TencentCloud
                     bool TotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>待校验问答数量</p>
-                     * @return WaitVerifyTotal <p>待校验问答数量</p>
+                     * 获取待校验问答数量
+                     * @return WaitVerifyTotal 待校验问答数量
                      * 
                      */
                     std::string GetWaitVerifyTotal() const;
@@ -73,8 +73,8 @@ namespace TencentCloud
                     bool WaitVerifyTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>未采纳问答数量</p>
-                     * @return NotAcceptedTotal <p>未采纳问答数量</p>
+                     * 获取未采纳问答数量
+                     * @return NotAcceptedTotal 未采纳问答数量
                      * 
                      */
                     std::string GetNotAcceptedTotal() const;
@@ -87,8 +87,8 @@ namespace TencentCloud
                     bool NotAcceptedTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>已采纳问答数量</p>
-                     * @return AcceptedTotal <p>已采纳问答数量</p>
+                     * 获取已采纳问答数量
+                     * @return AcceptedTotal 已采纳问答数量
                      * 
                      */
                     std::string GetAcceptedTotal() const;
@@ -101,8 +101,8 @@ namespace TencentCloud
                     bool AcceptedTotalHasBeenSet() const;
 
                     /**
-                     * 获取<p>页码</p>
-                     * @return PageNumber <p>页码</p>
+                     * 获取页码
+                     * @return PageNumber 页码
                      * 
                      */
                     int64_t GetPageNumber() const;
@@ -115,8 +115,8 @@ namespace TencentCloud
                     bool PageNumberHasBeenSet() const;
 
                     /**
-                     * 获取<p>问答详情</p>
-                     * @return List <p>问答详情</p>
+                     * 获取问答详情
+                     * @return List 问答详情
                      * 
                      */
                     std::vector<ListQaItem> GetList() const;
@@ -131,37 +131,37 @@ namespace TencentCloud
                 private:
 
                     /**
-                     * <p>问答数量</p>
+                     * 问答数量
                      */
                     std::string m_total;
                     bool m_totalHasBeenSet;
 
                     /**
-                     * <p>待校验问答数量</p>
+                     * 待校验问答数量
                      */
                     std::string m_waitVerifyTotal;
                     bool m_waitVerifyTotalHasBeenSet;
 
                     /**
-                     * <p>未采纳问答数量</p>
+                     * 未采纳问答数量
                      */
                     std::string m_notAcceptedTotal;
                     bool m_notAcceptedTotalHasBeenSet;
 
                     /**
-                     * <p>已采纳问答数量</p>
+                     * 已采纳问答数量
                      */
                     std::string m_acceptedTotal;
                     bool m_acceptedTotalHasBeenSet;
 
                     /**
-                     * <p>页码</p>
+                     * 页码
                      */
                     int64_t m_pageNumber;
                     bool m_pageNumberHasBeenSet;
 
                     /**
-                     * <p>问答详情</p>
+                     * 问答详情
                      */
                     std::vector<ListQaItem> m_list;
                     bool m_listHasBeenSet;
